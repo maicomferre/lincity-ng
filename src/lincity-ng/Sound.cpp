@@ -116,7 +116,7 @@ Sound::loadWaves() {
         fmt::println(stderr,
           "warning: unknown resourceID in sounds.xml: {:?}", resName);
     }
-    if(reader.get_depth() < resourceID_level-1) {
+    if(reader.get_depth() < resourceID_level) {
       for(size_t i=0; i< resGrpVec.size(); ++i)
         resGrpVec[i]->sounds_loaded = true;
       resGrpVec.clear();
