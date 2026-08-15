@@ -1,23 +1,28 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Universidade</p>
-	<p style="hp">Universidades ajudam a aumentar o nível tecnológico. No processo elas consomem bens e mão-de-obra. Elas produzem mais que as escolas por bens/mão-de-obra gasto. Contudo elas consomem bastante bens e mão-de-obra e também custam muito dinheiro para o funcionamento, então você deve ter capacidade econômica e industrial para suprí-las.</p>
-	<p style="hp">Você vai precisar de um número de universidades para alcançar um nível de tecnologia perto dos 100%</p>
-	<p style="hp">Universidades não precisam estar conectadas ao transporte; elas podem pegar tudo o que necessitam, dos mercados próximos e com produção e bens suficiente disponíveis.</p>
+	<p style="hp">As universidades ajudam a aumentar o seu nível tecnológico. No processo, elas consomem bens e mão-de-obra. Elas produzem mais do que as escolas para uma dada entrada de bens/mão-de-obra. Porém, elas consomem muitos bens e mão-de-obra e também custam bastante dinheiro para funcionar, então você deve ter capacidade econômica e industrial para mantê-las.</p>
+	<p style="hp">Você precisará de várias universidades para alcançar um nível tecnológico próximo de 100%.</p>
+	<p style="hp">As universidades não precisam estar conectadas ao transporte; elas podem obter todos os seus requisitos de mercados ao alcance, desde que haja mão-de-obra e bens suficientes disponíveis.</p>
 
 	<p style="hsubtitle">NOTA</p>
-	<p style="hp">Você <b>deve</b> ter 5 escolas por universidade para enchê-la com estudantes.</p>
+	<p style="hp">Você deve ter 4 escolas por universidade para abastecê-la com alunos.</p>
 
 	<p style="hp">Esta é uma universidade</p>
 	<img src="images/tiles/university.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/misc/university.png" halign="center"/>
 
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">250 mão-de-obra + 750 bens =&gt; 0,0004 tecnologia + 250 desperdício</p>
+	<p style="hp">Uma universidade pode sustentar até ~20 de tecnologia &lt;100 ou ~10 de tecnologia &gt;100.</p>
+
 	<p style="hsubtitle">Veja também:</p>
+	<li><a href="tech-level">Nível tecnológico</a></li>
 	<li><a href="market">Mercado</a></li>
 	<li><a href="transport">Transporte</a></li>
 	<li><a href="goods">Bens</a></li>
 	<li><a href="labor">Mão-de-obra</a></li>
-	<li><a href="schools">Escola</a></li>
-	<li><a href="tech-level">Nível tecnológico</a></li>
+	<li><a href="school">Escolas</a></li>
 </Document>

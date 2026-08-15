@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Document style="helpdocument">
+	<p style="htitle">Evacuação</p>
+	<p style="hp">Para evacuar um prédio, selecione o botão de evacuação e depois use a vassoura para evacuar todas as mercadorias preciosas. A evacuação é gratuita e empurra todo o material armazenado para os trechos de transporte e mercados vizinhos.</p>
+	<p style="hp">As consequências vão desde a parada da produção e/ou poluição até a fome da população local.</p>
+	<p style="hp">Algumas construções, como pistas, estradas, trilhos, depósitos de lixo e outras, não podem ser evacuadas.</p>
+	<p style="hp">Minas de minério e de carvão esgotadas são evacuadas automaticamente antes de desabarem.</p>
+
+	<p style="hp">Este é o ícone de evacuação</p>
+	<img src="images/gui/buttonpanel/base/broom.png" halign="center"/>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="bulldoze">Demolição</a></li>
+</Document>

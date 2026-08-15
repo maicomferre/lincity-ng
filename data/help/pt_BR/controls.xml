@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Document style="helpdocument">
+	<p style="htitle">Controles</p>
+	<p style="hp">Pressione 'F1' para abrir a janela de ajuda.</p>
+
+	<p style="hsubtitle">Navegação pelo mapa</p>
+	<p style="hp">Mova-se pelo mapa com as setas do teclado, o teclado numérico ('1', '2', '3', '4', '6', '7', '8', '9') ou WASD. Segure SHIFT para mover mais rápido.</p>
+	<p style="hp">Arraste com o botão do meio do mouse para mover a visão.</p>
+	<p style="hp">Mova o mouse até a borda da tela para mover a visão nessa direção.</p>
+	<p style="hp">Pressione '5' no teclado numérico para ir ao centro do mapa.</p>
+	<p style="hp">Clique no minimapa para ir até a área selecionada do mapa.</p>
+	<p style="hp">Pressione 'P' para centralizar a tela em uma construção. (Pode ser útil para encontrar uma pequena vila em um mapa grande.) Pressione 'P' novamente para alternar entre as construções.</p>
+	<p style="hp">Aproxime e afaste a visão com a roda do mouse ou com '+' ou '-' no teclado numérico. Pressione ENTER no teclado numérico para voltar ao zoom de 100%.</p>
+
+	<p style="hsubtitle">Construção</p>
+	<p style="hp">Use o mouse (botão esquerdo) para selecionar um módulo no menu do lado esquerdo. Depois de selecionado, clique com o botão esquerdo no mapa para construí-lo.</p>
+	<p style="hp">Pressione 'B' para ativar a ferramenta de demolição. Com ela ativada, clique com o botão esquerdo em uma construção para demoli-la. Pressione 'B' novamente para voltar.</p>
+
+	<p style="hsubtitle">Ferramenta de consulta</p>
+	<p style="hp">Pressione ESC para ativar a ferramenta de consulta. Use-a clicando com o botão esquerdo em uma construção para ver informações sobre ela. Clicar na mesma construção novamente alterna o tipo de informação exibido. Você também pode usar a consulta sem ativá-la, usando o botão direito do mouse em vez do esquerdo.</p>
+	<p style="hp">Observação: em mercados e portos, clicar uma segunda vez abre o diálogo de comércio.</p>
+	<p style="hp">Pressione 'G' para alternar a exibição de informações sobre o terreno sob uma construção, como informações de poluição.</p>
+
+	<p style="hsubtitle">Minimapa e sobreposição</p>
+	<p style="hp">Pressione '1' até '9' ou a crase ('`') para selecionar o modo do minimapa. Pressionar '7' alterna entre os modos de tráfego e mercadorias. Você também pode mudar o modo clicando nos botões abaixo do minimapa.</p>
+	<p style="hp">Nos modos de tráfego ou mercadorias do minimapa, alterne entre as mercadorias passando o mouse sobre o minimapa e usando a roda de rolagem. Você também pode alternar clicando nas setas no canto superior direito do minimapa ou pressionando 'M'/'N'.</p>
+	<p style="hp">Pressione 'H' para mostrar/ocultar edifícios altos.</p>
+	<p style="hp">Pressione 'V' para alternar os modos de sobreposição (desligada -&gt; transparente -&gt; opaca -&gt; desligada).</p>
+
+	<p style="hsubtitle">Simulação</p>
+	<p style="hp">Pressione os botões no canto inferior esquerdo da tela para mudar a velocidade da simulação ou voltar ao menu principal. A partir do menu principal, você pode salvar seu progresso.</p>
+	<p style="hp">Pressione 'F12' para salvar rapidamente.</p>
+	<p style="hp">Pressione 'F9' para carregar rapidamente.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="button-index">Índice de botões</a></li>
+	<li><a href="bulldoze">Demolição</a></li>
+	<li><a href="query">Consulta</a></li>
+	<li><a href="mini-screen">Minimapa</a></li>
+</Document>

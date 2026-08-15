@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Estrada de ferro</p>
-	<p style="hp">Estradas de ferro transportam mais que as estradas. Elas produzem um pouco menos de poluição que as estradas. Elas são muito caras para comprar e manter. Elas valem o preço quando você tem muitas coisas para transportar a longa distância.</p>
+	<p style="htitle">Ferrovias</p>
+	<p style="hp">As ferrovias transportam ainda mais do que as estradas. Elas produzem um pouco menos de poluição do que as estradas. Porém, são bastante caras para comprar e manter. Elas valem bem o custo quando você tem muito o que transportar por longas distâncias.</p>
 
-	<p style="hp">Esta é uma estrada de ferro</p>
+	<p style="hp">Esta é uma ferrovia</p>
 	<img src="images/tiles/railud.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/transport/rails2.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">3 baixa tensão =&gt; 0</p>
+	<p style="hp">1/16 bens =&gt; 1/16 desperdício</p>
+	<p style="hp">1/128 aço =&gt; 1/128 desperdício</p>
+	<p style="hp">Se um trilho tiver mais de 90% de desperdício, ele consome 100 de desperdício e produz 50 de poluição.</p>
+
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="transport">Transporte</a></li>
-	<li><a href="commune">Comuna</a></li>
 	<li><a href="pollution">Poluição</a></li>
 </Document>

@@ -1,16 +1,27 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Aterro (depósitos de lixo)</p>
-	<p style="hp">Os aterros disponibilizam um lugar para você colocar seu lixo. Se você acumular muito nos mercados, eles serão obrigados a queimar uma parte. Isso gera bastante poluição então você deve tomar cuidado com o acumulo de lixo.</p>
-	<p style="hp">Quando o aterro estiver cheio, ele vagarosamente se transformará em uma colina, que ficará coberta de grama quando estiver completa.</p>
-	<p style="hp">O transporte se conecta ao topo esquerdo do aterro como é usualmente.</p>
-	<p style="hp">Você pode ver quando um aterro está em funcionamento da forma usual, clicando nele, e algumas vezes vendo a animação em movimento.</p>
-	
-	<p style="hp">Este é um aterro</p>
+	<p style="htitle">Depósitos de lixo</p>
+	<p style="hp">Os depósitos de lixo fornecem um lugar para colocar o seu lixo. Se você acumular demais nos mercados, eles são forçados a queimar parte dele. Isso causa bastante poluição, então você deve ter cuidado para não deixar o lixo se acumular.</p>
+	<p style="hp">À medida que o depósito é preenchido, ele lentamente se transforma em uma colina, que fica coberta de grama quando está cheio.</p>
+	<p style="hp">Se você limpar a sua cidade, o lixo do depósito pode ser re-escavado e processado em florestas, fazendas eletrificadas e centros de reciclagem.</p>
+	<p style="hp">Você pode ver quando um depósito está funcionando da maneira usual, clicando nele.</p>
+
+	<p style="hp">Este é um depósito de lixo</p>
 	<img src="images/tiles/tip0.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/mining/trash.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">1: 200 desperdício =&gt; 200 desperdício enterrado</p>
+	<p style="hp">2: 200 desperdício enterrado =&gt; 200 desperdício</p>
+	<p style="hp">Os depósitos visam 20% do estoque de desperdício. Se houver mais de 20% de estoque de desperdício, a fórmula 1 é aplicada. Se houver menos de 20% de estoque de desperdício, a fórmula 2 é aplicada.</p>
+	<p style="hp">O desperdício enterrado se degrada diariamente a uma taxa de 0,5% ao ano.</p>
+
 	<p style="hsubtitle">Veja também:</p>
+	<li><a href="waste">Desperdício</a></li>
 	<li><a href="market">Mercado</a></li>
+	<li><a href="commune">Comunas</a></li>
+	<li><a href="farm">Fazendas</a></li>
+	<li><a href="recycle">Centros de reciclagem</a></li>
 </Document>

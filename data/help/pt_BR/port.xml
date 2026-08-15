@@ -1,24 +1,32 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Porto</p>
-	<p style="hp">Os portos permitem importar e exportar bens, aço, minério, carvão e alimentos. As importações custam dinheiro e as exportações geram dinheiro para você.</p>
-	<p style="hp">Para ser utilizado, o porto deve estar conectado ao transporte. Você pode escolher o que importar clicando duplamente no porto. Isso abre um menu com caixas para você selecionar o que importar e exportar.</p>
-	<p style="hp">Eles <b>devem</b> estar conectados com rios pelo lado direito.</p>
-	<p style="hp">Nada será importado ou exportado até que você tenha selecionado a caixa apropriada.
-	</p>
-	<p style="hp">A área de exportação exportará tanto quanto for necessário. Se você precisa exportar, mas quer restringir a quantidade, você pode querer utilizar um tipo de transporte com menor capacidade, utilize um bom pedaço ou passe o produto através de um mercado. Você precisara experimentar para ter a melhor configuração de transporte.</p>
-	<p style="hp">Um porto ativo fornece alguma tecnologia. Observe que exportadores fazem grandes exportações (consomem grande quandidade de recursos).</p>
+	<p style="htitle">Portos</p>
+	<p style="hp">Os portos permitem importar e exportar bens, aço, minério, carvão e alimento em troca de dinheiro.</p>
+	<p style="hp">Você pode escolher o que comercializar clicando duas vezes no porto. Isso abre um diálogo com caixas para selecionar o que importar e o que exportar. Se "comprar" e "vender" estiverem ambas marcadas ou ambas desmarcadas para uma mercadoria, ela não será importada nem exportada. Um porto não importa nem exporta nada até que você marque a caixa apropriada.</p>
+	<p style="hp">Devido às flutuações na oferta e demanda internacionais e à política, às vezes o comércio de certas mercadorias pode ser restringido aleatoriamente por muitos anos. Quando o comércio é restringido, a caixa correspondente no diálogo do porto aparece em vermelho. Se você tiver vários portos na cidade, as mesmas restrições se aplicam a todos eles.</p>
+	<p style="hp">Importar custa dinheiro e exportar rende dinheiro. O preço de grandes exportações é descontado, então você ganha menos por quantidade ao exportar muito de uma mercadoria específica. Grandes importações não são descontadas.</p>
+	<p style="hp">Os portos devem estar conectados a um rio ao longo de todo o lado leste.</p>
+	<p style="hp">Um porto ativo fornece um pouco de tecnologia. Observação: os exportadores descontam grandes exportações.</p>
+	<p style="hp">Os portos podem importar e exportar muita capacidade. Se quiser restringir a quantidade importada ou exportada, considere conectar o porto ao restante da cidade usando um tipo de transporte com menos capacidade, como estrada ou pista, ou colocá-lo ao alcance de um mercado.</p>
 
 	<p style="hp">Este é um porto</p>
 	<img src="images/tiles/ex_port.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/transport/port.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">exportar: 50% do estoque =&gt; dinheiro</p>
+	<p style="hp">importar: dinheiro =&gt; 50% da capacidade restante</p>
+	<p style="hp">Para que haja importação ou exportação, 100 de mão-de-obra devem ser consumidos.</p>
+	<p style="hp">Se houver importação e exportação, então 0,0002 de tecnologia é produzido, o que pode sustentar até ~10 de tecnologia &lt;100 ou ~5 de tecnologia &gt;100.</p>
+	<p style="hp">Se houver menos de 6,67% de estoque de uma mercadoria, ela não será exportada. Se houver mais de 93,33% de estoque de uma mercadoria, ela não será importada.</p>
+
 	<p style="hsubtitle">Veja também:</p>
-    <li><a href="export">Importação e exportação</a></li>
-	<li><a href="rivers">Rios/Água</a></li>
+	<li><a href="river">Rios/Água</a></li>
 	<li><a href="transport">Transporte</a></li>
 	<li><a href="market">Mercado</a></li>
+	<li><a href="food">Alimento</a></li>
 	<li><a href="coal">Carvão</a></li>
 	<li><a href="ore">Minério</a></li>
 	<li><a href="goods">Bens</a></li>

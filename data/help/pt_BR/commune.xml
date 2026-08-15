@@ -1,21 +1,27 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Comuna</p>
-	<p style="hp">Comunas (por falta de um nome melhor) são áreas onde carvoeiros queimam as árvores para produzirem carvão vegetal. Elas também produzem pequenas quantidades de minério e aço.</p>
-	<p style="hp">Você provavelmente vai precisar de 'poucas' comunas para prover carvão e aço suficiente para áreas como as olarias, ferreiros e moinhos.</p>
-	<p style="hp">Se a comuna não produzir nada durante 10 anos ela será fechada e a área utilizada será transformada em parques.</p>
-	<p style="hp">Comunas podem se conectar ao transporte em qualquer ponto em volta dela, não somente pelo portão.</p>
-  <p style="hp">A produção de carvão das Comunas depende de água subterrânea. (áreas com água são verdes, outras cor de barro são desérticas)</p>
-  	
+	<p style="htitle">Comunas</p>
+	<p style="hp">As florestas (também conhecidas como comunas) são áreas onde os carvoeiros fazem carvão vegetal a partir da madeira (o mesmo que carvão aqui). Elas também produzem pequenas quantidades de minério e aço.</p>
+	<p style="hp">Você provavelmente precisará de "algumas" comunas para fornecer carvão e aço suficientes para áreas como olarias, ferreiros e moinhos.</p>
+	<p style="hp">Se uma comuna não produzir nada por 10 anos, ela é fechada e a área vira parques.</p>
+	<p style="hp">A produção de carvão das comunas depende de água subterrânea, a menos que elas recebam água fresca pelo transporte. (os tiles com água são verdes, os outros são amarelo-marrom como deserto)</p>
+
 	<p style="hp">Esta é uma comuna</p>
 	<img src="images/tiles/commune1.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/mining/commune.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">0 =&gt; 3 carvão + 6 minério + 2 (a cada 20 dias) aço</p>
+	<p style="hp">Se não houver capacidade suficiente para produzir uma certa mercadoria, as outras ainda podem ser produzidas.</p>
+	<p style="hp">Se uma comuna tiver menos de 100% de fertilidade, ela produzirá proporcionalmente menos carvão. A falta de fertilidade pode ser compensada consumindo 5 de água por tile de deserto.</p>
+	<p style="hp">Se uma comuna tiver pelo menos 15% de estoque de desperdício, ela consumirá 20 de desperdício e poderá produzir 1 de minério.</p>
+
 	<p style="hsubtitle">Veja também:</p>
-	<li><a href="pottery">Olaria</a></li>
-	<li><a href="blacksmith">Ferreiro</a></li>
-	<li><a href="mill">Moinho</a></li>
+	<li><a href="pottery">Olarias</a></li>
+	<li><a href="blacksmith">Ferreiros</a></li>
+	<li><a href="mill">Moinhos</a></li>
 	<li><a href="oremine">Mina de minério</a></li>
 	<li><a href="steel">Aço</a></li>
 </Document>

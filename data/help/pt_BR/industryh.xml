@@ -1,16 +1,21 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Indústria pesada (siderúrgicas)</p>
-	<p style="hp">As siderúrgicas produzem aço a partir de minério, energia e mão-de-obra. O minério é obtido diretamente do transporte. O aço é colocado no transporte também. A mão-de-obra é obtida do mercado local. O transporte se conecta ao canto esquerdo superior.</p>
-	<p style="hp">As siderúrgicas podem receber energia de duas formas. A primeira vinda do carvão, que é obtido diretamente do transporte. A segunda vem da eletricidade: você deve ter uma ou mais sub-estações ativas na área das siderúrgicas. (Os moinhos de vento <b>não</b> energizam as siderúrgicas.)</p>
-	<p style="hp">Siderúrgicas produzem poluição</p>
-	<p style="hp">Você pode ver as siderúrgicas em funcionamento da forma usual, clicando nelas, e de vez em quando a animação estará em movimento.</p>
-	
+	<p style="htitle">Indústria pesada (Siderúrgicas)</p>
+	<p style="hp">As siderúrgicas produzem aço a partir de minério, energia e mão-de-obra. O minério e a mão-de-obra são obtidos do transporte conectado ou de mercados.</p>
+	<p style="hp">A energia pode ser fornecida às siderúrgicas de duas maneiras. A primeira é queimando carvão. A segunda é por eletricidade, seja energia de baixa tensão ineficiente do transporte conectado ou energia de alta tensão diretamente das linhas de transmissão. Queimar carvão no local exige mais mão-de-obra. Os moinhos de vento mal conseguem fornecer energia suficiente.</p>
+	<p style="hp">As siderúrgicas causam poluição pesada. Você pode ver quando a indústria pesada está funcionando da maneira usual, clicando nela, e de vez em quando a animação ganha vida.</p>
+
 	<p style="hp">Esta é uma siderúrgica</p>
 	<img src="images/tiles/industryhl1.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/industry/heavyindustry2.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">(3600 alta tensão ou 7200 baixa tensão) + 28 mão-de-obra + 612 minério =&gt; 36 aço</p>
+	<p style="hp">(3600 alta tensão ou 7200 baixa tensão ou 72 carvão) + 46 mão-de-obra + 612 minério =&gt; 36 aço</p>
+	<p style="hp">28 mão-de-obra + 612 minério =&gt; 7 aço</p>
+
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="pollution">Poluição</a></li>
 	<li><a href="transport">Transporte</a></li>

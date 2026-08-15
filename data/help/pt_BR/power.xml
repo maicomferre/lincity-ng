@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Document style="helpdocument">
+	<p style="htitle">Energia</p>
+	<p style="hp">A energia vem em duas formas diferentes: baixa tensão e alta tensão. A energia de baixa tensão flui em cabos subterrâneos ao longo da rede de transporte da sua cidade. A energia de alta tensão flui por linhas de transmissão.</p>
+	<p style="hp">A energia de baixa tensão é produzida por moinhos de vento de baixa tecnologia ou fornecida por uma subestação. Ela pode alimentar áreas residenciais, fazendas, fábricas de tecido, indústrias leves e indústrias pesadas (também conhecidas como siderúrgicas).</p>
+	<p style="hp">A energia de alta tensão é produzida por usinas a carvão, solares ou eólicas e pode ser entregue a uma subestação ou diretamente às indústrias leves ou pesadas (também conhecidas como siderúrgicas).</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="windmill">Moinhos de vento</a></li>
+	<li><a href="residential">Área residencial</a></li>
+	<li><a href="commune">Comunas</a></li>
+	<li><a href="farm">Fazendas</a></li>
+	<li><a href="powerline">Linhas de transmissão</a></li>
+	<li><a href="powerscoal">Usina elétrica a carvão</a></li>
+	<li><a href="powerssolar">Usina de energia solar</a></li>
+	<li><a href="substation">Subestações</a></li>
+	<li><a href="industryl">Áreas de indústria leve</a></li>
+	<li><a href="industryh">Indústria pesada (Siderúrgica)</a></li>
+</Document>

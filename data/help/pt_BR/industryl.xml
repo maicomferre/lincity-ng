@@ -1,20 +1,26 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Indústria leve</p>
-	<p style="hp">Indústrias leves transformam os minérios em bens. A transformação torna-se mais eficiente caso tenha aço disponível. Energia aumenta a produção ainda mais. Moinhos de vento <b>não</b> geram energia para estas áreas.</p>
-	<p style="hp">Como um princípio básico, ignorando o acima, a saída de uma área indústrial leve é muito dependente do montante de materiais básicos, incluindo mão-de-obra, que elas podem receber, e também o montante de bens que podem ser <b>tirados</b>.</p>
-	<p style="hp">Estas áreas conectam-se diretamente ao transporte para comercializar minérios, aço e bens. Eles podem precisar de um mercado para suprí-las com mão-de-obra.</p>
-	<p style="hp">Estas áreas conectam ao transporte <b>somente</b> ao canto superior da mão esquerda, como mostrado. O transporte curvar-se-á em quando é conectado.</p>
-	
-	<p style="hp">Esta é uma indústria leve</p>
+	<p style="htitle">Áreas de indústria leve</p>
+	<p style="hp">A indústria leve converte minério em bens. A conversão se torna mais eficiente se aço também estiver disponível. A energia aumenta ainda mais a produção. Energia de baixa tensão ineficiente pode ser entregue pelo transporte. Energia de alta tensão pode ser fornecida diretamente por linhas de transmissão. Moinhos de vento mal conseguem fornecer energia de baixa tensão suficiente.</p>
+	<p style="hp">Como regra geral, a produção de uma área de indústria leve depende principalmente da quantidade de matérias-primas, incluindo mão-de-obra, que ela pode receber, e também da quantidade de bens que podem ser retirados.</p>
+	<p style="hp">Estas áreas se conectam diretamente ao transporte para trocar mão-de-obra, minério, aço, energia e bens. Elas podem precisar de um mercado para funcionar em plena capacidade.</p>
+	<p style="hp">As indústrias leves produzem poluição pesada.</p>
+
+	<p style="hp">Esta é a indústria leve</p>
 	<img src="images/tiles/industryl-low.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/industry/lightindustry.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">59 mão-de-obra + 250 minério + 12 aço + (4500 alta tensão ou 9000 baixa tensão) =&gt; 1800 bens</p>
+	<p style="hp">40 mão-de-obra + 250 minério + (4500 alta tensão ou 9000 baixa tensão) =&gt; 900 bens</p>
+	<p style="hp">59 mão-de-obra + 125 minério + 12 aço =&gt; 450 bens</p>
+	<p style="hp">40 mão-de-obra + 125 minério =&gt; 225 bens</p>
+
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="transport">Transporte</a></li>
-	<li><a href="road">Estrada</a></li>
-	<li><a href="rail">Estrada de ferro</a></li>
 	<li><a href="market">Mercado</a></li>
-	<li><a href="labor">Mão-de-obra</a></li>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="pollution">Poluição</a></li>
 </Document>

@@ -1,9 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Poço</p>
-        <p style="hp">Fornece água para as casas dentro da área de alcance. Falta de água terá as mesmas conseqüências que falta de comida. Informação no mini mapa de escassez.</p>
+	<p style="hp">Os poços fornecem água fresca. A água flui em canos subterrâneos ao longo do transporte. A falta de água terá as mesmas consequências que a falta de alimento. As informações são mostradas na sobreposição/minimapa de escassez. Atenção: poluição muito pesada torna a água não potável.</p>
 
-	<p style="hp">Veja também:</p>
-	<li><a href="food">Comida</a></li>
-	<li><a href="msb-starve">Área de cobertura de escassez</a></li>
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">0 =&gt; 1600 água</p>
+	<p style="hp">A produção de água é reduzida proporcionalmente se alguns tiles sob o poço forem deserto.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="food">Alimento</a></li>
+	<li><a href="water">Água</a></li>
+	<li><a href="transport">Transporte</a></li>
+	<li><a href="msb-starve">Sobreposição de escassez</a></li>
+	<li><a href="pollution">Poluição</a></li>
 </Document>

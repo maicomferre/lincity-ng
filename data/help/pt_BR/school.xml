@@ -1,20 +1,26 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Escola</p>
-	<p style="hp">As escolas utilizam produção e bens para produzir tecnologia de forma parecida com as universidades. Elas utlizam um pouco menos de produção e bens que as universidades, mas produzem menos pontos de tecnologia. Entre as escolhas de ou colocar quatro ou cinco escolas em uma área, ou uma simples universidade, as vezes (mas não sempre) é melhor colocar uma universidade.</p>
-	<p style="hp">As escolas <b>não</b> precisam estar conectadas ao transporte, mas precisam estar próximas de um mercado que possa supri-las com mão-de-obra e bens para seu funcionamento.</p>
-	<p style="hp">As escolas custam dinheiro para funcionar. Você pode ver o custo total do <b>último</b> ano clicando no botão do dinheiro.</p>
-	<p style="hp">Você pode ver uma escola em funcionamento da forma usual, clicando nela.</p>
-	
+	<p style="htitle">Escolas</p>
+	<p style="hp">As escolas usam mão-de-obra e bens para produzir tecnologia de forma semelhante às universidades. Elas usam muito menos mão-de-obra e bens do que as universidades, mas produzem muito menos pontos de tecnologia. Diante da escolha entre colocar quatro ou cinco escolas em uma determinada área, ou uma única universidade, geralmente (mas nem sempre) é melhor colocar uma universidade.</p>
+	<p style="hp">As escolas não precisam estar conectadas ao transporte, mas precisam estar ao alcance de um mercado que possa fornecer a quantidade de mão-de-obra e bens necessária para fazê-la funcionar.</p>
+	<p style="hp">As escolas custam dinheiro para funcionar. Você pode ver o custo total do último ano clicando no botão de dinheiro.</p>
+	<p style="hp">Você pode ver quando uma escola está funcionando da maneira usual, clicando nela.</p>
+
 	<p style="hp">Esta é uma escola</p>
 	<img src="images/tiles/school0.png" halign="center"/>
-	<p style="hp">e este seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/misc/book.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">200 mão-de-obra + 75 bens =&gt; 0,0002 tecnologia + 25 desperdício</p>
+	<p style="hp">Uma escola pode sustentar até ~10 de tecnologia &lt;100 ou ~5 de tecnologia &gt;100.</p>
+
 	<p style="hsubtitle">Veja também:</p>
+	<li><a href="tech-level">Nível tecnológico</a></li>
 	<li><a href="market">Mercado</a></li>
 	<li><a href="university">Universidade</a></li>
 	<li><a href="transport">Transporte</a></li>
 	<li><a href="goods">Bens</a></li>
-	<li><a href="labor">Produção</a></li>
+	<li><a href="labor">Mão-de-obra</a></li>
 </Document>

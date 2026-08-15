@@ -3,7 +3,9 @@
   <id>io.github.lincity_ng.lincity-ng</id>
   <launchable type="desktop-id">io.github.lincity_ng.lincity-ng.desktop</launchable>
   <name>LinCity-NG</name>
+  <name xml:lang="pt_BR">LinCity-NG</name>
   <summary>Plan and build a city</summary>
+  <summary xml:lang="pt_BR">Planeje e construa uma cidade</summary>
   <description>
     <p>
       LinCity-NG is a city simulation game where you are required to build and maintain a city.
@@ -11,6 +13,15 @@
     </p>
     <p>
       Bring up in-game help with [F1] for details on how to play.
+    </p>
+  </description>
+  <description xml:lang="pt_BR">
+    <p>
+      LinCity-NG é um jogo de simulação de cidade em que você precisa construir e manter uma cidade.
+      Você pode vencer o jogo construindo uma economia sustentável ou evacuando todos os cidadãos com naves espaciais.
+    </p>
+    <p>
+      Abra a ajuda do jogo com [F1] para detalhes sobre como jogar.
     </p>
   </description>
   <url type="homepage">https://github.com/lincity-ng/lincity-ng</url>

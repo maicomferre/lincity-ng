@@ -1,18 +1,22 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Olaria</p>
-	<p style="hp">As olarias utilizam minério, carvão e produção para produzir bens. Elas não precisam estar conectadas ao transporte mas devem, certamente, estar próximas de um mercado com minério, carvão e produção a estar habilitada a receber bens.</p>
-	<p style="hp">Você pode descobrir se as olarias estão em funcionamento pelas fornalhas produzindo fumaça.</p>
-	
+	<p style="htitle">Olarias</p>
+	<p style="hp">As olarias usam minério, carvão e mão-de-obra para fazer bens. Elas não precisam estar conectadas ao transporte, mas, é claro, precisam estar ao alcance de um mercado com minério, carvão e mão-de-obra e poder receber bens.</p>
+	<p style="hp">Você pode saber quando as olarias estão funcionando pelos fornos produzindo fumaça.</p>
+
 	<p style="hp">Esta é uma olaria</p>
 	<img src="images/tiles/pottery0.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/industry/pottery.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">11 minério + 2 carvão + 35 mão-de-obra =&gt; 35 bens</p>
+
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="transport">Transporte</a></li>
 	<li><a href="ore">Minério</a></li>
 	<li><a href="coal">Carvão</a></li>
-	<li><a href="labor">Produção</a></li>
+	<li><a href="labor">Mão-de-obra</a></li>
 	<li><a href="market">Mercado</a></li>
 </Document>

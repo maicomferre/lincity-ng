@@ -1,24 +1,45 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Área residencial</p>
-	<p style="hp">Este é o lugar onde as pessoas vivem. Para encorajar as pessoas a viverem nestas áreas elas devem poder se alimentar (estar dentro da área de um poço e conseguir comida nos mercados ou pelos meios de transporte). Também ajuda  provê-los com trabalho e bens para comprar. Eles devem estar próximos de um mercado ou conectados ao transporte (como a maioria das construções). Existem 3 tipos de áreas residenciais: moradias de Baixa, Média e Alta densidade. E estas tem diferentes taxas de natalidade e mortalidade associadas. Isto dá a você algum controle sobre sua população.</p>
-	<p style="hp">Mais tarde no jogo, se você tiver tecnologia suficiente, você poderá construir moradias mais 'modernas', até mesmo blocos de prédios.</p>
+	<p style="hp">É aqui que as pessoas vivem. Para incentivar as pessoas a viver nesta área, elas devem ter água e alimento. Também ajuda oferecer locais de trabalho, eletricidade e bens. Elas devem estar conectadas ao transporte. Estar ao alcance de um mercado é benéfico. Campos de esportes aumentam a desejabilidade. Mantenha seus habitantes longe da poluição.</p>
+	<p style="hp">Se os residentes tiverem alimento ou água insuficientes, ou se a área estiver muito poluída, eles morrerão. Quando os residentes estão morrendo, a residência recebe uma pontuação de desejabilidade muito baixa, então as pessoas são desencorajadas a se mudar para lá, e podem até sair.</p>
+	<p style="hp">Existem 3 tipos diferentes de áreas residenciais: habitação de baixa, média e alta densidade. Elas têm taxas de natalidade e mortalidade diferentes associadas. Isso dá a você algum controle sobre a sua população. Os centros de saúde também afetam as taxas de natalidade e mortalidade.</p>
+	<p style="hp">Mais adiante no jogo, se você tiver tecnologia suficiente, poderá construir habitações mais 'modernas', até mesmo torres.</p>
 
-	<p style="hp">Esta é uma moradia de baixa densidade (alta tecnologia)</p>
+	<p style="hp">Esta é uma habitação de baixa densidade (alta tecnologia)</p>
 	<img src="images/tiles/reslowhi.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/residence/residence-hightec-lo.png" halign="center"/>
-	<p style="hp">Esta é uma moradia de média densidade (alta tecnologia)</p>
+
+	<p style="hp">Esta é uma habitação de média densidade (alta tecnologia)</p>
 	<img src="images/tiles/resmedhi.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/residence/residence-hightec-med.png" halign="center"/>
-	<p style="hp">Esta é uma moradia de alta densidade (alta tecnologia)</p>
+
+	<p style="hp">Esta é uma habitação de alta densidade (alta tecnologia)</p>
 	<img src="images/tiles/reshihi.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/residence/residence-hightec-high.png" halign="center"/>
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">não passar fome: (1 alimento + 1 água =&gt; 0) * pop</p>
+	<p style="hp">energia: 30 baixa tensão + 3 baixa tensão * pop =&gt; 0</p>
+	<p style="hp">emprego: (0 =&gt; 0,69 mão-de-obra + variação) * pop (com cobertura de saúde e esportes)</p>
+	<p style="hp">variação = 0,05 * fração da capacidade restante de estoque de mão-de-obra (com cobertura de saúde e esportes)</p>
+	<p style="hp">bens: (0,25 bens =&gt; 0,0833 desperdício) * pop (somente se empregado)</p>
+	<p style="hp">energia extra: (0,5 baixa tensão =&gt; 0) * pop (somente se usando bens)</p>
+	<p style="hp">bens extras: (0,25 bens =&gt; 0,0833 desperdício) * pop (somente se usando energia extra)</p>
 
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="market">Mercado</a></li>
 	<li><a href="transport">Transporte</a></li>
-  <li><a href="waterwell">Poço</a></li>
+	<li><a href="waterwell">Poço</a></li>
+	<li><a href="pollution">Poluição</a></li>
+	<li><a href="farm">Fazendas</a></li>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="health">Centro de Saúde</a></li>
+	<li><a href="cricket">Quadras de basquete</a></li>
 </Document>

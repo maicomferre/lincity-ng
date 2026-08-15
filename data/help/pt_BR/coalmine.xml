@@ -1,21 +1,30 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Mina de carvão</p>
-	<p style="hp">Minas de carvão extraem carvão do fundo da terra. Deve existir uma jazida de carvão perto da mina. Para ver onde a jazida esta, você deve clicar no botão do carvão que esta um pouco acima do mini-mapa.</p>
-	<p style="hp">A primeira vez que você utilizar este botão, custará a você 1 milhão. Após isso será gratis. Você não precisa utilizar este botão, pode tentar encontrar o carvão por tentativa e erro.</p>
-	<p style="hp">Minas de carvão precisam de mão-de-obra para minerar o carvão.</p>
-	
+	<p style="hp">As minas de carvão extraem <a href="coal">carvão</a> do subsolo. Deve haver uma veia de carvão perto da mina. Para ver onde estão as veias, clique no botão de carvão abaixo do minimapa.</p>
+	<p style="hp">Na primeira vez que você usar este botão, ele custará 1 milhão. Depois disso é gratuito. Você não precisa usar este botão, mas terá que encontrar o carvão por tentativa e erro.</p>
+	<p style="hp">As minas de carvão precisam de <a href="labor">mão-de-obra</a> para minerar carvão.</p>
+	<p style="hp">Se a sua economia produzir carvão em excesso, as minas podem devolver o carvão para novas veias subterrâneas.</p>
+
 	<p style="hp">Esta é uma mina de carvão</p>
 	<img src="images/tiles/coalmine-full.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
-	<img src="images/gui/buttonpanel/mining/coalmine.png" halign="center"/>
 
-	<p style="hp">Os gráficos mostram o montante de carvão ja extraido e não colocado para transporte. A mina de carvão acima tem o estoque máximo.</p>
-	<p style="hp">Clicar numa mina de carvão mostrará, em um ponto do mapa na janela de estatísticas, o estoque de carvão na mina, e a reserva de carvão disponível.</p>
+	<p style="hp">e este é o seu ícone</p>
+	<img src="images/gui/buttonpanel/mining/coalmine.png" halign="center"/>
+	<p style="hp">Os gráficos mostram a quantidade de carvão já extraída, mas ainda não colocada no transporte. A mina acima tem estoque máximo.</p>
+	<p style="hp">Clicar em uma mina de carvão mostrará, na janela de estatísticas do ponto do mapa, o estoque de carvão na mina e, mais importante, a reserva de carvão disponível para ser extraída.</p>
+	<p style="hp">As minas de carvão produzem <a href="pollution">poluição</a>.</p>
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">1: 918 mão-de-obra + 1 reserva de carvão =&gt; 1000 carvão</p>
+	<p style="hp">2: 918 mão-de-obra + 1000 carvão =&gt; 1 reserva de carvão</p>
+	<p style="hp">As minas de carvão visam 80% do estoque de carvão. Se produzir 1000 de carvão não ultrapassar 80% do estoque, a fórmula 1 é aplicada. Se consumir 1000 de carvão não fizer o estoque restante ficar abaixo de 80%, a fórmula 2 é aplicada.</p>
+	<p style="hp">Quando uma mina de carvão esgota todas as reservas subterrâneas, ela é evacuada. Quando todas as reservas subterrâneas estão esgotadas e não há estoque, a mina é removida do mapa. Portanto, construir uma mina de carvão onde não há reservas fará com que ela seja imediatamente removida do mapa.</p>
 
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="coal">Carvão</a></li>
-	<li><a href="powerscoal">Usina elétrica carvoeira</a></li>
+	<li><a href="powerscoal">Usina elétrica a carvão</a></li>
 	<li><a href="transport">Transporte</a></li>
 	<li><a href="labor">Mão-de-obra</a></li>
+	<li><a href="pollution">Poluição</a></li>
 </Document>

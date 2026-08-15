@@ -1,19 +1,27 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Fazenda</p>
-	<p style="hp">Fazendas geram alimentos para o sustento das pessoas e suprem com matéria prima os moinhos. Os fazendeiros podem vender o alimento nos mercados. Eles levam o alimento em tratores, logo eles não precisam estar conectados ao transporte. Contudo eles podem vender para o transporte se quiserem. Mas você deve se certificar que o mercado está próximo da fazenda.</p>
-	
+	<p style="htitle">Fazendas</p>
+	<p style="hp">As fazendas cultivam alimento para as pessoas comerem e fornecem as matérias-primas para os moinhos.</p>
+	<p style="hp">A produção da fazenda depende da água subterrânea. Os tiles com água são verdes, os outros são amarelo-marrom (como deserto ou solo nu).</p>
+
 	<p style="hp">Esta é uma fazenda</p>
 	<img src="images/tiles/farm0.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/parks/farm.png" halign="center"/>
-	
-	<p style="hp">As fazendas precisam de mão-de-obra para produzir mais que a quantidade mínima de alimento. Fornecer energia para a fazenda também aumenta a quantidade de alimento produzido. Energia também inclui o 'velho' tipo de moinho de vento que ajuda no processamento do alimento, diminuindo o desperdício.</p>
-	
+	<p style="hp">As fazendas precisam de mão-de-obra para produzir mais do que uma quantidade mínima de alimento. Fornecer eletricidade (baixa tensão) aumenta a produção. Fazendas eletrificadas podem irrigar solo seco e também consumir desperdício. Cuidado com o consumo de água na agricultura.</p>
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">13 mão-de-obra + 50 baixa tensão =&gt; 550 alimento + 5,5 alimento * tecnologia</p>
+	<p style="hp">13 mão-de-obra =&gt; 132 alimento</p>
+	<p style="hp">Se uma fazenda tiver menos de 100% de fertilidade, ela produzirá proporcionalmente menos alimento. Uma fazenda eletrificada pode compensar a falta de fertilidade consumindo 50 de água por tile de deserto.</p>
+	<p style="hp">Diferente da maioria das outras construções, uma fazenda dimensiona as fórmulas proporcionalmente quando elas não podem ser aplicadas integralmente.</p>
+
 	<p style="hsubtitle">Veja também:</p>
+	<li><a href="food">Alimento</a></li>
 	<li><a href="market">Mercado</a></li>
 	<li><a href="tech-level">Nível tecnológico</a></li>
 	<li><a href="transport">Transporte</a></li>
-	<li><a href="windmill">Moinho de vento</a></li>
-	<li><a href="food">Alimento</a></li>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="power">Energia</a></li>
 </Document>

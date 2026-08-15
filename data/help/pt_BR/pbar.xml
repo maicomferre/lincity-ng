@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Estatísticas</p>
-	<p style="hp">Esta é a segunda aba da mini-janela</p>
-	<p style="hp">Ela mostra o estoque total de todos os mercados e como eles estão mudando.</p>
-	<p style="hp">O número indica a quantidade total.</p>
-	<p style="hp">A barra verde no lado direito indica um aumento. A barra vermelha no lado esquerdo indica uma redução. O tamanho da barra indica o montante da alteração.</p>
+	<p style="hp">Esta é a segunda aba da janelinha.</p>
+	<p style="hp">Ela mostra algumas estatísticas gerais da cidade e seu desenvolvimento recente.</p>
+	<p style="hp">Uma barra no lado direito indica um aumento. Uma barra no lado esquerdo indica uma diminuição. O tamanho da barra indica a quantidade de mudança. Mudanças boas são verdes, mudanças ruins são vermelhas. Mas cuidado: excesso de uma coisa boa nem sempre é bom.</p>
+	<p style="hp">Use os botões de rolagem para cima e para baixo para ver barras diferentes.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="msb-transport">Sobreposição de transporte</a></li>
 </Document>

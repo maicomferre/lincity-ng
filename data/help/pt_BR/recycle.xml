@@ -1,18 +1,22 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Centro de reciclagem</p>
-	<p style="hp">Bens utilizados produzem resíduos.</p>
-	<p style="hp">Os centros de reciclagem transformam os bens usados em minério. Eles devem estar conectados ao transporte no topo esquerdo. Produção e dinheiro são utilizados para coletar os resíduos e convertê-los em minério novo.</p>
-	<p style="hp">É possível ter uma economia sustentável, (ex. não é mais necessário extrair minérios, etc) com menos de 100% de eficiência dos centros de reciclagem se você tiver alguns moinhos para completar com o 'resto' de resíduos.</p>
-	
-	
+	<p style="htitle">Centros de reciclagem</p>
+	<p style="hp">Os centros de reciclagem convertem desperdício em minério. Mão-de-obra, energia elétrica (baixa tensão) e dinheiro são usados para coletar o desperdício e convertê-lo em minério bruto. Eles podem ser usados para esvaziar depósitos de lixo anteriormente cheios.</p>
+	<p style="hp">É possível manter uma economia sustentável (ou seja, sem extrair mais minério etc.) com centros de reciclagem com menos de 100% de eficiência se você tiver alguns moinhos para compensar as perdas.</p>
+
 	<p style="hp">Este é um centro de reciclagem</p>
 	<img src="images/tiles/recycle-centre.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/mining/recycling.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">34 mão-de-obra + 250 baixa tensão + 500 desperdício =&gt; (500 minério + 10 aço) * eficiência</p>
+	<p style="hp">eficiência = 0,1 + 0,005 * tecnologia (limitada a 0,8 com 140 de tecnologia)</p>
+	<p style="hp">Se não houver capacidade de estoque para o minério/aço, ele é descartado, para que o desperdício ainda seja tratado. Observação: isso pode causar produção desperdiçada em siderúrgicas próximas, pois elas produzem aço enquanto o centro de reciclagem descarta aço.</p>
+
 	<p style="hsubtitle">Veja também:</p>
-	<li><a href="goods">Bens</a></li>
-	<li><a href="ore">Minério</a></li>
+	<li><a href="commodities">Mercadorias</a></li>
+	<li><a href="power">Energia</a></li>
 	<li><a href="transport">Transporte</a></li>
 </Document>

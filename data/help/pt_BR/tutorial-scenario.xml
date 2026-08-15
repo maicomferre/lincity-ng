@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <Document style="helpdocument">
-<p style="htitle">Cenário pré-definido</p>
-<p style="hp">Sob "novo jogo" </p>
-<p style="hsubtitle"> Fácil</p>
-<li>Bons tempos </li>
-<li>Praia (lembre-se que as pessoas comem ou morrem ;-) </li>
-<p style="hsubtitle">Difícil </p>
-<li>"Tempos difíceis": tente escapar da falência. Uma cuidadosa análise de toda a cidade e drásticos cortes de custo são necessários para ganhar dinheiro. É díficil mas possível, também é possível alcançar o desenvolvimento sustentável.</li>
-<p style="hp"></p>
+	<p style="htitle">Cenários pré-definidos</p>
+	<p style="hp">Em "novo jogo"</p>
+
+	<p style="hsubtitle">Fácil</p>
+	<li>Bons tempos</li>
+	<li>Beach (lembre-se: pessoas comem alimento ou morrem ;-)</li>
+
+	<p style="hsubtitle">Difícil</p>
+	<li>"Maus tempos": tente evitar a falência. É necessária uma análise cuidadosa de toda a cidade, e medidas drásticas são necessárias para cortar custos e ganhar dinheiro. É difícil, mas possível — até mesmo alcançar o desenvolvimento sustentável.</li>
+	<li>"extremamente árido": a terra é muito pobre em água, então fazendas e comunas precisam ser posicionadas com cuidado para máxima eficiência.</li>
+	<li>"extremamente pantanoso": a terra está quase inundada, então é muito difícil construir a cidade.</li>
 </Document>

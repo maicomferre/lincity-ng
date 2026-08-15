@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Document style="helpdocument">
+	<p style="htitle">Mercadorias</p>
+	<p style="hp">Mercadorias são os bens que podem ser produzidos, transportados, armazenados, processados e consumidos na sua cidade. A janela de status de cada construção ou trecho de transporte sempre lista as mercadorias relevantes. As setas no início das linhas indicam matérias-primas, produtos e itens transportáveis.</p>
+	<p style="hp">Na maioria dos casos, pelo menos 5% da matéria-prima deve estar presente para que seja transformada em 5% de produtos.</p>
+	<p style="hp">A segunda aba do minimapa mostra estatísticas gerais da cidade e suas mudanças recentes com barras de progresso. Em conjunto com a sobreposição de transporte, elas podem informar muito sobre o seu desenvolvimento econômico.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="pbar">Estatísticas</a></li>
+	<li><a href="msb-transport">Sobreposição de transporte</a></li>
+	<li><a href="food">Alimento</a></li>
+	<li><a href="labor">Trabalho</a></li>
+	<li><a href="goods">Bens</a></li>
+	<li><a href="waste">Desperdício</a></li>
+	<li><a href="ore">Minério</a></li>
+	<li><a href="steel">Aço</a></li>
+	<li><a href="coal">Carvão</a></li>
+	<li><a href="water">Água</a></li>
+	<li><a href="power">Energia</a></li>
+</Document>

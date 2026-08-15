@@ -1,14 +1,18 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
-	<p style="htitle">Pista</p>
-	<p style="hp">As pistas são os mais simples e baratos meios de transporte. Elas também tem menor capacidade. Elas também não produzem poluição.</p>
-	
+	<p style="htitle">Pistas</p>
+	<p style="hp">As pistas são a forma de transporte mais simples e barata. Elas também têm a menor capacidade. Por outro lado, não produzem poluição.</p>
+
 	<p style="hp">Esta é uma pista</p>
 	<img src="images/tiles/trackud.png" halign="center"/>
-	<p style="hp">e este é seu ícone</p>
+
+	<p style="hp">e este é o seu ícone</p>
 	<img src="images/gui/buttonpanel/transport/tracks.png" halign="center"/>
-	
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">3 baixa tensão =&gt; 0</p>
+	<p style="hp">Se uma pista tiver mais de 90% de desperdício, ela consome 100 de desperdício e produz 50 de poluição.</p>
+
 	<p style="hsubtitle">Veja também:</p>
 	<li><a href="transport">Transporte</a></li>
-	<li><a href="commune">Comuna</a></li>
 </Document>

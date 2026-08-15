@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
 <Document style="helpdocument">
 	<p style="htitle">Pesquisa</p>
-	<p style="hp">Para exibir informações sobre uma construção utilize esta ferramenta e clique na Construção em questão.</p>
-	<p style="hp">A informação é mostrada embaixo no canto direito, ao invés de no mini-mapa.</p>
-	<p style="hp">Não existe custo para utilizar esta ferramenta.</p>
+	<p style="hp">Para mostrar informações sobre um prédio, use esta ferramenta e clique no prédio em questão.</p>
+	<p style="hp">As informações são mostradas no canto inferior direito, no lugar do minimapa.</p>
+	<p style="hp">Pressione 'g' para mostrar informações subterrâneas. 'm' e 'n' alternam entre as páginas opcionais.</p>
+	<p style="hp">Não há custos para usar esta ferramenta. Alternativamente, use o botão do meio do mouse ou pressione 'g' para exibir informações sobre o solo.</p>
+
+	<p style="hp">Pesquisa:</p>
 	<img src="images/gui/buttonpanel/base/pointer.png" halign="center"/>
+
 	<p style="hsubtitle">Veja também:</p>
-    <li><a href="keys">Comandos de teclado</a></li>
-	<li><a href="help">Índice</a></li>
+	<li><a href="controls">Controles</a></li>
+	<li><a href="help">Ajuda do Lincity</a></li>
 </Document>

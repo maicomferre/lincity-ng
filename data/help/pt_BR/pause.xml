@@ -2,5 +2,10 @@
 <Document style="helpdocument">
 	<p style="htitle">Botão pausar</p>
 	<p style="hp">Este é o botão de pausa. Ele pausa o jogo.</p>
-	<p style="hp">Você pode voltar ao jogo apenas clicando-o novamente.</p>
+	<p style="hp">Você pode reiniciar o jogo clicando nele novamente.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="slow">Velocidade lenta</a></li>
+	<li><a href="medium">Velocidade média</a></li>
+	<li><a href="fast">Velocidade rápida</a></li>
 </Document>

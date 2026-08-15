@@ -4,6 +4,8 @@
 <li><a href="blacksmith">Ferreiro</a></li>
 <li><a href="bulldoze">Demolição</a></li>
 <li><a href="button-index">Selecione o botão índice</a></li>
+<li><a href="commodities">Mercadorias</a></li>
+<li><a href="controls">Controles</a></li>
 <li><a href="coal">Carvão</a></li>
 <li><a href="coalmine">Mina de carvão</a></li>
 <li><a href="commune">Comuna</a></li>
@@ -11,6 +13,7 @@
 <li><a href="dialogs">Aba de Ajuda</a></li>
 <li><a href="economy">Gráfico Econômico</a></li>
 <li><a href="export">Área de importação e exportação</a></li>
+<li><a href="evacuate">Evacuação</a></li>
 <li><a href="farm">Fazenda</a></li>
 <li><a href="fast">Aceleração rápida</a></li>
 <li><a href="finance">Finanças</a></li>
@@ -23,8 +26,6 @@
 <li><a href="industryh">Indústria pesada (siderúrgicas)</a></li>
 <li><a href="industryl">Indústria leve</a></li>
 <li><a href="labor">Produção</a></li>
-<li><a href="keys">Teclado</a></li>
-<li><a href="keys">Mouse</a></li>
 <li><a href="market">Mercado</a></li>
 <li><a href="medium">Aceleração média</a></li>
 <li><a href="mill">Moinho</a></li>
@@ -49,6 +50,7 @@
 <li><a href="pollution">Poluição</a></li>
 <li><a href="port">Porto</a></li>
 <li><a href="pottery">Olaria</a></li>
+<li><a href="power">Energia</a></li>
 <li><a href="powerline">Linha de transmissão</a></li>
 <li><a href="powerscoal">Usina elétrica carvoeira</a></li>
 <li><a href="powerssolar">Usina elétrica solar</a></li>
@@ -75,6 +77,8 @@
 <li><a href="tutorial-advanced">Avançado</a></li>
 <li><a href="tutorial-scenario">Cenário</a></li>
 <li><a href="university">Universidade</a></li>
+<li><a href="waste">Desperdício</a></li>
+<li><a href="water">Água</a></li>
 <li><a href="waterwell">Poço</a></li>
 <li><a href="windmill">Moinhos de vento</a></li>
 </Document>
