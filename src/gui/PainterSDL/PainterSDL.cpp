@@ -87,11 +87,20 @@ PainterSDL::drawStretchTexture(const Texture *texture, const Rect2D& rect) {
     (int)std::lround(rect.getHeight()));
 
   Vector2 screenpos = transform.apply(rect.p1);
+  // Expand the destination rect to cover every pixel it touches. The SDL
+  // rasterizer fills a pixel only when its center lies inside the rect, so
+  // adjacent tiles drawn with fractional positions (e.g. when zoomed out)
+  // leave 1px gaps between them. Rounding the position down and the far
+  // corner up closes those seams (fixes #331).
+  float x0 = std::floor(screenpos.x);
+  float y0 = std::floor(screenpos.y);
+  float x1 = std::ceil(screenpos.x + rect.getWidth());
+  float y1 = std::ceil(screenpos.y + rect.getHeight());
   SDL_FRect drect = {
-    .x = screenpos.x,
-    .y = screenpos.y,
-    .w = rect.getWidth(),
-    .h = rect.getHeight(),
+    .x = x0,
+    .y = y0,
+    .w = x1 - x0,
+    .h = y1 - y0,
   };
 
   HANDLE_ERR(SDL_RenderTexture(renderer, tx, NULL, &drect));
