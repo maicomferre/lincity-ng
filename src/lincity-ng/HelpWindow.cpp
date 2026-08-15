@@ -132,8 +132,8 @@ HelpWindow::getHelpFile(const std::string& topic) {
   std::string::size_type codesetPos = language.find(".");
   if(codesetPos != std::string::npos) {
     filepath = helpdir / language.substr(0, codesetPos) / filename;
-    if(std::filesystem::exists(filename))
-      return filename;
+    if(std::filesystem::exists(filepath))
+      return filepath;
   }
 
   // try stripping the region, eg. "de" instead of "de_CH"
