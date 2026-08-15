@@ -662,6 +662,21 @@ Game::run() {
                 "error: simulation step failed: {}; game saved to "
                 "crashsave.scn.gz", err.what()));
               backToMainMenu();
+            } catch(...) {
+              // A non-std exception escaped the simulation (e.g. a thrown
+              // exception_ptr, which is what OutOfMoneyMessage used to do).
+              // Don't let it terminate the game.
+              fmt::println(stderr, "error: simulation step failed (unknown exception)");
+              try {
+                saveCityNG(*world, getConfig()->userDataDir.get()
+                  / "crashsave.scn.gz");
+              } catch(const std::exception&) {
+                // nothing more we can do
+              }
+              getGameView().printStatusMessage(fmt::format(
+                "error: simulation step failed (unknown exception); "
+                "game saved to crashsave.scn.gz"));
+              backToMainMenu();
             }
 
             // autosave to the "current game" slot, so that Continue always
