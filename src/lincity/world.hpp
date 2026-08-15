@@ -209,6 +209,11 @@ public:
   void pushMessage(Message::ptr message);
   Message::ptr popMessage();
 
+  /* true if one of the orthogonal neighbours of point is a real building
+   * (not transport, not transparent vegetation). Used to spawn cars near
+   * buildings and to let them die when they reach one. */
+  bool hasBuildingNeighbor(MapPoint point) const;
+
   enum class Updatable {
     POPULATION,
     TECH,

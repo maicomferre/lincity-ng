@@ -507,4 +507,19 @@ World::isUpdated(Updatable what) {
   return updatedSet.find(what) != updatedSet.end();
 }
 
+bool
+World::hasBuildingNeighbor(MapPoint point) const {
+  for(MapPoint nb : {point.n(), point.s(), point.e(), point.w()}) {
+    if(!map.is_inside(nb)) continue;
+    const Construction *cst = map(nb)->reportingConstruction;
+    if(cst
+      && !(cst->flags & FLAG_IS_TRANSPORT)
+      && !(cst->flags & FLAG_TRANSPARENT)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /** @file lincity/world.cpp */

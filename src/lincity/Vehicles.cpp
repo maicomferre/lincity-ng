@@ -44,6 +44,7 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 ) :
   world(world), point(point)
 {
+  this->origin = point;
   this->next = this->prev = this->old1 = this->old2 = point;
   this->anim = 0;
   this->death_counter = 100;
@@ -364,6 +365,17 @@ Vehicle::update(unsigned long real_time) {
   // check if it is time to make a step
   if(real_time > anim) { //move to dest
     drive();
+    // let the car disappear when it reaches another building (as if it had
+    // arrived there). It must first leave its spawn building behind, so
+    // only consider reaching a destination after a minimum travel distance
+    // (death_counter counts down from 100 per tile driven). Cars that never
+    // reach a building still die from the lifespan fallback below.
+    if(point != origin
+      && death_counter <= 100 - MIN_VEHICLE_TRIP
+      && world.hasBuildingNeighbor(point)
+    ) {
+      death_counter = 0;
+    }
     if (frameIt->frame < 0)
       anim = real_time + 50;
     else

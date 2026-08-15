@@ -38,6 +38,10 @@ struct ExtraFrame;
 
 #define COMMUTER_TRAFFIC_RATE 1024
 
+/* minimum number of tiles a vehicle must drive before it may disappear by
+ * reaching another building (so it visibly leaves its spawn building) */
+#define MIN_VEHICLE_TRIP 10
+
 enum VehicleModel {
   VEHICLE_BLUECAR,
   VEHICLE_DEFAULT
@@ -59,6 +63,8 @@ public:
   World& world;
   //location, heading and comming from
   MapPoint point, next, prev, old1, old2;
+  // where the car spawned; used to only die when reaching another building
+  MapPoint origin;
   float xr, yr;
   int death_counter;
   bool turn_left;

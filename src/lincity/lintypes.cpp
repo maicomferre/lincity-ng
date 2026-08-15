@@ -735,6 +735,7 @@ void Construction::trade()
                     case STUFF_LABOR :
                         if((rand()%COMMUTER_TRAFFIC_RATE) < (yield+1)/2
                           && transport->canPlaceVehicle()
+                          && world.hasBuildingNeighbor(point)
                         ) {
                           world.vehicleList.push_back(
                             new Vehicle(world, point,
