@@ -76,6 +76,7 @@ target_link_libraries(lincity_lib_modules
 	PUBLIC
 	LinCity::lib
 	LibXml++-5.0::LibXml++-5.0
+	fmt::fmt
 	PRIVATE
 	gettext
 )

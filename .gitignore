@@ -1,2 +1,6 @@
 # Build Files
 /build/
+/build-*/
+
+# Local development docs (not tracked, see .devdocs/README.md)
+/.devdocs/
