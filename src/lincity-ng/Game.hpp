@@ -93,6 +93,8 @@ private:
     void handleMessage(Message::ptr message);
 
     bool running;
+    int lastAutosaveDay = -1;
+    Uint32 lastAutosaveTick = 0;
     void backToMainMenu();
     void testAllHelpFiles();
     void quickLoad();

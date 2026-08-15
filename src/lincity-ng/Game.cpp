@@ -73,6 +73,11 @@
 
 using namespace std::placeholders;
 
+// how many in-game days between autosaves (one month is 100 days)
+static constexpr int AUTOSAVE_INTERVAL_DAYS = 100;
+// minimum wall-clock time between autosaves, in milliseconds
+static constexpr Uint32 AUTOSAVE_INTERVAL_MS = 10000;
+
 Game::Game(SDL_Window *window) : window(window) {
   loadGui();
 }
@@ -639,7 +644,36 @@ Game::run() {
         }
         if(tick >= next_execute) { // execute
             // simulation timestep
-            world->do_time_step();
+            try {
+              world->do_time_step();
+            } catch(const std::exception& err) {
+              // The simulation is in an unknown state. Save what we have and
+              // get back to the main menu before anything else goes wrong.
+              fmt::println(stderr, "error: simulation step failed: {}", err.what());
+              try {
+                saveCityNG(*world, getConfig()->userDataDir.get()
+                  / "crashsave.scn.gz");
+              } catch(const std::exception&) {
+                // nothing more we can do
+              }
+              getGameView().printStatusMessage(fmt::format(
+                "error: simulation step failed: {}; game saved to "
+                "crashsave.scn.gz", err.what()));
+              backToMainMenu();
+            }
+
+            // autosave to the "current game" slot, so that Continue always
+            // resumes from a recent state even after a crash. Throttled by
+            // wall-clock time so that fast-forwarding doesn't save every
+            // second.
+            if(world->total_time - lastAutosaveDay >= AUTOSAVE_INTERVAL_DAYS
+              && tick - lastAutosaveTick >= AUTOSAVE_INTERVAL_MS
+            ) {
+              autoSaveCityNG(*world, getConfig()->userDataDir.get()
+                / "9_currentGameNG.scn.gz");
+              lastAutosaveDay = world->total_time;
+              lastAutosaveTick = tick;
+            }
 
             new_day = true;
             if(world->total_time % NUMOF_DAYS_IN_MONTH == 0)

@@ -65,6 +65,34 @@ void saveCityNG(const World& world, const std::filesystem::path& filename) {
 }
 
 /*
+ * Autosave City to File.
+ * Writes to a temporary file first and renames it into place, so that a
+ * crash mid-write never corrupts an existing save.
+ */
+void autoSaveCityNG(const World& world, const std::filesystem::path& filename) {
+  std::filesystem::path tmp = filename;
+  tmp += ".tmp";
+  try {
+    world.save(tmp);
+    std::error_code ec;
+    std::filesystem::rename(tmp, filename, ec);
+    if(ec) {
+      std::cerr << "error: failed to rename autosave into place at '"
+        << filename.string() << "': " << ec.message() << std::endl;
+      std::filesystem::remove(tmp, ec);
+    } else {
+      std::cout << "autosaved game to '" << filename.string() << "'"
+        << std::endl;
+    }
+  } catch(std::runtime_error err) {
+    std::cerr << "error: failed to autosave game to '" << filename.string()
+      << "': " << err.what() << std::endl;
+    std::error_code ec;
+    std::filesystem::remove(tmp, ec);
+  }
+}
+
+/*
  * Load City and do setup for Lincity NG.
  */
 std::unique_ptr<World> loadCityNG(const std::filesystem::path& filename) {
