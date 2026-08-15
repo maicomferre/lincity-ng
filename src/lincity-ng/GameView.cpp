@@ -1463,6 +1463,36 @@ void GameView::draw(Painter& painter)
     }
     painter.drawTexture(mapTexture.get(), Vector2(0,0));
 
+    // When placing a building, highlight the coverage range of every
+    // existing building of the same type that is visible, so the user can
+    // position the new one to cover as much ground as possible (#242).
+    if(getUserOperation()->action == UserOperation::ACTION_BUILD) {
+      ConstructionGroup *selGroup = getUserOperation()->constructionGroup;
+      int range = selGroup->range;
+      if(range > 0) {
+        int edgelen = 2 * range + selGroup->size;
+        int visMinX = upperLeftTile.x;
+        int visMaxX = upperRightTile.x;
+        int visMinY = upperLeftTile.y;
+        int visMaxY = lowerLeftTile.y;
+        painter.setFillColor(Color(0, 255, 0, 48));
+        for(Construction *cst : getWorld().map.constructions) {
+          if(cst->isDead()) continue;
+          if(cst->constructionGroup != selGroup) continue;
+          MapPoint c = cst->point;
+          if(c.x < visMinX - edgelen || c.x > visMaxX + edgelen
+            || c.y < visMinY - edgelen || c.y > visMaxY + edgelen)
+            continue;
+          Rect2D rangerect(0, 0, tileWidth * edgelen, tileHeight * edgelen);
+          Vector2 screenPoint = getScreenPoint(c);
+          screenPoint.x -= tileWidth * (0.5 * edgelen);
+          screenPoint.y -= tileHeight * (range + 1);
+          rangerect.move(screenPoint);
+          fillDiamond(painter, rangerect);
+        }
+      }
+    }
+
     int cost = 0;
     //display commodities continously
     if(getUserOperation()->action == UserOperation::ACTION_EVACUATE) {
