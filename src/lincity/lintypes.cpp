@@ -651,13 +651,17 @@ void Construction::trade()
     int traffic, max_traffic;
     Commodity stuff_ID;
     const size_t neighsize = neighbors.size();
-    std::vector<bool> lvls(neighsize);
+    // reuse a scratch buffer instead of allocating per construction per day
+    static thread_local std::vector<char> lvls;
+    lvls.assign(neighsize, 0);
     Transport *transport = NULL;
     Powerline *powerline = NULL;
     if(flags & FLAG_IS_TRANSPORT)
     {   transport = dynamic_cast<Transport*>(this);}
     else if(constructionGroup->group == GROUP_POWER_LINE)
     {   powerline = dynamic_cast<Powerline*>(this);}
+    // read once per construction instead of once per commodity
+    const bool carsEnabled = getConfig()->carsEnabled.get();
     /*begin for over all different stuff*/
     for(stuff_ID = STUFF_INIT ; stuff_ID < STUFF_COUNT ; stuff_ID++ )
     {
@@ -719,7 +723,7 @@ void Construction::trade()
         {
             transport->trafficCount[stuff_ID] = (9 * transport->trafficCount[stuff_ID] + max_traffic) / 10;
             if(simDelay != SIM_DELAY_FAST
-            && getConfig()->carsEnabled.get()
+            && carsEnabled
             && 100 * max_traffic *  TRANSPORT_RATE / TRANSPORT_QUANTA > 2
             && world.map(point)->getTransportGroup() == GROUP_ROAD)
             {

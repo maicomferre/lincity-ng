@@ -285,21 +285,6 @@ Map::~Map() {
   maptile.clear();
 }
 
-const MapTile *Map::operator()(MapPoint point) const {
-  assert(is_inside(point));
-  return &(maptile[point.x + point.y * side_len]);
-}
-
-MapTile *Map::operator()(MapPoint point) {
-  assert(is_inside(point));
-  return &(maptile[point.x + point.y * side_len]);
-}
-
-bool Map::is_inside(MapPoint point) const {
-  return point.x >= 0 && point.y >= 0
-    && point.x < side_len && point.y < side_len;
-}
-
 bool Map::is_border(MapPoint point) const {
   return (point.x == 0 || point.y == 0
     || point.x == side_len-1 || point.y == side_len-1);
@@ -314,10 +299,6 @@ bool
 Map::is_visible(MapPoint point) const {
   return (point.x > 0 && point.y > 0
     && point.x < side_len-1 && point.y < side_len-1);
-}
-
-int Map::len() const {
-    return side_len;
 }
 
 bool Map::maximum(MapPoint p) const {

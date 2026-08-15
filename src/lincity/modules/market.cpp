@@ -100,7 +100,9 @@ void Market::update()
     int cap, market_cap;
     market_ratio = 0;
     const size_t partsize = partners.size();
-    std::vector<bool> lvls(partsize);
+    // reuse a scratch buffer instead of allocating per market per day
+    static thread_local std::vector<char> lvls;
+    lvls.assign(partsize, 0);
     Commodity stuff_ID;
     n = 0;
     for(stuff_ID = STUFF_INIT ; stuff_ID < STUFF_COUNT ; stuff_ID++ )

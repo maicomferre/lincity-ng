@@ -27,6 +27,7 @@
 #define __world_h__
 
 #include <array>            // for array
+#include <cassert>          // for assert
 #include <deque>            // for deque
 #include <filesystem>       // for path
 #include <iostream>         // for ostream
@@ -126,13 +127,22 @@ class Map {
 public:
   Map(int map_len);
   ~Map();
-  const MapTile* operator()(MapPoint point) const;
-  MapTile* operator()(MapPoint point);
-  bool is_inside(MapPoint loc) const;
+  const MapTile* operator()(MapPoint point) const {
+    assert(is_inside(point));
+    return &(maptile[point.x + point.y * side_len]);
+  }
+  MapTile* operator()(MapPoint point) {
+    assert(is_inside(point));
+    return &(maptile[point.x + point.y * side_len]);
+  }
+  bool is_inside(MapPoint loc) const {
+    return loc.x >= 0 && loc.y >= 0
+      && loc.x < side_len && loc.y < side_len;
+  }
   bool is_border(MapPoint loc) const;
   bool is_edge(MapPoint point) const;
   bool is_visible(MapPoint loc) const;
-  int len() const; //tells the actual world.side_len
+  int len() const { return side_len; } //tells the actual world.side_len
   bool maximum(MapPoint point) const;
   bool minimum(MapPoint point) const;
   bool saddlepoint(MapPoint point) const;
@@ -280,6 +290,8 @@ public:
 private:
   std::deque<Message::ptr> messageQueue;
   std::unordered_set<Updatable> updatedSet;
+  // scratch buffer reused by simulate_mappoints to avoid re-allocation
+  std::vector<std::set<Construction*>::iterator> orderingBuffer;
 
   void do_periodic_events();
   void end_of_month_update();

@@ -231,8 +231,9 @@ World::simulate_mappoints(void) {
   // We could directly shuffle constructions, but the swaps could be more
   // expensive if we decide down the line to store Construction's directly
   // instead of using pointers.
-  std::vector<decltype(map.constructions)::iterator> ordering(
-    map.constructions.size());
+  // Reuse the ordering buffer across steps to avoid re-allocating every day.
+  auto& ordering = orderingBuffer;
+  ordering.resize(map.constructions.size());
   std::iota(ordering.begin(), ordering.end(), map.constructions.begin());
   std::shuffle(ordering.begin(), ordering.end(), BasicUrbg::get());
   for(auto cstIt : ordering) {
