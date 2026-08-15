@@ -77,6 +77,25 @@ void closeAllDialogs(){
     }
 }
 
+void refreshOpenGameStats() {
+    for(Dialog *dialog : dialogVector) {
+      if(dialog->isGameStats())
+        dialog->refreshGameStats();
+    }
+}
+
+void openGameStats(Game& game) {
+    // If the window is already open, just update the numbers instead of
+    // creating a second, orphaned Dialog.
+    for(Dialog *dialog : dialogVector) {
+      if(dialog->isGameStats()) {
+        dialog->refreshGameStats();
+        return;
+      }
+    }
+    new Dialog(game, GAME_STATS);
+}
+
 Dialog::Dialog(Game& game, int type)
   : game(game), point(MapPoint(-1,-1))
 {
@@ -86,6 +105,7 @@ Dialog::Dialog(Game& game, int type)
             coalSurvey();
             break;
         case GAME_STATS:
+            isGameStatsDialog = true;
             gameStats();
             break;
         default:
@@ -248,7 +268,6 @@ void Dialog::gameStats(){
         std::cerr << "No window manager found.\n";
         return;
     }
-    bool useExisting = false;
     myDialogComponent = dynamic_cast<Window *>(
       windowManager->findComponent("GameStats"));
     if( myDialogComponent == 0){
@@ -260,9 +279,18 @@ void Dialog::gameStats(){
                 << e.what() << "\n";
             return;
         }
-    } else {
-        useExisting = true;
+        // connect signals
+        Button* noButton = getButton( *myDialogComponent, "Okay" );
+        noButton->clicked.connect(
+          std::bind(&Dialog::closeDialogButtonClicked, this, _1));
     }
+
+    refreshGameStats();
+}
+
+void Dialog::refreshGameStats(){
+    if(!myDialogComponent)
+      return;
 
     // Fill in Fields.
     World& world = game.getWorld();
@@ -389,13 +417,6 @@ void Dialog::gameStats(){
     setTableRC("statistic", 15, 1, "", "");
     setTableRC("statistic", 15, 2, "", "");
     setTableRC("statistic", 15, 3, "", "");
-
-    if( !useExisting ){
-        // connect signals
-        Button* noButton = getButton( *myDialogComponent, "Okay" );
-        noButton->clicked.connect(
-          std::bind(&Dialog::closeDialogButtonClicked, this, _1));
-    }
 }
 
 /*

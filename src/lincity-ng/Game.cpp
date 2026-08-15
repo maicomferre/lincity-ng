@@ -164,7 +164,7 @@ Game::loadGui() {
 
   Button* statButton = getButton(*gui, "StatButton");
   statButton->clicked.connect([this](Button *) {
-    new Dialog(*this, GAME_STATS);
+    openGameStats(*this);
   });
 
   helpWindow.reset(new HelpWindow(windowmanager));
@@ -607,6 +607,7 @@ Game::run() {
               getMiniMap().setDirty();
               getMiniMap().setMapDirty();
               world->clearUpdated(World::Updatable::MAP);
+              refreshOpenGameStats();
             }
 
             // update the help window
@@ -636,6 +637,7 @@ Game::run() {
             if(world->isUpdated(World::Updatable::MONEY)) {
               updateMoney();
               world->clearUpdated(World::Updatable::MONEY);
+              refreshOpenGameStats();
             }
 
             // reschedule

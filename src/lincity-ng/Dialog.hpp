@@ -43,6 +43,9 @@ extern bool blockingDialogIsOpen;
 
 void closeAllDialogs();
 
+void refreshOpenGameStats();
+void openGameStats(Game& game);
+
 class Dialog
 {
     public:
@@ -50,6 +53,8 @@ class Dialog
         Dialog(Game& game, int type);
         ~Dialog();
         void closeDialog();
+        void refreshGameStats();
+        bool isGameStats() const { return isGameStatsDialog; }
 
     private:
         void editMarket();
@@ -65,6 +70,7 @@ class Dialog
         Window *myDialogComponent;
         MapPoint point;
         Game& game;
+        bool isGameStatsDialog = false;
 
         template<typename T> void setTableRC( const std::string basename, const int row, const int column, const std::string text, const T value );
 
