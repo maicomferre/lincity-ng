@@ -88,7 +88,11 @@ World::do_animate(unsigned long real_time) {
 
 void
 World::do_periodic_events(void) {
-  do_daily_ecology();
+  /* do_daily_ecology scans the whole map; run it every 3 days instead of
+     every day. do_daily_ecology() compensates with a 3x higher probability
+     per run, so the average rate of desert->bare is unchanged. */
+  if(total_time % 3 == 0)
+    do_daily_ecology();
 
   if(total_time % NUMOF_DAYS_IN_YEAR == 0)
     sustainability_test();

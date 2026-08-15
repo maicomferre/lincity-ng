@@ -177,12 +177,14 @@ World::do_daily_ecology() {
     /* approximately 3 monthes needed to turn bulldoze area into green */
     /* A tile is desert here iff it has no covering construction (or a
        transparent one) and its terrain group is desert. Inline the check to
-       avoid the getLowerstVisibleGroup() call for every tile, every day. */
+       avoid the getLowerstVisibleGroup() call for every tile, every run.
+       Called every 3 days by do_periodic_events(), so use a 3x higher
+       probability to keep the average desert->bare rate unchanged. */
     if((!tile.reportingConstruction
         || tile.reportingConstruction->flags & FLAG_TRANSPARENT)
       && tile.group == GROUP_DESERT
       && (tile.flags & FLAG_HAS_UNDERGROUND_WATER)
-      && (rand() % 300 == 1)
+      && (rand() % 100 == 1)
     ) {
       tile.setTerrain(GROUP_BARE);
       map.desert_water_frontiers(tile.point.x - 1, tile.point.y - 1, 1 + 2, 1 + 2);
