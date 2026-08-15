@@ -35,7 +35,29 @@ TextureSDL::TextureSDL(SDL_Texture *tx) : tx(tx) {
 }
 
 TextureSDL::~TextureSDL() {
+  for(SDL_Texture *mip : mipmaps)
+    SDL_DestroyTexture(mip);
   SDL_DestroyTexture(tx);
+}
+
+void
+TextureSDL::addMipmap(SDL_Texture *mipmap) {
+  assert(mipmap);
+  mipmaps.push_back(mipmap);
+}
+
+SDL_Texture*
+TextureSDL::selectMipmap(int destWidth, int destHeight) const {
+  // mipmaps are sorted from largest to smallest; pick the largest one that
+  // still covers the destination so we never upscale a smaller mipmap.
+  SDL_Texture *selected = tx;
+  for(SDL_Texture *mip : mipmaps) {
+    if(mip->w >= destWidth && mip->h >= destHeight)
+      selected = mip;
+    else
+      break;
+  }
+  return selected;
 }
 
 void
@@ -61,6 +83,13 @@ TextureSDL::setScaleMode(ScaleMode mode) {
     std::cerr << "warning: failed to set scale mode" << std::endl;
     assert(false);
     return;
+  }
+  for(SDL_Texture *mip : mipmaps) {
+    if(!SDL_SetTextureScaleMode(mip, sdlMode)) {
+      std::cerr << "warning: failed to set scale mode on mipmap" << std::endl;
+      assert(false);
+      return;
+    }
   }
 }
 

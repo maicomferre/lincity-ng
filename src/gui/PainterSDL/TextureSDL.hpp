@@ -25,6 +25,8 @@
 
 #include <SDL3/SDL.h>      // for SDL_Texture
 
+#include <vector>          // for vector
+
 #include "../Texture.hpp"  // for Texture
 
 class TextureSDL : public Texture {
@@ -40,12 +42,20 @@ public:
 
   virtual void setScaleMode(ScaleMode mode) override;
 
+  /**
+   * Selects the mipmap level whose size is the largest one that is still
+   * >= the requested destination size, or the base texture if none qualify.
+   */
+  SDL_Texture* selectMipmap(int destWidth, int destHeight) const;
+
 private:
   friend class PainterSDL;
   friend class TextureManagerSDL;
   TextureSDL(SDL_Texture *tx);
+  void addMipmap(SDL_Texture *mipmap);
 
   SDL_Texture *tx = nullptr;
+  std::vector<SDL_Texture*> mipmaps;
   mutable int width = 0, height = 0;
 };
 

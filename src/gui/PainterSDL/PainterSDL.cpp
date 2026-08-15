@@ -81,6 +81,11 @@ PainterSDL::drawStretchTexture(const Texture *texture, const Rect2D& rect) {
   assert(typeid(*texture) == typeid(TextureSDL));
   const TextureSDL *textureSDL = static_cast<const TextureSDL *>(texture);
 
+  // use a pre-generated mipmap when shrinking, to avoid aliasing
+  SDL_Texture *tx = textureSDL->selectMipmap(
+    (int)std::lround(rect.getWidth()),
+    (int)std::lround(rect.getHeight()));
+
   Vector2 screenpos = transform.apply(rect.p1);
   SDL_FRect drect = {
     .x = screenpos.x,
@@ -89,7 +94,7 @@ PainterSDL::drawStretchTexture(const Texture *texture, const Rect2D& rect) {
     .h = rect.getHeight(),
   };
 
-  HANDLE_ERR(SDL_RenderTexture(renderer, textureSDL->tx, NULL, &drect));
+  HANDLE_ERR(SDL_RenderTexture(renderer, tx, NULL, &drect));
 }
 
 /**
