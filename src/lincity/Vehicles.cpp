@@ -412,6 +412,11 @@ int Vehicle::buildingDirection(MapPoint p) const {
 }
 
 bool Vehicle::acceptable_heading(MapPoint dest) {
+  // never drive off the map (roads can run along the border; the assert in
+  // Map::operator() is compiled out of release builds, which made this an
+  // out-of-bounds read instead of a crash in debug builds)
+  if(!world.map.is_inside(dest))
+    return false;
   unsigned short g = world.map(dest)->getTransportGroup();
 
   if(g != GROUP_TRACK && g != GROUP_ROAD) {
