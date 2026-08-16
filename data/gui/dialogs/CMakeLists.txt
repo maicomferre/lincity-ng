@@ -1,5 +1,6 @@
 set(guiDialogSourceFiles
   coal_survey_yn.xml
+  governor.xml
   gamestats.xml
   launch_rocket_yn.xml
   portdialog.xml

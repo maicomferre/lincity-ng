@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="dialogs.xsl" type="text/xsl"?>
+<Dialog width="460" height="380" name="Governor" resizable="no">
+	<title>Governor</title>
+	<contents>
+		<DefineStyle name="gov_label" color="black" font-size="13" halign="left"/>
+		<DefineStyle name="gov_value" color="black" font-size="13" halign="center"/>
+		<DefineStyle name="gov_note" color="black" font-size="11" halign="center"/>
+		<TableLayout rows="8" cols="4">
+			<colsize col="1" relative="20"/>
+			<colsize col="2" relative="6"/>
+			<colsize col="3" relative="8"/>
+			<colsize col="4" relative="6"/>
+			<cell row="1" col="1" colspan="4" halign="center">
+				<Paragraph style="gov_label" translatable="yes">Tax rates (0 to 2x the defaults)</Paragraph>
+			</cell>
+			<cell row="2" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Income tax</Paragraph>
+			</cell>
+			<cell row="2" col="2" halign="center">
+				<Button name="govMinus0"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="2" col="3" halign="center">
+				<Paragraph name="govValue0" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="2" col="4" halign="center">
+				<Button name="govPlus0"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="3" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Coal tax</Paragraph>
+			</cell>
+			<cell row="3" col="2" halign="center">
+				<Button name="govMinus1"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="3" col="3" halign="center">
+				<Paragraph name="govValue1" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="3" col="4" halign="center">
+				<Button name="govPlus1"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="4" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Ore tax</Paragraph>
+			</cell>
+			<cell row="4" col="2" halign="center">
+				<Button name="govMinus2"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="4" col="3" halign="center">
+				<Paragraph name="govValue2" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="4" col="4" halign="center">
+				<Button name="govPlus2"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="5" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Goods tax</Paragraph>
+			</cell>
+			<cell row="5" col="2" halign="center">
+				<Button name="govMinus3"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="5" col="3" halign="center">
+				<Paragraph name="govValue3" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="5" col="4" halign="center">
+				<Button name="govPlus3"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="6" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Dole</Paragraph>
+			</cell>
+			<cell row="6" col="2" halign="center">
+				<Button name="govMinus4"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="6" col="3" halign="center">
+				<Paragraph name="govValue4" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="6" col="4" halign="center">
+				<Button name="govPlus4"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="7" col="1" halign="left">
+				<Paragraph style="gov_label" translatable="yes">Transport cost</Paragraph>
+			</cell>
+			<cell row="7" col="2" halign="center">
+				<Button name="govMinus5"><text color="black" font-size="13" halign="center">-</text></Button>
+			</cell>
+			<cell row="7" col="3" halign="center">
+				<Paragraph name="govValue5" style="gov_value">0</Paragraph>
+			</cell>
+			<cell row="7" col="4" halign="center">
+				<Button name="govPlus5"><text color="black" font-size="13" halign="center">+</text></Button>
+			</cell>
+			<cell row="8" col="1" colspan="4" halign="center">
+				<Paragraph style="gov_note" translatable="yes">High taxes make industry produce less and citizens move away.</Paragraph>
+			</cell>
+		</TableLayout>
+	</contents>
+	<buttonbar>
+		<Button name="govOkay">
+			<text color="black" font-size="13" halign="center" translatable="yes">Close</text>
+		</Button>
+	</buttonbar>
+</Dialog>

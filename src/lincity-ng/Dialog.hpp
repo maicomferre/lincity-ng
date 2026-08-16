@@ -25,6 +25,7 @@
 
 #include <memory>
 #include <string>  // for string
+#include <vector>
 
 #include "lincity/MapPoint.hpp"
 
@@ -38,6 +39,7 @@ class Game;
 #define ASK_COAL_SURVEY   6
 #define ASK_LAUNCH_ROCKET 7
 #define GAME_STATS        8
+#define GOVERNOR          9
 
 extern bool blockingDialogIsOpen;
 
@@ -45,6 +47,7 @@ void closeAllDialogs();
 
 void refreshOpenGameStats();
 void openGameStats(Game& game);
+void openGovernor(Game& game);
 
 class Dialog
 {
@@ -55,6 +58,8 @@ class Dialog
         void closeDialog();
         void refreshGameStats();
         bool isGameStats() const { return isGameStatsDialog; }
+        void refreshGovernor();
+        bool isGovernor() const { return isGovernorDialog; }
 
     private:
         void editMarket();
@@ -64,6 +69,7 @@ class Dialog
         void askRocket();
         void gameStats();
         void saveGameStats();
+        void governor();
 
         void initDialog();
         WindowManager* windowManager;
@@ -71,6 +77,16 @@ class Dialog
         MapPoint point;
         Game& game;
         bool isGameStatsDialog = false;
+        bool isGovernorDialog = false;
+
+        // one entry per tax row in data/gui/dialogs/governor.xml
+        struct GovTax {
+          int defaultRate;
+          int* value;
+        };
+        std::vector<GovTax> govTaxes;
+        void governorAdjustButtonClicked(Button* button, int index,
+          int delta);
 
         template<typename T> void setTableRC( const std::string basename, const int row, const int column, const std::string text, const T value );
 

@@ -169,6 +169,11 @@ Game::loadGui() {
     openGameStats(*this);
   });
 
+  Button* governorButton = getButton(*gui, "GovernorButton");
+  governorButton->clicked.connect([this](Button *) {
+    openGovernor(*this);
+  });
+
   helpWindow.reset(new HelpWindow(windowmanager));
 
   int width = 0, height = 0;

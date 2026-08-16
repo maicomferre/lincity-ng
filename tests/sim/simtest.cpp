@@ -299,6 +299,14 @@ TTEST(game_flow_reset_and_loading_barrier) {
   TCHECK(game.getMiniMap().isMapDirty());
   TCHECK_EQ(game.getLastAutosaveDay(), -1);
 
+  // FEAT-03c: the governor dialog opens and shows the current rates
+  openGovernor(game);
+  Paragraph* gov0 = getParagraph(game.getGui(), "govValue0");
+  TCHECK(gov0 != nullptr);
+  if(gov0)
+    TCHECK_EQ(gov0->getText(), std::string("8")); // INCOME_TAX_RATE
+  closeAllDialogs();
+
   // BUG-02: Game::run must not enter the main loop before the image
   // loader finished and every image became a texture. Send QUIT from a
   // helper thread so run() leaves the main loop by itself (same path the

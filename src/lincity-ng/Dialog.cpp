@@ -52,6 +52,7 @@
 #include "gui/Window.hpp"                   // for Window
 #include "gui/WindowManager.hpp"            // for WindowManager
 #include "lincity/MapPoint.hpp"             // for MapPoint, operator<<
+#include "lincity/all_buildings.hpp"        // for INCOME_TAX_RATE, COAL_TAX_RATE...
 #include "lincity/commodities.hpp"          // for CommodityRule, Commodity
 #include "lincity/groups.hpp"               // for GROUP_BLACKSMITH, GROUP_C...
 #include "lincity/lin-city.hpp"             // for MAX_TECH_LEVEL, RESULTS_F...
@@ -84,6 +85,18 @@ void refreshOpenGameStats() {
     }
 }
 
+void openGovernor(Game& game) {
+    // If the window is already open, just update the numbers instead of
+    // creating a second, orphaned Dialog.
+    for(Dialog *dialog : dialogVector) {
+      if(dialog->isGovernor()) {
+        dialog->refreshGovernor();
+        return;
+      }
+    }
+    new Dialog(game, GOVERNOR);
+}
+
 void openGameStats(Game& game) {
     // If the window is already open, just update the numbers instead of
     // creating a second, orphaned Dialog.
@@ -107,6 +120,10 @@ Dialog::Dialog(Game& game, int type)
         case GAME_STATS:
             isGameStatsDialog = true;
             gameStats();
+            break;
+        case GOVERNOR:
+            isGovernorDialog = true;
+            governor();
             break;
         default:
             std::stringstream msg;
@@ -417,6 +434,71 @@ void Dialog::refreshGameStats(){
     setTableRC("statistic", 15, 1, "", "");
     setTableRC("statistic", 15, 2, "", "");
     setTableRC("statistic", 15, 3, "", "");
+}
+
+void Dialog::governor() {
+    if(!windowManager) {
+        std::cerr << "No window manager found.\n";
+        return;
+    }
+    try {
+        registerDialog(dynamic_unique_cast<Window>(
+          loadGUIFile("gui/dialogs/governor.xml")));
+    } catch(std::exception& e) {
+        std::cerr << "Couldn't display message 'governor': "
+            << e.what() << "\n";
+        return;
+    }
+
+    // collect the editable rates; the pointers stay valid because
+    // closeAllDialogs() runs on every setWorld
+    World& world = game.getWorld();
+    govTaxes = {
+      {INCOME_TAX_RATE, &world.money_rates.income_tax},
+      {COAL_TAX_RATE, &world.money_rates.coal_tax},
+      {ORE_TAX_RATE, &world.money_rates.ore_tax},
+      {GOODS_TAX_RATE, &world.money_rates.goods_tax},
+      {DOLE_RATE, &world.money_rates.dole},
+      {TRANSPORT_COST_RATE, &world.money_rates.transport_cost},
+    };
+
+    // connect the +/- buttons
+    for(int i = 0; i < (int)govTaxes.size(); i++) {
+      Button* minusButton = getButton(*myDialogComponent,
+        "govMinus" + std::to_string(i));
+      minusButton->clicked.connect(std::bind(
+        &Dialog::governorAdjustButtonClicked, this, _1, i, -1));
+      Button* plusButton = getButton(*myDialogComponent,
+        "govPlus" + std::to_string(i));
+      plusButton->clicked.connect(std::bind(
+        &Dialog::governorAdjustButtonClicked, this, _1, i, +1));
+    }
+
+    Button* okayButton = getButton(*myDialogComponent, "govOkay");
+    okayButton->clicked.connect(
+      std::bind(&Dialog::closeDialogButtonClicked, this, _1));
+
+    refreshGovernor();
+}
+
+void Dialog::refreshGovernor() {
+    if(!myDialogComponent)
+      return;
+    for(int i = 0; i < (int)govTaxes.size(); i++)
+      setParagraph("govValue" + std::to_string(i),
+        std::to_string(*govTaxes[i].value));
+}
+
+void Dialog::governorAdjustButtonClicked(Button*, int index, int delta) {
+    if(index < 0 || index >= (int)govTaxes.size())
+      return;
+    int& value = *govTaxes[index].value;
+    const int lo = 0;
+    const int hi = 2 * govTaxes[index].defaultRate;
+    value = std::min(hi, std::max(lo, value + delta));
+    refreshGovernor();
+    game.getMpsFinance().refresh();
+    game.getWorld().setUpdated(World::Updatable::MONEY);
 }
 
 /*
