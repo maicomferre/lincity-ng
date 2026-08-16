@@ -49,6 +49,9 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
   this->anim = 0;
   this->death_counter = 100;
   this->wait_ticks = 10;
+  this->arriving = false;
+  this->arrival_start = 0;
+  this->arrival_side = 0;
   this->turn_left = true;
   this->headings = 0;
   this->direction = 0;
@@ -229,6 +232,23 @@ void Vehicle::walk(unsigned long real_time) {
   int dx = (mx - my) * 64;
   int dy = (mx + my) * 32;
 
+  // Arriving at a building: drift the sprite sideways towards the building
+  // as if pulling into a driveway. The car holds its tile but slides
+  // off-center over ARRIVE_MS before disappearing.
+  if(arriving) {
+    double prog = (double)(real_time - arrival_start) / ARRIVE_MS;
+    if(prog > 1.0) prog = 1.0;
+    double slide = prog * prog * 14; // ease-out, max ~14px
+    int side = arrival_side; // 0 = north/up side, 1 = south/down side, etc.
+    switch(side) {
+    case 0: dy -= (int)slide; dx += (int)(slide / 2); break; // up (north)
+    case 1: dy += (int)slide; dx -= (int)(slide / 2); break; // down (south)
+    case 2: dx += (int)slide; break;                          // right (east)
+    case 3: dx -= (int)slide; break;                          // left (west)
+    default: break;
+    }
+  }
+
   //Check for bridges and ramps
   switch(world.map(prev)->getGroup()) {
   case GROUP_TRACK_BRIDGE:
@@ -297,6 +317,23 @@ bool Vehicle::tileOccupied(MapPoint p) const {
   return false;
 }
 
+int Vehicle::buildingDirection(MapPoint p) const {
+  struct { MapPoint nb; int dir; } sides[4] = {
+    {p.n(), 0}, {p.s(), 1}, {p.e(), 2}, {p.w(), 3}
+  };
+  for(auto& s : sides) {
+    if(!world.map.is_inside(s.nb)) continue;
+    const Construction *cst = world.map(s.nb)->reportingConstruction;
+    if(cst
+      && !(cst->flags & FLAG_IS_TRANSPORT)
+      && !(cst->flags & FLAG_TRANSPARENT)
+    ) {
+      return s.dir;
+    }
+  }
+  return -1;
+}
+
 bool Vehicle::acceptable_heading(MapPoint dest) {
   unsigned short g = world.map(dest)->getTransportGroup();
 
@@ -338,11 +375,11 @@ bool Vehicle::acceptable_heading(MapPoint dest) {
 void Vehicle::pickDestination() {
   // Choose a road tile that has a real building next to it as the trip's
   // end point, so the car visibly "arrives" at a building's front door.
-  // Search in a wider ring so cars actually travel several blocks, and
-  // remember the building tile so the car stops when it reaches the road
-  // tile next to it (never stopping mid-turn).
+  // Search at a distance comparable to MIN_VEHICLE_TRIP so the car actually
+  // drives far enough before reaching it (otherwise it would pass through
+  // the destination before being allowed to stop).
   destination = point;
-  for(int r = 8; r <= 28; ++r) {
+  for(int r = MIN_VEHICLE_TRIP; r <= 40; ++r) {
     for(int dx = -r; dx <= r; ++dx) {
       for(int dy = -r; dy <= r; ++dy) {
         if(std::abs(dx) != r && std::abs(dy) != r) continue; // ring only
@@ -373,11 +410,9 @@ void Vehicle::getNewHeadings() {
   if(point.y >= prev.y && acceptable_heading(point.s()) && !tileOccupied(point.s()))
     headings.set(3);
 
-  // If there is no way to go, check whether it's a dead end (no road) or we
-  // are temporarily blocked by other vehicles. A dead end kills the car;
-  // being blocked just waits: leave next == point and retry on the next
-  // update, so we never drive through another car. The lifespan fallback
-  // (death_counter reaching 0 in update()) still cleans up gridlock.
+  // If there is no way to go forward (we drove into a dead end), allow
+  // turning around: the only remaining road is where we came from. Only die
+  // if there is truly no road at all.
   if(headings.none()) {
     bool hasExit = false;
     for(MapPoint nb : {point.e(), point.w(), point.n(), point.s()}) {
@@ -388,9 +423,24 @@ void Vehicle::getNewHeadings() {
         break;
       }
     }
-    if(!hasExit)
-      death_counter = 0; // true dead end
-    return;
+    if(!hasExit) {
+      death_counter = 0; // true dead end, nowhere at all
+      return;
+    }
+    // dead end on the road network: turn around and go back the way we came
+    headings.reset();
+    if(point.x < prev.x && !tileOccupied(point.e()))
+      headings.set(0);
+    if(point.x > prev.x && !tileOccupied(point.w()))
+      headings.set(1);
+    if(point.y < prev.y && !tileOccupied(point.s()))
+      headings.set(2);
+    if(point.y > prev.y && !tileOccupied(point.n()))
+      headings.set(3);
+    if(headings.none()) {
+      // also blocked on the way back (e.g. another car) -> wait, don't die
+      return;
+    }
   }
 
   // bias the choice towards moving closer to the trip destination (Manhattan
@@ -428,15 +478,29 @@ void Vehicle::getNewHeadings() {
 
 void
 Vehicle::update(unsigned long real_time) {
+  // playing the arriving animation: hold still, drift sideways towards the
+  // building, then disappear. No new heading or driving during this.
+  if(arriving) {
+    walk(real_time);
+    if(real_time >= arrival_start + ARRIVE_MS)
+      death_counter = 0;
+    if(death_counter <= 0)
+      delete this;
+    return;
+  }
+
   //get a new heading
   if(point == next)
     getNewHeadings();
-  // check if it is time to make a step. If we are blocked (no heading was
-  // chosen because another car occupies every exit), point == next and we
-  // simply wait: retry the heading on the next update without driving. A
-  // blocked car fades out quickly (MAX_WAIT_TICKS) so vehicles never look
-  // permanently stacked on the same stretch of road.
+  // If we are blocked (no heading was chosen because another car occupies
+  // every exit), point == next and we simply wait: retry the heading on the
+  // next update without driving. A blocked car fades out quickly
+  // (wait_ticks) so vehicles never look permanently stacked.
   if(point == next) {
+    if(death_counter <= 0) {
+      delete this;
+      return;
+    }
     if(real_time > anim) {
       anim = real_time + speed;
       if(--wait_ticks <= 0)
@@ -446,17 +510,21 @@ Vehicle::update(unsigned long real_time) {
   }
   if(real_time > anim) { //move to dest
     drive();
-    // let the car disappear when it reaches its destination road tile (as if
-    // it had arrived at a building's front door). It must first leave its
-    // spawn building behind, so only consider reaching the destination after
-    // a minimum travel distance (death_counter counts down from 100 per tile
-    // driven). Cars that never reach a building still die from the lifespan
-    // fallback.
+    // let the car start its arrival animation when it reaches its destination
+    // road tile (as if it had arrived at a building's front door). It must
+    // first leave its spawn building behind, so only consider reaching the
+    // destination after a minimum travel distance (death_counter counts down
+    // from 100 per tile driven). Cars that never reach a building still die
+    // from the lifespan fallback.
     if(destination != point
       && death_counter <= 100 - MIN_VEHICLE_TRIP
-      && point == destination
+      && std::abs(destination.x - point.x) + std::abs(destination.y - point.y) <= 1
     ) {
-      death_counter = 0;
+      arriving = true;
+      arrival_start = real_time;
+      // drift towards the side of the road the destination building is on
+      arrival_side = buildingDirection(destination);
+      return; // wait for the arrival animation to finish
     }
     if (frameIt->frame < 0)
       anim = real_time + 50;

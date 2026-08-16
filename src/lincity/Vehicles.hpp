@@ -72,6 +72,11 @@ public:
   int death_counter;
   // ticks left before a blocked car gives up and disappears (anti-deadlock)
   int wait_ticks;
+  // true while the car plays its "arriving" animation at the destination
+  bool arriving;
+  unsigned long arrival_start;
+  // lateral direction the car turns while arriving (0=left,1=right)
+  int arrival_side;
   bool turn_left;
   unsigned int headings;
   int direction;
@@ -86,6 +91,9 @@ public:
   int speed0, speed, anim;
   void update(unsigned long real_time);
 
+  // how long the "arriving" animation lasts (milliseconds)
+  static const unsigned long ARRIVE_MS = 500;
+
 
   static std::list<Vehicle*> vehicleList;
 
@@ -95,6 +103,7 @@ private:
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
   void pickDestination(); //choose a nearby building as the trip destination
   bool tileOccupied(MapPoint p) const; //true if another vehicle already occupies the tile
+  int buildingDirection(MapPoint p) const; //which neighbor of p is a building (0=N,1=S,2=E,3=W, -1 none)
   void drive();          //advance position by 1 tile
   void walk(unsigned long real_time);           //change the offset of the sprite and evetually choose a tile to attach it to
   void move_frame(MapPoint newPoint); //place the frame on the map aka *world(idx)

@@ -739,9 +739,7 @@ void Construction::trade()
                         ) {
                           world.vehicleList.push_back(
                             new Vehicle(world, point,
-                              VEHICLE_BLUECAR, (flow > 0)
-                                ? VEHICLE_STRATEGY_MAXIMIZE
-                                : VEHICLE_STRATEGY_MINIMIZE
+                              VEHICLE_BLUECAR, VEHICLE_STRATEGY_RANDOM
                             )
                           );
                         }
