@@ -787,7 +787,9 @@ MiniMap::getColor(MapTile& tile) const {
       return makeGrey(getColorNormal(tile));
   }
   case UB40: {
-    /* Display residence with un/employed people (red / green) == too many people here */
+    /* Display residences with real unemployment (bright red), residences
+     * with a full labor inventory but no unemployment (dark red, per #79),
+     * and buildings with unsatisfied requests for labor (yellow/orange). */
     int job_level = tile.reportingConstruction
       ? tile.reportingConstruction->tellstuff(STUFF_LABOR, -1)
       : -1;
@@ -795,13 +797,14 @@ MiniMap::getColor(MapTile& tile) const {
       return makeGrey(getColorNormal(tile));
     }
     if(tile.is_residence()) {
-      if(job_level > 95 * TRANSPORT_QUANTA / 100)
-        return Color(0xFF,0,0);
-      else if(job_level > 90 * TRANSPORT_QUANTA / 100)
-        return Color(0x7F,0,0);
+      bool employed = tile.reportingConstruction
+        && (tile.reportingConstruction->flags & FLAG_EMPLOYED);
+      if(!employed)
+        return Color(0xFF,0,0); // real unemployment (bright red)
+      else if(job_level > 95 * TRANSPORT_QUANTA / 100)
+        return Color(0x7F,0,0); // full labor inventory, no unemployment (dark red)
       else
         return makeGrey(getColorNormal(tile));
-        //return Color(0,0xFF,0);
     }
 
     /* display buildings with unsatisfied requests for labor (yellow) == too few people here */
