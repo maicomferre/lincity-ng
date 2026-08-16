@@ -61,6 +61,7 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
   this->initial_cargo = world.map(point)->reportingConstruction
     ? world.map(point)->reportingConstruction->tellstuff(stuff_id,-2)
     : -1;
+  pickDestination();
 
   frameIt = world.map(point)->createframe();
   frameIt->frame = -2; //special value to indicate fresh fast forward car
@@ -324,6 +325,29 @@ bool Vehicle::acceptable_heading(MapPoint dest) {
 }
 
 
+void Vehicle::pickDestination() {
+  // find a real building (not transport, not transparent) to drive towards.
+  // Skip the closest ring so cars actually travel a few blocks instead of
+  // stopping at the first building next door.
+  destination = point;
+  for(int r = 5; r <= 18; ++r) {
+    for(int dx = -r; dx <= r; ++dx) {
+      for(int dy = -r; dy <= r; ++dy) {
+        if(std::abs(dx) != r && std::abs(dy) != r) continue; // ring only
+        MapPoint cand(point.x + dx, point.y + dy);
+        if(!world.map.is_inside(cand)) continue;
+        if(cand == origin) continue;
+        Construction *cst = world.map(cand)->reportingConstruction;
+        if(!cst) continue;
+        if(cst->flags & (FLAG_IS_TRANSPORT | FLAG_TRANSPARENT)) continue;
+        destination = cand;
+        return;
+      }
+    }
+  }
+}
+
+
 void Vehicle::getNewHeadings() {
   std::bitset<4> headings;
 
@@ -339,13 +363,26 @@ void Vehicle::getNewHeadings() {
     return;
   }
 
-  //choose a random branch
-  int choice = std::discrete_distribution({ // std::bitset has no iterator smh
-    headings[0] ? 1. : 0.,
-    headings[1] ? 1. : 0.,
-    headings[2] ? 1. : 0.,
-    headings[3] ? 1. : 0.
-  })(BasicUrbg::get());
+  // bias the choice towards moving closer to the trip destination (Manhattan
+  // distance). Branches that reduce the distance get extra weight, so cars
+  // visibly drive towards a building instead of wandering randomly.
+  MapPoint branches[4] = {point.e(), point.w(), point.n(), point.s()};
+  float weights[4] = {0, 0, 0, 0};
+  int dx = destination.x - point.x;
+  int dy = destination.y - point.y;
+  for(int i = 0; i < 4; ++i) {
+    if(!headings[i]) continue;
+    weights[i] = 1.f;
+    if(destination != point) {
+      int ndx = destination.x - branches[i].x;
+      int ndy = destination.y - branches[i].y;
+      if(std::abs(ndx) + std::abs(ndy) < std::abs(dx) + std::abs(dy))
+        weights[i] += 8.f; // towards the goal
+    }
+  }
+
+  int choice = std::discrete_distribution({weights[0], weights[1],
+    weights[2], weights[3]})(BasicUrbg::get());
 
   //set the next destination
   switch(choice) {
@@ -365,14 +402,14 @@ Vehicle::update(unsigned long real_time) {
   // check if it is time to make a step
   if(real_time > anim) { //move to dest
     drive();
-    // let the car disappear when it reaches another building (as if it had
-    // arrived there). It must first leave its spawn building behind, so
-    // only consider reaching a destination after a minimum travel distance
-    // (death_counter counts down from 100 per tile driven). Cars that never
-    // reach a building still die from the lifespan fallback below.
-    if(point != origin
+    // let the car disappear when it reaches its destination building (as if
+    // it had arrived there). It must first leave its spawn building behind,
+    // so only consider reaching the destination after a minimum travel
+    // distance (death_counter counts down from 100 per tile driven). Cars
+    // that never reach a building still die from the lifespan fallback.
+    if(destination != point
       && death_counter <= 100 - MIN_VEHICLE_TRIP
-      && world.hasBuildingNeighbor(point)
+      && std::abs(destination.x - point.x) + std::abs(destination.y - point.y) <= 1
     ) {
       death_counter = 0;
     }

@@ -39,8 +39,9 @@ struct ExtraFrame;
 #define COMMUTER_TRAFFIC_RATE 1024
 
 /* minimum number of tiles a vehicle must drive before it may disappear by
- * reaching another building (so it visibly leaves its spawn building) */
-#define MIN_VEHICLE_TRIP 10
+ * reaching its destination building (so it visibly leaves its spawn building
+ * and covers a few blocks rather than vanishing after a single one) */
+#define MIN_VEHICLE_TRIP 40
 
 enum VehicleModel {
   VEHICLE_BLUECAR,
@@ -65,6 +66,8 @@ public:
   MapPoint point, next, prev, old1, old2;
   // where the car spawned; used to only die when reaching another building
   MapPoint origin;
+  // building the car is driving towards (its trip destination)
+  MapPoint destination;
   float xr, yr;
   int death_counter;
   bool turn_left;
@@ -88,6 +91,7 @@ public:
 private:
   void getNewHeadings(); //plan ahead for 2 tiles
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
+  void pickDestination(); //choose a nearby building as the trip destination
   void drive();          //advance position by 1 tile
   void walk(unsigned long real_time);           //change the offset of the sprite and evetually choose a tile to attach it to
   void move_frame(MapPoint newPoint); //place the frame on the map aka *world(idx)
