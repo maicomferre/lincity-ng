@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lincity-ng 2.15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-15 14:33-0300\n"
+"POT-Creation-Date: 2026-08-16 19:13-0300\n"
 "PO-Revision-Date: 2026-08-15 15:00-0300\n"
 "Last-Translator: maicomferre <maicomferre@users.noreply.github.com>\n"
 "Language-Team: Portuguese/Brazil <gnome-l10n-br@listas.cipsga.org.br>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
 msgid "requires"
 msgstr "requer"
 
@@ -27,332 +28,328 @@ msgstr "requer"
 msgid "tech level"
 msgstr "Nível Tecnológico"
 
-#: src/lincity-ng/ButtonPanel.cpp:351 src/lincity-ng/GameView.cpp:1541
-#: src/lincity-ng/GameView.cpp:1553 src/lincity-ng/GameView.cpp:1582
-#: src/lincity-ng/GameView.cpp:1583 src/lincity-ng/GameView.cpp:1586
-#: src/lincity-ng/GameView.cpp:1595 src/lincity-ng/GameView.cpp:1596
-#: src/lincity-ng/ScreenInterface.cpp:95 data/gui/minimap.xml:37
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1705
+#: src/lincity-ng/GameView.cpp:1717 src/lincity-ng/GameView.cpp:1751
+#: src/lincity-ng/GameView.cpp:1752 src/lincity-ng/GameView.cpp:1755
+#: src/lincity-ng/GameView.cpp:1764 src/lincity-ng/GameView.cpp:1765
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "$"
 
-#: src/lincity-ng/ButtonPanel.cpp:368
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr "escolas; você tem"
+
+#: src/lincity-ng/ButtonPanel.cpp:373
 msgid "Query Tool"
 msgstr "Ferr. de Pesquisa"
 
-#: src/lincity-ng/ButtonPanel.cpp:373
+#: src/lincity-ng/ButtonPanel.cpp:378
 msgid ": 50 tenants, low birthrate, high deathrate"
 msgstr "Residencial: 50 habitantes, baixo índice de natalidade, alta mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:376
+#: src/lincity-ng/ButtonPanel.cpp:381
 msgid ": 100 tenants, high birthrate, low deathrate"
 msgstr "Residencial: 100 habitantes, alto índice de natalidade, baixa mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:379
+#: src/lincity-ng/ButtonPanel.cpp:384
 msgid ": 200 tenants, high birthrate, high deathrate"
 msgstr "Residencial: 200 habitantes, alto índice de natalidade, alta mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:382
+#: src/lincity-ng/ButtonPanel.cpp:387
 msgid ": 100 tenants, low birthrate, high deathrate"
 msgstr "Residencial: 100 habitantes, baixo índice de natalidade, alta mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:385
+#: src/lincity-ng/ButtonPanel.cpp:390
 msgid ": 200 tenants, high birthrate, low deathrate"
 msgstr "Residencial: 200 habitantes, alto índice de natalidade, baixa mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:388
+#: src/lincity-ng/ButtonPanel.cpp:393
 msgid ": 400 tenants, high birthrate, high deathrate"
 msgstr "Residencial: 400 habitantes, alto índice de natalidade, alta mortalidade"
 
-#: src/lincity-ng/ButtonPanel.cpp:393
+#: src/lincity-ng/ButtonPanel.cpp:398
 msgid "Bulldozer"
 msgstr "Niveladora"
 
-#: src/lincity-ng/ButtonPanel.cpp:395
+#: src/lincity-ng/ButtonPanel.cpp:400
 msgid "Evacuate"
 msgstr "Evacuar"
 
-#: src/lincity-ng/ButtonPanel.cpp:397 src/lincity-ng/GameView.cpp:1595
-#: src/lincity/commodities.cpp:47 src/lincity/modules/tile.cpp:34
-#: src/lincity/modules/tile.cpp:35 data/gui/pbar2nd.xml:106
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1764
 msgid "Water"
 msgstr "Água"
 
-#: src/lincity-ng/ButtonPanel.cpp:401
+#: src/lincity-ng/ButtonPanel.cpp:406
 msgid "Click right for help."
 msgstr "Clique com o botão direito para obter ajuda."
 
-#: src/lincity-ng/Config.cpp:416
+#: src/lincity-ng/Config.cpp:432
 msgid "show version and exit"
 msgstr "mostrar a versão e sair"
 
-#: src/lincity-ng/Config.cpp:417
+#: src/lincity-ng/Config.cpp:433
 msgid "show this text and exit"
 msgstr "mostrar este texto e sair"
 
-#: src/lincity-ng/Config.cpp:418
+#: src/lincity-ng/Config.cpp:434
 msgid "use OpenGL"
 msgstr "usar OpenGL"
 
-#: src/lincity-ng/Config.cpp:419
+#: src/lincity-ng/Config.cpp:435
 msgid "use SDL"
 msgstr "usar SDL"
 
-#: src/lincity-ng/Config.cpp:420
+#: src/lincity-ng/Config.cpp:436
 msgid "<width>x<height>"
 msgstr "<largura>x<altura>"
 
-#: src/lincity-ng/Config.cpp:421
+#: src/lincity-ng/Config.cpp:437
 msgid "specify screensize (eg. -S 1024x768)"
 msgstr "especificar o tamanho da tela (ex.: -S 1024x768)"
 
-#: src/lincity-ng/Config.cpp:422
+#: src/lincity-ng/Config.cpp:438
 msgid "run in window"
 msgstr "executar em janela"
 
-#: src/lincity-ng/Config.cpp:423
+#: src/lincity-ng/Config.cpp:439
 msgid "run fullscreen"
 msgstr "executar em tela cheia"
 
-#: src/lincity-ng/Config.cpp:424
+#: src/lincity-ng/Config.cpp:440
 msgid "mute audio"
 msgstr "silenciar o áudio"
 
-#: src/lincity-ng/Config.cpp:425
+#: src/lincity-ng/Config.cpp:441
 msgid "<file>"
 msgstr "<arquivo>"
 
-#: src/lincity-ng/Config.cpp:425
+#: src/lincity-ng/Config.cpp:441
 msgid "configuration file location"
 msgstr "local do arquivo de configuração"
 
-#: src/lincity-ng/Config.cpp:426 src/lincity-ng/Config.cpp:427
+#: src/lincity-ng/Config.cpp:442 src/lincity-ng/Config.cpp:443
 msgid "<dir>"
 msgstr "<diretório>"
 
-#: src/lincity-ng/Config.cpp:426
+#: src/lincity-ng/Config.cpp:442
 msgid "app data location"
 msgstr "local dos dados do aplicativo"
 
-#: src/lincity-ng/Config.cpp:427
+#: src/lincity-ng/Config.cpp:443
 msgid "user data location"
 msgstr "local dos dados do usuário"
 
-#: src/lincity-ng/Dialog.cpp:167
+#: src/lincity-ng/Dialog.cpp:204
 msgid "Launchsite"
 msgstr "Base de lançamento"
 
-#: src/lincity-ng/Dialog.cpp:272
+#: src/lincity-ng/Dialog.cpp:317
 msgid "Game statistics from LinCity-NG Version"
 msgstr "Estatísticas de jogo da versão do LinCity-NG"
 
-#: src/lincity-ng/Dialog.cpp:275
+#: src/lincity-ng/Dialog.cpp:320
 msgid "Initial loaded scene"
 msgstr "Cena inicial carregada"
 
-#: src/lincity-ng/Dialog.cpp:279
+#: src/lincity-ng/Dialog.cpp:324
 msgid "Economy is sustainable"
 msgstr "A economia é sustentável"
 
-#: src/lincity-ng/Dialog.cpp:283 src/lincity-ng/Mps.cpp:477
-#: data/gui/pbar2nd.xml:22 data/gui/pbar.xml:22
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
 msgid "Population"
 msgstr "População"
 
-#: src/lincity-ng/Dialog.cpp:284
+#: src/lincity-ng/Dialog.cpp:329
 msgid "of which"
 msgstr "das quais"
 
-#: src/lincity-ng/Dialog.cpp:284
+#: src/lincity-ng/Dialog.cpp:329
 msgid "are not housed"
 msgstr "não estão alojados"
 
-#: src/lincity-ng/Dialog.cpp:287
+#: src/lincity-ng/Dialog.cpp:332
 msgid "Max population"
 msgstr "População máxima"
 
-#: src/lincity-ng/Dialog.cpp:288
+#: src/lincity-ng/Dialog.cpp:333
 msgid "Number evacuated"
 msgstr "Número de evacuados"
 
-#: src/lincity-ng/Dialog.cpp:289
+#: src/lincity-ng/Dialog.cpp:334
 msgid "Total births"
 msgstr "Total de nascimentos"
 
-#: src/lincity-ng/Dialog.cpp:292
+#: src/lincity-ng/Dialog.cpp:337
 msgid "Date"
 msgstr "Data"
 
-#: src/lincity-ng/Dialog.cpp:293 src/lincity-ng/EconomyGraph.cpp:116
-#: data/gui/pbar2nd.xml:50 data/gui/pbar.xml:50
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
 msgid "Money"
 msgstr "Dinheiro"
 
-#: src/lincity-ng/Dialog.cpp:294
+#: src/lincity-ng/Dialog.cpp:339
 msgid "Tech-level"
 msgstr "Nível tecnológico"
 
-#: src/lincity-ng/Dialog.cpp:298
+#: src/lincity-ng/Dialog.cpp:343
 msgid "Deaths by starvation"
 msgstr "Mortes por fome"
 
-#: src/lincity-ng/Dialog.cpp:299 src/lincity-ng/Dialog.cpp:303
-#: src/lincity-ng/Dialog.cpp:307
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
 msgid "History"
 msgstr "Histórico"
 
-#: src/lincity-ng/Dialog.cpp:302
+#: src/lincity-ng/Dialog.cpp:347
 msgid "Deaths from pollution"
 msgstr "Mortes por poluição"
 
-#: src/lincity-ng/Dialog.cpp:306
+#: src/lincity-ng/Dialog.cpp:351
 msgid "Years of unemployment"
 msgstr "Anos de desemprego"
 
-#: src/lincity-ng/Dialog.cpp:310
+#: src/lincity-ng/Dialog.cpp:355
 msgid "Rockets launched"
 msgstr "Foguetes lançados"
 
-#: src/lincity-ng/Dialog.cpp:311
+#: src/lincity-ng/Dialog.cpp:356
 msgid "Successful launches"
 msgstr "Lançamentos bem-sucedidos"
 
-#: src/lincity-ng/Dialog.cpp:319 src/lincity/modules/residence.cpp:43
-#: src/lincity/modules/residence.cpp:58 src/lincity/modules/residence.cpp:73
-#: src/lincity/modules/residence.cpp:88 src/lincity/modules/residence.cpp:103
-#: src/lincity/modules/residence.cpp:118
+#: src/lincity-ng/Dialog.cpp:364
 msgid "Residences"
 msgstr "Residências"
 
-#: src/lincity-ng/Dialog.cpp:326 src/lincity/modules/market.cpp:50
+#: src/lincity-ng/Dialog.cpp:371
 msgid "Markets"
 msgstr "Mercados"
 
-#: src/lincity-ng/Dialog.cpp:327 src/lincity/modules/organic_farm.cpp:44
+#: src/lincity-ng/Dialog.cpp:372
 msgid "Farms"
 msgstr "Fazendas"
 
-#: src/lincity-ng/Dialog.cpp:329
+#: src/lincity-ng/Dialog.cpp:374
 msgid "Water wells"
 msgstr "Poços"
 
-#: src/lincity-ng/Dialog.cpp:330 src/lincity/modules/windmill.cpp:45
+#: src/lincity-ng/Dialog.cpp:375
 msgid "Windmills"
 msgstr "Moinhos de vento"
 
-#: src/lincity-ng/Dialog.cpp:337 src/lincity/modules/monument.cpp:43
+#: src/lincity-ng/Dialog.cpp:382
 msgid "Monuments"
 msgstr "Monumentos"
 
-#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/Mps.cpp:463
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
 msgid "Schools"
 msgstr "Escolas"
 
-#: src/lincity-ng/Dialog.cpp:339 src/lincity/modules/university.cpp:41
+#: src/lincity-ng/Dialog.cpp:384
 msgid "Universities"
 msgstr "Universidades"
 
-#: src/lincity-ng/Dialog.cpp:341
+#: src/lincity-ng/Dialog.cpp:386
 msgid "Fire stations"
 msgstr "Corpo de Bombeiros"
 
-#: src/lincity-ng/Dialog.cpp:342 src/lincity/modules/parkland.cpp:38
+#: src/lincity-ng/Dialog.cpp:387
 msgid "Parks"
 msgstr "Parques"
 
-#: src/lincity-ng/Dialog.cpp:345
+#: src/lincity-ng/Dialog.cpp:390
 msgid "Sports fields"
 msgstr "Quadras de esporte"
 
-#: src/lincity-ng/Dialog.cpp:347
+#: src/lincity-ng/Dialog.cpp:392
 msgid "Health centres"
 msgstr "Centros de saúde"
 
-#: src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:393
 msgid "Tips"
 msgstr "Aterros"
 
-#: src/lincity-ng/Dialog.cpp:349 src/lincity-ng/Mps.cpp:484
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
 msgid "Shanties"
 msgstr "Favelados"
 
-#: src/lincity-ng/Dialog.cpp:355
+#: src/lincity-ng/Dialog.cpp:400
 msgid "Wind powers"
 msgstr "Parques eólicos"
 
-#: src/lincity-ng/Dialog.cpp:356
+#: src/lincity-ng/Dialog.cpp:401
 msgid "Coal powers"
 msgstr "EE Carvão"
 
-#: src/lincity-ng/Dialog.cpp:357
+#: src/lincity-ng/Dialog.cpp:402
 msgid "Solar powers"
 msgstr "EE Solar"
 
-#: src/lincity-ng/Dialog.cpp:359
+#: src/lincity-ng/Dialog.cpp:404
 msgid "Substations"
 msgstr "Sub-estações"
 
-#: src/lincity-ng/Dialog.cpp:360
+#: src/lincity-ng/Dialog.cpp:405
 msgid "Power lines"
 msgstr "Linhas de transmissão"
 
-#: src/lincity-ng/Dialog.cpp:361 src/lincity/modules/port.cpp:42
+#: src/lincity-ng/Dialog.cpp:406
 msgid "Ports"
 msgstr "Portos"
 
-#: src/lincity-ng/Dialog.cpp:363 src/lincity/modules/track_road_rail.cpp:49
+#: src/lincity-ng/Dialog.cpp:408
 msgid "Tracks"
 msgstr "Trilhas"
 
-#: src/lincity-ng/Dialog.cpp:366 src/lincity/modules/track_road_rail.cpp:81
+#: src/lincity-ng/Dialog.cpp:411
 msgid "Roads"
 msgstr "Estradas"
 
-#: src/lincity-ng/Dialog.cpp:369 src/lincity/modules/track_road_rail.cpp:112
+#: src/lincity-ng/Dialog.cpp:414
 msgid "Rail"
 msgstr "Trilho"
 
-#: src/lincity-ng/Dialog.cpp:377 src/lincity/modules/pottery.cpp:41
+#: src/lincity-ng/Dialog.cpp:422
 msgid "Potteries"
 msgstr "Olarias"
 
-#: src/lincity-ng/Dialog.cpp:378 src/lincity/modules/blacksmith.cpp:41
+#: src/lincity-ng/Dialog.cpp:423
 msgid "Blacksmiths"
 msgstr "Ferreiros"
 
-#: src/lincity-ng/Dialog.cpp:379
+#: src/lincity-ng/Dialog.cpp:424
 msgid "Mills"
 msgstr "Moinhos"
 
-#: src/lincity-ng/Dialog.cpp:381
+#: src/lincity-ng/Dialog.cpp:426
 msgid "Light inds"
 msgstr "Ind. Leve"
 
-#: src/lincity-ng/Dialog.cpp:382
+#: src/lincity-ng/Dialog.cpp:427
 msgid "Heavy inds"
 msgstr "Ind. Pesada"
 
-#: src/lincity-ng/Dialog.cpp:383
+#: src/lincity-ng/Dialog.cpp:428
 msgid "Recyclers"
 msgstr "Centros de Reciclagem"
 
-#: src/lincity-ng/Dialog.cpp:385
+#: src/lincity-ng/Dialog.cpp:430
 msgid "Coal mines"
 msgstr "Minas de carvão"
 
-#: src/lincity-ng/Dialog.cpp:386
+#: src/lincity-ng/Dialog.cpp:431
 msgid "Ore mines"
 msgstr "Minas de minério"
 
-#: src/lincity-ng/Dialog.cpp:387 src/lincity/modules/commune.cpp:43
-#: src/lincity/modules/tile.cpp:111
+#: src/lincity-ng/Dialog.cpp:432
 msgid "Forests"
 msgstr "Florestas"
 
-#: src/lincity-ng/Dialog.cpp:543 src/lincity/modules/market.cpp:49
+#: src/lincity-ng/Dialog.cpp:646
 msgid "Market"
 msgstr "Mercado"
 
-#: src/lincity-ng/Dialog.cpp:612 src/lincity/modules/port.cpp:41
+#: src/lincity-ng/Dialog.cpp:715
 msgid "Port"
 msgstr "Porto"
 
@@ -372,7 +369,7 @@ msgstr "Popul."
 msgid "Techn."
 msgstr "Tecn."
 
-#: src/lincity-ng/EconomyGraph.cpp:122 src/lincity/modules/fire.cpp:44
+#: src/lincity-ng/EconomyGraph.cpp:122
 msgid "Fire"
 msgstr "Fogo"
 
@@ -388,634 +385,699 @@ msgstr "Sustentabilidade:"
 msgid "Frames per Second:"
 msgstr "Quadros por Segundo:"
 
-#: src/lincity-ng/Game.cpp:252
+#: src/lincity-ng/Game.cpp:268
 msgid "New Invention!"
 msgstr "Nova Invenção!"
 
-#: src/lincity-ng/Game.cpp:253
+#: src/lincity-ng/Game.cpp:269
+#, c++-format
 msgid "{} Available"
 msgstr "{} Disponível"
 
-#: src/lincity-ng/Game.cpp:254
+#: src/lincity-ng/Game.cpp:270
+#, c++-format
 msgid "You have reached the tech level which enables you to build {}. See the help screen for more information about this type of building."
 msgstr "Você alcançou o nível tecnológico que permite construir {}. Consulte a tela de ajuda para mais informações sobre este tipo de construção."
 
-#: src/lincity-ng/Game.cpp:374
+#: src/lincity-ng/Game.cpp:390
+#, c++-format
 msgid "Bulldozing a {} costs a lot of money."
 msgstr "Demolir um(a) {} custa muito dinheiro."
 
-#: src/lincity-ng/Game.cpp:739
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr "Carregando… {} / {}"
+
+#: src/lincity-ng/Game.cpp:520
+msgid "Loading…"
+msgstr "Carregando…"
+
+#: src/lincity-ng/Game.cpp:848
 msgid "Fire!"
 msgstr "Fogo!"
 
-#: src/lincity-ng/Game.cpp:740
+#: src/lincity-ng/Game.cpp:849
 msgid "A Fire has Started"
 msgstr "Um Incêndio Começou"
 
-#: src/lincity-ng/Game.cpp:741
+#: src/lincity-ng/Game.cpp:850
 #, c++-format
 msgid "A fire has broken out in a {}! You should address this promptly before the whole city burns down."
 msgstr "Um incêndio começou em um(a) {}! Você deve resolvê-lo rapidamente antes que a cidade inteira queime."
 
-#: src/lincity-ng/Game.cpp:753 src/lincity-ng/Game.cpp:764
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
 msgid "Warning!"
 msgstr "Atenção!"
 
-#: src/lincity-ng/Game.cpp:754
+#: src/lincity-ng/Game.cpp:863
 msgid "Out of Credit"
 msgstr "Sem Crédito"
 
-#: src/lincity-ng/Game.cpp:755
+#: src/lincity-ng/Game.cpp:864
 msgid "You are deep in debt and at the end of your credit line. You are about to find out what happens when government checks bounce."
 msgstr "Você está muito endividado e chegou ao limite do seu crédito. Você está prestes a descobrir o que acontece quando os cheques do governo não são compensados."
 
-#: src/lincity-ng/Game.cpp:765
+#: src/lincity-ng/Game.cpp:874
 msgid "Out of Money"
 msgstr "Sem Dinheiro"
 
-#: src/lincity-ng/Game.cpp:766
+#: src/lincity-ng/Game.cpp:875
 msgid "You just spent all your money. Further spending will require you to take out a loan which you must pay interest on. And certain projects you are not allowed to pay for with credit. The legislative council strongly advises you learn to budget."
 msgstr "Você acabou de gastar todo o seu dinheiro. Gastos adicionais exigirão um empréstimo, sobre o qual você deverá pagar juros. Além disso, certos projetos não podem ser pagos com crédito. O conselho legislativo recomenda fortemente que você aprenda a fazer orçamento."
 
-#: src/lincity-ng/Game.cpp:780
+#: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
 msgstr "Foguete Pronto"
 
-#: src/lincity-ng/Game.cpp:781
+#: src/lincity-ng/Game.cpp:890
 msgid "A Rocket is Ready for Launch"
 msgstr "Um Foguete Está Pronto para o Lançamento"
 
-#: src/lincity-ng/Game.cpp:782
+#: src/lincity-ng/Game.cpp:891
 #, c++-format
 msgid "The rocket at {} has finished construction and is ready for takeoff. You may choose to launch now or later. If you choose to wait, beware it costs money to keep the rocket in tip-top shape until launch day."
 msgstr "O foguete em {} terminou a construção e está pronto para decolar. Você pode lançá-lo agora ou mais tarde. Se optar por esperar, cuidado: manter o foguete em perfeito estado até o dia do lançamento custa dinheiro."
 
-#: src/lincity-ng/Game.cpp:787
+#: src/lincity-ng/Game.cpp:896
 msgid "Launch now?"
 msgstr "Lançar agora?"
 
-#: src/lincity-ng/Game.cpp:803
+#: src/lincity-ng/Game.cpp:912
 msgid "Rocket Launched"
 msgstr "Foguete Lançado"
 
-#: src/lincity-ng/Game.cpp:809
+#: src/lincity-ng/Game.cpp:918
 msgid "Rocket Crashed"
 msgstr "Foguete Caiu"
 
-#: src/lincity-ng/Game.cpp:810
+#: src/lincity-ng/Game.cpp:919
 msgid "Looks like your rocket technology leaves some to be desired. Thankfully this was a test flight, so no people were on board. The scientists say they have identified the cause of the crash and are confident future launches will go smoothly."
 msgstr "Parece que a sua tecnologia de foguetes deixa a desejar. Felizmente, este foi um voo de teste e ninguém estava a bordo. Os cientistas dizem que identificaram a causa do acidente e estão confiantes de que os próximos lançamentos ocorrerão sem problemas."
 
-#: src/lincity-ng/Game.cpp:818
+#: src/lincity-ng/Game.cpp:927
 msgid "Test Launch Successful"
 msgstr "Voo de Teste Bem-sucedido"
 
-#: src/lincity-ng/Game.cpp:819
+#: src/lincity-ng/Game.cpp:928
 msgid "The rocket successfully completed a test flight."
 msgstr "O foguete completou um voo de teste com sucesso."
 
-#: src/lincity-ng/Game.cpp:826
+#: src/lincity-ng/Game.cpp:935
 msgid "Evacuation Launch Successful"
 msgstr "Lançamento de Evacuação Bem-sucedido"
 
-#: src/lincity-ng/Game.cpp:827
+#: src/lincity-ng/Game.cpp:936
 msgid "You have successfully evacuated 1000 people. You may consider reducing the size of your economy appropriately."
 msgstr "Você evacuou 1000 pessoas. Você pode considerar reduzir o tamanho da sua economia de forma adequada."
 
-#: src/lincity-ng/Game.cpp:833
+#: src/lincity-ng/Game.cpp:942
 msgid "You Evacuated Everyone!"
 msgstr "Você Evacuou Todos!"
 
-#: src/lincity-ng/Game.cpp:834
+#: src/lincity-ng/Game.cpp:943
 msgid "Congratulations! You have successfully evacuated everyone from the city and won the game."
 msgstr "Parabéns! Você evacuou com sucesso todos os habitantes da cidade e venceu o jogo."
 
-#: src/lincity-ng/Game.cpp:846
+#: src/lincity-ng/Game.cpp:955
 msgid "You Lost!"
 msgstr "Você Perdeu!"
 
-#: src/lincity-ng/Game.cpp:847
+#: src/lincity-ng/Game.cpp:956
 msgid "Everyone Died!"
 msgstr "Todos Morreram!"
 
-#: src/lincity-ng/Game.cpp:848
+#: src/lincity-ng/Game.cpp:957
 msgid "Your leadership drove the city to ruin, and all the people died."
 msgstr "Sua liderança levou a cidade à ruína, e todas as pessoas morreram."
 
-#: src/lincity-ng/Game.cpp:858
+#: src/lincity-ng/Game.cpp:967
 msgid "You Won!"
 msgstr "Você Venceu!"
 
-#: src/lincity-ng/Game.cpp:859
+#: src/lincity-ng/Game.cpp:968
 msgid "Economy Sustainable"
 msgstr "Economia Sustentável"
 
-#: src/lincity-ng/Game.cpp:860
+#: src/lincity-ng/Game.cpp:969
 msgid "Well done! Thanks to your excellent leadership, the city council has determined the economy is sustainable and (at least theoretically) may continue indefinitely in prosperity. Therefore, you may retire from your position -- of course with a substantial pension."
 msgstr "Muito bem! Graças à sua excelente liderança, o conselho municipal concluiu que a economia é sustentável e (pelo menos teoricamente) pode continuar prosperando indefinidamente. Portanto, você pode se aposentar do cargo — claro, com uma pensão substancial."
 
-#: src/lincity-ng/Game.cpp:882
+#: src/lincity-ng/Game.cpp:991
 msgid "Cannot Build"
 msgstr "Não Pode Construir"
 
-#: src/lincity-ng/Game.cpp:884
+#: src/lincity-ng/Game.cpp:993
 #, c++-format
 msgid "Cannot build a {} here."
 msgstr "Não é possível construir um(a) {} aqui."
 
-#: src/lincity-ng/Game.cpp:884
+#: src/lincity-ng/Game.cpp:993
 #, c++-format
 msgid "Cannot build a {}."
 msgstr "Não é possível construir um(a) {}."
 
-#: src/lincity-ng/Game.cpp:892
+#: src/lincity-ng/Game.cpp:1001
 msgid "You do not have sufficient credit to build this."
 msgstr "Você não tem crédito suficiente para construir isto."
 
-#: src/lincity-ng/Game.cpp:896
+#: src/lincity-ng/Game.cpp:1005
 msgid "You cannot build this on credit."
 msgstr "Você não pode construir isto a crédito."
 
-#: src/lincity-ng/Game.cpp:903
+#: src/lincity-ng/Game.cpp:1012
 #, c++-format
 msgid "Your tech level is too low. Building a {} here requires {:.1f} tech level, but you have only {:.1f} tech level."
 msgstr "Seu nível tecnológico é muito baixo. Construir um(a) {} aqui requer nível tecnológico {:.1f}, mas você tem apenas {:.1f}."
 
-#: src/lincity-ng/Game.cpp:905
+#: src/lincity-ng/Game.cpp:1014
 #, c++-format
 msgid "Your tech level is too low. Building a {} requires {:.1f} tech level, but you have only {:.1f} tech level."
 msgstr "Seu nível tecnológico é muito baixo. Construir um(a) {} requer nível tecnológico {:.1f}, mas você tem apenas {:.1f}."
 
-#: src/lincity-ng/Game.cpp:915
+#: src/lincity-ng/Game.cpp:1024
 msgid "This space is occupied."
 msgstr "Este espaço está ocupado."
 
-#: src/lincity-ng/Game.cpp:920
+#: src/lincity-ng/Game.cpp:1029
 msgid "Silly! You cannot build outside the map."
 msgstr "Bobagem! Você não pode construir fora do mapa."
 
-#: src/lincity-ng/Game.cpp:926
+#: src/lincity-ng/Game.cpp:1035
 #, c++-format
 msgid "A {} needs water, but this space is desert."
 msgstr "Um(a) {} precisa de água, mas este espaço é deserto."
 
-#: src/lincity-ng/Game.cpp:932
+#: src/lincity-ng/Game.cpp:1041
 msgid "There are no ore reserves left here."
 msgstr "Não há mais reservas de minério aqui."
 
-#: src/lincity-ng/Game.cpp:953
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid "You need {} schools to support building a new University, but you only have {}."
+msgstr "Você precisa de {} escolas para apoiar a construção de uma nova Universidade, mas só tem {}."
+
+#: src/lincity-ng/Game.cpp:1069
 msgid "unrecognized reason"
 msgstr "motivo não reconhecido"
 
-#: src/lincity-ng/Game.cpp:964
+#: src/lincity-ng/Game.cpp:1080
 msgid "Cannot Bulldoze"
 msgstr "Não Pode Demolir"
 
-#: src/lincity-ng/Game.cpp:965
+#: src/lincity-ng/Game.cpp:1081
 #, c++-format
 msgid "Cannot bulldoze this {}."
 msgstr "Não é possível demolir este(a) {}."
 
-#: src/lincity-ng/Game.cpp:972
+#: src/lincity-ng/Game.cpp:1088
 msgid "You cannot bulldoze this land fill because it is full of waste."
 msgstr "Você não pode demolir este depósito de lixo porque ele está cheio de lixo."
 
-#: src/lincity-ng/Game.cpp:978
+#: src/lincity-ng/Game.cpp:1094
 msgid "You cannot bulldoze this monument because it is still under construction."
 msgstr "Você não pode demolir este monumento porque ele ainda está em construção."
 
-#: src/lincity-ng/Game.cpp:985
+#: src/lincity-ng/Game.cpp:1101
 #, c++-format
 msgid "You are not allowed to bulldoze {}."
 msgstr "Você não tem permissão para demolir {}."
 
-#: src/lincity-ng/Game.cpp:999
+#: src/lincity-ng/Game.cpp:1115
 #, c++-format
 msgid "You are not allowed to bulldoze this {}, but we're not exactly sure why."
 msgstr "Você não tem permissão para demolir este(a) {}, mas não sabemos exatamente por quê."
 
-#: src/lincity-ng/Game.cpp:1011
+#: src/lincity-ng/Game.cpp:1127
 msgid "Cannot Evacuate"
 msgstr "Não Pode Evacuar"
 
-#: src/lincity-ng/Game.cpp:1014
+#: src/lincity-ng/Game.cpp:1130
 #, c++-format
 msgid "Cannot evacuate {}."
 msgstr "Não é possível evacuar {}."
 
-#: src/lincity-ng/Game.cpp:1016
+#: src/lincity-ng/Game.cpp:1132
 #, c++-format
 msgid "You are not allowed to evacuate {}."
 msgstr "Você não tem permissão para evacuar {}."
 
-#: src/lincity-ng/GameView.cpp:1536
+#: src/lincity-ng/GameView.cpp:1674
+msgid "Bridge"
+msgstr "Ponte"
+
+#: src/lincity-ng/GameView.cpp:1681
+msgid "Bulldoze"
+msgstr "Demolir"
+
+#: src/lincity-ng/GameView.cpp:1700
 msgid "Estimated Bulldoze Cost: "
 msgstr "Custo Estimado de Demolição:"
 
-#: src/lincity-ng/GameView.cpp:1538
+#: src/lincity-ng/GameView.cpp:1702
 msgid "Bulldoze Cost: "
 msgstr "Custo de Demolição:"
 
-#: src/lincity-ng/GameView.cpp:1543 src/lincity-ng/GameView.cpp:1555
+#: src/lincity-ng/GameView.cpp:1707 src/lincity-ng/GameView.cpp:1719
 msgid "n/a"
 msgstr "n/d"
 
-#: src/lincity-ng/GameView.cpp:1551 src/lincity-ng/GameView.cpp:1582
-#: src/lincity-ng/GameView.cpp:1595
+#: src/lincity-ng/GameView.cpp:1715 src/lincity-ng/GameView.cpp:1751
+#: src/lincity-ng/GameView.cpp:1764
 msgid ": Cost to build "
 msgstr ": Custo de construção "
 
-#: src/lincity-ng/GameView.cpp:1573
+#: src/lincity-ng/GameView.cpp:1742
 msgid "Query Tool: Show information about selected building."
 msgstr "Ferr. de Pesquisa: Exibe informações sobre a construção selecionada."
 
-#: src/lincity-ng/GameView.cpp:1577
+#: src/lincity-ng/GameView.cpp:1746
 msgid "Bulldozer: remove building -price varies-"
 msgstr "Niveladora: remover construção -preço variável-"
 
-#: src/lincity-ng/GameView.cpp:1583 src/lincity-ng/GameView.cpp:1596
+#: src/lincity-ng/GameView.cpp:1752 src/lincity-ng/GameView.cpp:1765
 msgid ", to bulldoze "
 msgstr ", para demolir"
 
-#: src/lincity-ng/GameView.cpp:1585
+#: src/lincity-ng/GameView.cpp:1754
 msgid " To build "
 msgstr " Para construir "
 
-#: src/lincity-ng/GameView.cpp:1585
+#: src/lincity-ng/GameView.cpp:1754
 msgid " of them "
 msgstr " deles "
 
-#: src/lincity-ng/GameView.cpp:1586
+#: src/lincity-ng/GameView.cpp:1755
 msgid "will cost about "
 msgstr "custará em torno de "
 
-#: src/lincity-ng/GameView.cpp:1591
+#: src/lincity-ng/GameView.cpp:1760
 msgid "Evacuation of commodities is for free."
 msgstr "A evacuação de mercadorias é gratuita."
 
-#: src/lincity-ng/main.cpp:274
-#, c++-format
-msgid "starting {} ..."
-msgstr "iniciando {} ..."
-
-#: src/lincity-ng/MainLincity.cpp:107
+#: src/lincity-ng/MainLincity.cpp:108
 msgid "Error"
 msgstr "Erro"
 
-#: src/lincity-ng/MainLincity.cpp:108
+#: src/lincity-ng/MainLincity.cpp:109
 msgid "Error: Failed to load game."
 msgstr "Erro: falha ao carregar o jogo."
 
-#: src/lincity-ng/MainLincity.cpp:109
+#: src/lincity-ng/MainLincity.cpp:110
 #, c++-format
 msgid "Could not load {}."
 msgstr "Não foi possível carregar {}."
 
-#: src/lincity-ng/MainMenu.cpp:123
+#: src/lincity-ng/MainMenu.cpp:147
 msgid "Good Times"
 msgstr "Bons Tempos"
 
-#: src/lincity-ng/MainMenu.cpp:127
+#: src/lincity-ng/MainMenu.cpp:151
 msgid "Bad Times"
 msgstr "Maus Tempos"
 
-#: src/lincity-ng/MainMenu.cpp:131
+#: src/lincity-ng/MainMenu.cpp:155
 msgid "Extreme Arid"
 msgstr "Extremamente Árido"
 
-#: src/lincity-ng/MainMenu.cpp:135
+#: src/lincity-ng/MainMenu.cpp:159
 msgid "Extreme Wetland"
 msgstr "Extremamente Pantanoso"
 
-#: src/lincity-ng/MainMenu.cpp:139
+#: src/lincity-ng/MainMenu.cpp:163
 msgid "Beach"
 msgstr "Praia"
 
-#: src/lincity-ng/MainMenu.cpp:143
+#: src/lincity-ng/MainMenu.cpp:167
 msgid "Rocket 98"
 msgstr "Foguete 98"
 
-#: src/lincity-ng/MainMenu.cpp:155 src/lincity-ng/MainMenu.cpp:156
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
 msgid "empty"
 msgstr "vazio"
 
-#: src/lincity-ng/MainMenu.cpp:198
+#: src/lincity-ng/MainMenu.cpp:235
 msgid "river delta"
 msgstr "delta de rio"
 
-#: src/lincity-ng/MainMenu.cpp:204
+#: src/lincity-ng/MainMenu.cpp:241
 msgid "semi desert"
 msgstr "semi-deserto"
 
-#: src/lincity-ng/MainMenu.cpp:210
+#: src/lincity-ng/MainMenu.cpp:247
 msgid "temperate"
 msgstr "temperado"
 
-#: src/lincity-ng/MainMenu.cpp:216
+#: src/lincity-ng/MainMenu.cpp:253
 msgid "swamp"
 msgstr "pântano"
 
-#: src/lincity-ng/MainMenu.cpp:709
-msgid "Warning"
-msgstr "Atenção"
+#: src/lincity-ng/MainMenu.cpp:686
+msgid "Continue: game loaded."
+msgstr "Continuar: jogo carregado."
 
-#: src/lincity-ng/MainMenu.cpp:710
-msgid "Restart Required"
-msgstr "Reinício Necessário"
+#: src/lincity-ng/MainMenu.cpp:697
+msgid "A prosperous city with a strong economy, established industry and a high tech level."
+msgstr "Uma cidade próspera, com economia forte, indústria estabelecida e alto nível tecnológico."
+
+#: src/lincity-ng/MainMenu.cpp:700
+msgid "A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr "Uma cidade em dificuldades: dívidas, desemprego e indústria obsoleta. Um começo difícil."
+
+#: src/lincity-ng/MainMenu.cpp:703
+msgid "A small settlement in a harsh desert. Water is precious and farming is difficult."
+msgstr "Um pequeno assentamento em um deserto árido. A água é preciosa e a agricultura é difícil."
+
+#: src/lincity-ng/MainMenu.cpp:706
+msgid "A settlement surrounded by swamps. Land is scarce and flooding is a constant threat."
+msgstr "Um assentamento cercado por pântanos. A terra é escassa e as enchentes são uma ameaça constante."
+
+#: src/lincity-ng/MainMenu.cpp:709
+msgid "A coastal town with beaches and sea access."
+msgstr "Uma cidade costeira com praias e acesso ao mar."
 
 #: src/lincity-ng/MainMenu.cpp:711
-msgid "Changing the language requires restarting LinCity for changes to take full effect."
-msgstr "Alterar o idioma exige reiniciar o LinCity para que as mudanças tenham efeito completo."
+msgid "A space program town from 1998, with rocket pads and a busy transport network."
+msgstr "Uma cidade de programa espacial de 1998, com plataformas de foguete e uma rede de transporte movimentada."
 
-#: src/lincity-ng/MiniMap.cpp:1012
+#: src/lincity-ng/MainMenu.cpp:718
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr "Uma cidade nova em um delta de rio. O terreno é gerado aleatoriamente."
+
+#: src/lincity-ng/MainMenu.cpp:721
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr "Uma cidade nova em um semi-deserto. O terreno é gerado aleatoriamente."
+
+#: src/lincity-ng/MainMenu.cpp:724
+msgid "A brand new city in a temperate area. The terrain is generated randomly."
+msgstr "Uma cidade nova em uma área temperada. O terreno é gerado aleatoriamente."
+
+#: src/lincity-ng/MainMenu.cpp:727
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr "Uma cidade nova em uma área pantanosa. O terreno é gerado aleatoriamente."
+
+#: src/lincity-ng/MainMenu.cpp:755
+#, c++-format
+msgid "Map size: {}x{}"
+msgstr "Tamanho do mapa: {}x{}"
+
+#: src/lincity-ng/MainMenu.cpp:766
+msgid "Could not load this scenario."
+msgstr "Não foi possível carregar este cenário."
+
+#: src/lincity-ng/MainMenu.cpp:790
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | População {} | Tamanho {}x{}"
+
+#: src/lincity-ng/MainMenu.cpp:796
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | Tamanho {}x{}"
+
+#: src/lincity-ng/MainMenu.cpp:891
+msgid "New game started."
+msgstr "Novo jogo iniciado."
+
+#: src/lincity-ng/MiniMap.cpp:1019
 msgid "Minimap: outline map"
 msgstr "Minimapa: mapa do esboço"
 
-#: src/lincity-ng/MiniMap.cpp:1015
+#: src/lincity-ng/MiniMap.cpp:1022
 msgid "Minimap: unemployment"
 msgstr "Minimapa: desemprego"
 
-#: src/lincity-ng/MiniMap.cpp:1018
+#: src/lincity-ng/MiniMap.cpp:1025
 msgid "Minimap: pollution"
 msgstr "Minimapa: poluição"
 
-#: src/lincity-ng/MiniMap.cpp:1021
+#: src/lincity-ng/MiniMap.cpp:1028
 msgid "Minimap: nourishments"
 msgstr "Minimapa: alimentação"
 
-#: src/lincity-ng/MiniMap.cpp:1024
+#: src/lincity-ng/MiniMap.cpp:1031
 msgid "Minimap: power supply"
 msgstr "Minimapa: fornecimento de energia"
 
-#: src/lincity-ng/MiniMap.cpp:1027
+#: src/lincity-ng/MiniMap.cpp:1034
 msgid "Minimap: firedepartment cover"
 msgstr "Minimapa: cobertura contra fogo"
 
-#: src/lincity-ng/MiniMap.cpp:1030
+#: src/lincity-ng/MiniMap.cpp:1037
 msgid "Minimap: sport cover"
 msgstr "Minimapa: cobertura de esportes"
 
-#: src/lincity-ng/MiniMap.cpp:1033
+#: src/lincity-ng/MiniMap.cpp:1040
 msgid "Minimap: medical care"
 msgstr "Minimapa: cuidados médicos"
 
-#: src/lincity-ng/MiniMap.cpp:1036
+#: src/lincity-ng/MiniMap.cpp:1043
 msgid "Minimap: coal deposits"
 msgstr "Minimapa: depósitos de carvão"
 
-#: src/lincity-ng/MiniMap.cpp:1039
+#: src/lincity-ng/MiniMap.cpp:1046
 msgid "Minimap: traffic density"
 msgstr "Minimapa: densidade do tráfego"
 
-#: src/lincity-ng/MiniMap.cpp:1043
+#: src/lincity-ng/MiniMap.cpp:1050
 msgid "Minimap: commodities"
 msgstr "Minimapa: mercadorias"
 
-#: src/lincity-ng/Mps.cpp:275 src/lincity-ng/Mps.cpp:307
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
 msgid "Lake"
 msgstr "Lago"
 
-#: src/lincity-ng/Mps.cpp:277 src/lincity-ng/Mps.cpp:309
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
 msgid "River"
 msgstr "Rio"
 
-#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
 msgid "Pond"
 msgstr "Lagoa"
 
-#: src/lincity-ng/Mps.cpp:285
+#: src/lincity-ng/Mps.cpp:289
 msgid "no further information available"
 msgstr "sem mais informações disponíveis"
 
-#: src/lincity-ng/Mps.cpp:292
+#: src/lincity-ng/Mps.cpp:296
 msgid "build something here"
 msgstr "construir algo aqui"
 
-#: src/lincity-ng/Mps.cpp:302
+#: src/lincity-ng/Mps.cpp:306
 msgid "Fertile"
 msgstr "Fértil"
 
-#: src/lincity-ng/Mps.cpp:303 src/lincity-ng/Mps.cpp:319
-#: src/lincity-ng/Mps.cpp:322 src/lincity-ng/Mps.cpp:325
-#: src/lincity-ng/Mps.cpp:328 src/lincity/modules/cricket.cpp:150
-#: src/lincity/modules/firestation.cpp:155
-#: src/lincity/modules/health_centre.cpp:139
-#: src/lincity/modules/waterwell.cpp:108 data/gui/dialog.xml:49
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
 msgid "Yes"
 msgstr "Sim"
 
-#: src/lincity-ng/Mps.cpp:303 src/lincity-ng/Mps.cpp:319
-#: src/lincity-ng/Mps.cpp:322 src/lincity-ng/Mps.cpp:325
-#: src/lincity-ng/Mps.cpp:328 src/lincity/modules/cricket.cpp:150
-#: src/lincity/modules/firestation.cpp:155
-#: src/lincity/modules/health_centre.cpp:139
-#: src/lincity/modules/waterwell.cpp:108 data/gui/dialog.xml:41
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
 msgid "No"
 msgstr "Não"
 
-#: src/lincity-ng/Mps.cpp:318 src/lincity/modules/firestation.cpp:155
+#: src/lincity-ng/Mps.cpp:322
 msgid "Fire Protection"
 msgstr "Proteção contra Incêndio"
 
-#: src/lincity-ng/Mps.cpp:321 src/lincity/modules/health_centre.cpp:139
+#: src/lincity-ng/Mps.cpp:325
 msgid "Health Care"
 msgstr "Assistência Médica"
 
-#: src/lincity-ng/Mps.cpp:324
+#: src/lincity-ng/Mps.cpp:328
 msgid "Public Sports"
 msgstr "Esportes Públicos"
 
-#: src/lincity-ng/Mps.cpp:327
+#: src/lincity-ng/Mps.cpp:331
 msgid "Market Range"
 msgstr "Alcance do Mercado"
 
-#: src/lincity-ng/Mps.cpp:332
+#: src/lincity-ng/Mps.cpp:336
 msgid "clear"
 msgstr "limpo"
 
-#: src/lincity-ng/Mps.cpp:334
+#: src/lincity-ng/Mps.cpp:338
 msgid "good"
 msgstr "bom"
 
-#: src/lincity-ng/Mps.cpp:336
+#: src/lincity-ng/Mps.cpp:340
 msgid "fair"
 msgstr "razoável"
 
-#: src/lincity-ng/Mps.cpp:338
+#: src/lincity-ng/Mps.cpp:342
 msgid "smelly"
 msgstr "fedorento"
 
-#: src/lincity-ng/Mps.cpp:340
+#: src/lincity-ng/Mps.cpp:344
 msgid "smokey"
 msgstr "esfumaçado"
 
-#: src/lincity-ng/Mps.cpp:342
+#: src/lincity-ng/Mps.cpp:346
 msgid "smoggy"
 msgstr "poluído"
 
-#: src/lincity-ng/Mps.cpp:344
+#: src/lincity-ng/Mps.cpp:348
 msgid "bad"
 msgstr "mau"
 
-#: src/lincity-ng/Mps.cpp:346
+#: src/lincity-ng/Mps.cpp:350
 msgid "very bad"
 msgstr "muito mau"
 
-#: src/lincity-ng/Mps.cpp:348
+#: src/lincity-ng/Mps.cpp:352
 msgid "death!"
 msgstr "morte!"
 
-#: src/lincity-ng/Mps.cpp:350 src/lincity/modules/fire.cpp:157
-#: src/lincity/modules/parkland.cpp:99 src/lincity/modules/shanty.cpp:247
-#: src/lincity/modules/waterwell.cpp:104 data/gui/pbar2nd.xml:64
+#: src/lincity-ng/Mps.cpp:354
 msgid "Air Pollution"
 msgstr "Poluição do Ar"
 
-#: src/lincity-ng/Mps.cpp:353 src/lincity-ng/Mps.cpp:355
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
 msgid "Bull. Cost"
 msgstr "Custo de Demolição"
 
-#: src/lincity-ng/Mps.cpp:353
+#: src/lincity-ng/Mps.cpp:357
 msgid "N/A"
 msgstr "N/D"
 
-#: src/lincity-ng/Mps.cpp:357
+#: src/lincity-ng/Mps.cpp:361
 msgid "Ore Reserve"
 msgstr "Reserva de Minério"
 
-#: src/lincity-ng/Mps.cpp:358
+#: src/lincity-ng/Mps.cpp:362
 msgid "Coal Reserve"
 msgstr "Reserva de Carvão"
 
-#: src/lincity-ng/Mps.cpp:359
+#: src/lincity-ng/Mps.cpp:363
 msgid "ground level"
 msgstr "nível do solo"
 
-#: src/lincity-ng/Mps.cpp:367
+#: src/lincity-ng/Mps.cpp:371
 msgid "saddle point"
 msgstr "ponto de sela"
 
-#: src/lincity-ng/Mps.cpp:369
+#: src/lincity-ng/Mps.cpp:373
 msgid "minimum"
 msgstr "mínimo"
 
-#: src/lincity-ng/Mps.cpp:371
+#: src/lincity-ng/Mps.cpp:375
 msgid "maximum"
 msgstr "máximo"
 
-#: src/lincity-ng/Mps.cpp:373
+#: src/lincity-ng/Mps.cpp:377
 msgid "lowest edge"
 msgstr "borda mais baixa"
 
-#: src/lincity-ng/Mps.cpp:404
+#: src/lincity-ng/Mps.cpp:408
 msgid "Tax Income"
 msgstr "Receita de Impostos"
 
-#: src/lincity-ng/Mps.cpp:407
+#: src/lincity-ng/Mps.cpp:411
 msgid "Income"
 msgstr "Receita"
 
-#: src/lincity-ng/Mps.cpp:419 src/lincity/modules/port.cpp:212
+#: src/lincity-ng/Mps.cpp:427
 msgid "Export"
 msgstr "Exportar"
 
-#: src/lincity-ng/Mps.cpp:424
+#: src/lincity-ng/Mps.cpp:432
 msgid "Expenses"
 msgstr "Gastos"
 
-#: src/lincity-ng/Mps.cpp:427
+#: src/lincity-ng/Mps.cpp:435
 msgid "Unemp."
 msgstr "Desemp."
 
-#: src/lincity-ng/Mps.cpp:431
+#: src/lincity-ng/Mps.cpp:439
 msgid "Transport"
 msgstr "Transporte"
 
-#: src/lincity-ng/Mps.cpp:435
+#: src/lincity-ng/Mps.cpp:443
 msgid "Imports"
 msgstr "Importações"
 
-#: src/lincity-ng/Mps.cpp:448
+#: src/lincity-ng/Mps.cpp:456
 msgid "Others"
 msgstr "Outros"
 
-#: src/lincity-ng/Mps.cpp:453
+#: src/lincity-ng/Mps.cpp:461
 msgid "Net"
 msgstr "Líquido"
 
-#: src/lincity-ng/Mps.cpp:459
+#: src/lincity-ng/Mps.cpp:467
 msgid "Other Costs"
 msgstr "Outros Custos"
 
-#: src/lincity-ng/Mps.cpp:460
+#: src/lincity-ng/Mps.cpp:468
 msgid "For year"
 msgstr "Por ano"
 
-#: src/lincity-ng/Mps.cpp:462
+#: src/lincity-ng/Mps.cpp:470
 msgid "Interest"
 msgstr "Juros"
 
-#: src/lincity-ng/Mps.cpp:464
+#: src/lincity-ng/Mps.cpp:472
 msgid "Univers."
 msgstr "Universidades"
 
-#: src/lincity-ng/Mps.cpp:465
+#: src/lincity-ng/Mps.cpp:473
 msgid "Deaths"
 msgstr "Mortes"
 
-#: src/lincity-ng/Mps.cpp:466 src/lincity/modules/windmill.cpp:44
+#: src/lincity-ng/Mps.cpp:474
 msgid "Windmill"
 msgstr "Moinho de vento"
 
-#: src/lincity-ng/Mps.cpp:467 src/lincity/modules/health_centre.cpp:44
+#: src/lincity-ng/Mps.cpp:475
 msgid "Hospital"
 msgstr "Hospital"
 
-#: src/lincity-ng/Mps.cpp:468
+#: src/lincity-ng/Mps.cpp:476
 msgid "Rockets"
 msgstr "Foguetes"
 
-#: src/lincity-ng/Mps.cpp:469
+#: src/lincity-ng/Mps.cpp:477
 msgid "Fire Stn"
 msgstr "Bombeiro"
 
-#: src/lincity-ng/Mps.cpp:470
+#: src/lincity-ng/Mps.cpp:478
 msgid "Sport"
 msgstr "Esporte"
 
-#: src/lincity-ng/Mps.cpp:471
+#: src/lincity-ng/Mps.cpp:479
 msgid "Recycle"
 msgstr "Reciclagem"
 
-#: src/lincity-ng/Mps.cpp:479
+#: src/lincity-ng/Mps.cpp:487
 msgid "Total"
 msgstr "Total"
 
-#: src/lincity-ng/Mps.cpp:480
+#: src/lincity-ng/Mps.cpp:488
 msgid "Housed"
 msgstr "Com casa"
 
-#: src/lincity-ng/Mps.cpp:481
+#: src/lincity-ng/Mps.cpp:489
 msgid "Homeless"
 msgstr "Desabrigados"
 
-#: src/lincity-ng/Mps.cpp:486
+#: src/lincity-ng/Mps.cpp:494
 msgid "Unemployment"
 msgstr "Desempregados"
 
-#: src/lincity-ng/Mps.cpp:489
+#: src/lincity-ng/Mps.cpp:497
 msgid "Starvation"
 msgstr "Fome"
 
-#: src/lincity-ng/Mps.cpp:496 src/lincity/modules/residence.cpp:417
+#: src/lincity-ng/Mps.cpp:504
 msgid "Births p.a."
 msgstr "Nascimentos p/ano"
 
-#: src/lincity-ng/Mps.cpp:504
+#: src/lincity-ng/Mps.cpp:512
 msgid "Deaths p.a."
 msgstr "Mortes p/ano"
 
-#: src/lincity-ng/Mps.cpp:510
+#: src/lincity-ng/Mps.cpp:518
 msgid "Unnat. Deaths"
 msgstr "Mortes não Naturais"
 
@@ -1027,32 +1089,31 @@ msgstr "M"
 msgid "k"
 msgstr "k"
 
-#: src/lincity/commodities.cpp:38 data/gui/pbar.xml:64
+#: src/lincity/commodities.cpp:38
 msgid "Food"
 msgstr "Alimento"
 
-#: src/lincity/commodities.cpp:39 data/gui/pbar.xml:78
+#: src/lincity/commodities.cpp:39
 msgid "Labor"
 msgstr "Trabalho"
 
-#: src/lincity/commodities.cpp:40 data/gui/pbar.xml:106
+#: src/lincity/commodities.cpp:40
 msgid "Coal"
 msgstr "Carvão"
 
-#: src/lincity/commodities.cpp:41 data/gui/pbar.xml:92
+#: src/lincity/commodities.cpp:41
 msgid "Goods"
 msgstr "Bens"
 
-#: src/lincity/commodities.cpp:42 data/gui/pbar.xml:120
+#: src/lincity/commodities.cpp:42
 msgid "Ore"
 msgstr "Minério"
 
-#: src/lincity/commodities.cpp:43 data/gui/pbar.xml:134
+#: src/lincity/commodities.cpp:43
 msgid "Steel"
 msgstr "Aço"
 
-#: src/lincity/commodities.cpp:44 src/lincity/modules/tip.cpp:119
-#: data/gui/pbar2nd.xml:120
+#: src/lincity/commodities.cpp:44
 msgid "Waste"
 msgstr "Desperdício"
 
@@ -1064,59 +1125,59 @@ msgstr "Baixa Tensão"
 msgid "Hi-Volt"
 msgstr "Alta Tensão"
 
-#: src/lincity/lintypes.cpp:80
+#: src/lincity/lintypes.cpp:81
 msgid "Production:"
 msgstr "Produção:"
 
-#: src/lincity/lintypes.cpp:80
+#: src/lincity/lintypes.cpp:81
 msgid "Inventory:"
 msgstr "Inventário:"
 
-#: src/lincity/util.cpp:38
+#: src/lincity/util.cpp:39
 msgid "Jan"
 msgstr "Jan"
 
-#: src/lincity/util.cpp:38
+#: src/lincity/util.cpp:39
 msgid "Feb"
 msgstr "Fev"
 
-#: src/lincity/util.cpp:38
+#: src/lincity/util.cpp:39
 msgid "Mar"
 msgstr "Mar"
 
-#: src/lincity/util.cpp:38
+#: src/lincity/util.cpp:39
 msgid "Apr"
 msgstr "Abr"
 
-#: src/lincity/util.cpp:39
+#: src/lincity/util.cpp:40
 msgid "May"
 msgstr "Mai"
 
-#: src/lincity/util.cpp:39
+#: src/lincity/util.cpp:40
 msgid "Jun"
 msgstr "Jun"
 
-#: src/lincity/util.cpp:39
+#: src/lincity/util.cpp:40
 msgid "Jul"
 msgstr "Jul"
 
-#: src/lincity/util.cpp:39
+#: src/lincity/util.cpp:40
 msgid "Aug"
 msgstr "Ago"
 
-#: src/lincity/util.cpp:40
+#: src/lincity/util.cpp:41
 msgid "Sep"
 msgstr "Set"
 
-#: src/lincity/util.cpp:40
+#: src/lincity/util.cpp:41
 msgid "Oct"
 msgstr "Out"
 
-#: src/lincity/util.cpp:40
+#: src/lincity/util.cpp:41
 msgid "Nov"
 msgstr "Nov"
 
-#: src/lincity/util.cpp:40
+#: src/lincity/util.cpp:41
 msgid "Dec"
 msgstr "Dez"
 
@@ -1125,21 +1186,21 @@ msgid "Blacksmith"
 msgstr "Ferreiro"
 
 #: src/lincity/modules/blacksmith.cpp:127
-#: src/lincity/modules/coal_power.cpp:144 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
 #: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
-#: src/lincity/modules/firestation.cpp:153
-#: src/lincity/modules/health_centre.cpp:137
-#: src/lincity/modules/heavy_industry.cpp:191
-#: src/lincity/modules/light_industry.cpp:233
-#: src/lincity/modules/market.cpp:268 src/lincity/modules/mill.cpp:121
-#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:184
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
 #: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
 #: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
-#: src/lincity/modules/rocket_pad.cpp:264 src/lincity/modules/school.cpp:144
+#: src/lincity/modules/rocket_pad.cpp:264 src/lincity/modules/school.cpp:153
 #: src/lincity/modules/solar_power.cpp:92
 #: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
-#: src/lincity/modules/university.cpp:113 src/lincity/modules/waterwell.cpp:103
-#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:123
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
 msgid "busy"
 msgstr "ocupação"
 
@@ -1151,20 +1212,20 @@ msgstr "EE a Carvão"
 msgid "Coal Power Stations"
 msgstr "Usinas a Carvão"
 
-#: src/lincity/modules/coal_power.cpp:145
-#: src/lincity/modules/heavy_industry.cpp:192
-#: src/lincity/modules/light_industry.cpp:234
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
 #: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
 #: src/lincity/modules/rocket_pad.cpp:265
 #: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
-#: src/lincity/modules/windpower.cpp:124
+#: src/lincity/modules/windpower.cpp:147
 msgid "Tech"
 msgstr "Tecn"
 
-#: src/lincity/modules/coal_power.cpp:146
+#: src/lincity/modules/coal_power.cpp:149
 #: src/lincity/modules/organic_farm.cpp:162
 #: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
-#: src/lincity/modules/windpower.cpp:125
+#: src/lincity/modules/windpower.cpp:148
 msgid "Output"
 msgstr "Saída"
 
@@ -1176,7 +1237,7 @@ msgstr "Mina de Carvão"
 msgid "Coal Mines"
 msgstr "Minas de Carvão"
 
-#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:185
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
 msgid "Deposits"
 msgstr "Depósitos"
 
@@ -1221,28 +1282,28 @@ msgstr "queimado"
 msgid "degraded"
 msgstr "degradado"
 
-#: src/lincity/modules/firestation.cpp:46
+#: src/lincity/modules/firestation.cpp:47
 msgid "Fire Station"
 msgstr "Corpo de Bombeiros"
 
-#: src/lincity/modules/firestation.cpp:47
+#: src/lincity/modules/firestation.cpp:48
 msgid "Fire Stations"
 msgstr "Corpos de Bombeiros"
 
-#: src/lincity/modules/health_centre.cpp:45
+#: src/lincity/modules/health_centre.cpp:46
 msgid "Hospitals"
 msgstr "Hospitais"
 
-#: src/lincity/modules/heavy_industry.cpp:44
-#: src/lincity/modules/heavy_industry.cpp:45
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
 msgid "Steel Works"
 msgstr "Siderúrgicas"
 
-#: src/lincity/modules/light_industry.cpp:44
+#: src/lincity/modules/light_industry.cpp:46
 msgid "Light Industry"
 msgstr "Indústria Leve"
 
-#: src/lincity/modules/light_industry.cpp:45
+#: src/lincity/modules/light_industry.cpp:47
 msgid "Light Industries"
 msgstr "Indústrias Leves"
 
@@ -1330,25 +1391,25 @@ msgstr "Eficiência do Minério"
 msgid "Efficiency Steel"
 msgstr "Eficiência do Aço"
 
-#: src/lincity/modules/residence.cpp:42 src/lincity/modules/residence.cpp:57
-#: src/lincity/modules/residence.cpp:72 src/lincity/modules/residence.cpp:87
-#: src/lincity/modules/residence.cpp:102 src/lincity/modules/residence.cpp:117
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
 msgid "Residence"
 msgstr "Residência"
 
-#: src/lincity/modules/residence.cpp:415 data/gui/pbar2nd.xml:134
+#: src/lincity/modules/residence.cpp:421
 msgid "Tenants"
 msgstr "Inquilinos"
 
-#: src/lincity/modules/residence.cpp:416
+#: src/lincity/modules/residence.cpp:422
 msgid "Desireability"
 msgstr "Desejabilidade"
 
-#: src/lincity/modules/residence.cpp:418
+#: src/lincity/modules/residence.cpp:424
 msgid "Death p.a."
 msgstr "Mortes p/ano"
 
-#: src/lincity/modules/residence.cpp:419
+#: src/lincity/modules/residence.cpp:425
 msgid "Unnat. mortality"
 msgstr "Mortalidade não natural"
 
@@ -1360,15 +1421,15 @@ msgstr "Base de Foguete"
 msgid "Rocket Pads"
 msgstr "Plataformas de Foguete"
 
-#: src/lincity/modules/school.cpp:45
+#: src/lincity/modules/school.cpp:47
 msgid "Elementary School"
 msgstr "Escola Primária"
 
-#: src/lincity/modules/school.cpp:46
+#: src/lincity/modules/school.cpp:48
 msgid "Elementary Schools"
 msgstr "Escolas Primárias"
 
-#: src/lincity/modules/school.cpp:145
+#: src/lincity/modules/school.cpp:154
 msgid "Lessons learned"
 msgstr "Lições aprendidas"
 
@@ -1425,43 +1486,43 @@ msgstr "Depósitos de Lixo"
 msgid "Filled"
 msgstr "Cheio"
 
-#: src/lincity/modules/track_road_rail.cpp:48
+#: src/lincity/modules/track_road_rail.cpp:49
 msgid "Track"
 msgstr "Pista"
 
-#: src/lincity/modules/track_road_rail.cpp:64
+#: src/lincity/modules/track_road_rail.cpp:65
 msgid "Track (Bridge)"
 msgstr "Pista (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:65
+#: src/lincity/modules/track_road_rail.cpp:66
 msgid "Tracks (Bridge)"
 msgstr "Pistas (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:80
+#: src/lincity/modules/track_road_rail.cpp:81
 msgid "Road"
 msgstr "Estrada"
 
-#: src/lincity/modules/track_road_rail.cpp:95
+#: src/lincity/modules/track_road_rail.cpp:96
 msgid "Road (Bridge)"
 msgstr "Estrada (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:96
+#: src/lincity/modules/track_road_rail.cpp:97
 msgid "Roads (Bridge)"
 msgstr "Estradas (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:113
+#: src/lincity/modules/track_road_rail.cpp:114
 msgid "Rails"
 msgstr "Trilhos"
 
-#: src/lincity/modules/track_road_rail.cpp:127
+#: src/lincity/modules/track_road_rail.cpp:128
 msgid "Rail (Bridge)"
 msgstr "Trilho (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:128
+#: src/lincity/modules/track_road_rail.cpp:129
 msgid "Rails (Bridge)"
 msgstr "Trilhos (Ponte)"
 
-#: src/lincity/modules/track_road_rail.cpp:308
+#: src/lincity/modules/track_road_rail.cpp:309
 msgid "Traffic"
 msgstr "Tráfego"
 
@@ -1469,7 +1530,7 @@ msgstr "Tráfego"
 msgid "University"
 msgstr "Universidade"
 
-#: src/lincity/modules/university.cpp:114
+#: src/lincity/modules/university.cpp:122
 msgid "Tech researched"
 msgstr "Tecnologia pesquisada"
 
@@ -1485,7 +1546,7 @@ msgstr "Caixas d'água"
 msgid "Drinkable"
 msgstr "Potável"
 
-#: src/lincity/modules/windpower.cpp:44 src/lincity/modules/windpower.cpp:45
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
 msgid "Wind Power"
 msgstr "Energia Eólica"
 
@@ -1517,7 +1578,7 @@ msgstr "Tradução"
 msgid "License"
 msgstr "Licença"
 
-#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:172
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
 #: data/gui/savegame.xml:92
 msgid "Back"
 msgstr "Anterior"
@@ -1646,19 +1707,27 @@ msgstr "[-] Reduzir"
 msgid "toggle terrain height rendering"
 msgstr "alternar a exibição da altura do terreno"
 
+#: data/gui/minimap.xml:124
+msgid "Gov."
+msgstr "Gov."
+
 #: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr "Ajustar alíquotas"
+
+#: data/gui/minimap.xml:134
 msgid "[F1] Press this button to get help"
 msgstr "[F1] Aperte este botão para ter ajuda"
 
-#: data/gui/minimap.xml:134
+#: data/gui/minimap.xml:143
 msgid "[h] Hide high buildings."
 msgstr "[h] Esconder edifícios altos."
 
-#: data/gui/minimap.xml:143
+#: data/gui/minimap.xml:152
 msgid "Press this button to show statistics"
 msgstr "Aperte este botão para mostrar as estatísticas"
 
-#: data/gui/minimap.xml:152
+#: data/gui/minimap.xml:161
 msgid "[v] Cycle through MiniMap overlay modes."
 msgstr "[v] Circular pelos modos de sobreposição do minimapa."
 
@@ -1666,15 +1735,15 @@ msgstr "[v] Circular pelos modos de sobreposição do minimapa."
 msgid "Choose Scenario"
 msgstr "Escolha o cenário"
 
-#: data/gui/newgame.xml:52
+#: data/gui/newgame.xml:56
 msgid "Village"
 msgstr "Vila"
 
-#: data/gui/newgame.xml:61
+#: data/gui/newgame.xml:65
 msgid "Without trees"
 msgstr "Sem árvores"
 
-#: data/gui/newgame.xml:180
+#: data/gui/newgame.xml:208
 msgid "Start"
 msgstr "Iniciar"
 
@@ -1737,6 +1806,114 @@ msgstr "Rodar a simulação na velocidade muito rápida"
 #: data/gui/speedpanel.xml:62
 msgid "Go back to Main Menu"
 msgstr "Voltar ao Menu Principal"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Coal Survey"
+msgstr "Análise do Carvão"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Send out Prospectors"
+msgstr "Enviar Prospectos"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "This will cost you 1 million once. After that it is free to call again."
+msgstr "Isto custará 1 milhão apenas uma vez. Depois será grátis para usar novamente."
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "Analisar o carvão?"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
+msgstr "Governador"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
+msgstr "Alíquotas (0 a 2× os padrões)"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Income tax"
+msgstr "Imposto de renda"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Coal tax"
+msgstr "Imposto sobre carvão"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
+msgstr "Imposto sobre minério"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Goods tax"
+msgstr "Imposto sobre mercadorias"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr "Seguro-desemprego"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Transport cost"
+msgstr "Custo de transporte"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr "Impostos altos fazem a indústria produzir menos e os cidadãos se mudarem."
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr "Fechar"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Gamestats"
+msgstr "Estatísticas do Jogo"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Okay"
+msgstr "Ok"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "Rocket ready to launch"
+msgstr "Foguete pronto para lançar"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "You can launch the rocket now or wait until later. If you wait it will continue costing you money to keep the rocket ready. Launch it later by clicking on the rocket area."
+msgstr "Você pode lançar o foguete agora ou mais tarde. Lançar mais tarde continuará custando para manter o foguete pronto para o lançamento. Lance-o depois clicando na área do foguete."
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+msgid "Harbour Trade Settings"
+msgstr "Opções do Porto Comercial"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Product"
+msgstr "Produto"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "Comprar"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
+msgid "Sell"
+msgstr "Vender"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Trade Settings"
+msgstr "Opções de Comércio"
+
+#, c++-format
+#~ msgid "starting {} ..."
+#~ msgstr "iniciando {} ..."
+
+#~ msgid "Warning"
+#~ msgstr "Atenção"
+
+#~ msgid "Restart Required"
+#~ msgstr "Reinício Necessário"
+
+#~ msgid "Changing the language requires restarting LinCity for changes to take full effect."
+#~ msgstr "Alterar o idioma exige reiniciar o LinCity para que as mudanças tenham efeito completo."
 
 #, c-format
 #~ msgid "%s (Techlevel %.1f required.)"
@@ -2155,18 +2332,6 @@ msgstr "Voltar ao Menu Principal"
 #~ msgid "Warning: Bulldozing shanties is dangerous."
 #~ msgstr "Atenção: Demolir favelas é perigoso."
 
-#~ msgid "Coal Survey"
-#~ msgstr "Análise do Carvão"
-
-#~ msgid "Do coal survey?"
-#~ msgstr "Analisar o carvão?"
-
-#~ msgid "Send out Prospectors"
-#~ msgstr "Enviar Prospectos"
-
-#~ msgid "This will cost you 1 million once. After that it is free to call again."
-#~ msgstr "Isto custará 1 milhão apenas uma vez. Depois será grátis para usar novamente."
-
 #~ msgid "Coal Mine available"
 #~ msgstr "Mina de Carvão disponível"
 
@@ -2193,12 +2358,6 @@ msgstr "Voltar ao Menu Principal"
 
 #~ msgid "You have reached the tech level which enables you to build fire stations. Fire stations prevent most fires from starting. If you haven't had any fires yet, you might not think you need them."
 #~ msgstr "Você alcançou o nível tecnológico que habilita a construir Bombeiros. Bombeiro previne a maioria dos incêndios antes de começar. Se você não teve um incêndio ainda, não deve pensar que não precisa deles."
-
-#~ msgid "Gamestats"
-#~ msgstr "Estatísticas do Jogo"
-
-#~ msgid "Okay"
-#~ msgstr "Ok"
 
 #~ msgid "Health Centres available"
 #~ msgstr "Hospitais disponíveis"
@@ -2238,9 +2397,6 @@ msgstr "Voltar ao Menu Principal"
 
 #~ msgid "Doing well."
 #~ msgstr "Indo bem."
-
-#~ msgid "You can launch the rocket now or wait until later. If you wait it will continue costing you money to keep the rocket ready. Launch it later by clicking on the rocket area."
-#~ msgstr "Você pode lançar o foguete agora ou mais tarde. Lançar mais tarde continuará custando para manter o foguete pronto para o lançamento. Lance-o depois clicando na área do foguete."
 
 #~ msgid "Light Industry available"
 #~ msgstr "Indústria leve disponível"
@@ -2295,15 +2451,6 @@ msgstr "Voltar ao Menu Principal"
 
 #~ msgid "You have reached the tech level which enables you to build parks. Parks are used to absorb pollution. "
 #~ msgstr "Você alcançou o nível tecnológico que habilita a construir parques. Parques são utilizados para absorver a poluição."
-
-#~ msgid "Buy"
-#~ msgstr "Comprar"
-
-#~ msgid "Harbour Trade Settings"
-#~ msgstr "Opções do Porto Comercial"
-
-#~ msgid "Sell"
-#~ msgstr "Vender"
 
 #~ msgid "Potteries available"
 #~ msgstr "Olaria disponível"
@@ -2364,9 +2511,6 @@ msgstr "Voltar ao Menu Principal"
 
 #~ msgid "Sorry, the game you wanted is too old. Cannot load it. Still play with previous game."
 #~ msgstr "Desculpe, mas o jogo que você quer é muito antigo. Impossível carregá-lo. Continue a jogar com o jogo antigo."
-
-#~ msgid "Trade Settings"
-#~ msgstr "Opções de Comércio"
 
 #~ msgid "University available"
 #~ msgstr "Universidade disponível"
