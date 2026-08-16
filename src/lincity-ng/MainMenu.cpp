@@ -628,9 +628,13 @@ void MainMenu::changeResolution(bool next) {
 
 void
 MainMenu::changeWorldLen(bool next) {
-  getConfig()->worldSize.session = getConfig()->worldSize.get() + (next?25:-25);
+  // keep the size within the range accepted by Config (see validateRange
+  // in Config.cpp); a size of 0 or negative crashes the game
+  int newSize = getConfig()->worldSize.get() + (next ? 25 : -25);
+  newSize = std::clamp(newSize, 50, 10000);
+  getConfig()->worldSize.session = newSize;
   getParagraph(*optionsMenu, "WorldLenParagraph")->setText(
-    std::to_string(getConfig()->worldSize.get()));
+    std::to_string(newSize - 2));
 }
 
 void
