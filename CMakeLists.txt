@@ -189,6 +189,14 @@ add_subdirectory(doc ${CMAKE_INSTALL_DOCDIR})
 add_subdirectory(lib)
 
 
+### tests
+option(BUILD_TESTING "Build and register the test suite" ON)
+if(BUILD_TESTING)
+	enable_testing()
+	add_subdirectory(tests)
+endif()
+
+
 ### runtime dependency installation for Windows
 set_target_properties(lincity-ng PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_BINDIR})
 install(TARGETS lincity-ng

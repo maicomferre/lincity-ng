@@ -1,4 +1,4 @@
-add_executable(lincity-ng
+add_library(lincity_ng_lib STATIC
   ButtonPanel.cpp
   ButtonPanel.hpp
   Config.cpp
@@ -13,8 +13,7 @@ add_executable(lincity-ng
   GameView.hpp
   HelpWindow.cpp
   HelpWindow.hpp
-  main.cpp
-  main.hpp
+  Language.cpp
   MainLincity.cpp
   MainLincity.hpp
   MainMenu.cpp
@@ -35,9 +34,12 @@ add_executable(lincity-ng
   UserOperation.hpp
   Util.cpp
   Util.hpp
+  Video.cpp
 )
 
-target_link_libraries(lincity-ng
+add_library(LinCity::ng_lib ALIAS lincity_ng_lib)
+
+target_link_libraries(lincity_ng_lib
   PUBLIC
   LinCity::lib
   LinCity::gui
@@ -46,7 +48,6 @@ target_link_libraries(lincity-ng
   PRIVATE
   cfgpath
   gettextutil
-  $<TARGET_NAME_IF_EXISTS:SDL3::SDL3main>
   $<IF:$<TARGET_EXISTS:SDL3_image::SDL3_image>,SDL3_image::SDL3_image,SDL3_image::SDL3_image-static>
   fmt::fmt
   xmlutil
@@ -56,4 +57,16 @@ target_link_libraries(lincity-ng
 include_directories(.)
 
 include(TranslateTarget)
-translate_target(lincity-ng lincity-ng.pot)
+translate_target(lincity_ng_lib lincity-ng.pot)
+
+add_executable(lincity-ng
+  main.cpp
+  main.hpp
+)
+
+target_link_libraries(lincity-ng
+  PRIVATE
+  LinCity::ng_lib
+  gettextutil
+  $<TARGET_NAME_IF_EXISTS:SDL3::SDL3main>
+)

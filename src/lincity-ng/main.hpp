@@ -18,9 +18,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #ifndef __MAIN_HPP__
 #define __MAIN_HPP__
 
+#include <optional>
 #include <string>
 
 class Painter;
+struct SDL_Window;
 
 enum MainState {
     MAINMENU, INGAME, QUIT, RESTART
@@ -28,6 +30,7 @@ enum MainState {
 
 void videoSizeChanged(int width, int height);
 void resizeVideo(int width, int height, bool fullscreen);
+void initVideo(int width, int height);
 void setLang(const std::string& lang);
 std::string getLang();
 
@@ -36,6 +39,12 @@ std::string getLang();
  *       function!
  */
 extern Painter* painter;
+
+/** the game window, owned by initVideo */
+extern SDL_Window* window;
+
+/** language that was set before the config language took over */
+extern std::optional<std::string> oldLanguage;
 
 #endif
 /** @file lincity-ng/main.hpp */

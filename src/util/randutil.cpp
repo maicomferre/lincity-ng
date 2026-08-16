@@ -42,6 +42,11 @@ BasicUrbg::get() {
   return instance;
 }
 
+void
+BasicUrbg::reseed(result_type seed) {
+  base_urbg.seed(seed);
+}
+
 BasicUrbg::result_type
 BasicUrbg::operator()() {
   return base_urbg();

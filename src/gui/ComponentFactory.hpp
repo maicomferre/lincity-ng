@@ -98,6 +98,9 @@ public:                                                                     \
 DECLARE_COMPONENT_FACTORY(CLASS)                                            \
 INTERN_##CLASS##Factory factory_##CLASS;
 
+/* Register the factory objects for all built-in components. */
+void initFactories();
+
 #endif
 
 

@@ -40,6 +40,9 @@ public:
   static constexpr result_type min() { return base_engine::min(); }
   static constexpr result_type max() { return base_engine::max(); }
 
+  /* Reseed with a fixed value, mostly so tests are deterministic. */
+  void reseed(result_type seed);
+
   static BasicUrbg& get();
 
 private:
