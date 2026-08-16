@@ -36,6 +36,7 @@
 #include <string>                         // for basic_string, char_traits
 
 #include "lincity-ng/Mps.hpp"             // for Mps
+#include "lincity-ng/Sound.hpp"           // for getSound, Sound
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_RESIDENCE_HH, GROUP_R...
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
@@ -183,7 +184,7 @@ void RocketPad::compute_launch_result() {
     (double)std::min({tech, world.tech_level, MAX_TECH_LEVEL}) / MAX_TECH_LEVEL
     * std::min(1., world.rockets_launched * .15 + .25);
   if(std::bernoulli_distribution(successP)(BasicUrbg::get())) {
-    // TODO: getSound()->playSound( "RocketTakeoff" );
+    getSound()->playSound( "RocketTakeoff" );
     world.rockets_launched_success++;
     /* TODO: Maybe should generate some pollution ? */
     if(world.rockets_launched_success > 5) {
@@ -198,7 +199,7 @@ void RocketPad::compute_launch_result() {
     /* the launch failed */
     world.pushMessage(RocketResultMessage::create(
       point, RocketResultMessage::LaunchResult::FAIL));
-    // TODO: getSound()->playSound( "RocketExplosion" );
+    getSound()->playSound( "RocketExplosion" );
     world.rockets_launched_success = 0;
 
     MapPoint crashCenter = point
