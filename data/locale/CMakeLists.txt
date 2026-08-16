@@ -33,18 +33,26 @@ endif()
 
 ### .POT generation
 set(POT_FILES
-  "${CMAKE_BINARY_DIR}/src/lincity-ng/lincity-ng.pot"
+  "${CMAKE_BINARY_DIR}/src/lincity-ng/lincity_ng_lib.pot"
   "${CMAKE_BINARY_DIR}/src/lincity/lincity_lib.pot"
   "${CMAKE_BINARY_DIR}/src/lincity/modules/lincity_lib_modules.pot"
   "${CMAKE_BINARY_DIR}/share/lincity-ng/gui/guiXml.pot"
+  "${CMAKE_BINARY_DIR}/share/lincity-ng/gui/dialogs/guiDialogXml.pot"
 )
-foreach(pot ${POT_FILES})
-  cmake_path(GET pot FILENAME potname)
-  list(APPEND POT_TARGETS "${potname}.target")
-endforeach()
+# The target names do not follow the pot file names (the app pot belongs
+# to the lincity_ng_lib target), so list them explicitly.
+set(POT_TARGETS
+  lincity_ng_lib.pot.target
+  lincity_lib.pot.target
+  lincity_lib_modules.pot.target
+  guiXml.pot.target
+  guiDialogXml.pot.target
+)
 add_custom_command(
   OUTPUT ${CMAKE_BINARY_DIR}/messages.pot
-  COMMAND ${GETTEXT_XGETTEXT} -o ${CMAKE_BINARY_DIR}/messages.pot ${POT_FILES}
+  # msgcat merges pots whose headers still carry the CHARSET placeholder
+  # (pure-ASCII sources make xgettext keep it); xgettext refuses those.
+  COMMAND ${GETTEXT_MSGCAT} --use-first -o ${CMAKE_BINARY_DIR}/messages.pot ${POT_FILES}
   DEPENDS ${POT_TARGETS} ${POT_FILES}
   COMMENT "merging messages.pot"
 )

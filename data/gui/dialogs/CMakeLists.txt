@@ -29,3 +29,23 @@ endforeach()
 
 add_custom_target(guiDialogXml DEPENDS ${guiDialogSourceFiles})
 add_dependencies(lincity-ng guiDialogXml)
+
+# Extract the translatable strings from the TRANSFORMED dialog files:
+# dialogs.xsl is what turns the <title> into a translatable Paragraph, so
+# the pot is generated from the xsltproc output. (guiXml.pot covers only
+# data/gui/*.xml, not this directory.)
+set(GUI_DIALOG_POT ${CMAKE_CURRENT_BINARY_DIR}/guiDialogXml.pot)
+set(_dialog_transformed)
+foreach(guiDialogSourceFile ${guiDialogSourceFiles})
+  list(APPEND _dialog_transformed
+    ${CMAKE_CURRENT_BINARY_DIR}/${guiDialogSourceFile})
+endforeach()
+add_custom_command(
+  OUTPUT ${GUI_DIALOG_POT}
+  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  COMMAND ${GETTEXT_XGETTEXT} --from-code=UTF-8 --its=${CMAKE_CURRENT_SOURCE_DIR}/../gui.its
+    -o ${GUI_DIALOG_POT} ${_dialog_transformed}
+  DEPENDS ${guiDialogSourceFiles} ${CMAKE_CURRENT_SOURCE_DIR}/../gui.its
+  COMMENT "generating guiDialogXml.pot"
+)
+add_custom_target(guiDialogXml.pot.target DEPENDS ${GUI_DIALOG_POT})

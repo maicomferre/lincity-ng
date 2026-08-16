@@ -34,6 +34,7 @@ function(translate_target target)
     OUTPUT ${target}.pot
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
     COMMAND ${GETTEXT_XGETTEXT}
+      --from-code=UTF-8
       --keyword='_:1' --keyword='N_:1'
       -o "${CMAKE_CURRENT_BINARY_DIR}/${target}.pot" ${TARGET_SOURCES}
     DEPENDS ${TARGET_SOURCES_REL}
@@ -59,6 +60,7 @@ function(translate_target_xml target its)
     OUTPUT ${target}.pot
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
     COMMAND ${GETTEXT_XGETTEXT}
+      --from-code=UTF-8
       --its=${its}
       -o "${CMAKE_CURRENT_BINARY_DIR}/${target}.pot"
       ${TARGET_SOURCES}
