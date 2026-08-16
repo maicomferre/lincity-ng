@@ -107,3 +107,28 @@ std::string num_to_ansi(long num) {
   str.resize(std::min(size_old, size_new));
   return str;
 }
+
+std::string format_thousands(long num, char sep) {
+  std::string digits = std::to_string(num);
+  std::string out;
+  bool negative = digits[0] == '-';
+  if(negative)
+    digits.erase(0, 1);
+  int count = 0;
+  for(int i = static_cast<int>(digits.size()) - 1; i >= 0; --i) {
+    if(count && count % 3 == 0)
+      out.insert(0, 1, sep);
+    out.insert(0, 1, digits[i]);
+    ++count;
+  }
+  if(negative)
+    out.insert(0, 1, '-');
+  return out;
+}
+
+std::string format_money(long num) {
+  struct lconv* lc = localeconv();
+  char sep = lc && lc->thousands_sep && lc->thousands_sep[0]
+    ? lc->thousands_sep[0] : '\'';
+  return format_thousands(num, sep);
+}

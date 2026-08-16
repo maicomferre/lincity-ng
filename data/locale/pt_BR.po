@@ -786,12 +786,12 @@ msgid "Could not load this scenario."
 msgstr "Não foi possível carregar este cenário."
 
 #: src/lincity-ng/MainMenu.cpp:809
-msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
-msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | População {} | Tamanho {}x{}"
+msgid "Money {} | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr "Dinheiro {} | Tecnologia {} | Ano {} | População {} | Tamanho {}x{}"
 
 #: src/lincity-ng/MainMenu.cpp:815
-msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
-msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | Tamanho {}x{}"
+msgid "Money {} | Tech {} | Year {} | Size {}x{}"
+msgstr "Dinheiro {} | Tecnologia {} | Ano {} | Tamanho {}x{}"
 
 #: src/lincity-ng/MainMenu.cpp:910
 msgid "New game started."

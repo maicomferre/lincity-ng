@@ -52,6 +52,7 @@
 #include "lincity/messages.hpp"           // for NotEnoughTechMessage, OutOf...
 #include "lincity/modules/windmill.hpp"   // for WindmillConstructionGroup
 #include "lincity/modules/windpower.hpp"  // for WindpowerConstructionGroup
+#include "lincity/util.hpp"               // for format_money
 #include "lincity/world.hpp"              // for World
 #include "util/gettextutil.hpp"           // for _
 #include "util/xmlutil.hpp"               // for xmlParse, unexpectedXmlAttr...
@@ -347,8 +348,7 @@ ButtonPanel::updateTech() {
         std::dynamic_pointer_cast<const OutOfMoneyMessage>(msg)
       ) {
         os << " (" << _("requires") << " "
-          << _("$") << fmt::format("{:n}",
-            op.constructionGroup->getCosts(world))
+          << _("$") << format_money(op.constructionGroup->getCosts(world))
           << ")";
       }
       else if(NotEnoughStudentsMessage::ptr msg_ =

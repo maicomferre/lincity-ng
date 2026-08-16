@@ -34,3 +34,22 @@ TTEST(num_to_ansi_rounding_looks_sane) {
   // are caught (the engine uses "%3.1f" plus a scale letter).
   TCHECK_EQ(std::string("15.2M"), num_to_ansi(15200000));
 }
+
+TTEST(format_thousands_groups_three_digits) {
+  TCHECK_EQ(std::string("0"), format_thousands(0, '\''));
+  TCHECK_EQ(std::string("5"), format_thousands(5, '\''));
+  TCHECK_EQ(std::string("999"), format_thousands(999, '\''));
+  TCHECK_EQ(std::string("1'234"), format_thousands(1234, '\''));
+  TCHECK_EQ(std::string("12'345"), format_thousands(12345, '\''));
+  TCHECK_EQ(std::string("1'234'567"), format_thousands(1234567, '\''));
+}
+
+TTEST(format_thousands_handles_negative) {
+  TCHECK_EQ(std::string("-1'234'567"), format_thousands(-1234567, '\''));
+  TCHECK_EQ(std::string("-999"), format_thousands(-999, '\''));
+}
+
+TTEST(format_thousands_arbitrary_separator) {
+  TCHECK_EQ(std::string("1.234.567"), format_thousands(1234567, '.'));
+  TCHECK_EQ(std::string("1,234,567"), format_thousands(1234567, ','));
+}

@@ -812,14 +812,14 @@ MainMenu::mapSelectionChanged(RadioButtonGroup*, CheckButton* sel) {
   const int population = world->stats.population.population_m.stat;
   if(population > 0)
     mapInfoStats->setText(fmt::format(
-      _("Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"),
-      world->total_money, world->tech_level,
+      _("Money {} | Tech {} | Year {} | Population {} | Size {}x{}"),
+      format_money(world->total_money), world->tech_level,
       current_year(world->total_time),
       population, world->map.len(), world->map.len()));
   else
     mapInfoStats->setText(fmt::format(
-      _("Money {:n}$ | Tech {} | Year {} | Size {}x{}"),
-      world->total_money, world->tech_level,
+      _("Money {} | Tech {} | Year {} | Size {}x{}"),
+      format_money(world->total_money), world->tech_level,
       current_year(world->total_time),
       world->map.len(), world->map.len()));
 }

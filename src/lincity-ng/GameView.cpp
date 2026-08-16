@@ -72,6 +72,7 @@
 #include "lincity/modules/tile.hpp"       // for TileConstructionGroup, bare...
 #include "lincity/modules/track_road_rail.hpp"  // for transport_group_at
 #include "lincity/transport.hpp"          // for BRIDGE_FACTOR
+#include "lincity/util.hpp"               // for format_money
 #include "lincity/world.hpp"              // for Map, World, MapTile, Ground
 #include "util/gettextutil.hpp"           // for _
 #include "util/xmlutil.hpp"               // for xmlParse, unexpectedXmlAttr...
@@ -839,7 +840,7 @@ GameView::event(const Event& event) {
           Vector2 pos = getScreenPoint(endRoad);
           pos.x += tileWidth * 0.5f;
           pos.y -= 14;
-          setFloatingText(fmt::format("-{:n}$", spent), pos, 1600);
+          setFloatingText("-" + format_money(spent) + "$", pos, 1600);
         }
         else {
           clearFloatingText();
@@ -865,7 +866,7 @@ GameView::event(const Event& event) {
           Vector2 pos = getScreenPoint(clickTile);
           pos.x += tileWidth * 0.5f;
           pos.y -= 14;
-          setFloatingText(fmt::format("-{:n}$", spent), pos, 1600);
+          setFloatingText("-" + format_money(spent) + "$", pos, 1600);
         }
       }
     }
@@ -1669,18 +1670,23 @@ void GameView::draw(Painter& painter)
             previewPos.y -= 14;
             if(previewBuild) {
                 if(bridgeTiles > 0)
-                    setFloatingText(fmt::format(
-                        "{} {}×{:n}$ + {} {}×{:n}$ = {:n}$",
-                        _(previewGroup->name), landTiles, landCost,
-                        _("Bridge"), bridgeTiles, bridgeCost, cost),
+                    setFloatingText(
+                        std::string(_(previewGroup->name)) + " "
+                        + std::to_string(landTiles) + "×"
+                        + format_money(landCost) + "$ + " + _("Bridge") + " "
+                        + std::to_string(bridgeTiles) + "×"
+                        + format_money(bridgeCost) + "$ = "
+                        + format_money(cost) + "$",
                       previewPos, 0);
                 else
-                    setFloatingText(fmt::format("{} {}×{:n}$",
-                        _(previewGroup->name), tiles, cost), previewPos, 0);
+                    setFloatingText(
+                        std::string(_(previewGroup->name)) + " "
+                        + std::to_string(tiles) + "×"
+                        + format_money(cost) + "$", previewPos, 0);
             }
             else {
-                setFloatingText(fmt::format("{} {:n}$", _("Bulldoze"),
-                    cost), previewPos, 0);
+                setFloatingText(std::string(_("Bulldoze")) + " "
+                    + format_money(cost) + "$", previewPos, 0);
             }
         }
         else

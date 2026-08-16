@@ -27,6 +27,8 @@
 
 #include <string>
 
+#include <clocale>      // for localeconv
+
 #ifdef NDEBUG
 #define used_in_assert maybe_unused
 #else
@@ -42,6 +44,14 @@ int current_year(int current_time);
 //void format_pos_number4(char *str, int num);
 //void format_power(char *str, size_t size, long power);
 std::string num_to_ansi(long num);
+
+/* Thousands grouping with a fixed separator (pure, locale-independent,
+ * deterministic — tested in the unit suite). 1234567 -> "1'234'567". */
+std::string format_thousands(long num, char sep);
+
+/* Thousands grouping using the current C locale's thousands separator
+ * (falls back to apostrophe when the locale has none). */
+std::string format_money(long num);
 
 #endif // __LINCITYNG_LINCITY_UTIL_HPP__
 
