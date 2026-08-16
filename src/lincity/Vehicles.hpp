@@ -93,6 +93,10 @@ public:
 
   // how long the "arriving" animation lasts (milliseconds)
   static const unsigned long ARRIVE_MS = 500;
+  // how long a blocked car waits (with retries) before giving up (ms)
+  static const unsigned long BLOCK_TIMEOUT = 10000;
+  // when the current wait (blocked) period expires; real_time based
+  unsigned long wait_until;
 
 
   static std::list<Vehicle*> vehicleList;

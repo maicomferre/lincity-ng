@@ -40,6 +40,7 @@
 #include "lincity/messages.hpp"       // for OutOfMoneyMessage
 #include "lincity/resources.hpp"      // for ExtraFrame, ResourceGroup, Grap...
 #include "lincity/stats.hpp"          // for Stats
+#include "lincity/Vehicles.hpp"       // for Vehicle
 #include "lincity/world.hpp"          // for World, MapTile, Map
 #include "util/gettextutil.hpp"       // for N_, _
 #include "util/randutil.hpp"
@@ -350,6 +351,12 @@ bool Transport::canPlaceVehicle() {
     return false;
   for(ExtraFrame& exfr : *world.map(point)->framesptr)
     if(exfr.resourceGroup->is_vehicle)
+      return false;
+  // Also refuse to spawn on a tile another vehicle is driving towards or is
+  // about to occupy (its logical point/next advance before its sprite does),
+  // so cars never appear on top of a moving car.
+  for(const Vehicle* v : world.vehicleList)
+    if(v->point == point || v->next == point || v->framePt == point)
       return false;
   return true;
 }
