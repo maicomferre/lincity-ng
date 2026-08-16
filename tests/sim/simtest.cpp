@@ -41,7 +41,13 @@
 #include "lincity/all_buildings.hpp"          // for INCOME_TAX_RATE...
 #include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
 #include "lincity/messages.hpp"             // for Message
+#include "lincity/modules/all_modules.hpp"   // for *ConstructionGroup
+#include "lincity/modules/parkland.hpp"       // for parklandConstructionGroup
+#include "lincity/modules/power_line.hpp"     // for powerlineConstructionGroup
+#include "lincity/modules/residence.hpp"      // for residenceLLConstructionGroup
+#include "lincity/modules/school.hpp"         // for schoolConstructionGroup
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
+#include "lincity/modules/waterwell.hpp"      // for waterwellConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/world.hpp"                 // for World
@@ -112,9 +118,11 @@ std::unique_ptr<World> make_world() {
  * balance is not expected to match the cash (A/B experiments). */
 bool run_days(World& world, int days, bool check_conservation = true) {
   Uint32 tick = 0;
-  // Accounts were finalized at the last in-game year boundary; loaded worlds
-  // start with empty accounts, so rebasing to their balance is also exact.
-  g_year_base_money = world.total_money;
+  // Accounts were finalized at the last in-game year boundary; any
+  // accruals that already exist (e.g. from build/bulldoze actions before
+  // this run) are folded into the base so the invariant covers only the
+  // days simulated here.
+  g_year_base_money = world.total_money + money_accounts_delta(world.stats);
   for(int day = 0; day < days; day++) {
     // end_of_year_update() pays taxes on total_time % 1200 == 1199 and
     // Stats::yearly() finalizes the accounts on the next step
@@ -482,6 +490,64 @@ TTEST(tax_elasticity_ab_reduces_activity) {
   TCHECK(std::get<2>(high) <= std::get<2>(base));
 }
 
+
+TTEST(random_actions_keep_conservation) {
+  // TST-03: random build/demolish/evacuate actions with a fixed seed;
+  // the money conservation invariant must hold through all of them.
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  world->tech_level = 60000; // everything unlockable for the stress test
+
+  // candidate constructions to spam the city with
+  std::vector<ConstructionGroup*> groups = {
+    &roadConstructionGroup,
+    &trackConstructionGroup,
+    &railConstructionGroup,
+    &powerlineConstructionGroup,
+    &windmillConstructionGroup,
+    &residenceLLConstructionGroup,
+    &marketConstructionGroup,
+    &waterwellConstructionGroup,
+    &organic_farmConstructionGroup,
+    &parklandConstructionGroup,
+    &schoolConstructionGroup,
+  };
+
+  const int len = world->map.len();
+  for(int action = 0; action < 500; action++) {
+    if(rand() % 2) {
+      // random build attempt somewhere on the map
+      ConstructionGroup& group =
+        *groups[rand() % groups.size()];
+      MapPoint point(1 + rand() % (len - 2), 1 + rand() % (len - 2));
+      try {
+        world->buildConstruction(group, point);
+      } catch(const Message::Exception&) {
+        // invalid placement is expected for random points
+      }
+    }
+    else {
+      // random demolition of an existing construction
+      if(!world->map.constructions.empty()) {
+        auto it = world->map.constructions.begin();
+        std::advance(it, rand() % world->map.constructions.size());
+        try {
+          world->bulldozeArea((*it)->point);
+        } catch(const Message::Exception&) {
+          // e.g. something not bulldozable
+        }
+      }
+    }
+    if(action % 5 == 0)
+      world->do_time_step();
+  }
+
+  // the city must still obey the invariant afterwards
+  TCHECK(run_days(*world, 300));
+}
 
 } // namespace
 
