@@ -347,8 +347,8 @@ ButtonPanel::updateTech() {
         std::dynamic_pointer_cast<const OutOfMoneyMessage>(msg)
       ) {
         os << " (" << _("requires") << " "
-          // TODO: format this number properly
-          << _("$") << op.constructionGroup->getCosts(world)
+          << _("$") << fmt::format("{:n}",
+            op.constructionGroup->getCosts(world))
           << ")";
       }
       else if(NotEnoughStudentsMessage::ptr msg_ =
