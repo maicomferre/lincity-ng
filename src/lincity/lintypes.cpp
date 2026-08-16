@@ -828,6 +828,9 @@ int Construction::equilibrate_stuff(int *rem_lvl, CommodityRule rem_rule, int ra
                 case (STUFF_COAL) :
                     world.taxable.coal += flow;
                     break;
+                case (STUFF_ORE) :
+                    world.taxable.ore += flow;
+                    break;
                 default:
                     break;
             }

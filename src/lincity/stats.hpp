@@ -101,6 +101,7 @@ public:
   struct {
     Stat<int> income_tax;
     Stat<int> coal_tax;
+    Stat<int> ore_tax;
     Stat<int> goods_tax;
     Stat<int> export_tax;
   } income;

@@ -190,6 +190,10 @@ World::end_of_year_update(void) {
     stats.income.coal_tax);
   taxable.coal = 0;
 
+  income(taxable.ore * money_rates.ore_tax / 10,
+    stats.income.ore_tax);
+  taxable.ore = 0;
+
   int goods_tax = (taxable.goods * money_rates.goods_tax) / 100;
   goods_tax += (int)((float)(goods_tax * money_rates.goods_tax)
     * (float)tech_level / 2000000.0);

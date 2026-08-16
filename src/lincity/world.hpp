@@ -252,6 +252,7 @@ public:
   struct {
     int income_tax = INCOME_TAX_RATE;
     int coal_tax = COAL_TAX_RATE;
+    int ore_tax = ORE_TAX_RATE;
     int dole = DOLE_RATE; // unemployment
     int transport_cost = TRANSPORT_COST_RATE;
     int goods_tax = GOODS_TAX_RATE;
@@ -262,6 +263,7 @@ public:
   struct {
     int labor = 0;
     int coal = 0;
+    int ore = 0;
     int goods = 0;
     int trade_ex = 0;
     // int trade_im; // import is payed for directly

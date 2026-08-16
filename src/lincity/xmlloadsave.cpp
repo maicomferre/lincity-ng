@@ -268,6 +268,7 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
   xmlTextWriterStartElement(xmlWriter, (xmlStr)"money_rates");
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"income_tax_rate",           f(world.money_rates.income_tax));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"coal_tax_rate",             f(world.money_rates.coal_tax));
+    xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ore_tax_rate",              f(world.money_rates.ore_tax));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"dole_rate",                 f(world.money_rates.dole));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"transport_cost_rate",       f(world.money_rates.transport_cost));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"goods_tax_rate",            f(world.money_rates.goods_tax));
@@ -278,6 +279,7 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
   xmlTextWriterStartElement(xmlWriter, (xmlStr)"taxable");
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"labor",                     f(world.taxable.labor));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"coal",                      f(world.taxable.coal));
+    xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ore",                       f(world.taxable.ore));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"goods",                     f(world.taxable.goods));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"trade_ex",                  f(world.taxable.trade_ex));
   xmlTextWriterEndElement(xmlWriter);
@@ -334,6 +336,8 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"income_tax_ytd",          f(world.stats.income.income_tax.acc));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"coal_tax_ly",             f(world.stats.income.coal_tax.stat));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"coal_tax_ytd",            f(world.stats.income.coal_tax.acc));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ore_tax_ly",              f(world.stats.income.ore_tax.stat));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ore_tax_ytd",             f(world.stats.income.ore_tax.acc));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"goods_tax_ly",            f(world.stats.income.goods_tax.stat));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"goods_tax_ytd",           f(world.stats.income.goods_tax.acc));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"export_tax_ly",           f(world.stats.income.export_tax.stat));
@@ -480,6 +484,7 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
         const std::string xml_tag = xmlReader.get_name();
         if(xml_tag == "income_tax_rate")          world.money_rates.income_tax = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "coal_tax_rate")       world.money_rates.coal_tax = p<int>(xmlReader.read_inner_xml());
+        else if(xml_tag == "ore_tax_rate")         world.money_rates.ore_tax = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "dole_rate")           world.money_rates.dole = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "transport_cost_rate") world.money_rates.transport_cost = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "goods_tax_rate")      world.money_rates.goods_tax = p<int>(xmlReader.read_inner_xml());
@@ -501,6 +506,7 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
         const std::string xml_tag = xmlReader.get_name();
         if(xml_tag == "labor")         world.taxable.labor = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "coal")     world.taxable.coal = p<int>(xmlReader.read_inner_xml());
+        else if(xml_tag == "ore")      world.taxable.ore = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "goods")    world.taxable.goods = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "trade_ex") world.taxable.trade_ex = p<int>(xmlReader.read_inner_xml());
         else
@@ -600,6 +606,8 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
             else if(xml_tag == "income_tax_ytd") world.stats.income.income_tax.acc = p<int>(xmlReader.read_inner_xml());
             else if(xml_tag == "coal_tax_ly")    world.stats.income.coal_tax.stat = p<int>(xmlReader.read_inner_xml());
             else if(xml_tag == "coal_tax_ytd")   world.stats.income.coal_tax.acc = p<int>(xmlReader.read_inner_xml());
+            else if(xml_tag == "ore_tax_ly")     world.stats.income.ore_tax.stat = p<int>(xmlReader.read_inner_xml());
+            else if(xml_tag == "ore_tax_ytd")    world.stats.income.ore_tax.acc = p<int>(xmlReader.read_inner_xml());
             else if(xml_tag == "goods_tax_ly")   world.stats.income.goods_tax.stat = p<int>(xmlReader.read_inner_xml());
             else if(xml_tag == "goods_tax_ytd")  world.stats.income.goods_tax.acc = p<int>(xmlReader.read_inner_xml());
             else if(xml_tag == "export_tax_ly")  world.stats.income.export_tax.stat = p<int>(xmlReader.read_inner_xml());
@@ -810,6 +818,10 @@ static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
     else if(xml_tag == "ly_coal_tax")                 world.stats.income.coal_tax.stat = p<int>(xml_val);
     else if(xml_tag == "coal_tax")                    world.taxable.coal = p<int>(xml_val);
     else if(xml_tag == "coal_tax_rate")               world.money_rates.coal_tax = p<int>(xml_val);
+
+    else if(xml_tag == "ly_ore_tax")                  world.stats.income.ore_tax.stat = p<int>(xml_val);
+    else if(xml_tag == "ore_tax")                     world.taxable.ore = p<int>(xml_val);
+    else if(xml_tag == "ore_tax_rate")                world.money_rates.ore_tax = p<int>(xml_val);
 
     else if(xml_tag == "ly_unemployment_cost")        world.stats.expenses.unemployment.stat = p<int>(xml_val);
     else if(xml_tag == "unemployment_cost")           uncounted_unemployment = p<int>(xml_val);

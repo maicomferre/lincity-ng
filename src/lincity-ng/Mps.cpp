@@ -411,6 +411,10 @@ MpsFinance::refreshCashFlow() {
   add_ss(Construction::getStuffName(STUFF_COAL), num_to_ansi(-amt));
   cashflow -= amt;
 
+  amt = stats.income.ore_tax;
+  add_ss(Construction::getStuffName(STUFF_ORE), num_to_ansi(-amt));
+  cashflow -= amt;
+
   amt = stats.income.goods_tax;
   add_ss(Construction::getStuffName(STUFF_GOODS), num_to_ansi(-amt));
   cashflow -= amt;

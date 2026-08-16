@@ -106,6 +106,7 @@ Stats::yearly() {
 
   income.income_tax.finalize();
   income.coal_tax.finalize();
+  income.ore_tax.finalize();
   income.goods_tax.finalize();
   income.export_tax.finalize();
 

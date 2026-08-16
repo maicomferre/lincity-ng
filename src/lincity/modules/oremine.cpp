@@ -109,8 +109,6 @@ void Oremine::update()
           total_ore_reserve--;
           produceStuff(STUFF_ORE, ORE_PER_RESERVE);
           consumeStuff(STUFF_LABOR, OREMINE_LABOR);
-          //FIXME ore_tax should be handled upon delivery
-          //ore_made += ORE_PER_RESERVE;
           if(total_ore_reserve <
             (constructionGroup->size * constructionGroup->size * ORE_RESERVE)
           )
