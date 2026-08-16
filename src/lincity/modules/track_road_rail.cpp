@@ -371,34 +371,37 @@ void Transport::init_resources() {
   waste_fire_frit->frame = -1;
 }
 
+ConstructionGroup& transport_group_at(ConstructionGroup& cstGrp,
+    const MapTile& tile) {
+  const bool water = tile.is_water();
+  switch(cstGrp.group) {
+    case GROUP_TRACK:
+      return water ? static_cast<ConstructionGroup&>(trackbridgeConstructionGroup)
+        : cstGrp;
+    case GROUP_ROAD:
+      return water ? static_cast<ConstructionGroup&>(roadbridgeConstructionGroup)
+        : cstGrp;
+    case GROUP_RAIL:
+      return water ? static_cast<ConstructionGroup&>(railbridgeConstructionGroup)
+        : cstGrp;
+    case GROUP_TRACK_BRIDGE:
+      return water ? cstGrp
+        : static_cast<ConstructionGroup&>(trackConstructionGroup);
+    case GROUP_ROAD_BRIDGE:
+      return water ? cstGrp
+        : static_cast<ConstructionGroup&>(roadConstructionGroup);
+    case GROUP_RAIL_BRIDGE:
+      return water ? cstGrp
+        : static_cast<ConstructionGroup&>(railConstructionGroup);
+    default:
+      return cstGrp;
+  }
+}
+
 void Transport::place(MapPoint point) {
   // set the constructionGroup to build bridges iff over water
-  if(world.map(point)->is_water()) {
-    switch (constructionGroup->group) {
-      case GROUP_TRACK:
-        constructionGroup = &trackbridgeConstructionGroup;
-      break;
-      case GROUP_ROAD:
-        constructionGroup = &roadbridgeConstructionGroup;
-      break;
-      case GROUP_RAIL:
-        constructionGroup = &railbridgeConstructionGroup;
-      break;
-    }
-  }
-  else {
-    switch (constructionGroup->group) {
-      case GROUP_TRACK_BRIDGE:
-        constructionGroup = &trackConstructionGroup;
-      break;
-      case GROUP_ROAD_BRIDGE:
-        constructionGroup = &roadConstructionGroup;
-      break;
-      case GROUP_RAIL_BRIDGE:
-        constructionGroup = &railConstructionGroup;
-      break;
-    }
-  }
+  constructionGroup = &transport_group_at(*constructionGroup,
+    *world.map(point));
 
   Construction::place(point);
 }

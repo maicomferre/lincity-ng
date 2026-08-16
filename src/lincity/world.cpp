@@ -37,8 +37,10 @@
 #include "groups.hpp"          // for GROUP_WATER, GROUP_BARE, GROUP_DESERT
 #include "lin-city.hpp"        // for FLAG_IS_RIVER, FLAG_TRANSPARENT, FLAG_...
 #include "lintypes.hpp"        // for Construction, ConstructionGroup
+#include "lincity-ng/Config.hpp"  // for getConfig
 #include "modules/market.hpp"  // for Market
 #include "modules/tile.hpp"    // for TileConstructionGroup, desertConstruct...
+#include "modules/track_road_rail.hpp"  // for transport_group_at
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
 
 Ground::Ground() {
@@ -404,8 +406,13 @@ World::buildConstruction(ConstructionGroup& cstGrp, MapPoint point) {
     CannotBuildMessage::create(cstGrp, message)->throwEx();
   if(!cstGrp.can_build_here(*this, point, message))
     CannotBuildHereMessage::create(cstGrp, point, message)->throwEx();
-  expense(cstGrp.getCosts(*this), stats.expenses.construction,
-    !cstGrp.no_credit);
+  // Charge the group that will actually be built: transport over water
+  // becomes a bridge (Transport::place swaps the group), which costs
+  // BRIDGE_FACTOR x the road (BUG-04).
+  ConstructionGroup& chargedGroup = getConfig()->bridgeRealCost.get()
+    ? transport_group_at(cstGrp, *map(point)) : cstGrp;
+  expense(chargedGroup.getCosts(*this), stats.expenses.construction,
+    !chargedGroup.no_credit);
   cstGrp.placeItem(*this, point);
 
   map.connect_transport(point.x - 2, point.y - 2,

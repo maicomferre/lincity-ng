@@ -73,6 +73,9 @@ public:
   // (legacy behaviour only recorded the cost in the stats)
   Option<bool> schoolRunningCost;
   Option<bool> windPowerMaintenance;
+  // BUG-04: charge bridges their real cost (BRIDGE_FACTOR x the road);
+  // legacy behaviour charged the plain road price
+  Option<bool> bridgeRealCost;
 
   Option<std::string> language;
   Option<std::string> musicTheme;

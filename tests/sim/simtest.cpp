@@ -33,6 +33,9 @@
 #include "lincity-ng/MainLincity.hpp"        // for loadContinueCityNG
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
 #include "lincity-ng/main.hpp"               // for initVideo, window
+#include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
+#include "lincity/messages.hpp"             // for Message
+#include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/world.hpp"                 // for World
@@ -351,6 +354,57 @@ TTEST(continue_slot_chain_loads_in_order) {
   TCHECK(r3 != nullptr);
   if(r3)
     TCHECK_EQ(r3->total_time, 0);
+}
+
+TTEST(bridge_charges_resolved_cost) {
+  // BUG-04: a road segment placed on water becomes a bridge and must be
+  // charged the bridge price (BRIDGE_FACTOR x the road), not the road
+  // price that was displayed before.
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+
+  MapPoint waterPoint(-1, -1);
+  for(int y = 0; y < world->map.len() && waterPoint.x < 0; y++)
+    for(int x = 0; x < world->map.len(); x++) {
+      if(world->map(MapPoint(x, y))->is_water()) {
+        waterPoint = MapPoint(x, y);
+        break;
+      }
+    }
+  if(waterPoint.x < 0) {
+    TCHECK(!"no water tile found in new city");
+    return;
+  }
+
+  // roads unlock at tech 50000; use a high-tech city for the test
+  // (test-only direct write, worlds are throwaway here)
+  world->tech_level = 60000;
+
+  const int moneyBefore = world->total_money;
+  try {
+    world->buildConstruction(roadConstructionGroup, waterPoint);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  buildConstruction failed: %s\n", err.what());
+    TCHECK(!"bridge build threw");
+    return;
+  } catch(const std::exception& err) {
+    std::fprintf(stderr, "  buildConstruction failed: %s\n", err.what());
+    TCHECK(!"bridge build threw");
+    return;
+  }
+  const int charged = moneyBefore - world->total_money;
+  const int roadCost = roadConstructionGroup.getCosts(*world);
+  const int bridgeCost = roadbridgeConstructionGroup.getCosts(*world);
+
+  TCHECK(charged != roadCost);
+  TCHECK_EQ(charged, bridgeCost);
+
+  // the tile must now carry a road bridge (getTransportGroup reports
+  // bridges as their normal transport group, so check the raw group)
+  TCHECK(world->map(waterPoint)->getGroup() == GROUP_ROAD_BRIDGE);
 }
 
 } // namespace

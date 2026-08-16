@@ -78,6 +78,7 @@ Config::Config() {
   carsEnabled.default_ = true;
   schoolRunningCost.default_ = true;
   windPowerMaintenance.default_ = true;
+  bridgeRealCost.default_ = true;
   worldSize.default_ = WORLD_SIDE_LEN;
   language.default_ = "autodetect";
 
@@ -230,6 +231,8 @@ void Config::load(std::filesystem::path configFile) {
           schoolRunningCost.config = xmlParseConfig<bool>(xml_val);
         else if(xml_tag == "windPowerMaintenance")
           windPowerMaintenance.config = xmlParseConfig<bool>(xml_val);
+        else if(xml_tag == "bridgeRealCost")
+          bridgeRealCost.config = xmlParseConfig<bool>(xml_val);
         else if(xml_tag == "appDataDir")
           appDataDir.config = xmlParseConfig<std::filesystem::path>(xml_val);
         else if(xml_tag == "userDataDir")
@@ -298,6 +301,7 @@ Config::save(std::filesystem::path configFile) {
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"carsEnabled", xmlFormatConfig<bool>(carsEnabled.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"schoolRunningCost", xmlFormatConfig<bool>(schoolRunningCost.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"windPowerMaintenance", xmlFormatConfig<bool>(windPowerMaintenance.config));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"bridgeRealCost", xmlFormatConfig<bool>(bridgeRealCost.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"appDataDir", xmlFormatConfig<std::filesystem::path>(appDataDir.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"userDataDir", xmlFormatConfig<std::filesystem::path>(userDataDir.config));
     xmlTextWriterEndElement(xmlWriter);

@@ -118,6 +118,14 @@ public:
 extern TransportConstructionGroup trackConstructionGroup, roadConstructionGroup, railConstructionGroup;
 extern TransportConstructionGroup trackbridgeConstructionGroup, roadbridgeConstructionGroup, railbridgeConstructionGroup;
 
+class MapTile;
+
+/* The group a transport construction actually uses on the given tile:
+ * bridges over water and normal tracks/roads/rails on land, matching
+ * Transport::place(). Non-transport groups are returned unchanged. */
+ConstructionGroup& transport_group_at(ConstructionGroup& cstGrp,
+  const MapTile& tile);
+
 //Dummies for counting SubTypes of Transport
 class Track{};
 class Road{};
