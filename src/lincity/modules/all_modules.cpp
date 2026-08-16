@@ -178,8 +178,25 @@ void initializeModules() {
     new ResourceGroup("GraySmoke");    //used at light Industry
 
     //resources for vehicles
+    //each car model uses the same car01 sprites; colored variants are produced
+    //at load time by applying a tint to the pixels (see GameView::preReadImages)
     new ResourceGroup("Bluecar");
     ResourceGroup::resMap["Bluecar"]->is_vehicle = true;
+    new ResourceGroup("Redcar");
+    ResourceGroup::resMap["Redcar"]->is_vehicle = true;
+    ResourceGroup::resMap["Redcar"]->tint.r = 235; ResourceGroup::resMap["Redcar"]->tint.g = 60; ResourceGroup::resMap["Redcar"]->tint.b = 60; ResourceGroup::resMap["Redcar"]->tint.enabled = true;
+    new ResourceGroup("Greencar");
+    ResourceGroup::resMap["Greencar"]->is_vehicle = true;
+    ResourceGroup::resMap["Greencar"]->tint.r = 60; ResourceGroup::resMap["Greencar"]->tint.g = 200; ResourceGroup::resMap["Greencar"]->tint.b = 90; ResourceGroup::resMap["Greencar"]->tint.enabled = true;
+    new ResourceGroup("Yellowcar");
+    ResourceGroup::resMap["Yellowcar"]->is_vehicle = true;
+    ResourceGroup::resMap["Yellowcar"]->tint.r = 230; ResourceGroup::resMap["Yellowcar"]->tint.g = 210; ResourceGroup::resMap["Yellowcar"]->tint.b = 60; ResourceGroup::resMap["Yellowcar"]->tint.enabled = true;
+    new ResourceGroup("Whitecar");
+    ResourceGroup::resMap["Whitecar"]->is_vehicle = true;
+    ResourceGroup::resMap["Whitecar"]->tint.r = 220; ResourceGroup::resMap["Whitecar"]->tint.g = 220; ResourceGroup::resMap["Whitecar"]->tint.b = 220; ResourceGroup::resMap["Whitecar"]->tint.enabled = true;
+    new ResourceGroup("Firetruck");
+    ResourceGroup::resMap["Firetruck"]->is_vehicle = true;
+    ResourceGroup::resMap["Firetruck"]->tint.r = 200; ResourceGroup::resMap["Firetruck"]->tint.g = 30; ResourceGroup::resMap["Firetruck"]->tint.b = 30; ResourceGroup::resMap["Firetruck"]->tint.enabled = true;
 
 
 }

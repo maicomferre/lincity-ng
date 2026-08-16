@@ -378,6 +378,33 @@ SDL_Surface* GameView::readImage(const std::filesystem::path& filename) {
   return currentImage;
 }
 
+// Recolor an image by its luminance: the shape/shadows are preserved but the
+// color is replaced by the target tint. Used to produce colored vehicle
+// variants from a single set of sprites. Returns a NEW surface; caller owns it.
+SDL_Surface* GameView::recolorSurface(SDL_Surface* src, const Tint& tint) {
+  if(!src) return nullptr;
+  SDL_Surface* out = SDL_DuplicateSurface(src);
+  if(!out) return nullptr;
+  if(!tint.enabled) return out;
+  SDL_LockSurface(out);
+  for(int y = 0; y < out->h; ++y) {
+    for(int x = 0; x < out->w; ++x) {
+      Uint8 r, g, b, a;
+      if(!SDL_ReadSurfacePixel(out, x, y, &r, &g, &b, &a))
+        continue;
+      if(a == 0) continue;
+      // Rec.709 luma keeps brightness/shadows; color comes entirely from tint.
+      int luma = (int)(0.2126f * r + 0.7152f * g + 0.0722f * b);
+      r = (Uint8)((luma * tint.r) / 255);
+      g = (Uint8)((luma * tint.g) / 255);
+      b = (Uint8)((luma * tint.b) / 255);
+      SDL_WriteSurfacePixel(out, x, y, r, g, b, a);
+    }
+  }
+  SDL_UnlockSurface(out);
+  return out;
+}
+
 /**
  * preload all images and with X and Y offsets.
  * from data/images/tiles/images.xml
@@ -488,7 +515,12 @@ GameView::preReadImages(void) {
       if(resourceID_level && resourceGroup) {
         resourceGroup->growGraphicsInfoVector();
         GraphicsInfo *graphicsInfo = &(resourceGroup->graphicsInfoVector.back());
-        graphicsInfo->image = readImage( key );
+        SDL_Surface* loaded = readImage( key );
+        // apply a color tint to produce e.g. differently colored car variants
+        // from one set of sprites
+        graphicsInfo->image = recolorSurface(loaded, resourceGroup->tint);
+        if(graphicsInfo->image != loaded)
+          SDL_DestroySurface(loaded);
         if(!graphicsInfo->image) {
           fmt::println(stderr, "error: failed to read image {}", key);
         }

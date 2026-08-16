@@ -45,6 +45,11 @@ struct ExtraFrame;
 
 enum VehicleModel {
   VEHICLE_BLUECAR,
+  VEHICLE_REDCAR,
+  VEHICLE_GREENCAR,
+  VEHICLE_YELLOWCAR,
+  VEHICLE_WHITECAR,
+  VEHICLE_FIRETRUCK,
   VEHICLE_DEFAULT
 };
 
@@ -101,6 +106,8 @@ public:
 
   static std::list<Vehicle*> vehicleList;
 
+  //pick a random passenger-car model among the 5 color variants
+  static VehicleModel randomPassengerCar();
   static void cleanVehicleList(); //kill vehicles with deathcounter < 0
 private:
   void getNewHeadings(); //plan ahead for 2 tiles

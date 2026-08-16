@@ -739,7 +739,7 @@ void Construction::trade()
                         ) {
                           world.vehicleList.push_back(
                             new Vehicle(world, point,
-                              VEHICLE_BLUECAR, VEHICLE_STRATEGY_RANDOM
+                              Vehicle::randomPassengerCar(), VEHICLE_STRATEGY_RANDOM
                             )
                           );
                         }

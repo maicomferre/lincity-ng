@@ -76,8 +76,32 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
     frameIt->resourceGroup =  ResourceGroup::resMap["Bluecar"];
     speed0 = BLUE_CAR_SPEED;
     break;
+  case VEHICLE_REDCAR:
+    frameIt->resourceGroup =  ResourceGroup::resMap["Redcar"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
+  case VEHICLE_GREENCAR:
+    frameIt->resourceGroup =  ResourceGroup::resMap["Greencar"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
+  case VEHICLE_YELLOWCAR:
+    frameIt->resourceGroup =  ResourceGroup::resMap["Yellowcar"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
+  case VEHICLE_WHITECAR:
+    frameIt->resourceGroup =  ResourceGroup::resMap["Whitecar"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
+  case VEHICLE_FIRETRUCK:
+    //placeholder: firetruck uses the red-tinted car sprites until real art
+    //is added (see .devdocs/07-guia-de-sprites.md for the 16-frame layout)
+    frameIt->resourceGroup =  ResourceGroup::resMap["Firetruck"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
   default:
-    assert(false);
+    frameIt->resourceGroup =  ResourceGroup::resMap["Bluecar"];
+    speed0 = BLUE_CAR_SPEED;
+    break;
   }
   speed = speed0;
 }
@@ -85,6 +109,14 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 Vehicle::~Vehicle() {
   world.vehicleList.remove(this);
   world.map(framePt)->killframe(frameIt);
+}
+
+VehicleModel Vehicle::randomPassengerCar() {
+  static const VehicleModel cars[5] = {
+    VEHICLE_BLUECAR, VEHICLE_REDCAR, VEHICLE_GREENCAR,
+    VEHICLE_YELLOWCAR, VEHICLE_WHITECAR
+  };
+  return cars[rand() % 5];
 }
 
 void Vehicle::drive(void) {

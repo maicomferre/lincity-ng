@@ -113,6 +113,7 @@ private:
     void zoomMouse(float factor, Vector2 mousepos);
     bool constrainViewportPosition(bool useScrollCorrection);
     SDL_Surface* readImage(const std::filesystem::path& filename);
+    SDL_Surface* recolorSurface(SDL_Surface* src, const Tint& tint);
     void preReadImages(void);
     Texture* readTexture(const std::filesystem::path& filename);
     //void loadTextures();

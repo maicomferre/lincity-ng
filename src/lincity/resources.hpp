@@ -31,6 +31,13 @@
 
 #include "gui/Texture.hpp"  // for Texture
 
+// Tint applied to a freshly loaded image (e.g. a colored vehicle variant).
+struct Tint {
+  Uint8 r, g, b;
+  bool enabled;
+  Tint() : r(255), g(255), b(255), enabled(false) {}
+};
+
 class GraphicsInfo
 {
     public:
@@ -87,6 +94,7 @@ public:
     bool images_loaded;
     bool sounds_loaded;
     bool is_vehicle; //vehicles are always rendered on upper left tile
+    Tint tint;       //optional color tint applied when the image is loaded
     std::vector<MIX_Audio *> chunks;
     std::vector<GraphicsInfo> graphicsInfoVector;
     void growGraphicsInfoVector(void)
