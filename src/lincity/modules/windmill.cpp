@@ -68,6 +68,7 @@ Windmill::Windmill(World& world, ConstructionGroup *cstgrp) :
   this->tech = world.tech_level;
   this->working_days = 0;
   this->busy = 0;
+  this->paid = false;
   initialize_commodities();
 
   commodityMaxCons[STUFF_LABOR] = 100 * WINDMILL_LABOR;
@@ -75,7 +76,6 @@ Windmill::Windmill(World& world, ConstructionGroup *cstgrp) :
 }
 
 void Windmill::update() {
-  static bool paid = false;
   if(world.total_time % WINDMILL_RCOST == 0)
     paid = false;
   if(!paid)

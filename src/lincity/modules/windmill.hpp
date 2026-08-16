@@ -96,6 +96,7 @@ public:
     int  anim;
     int  working_days, busy;
     bool animate_enable;
+    bool paid; // one maintenance payment per windmill per WINDMILL_RCOST
 };
 
 #endif // __LINCITYNG_LINCITY_MODULES_WINDMILL_HPP__
