@@ -351,8 +351,13 @@ ButtonPanel::updateTech() {
           << _("$") << op.constructionGroup->getCosts(world)
           << ")";
       }
-      else {
-        // TODO: handle NotEnoughStudentsMessage
+      else if(NotEnoughStudentsMessage::ptr msg_ =
+        std::dynamic_pointer_cast<const NotEnoughStudentsMessage>(msg)
+      ) {
+        os << " (" << _("requires") << " "
+          << msg_->getRequiredSchools() << " "
+          << _("schools; you have") << " "
+          << msg_->getCurrentSchools() << ")";
       }
       tool->button->setTooltip(os.str());
     }

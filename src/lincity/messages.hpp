@@ -338,11 +338,20 @@ public:
 
 class NotEnoughStudentsMessage : public Message {
 public:
-  NotEnoughStudentsMessage() { }
+  NotEnoughStudentsMessage(int currentSchools, int requiredSchools) :
+    currentSchools(currentSchools), requiredSchools(requiredSchools)
+  { }
 
   virtual std::string str() const override {
     return "not enough students";
   }
+
+  int getCurrentSchools() const { return currentSchools; }
+  int getRequiredSchools() const { return requiredSchools; }
+
+protected:
+  const int currentSchools;
+  const int requiredSchools;
 
   DEFINE_MESSAGE_BOILERPLATE(NotEnoughStudentsMessage, Message);
 };

@@ -948,6 +948,13 @@ Game::handleMessage(Message::ptr message_) {
     ) {
       dialog.messageAddText(_("There are no ore reserves left here."));
     }
+    else if(NotEnoughStudentsMessage::ptr reason =
+      dynamic_message_cast<NotEnoughStudentsMessage>(reason_)
+    ) {
+      dialog.messageAddText(fmt::format(_("You need {} schools to support"
+          " building a new University, but you only have {}."),
+        reason->getRequiredSchools(), reason->getCurrentSchools()));
+    }
     else if(!reason_) {
 // #ifdef DEBUG
       // clang doesn't like '*' operator in typeid

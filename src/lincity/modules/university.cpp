@@ -58,10 +58,13 @@ Construction *UniversityConstructionGroup::createConstruction(World& world) {
 bool
 UniversityConstructionGroup::can_build(const World& world, Message::ptr& message
 ) const {
-  if(world.stats.groupCount[GROUP_SCHOOL]/4
+  // each university needs 4 schools' worth of students to justify a new one
+  int currentSchools = world.stats.groupCount[GROUP_SCHOOL];
+  int requiredSchools = 4 * (world.stats.groupCount[GROUP_UNIVERSITY] + 1);
+  if(currentSchools/4
     - world.stats.groupCount[GROUP_UNIVERSITY] < 1
   ) {
-    message = NotEnoughStudentsMessage::create();
+    message = NotEnoughStudentsMessage::create(currentSchools, requiredSchools);
     return false;
   }
 
