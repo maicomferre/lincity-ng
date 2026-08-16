@@ -50,6 +50,8 @@ public:
     void gotoMainMenu();
 
 private:
+    void loadMenus();
+    void reloadGUI();
     void switchMenu(Component* component);
 
     void loadMainMenu();

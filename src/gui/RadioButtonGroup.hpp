@@ -37,6 +37,8 @@ public:
 
   void registerButton(CheckButton *button);
 
+  void clear() { selection = NULL; }
+
 private:
   CheckButton *selection;
 

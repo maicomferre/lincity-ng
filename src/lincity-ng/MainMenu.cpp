@@ -75,6 +75,15 @@ extern std::string autoLanguage;
 MainMenu::MainMenu(SDL_Window* _window)
     : window(_window)
 {
+    loadMenus();
+}
+
+MainMenu::~MainMenu()
+{
+}
+
+void
+MainMenu::loadMenus() {
     loadMainMenu();
     loadNewGameMenu();
     loadLoadGameMenu();
@@ -84,8 +93,17 @@ MainMenu::MainMenu(SDL_Window* _window)
     switchMenu(mainMenu);
 }
 
-MainMenu::~MainMenu()
-{
+void
+MainMenu::reloadGUI() {
+  // rebuild the menus from the XML files so the translated text is
+  // re-read with the new language
+  newGameSelection.clear();
+  loadGameSelection.clear();
+  saveGameSelection.clear();
+  loadFiles.clear();
+  loadMenus();
+  DialogBuilder::setDefaultWindowManager(dynamic_cast<WindowManager *>(
+    menu->findComponent("windowManager")));
 }
 
 void
@@ -704,15 +722,7 @@ MainMenu::optionsBackButtonClicked(Button *) {
 #if ENABLE_NLS
   else if(currentLanguage != getConfig()->language.get())
   {
-    // TODO: re-parse GUI to update translatable text
-    DialogBuilder()
-      .titleText(_("Warning"))
-      .messageAddTextBold(_("Restart Required"))
-      .messageAddText(_("Changing the language requires restarting LinCity"
-        " for changes to take full effect."))
-      .imageFile("images/gui/dialogs/warning.png")
-      .buttonSet(DialogBuilder::ButtonSet::OK)
-      .build();
+    reloadGUI();
   }
 #endif
   gotoMainMenu();
