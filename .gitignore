@@ -4,3 +4,6 @@
 
 # Local development docs (not tracked, see .devdocs/README.md)
 /.devdocs/
+
+# Local agent entry-point (generated, source of truth is .devdocs/)
+/AGENTS.md
