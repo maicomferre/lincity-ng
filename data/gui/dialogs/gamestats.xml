@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="dialogs.xsl" type="text/xsl"?>
-<Dialog width="630" height="450" name="GameStats" resizable="no">
+<Dialog width="680" height="450" name="GameStats" resizable="no">
 	<title>Gamestats</title>
 	<contents>
 		<DefineStyle name="statistic_text" color="black" font-size="13" halign="left" />
 		<DefineStyle name="statistic_label" color="black" font-size="13" halign="right" />
 		<DefineStyle name="statistic_value" color="black" font-size="13" halign="right" />
                <TableLayout rows="26" cols="6">
-            <colsize col="1" relative="20"/>
-            <colsize col="2" relative="10"/>
-            <colsize col="3" relative="20"/>
-            <colsize col="4" relative="10"/>
-            <colsize col="5" relative="20"/>
-            <colsize col="6" relative="10"/>
+            <colsize col="1" relative="28"/>
+            <colsize col="2" relative="8"/>
+            <colsize col="3" relative="28"/>
+            <colsize col="4" relative="8"/>
+            <colsize col="5" relative="28"/>
+            <colsize col="6" relative="8"/>
 
 			<cell row="1" col="1" colspan="6" halign="left">
 				<Paragraph name="statistic_text1" style="statistic_text">----- IN TEST MODE -------</Paragraph>
