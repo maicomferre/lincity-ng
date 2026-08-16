@@ -57,6 +57,7 @@ public:
     void event(const Event& event);
     void setDirty() { Component::setDirty(); }
     void setMapDirty() { refreshMap = true; }
+    bool isMapDirty() const { return refreshMap; }
 
     //Show City Tile(x/y) by centering the screen
     void show(MapPoint point, bool redraw = true );

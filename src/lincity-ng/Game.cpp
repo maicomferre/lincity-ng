@@ -184,6 +184,15 @@ void
 Game::setWorld(std::unique_ptr<World>&& world) {
   this->world = std::move(world);
 
+  // Nothing from the previous game may leak into the new one: redraw the
+  // map views (their textures still show the old city), close any dialogs
+  // and re-enable autosave.
+  closeAllDialogs();
+  getMiniMap().setMapDirty();
+  getGameView().setMapDirty();
+  lastAutosaveDay = -1;
+  lastAutosaveTick = 0;
+
   for(auto w : {&warnBullWater, &warnBullShanty, &warnBullMonument})
     w->onAccept.clear();
   getButtonPanel().selectQueryTool();

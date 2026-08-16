@@ -75,6 +75,7 @@ public:
 
     void setDirty() { Component::setDirty(); }
     void setMapDirty() { mFullRefresh = true; }
+    bool isMapDirty() const { return mFullRefresh; }
 
     Signal<> mapChanged;
 

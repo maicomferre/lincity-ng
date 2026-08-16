@@ -72,6 +72,10 @@ public:
     LCPBar& getPBar2() const;
     ButtonPanel& getButtonPanel() const;
 
+    /* autosave bookkeeping (also checked by the headless tests) */
+    int getLastAutosaveDay() const { return lastAutosaveDay; }
+    Uint32 getLastAutosaveTick() const { return lastAutosaveTick; }
+
 private:
     std::unique_ptr<World> world;
 

@@ -27,6 +27,10 @@
 #include "headless_env.hpp"
 
 #include "lincity-ng/Config.hpp"             // for getConfig
+#include "lincity-ng/Game.hpp"               // for Game
+#include "lincity-ng/GameView.hpp"           // for GameView
+#include "lincity-ng/MiniMap.hpp"            // for MiniMap
+#include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/init_game.hpp"             // for city_settings, new_city
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/world.hpp"                 // for World
@@ -253,6 +257,27 @@ TTEST(reset_flow_new_world_after_game) {
   TCHECK_EQ(second->total_time, 0);
   TCHECK(run_days(*second, 300));
   TCHECK_EQ(second->total_time, 300);
+}
+
+TTEST(game_set_world_resets_derived_state) {
+  // BUG-01a regression: starting a new game on an existing Game object
+  // must redraw the map views (they still show the old city otherwise)
+  // and re-enable autosave.
+  initVideo(800, 600);
+  Game game(window);
+
+  std::unique_ptr<World> first = make_world();
+  if(!first) {
+    TCHECK(!"failed to create first world");
+    return;
+  }
+  TCHECK(run_days(*first, 300));
+  game.setWorld(std::move(first));
+
+  TCHECK(game.getGameView().isMapDirty());
+  TCHECK(game.getMiniMap().isMapDirty());
+  TCHECK_EQ(game.getLastAutosaveDay(), -1);
+  TCHECK_EQ((long long)game.getLastAutosaveTick(), 0LL);
 }
 
 } // namespace
