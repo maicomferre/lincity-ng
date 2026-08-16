@@ -48,6 +48,7 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
   this->next = this->prev = this->old1 = this->old2 = point;
   this->anim = 0;
   this->death_counter = 100;
+  this->wait_ticks = 10;
   this->turn_left = true;
   this->headings = 0;
   this->direction = 0;
@@ -287,6 +288,15 @@ Vehicle::move_frame(MapPoint newPoint) {
   framePt = newPoint; //remember where the frame was put
 }
 
+bool Vehicle::tileOccupied(MapPoint p) const {
+  std::list<ExtraFrame> *frames = world.map(p)->framesptr;
+  if(!frames) return false;
+  for(const ExtraFrame& exfr : *frames)
+    if(exfr.resourceGroup && exfr.resourceGroup->is_vehicle)
+      return true;
+  return false;
+}
+
 bool Vehicle::acceptable_heading(MapPoint dest) {
   unsigned short g = world.map(dest)->getTransportGroup();
 
@@ -352,21 +362,42 @@ void Vehicle::pickDestination() {
 void Vehicle::getNewHeadings() {
   std::bitset<4> headings;
 
-  //never turn back the car
-  if(point.x >= prev.x && acceptable_heading(point.e())) headings.set(0);
-  if(point.x <= prev.x && acceptable_heading(point.w())) headings.set(1);
-  if(point.y <= prev.y && acceptable_heading(point.n())) headings.set(2);
-  if(point.y >= prev.y && acceptable_heading(point.s())) headings.set(3);
+  //never turn back the car, and don't drive onto a tile another vehicle
+  //already occupies (1 car per tile, prevents overlapping at intersections)
+  if(point.x >= prev.x && acceptable_heading(point.e()) && !tileOccupied(point.e()))
+    headings.set(0);
+  if(point.x <= prev.x && acceptable_heading(point.w()) && !tileOccupied(point.w()))
+    headings.set(1);
+  if(point.y <= prev.y && acceptable_heading(point.n()) && !tileOccupied(point.n()))
+    headings.set(2);
+  if(point.y >= prev.y && acceptable_heading(point.s()) && !tileOccupied(point.s()))
+    headings.set(3);
 
-  //absolutely nowhere to go
+  // If there is no way to go, check whether it's a dead end (no road) or we
+  // are temporarily blocked by other vehicles. A dead end kills the car;
+  // being blocked just waits: leave next == point and retry on the next
+  // update, so we never drive through another car. The lifespan fallback
+  // (death_counter reaching 0 in update()) still cleans up gridlock.
   if(headings.none()) {
-    death_counter = 0;
+    bool hasExit = false;
+    for(MapPoint nb : {point.e(), point.w(), point.n(), point.s()}) {
+      if(!world.map.is_inside(nb)) continue;
+      unsigned short g = world.map(nb)->getTransportGroup();
+      if(g == GROUP_TRACK || g == GROUP_ROAD || g == GROUP_RAIL) {
+        hasExit = true;
+        break;
+      }
+    }
+    if(!hasExit)
+      death_counter = 0; // true dead end
     return;
   }
 
   // bias the choice towards moving closer to the trip destination (Manhattan
   // distance). Branches that reduce the distance get extra weight, so cars
-  // visibly drive towards a building instead of wandering randomly.
+  // visibly drive towards a building instead of wandering randomly. If every
+  // towards-destination exit is occupied, the other free exits keep a base
+  // weight so the car can still move (avoids mutual blocking on 2-lane roads).
   MapPoint branches[4] = {point.e(), point.w(), point.n(), point.s()};
   float weights[4] = {0, 0, 0, 0};
   int dx = destination.x - point.x;
@@ -400,7 +431,19 @@ Vehicle::update(unsigned long real_time) {
   //get a new heading
   if(point == next)
     getNewHeadings();
-  // check if it is time to make a step
+  // check if it is time to make a step. If we are blocked (no heading was
+  // chosen because another car occupies every exit), point == next and we
+  // simply wait: retry the heading on the next update without driving. A
+  // blocked car fades out quickly (MAX_WAIT_TICKS) so vehicles never look
+  // permanently stacked on the same stretch of road.
+  if(point == next) {
+    if(real_time > anim) {
+      anim = real_time + speed;
+      if(--wait_ticks <= 0)
+        death_counter = 0;
+    }
+    return;
+  }
   if(real_time > anim) { //move to dest
     drive();
     // let the car disappear when it reaches its destination road tile (as if

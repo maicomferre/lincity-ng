@@ -70,6 +70,8 @@ public:
   MapPoint destination;
   float xr, yr;
   int death_counter;
+  // ticks left before a blocked car gives up and disappears (anti-deadlock)
+  int wait_ticks;
   bool turn_left;
   unsigned int headings;
   int direction;
@@ -92,6 +94,7 @@ private:
   void getNewHeadings(); //plan ahead for 2 tiles
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
   void pickDestination(); //choose a nearby building as the trip destination
+  bool tileOccupied(MapPoint p) const; //true if another vehicle already occupies the tile
   void drive();          //advance position by 1 tile
   void walk(unsigned long real_time);           //change the offset of the sprite and evetually choose a tile to attach it to
   void move_frame(MapPoint newPoint); //place the frame on the map aka *world(idx)

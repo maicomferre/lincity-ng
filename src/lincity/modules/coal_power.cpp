@@ -118,6 +118,9 @@ void Coal_power::animate(unsigned long real_time) {
       if(i >= active) {
         frit->frame = -1;
       }
+      else if(s == 0) {
+        frit->frame = -1; // no sprites loaded, nothing to animate
+      }
       else if(frit->frame < 0 || rand() % 1600 != 0) {
         // always randomize new plumes and sometimes existing ones
         frit->frame = rand() % s;
