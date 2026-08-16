@@ -58,6 +58,11 @@ Construction *UniversityConstructionGroup::createConstruction(World& world) {
 bool
 UniversityConstructionGroup::can_build(const World& world, Message::ptr& message
 ) const {
+  // check tech first so an insufficient tech level isn't masked by the
+  // students message (which otherwise always comes first)
+  if(!ConstructionGroup::can_build(world, message))
+    return false;
+
   // each university needs 4 schools' worth of students to justify a new one
   int currentSchools = world.stats.groupCount[GROUP_SCHOOL];
   int requiredSchools = 4 * (world.stats.groupCount[GROUP_UNIVERSITY] + 1);
@@ -68,7 +73,7 @@ UniversityConstructionGroup::can_build(const World& world, Message::ptr& message
     return false;
   }
 
-  return ConstructionGroup::can_build(world, message);
+  return true;
 }
 
 University::University(World& world, ConstructionGroup *cstgrp) :

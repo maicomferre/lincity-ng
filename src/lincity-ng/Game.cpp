@@ -608,6 +608,10 @@ Game::run() {
               getMiniMap().setMapDirty();
               world->clearUpdated(World::Updatable::MAP);
               refreshOpenGameStats();
+              // building or removing constructions changes the prerequisites
+              // (e.g. the school count for universities), so re-evaluate the
+              // build menu tooltips immediately instead of waiting for new year
+              getButtonPanel().updateTech();
             }
 
             // update the help window
