@@ -271,6 +271,12 @@ Sound::Sound()
     totalTracks = 0;
     loadMusicTheme();
 
+    // The wave loader used to run on a background thread, racing the main
+    // thread's reads of ResourceGroup::chunks in playASound. Load
+    // synchronously so chunks is fully populated before the game starts.
+    SDL_WaitThread(loaderThread, NULL);
+    loaderThread = 0;
+
     //'totalTracks' gets too high value in while loop. Let's fix it.
     totalTracks = totalTracks-1;
 
@@ -286,7 +292,8 @@ Sound::Sound()
 Sound::~Sound()
 {
     //SDL_KillThread( loaderThread );
-    SDL_WaitThread( loaderThread, NULL );
+    if(loaderThread)
+        SDL_WaitThread( loaderThread, NULL );
     if(currentMusic)
         MIX_DestroyAudio(currentMusic);
 
