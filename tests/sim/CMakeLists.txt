@@ -5,8 +5,10 @@ add_executable(lincity-test-sim
 
 target_compile_definitions(lincity-test-sim
   PRIVATE
-  LINCITYNG_TEST_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+  LINCITYNG_TEST_DATA_DIR="${TEST_DATA_DIR}"
 )
+
+add_dependencies(lincity-test-sim test-appdata)
 
 target_link_libraries(lincity-test-sim
   PRIVATE

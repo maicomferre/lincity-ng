@@ -149,7 +149,7 @@ TTEST(round_trip_new_city) {
 } // namespace
 
 int main(int argc, char** argv) {
-  std::filesystem::path appData = LINCITYNG_TEST_SOURCE_DIR "/data";
+  std::filesystem::path appData = LINCITYNG_TEST_DATA_DIR;
   std::filesystem::path userData = std::filesystem::temp_directory_path()
     / "lincity-ng-test-save";
   const uint64_t seed = 424242;

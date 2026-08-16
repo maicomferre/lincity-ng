@@ -21,19 +21,24 @@
 #include <filesystem>
 #include <iostream>
 #include <memory>
+#include <tuple>
 #include <stdexcept>
 #include <thread>
 #include <string>
 
 #include "headless_env.hpp"
+#include "gui/Paragraph.hpp"              // for Paragraph
 
 #include "lincity-ng/Config.hpp"             // for getConfig
 #include "lincity-ng/Game.hpp"               // for Game
 #include "lincity-ng/GameView.hpp"           // for GameView
+#include "lincity-ng/Dialog.hpp"            // for openGovernor, closeAllDialogs
 #include "lincity-ng/MainLincity.hpp"        // for loadContinueCityNG
 #include "lincity-ng/MapThumbnail.hpp"       // for MapThumbnail
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
+#include "lincity-ng/Util.hpp"              // for getParagraph
 #include "lincity-ng/main.hpp"               // for initVideo, window
+#include "lincity/all_buildings.hpp"          // for INCOME_TAX_RATE...
 #include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
 #include "lincity/messages.hpp"             // for Message
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
@@ -435,7 +440,7 @@ TTEST(scenario_thumbnail_and_panel_data) {
 } // namespace
 
 int main(int argc, char** argv) {
-  std::filesystem::path appData = LINCITYNG_TEST_SOURCE_DIR "/data";
+  std::filesystem::path appData = LINCITYNG_TEST_DATA_DIR;
   std::filesystem::path userData = std::filesystem::temp_directory_path()
     / "lincity-ng-test-sim";
 
