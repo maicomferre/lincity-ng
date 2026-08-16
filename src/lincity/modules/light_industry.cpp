@@ -34,6 +34,8 @@
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_INDUSTRY_L
+#include "lincity-ng/Config.hpp"          // for getConfig
+#include "lincity/economy.hpp"            // for compute_tax_*
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"              // for World, Map, MapTile
@@ -123,8 +125,16 @@ void IndustryLight::update()
 
     goods_today = 0;
 
+    // tax elasticity (FEAT-03c): raised taxes add a labor burden to the
+    // production gate, so heavily taxed industry produces less
+    const int taxBurden = getConfig()->taxElasticity.get()
+      ? compute_tax_burden_labor(world.money_rates.income_tax,
+          world.money_rates.coal_tax, world.money_rates.ore_tax,
+          world.money_rates.goods_tax)
+      : 0;
+
     // make some goods with labor and ore
-    if ((commodityCount[STUFF_LABOR] >= (INDUSTRY_L_LABOR_USED + INDUSTRY_L_LABOR_LOAD_ORE + LABOR_LOAD_ORE))
+    if ((commodityCount[STUFF_LABOR] >= (INDUSTRY_L_LABOR_USED + INDUSTRY_L_LABOR_LOAD_ORE + LABOR_LOAD_ORE + taxBurden))
      && (commodityCount[STUFF_ORE] >= INDUSTRY_L_ORE_USED)
      && (commodityCount[STUFF_GOODS] + INDUSTRY_L_MAKE_GOODS <= MAX_GOODS_AT_INDUSTRY_L))
     {

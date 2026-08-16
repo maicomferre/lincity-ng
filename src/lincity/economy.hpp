@@ -99,4 +99,37 @@ inline int compute_school_cost(int busy, int running_cost) {
   return static_cast<int>(running_cost * factor);
 }
 
+/* Tax elasticity (FEAT-03c stage 2). Both functions are inert while the
+ * rates are at or below their defaults, so default games are unchanged. */
+
+/* Extra labor an industry spends complying with taxes when rates are
+ * raised above their defaults; added to the production gate. */
+inline int compute_tax_burden_labor(int income_rate, int coal_rate,
+    int ore_rate, int goods_rate) {
+  int burden = 0;
+  if(income_rate > INCOME_TAX_RATE)
+    burden += income_rate - INCOME_TAX_RATE;
+  if(coal_rate > COAL_TAX_RATE)
+    burden += coal_rate - COAL_TAX_RATE;
+  if(ore_rate > ORE_TAX_RATE)
+    burden += ore_rate - ORE_TAX_RATE;
+  if(goods_rate > GOODS_TAX_RATE)
+    burden += goods_rate - GOODS_TAX_RATE;
+  return burden;
+}
+
+/* Discomfort fed into residence desireability when taxes are raised
+ * above their defaults; makes citizens leave high-tax cities. */
+inline int compute_tax_discomfort(int income_rate, int coal_rate,
+    int goods_rate) {
+  int discomfort = 0;
+  if(income_rate > INCOME_TAX_RATE)
+    discomfort += 2 * (income_rate - INCOME_TAX_RATE);
+  if(coal_rate > COAL_TAX_RATE)
+    discomfort += coal_rate - COAL_TAX_RATE;
+  if(goods_rate > GOODS_TAX_RATE)
+    discomfort += goods_rate - GOODS_TAX_RATE;
+  return discomfort;
+}
+
 #endif // LINCITY_ECONOMY_HPP

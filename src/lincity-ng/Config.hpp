@@ -76,6 +76,8 @@ public:
   // BUG-04: charge bridges their real cost (BRIDGE_FACTOR x the road);
   // legacy behaviour charged the plain road price
   Option<bool> bridgeRealCost;
+  // FEAT-03c: raised taxes make industry produce less and citizens leave
+  Option<bool> taxElasticity;
 
   Option<std::string> language;
   Option<std::string> musicTheme;

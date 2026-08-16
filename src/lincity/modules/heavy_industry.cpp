@@ -34,6 +34,8 @@
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_INDUSTRY_H
+#include "lincity-ng/Config.hpp"          // for getConfig
+#include "lincity/economy.hpp"            // for compute_tax_*
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"              // for World, Map, MapTile
@@ -91,8 +93,16 @@ IndustryHeavy::IndustryHeavy(World& world, ConstructionGroup *cstgrp) :
 
 void IndustryHeavy::update()
 {
+    // tax elasticity (FEAT-03c): raised taxes add a labor burden to the
+    // production gate, so heavily taxed industry produces less
+    const int taxBurden = getConfig()->taxElasticity.get()
+      ? compute_tax_burden_labor(world.money_rates.income_tax,
+          world.money_rates.coal_tax, world.money_rates.ore_tax,
+          world.money_rates.goods_tax)
+      : 0;
+
     // can we produce steel?
-    int steel = ( commodityCount[STUFF_LABOR] >= MAX_ORE_USED / LABOR_MAKE_STEEL + LABOR_LOAD_ORE + LABOR_LOAD_COAL + LABOR_LOAD_STEEL
+    int steel = ( commodityCount[STUFF_LABOR] >= MAX_ORE_USED / LABOR_MAKE_STEEL + LABOR_LOAD_ORE + LABOR_LOAD_COAL + LABOR_LOAD_STEEL + taxBurden
     && commodityCount[STUFF_ORE] >= MAX_ORE_USED
     && commodityCount[STUFF_STEEL] + MAX_ORE_USED / ORE_MAKE_STEEL <= MAX_STEEL_AT_INDUSTRY_H) ? MAX_ORE_USED / ORE_MAKE_STEEL : 0;
 

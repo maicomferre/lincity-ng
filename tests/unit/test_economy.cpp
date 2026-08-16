@@ -67,6 +67,31 @@ TTEST(compute_clamp_money) {
   TCHECK_EQ(-2000000000, compute_clamp_money(-2100000000));
 }
 
+TTEST(compute_tax_burden_labor_defaults_inert) {
+  // at default rates the elasticity adds nothing
+  TCHECK_EQ(0, compute_tax_burden_labor(8, 15, 15, 1));
+  TCHECK_EQ(0, compute_tax_burden_labor(4, 10, 10, 0));
+}
+
+TTEST(compute_tax_burden_labor_raised_rates) {
+  // income 16 (8 over), coal 30 (15 over), ore 30 (15 over),
+  // goods 2 (1 over) = 39 extra labor
+  TCHECK_EQ(39, compute_tax_burden_labor(16, 30, 30, 2));
+  TCHECK_EQ(8, compute_tax_burden_labor(16, 15, 15, 1));
+  TCHECK_EQ(1, compute_tax_burden_labor(8, 15, 15, 2)); // goods 2-1
+}
+
+TTEST(compute_tax_discomfort_defaults_inert) {
+  TCHECK_EQ(0, compute_tax_discomfort(8, 15, 1));
+}
+
+TTEST(compute_tax_discomfort_raised_rates) {
+  // income 16 -> 2*8=16; coal 30 -> 15; goods 2 -> 1 => 32
+  TCHECK_EQ(32, compute_tax_discomfort(16, 30, 2));
+  TCHECK_EQ(16, compute_tax_discomfort(16, 15, 1));
+  TCHECK_EQ(15, compute_tax_discomfort(8, 30, 1));
+}
+
 TTEST(compute_school_cost_regressive_by_occupancy) {
   // SCHOOL_RUNNING_COST=2: 0% -> 4, 25% -> 3, 50% -> 2, >=75% -> 1
   TCHECK_EQ(4, compute_school_cost(0, 2));

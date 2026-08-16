@@ -437,6 +437,44 @@ TTEST(scenario_thumbnail_and_panel_data) {
   TCHECK(world->tech_level > 0);
 }
 
+TTEST(tax_elasticity_ab_reduces_activity) {
+  // FEAT-03c stage 2, A/B with the same seed on the same scenario:
+  // doubling every rate must not increase industry pollution or
+  // population (elasticity only reduces taxable flows), and the money
+  // conservation invariant must hold in both runs.
+  auto runScenario = [](double factor) {
+    BasicUrbg::get().reseed(g_seed);
+    srand(g_seed);
+    std::unique_ptr<World> w = World::load(
+      headless::app_data() / "opening" / "good_times.scn.gz");
+    if(!w)
+      return std::tuple<bool, int, int>{false, 0, 0};
+    // test-only direct writes of the tax rates
+    w->money_rates.income_tax = (int)(INCOME_TAX_RATE * factor);
+    w->money_rates.coal_tax = (int)(COAL_TAX_RATE * factor);
+    w->money_rates.ore_tax = (int)(ORE_TAX_RATE * factor);
+    w->money_rates.goods_tax = (int)(GOODS_TAX_RATE * factor);
+    w->money_rates.dole = (int)(DOLE_RATE * factor);
+    w->money_rates.transport_cost = (int)(TRANSPORT_COST_RATE * factor);
+    const bool ok = run_days(*w, 1200);
+    return std::tuple<bool, int, int>{ok,
+      w->stats.total_pollution,
+      w->stats.population.population_m.acc};
+  };
+
+  auto base = runScenario(1.0);
+  auto high = runScenario(2.0);
+  std::fprintf(stderr, "  base: pollution %d pop %d | high: pollution %d pop %d\n",
+    std::get<1>(base), std::get<2>(base),
+    std::get<1>(high), std::get<2>(high));
+
+  TCHECK(std::get<0>(base));
+  TCHECK(std::get<0>(high));
+  TCHECK(std::get<1>(high) <= std::get<1>(base));
+  TCHECK(std::get<2>(high) <= std::get<2>(base));
+}
+
+
 } // namespace
 
 int main(int argc, char** argv) {
