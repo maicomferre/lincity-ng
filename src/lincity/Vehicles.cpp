@@ -326,20 +326,21 @@ bool Vehicle::acceptable_heading(MapPoint dest) {
 
 
 void Vehicle::pickDestination() {
-  // find a real building (not transport, not transparent) to drive towards.
-  // Skip the closest ring so cars actually travel a few blocks instead of
-  // stopping at the first building next door.
+  // Choose a road tile that has a real building next to it as the trip's
+  // end point, so the car visibly "arrives" at a building's front door.
+  // Search in a wider ring so cars actually travel several blocks, and
+  // remember the building tile so the car stops when it reaches the road
+  // tile next to it (never stopping mid-turn).
   destination = point;
-  for(int r = 5; r <= 18; ++r) {
+  for(int r = 8; r <= 28; ++r) {
     for(int dx = -r; dx <= r; ++dx) {
       for(int dy = -r; dy <= r; ++dy) {
         if(std::abs(dx) != r && std::abs(dy) != r) continue; // ring only
         MapPoint cand(point.x + dx, point.y + dy);
         if(!world.map.is_inside(cand)) continue;
         if(cand == origin) continue;
-        Construction *cst = world.map(cand)->reportingConstruction;
-        if(!cst) continue;
-        if(cst->flags & (FLAG_IS_TRANSPORT | FLAG_TRANSPARENT)) continue;
+        if(world.map(cand)->getTransportGroup() != GROUP_ROAD) continue;
+        if(!world.hasBuildingNeighbor(cand)) continue; // a front door
         destination = cand;
         return;
       }
@@ -402,14 +403,15 @@ Vehicle::update(unsigned long real_time) {
   // check if it is time to make a step
   if(real_time > anim) { //move to dest
     drive();
-    // let the car disappear when it reaches its destination building (as if
-    // it had arrived there). It must first leave its spawn building behind,
-    // so only consider reaching the destination after a minimum travel
-    // distance (death_counter counts down from 100 per tile driven). Cars
-    // that never reach a building still die from the lifespan fallback.
+    // let the car disappear when it reaches its destination road tile (as if
+    // it had arrived at a building's front door). It must first leave its
+    // spawn building behind, so only consider reaching the destination after
+    // a minimum travel distance (death_counter counts down from 100 per tile
+    // driven). Cars that never reach a building still die from the lifespan
+    // fallback.
     if(destination != point
       && death_counter <= 100 - MIN_VEHICLE_TRIP
-      && std::abs(destination.x - point.x) + std::abs(destination.y - point.y) <= 1
+      && point == destination
     ) {
       death_counter = 0;
     }
