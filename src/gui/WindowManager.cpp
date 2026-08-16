@@ -18,6 +18,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "WindowManager.hpp"
 
 #include <SDL3/SDL.h>                     // for SDL_SystemCursor, SDL_BUTTO...
+#include <algorithm>                      // for rotate
 #include <libxml++/parsers/textreader.h>  // for TextReader
 #include <stdexcept>                      // for runtime_error
 #include <utility>                        // for move
@@ -83,6 +84,7 @@ void
 WindowManager::event(const Event& event) {
   lockChilds();
   bool visible = event.inside;
+  Window *bringToFront = NULL;
 
   if(event.type == Event::MOUSEBUTTONDOWN
     && event.mousebutton != SDL_BUTTON_LEFT
@@ -124,7 +126,8 @@ WindowManager::event(const Event& event) {
       }
 
       if(child.inside(event.mousepos) || dragWindow == window) {
-        // TODO: move window to front
+        // bring the window to front
+        bringToFront = window;
       }
       break;
 
@@ -211,6 +214,20 @@ WindowManager::event(const Event& event) {
       visible = false;
     if(window == dragWindow)
       visible = false;
+  }
+
+  if(bringToFront && childs.size() > 1) {
+    Childs::iterator i = childs.begin();
+    for(; i != childs.end(); ++i) {
+      if(i->getComponent() == bringToFront)
+        break;
+    }
+    if(i != childs.end() && i + 1 != childs.end()) {
+      // move the window to the end so it is drawn on top and receives
+      // events before the other windows
+      std::rotate(i, i + 1, childs.end());
+      setDirty();
+    }
   }
   unlockChilds();
 }
