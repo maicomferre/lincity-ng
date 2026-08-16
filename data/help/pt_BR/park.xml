@@ -6,7 +6,7 @@
 	<p style="hp">Você pode usar parques para proteger áreas residenciais ou impedir que a poluição escape da área local da fonte.</p>
 	<p style="hp">O vento vem do sudoeste, então construa seus parques de acordo.</p>
 	<p style="hp">Os parques são muito mais eficazes do que florestas ou fazendas, mas exigem água subterrânea, então só podem ser construídos em tiles "verdes".</p>
-	<p style="hp">Dica: segure a tecla 'k' pressionada ao construir um parque para obter uma pequena lagoa.</p>
+	<p style="hp">Dica: segure a tecla 'p' pressionada ao construir um parque para obter uma pequena lagoa.</p>
 
 	<p style="hp">Este é um parque</p>
 	<img src="images/tiles/parkland-plane.png" halign="center"/>

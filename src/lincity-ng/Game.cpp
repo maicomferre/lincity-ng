@@ -334,8 +334,9 @@ Game::executeUserOperation(MapPoint point) {
 
     case UserOperation::ACTION_BUILD: {
       // TODO: move dependence on SDL_GetKeyboardState elsewhere (GameView?)
+      // 'p' for pond; 'w' is taken by scrolling, 'k' was undocumented
       if(userOperation.constructionGroup == &parklandConstructionGroup
-        && SDL_GetKeyboardState(NULL)[SDL_SCANCODE_K]
+        && SDL_GetKeyboardState(NULL)[SDL_SCANCODE_P]
       )
         userOperation.constructionGroup = &parkpondConstructionGroup;
 
