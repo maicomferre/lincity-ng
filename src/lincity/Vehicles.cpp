@@ -315,17 +315,51 @@ bool Vehicle::tileOccupied(MapPoint p) const {
   // Checking the logical positions (not just the frame) closes the window
   // where drive() has advanced point but the sprite has not arrived yet, so
   // two cars can never overlap on the same tile.
+  //
+  // Exception: a car travelling the OPPOSITE direction on the same road uses
+  // the other visual lane (walk() draws opposite directions on opposite sides
+  // of the tile), so it may pass. Same-direction cars still queue 1 per tile,
+  // and a car that has committed to drive INTO the tile always blocks to
+  // prevent two cars committing to the same tile at once.
   for(const Vehicle* v : world.vehicleList) {
     if(v == this) continue;
-    if(v->point == p || v->next == p || v->framePt == p)
+    // committed to drive into p -> hard block (double-commit guard)
+    if(v->point != p && v->next == p)
       return true;
+    // not on p at all -> ignore
+    if(v->point != p && v->framePt != p)
+      continue;
+    // v is on p. Allow passing if it is actually moving the opposite way
+    // (a stationary/waiting/arriving car occupies its tile either way).
+    MapPoint vd = v->travelDelta();
+    if(vd.x != 0 || vd.y != 0) {
+      MapPoint md(p.x - point.x, p.y - point.y);
+      if(vd.x == -md.x && vd.y == -md.y)
+        continue;
+    }
+    return true;
   }
-  std::list<ExtraFrame> *frames = world.map(p)->framesptr;
-  if(!frames) return false;
-  for(const ExtraFrame& exfr : *frames)
-    if(exfr.resourceGroup && exfr.resourceGroup->is_vehicle)
-      return true;
   return false;
+}
+
+MapPoint Vehicle::travelDelta() const {
+  // Direction the vehicle is heading. When point != next it is committed to
+  // drive into next, so the delta is next - point. When waiting (point ==
+  // next) it has no pending move, so fall back to the direction of its last
+  // move (the lane it occupies / would continue on).
+  if(point != next)
+    return MapPoint(next.x - point.x, next.y - point.y);
+  switch(direction) {
+  case 0: return MapPoint(0, 1);   // south (ystep == 2)
+  case 1: return MapPoint(1, 1);
+  case 2: return MapPoint(1, 0);   // east (xstep == 2)
+  case 3: return MapPoint(1, -1);
+  case 4: return MapPoint(0, -1);  // north
+  case 5: return MapPoint(-1, -1);
+  case 6: return MapPoint(-1, 0);  // west
+  case 7: return MapPoint(-1, 1);
+  default: return MapPoint(0, 0);
+  }
 }
 
 int Vehicle::buildingDirection(MapPoint p) const {

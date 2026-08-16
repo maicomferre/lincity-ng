@@ -107,6 +107,7 @@ private:
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
   void pickDestination(); //choose a nearby building as the trip destination
   bool tileOccupied(MapPoint p) const; //true if another vehicle already occupies the tile
+  MapPoint travelDelta() const; //unit direction the vehicle is moving towards
   int buildingDirection(MapPoint p) const; //which neighbor of p is a building (0=N,1=S,2=E,3=W, -1 none)
   void drive();          //advance position by 1 tile
   void walk(unsigned long real_time);           //change the offset of the sprite and evetually choose a tile to attach it to
