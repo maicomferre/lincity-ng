@@ -33,6 +33,7 @@
 
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
+#include "lincity/economy.hpp"            // for compute_maintenance_cost
 #include "lincity/groups.hpp"             // for GROUP_FIRESTATION
 #include "lincity/lin-city.hpp"           // for ANIM_THRESHOLD, FALSE, FLAG...
 #include "lincity/messages.hpp"           // for OutOfMoneyMessage
@@ -82,8 +83,8 @@ void FireStation::update()
 {
   ++daycount;
   try {
-    world.expense(FIRESTATION_RUNNING_COST * (1 +
-        FIRESTATION_RUNNING_COST_MUL * world.tech_level / MAX_TECH_LEVEL),
+    world.expense(compute_maintenance_cost(FIRESTATION_RUNNING_COST,
+        FIRESTATION_RUNNING_COST_MUL, world.tech_level),
       world.stats.expenses.firestation);
 
     if(commodityCount[STUFF_LABOR] >= FIRESTATION_LABOR

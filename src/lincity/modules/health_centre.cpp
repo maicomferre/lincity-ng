@@ -32,6 +32,7 @@
 
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
+#include "lincity/economy.hpp"            // for compute_maintenance_cost
 #include "lincity/groups.hpp"             // for GROUP_HEALTH
 #include "lincity/lin-city.hpp"           // for FALSE, FLAG_HEALTH_COVER_CHECK
 #include "lincity/messages.hpp"           // for OutOfMoneyMessage
@@ -79,8 +80,8 @@ void HealthCentre::update() {
   ++daycount;
 
   try {
-    world.expense(HEALTH_RUNNING_COST * (1 +
-        HEALTH_RUNNING_COST_MUL * world.tech_level / MAX_TECH_LEVEL),
+    world.expense(compute_maintenance_cost(HEALTH_RUNNING_COST,
+        HEALTH_RUNNING_COST_MUL, world.tech_level),
       world.stats.expenses.health);
 
     if (commodityCount[STUFF_LABOR] >= HEALTH_CENTRE_LABOR

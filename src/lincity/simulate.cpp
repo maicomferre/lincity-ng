@@ -36,6 +36,7 @@
 #include "Vehicles.hpp"                    // for Vehicle
 #include "all_buildings.hpp"               // for DAYS_BETWEEN_COVER, DAYS_PER...
 #include "commodities.hpp"               // for CommodityRule, Commodity
+#include "economy.hpp"                   // for compute_* formulas
 #include "groups.hpp"                      // for GROUP_FIRE, GROUP_MONUMENT
 #include "util/randutil.hpp"                 // for BasicUrbg
 #include "lin-city.hpp"                    // for MAX_TECH_LEVEL, TECH_LEVEL_LOSS
@@ -182,46 +183,39 @@ World::end_of_month_update(void) {
 
 void
 World::end_of_year_update(void) {
-  income(taxable.labor * money_rates.income_tax / 100,
+  income(compute_income_tax(taxable.labor, money_rates.income_tax),
     stats.income.income_tax);
   taxable.labor = 0;
 
-  income(taxable.coal * money_rates.coal_tax / 10,
+  income(compute_coal_tax(taxable.coal, money_rates.coal_tax),
     stats.income.coal_tax);
   taxable.coal = 0;
 
-  income(taxable.ore * money_rates.ore_tax / 10,
+  income(compute_ore_tax(taxable.ore, money_rates.ore_tax),
     stats.income.ore_tax);
   taxable.ore = 0;
 
-  int goods_tax = (taxable.goods * money_rates.goods_tax) / 100;
-  goods_tax += (int)((float)(goods_tax * money_rates.goods_tax)
-    * (float)tech_level / 2000000.0);
-  income(goods_tax, stats.income.goods_tax);
+  income(compute_goods_tax(taxable.goods, money_rates.goods_tax,
+    tech_level), stats.income.goods_tax);
   taxable.goods = 0;
 
   /* The price of exports on the world market drops as you export more.
      The exporters have to discount there wares, therefore the
      tax take is less.
    */
-  int exDiscount = 0;
-  for(int trigger : {25000, 50000, 100000, 200000, 400000, 800000})
-    exDiscount += std::max(0, taxable.trade_ex - trigger) / 10;
-  income(taxable.trade_ex - exDiscount, stats.income.export_tax);
+  income(taxable.trade_ex - compute_export_discount(taxable.trade_ex),
+    stats.income.export_tax);
   taxable.trade_ex = 0;
 
   try {
-    if(total_money < 0)
-      expense(std::min((-total_money / 1000) * INTEREST_RATE, 1000000),
-        stats.expenses.interest);
+    const int interest = compute_interest(total_money);
+    if(interest > 0)
+      expense(interest, stats.expenses.interest);
   } catch(const OutOfMoneyMessage::Exception& ex) {
     // TODO: penalty for being bankrupt
   }
 
-  if(total_money > 2000000000)
-    total_money = 2000000000;
-  else if(total_money < -2000000000)
-    total_money = -2000000000;
+  total_money = compute_clamp_money(total_money);
 
   setUpdated(Updatable::MONEY);
 

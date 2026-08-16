@@ -41,6 +41,7 @@
 #include "MapPoint.hpp"                   // for MapPoint, operator<<
 #include "Vehicles.hpp"                   // for Vehicle, VehicleStrategy
 #include "commodities.hpp"                // for CommodityRule, Commodity
+#include "economy.hpp"                    // for compute_cost
 #include "groups.hpp"                     // for GROUP_POWER_LINE, GROUP_FIRE
 #include "lin-city.hpp"                   // for FLAG_EVACUATE, FLAG_IS_TRAN...
 #include "lincity-ng/Config.hpp"          // for getConfig, Config
@@ -897,8 +898,7 @@ ConstructionGroup::ConstructionGroup(
 }
 
 int ConstructionGroup::getCosts(const World& world) const {
-  return static_cast<int>(cost *
-    (1.0f + cost_mul * world.tech_level / static_cast<float>(MAX_TECH_LEVEL)));
+  return compute_cost(cost, cost_mul, world.tech_level);
 }
 
 void
