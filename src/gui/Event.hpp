@@ -61,32 +61,32 @@ public:
     Event(Type type);
 
     /// type of the event
-    Type type;
+    Type type = UPDATE;
     /// position of the mouse (relative to component origin)
     Vector2 mousepos;
     /// relative mouse movement
     Vector2 mousemove;
     /// amount scrolled (vertically) by mouse
-    int scrolly;
+    int scrolly = 0;
     /// amount scrolled (vertically) by mouse; can be non-integer
-    float scrolly_precise;
+    float scrolly_precise = 0;
     /// number of the mousebutton that has been pressed
-    int mousebutton;
+    int mousebutton = 0;
     /// mouse button state (can be decoded with SDL_BUTTON macros)
-    Uint32 mousebuttonstate;
+    Uint32 mousebuttonstate = 0;
 
-    Uint32 key;
-    SDL_Keymod mod;
-    SDL_Scancode scancode;
+    Uint32 key = 0;
+    SDL_Keymod mod = SDL_KMOD_NONE;
+    SDL_Scancode scancode = SDL_SCANCODE_UNKNOWN;
 
     /** set to true if the position where the mouse was clicked/released is
      * inside the component and the component is not occupied by another
      * component at this position
      */
-    bool inside;
+    bool inside = false;
     /** For update events this is the time that has elapsed since the last frame
      */
-    float elapsedTime;
+    float elapsedTime = 0;
 };
 
 // TODO: Some day, I want to implement a decent mouse-/keyboard-focus system.

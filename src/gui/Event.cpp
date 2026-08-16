@@ -21,6 +21,21 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include <SDL3/SDL.h>// for SDL_Event, SDL_KEYDOWN, SDL_KEYUP, SDL_MOUSEBUTT...
 #include <assert.h>  // for assert
+#include <cstring>   // for memcpy
+
+namespace {
+/* SDL delivers some synthesized events whose scancode field is not a valid
+ * SDL_Scancode; reading the enum-typed field directly is UB in that case.
+ * Copy the representation bytes instead and map anything outside the
+ * scancode table to UNKNOWN (the switch statements just won't match, same
+ * as before). */
+SDL_Scancode sanitizeScancode(const SDL_Scancode& field) {
+  unsigned int raw = 0;
+  std::memcpy(&raw, &field, sizeof(field));
+  return (raw < SDL_SCANCODE_COUNT)
+    ? static_cast<SDL_Scancode>(raw) : SDL_SCANCODE_UNKNOWN;
+}
+} // namespace
 
 Event::Event(SDL_Event& event)
     : inside(true)
@@ -30,13 +45,13 @@ Event::Event(SDL_Event& event)
             type = KEYUP;
             key = event.key.key;
             mod = event.key.mod;
-            scancode = event.key.scancode;
+            scancode = sanitizeScancode(event.key.scancode);
             break;
         case SDL_EVENT_KEY_DOWN:
             type = KEYDOWN;
             key = event.key.key;
             mod = event.key.mod;
-            scancode = event.key.scancode;
+            scancode = sanitizeScancode(event.key.scancode);
             break;
         case SDL_EVENT_MOUSE_MOTION:
             type = MOUSEMOTION;
