@@ -55,6 +55,7 @@
 #include "gui/Color.hpp"                  // for Color
 #include "gui/ComponentFactory.hpp"       // for IMPLEMENT_COMPONENT_FACTORY
 #include "gui/Desktop.hpp"                // for Desktop
+#include "gui/Document.hpp"               // for Document
 #include "gui/Event.hpp"                  // for Event
 #include "gui/Painter.hpp"                // for Painter
 #include "gui/Paragraph.hpp"              // for Paragraph
@@ -69,6 +70,7 @@
 #include "lincity/lintypes.hpp"           // for ConstructionGroup, Construc...
 #include "lincity/messages.hpp"           // for Message
 #include "lincity/modules/tile.hpp"       // for TileConstructionGroup, bare...
+#include "lincity/modules/track_road_rail.hpp"  // for transport_group_at
 #include "lincity/transport.hpp"          // for BRIDGE_FACTOR
 #include "lincity/world.hpp"              // for Map, World, MapTile, Ground
 #include "util/gettextutil.hpp"           // for _
@@ -78,6 +80,8 @@ using namespace std::placeholders;
 
 
 const int scale3d = 128; // guestimate value for good looking 3d view;
+
+static bool isTransportGroup(const ConstructionGroup* group);
 
 const float GameView::defaultTileWidth = 128;
 const float GameView::defaultTileHeight = 64;
@@ -89,6 +93,13 @@ GameView::GameView() {
     mouseScrollState = SCROLL_NONE;
     remaining_images = 0;
     textures_ready = false;
+
+    // floating cost text near the cursor (FEAT-01)
+      floatingDoc = std::make_unique<Document>();
+    floatingParagraph = new Paragraph();
+    floatingDoc->addParagraph(std::unique_ptr<Paragraph>(floatingParagraph));
+    floatingDoc->style.background = Color(0, 0, 0, 170);
+    floatingTextStyle.text_color = Color(255, 255, 255, 255);
 }
 
 GameView::~GameView() {
@@ -766,6 +777,7 @@ GameView::event(const Event& event) {
 
         //build last tile first to play the sound
         Message::ptr dummyMsg;
+        const int moneyBefore = game->getWorld().total_money;
         // check if allowed to avoid many dialogs for bulk ops
         if(getUserOperation()->isAllowedHere(
           game->getWorld(), endRoad, dummyMsg)
@@ -820,6 +832,17 @@ GameView::event(const Event& event) {
             *v2 += *s2;
           }
         }
+        // floating negative total for what was actually charged (FEAT-01)
+        const int spent = moneyBefore - game->getWorld().total_money;
+        if(spent > 0) {
+          Vector2 pos = getScreenPoint(endRoad);
+          pos.x += tileWidth * 0.5f;
+          pos.y -= 14;
+          setFloatingText(fmt::format("-{:n}$", spent), pos, 1600);
+        }
+        else {
+          clearFloatingText();
+        }
         break;
       }
       roadDragging = false;
@@ -832,7 +855,17 @@ GameView::event(const Event& event) {
 
     if(event.mousebutton == SDL_BUTTON_LEFT) {
       if(!blockingDialogIsOpen) {
-        game->executeUserOperation(getTile(event.mousepos));
+        const MapPoint clickTile = getTile(event.mousepos);
+        const int moneyBefore = game->getWorld().total_money;
+        game->executeUserOperation(clickTile);
+        // floating negative total for what was actually charged (FEAT-01)
+        const int spent = moneyBefore - game->getWorld().total_money;
+        if(spent > 0) {
+          Vector2 pos = getScreenPoint(clickTile);
+          pos.x += tileWidth * 0.5f;
+          pos.y -= 14;
+          setFloatingText(fmt::format("-{:n}$", spent), pos, 1600);
+        }
       }
     }
     else if(event.mousebutton == SDL_BUTTON_RIGHT) {
@@ -1541,6 +1574,8 @@ void GameView::draw(Painter& painter)
     }
 
     int cost = 0;
+    long long landCost = 0, bridgeCost = 0;
+    int landTiles = 0, bridgeTiles = 0;
     //display commodities continously
     if(getUserOperation()->action == UserOperation::ACTION_EVACUATE) {
       game->getMpsMap().refresh();
@@ -1550,15 +1585,21 @@ void GameView::draw(Painter& painter)
     if(mouseInGameView && !blockingDialogIsOpen) {
         MapPoint lastRazed( -1,-1 );
         int tiles = 0;
+        const bool previewBuild =
+          getUserOperation()->action == UserOperation::ACTION_BUILD;
+        const bool previewBulldoze =
+          getUserOperation()->action == UserOperation::ACTION_BULLDOZE;
+        ConstructionGroup* previewGroup =
+          getUserOperation()->constructionGroup;
         if( roadDragging && ( cursorSize == 1 ) &&
-        (getUserOperation()->action == UserOperation::ACTION_BUILD || getUserOperation()->action == UserOperation::ACTION_BULLDOZE))
+        (previewBuild || previewBulldoze))
         {
             //use same method to find all Tiles as in GameView::event(const Event& event)
             int stepx = ( startRoad.x > tileUnderMouse.x ) ? -1 : 1;
             int stepy = ( startRoad.y > tileUnderMouse.y ) ? -1 : 1;
             currentTile = startRoad;
 
-            if (getUserOperation()->action == UserOperation::ACTION_BULLDOZE)
+            if (previewBulldoze)
             {
                 for (;currentTile.x != tileUnderMouse.x + stepx; currentTile.x += stepx) {
                     for (currentTile.y = startRoad.y; currentTile.y != tileUnderMouse.y + stepy; currentTile.y += stepy) {
@@ -1571,7 +1612,7 @@ void GameView::draw(Painter& painter)
                     }
                 }
             }
-            else if (getUserOperation()->action == UserOperation::ACTION_BUILD)
+            else if (previewBuild)
             {
                 int* v1 = ctrDrag ? &currentTile.y :&currentTile.x;
                 int* v2 = ctrDrag ? &currentTile.x :&currentTile.y;
@@ -1580,35 +1621,81 @@ void GameView::draw(Painter& painter)
                 int* s1 = ctrDrag ? &stepy: &stepx;
                 int* s2 = ctrDrag ? &stepx: &stepy;
 
+                // Itemize the preview: tiles over water become bridges and
+                // cost their real (500x) price (FEAT-01, BUG-04).
                 while( *v1 != *l1)
                 {
                     markTile( painter, currentTile );
-                    cost += buildCost( currentTile );
+                    if(previewGroup && isTransportGroup(previewGroup)
+                      && getWorld().map(currentTile)->is_water())
+                    {
+                        ConstructionGroup& g = transport_group_at(*previewGroup,
+                          *getWorld().map(currentTile));
+                        bridgeCost += g.getCosts(getWorld());
+                        bridgeTiles++;
+                    }
+                    else {
+                        landCost += buildCost( currentTile );
+                        landTiles++;
+                    }
                     tiles++;
                     *v1 += *s1;
                 }
                 while( *v2 != *l2 + *s2 )
                 {
                     markTile( painter, currentTile );
-                    cost += buildCost( currentTile );
+                    if(previewGroup && isTransportGroup(previewGroup)
+                      && getWorld().map(currentTile)->is_water())
+                    {
+                        ConstructionGroup& g = transport_group_at(*previewGroup,
+                          *getWorld().map(currentTile));
+                        bridgeCost += g.getCosts(getWorld());
+                        bridgeTiles++;
+                    }
+                    else {
+                        landCost += buildCost( currentTile );
+                        landTiles++;
+                    }
                     tiles++;
                     *v2 += *s2;
                 }
+                cost = landCost + bridgeCost;
+            }
 
+            // floating itemized cost near the cursor (FEAT-01)
+            Vector2 previewPos = getScreenPoint(tileUnderMouse);
+            previewPos.x += tileWidth * 0.5f;
+            previewPos.y -= 14;
+            if(previewBuild) {
+                if(bridgeTiles > 0)
+                    setFloatingText(fmt::format(
+                        "{} {}×{:n}$ + {} {}×{:n}$ = {:n}$",
+                        _(previewGroup->name), landTiles, landCost,
+                        _("Bridge"), bridgeTiles, bridgeCost, cost),
+                      previewPos, 0);
+                else
+                    setFloatingText(fmt::format("{} {}×{:n}$",
+                        _(previewGroup->name), tiles, cost), previewPos, 0);
+            }
+            else {
+                setFloatingText(fmt::format("{} {:n}$", _("Bulldoze"),
+                    cost), previewPos, 0);
             }
         }
         else
         {
             markTile( painter, tileUnderMouse );
             tiles++;
-            if( (getUserOperation()->action == UserOperation::ACTION_BULLDOZE ) && realTile( currentTile ) != lastRazed ) {
+            if( (previewBulldoze ) && realTile( currentTile ) != lastRazed ) {
                     cost += bulldozeCost( tileUnderMouse );
             } else {
                 cost += buildCost( tileUnderMouse );
             }
+            if(floatingPersistent)
+              clearFloatingText();
         }
         std::stringstream prize;
-        if( getUserOperation()->action == UserOperation::ACTION_BULLDOZE ){
+        if( previewBulldoze ){
             if( roadDragging ){
                 prize << _("Estimated Bulldoze Cost: ");
             } else {
@@ -1621,9 +1708,9 @@ void GameView::draw(Painter& painter)
             }
             printStatusMessage( prize.str() );
         }
-        else if( getUserOperation()->action == UserOperation::ACTION_BUILD)
+        else if( previewBuild)
         {
-            std::string buildingName =  getUserOperation()->constructionGroup->name;
+            std::string buildingName =  previewGroup->name;
             prize << _(buildingName);
             prize << _(": Cost to build ");
             if( cost > 0 ) {
@@ -1636,6 +1723,11 @@ void GameView::draw(Painter& painter)
            showToolInfo( tiles );
         }
     }
+    else if(floatingPersistent) {
+        clearFloatingText();
+    }
+
+    drawFloatingText(painter);
 }
 
 /*
@@ -1702,6 +1794,51 @@ void GameView::printStatusMessage( std::string message ){
         return;
     }
     lastStatusMessage = message;
+}
+
+static bool isTransportGroup(const ConstructionGroup* group) {
+  if(!group)
+    return false;
+  switch(group->group) {
+    case GROUP_ROAD:
+    case GROUP_TRACK:
+    case GROUP_RAIL:
+    case GROUP_ROAD_BRIDGE:
+    case GROUP_TRACK_BRIDGE:
+    case GROUP_RAIL_BRIDGE:
+      return true;
+    default:
+      return false;
+  }
+}
+
+void GameView::setFloatingText(const std::string& text, Vector2 pos,
+    Uint32 lifetimeMs) {
+  floatingParagraph->setText(text, floatingTextStyle);
+  floatingDoc->resize(floatingParagraph->getWidth() + 8,
+    floatingParagraph->getHeight() + 4);
+  floatingPos = pos;
+  floatingUntil = lifetimeMs ? SDL_GetTicks() + lifetimeMs : 0;
+  floatingPersistent = (lifetimeMs == 0);
+  floatingActive = true;
+}
+
+void GameView::clearFloatingText() {
+  floatingActive = false;
+  floatingPersistent = false;
+}
+
+void GameView::drawFloatingText(Painter& painter) {
+  if(!floatingActive)
+    return;
+  if(floatingUntil && SDL_GetTicks() >= floatingUntil) {
+    floatingActive = false;
+    return;
+  }
+  painter.pushTransform();
+  painter.translate(floatingPos);
+  floatingDoc->draw(painter);
+  painter.popTransform();
 }
 
 int GameView::bulldozeCost( MapPoint tile ){

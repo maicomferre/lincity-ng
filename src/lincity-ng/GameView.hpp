@@ -30,13 +30,16 @@
 #include <string>                 // for string, basic_string
 
 #include "gui/Component.hpp"      // for Component
+#include "gui/Style.hpp"          // for Style
 #include "gui/Vector2.hpp"        // for Vector2
 #include "lincity/MapPoint.hpp"   // for MapPoint
 #include "lincity/resources.hpp"  // for GraphicsInfo
 
 class Button;
+class Document;
 class Game;
 class Painter;
+class Paragraph;
 class Rect2D;
 class Texture;
 class UserOperation;
@@ -98,6 +101,13 @@ public:
     // written by the image loader thread, read by the main thread
     std::atomic<bool> textures_ready;
     std::atomic<int> remaining_images;
+
+    /* Floating cost text near the cursor: itemized preview while dragging
+     * and the negative total after releasing (FEAT-01). */
+    void setFloatingText(const std::string& text, Vector2 pos,
+      Uint32 lifetimeMs);
+    void clearFloatingText();
+    void drawFloatingText(Painter& painter);
 
 private:
     void connectButtons();
@@ -193,6 +203,14 @@ private:
 
     MapPoint realTile( MapPoint tile );
     std::string lastStatusMessage;
+
+    std::unique_ptr<Document> floatingDoc;
+    Paragraph* floatingParagraph = nullptr;
+    Style floatingTextStyle;
+    Uint32 floatingUntil = 0;     // 0 = persistent (preview while dragging)
+    bool floatingActive = false;
+    bool floatingPersistent = false;
+    Vector2 floatingPos;
 
     void setPanningCursor();
     void setDefaultCursor();
