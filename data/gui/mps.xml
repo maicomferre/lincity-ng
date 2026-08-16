@@ -9,7 +9,7 @@
         <rowsize row="1" fixed="8"/>
         <rowsize row="3" fixed="8"/>
         <cell row="2" col="2">
-            <TableLayout rows="13" cols="1">
+            <TableLayout rows="14" cols="1">
                 <cell row="1" col="1" halign="center">
                     <Paragraph name="mps_text0" style="mps_title"/>
                 </cell>
@@ -48,6 +48,9 @@
                 </cell>
                 <cell row="13" col="1" halign="left">
                     <Paragraph name="mps_text12" style="mps_text"/>
+                </cell>
+                <cell row="14" col="1" halign="left">
+                    <Paragraph name="mps_text13" style="mps_text"/>
                 </cell>
             </TableLayout>
         </cell>

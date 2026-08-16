@@ -95,6 +95,10 @@ Mps::clear() {
 void
 Mps::addText(const std::string &s) {
   assert(i >= 0 && i < PARAGRAPH_COUNT);
+  // If a page ever grows past the paragraph list, skip the extra lines
+  // instead of reading past the vector (assert catches it in DEBUG).
+  if(i < 0 || i >= (int)paragraphs.size())
+    return;
   paragraphs[i++]->setText(s);
 }
 

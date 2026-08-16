@@ -68,7 +68,8 @@ public:
   void add_ttt(const std::string& s1, const std::string& s2,
     const std::string& s3);
 
-  static const int PARAGRAPH_COUNT = 13;
+  /* must match the number of mps_text paragraphs in data/gui/mps.xml */
+  static const int PARAGRAPH_COUNT = 14;
 
 private:
   std::vector<Paragraph *> paragraphs;
