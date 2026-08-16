@@ -107,6 +107,15 @@ void Construction::list_commodities(Mps& mps, bool production) const {
   }
 }
 
+Construction::~Construction() {
+  // TST-03: the inventory vanishes together with the building, so the
+  // commodity conservation ledger must be debited here (constructions are
+  // deleted from simulate_mappoints or MapTile's destructor).
+  for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++)
+    if(commodityCount[stuff] != 0)
+      world.commodityLedger[stuff] -= commodityCount[stuff];
+}
+
 void Construction::reset_prod_counters(void) {
     for(Commodity stuff = STUFF_INIT ; stuff < STUFF_COUNT; stuff++) {
         commodityProdPrev[stuff] = commodityProd[stuff];
@@ -139,12 +148,14 @@ void Construction::reset_prod_counters(void) {
 int Construction::produceStuff(Commodity stuff_id, int amt) {
     commodityProd[stuff_id] += amt;
     commodityCount[stuff_id] += amt;
+    world.commodityLedger[stuff_id] += amt; // TST-03
     return amt;
 }
 
 int Construction::consumeStuff(Commodity stuff_id, int amt) {
     commodityProd[stuff_id] -= amt;
     commodityCount[stuff_id] -= amt;
+    world.commodityLedger[stuff_id] -= amt; // TST-03
     return amt;
 }
 
@@ -152,6 +163,7 @@ int Construction::levelStuff(Commodity stuff_id, int amt) {
     int delta = amt - commodityCount[stuff_id];
     commodityProd[stuff_id] += delta;
     commodityCount[stuff_id] = amt;
+    world.commodityLedger[stuff_id] += delta; // TST-03
     return delta;
 }
 

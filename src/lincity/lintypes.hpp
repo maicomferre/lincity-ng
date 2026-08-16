@@ -62,7 +62,7 @@ typedef struct _xmlTextWriter *xmlTextWriterPtr;
 class Construction {
 public:
   Construction(World& world);
-  virtual ~Construction() {}
+  virtual ~Construction();
 
   virtual void update() = 0;
   virtual void report(Mps& mps, bool production) const = 0;

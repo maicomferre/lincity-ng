@@ -239,6 +239,16 @@ public:
 
 // private: // planning to remove from public API
 
+  /* TST-03: commodity conservation ledger. Every change to a construction
+   * inventory is recorded here (produceStuff/consumeStuff/levelStuff and
+   * the destructor). The sim test checks that the sum of all construction
+   * inventories equals the baseline plus this ledger, so any code path
+   * that creates or destroys commodities without going through those
+   * chokepoints breaks the invariant. Declared before `map` so it
+   * outlives the map: constructions are deleted from MapTile's destructor
+   * during World teardown and still debit the ledger. */
+  std::array<long long, STUFF_COUNT> commodityLedger = {};
+
   Map map;
 
   std::string given_scene;
