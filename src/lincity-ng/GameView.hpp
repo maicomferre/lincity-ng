@@ -24,6 +24,7 @@
 #define __GAMEVIEW_HPP__
 
 #include <SDL3/SDL.h>             // for Uint32, SDL_Surface, SDL_Thread
+#include <atomic>                 // for atomic
 #include <filesystem>             // for path
 #include <memory>                 // for unique_ptr
 #include <string>                 // for string, basic_string
@@ -94,9 +95,9 @@ public:
 
     void setGame(Game *game);
 
-    bool textures_ready;
-    //bool economyGraph_open;
-    int remaining_images;
+    // written by the image loader thread, read by the main thread
+    std::atomic<bool> textures_ready;
+    std::atomic<int> remaining_images;
 
 private:
     void connectButtons();

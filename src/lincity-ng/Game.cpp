@@ -56,8 +56,10 @@
 #include "gui/ComponentLoader.hpp"          // for loadGUIFile
 #include "gui/Desktop.hpp"                  // for Desktop
 #include "gui/DialogBuilder.hpp"            // for DialogBuilder
+#include "gui/Document.hpp"                 // for Document
 #include "gui/Event.hpp"                    // for Event
 #include "gui/Painter.hpp"                  // for Painter
+#include "gui/Paragraph.hpp"                // for Paragraph
 #include "gui/Signal.hpp"                   // for Signal
 #include "gui/WindowManager.hpp"            // for WindowManager
 #include "lincity/MapPoint.hpp"             // for MapPoint, operator<<
@@ -491,6 +493,77 @@ Game::run() {
     world->setUpdated(World::Updatable::MONEY);
 
     getButtonPanel().selectQueryTool();
+
+    // Loading barrier: wait until the background image loader has finished
+    // and every image is converted into a texture, so the map never pops in
+    // tile by tile. The loader thread only writes graphicsInfoVector and
+    // remaining_images before setting textures_ready, so once it is set the
+    // main thread is the only user of both - which also removes the
+    // previous data race on remaining_images.
+    {
+      auto loadingDoc = std::make_unique<Document>();
+      loadingDoc->resize(getConfig()->videoX.get(),
+        getConfig()->videoY.get());
+      Paragraph* loadingParagraph = new Paragraph();
+      loadingDoc->addParagraph(std::unique_ptr<Paragraph>(loadingParagraph));
+
+      const auto drawLoading = [&](int converted, int total) {
+        if(converted >= 0 && total > 0) {
+          loadingParagraph->setText(fmt::format(
+            _("Loading… {} / {}"), converted, total));
+        } else {
+          loadingParagraph->setText(_("Loading…"));
+        }
+        painter->clear();
+        loadingDoc->draw(*painter);
+        painter->updateScreen();
+      };
+
+      // Discard input while loading; keep the window resize and QUIT
+      // handling of the main loop. Returns false when the run ends.
+      const auto pollLoadingEvents = [&]() -> bool {
+        SDL_Event event;
+        while(SDL_PollEvent(&event)) {
+          switch(event.type) {
+            case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+              videoSizeChanged(event.window.data1, event.window.data2);
+              gui->resize(event.window.data1, event.window.data2);
+              getConfig()->videoX.session = event.window.data1;
+              getConfig()->videoY.session = event.window.data2;
+              getConfig()->videoX.sessionToConfig();
+              getConfig()->videoY.sessionToConfig();
+              loadingDoc->resize(event.window.data1, event.window.data2);
+              break;
+            case SDL_EVENT_QUIT:
+              saveCityNG(*world, getConfig()->userDataDir.get()
+                / "9_currentGameNG.scn.gz");
+              // push the QUIT event back for the main menu to handle
+              {
+                int s = SDL_PushEvent(&event);
+                assert(s == 1);
+              }
+              return false;
+            default:
+              break;
+          }
+        }
+        return true;
+      };
+
+      drawLoading(-1, 0);
+      while(!getGameView().textures_ready) {
+        if(!pollLoadingEvents()) return;
+        SDL_Delay(10);
+      }
+      const int total = getGameView().remaining_images;
+      while(getGameView().remaining_images) {
+        getGameView().fetchTextures();
+        if(!pollLoadingEvents()) return;
+        drawLoading(total - getGameView().remaining_images, total);
+        SDL_Delay(5);
+      }
+      drawLoading(total, total);
+    }
 
     int frame = 0;
     bool new_day = true, new_month = true, new_year = true;

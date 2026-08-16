@@ -22,6 +22,7 @@
 #include <iostream>
 #include <memory>
 #include <stdexcept>
+#include <thread>
 #include <string>
 
 #include "headless_env.hpp"
@@ -259,13 +260,14 @@ TTEST(reset_flow_new_world_after_game) {
   TCHECK_EQ(second->total_time, 300);
 }
 
-TTEST(game_set_world_resets_derived_state) {
-  // BUG-01a regression: starting a new game on an existing Game object
-  // must redraw the map views (they still show the old city otherwise)
-  // and re-enable autosave.
+TTEST(game_flow_reset_and_loading_barrier) {
+  // GUI flow regression for BUG-01a + BUG-02 with a single Game object
+  // (the real menu reuses its Game across games).
   initVideo(800, 600);
   Game game(window);
 
+  // BUG-01a: installing a world must redraw both map views and re-enable
+  // autosave.
   std::unique_ptr<World> first = make_world();
   if(!first) {
     TCHECK(!"failed to create first world");
@@ -278,6 +280,37 @@ TTEST(game_set_world_resets_derived_state) {
   TCHECK(game.getMiniMap().isMapDirty());
   TCHECK_EQ(game.getLastAutosaveDay(), -1);
   TCHECK_EQ((long long)game.getLastAutosaveTick(), 0LL);
+
+  // A second consecutive new game resets again (the reported flow:
+  // play -> menu -> new game).
+  std::unique_ptr<World> second = make_world();
+  if(!second) {
+    TCHECK(!"failed to create second world");
+    return;
+  }
+  TCHECK(run_days(*second, 200));
+  game.setWorld(std::move(second));
+  TCHECK(game.getGameView().isMapDirty());
+  TCHECK(game.getMiniMap().isMapDirty());
+  TCHECK_EQ(game.getLastAutosaveDay(), -1);
+
+  // BUG-02: Game::run must not enter the main loop before the image
+  // loader finished and every image became a texture. Send QUIT from a
+  // helper thread so run() leaves the main loop by itself (same path the
+  // real game uses on window close).
+  std::thread quitter([] {
+    SDL_Delay(5000);
+    SDL_Event event;
+    SDL_zero(event);
+    event.type = SDL_EVENT_QUIT;
+    SDL_PushEvent(&event);
+  });
+  game.run();
+  quitter.join();
+
+  // When run() returns the whole loading pipeline must be complete.
+  TCHECK(game.getGameView().textures_ready);
+  TCHECK_EQ((int)game.getGameView().remaining_images, 0);
 }
 
 } // namespace
