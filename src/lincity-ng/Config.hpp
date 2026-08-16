@@ -69,6 +69,10 @@ public:
   Option<bool> soundEnabled;
   Option<bool> musicEnabled;
   Option<bool> carsEnabled;
+  // BUG-03b: whether schools/wind power actually debit the city funds
+  // (legacy behaviour only recorded the cost in the stats)
+  Option<bool> schoolRunningCost;
+  Option<bool> windPowerMaintenance;
 
   Option<std::string> language;
   Option<std::string> musicTheme;

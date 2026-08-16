@@ -99,10 +99,8 @@ std::unique_ptr<World> make_world() {
 /* Run the simulation like the Game loop does: one timestep per day and
  * periodic animations. Returns false on the first invariant violation.
  *
- * check_conservation is disabled for worlds that contain schools or wind
- * power: School::update and Windpower::update accrue their expense
- * accounts without debiting money (BUG-03b), which breaks exactness for
- * them. Enable it again for those worlds when BUG-03b lands. */
+ * check_conservation can be disabled to smoke-test worlds whose account
+ * balance is not expected to match the cash (A/B experiments). */
 bool run_days(World& world, int days, bool check_conservation = true) {
   Uint32 tick = 0;
   // Accounts were finalized at the last in-game year boundary; loaded worlds
@@ -232,10 +230,7 @@ TTEST(scenario_matrix_one_year_each) {
       continue;
     }
     loaded++;
-    // Scenarios contain schools and wind power, whose accounts don't match
-    // the cash yet (BUG-03b); smoke-test them for now and enable the
-    // conservation check when that bug is fixed.
-    TCHECK(run_days(*world, 1200, false));
+    TCHECK(run_days(*world, 1200));
   }
   TCHECK(loaded >= 6);
 }

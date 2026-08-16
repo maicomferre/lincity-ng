@@ -30,8 +30,10 @@
 #include <map>                            // for map
 #include <string>                         // for basic_string, allocator
 
+#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
+#include "lincity/economy.hpp"            // for compute_school_cost
 #include "lincity/groups.hpp"             // for GROUP_SCHOOL
 #include "lincity/lin-city.hpp"           // for FALSE, MAX_TECH_LEVEL
 #include "lincity/messages.hpp"           // for OutOfMoneyMessage
@@ -89,7 +91,14 @@ School::~School() {
 
 void School::update() {
   try {
-    world.stats.expenses.school += SCHOOL_RUNNING_COST;
+    const int cost = compute_school_cost(busy, SCHOOL_RUNNING_COST);
+    if(getConfig()->schoolRunningCost.get()) {
+      world.expense(cost, world.stats.expenses.school);
+    }
+    else {
+      // legacy behaviour: record the cost in the stats without debiting
+      world.stats.expenses.school += cost;
+    }
 
     if (commodityCount[STUFF_LABOR] >= LABOR_MAKE_TECH_SCHOOL
       &&  commodityCount[STUFF_GOODS] >= GOODS_MAKE_TECH_SCHOOL

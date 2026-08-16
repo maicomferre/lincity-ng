@@ -30,10 +30,12 @@
 #include <map>                            // for map
 #include <string>                         // for basic_string, operator==
 
+#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_WIND_POWER
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
+#include "lincity/messages.hpp"           // for OutOfMoneyMessage
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
 #include "lincity/stats.hpp"              // for Stat, Stats
 #include "lincity/world.hpp"              // for World
@@ -71,6 +73,7 @@ Windpower::Windpower(World& world, ConstructionGroup *cstgrp) :
   this->tech = world.tech_level;
   this->working_days = 0;
   this->busy = 0;
+  this->paid = false;
   initialize_commodities();
 
   commodityMaxCons[STUFF_LABOR] = 100 * WIND_POWER_LABOR;
@@ -79,13 +82,14 @@ Windpower::Windpower(World& world, ConstructionGroup *cstgrp) :
 
 void Windpower::update()
 {
-    if(world.total_time % WIND_POWER_RCOST)
-      world.stats.expenses.windmill++;
     int hivolt_made = (commodityCount[STUFF_HIVOLT] + hivolt_output <= MAX_HIVOLT_AT_WIND_POWER)?hivolt_output:MAX_HIVOLT_AT_WIND_POWER-commodityCount[STUFF_HIVOLT];
     int labor_used = WIND_POWER_LABOR * hivolt_made/hivolt_output;
 
-    if ((commodityCount[STUFF_LABOR] >= labor_used)
-     && hivolt_made > WIND_POWER_HIVOLT)
+    const bool generating =
+        commodityCount[STUFF_LABOR] >= labor_used
+        && hivolt_made > WIND_POWER_HIVOLT;
+
+    if (generating)
     {
         consumeStuff(STUFF_LABOR, labor_used);
         produceStuff(STUFF_HIVOLT, hivolt_made);
@@ -94,6 +98,25 @@ void Windpower::update()
     }
     else
     {   animate_enable = false;}
+
+    // Maintenance is paid only while the plant actually generates; an idle
+    // plant costs nothing (BUG-03b). Per instance, no shared state.
+    if(getConfig()->windPowerMaintenance.get()) {
+      if(world.total_time % WIND_POWER_RCOST == 0)
+        paid = false;
+      if(generating && !paid) {
+        try {
+          world.expense(1, world.stats.expenses.windmill);
+          paid = true;
+        } catch(const OutOfMoneyMessage::Exception&) { }
+      }
+    }
+    else {
+      // legacy behaviour: record the cost in the stats without debiting
+      if(world.total_time % WIND_POWER_RCOST)
+        world.stats.expenses.windmill++;
+    }
+
     //monthly update
     if(world.total_time % 100 == 99) {
       reset_prod_counters();

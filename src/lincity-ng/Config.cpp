@@ -76,6 +76,8 @@ Config::Config() {
   musicTheme.default_ = "default";
 
   carsEnabled.default_ = true;
+  schoolRunningCost.default_ = true;
+  windPowerMaintenance.default_ = true;
   worldSize.default_ = WORLD_SIDE_LEN;
   language.default_ = "autodetect";
 
@@ -224,6 +226,10 @@ void Config::load(std::filesystem::path configFile) {
             validateRange(xmlParseConfig<int>(xml_val), 50, 10000);
         else if(xml_tag == "carsEnabled")
           carsEnabled.config = xmlParseConfig<bool>(xml_val);
+        else if(xml_tag == "schoolRunningCost")
+          schoolRunningCost.config = xmlParseConfig<bool>(xml_val);
+        else if(xml_tag == "windPowerMaintenance")
+          windPowerMaintenance.config = xmlParseConfig<bool>(xml_val);
         else if(xml_tag == "appDataDir")
           appDataDir.config = xmlParseConfig<std::filesystem::path>(xml_val);
         else if(xml_tag == "userDataDir")
@@ -290,6 +296,8 @@ Config::save(std::filesystem::path configFile) {
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"language", xmlFormatConfig<std::string>(language.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"WorldSideLen", xmlFormatConfig<int>(worldSize.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"carsEnabled", xmlFormatConfig<bool>(carsEnabled.config));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"schoolRunningCost", xmlFormatConfig<bool>(schoolRunningCost.config));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"windPowerMaintenance", xmlFormatConfig<bool>(windPowerMaintenance.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"appDataDir", xmlFormatConfig<std::filesystem::path>(appDataDir.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"userDataDir", xmlFormatConfig<std::filesystem::path>(userDataDir.config));
     xmlTextWriterEndElement(xmlWriter);
