@@ -4,6 +4,8 @@
  * simulation for a fixed number of days with a fixed RNG seed, and checks
  * invariants:
  *   - money conservation: sum of money accounts matches the cash delta
+ *   - commodity conservation: sum of all construction inventories matches
+ *     the baseline plus the world commodity ledger (TST-03)
  *   - total_money stays within the engine clamp
  *   - stats.total_money stays in sync at month boundaries
  *   - scenario matrix: every data/opening/*.scn.gz loads and runs 1 year
@@ -17,6 +19,7 @@
 
 #include <SDL3/SDL.h>
 
+#include <array>
 #include <cstdlib>
 #include <filesystem>
 #include <iostream>
@@ -39,6 +42,7 @@
 #include "lincity-ng/Util.hpp"              // for getParagraph
 #include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/all_buildings.hpp"          // for INCOME_TAX_RATE...
+#include "lincity/commodities.hpp"           // for Commodity, STUFF_*
 #include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
 #include "lincity/messages.hpp"             // for Message
 #include "lincity/modules/all_modules.hpp"   // for *ConstructionGroup
@@ -49,6 +53,7 @@
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
 #include "lincity/modules/waterwell.hpp"      // for waterwellConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
+#include "lincity/lintypes.hpp"              // for Construction
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/world.hpp"                 // for World
 #include "util/randutil.hpp"                 // for BasicUrbg
@@ -63,6 +68,21 @@ std::string g_scenario;       // empty: create a random new city
  * finalized at that moment, so the accumulated accounts must add up to the
  * delta since then) */
 long long g_year_base_money = 0;
+
+/* base commodity inventories at the start of the current run (all ledger
+ * deltas from before the run are folded in; the invariant covers only the
+ * days simulated here) */
+std::array<long long, STUFF_COUNT> g_commodity_base = {};
+
+/* sum of every construction's inventory, the left side of the commodity
+ * conservation invariant */
+std::array<long long, STUFF_COUNT> commodity_totals(const World& world) {
+  std::array<long long, STUFF_COUNT> totals = {};
+  for(const Construction* cst : world.map.constructions)
+    for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++)
+      totals[stuff] += cst->commodityCount[stuff];
+  return totals;
+}
 
 /* sum of the accumulating money accounts (income accumulates negatively) */
 long long money_accounts_delta(const Stats& stats) {
@@ -115,14 +135,21 @@ std::unique_ptr<World> make_world() {
  * periodic animations. Returns false on the first invariant violation.
  *
  * check_conservation can be disabled to smoke-test worlds whose account
- * balance is not expected to match the cash (A/B experiments). */
-bool run_days(World& world, int days, bool check_conservation = true) {
+ * balance is not expected to match the cash (A/B experiments).
+ * check_commodities is the TST-03 goods invariant: the sum of all
+ * construction inventories must equal the baseline plus the world's
+ * commodity ledger (produce/consume/level/destruction deltas). */
+bool run_days(World& world, int days, bool check_conservation = true,
+  bool check_commodities = true) {
   Uint32 tick = 0;
   // Accounts were finalized at the last in-game year boundary; any
   // accruals that already exist (e.g. from build/bulldoze actions before
   // this run) are folded into the base so the invariant covers only the
   // days simulated here.
   g_year_base_money = world.total_money + money_accounts_delta(world.stats);
+  g_commodity_base = commodity_totals(world);
+  for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++)
+    g_commodity_base[stuff] -= world.commodityLedger[stuff];
   for(int day = 0; day < days; day++) {
     // end_of_year_update() pays taxes on total_time % 1200 == 1199 and
     // Stats::yearly() finalizes the accounts on the next step
@@ -193,6 +220,26 @@ bool run_days(World& world, int days, bool check_conservation = true) {
         "  stats.total_money out of sync on day %d: %d vs %d\n",
         world.total_time, world.stats.total_money, world.total_money);
       return false;
+    }
+
+    // TST-03: commodity conservation. Every inventory change goes through
+    // produceStuff/consumeStuff/levelStuff or the Construction destructor,
+    // all of which update world.commodityLedger, so the sum of inventories
+    // must track the baseline plus the ledger exactly.
+    if(check_commodities) {
+      const auto totals = commodity_totals(world);
+      for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
+        const long long expected =
+          g_commodity_base[stuff] + world.commodityLedger[stuff];
+        if(totals[stuff] != expected) {
+          std::fprintf(stderr,
+            "  commodity conservation broken on day %d: %s totals %lld, "
+            "expected %lld (base %lld, ledger %lld)\n",
+            world.total_time, commodityStandardName(stuff), totals[stuff],
+            expected, g_commodity_base[stuff], world.commodityLedger[stuff]);
+          return false;
+        }
+      }
     }
   }
   return true;
