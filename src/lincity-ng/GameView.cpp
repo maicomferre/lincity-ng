@@ -380,12 +380,27 @@ SDL_Surface* GameView::readImage(const std::filesystem::path& filename) {
 
 // Recolor an image by its luminance: the shape/shadows are preserved but the
 // color is replaced by the target tint. Used to produce colored vehicle
-// variants from a single set of sprites. Returns a NEW surface; caller owns it.
+// variants from a single set of sprites. When no tint is requested the source
+// is returned unchanged (no copy); otherwise a NEW surface is returned and the
+// caller owns it (and keeps ownership of src).
+// NOTE: never duplicate an untinted surface: SDL_DuplicateSurface drops the
+// blend mode on indexed/palette surfaces (SDL 3.4.2), turning transparent
+// pixels opaque black.
 SDL_Surface* GameView::recolorSurface(SDL_Surface* src, const Tint& tint) {
   if(!src) return nullptr;
+  if(!tint.enabled) return src;
   SDL_Surface* out = SDL_DuplicateSurface(src);
   if(!out) return nullptr;
-  if(!tint.enabled) return out;
+  // keep the source's blend mode and color key in case the duplicate drops
+  // them (seen on indexed/palette surfaces in SDL 3.4.2)
+  SDL_BlendMode bm;
+  if(SDL_GetSurfaceBlendMode(src, &bm))
+    SDL_SetSurfaceBlendMode(out, bm);
+  if(SDL_SurfaceHasColorKey(src)) {
+    Uint32 key;
+    if(SDL_GetSurfaceColorKey(src, &key))
+      SDL_SetSurfaceColorKey(out, true, key);
+  }
   SDL_LockSurface(out);
   for(int y = 0; y < out->h; ++y) {
     for(int x = 0; x < out->w; ++x) {
