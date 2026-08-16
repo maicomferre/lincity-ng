@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lincity-ng 2.15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 19:13-0300\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
 "PO-Revision-Date: 2026-08-15 15:00-0300\n"
 "Last-Translator: maicomferre <maicomferre@users.noreply.github.com>\n"
 "Language-Team: Portuguese/Brazil <gnome-l10n-br@listas.cipsga.org.br>\n"
@@ -28,10 +28,10 @@ msgstr "requer"
 msgid "tech level"
 msgstr "Nível Tecnológico"
 
-#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1705
-#: src/lincity-ng/GameView.cpp:1717 src/lincity-ng/GameView.cpp:1751
-#: src/lincity-ng/GameView.cpp:1752 src/lincity-ng/GameView.cpp:1755
-#: src/lincity-ng/GameView.cpp:1764 src/lincity-ng/GameView.cpp:1765
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
 #: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "$"
@@ -76,7 +76,7 @@ msgstr "Niveladora"
 msgid "Evacuate"
 msgstr "Evacuar"
 
-#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1764
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
 msgid "Water"
 msgstr "Água"
 
@@ -84,59 +84,59 @@ msgstr "Água"
 msgid "Click right for help."
 msgstr "Clique com o botão direito para obter ajuda."
 
-#: src/lincity-ng/Config.cpp:432
+#: src/lincity-ng/Config.cpp:436
 msgid "show version and exit"
 msgstr "mostrar a versão e sair"
 
-#: src/lincity-ng/Config.cpp:433
+#: src/lincity-ng/Config.cpp:437
 msgid "show this text and exit"
 msgstr "mostrar este texto e sair"
 
-#: src/lincity-ng/Config.cpp:434
+#: src/lincity-ng/Config.cpp:438
 msgid "use OpenGL"
 msgstr "usar OpenGL"
 
-#: src/lincity-ng/Config.cpp:435
+#: src/lincity-ng/Config.cpp:439
 msgid "use SDL"
 msgstr "usar SDL"
 
-#: src/lincity-ng/Config.cpp:436
+#: src/lincity-ng/Config.cpp:440
 msgid "<width>x<height>"
 msgstr "<largura>x<altura>"
 
-#: src/lincity-ng/Config.cpp:437
+#: src/lincity-ng/Config.cpp:441
 msgid "specify screensize (eg. -S 1024x768)"
 msgstr "especificar o tamanho da tela (ex.: -S 1024x768)"
 
-#: src/lincity-ng/Config.cpp:438
+#: src/lincity-ng/Config.cpp:442
 msgid "run in window"
 msgstr "executar em janela"
 
-#: src/lincity-ng/Config.cpp:439
+#: src/lincity-ng/Config.cpp:443
 msgid "run fullscreen"
 msgstr "executar em tela cheia"
 
-#: src/lincity-ng/Config.cpp:440
+#: src/lincity-ng/Config.cpp:444
 msgid "mute audio"
 msgstr "silenciar o áudio"
 
-#: src/lincity-ng/Config.cpp:441
+#: src/lincity-ng/Config.cpp:445
 msgid "<file>"
 msgstr "<arquivo>"
 
-#: src/lincity-ng/Config.cpp:441
+#: src/lincity-ng/Config.cpp:445
 msgid "configuration file location"
 msgstr "local do arquivo de configuração"
 
-#: src/lincity-ng/Config.cpp:442 src/lincity-ng/Config.cpp:443
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
 msgid "<dir>"
 msgstr "<diretório>"
 
-#: src/lincity-ng/Config.cpp:442
+#: src/lincity-ng/Config.cpp:446
 msgid "app data location"
 msgstr "local dos dados do aplicativo"
 
-#: src/lincity-ng/Config.cpp:443
+#: src/lincity-ng/Config.cpp:447
 msgid "user data location"
 msgstr "local dos dados do usuário"
 
@@ -622,56 +622,56 @@ msgstr "Não é possível evacuar {}."
 msgid "You are not allowed to evacuate {}."
 msgstr "Você não tem permissão para evacuar {}."
 
-#: src/lincity-ng/GameView.cpp:1674
+#: src/lincity-ng/GameView.cpp:1675
 msgid "Bridge"
 msgstr "Ponte"
 
-#: src/lincity-ng/GameView.cpp:1681
+#: src/lincity-ng/GameView.cpp:1682
 msgid "Bulldoze"
 msgstr "Demolir"
 
-#: src/lincity-ng/GameView.cpp:1700
+#: src/lincity-ng/GameView.cpp:1701
 msgid "Estimated Bulldoze Cost: "
 msgstr "Custo Estimado de Demolição:"
 
-#: src/lincity-ng/GameView.cpp:1702
+#: src/lincity-ng/GameView.cpp:1703
 msgid "Bulldoze Cost: "
 msgstr "Custo de Demolição:"
 
-#: src/lincity-ng/GameView.cpp:1707 src/lincity-ng/GameView.cpp:1719
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
 msgid "n/a"
 msgstr "n/d"
 
-#: src/lincity-ng/GameView.cpp:1715 src/lincity-ng/GameView.cpp:1751
-#: src/lincity-ng/GameView.cpp:1764
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
 msgid ": Cost to build "
 msgstr ": Custo de construção "
 
-#: src/lincity-ng/GameView.cpp:1742
+#: src/lincity-ng/GameView.cpp:1743
 msgid "Query Tool: Show information about selected building."
 msgstr "Ferr. de Pesquisa: Exibe informações sobre a construção selecionada."
 
-#: src/lincity-ng/GameView.cpp:1746
+#: src/lincity-ng/GameView.cpp:1747
 msgid "Bulldozer: remove building -price varies-"
 msgstr "Niveladora: remover construção -preço variável-"
 
-#: src/lincity-ng/GameView.cpp:1752 src/lincity-ng/GameView.cpp:1765
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
 msgid ", to bulldoze "
 msgstr ", para demolir"
 
-#: src/lincity-ng/GameView.cpp:1754
+#: src/lincity-ng/GameView.cpp:1755
 msgid " To build "
 msgstr " Para construir "
 
-#: src/lincity-ng/GameView.cpp:1754
+#: src/lincity-ng/GameView.cpp:1755
 msgid " of them "
 msgstr " deles "
 
-#: src/lincity-ng/GameView.cpp:1755
+#: src/lincity-ng/GameView.cpp:1756
 msgid "will cost about "
 msgstr "custará em torno de "
 
-#: src/lincity-ng/GameView.cpp:1760
+#: src/lincity-ng/GameView.cpp:1761
 msgid "Evacuation of commodities is for free."
 msgstr "A evacuação de mercadorias é gratuita."
 
@@ -732,68 +732,68 @@ msgstr "temperado"
 msgid "swamp"
 msgstr "pântano"
 
-#: src/lincity-ng/MainMenu.cpp:686
+#: src/lincity-ng/MainMenu.cpp:705
 msgid "Continue: game loaded."
 msgstr "Continuar: jogo carregado."
 
-#: src/lincity-ng/MainMenu.cpp:697
+#: src/lincity-ng/MainMenu.cpp:716
 msgid "A prosperous city with a strong economy, established industry and a high tech level."
 msgstr "Uma cidade próspera, com economia forte, indústria estabelecida e alto nível tecnológico."
 
-#: src/lincity-ng/MainMenu.cpp:700
+#: src/lincity-ng/MainMenu.cpp:719
 msgid "A struggling city: debt, unemployment and outdated industry. A hard start."
 msgstr "Uma cidade em dificuldades: dívidas, desemprego e indústria obsoleta. Um começo difícil."
 
-#: src/lincity-ng/MainMenu.cpp:703
+#: src/lincity-ng/MainMenu.cpp:722
 msgid "A small settlement in a harsh desert. Water is precious and farming is difficult."
 msgstr "Um pequeno assentamento em um deserto árido. A água é preciosa e a agricultura é difícil."
 
-#: src/lincity-ng/MainMenu.cpp:706
+#: src/lincity-ng/MainMenu.cpp:725
 msgid "A settlement surrounded by swamps. Land is scarce and flooding is a constant threat."
 msgstr "Um assentamento cercado por pântanos. A terra é escassa e as enchentes são uma ameaça constante."
 
-#: src/lincity-ng/MainMenu.cpp:709
+#: src/lincity-ng/MainMenu.cpp:728
 msgid "A coastal town with beaches and sea access."
 msgstr "Uma cidade costeira com praias e acesso ao mar."
 
-#: src/lincity-ng/MainMenu.cpp:711
+#: src/lincity-ng/MainMenu.cpp:730
 msgid "A space program town from 1998, with rocket pads and a busy transport network."
 msgstr "Uma cidade de programa espacial de 1998, com plataformas de foguete e uma rede de transporte movimentada."
 
-#: src/lincity-ng/MainMenu.cpp:718
+#: src/lincity-ng/MainMenu.cpp:737
 msgid "A brand new city in a river delta. The terrain is generated randomly."
 msgstr "Uma cidade nova em um delta de rio. O terreno é gerado aleatoriamente."
 
-#: src/lincity-ng/MainMenu.cpp:721
+#: src/lincity-ng/MainMenu.cpp:740
 msgid "A brand new city in semi-desert. The terrain is generated randomly."
 msgstr "Uma cidade nova em um semi-deserto. O terreno é gerado aleatoriamente."
 
-#: src/lincity-ng/MainMenu.cpp:724
+#: src/lincity-ng/MainMenu.cpp:743
 msgid "A brand new city in a temperate area. The terrain is generated randomly."
 msgstr "Uma cidade nova em uma área temperada. O terreno é gerado aleatoriamente."
 
-#: src/lincity-ng/MainMenu.cpp:727
+#: src/lincity-ng/MainMenu.cpp:746
 msgid "A brand new city in a swampy area. The terrain is generated randomly."
 msgstr "Uma cidade nova em uma área pantanosa. O terreno é gerado aleatoriamente."
 
-#: src/lincity-ng/MainMenu.cpp:755
+#: src/lincity-ng/MainMenu.cpp:774
 #, c++-format
 msgid "Map size: {}x{}"
 msgstr "Tamanho do mapa: {}x{}"
 
-#: src/lincity-ng/MainMenu.cpp:766
+#: src/lincity-ng/MainMenu.cpp:785
 msgid "Could not load this scenario."
 msgstr "Não foi possível carregar este cenário."
 
-#: src/lincity-ng/MainMenu.cpp:790
+#: src/lincity-ng/MainMenu.cpp:809
 msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
 msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | População {} | Tamanho {}x{}"
 
-#: src/lincity-ng/MainMenu.cpp:796
+#: src/lincity-ng/MainMenu.cpp:815
 msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
 msgstr "Dinheiro {:n}$ | Tecnologia {} | Ano {} | Tamanho {}x{}"
 
-#: src/lincity-ng/MainMenu.cpp:891
+#: src/lincity-ng/MainMenu.cpp:910
 msgid "New game started."
 msgstr "Novo jogo iniciado."
 
@@ -1196,7 +1196,7 @@ msgstr "Ferreiro"
 #: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
 #: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
 #: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
-#: src/lincity/modules/rocket_pad.cpp:264 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
 #: src/lincity/modules/solar_power.cpp:92
 #: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
 #: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
@@ -1216,7 +1216,7 @@ msgstr "Usinas a Carvão"
 #: src/lincity/modules/heavy_industry.cpp:202
 #: src/lincity/modules/light_industry.cpp:244
 #: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
-#: src/lincity/modules/rocket_pad.cpp:265
+#: src/lincity/modules/rocket_pad.cpp:266
 #: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
 #: src/lincity/modules/windpower.cpp:147
 msgid "Tech"
@@ -1323,7 +1323,7 @@ msgstr "Monumento"
 msgid "Wisdom bestowed"
 msgstr "Sabedoria concedida"
 
-#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
 msgid "Completion"
 msgstr "Completo"
 
@@ -1413,11 +1413,11 @@ msgstr "Mortes p/ano"
 msgid "Unnat. mortality"
 msgstr "Mortalidade não natural"
 
-#: src/lincity/modules/rocket_pad.cpp:52
+#: src/lincity/modules/rocket_pad.cpp:53
 msgid "Rocket Pad"
 msgstr "Base de Foguete"
 
-#: src/lincity/modules/rocket_pad.cpp:53
+#: src/lincity/modules/rocket_pad.cpp:54
 msgid "Rocket Pads"
 msgstr "Plataformas de Foguete"
 
@@ -1583,7 +1583,7 @@ msgstr "Licença"
 msgid "Back"
 msgstr "Anterior"
 
-#: data/gui/dialog.xml:31 data/gui/options.xml:174
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
 msgid "Ok"
 msgstr "Ok"
 
@@ -1767,7 +1767,11 @@ msgstr "Tamanho do Mapa"
 msgid "Fullscreen"
 msgstr "Tela cheia"
 
-#: data/gui/options.xml:147
+#: data/gui/options.xml:146
+msgid "Scroll Speed"
+msgstr "Velocidade de rolagem"
+
+#: data/gui/options.xml:172
 msgid "Language"
 msgstr "Idioma"
 

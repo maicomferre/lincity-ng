@@ -311,6 +311,9 @@ MainMenu::updateOptionsMenu() {
   mode.str("");
   mode << getConfig()->worldSize.get();
   getParagraph( *optionsMenu, "WorldLenParagraph")->setText(mode.str());
+  mode.str("");
+  mode << getConfig()->scrollSpeed.get() << "%";
+  getParagraph( *optionsMenu, "scrollSpeedParagraph")->setText(mode.str());
 
 #if ENABLE_NLS
   languageParagraph = getParagraph(*optionsMenu, "languageParagraph");
@@ -362,6 +365,10 @@ MainMenu::loadOptionsMenu() {
   currentCheckButton = getCheckButton(*optionsMenu, "WorldLenPrev");
   currentCheckButton->clicked.connect(std::bind(&MainMenu::optionsMenuButtonClicked, this, _1, _2));
   currentCheckButton = getCheckButton(*optionsMenu, "WorldLenNext");
+  currentCheckButton->clicked.connect(std::bind(&MainMenu::optionsMenuButtonClicked, this, _1, _2));
+  currentCheckButton = getCheckButton(*optionsMenu, "ScrollSpeedMinus");
+  currentCheckButton->clicked.connect(std::bind(&MainMenu::optionsMenuButtonClicked, this, _1, _2));
+  currentCheckButton = getCheckButton(*optionsMenu, "ScrollSpeedPlus");
   currentCheckButton->clicked.connect(std::bind(&MainMenu::optionsMenuButtonClicked, this, _1, _2));
 #if ENABLE_NLS
   currentCheckButton = getCheckButton(*optionsMenu, "LanguagePrev");
@@ -505,6 +512,18 @@ void MainMenu::optionsMenuButtonClicked(CheckButton* button, int) {
     } else if(buttonName == "WorldLenNext") {
       changeWorldLen(true);
       getConfig()->worldSize.sessionToConfig();
+    } else if(buttonName == "ScrollSpeedMinus") {
+      int speed = std::max(25, getConfig()->scrollSpeed.get() - 25);
+      getConfig()->scrollSpeed.session = speed;
+      getConfig()->scrollSpeed.sessionToConfig();
+      getParagraph(*optionsMenu, "scrollSpeedParagraph")->setText(std::to_string(speed) + "%");
+      getSound()->playSound("Click");
+    } else if(buttonName == "ScrollSpeedPlus") {
+      int speed = std::min(400, getConfig()->scrollSpeed.get() + 25);
+      getConfig()->scrollSpeed.session = speed;
+      getConfig()->scrollSpeed.sessionToConfig();
+      getParagraph(*optionsMenu, "scrollSpeedParagraph")->setText(std::to_string(speed) + "%");
+      getSound()->playSound("Click");
 #if ENABLE_NLS
     } else if(buttonName == "LanguagePrev") {
       changeLanguage(false);

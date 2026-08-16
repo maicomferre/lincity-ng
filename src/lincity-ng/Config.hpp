@@ -78,6 +78,8 @@ public:
   Option<bool> bridgeRealCost;
   // FEAT-03c: raised taxes make industry produce less and citizens leave
   Option<bool> taxElasticity;
+  // QW-02: map scroll speed in percent of the legacy speed (100 = legacy)
+  Option<int> scrollSpeed;
 
   Option<std::string> language;
   Option<std::string> musicTheme;

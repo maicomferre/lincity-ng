@@ -80,6 +80,7 @@ Config::Config() {
   windPowerMaintenance.default_ = true;
   bridgeRealCost.default_ = true;
   taxElasticity.default_ = true;
+  scrollSpeed.default_ = 100;
   worldSize.default_ = WORLD_SIDE_LEN;
   language.default_ = "autodetect";
 
@@ -236,6 +237,8 @@ void Config::load(std::filesystem::path configFile) {
           bridgeRealCost.config = xmlParseConfig<bool>(xml_val);
         else if(xml_tag == "taxElasticity")
           taxElasticity.config = xmlParseConfig<bool>(xml_val);
+        else if(xml_tag == "scrollSpeed")
+          scrollSpeed.config = validateRange(xmlParseConfig<int>(xml_val), 25, 400);
         else if(xml_tag == "appDataDir")
           appDataDir.config = xmlParseConfig<std::filesystem::path>(xml_val);
         else if(xml_tag == "userDataDir")
@@ -306,6 +309,7 @@ Config::save(std::filesystem::path configFile) {
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"windPowerMaintenance", xmlFormatConfig<bool>(windPowerMaintenance.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"bridgeRealCost", xmlFormatConfig<bool>(bridgeRealCost.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"taxElasticity", xmlFormatConfig<bool>(taxElasticity.config));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"scrollSpeed", xmlFormatConfig<int>(scrollSpeed.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"appDataDir", xmlFormatConfig<std::filesystem::path>(appDataDir.config));
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"userDataDir", xmlFormatConfig<std::filesystem::path>(userDataDir.config));
     xmlTextWriterEndElement(xmlWriter);

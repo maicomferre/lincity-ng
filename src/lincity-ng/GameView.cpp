@@ -585,10 +585,11 @@ void GameView::scroll(float elapsedTime)
         return;
     }
 
-    //TODO: scroll speed should be configurable
+    // QW-02: scroll speed is configurable in percent (100 = legacy speed).
     // The sqrt(zoom) makes it feel like the same speed at different zoom
     // levels.
-    float amt = (elapsedTime * 1000) * 0.5 * sqrt(zoom);
+    float amt = (elapsedTime * 1000) * 0.5 * sqrt(zoom)
+      * (getConfig()->scrollSpeed.get() / 100.0);
     Vector2 dir = Vector2(0,0);
 
     if( keyScrollState & SCROLL_SHIFT_ALL ) {
