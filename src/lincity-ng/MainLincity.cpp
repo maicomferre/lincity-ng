@@ -33,6 +33,7 @@
 
 #include "TimerInterface.hpp"             // for reset_start_time
 #include "gui/DialogBuilder.hpp"          // for DialogBuilder
+#include "lincity/init_game.hpp"          // for city_settings, new_city
 #include "lincity/lin-city.hpp"             // for SIM_DELAY_SLOW
 #include "lincity/modules/all_modules.hpp"  // for initializeModules
 #include "lincity/world.hpp"                // for World
@@ -114,6 +115,26 @@ std::unique_ptr<World> loadCityNG(const std::filesystem::path& filename) {
   }
 
   return world;
+}
+
+/*
+ * Continue policy: the clean-exit save wins over the autosave; without
+ * either, start a fresh city.
+ */
+std::unique_ptr<World> loadContinueCityNG(
+    const std::filesystem::path& userDataDir, int worldSize) {
+  std::filesystem::path file = userDataDir / "9_currentGameNG.scn.gz";
+  if(std::filesystem::exists(file))
+    return loadCityNG(file);
+
+  std::filesystem::path autosave = userDataDir / "autosave.scn.gz";
+  if(std::filesystem::exists(autosave))
+    return loadCityNG(autosave);
+
+  city_settings city;
+  city.with_village = true;
+  city.without_trees = false;
+  return new_city(&city, worldSize);
 }
 
 void initLincity()

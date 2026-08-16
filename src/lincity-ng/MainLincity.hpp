@@ -47,6 +47,14 @@ void autoSaveCityNG(const World& world, const std::filesystem::path& filename);
 //Load City and do setup for Lincity NG.
 std::unique_ptr<World> loadCityNG(const std::filesystem::path& filename);
 
+/**
+ * Continue policy: load the clean-exit save 9_currentGameNG.scn.gz first,
+ * fall back to autosave.scn.gz (crash recovery), otherwise create a fresh
+ * city (historic behaviour).
+**/
+std::unique_ptr<World> loadContinueCityNG(
+  const std::filesystem::path& userDataDir, int worldSize);
+
 #endif
 
 /** @file lincity-ng/MainLincity.hpp */

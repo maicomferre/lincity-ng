@@ -30,6 +30,7 @@
 #include "lincity-ng/Config.hpp"             // for getConfig
 #include "lincity-ng/Game.hpp"               // for Game
 #include "lincity-ng/GameView.hpp"           // for GameView
+#include "lincity-ng/MainLincity.hpp"        // for loadContinueCityNG
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
 #include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/init_game.hpp"             // for city_settings, new_city
@@ -311,6 +312,50 @@ TTEST(game_flow_reset_and_loading_barrier) {
   // When run() returns the whole loading pipeline must be complete.
   TCHECK(game.getGameView().textures_ready);
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
+}
+
+TTEST(continue_slot_chain_loads_in_order) {
+  // BUG-01b: Continue must read 9_currentGameNG.scn.gz first, fall back
+  // to autosave.scn.gz, and create a fresh city when neither exists.
+  const auto userData = headless::user_data();
+  const auto currentPath = userData / "9_currentGameNG.scn.gz";
+  const auto autosavePath = userData / "autosave.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(currentPath, ec);
+  std::filesystem::remove(autosavePath, ec);
+
+  city_settings city;
+  city.with_village = true;
+  city.without_trees = false;
+
+  // Marker worlds with distinguishable total_time.
+  std::unique_ptr<World> worldA = new_city(&city, 100);
+  worldA->do_time_step(); // total_time = 1
+  std::unique_ptr<World> worldB = new_city(&city, 100);
+  worldB->do_time_step();
+  worldB->do_time_step(); // total_time = 2
+  worldA->save(currentPath);
+  worldB->save(autosavePath);
+
+  // 1) both slots present -> the clean-exit save wins
+  std::unique_ptr<World> r1 = loadContinueCityNG(userData, 100);
+  TCHECK(r1 != nullptr);
+  if(r1)
+    TCHECK_EQ(r1->total_time, 1);
+
+  // 2) only the autosave remains -> autosave is loaded
+  std::filesystem::remove(currentPath, ec);
+  std::unique_ptr<World> r2 = loadContinueCityNG(userData, 100);
+  TCHECK(r2 != nullptr);
+  if(r2)
+    TCHECK_EQ(r2->total_time, 2);
+
+  // 3) nothing left -> fresh city at day 0
+  std::filesystem::remove(autosavePath, ec);
+  std::unique_ptr<World> r3 = loadContinueCityNG(userData, 100);
+  TCHECK(r3 != nullptr);
+  if(r3)
+    TCHECK_EQ(r3->total_time, 0);
 }
 
 } // namespace

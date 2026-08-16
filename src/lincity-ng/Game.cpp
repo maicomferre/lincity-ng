@@ -765,15 +765,16 @@ Game::run() {
               backToMainMenu();
             }
 
-            // autosave to the "current game" slot, so that Continue always
-            // resumes from a recent state even after a crash. Throttled by
-            // wall-clock time so that fast-forwarding doesn't save every
-            // second.
+            // autosave to a dedicated slot, so that Continue (which reads
+            // the clean-exit save 9_currentGameNG.scn.gz) always resumes
+            // from the last deliberately saved state while a crash can
+            // still be recovered from the autosave. Throttled by wall-clock
+            // time so that fast-forwarding doesn't save every second.
             if(world->total_time - lastAutosaveDay >= AUTOSAVE_INTERVAL_DAYS
               && tick - lastAutosaveTick >= AUTOSAVE_INTERVAL_MS
             ) {
               autoSaveCityNG(*world, getConfig()->userDataDir.get()
-                / "9_currentGameNG.scn.gz");
+                / "autosave.scn.gz");
               lastAutosaveDay = world->total_time;
               lastAutosaveTick = tick;
             }

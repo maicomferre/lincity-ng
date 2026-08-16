@@ -43,6 +43,7 @@
 
 #include "Config.hpp"                   // for getConfig, Config
 #include "Game.hpp"                     // for Game
+#include "GameView.hpp"                 // for GameView
 #include "MainLincity.hpp"              // for loadCityNG, saveCityNG
 #include "Sound.hpp"                    // for getSound, Sound, MusicTransport
 #include "Util.hpp"                     // for getCheckButton, getButton
@@ -60,7 +61,8 @@
 #include "gui/WindowManager.hpp"        // for WindowManager
 #include "lincity/init_game.hpp"        // for _CitySettings, new_city, city...
 #include "lincity/lintypes.hpp"         // for NUMOF_DAYS_IN_MONTH
-#include "lincity/stats.hpp"            // for Stat, Stats
+#include "lincity/stats.hpp"
+#include "lincity/util.hpp"            // for Stat, Stats
 #include "lincity/world.hpp"            // for World
 #include "main.hpp"                     // for resizeVideo, painter, videoSi...
 #include "util/gettextutil.hpp"
@@ -656,24 +658,15 @@ MainMenu::continueButtonClicked(Button* ) {
   state = State::GAME;
 
   if(!game) {
-    std::unique_ptr<World> world;
-    std::filesystem::path file =
-      getConfig()->userDataDir.get() / "9_currentGameNG.scn.gz";
-    if(std::filesystem::exists(file)) {
-      world = loadCityNG(file);
-    }
-    else {
-      city_settings city;
-      city.with_village  = true;
-      city.without_trees = false;
-
-      //by default create a new City
-      world = new_city(&city, getConfig()->worldSize.get());
-    }
+    // Continue loads the clean-exit save first and falls back to the
+    // autosave, so an interrupted game can still be resumed (BUG-01b).
+    std::unique_ptr<World> world = loadContinueCityNG(
+      getConfig()->userDataDir.get(), getConfig()->worldSize.get());
 
     if(world) {
       game.reset(new Game(window));
       game->setWorld(std::move(world));
+      game->getGameView().printStatusMessage(_("Continue: game loaded."));
     }
     else {
       state = State::MENU;
@@ -684,6 +677,10 @@ MainMenu::continueButtonClicked(Button* ) {
 void
 MainMenu::newGameButtonClicked(Button* ) {
   getSound()->playSound("Click");
+  // clear the scenario selection of a previous session, so Start never
+  // silently reloads an old choice
+  if(CheckButton* sel = newGameSelection.getSelection())
+    sel->uncheck();
   switchMenu(newGameMenu);
 }
 
@@ -766,6 +763,7 @@ MainMenu::newGameStartButtonClicked(Button *) {
     if(!game)
       game.reset(new Game(window));
     game->setWorld(std::move(world));
+    game->getGameView().printStatusMessage(_("New game started."));
     state = State::GAME;
   }
 }
