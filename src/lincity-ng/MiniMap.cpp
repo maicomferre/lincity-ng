@@ -680,7 +680,7 @@ void MiniMap::refreshTexture(Painter& painter) {
   painter.popRenderTarget();
 }
 
-Color MiniMap::getColorNormal(MapTile& tile) const {
+Color minimapColorNormal(const MapTile& tile) {
     int mc = tile.getConstructionGroup()->colour;
 
     int red = 0;
@@ -695,6 +695,10 @@ Color MiniMap::getColorNormal(MapTile& tile) const {
     {   blue = 8 * (mc & 31 );}
 
     return Color( red, green, blue );
+}
+
+Color MiniMap::getColorNormal(MapTile& tile) const {
+    return minimapColorNormal(tile);
 }
 
 Color

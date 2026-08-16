@@ -19,6 +19,8 @@ add_library(lincity_ng_lib STATIC
   MainMenu.cpp
   MainMenu.hpp
   MapPoint.hpp
+  MapThumbnail.cpp
+  MapThumbnail.hpp
   MiniMap.cpp
   MiniMap.hpp
   Mps.cpp

@@ -26,6 +26,10 @@
         </cell>
 
         <cell row="2" col="1">
+        <TableLayout rows="1" cols="2">
+            <colsize col="1" relative="29"/>
+            <colsize col="2" relative="15"/>
+            <cell row="1" col="1">
         <TableLayout rows="12" cols="3">
             <colsize col="1" relative="4"/>
             <colsize col="2" relative="10"/>
@@ -160,6 +164,30 @@
             <image-clicked src="images/gui/buttons/savebutton-clicked.png"/>
             <image-checked src="images/gui/buttons/savebutton-checked.png"/>
             </CheckButton>
+            </cell>
+        </TableLayout>
+            </cell>
+            <!-- scenario information panel (FEAT-02) -->
+            <cell row="1" col="2">
+            <TableLayout rows="5" cols="1">
+                <rowsize row="1" relative="3"/>
+                <rowsize row="2" relative="1"/>
+                <rowsize row="3" relative="2"/>
+                <rowsize row="4" relative="2"/>
+                <rowsize row="5" relative="1"/>
+                <cell row="1" col="1" halign="center">
+                    <MapThumbnail name="mapThumbnail" width="160" height="160"/>
+                </cell>
+                <cell row="2" col="1" halign="center">
+                    <Paragraph name="mapInfoName" style="menutitle"/>
+                </cell>
+                <cell row="3" col="1" halign="left">
+                    <Paragraph name="mapInfoDesc" style="listtitle"/>
+                </cell>
+                <cell row="4" col="1" halign="left">
+                    <Paragraph name="mapInfoStats" style="listtitle"/>
+                </cell>
+            </TableLayout>
             </cell>
         </TableLayout>
         </cell>

@@ -37,8 +37,10 @@ class CheckButton;
 class Component;
 class Desktop;
 class Game;
+class MapThumbnail;
 class Paragraph;
 class SwitchComponent;
+class World;
 
 class MainMenu
 {
@@ -85,6 +87,9 @@ private:
 
     void creditsBackButtonClicked(Button* );
 
+    // scenario information panel (FEAT-02)
+    void mapSelectionChanged(RadioButtonGroup* group, CheckButton* sel);
+
     std::unique_ptr<Game> game;
     void launchGame();
 
@@ -102,6 +107,14 @@ private:
     RadioButtonGroup loadGameSelection;
     RadioButtonGroup saveGameSelection;
     std::unordered_map<CheckButton *, std::filesystem::path> loadFiles;
+
+    MapThumbnail *mapThumbnail = nullptr;
+    Paragraph *mapInfoName = nullptr;
+    Paragraph *mapInfoDesc = nullptr;
+    Paragraph *mapInfoStats = nullptr;
+    bool mapInfoConnected = false;
+    // worlds loaded only to describe the scenarios (cached per button)
+    std::unordered_map<CheckButton *, std::unique_ptr<World>> infoWorlds;
 
     enum class State {
       MENU, GAME, QUIT, RESTART

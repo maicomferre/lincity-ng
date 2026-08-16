@@ -44,6 +44,7 @@
 #include "Config.hpp"                   // for getConfig, Config
 #include "Game.hpp"                     // for Game
 #include "GameView.hpp"                 // for GameView
+#include "MapThumbnail.hpp"              // for MapThumbnail
 #include "MainLincity.hpp"              // for loadCityNG, saveCityNG
 #include "Sound.hpp"                    // for getSound, Sound, MusicTransport
 #include "Util.hpp"                     // for getCheckButton, getButton
@@ -103,6 +104,8 @@ MainMenu::reloadGUI() {
   loadGameSelection.clear();
   saveGameSelection.clear();
   loadFiles.clear();
+  infoWorlds.clear();
+  mapInfoConnected = false;
   loadMenus();
   retranslate_months();
   DialogBuilder::setDefaultWindowManager(dynamic_cast<WindowManager *>(
@@ -208,6 +211,19 @@ MainMenu::loadNewGameMenu() {
 
   Button* backButton = getButton(*newGameMenu, "BackButton");
   backButton->clicked.connect(std::bind(&MainMenu::newGameBackButtonClicked, this, _1));
+
+  // scenario information panel (FEAT-02)
+  mapThumbnail = dynamic_cast<MapThumbnail *>(
+    newGameMenu->findComponent("mapThumbnail"));
+  mapInfoName = getParagraph(*newGameMenu, "mapInfoName");
+  mapInfoDesc = getParagraph(*newGameMenu, "mapInfoDesc");
+  mapInfoStats = getParagraph(*newGameMenu, "mapInfoStats");
+  if(!mapInfoConnected) {
+    newGameSelection.selected.connect(std::bind(
+      &MainMenu::mapSelectionChanged, this, _1, _2));
+    mapInfoConnected = true;
+  }
+  mapSelectionChanged(&newGameSelection, nullptr);
 
   CheckButton *button;
   button = getCheckButton(*newGameMenu,"WithVillage");
@@ -673,6 +689,114 @@ MainMenu::continueButtonClicked(Button* ) {
       state = State::MENU;
     }
   }
+}
+
+namespace {
+const char* scenarioDescription(const std::string& stem) {
+  if(stem == "good_times")
+    return N_("A prosperous city with a strong economy, established "
+      "industry and a high tech level.");
+  if(stem == "bad_times")
+    return N_("A struggling city: debt, unemployment and outdated "
+      "industry. A hard start.");
+  if(stem == "extreme_arid")
+    return N_("A small settlement in a harsh desert. Water is precious "
+      "and farming is difficult.");
+  if(stem == "extreme_wetland")
+    return N_("A settlement surrounded by swamps. Land is scarce and "
+      "flooding is a constant threat.");
+  if(stem == "Beach")
+    return N_("A coastal town with beaches and sea access.");
+  if(stem == "Rocket_98")
+    return N_("A space program town from 1998, with rocket pads and a "
+      "busy transport network.");
+  return "";
+}
+
+const char* randomDescription(const std::string& name) {
+  if(name == "RiverDelta")
+    return N_("A brand new city in a river delta. The terrain is "
+      "generated randomly.");
+  if(name == "DesertArea")
+    return N_("A brand new city in semi-desert. The terrain is "
+      "generated randomly.");
+  if(name == "TemperateArea")
+    return N_("A brand new city in a temperate area. The terrain is "
+      "generated randomly.");
+  if(name == "SwampArea")
+    return N_("A brand new city in a swampy area. The terrain is "
+      "generated randomly.");
+  return "";
+}
+} // namespace
+
+void
+MainMenu::mapSelectionChanged(RadioButtonGroup*, CheckButton* sel) {
+  if(!mapInfoName)
+    return;
+  if(!sel) {
+    // no selection: nothing to describe
+    mapInfoName->setText("");
+    mapInfoDesc->setText("");
+    mapInfoStats->setText("");
+    if(mapThumbnail)
+      mapThumbnail->setWorld(nullptr);
+    return;
+  }
+
+  mapInfoName->setText(sel->getCaptionText());
+
+  auto fileIt = loadFiles.find(sel);
+  if(fileIt == loadFiles.end()) {
+    // randomly generated city: no world to preview, text only
+    if(mapThumbnail)
+      mapThumbnail->setWorld(nullptr);
+    mapInfoDesc->setText(_(randomDescription(sel->getName())));
+    mapInfoStats->setText(fmt::format(_("Map size: {}x{}"),
+      getConfig()->worldSize.get(), getConfig()->worldSize.get()));
+    return;
+  }
+
+  // scenario: load once and cache for the panel lifetime
+  World* world = nullptr;
+  auto cacheIt = infoWorlds.find(sel);
+  if(cacheIt == infoWorlds.end()) {
+    std::unique_ptr<World> loaded = World::load(fileIt->second);
+    if(!loaded) {
+      mapInfoDesc->setText(_("Could not load this scenario."));
+      mapInfoStats->setText("");
+      if(mapThumbnail)
+        mapThumbnail->setWorld(nullptr);
+      return;
+    }
+    world = loaded.get();
+    infoWorlds.emplace(sel, std::move(loaded));
+  }
+  else {
+    world = cacheIt->second.get();
+  }
+
+  if(mapThumbnail)
+    mapThumbnail->setWorld(world);
+
+  mapInfoDesc->setText(_(scenarioDescription(
+    fileIt->second.stem().string())));
+
+  // Scenarios predate the persisted population stats (0 after load), so
+  // only show population when the world actually carries one.
+  const int population = world->stats.population.population_m.stat;
+  if(population > 0)
+    mapInfoStats->setText(fmt::format(
+      _("Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"),
+      world->total_money, world->tech_level,
+      current_year(world->total_time),
+      population, world->map.len(), world->map.len()));
+  else
+    mapInfoStats->setText(fmt::format(
+      _("Money {:n}$ | Tech {} | Year {} | Size {}x{}"),
+      world->total_money, world->tech_level,
+      current_year(world->total_time),
+      world->map.len(), world->map.len()));
 }
 
 void

@@ -31,6 +31,7 @@
 #include "lincity-ng/Game.hpp"               // for Game
 #include "lincity-ng/GameView.hpp"           // for GameView
 #include "lincity-ng/MainLincity.hpp"        // for loadContinueCityNG
+#include "lincity-ng/MapThumbnail.hpp"       // for MapThumbnail
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
 #include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
@@ -405,6 +406,30 @@ TTEST(bridge_charges_resolved_cost) {
   // the tile must now carry a road bridge (getTransportGroup reports
   // bridges as their normal transport group, so check the raw group)
   TCHECK(world->map(waterPoint)->getGroup() == GROUP_ROAD_BRIDGE);
+}
+
+TTEST(scenario_thumbnail_and_panel_data) {
+  // FEAT-02 pipeline: load a scenario, generate its thumbnail texture and
+  // collect the panel data the menu shows for it.
+  initVideo(800, 600);
+
+  std::unique_ptr<World> world = World::load(
+    headless::app_data() / "opening" / "good_times.scn.gz");
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  MapThumbnail thumbnail;
+  thumbnail.resize(160, 160);
+  thumbnail.setWorld(world.get());
+  // drawing once exercises the texture and the color mapping
+  thumbnail.draw(*painter);
+
+  // panel data sanity (what mapSelectionChanged formats); scenarios
+  // predate the persisted population stats, so they are 0 after load
+  TCHECK(world->total_money > 0);
+  TCHECK(world->map.len() > 0);
+  TCHECK(world->tech_level > 0);
 }
 
 } // namespace

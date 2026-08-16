@@ -45,6 +45,10 @@ namespace xmlpp {
 class TextReader;
 }  // namespace xmlpp
 
+/* Plain terrain color of a tile (NORMAL minimap mode), usable without a
+ * MiniMap instance (e.g. for the scenario thumbnails in the new-game menu). */
+Color minimapColorNormal(const MapTile& tile);
+
 class MiniMap : public Component
 {
 public:
