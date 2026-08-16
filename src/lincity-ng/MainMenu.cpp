@@ -309,7 +309,9 @@ MainMenu::updateOptionsMenu() {
   }
   getParagraph(*optionsMenu, "resolutionParagraph")->setText(mode.str());
   mode.str("");
-  mode << getConfig()->worldSize.get();
+  // the outer ring of the map is not playable, so show the actual
+  // playable size (worldSize - 2) instead of the configured size
+  mode << (getConfig()->worldSize.get() - 2);
   getParagraph( *optionsMenu, "WorldLenParagraph")->setText(mode.str());
   mode.str("");
   mode << getConfig()->scrollSpeed.get() << "%";
