@@ -35,6 +35,8 @@
 
 // TODO: move to NG
 const char *current_month(int current_time);
+/* Re-translate the cached month names (call after changing the language). */
+void retranslate_months();
 int current_year(int current_time);
 //void format_number5(char *str, int num);
 //void format_pos_number4(char *str, int num);

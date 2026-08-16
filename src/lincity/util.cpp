@@ -34,17 +34,27 @@
 #include "util/gettextutil.hpp"  // for N_, _
 
 // TODO: move to NG
+namespace {
+const char *const month_names[] = {
+  (char*)N_("Jan"), (char*)N_("Feb"), (char*)N_("Mar"), (char*)N_("Apr"),
+  (char*)N_("May"), (char*)N_("Jun"), (char*)N_("Jul"), (char*)N_("Aug"),
+  (char*)N_("Sep"), (char*)N_("Oct"), (char*)N_("Nov"), (char*)N_("Dec")
+};
+char *months[12] = { 0 };
+} // namespace
+
+void retranslate_months() {
+  for(int i = 0; i < 12; ++i) {
+    free(months[i]); // NULL is fine
+    months[i] = strdup(_(month_names[i]));
+  }
+}
+
 const char *current_month(int current_time) {
-  static const char *months[] = { (char*)N_("Jan"), (char*)N_("Feb"), (char*)N_("Mar"), (char*)N_("Apr"),
-      (char*)N_("May"), (char*)N_("Jun"), (char*)N_("Jul"), (char*)N_("Aug"),
-      (char*)N_("Sep"), (char*)N_("Oct"), (char*)N_("Nov"), (char*)N_("Dec")
-  };
   static bool doinit = true;
   if (doinit) {
     doinit = false;
-    for (int i = 0; i < 12; ++i) {
-      months[i] = strdup(_(months[i]));
-    }
+    retranslate_months();
   }
   return months[(current_time % NUMOF_DAYS_IN_YEAR) / NUMOF_DAYS_IN_MONTH];
 }

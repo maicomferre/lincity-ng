@@ -104,6 +104,7 @@ MainMenu::reloadGUI() {
   saveGameSelection.clear();
   loadFiles.clear();
   loadMenus();
+  retranslate_months();
   DialogBuilder::setDefaultWindowManager(dynamic_cast<WindowManager *>(
     menu->findComponent("windowManager")));
 }
