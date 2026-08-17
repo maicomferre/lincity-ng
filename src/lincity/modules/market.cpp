@@ -90,7 +90,7 @@ Market::Market(World& world, ConstructionGroup *cstgrp) :
 }
 
 Market::~Market() {
-  world.map(point)->killframe(waste_fire_frit);
+  world.map(point)->removeFrame(waste_fire_frit);
 }
 
 void Market::update()
@@ -294,7 +294,7 @@ void Market::report(Mps& mps, bool production) const {
 void Market::init_resources() {
   Construction::init_resources();
 
-  waste_fire_frit = world.map(point)->createframe();
+  waste_fire_frit = world.map(point)->addFrame();
   waste_fire_frit->resourceGroup = ResourceGroup::resMap["Fire"];
   waste_fire_frit->move_x = 0;
   waste_fire_frit->move_y = 0;

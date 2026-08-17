@@ -1323,10 +1323,11 @@ void GameView::drawTile(Painter& painter, const MapPoint &tile)
         if( (size==1 || !hideHigh) )
         {
             draw_colored_site = false;
-            if (getWorld().map(upperLeft)->framesptr)
+            if (getWorld().map(upperLeft)->hasFrames())
             {
-                for(std::list<ExtraFrame>::iterator frit = getWorld().map(upperLeft)->framesptr->begin();
-                    frit != getWorld().map(upperLeft)->framesptr->end(); std::advance(frit, 1))
+                std::list<ExtraFrame>& tileFrames = getWorld().map(upperLeft)->frames();
+                for(std::list<ExtraFrame>::iterator frit = tileFrames.begin();
+                    frit != tileFrames.end(); std::advance(frit, 1))
                 {
                     if(frit->resourceGroup && frit->resourceGroup->images_loaded)
                     {

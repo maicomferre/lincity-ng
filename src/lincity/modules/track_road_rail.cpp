@@ -347,9 +347,9 @@ void Transport::playSound()
 }
 
 bool Transport::canPlaceVehicle() {
-  if(!world.map(point)->framesptr)
+  if(!world.map(point)->hasFrames())
     return false;
-  for(ExtraFrame& exfr : *world.map(point)->framesptr)
+  for(ExtraFrame& exfr : world.map(point)->frames())
     if(exfr.resourceGroup->is_vehicle)
       return false;
   // Also refuse to spawn on a tile another vehicle is driving towards or is
@@ -364,7 +364,7 @@ bool Transport::canPlaceVehicle() {
 void Transport::init_resources() {
   Construction::init_resources();
 
-  waste_fire_frit = world.map(point)->createframe();
+  waste_fire_frit = world.map(point)->addFrame();
   waste_fire_frit->resourceGroup = ResourceGroup::resMap["Fire"];
   waste_fire_frit->move_x = 0;
   waste_fire_frit->move_y = 0;
@@ -409,7 +409,7 @@ void Transport::place(MapPoint point) {
 void
 Transport::detach() {
   MapTile& tile = *world.map(point);
-  tile.killframe(waste_fire_frit);
+  tile.removeFrame(waste_fire_frit);
   tile.flags &= ~(FLAG_POWER_CABLES_0 | FLAG_POWER_CABLES_90);
 
   Construction::detach();

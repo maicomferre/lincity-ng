@@ -251,19 +251,53 @@ bool MapTile::is_residence() const //true on residences
      || (reportingConstruction->constructionGroup->group == GROUP_RESIDENCE_HH) ) );
 }
 
-std::list<ExtraFrame>::iterator MapTile::createframe(void)
+std::list<ExtraFrame>& MapTile::ensureFrames()
 {
     if(!framesptr)
     {   framesptr = new std::list<ExtraFrame>;}
-    framesptr->resize(framesptr->size() + 1);
-    std::list<ExtraFrame>::iterator frit = framesptr->end();
+    return *framesptr;
+}
+
+std::list<ExtraFrame>::iterator MapTile::addFrame(void)
+{
+    std::list<ExtraFrame>& frames = ensureFrames();
+    frames.resize(frames.size() + 1);
+    std::list<ExtraFrame>::iterator frit = frames.end();
     std::advance(frit, -1);
     return frit; //the last position
 }
 
-void MapTile::killframe(const std::list<ExtraFrame>::iterator& it)
+#ifndef NDEBUG
+namespace {
+/* O(n) scan used only by debug asserts. Answers the old question from the
+ * original killframe ("what would actually happen if 'it' belongs to another
+ * maptile?") by aborting at the exact violation point instead of corrupting
+ * memory downstream. Compares node addresses, never iterators of different
+ * lists (comparing those with == would itself be UB). */
+bool owns_frame(const std::list<ExtraFrame>& frames,
+    const std::list<ExtraFrame>::iterator& it)
 {
-    //what would actually happen if "it" belongs to another maptile?
+    const ExtraFrame* frame = &*it;
+    for(const ExtraFrame& candidate : frames)
+    {
+        if(&candidate == frame)
+        {   return true;}
+    }
+    return false;
+}
+} // namespace
+#endif
+
+void MapTile::removeFrame(const std::list<ExtraFrame>::iterator& it)
+{
+    assert(framesptr && "removeFrame: tile owns no frames");
+#ifndef NDEBUG
+    if(!owns_frame(*framesptr, it))
+    {
+        assert(false && "removeFrame: iterator belongs to another tile's list "
+          "(cross-tile kill; would corrupt memory)");
+    }
+#endif
     framesptr->erase(it);
     if (framesptr->empty())
     {
@@ -274,18 +308,37 @@ void MapTile::killframe(const std::list<ExtraFrame>::iterator& it)
 
 void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it)
 {
+    assert(!(point == dest) && "moveFrameTo: dest must differ from the source tile");
+    assert(framesptr && "moveFrameTo: tile owns no frames");
+#ifndef NDEBUG
+    if(!owns_frame(*framesptr, it))
+    {
+        assert(false && "moveFrameTo: iterator belongs to another tile's list");
+    }
+#endif
     //REF-03a: single encapsulated point for "move an ExtraFrame from this
     //tile to dest". std::list::splice is O(1) and does NOT invalidate the
     //moved iterator, so callers (Vehicle::move_frame) can keep holding it.
     MapTile& dst = *map(dest);
-    if(!dst.framesptr)
-    {   dst.framesptr = new std::list<ExtraFrame>;}
-    dst.framesptr->splice(dst.framesptr->end(), *framesptr, it);
+    std::list<ExtraFrame>& dstframes = dst.ensureFrames();
+    dstframes.splice(dstframes.end(), *framesptr, it);
     if (framesptr->empty())
     {
         delete framesptr;
         framesptr = NULL;
     }
+}
+
+std::list<ExtraFrame>& MapTile::frames()
+{
+    assert(framesptr && "frames(): tile owns no frames (guard with hasFrames())");
+    return *framesptr;
+}
+
+const std::list<ExtraFrame>& MapTile::frames() const
+{
+    assert(framesptr && "frames(): tile owns no frames (guard with hasFrames())");
+    return *framesptr;
 }
 
 

@@ -80,12 +80,12 @@ School::School(World& world, ConstructionGroup *cstgrp) :
 }
 
 School::~School() {
-  //REF-03a: use MapTile::killframe instead of duplicating the erase+delete
-  //pattern. killframe already handles the empty-list deletion and the
+  //REF-03a: delegate to MapTile instead of duplicating the erase+delete
+  //pattern. removeFrame already handles the empty-list deletion and the
   //framesptr=nullptr reset, and is the single point where that invariant
   //lives. The previous manual duplication (school.cpp history) skipped the
-  //ownership check that killframe centralizes.
-  world.map(point)->killframe(frit);
+  //ownership check that removeFrame centralizes (assert in debug builds).
+  world.map(point)->removeFrame(frit);
 }
 
 void School::update() {
@@ -157,7 +157,7 @@ void School::report(Mps& mps, bool production) const {
 void School::init_resources() {
   Construction::init_resources();
 
-  frit = world.map(point)->createframe();
+  frit = world.map(point)->addFrame();
   frit->resourceGroup = ResourceGroup::resMap["ChildOnSwing"]; //host of the swing
   frit->frame = -1; //hide the swing
 }

@@ -172,7 +172,7 @@ Shanty::Shanty(World& world, ConstructionGroup *cstgrp) :
 }
 
 Shanty::~Shanty() {
-  world.map(point)->killframe(waste_fire_frit);
+  world.map(point)->removeFrame(waste_fire_frit);
 }
 
 void Shanty::update()
@@ -251,7 +251,7 @@ void Shanty::report(Mps& mps, bool production) const {
 void Shanty::init_resources() {
   Construction::init_resources();
 
-  waste_fire_frit = world.map(point)->createframe();
+  waste_fire_frit = world.map(point)->addFrame();
   waste_fire_frit->resourceGroup = ResourceGroup::resMap["Fire"];
   waste_fire_frit->move_x = 0;
   waste_fire_frit->move_y = 0;

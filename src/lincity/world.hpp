@@ -93,20 +93,27 @@ public:
   unsigned short coal_reserve;          //underground coal
   unsigned short ore_reserve;           //underground ore
   int pollution;                        //air pollution (under ground pollution is in ground[][])
-  std::list<ExtraFrame> *framesptr;     //Overlays to be rendered on top of type, mostly NULL
-                                        //use memberfunctions to add and remove sprites
 
   void setTerrain(unsigned short group); //places type & group at MapTile
-  std::list<ExtraFrame>::iterator createframe(); //creates new empty ExtraFrames
-                                                  //to be used by Contstructions and Vehicles
-  void killframe(const std::list<ExtraFrame>::iterator& it); //kills an extraframe
+
+  /* ExtraFrame ownership (REF-03b, rule R8 of .devdocs/10): overlay
+   * frames are fully encapsulated. The internal list is allocated on
+   * demand by addFrame()/moveFrameTo() and deleted as soon as it empties.
+   * Nothing outside MapTile may hold or free the list itself; callers
+   * only hold iterators, which stay valid across removeFrame(it) of
+   * other elements and across moveFrameTo() until their own removal. */
+  bool hasFrames() const noexcept { return framesptr != NULL; } //false iff the tile owns no overlay
+  std::list<ExtraFrame>::iterator addFrame(); //appends a default ExtraFrame, returns iterator to it
+  void removeFrame(const std::list<ExtraFrame>::iterator& it); //kills an extraframe; asserts ownership in debug builds
   // Moves an ExtraFrame owned by this tile to another tile's list, without
   // invalidating the iterator (std::list::splice is O(1) and stable). The
   // destination list is allocated on demand. The source list is deleted if
-  // it becomes empty, exactly like killframe. Used by Vehicle::move_frame
+  // it becomes empty, exactly like removeFrame. Used by Vehicle::move_frame
   // and the single point where a frame changes tiles.
   // `map` is the Map owning both this tile and the destination tile.
   void moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it);
+  std::list<ExtraFrame>& frames();            //precondition: hasFrames(); for iteration (draw, vehicle spawn checks)
+  const std::list<ExtraFrame>& frames() const;
 
   unsigned short getType() const;          //type of bare land or the covering construction
   unsigned short getTopType() const;       //type of bare land or the actual construction
@@ -130,6 +137,12 @@ public:
   bool is_residence() const;               //true if any residence covers the tile
   void writeTemplate();              //create maptile template
   void saveMembers(std::ostream *os);//write maptile AND ground members as XML to stram
+
+private:
+  std::list<ExtraFrame>& ensureFrames(); //allocates the frame list on demand; single `new` point
+
+  std::list<ExtraFrame> *framesptr;      //Overlays to be rendered on top of type, mostly NULL
+                                          //private since REF-03b: manipulate via addFrame/removeFrame/moveFrameTo
 };
 
 class Map {
