@@ -82,7 +82,9 @@ void Windmill::update() {
     try {
       world.expense(1, world.stats.expenses.windmill);
       paid = true;
-    } catch (OutOfMoneyMessage ex) { }
+    } catch(const OutOfMoneyMessage::Exception& ex) {
+      // stay unpaid and try again next time
+    }
 
   int lovolt_made = (commodityCount[STUFF_LOVOLT] + lovolt_output <= MAX_LOVOLT_AT_WINDMILL)?lovolt_output:MAX_LOVOLT_AT_WINDMILL-commodityCount[STUFF_LOVOLT];
   int labor_used = WINDMILL_LABOR * lovolt_made / lovolt_output;

@@ -272,6 +272,45 @@ TTEST(money_conservation_one_year) {
   TCHECK(run_days(*world, g_days));
 }
 
+TTEST(credit_limit_keeps_simulating) {
+  // BUG-11: at the credit limit every expense() throws
+  // OutOfMoneyMessage::Exception. All buildings catch it except Windmill,
+  // which caught the message instead of the exception, letting it escape
+  // the simulation and bounce the game back to the main menu.
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  world->tech_level = 60000;
+
+  // place a windmill so Windmill::update() runs each day
+  MapPoint p(5, 5);
+  try {
+    world->buildConstruction(windmillConstructionGroup, p);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  windmill build failed: %s\n", err.what());
+    TCHECK(!"windmill build threw");
+    return;
+  }
+  TCHECK(world->map(p)->construction != nullptr);
+
+  // force the city to the credit limit (test-only direct write)
+  world->total_money = -2000000000;
+
+  // the simulation must keep stepping without throwing
+  for(int day = 0; day < 1200; day++) {
+    try {
+      world->do_time_step();
+    } catch(const Message::Exception& err) {
+      std::fprintf(stderr, "  simulation threw on day %d: %s\n",
+        world->total_time, err.what());
+      TCHECK(!"simulation threw at the credit limit");
+      return;
+    }
+  }
+}
+
 TTEST(scenario_matrix_one_year_each) {
   int loaded = 0;
   for(const auto& entry :
