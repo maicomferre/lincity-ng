@@ -75,6 +75,10 @@ public:
   MapPoint destination;
   float xr, yr;
   int death_counter;
+  /* REF-03e (rule R8): set instead of `delete this` when the vehicle's
+   * time is up; World::do_animate() reaps dead vehicles after the update
+   * pass, so no object destroys itself while its list is iterated. */
+  bool dead = false;
   // ticks left before a blocked car gives up and disappears (anti-deadlock)
   int wait_ticks;
   // true while the car plays its "arriving" animation at the destination
@@ -95,6 +99,7 @@ public:
 
   int speed0, speed, anim;
   void update(unsigned long real_time);
+  bool isDead() const { return dead; }
 
   // how long the "arriving" animation lasts (milliseconds)
   static const unsigned long ARRIVE_MS = 500;
@@ -103,12 +108,8 @@ public:
   // when the current wait (blocked) period expires; real_time based
   unsigned long wait_until;
 
-
-  static std::list<Vehicle*> vehicleList;
-
   //pick a random passenger-car model among the 5 color variants
   static VehicleModel randomPassengerCar();
-  static void cleanVehicleList(); //kill vehicles with deathcounter < 0
 private:
   void getNewHeadings(); //plan ahead for 2 tiles
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
