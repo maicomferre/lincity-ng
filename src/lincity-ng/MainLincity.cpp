@@ -57,9 +57,9 @@ void saveCityNG(const World& world, const std::filesystem::path& filename) {
   std::filesystem::path fullname = filename;
   try {
     world.save(fullname);
-    std::cout << "saved game to '" << fullname << "'" << std::endl;
+    std::cout << "saved game to '" << fullname.string() << "'" << std::endl;
   } catch(std::runtime_error err) {
-    std::cerr << "error: failed to save game to '" << fullname << "': "
+    std::cerr << "error: failed to save game to '" << fullname.string() << "': "
       << err.what() << std::endl;
     assert(false);
   }
