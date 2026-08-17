@@ -166,6 +166,40 @@ TTEST(maptile_random_ops_invariants) {
 }
 
 #ifndef NDEBUG
+// REF-03d: the whole-map consistency check must hold after mixed ops.
+TTEST(maptile_consistency_check_passes) {
+  Map map(4);
+  std::list<ExtraFrame>::iterator a = map(MapPoint(0, 0))->addFrame();
+  std::list<ExtraFrame>::iterator b = map(MapPoint(1, 1))->addFrame();
+  map(MapPoint(2, 2))->addFrame();
+  map.assertFramesConsistent();  // 3 registered frames on 3 tiles
+
+  map(MapPoint(0, 0))->moveFrameTo(map, MapPoint(3, 3), a);
+  map.assertFramesConsistent();  // splice keeps addresses: registry untouched
+
+  map(MapPoint(1, 1))->removeFrame(b);
+  map.assertFramesConsistent();  // kill unregisters
+
+  TCHECK(map(MapPoint(3, 3))->hasFrames());
+}
+
+// REF-03d: destroying a map with frames still alive (World teardown, test
+// scopes) must leave the debug registry clean for the next map in the same
+// process — every test here runs its own Map(4) in one binary.
+TTEST(maptile_teardown_with_live_frames_keeps_registry_clean) {
+  {
+    Map map(4);
+    map(MapPoint(1, 1))->addFrame();
+    std::list<ExtraFrame>::iterator it = map(MapPoint(2, 2))->addFrame();
+    map(MapPoint(2, 2))->moveFrameTo(map, MapPoint(0, 0), it);
+    // scope ends with 2 live frames owned by the map
+  }
+  Map next(4);
+  next(MapPoint(3, 3))->addFrame();
+  next.assertFramesConsistent();  // must not trip on stale addresses
+  TCHECK(next(MapPoint(3, 3))->hasFrames());
+}
+
 #if defined(__linux__)
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -187,6 +221,28 @@ TTEST(maptile_cross_tile_remove_aborts_in_debug) {
   waitpid(pid, &status, 0);
   TCHECK(WIFSIGNALED(status));
   TCHECK_EQ(WTERMSIG(status), SIGABRT);
+}
+
+TTEST(maptile_double_kill_aborts_in_debug) {
+  // REF-03d: prove the registry assert catches a double kill. The tile's
+  // list is NOT empty when the second kill happens (another frame remains),
+  // so the abort can only come from the registry membership assert (or, in
+  // sanitizer builds, from the UAF read of the dead iterator — ASan exits
+  // nonzero instead of raising SIGABRT, so accept both outcomes).
+  pid_t pid = fork();
+  if(pid == 0) {
+    Map map(4);
+    MapTile* tile = map(MapPoint(1, 1));
+    std::list<ExtraFrame>::iterator victim = tile->addFrame();
+    tile->addFrame();  // keep the list alive after the first kill
+    tile->removeFrame(victim);
+    tile->removeFrame(victim);  // double kill
+    _exit(0);  // reached only if detection failed
+  }
+  int status = 0;
+  waitpid(pid, &status, 0);
+  const bool clean_exit = WIFEXITED(status) && WEXITSTATUS(status) == 0;
+  TCHECK(!clean_exit);
 }
 #endif // __linux__
 #endif // !NDEBUG

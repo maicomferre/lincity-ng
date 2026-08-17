@@ -68,6 +68,12 @@ World::do_time_step(void) {
 
     /* Now do the stuff that happens once a year, once a month, etc. */
     do_periodic_events();
+
+#ifndef NDEBUG
+    //REF-03d: debug canary — abort here, at the step the corruption
+    //happened, instead of in some unrelated downstream crash.
+    map.assertFramesConsistent();
+#endif
 }
 
 void
