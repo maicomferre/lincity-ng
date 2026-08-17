@@ -4,10 +4,11 @@
 #   - build-asan: Debug + ASan/UBSan + LSAN suppressions, the regression
 #                 guard for UAF/leaks (must pass with detect_leaks=1).
 #
-# SDL3 3.2.0+ and libxml++-5.0 are not in ubuntu-24.04's apt, so the job
-# runs in a debian:trixie container where they are available. See
-# .devdocs/10-padrao-desenvolvimento.md section 3 for the test layers and
-# .devdocs/06-diario-de-desenvolvimento.md (CI session) for rationale.
+# SDL3_mixer is not packaged in ubuntu-26.04's apt (only SDL3 core, image
+# and ttf are), so it is built from the release-3.2.4 source tag in a
+# dedicated step and installed into a prefix that CMake picks up via
+# CMAKE_PREFIX_PATH. See .devdocs/10-padrao-desenvolvimento.md section 3
+# for the test-layer contract and .devdocs/06 (CI session) for rationale.
 name: CI
 
 on:
@@ -24,7 +25,7 @@ jobs:
   build-and-test:
     name: ${{ matrix.name }}
     runs-on: ubuntu-24.04
-    container: debian:trixie
+    container: ubuntu:26.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -38,29 +39,43 @@ jobs:
             cxxflags: "-fsanitize=address,undefined -fno-omit-frame-pointer"
 
     steps:
-      - name: Install git and certificates (needed before checkout)
+      - name: Install apt deps (git first so checkout works)
         run: |
           apt-get update
-          apt-get install -y --no-install-recommends git ca-certificates
+          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            git ca-certificates \
+            build-essential cmake ninja-build pkg-config \
+            libxml2-dev libxml++-5.0-dev zlib1g-dev gettext \
+            libxslt1-dev xsltproc libfmt-dev \
+            libsdl3-dev libsdl3-image-dev libsdl3-ttf-dev \
+            libogg-dev libvorbis-dev libmpg123-dev
 
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install build dependencies
+      - name: Build & install SDL3_mixer 3.2.4 from source
         run: |
-          apt-get install -y --no-install-recommends \
-            build-essential cmake ninja-build pkg-config \
-            libxml2-dev libxml++-5.0-dev zlib1g-dev gettext \
-            libxslt1-dev xsltproc libfmt-dev \
-            libsdl3-dev libsdl3-image-dev libsdl3-mixer-dev libsdl3-ttf-dev
+          set -e
+          # SDL3_mixer is not in ubuntu-26.04 apt; build the release tag
+          # the project expects (3.2.0+). Small lib, ~30s with Ninja.
+          git clone --depth 1 --branch release-3.2.4 \
+            https://github.com/libsdl-org/SDL_mixer.git /tmp/sdl3mixer
+          cmake -S /tmp/sdl3mixer -B /tmp/sdl3mixer/build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr/local \
+            -DSDL3MIXER_VENDORED=OFF
+          cmake --build /tmp/sdl3mixer/build
+          cmake --install /tmp/sdl3mixer/build
+          ldconfig
 
       - name: Configure CMake
         run: |
           cmake -S . -B build -G Ninja \
             -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
-            -DCMAKE_CXX_FLAGS="${{ matrix.cxxflags }}"
+            -DCMAKE_CXX_FLAGS="${{ matrix.cxxflags }}" \
+            -DCMAKE_PREFIX_PATH=/usr/local
 
       - name: Build
         run: cmake --build build
