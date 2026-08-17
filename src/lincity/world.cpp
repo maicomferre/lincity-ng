@@ -271,6 +271,22 @@ void MapTile::killframe(const std::list<ExtraFrame>::iterator& it)
     }
 }
 
+void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it)
+{
+    //REF-03a: single encapsulated point for "move an ExtraFrame from this
+    //tile to dest". std::list::splice is O(1) and does NOT invalidate the
+    //moved iterator, so callers (Vehicle::move_frame) can keep holding it.
+    MapTile& dst = *map(dest);
+    if(!dst.framesptr)
+    {   dst.framesptr = new std::list<ExtraFrame>;}
+    dst.framesptr->splice(dst.framesptr->end(), *framesptr, it);
+    if (framesptr->empty())
+    {
+        delete framesptr;
+        framesptr = NULL;
+    }
+}
+
 
 
 Map::Map(int map_len) :

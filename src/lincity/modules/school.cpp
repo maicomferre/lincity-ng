@@ -80,13 +80,12 @@ School::School(World& world, ConstructionGroup *cstgrp) :
 }
 
 School::~School() {
-  if(world.map(point)->framesptr) {
-    world.map(point)->framesptr->erase(frit);
-    if(world.map(point)->framesptr->empty()) {
-      delete world.map(point)->framesptr;
-      world.map(point)->framesptr = NULL;
-    }
-  }
+  //REF-03a: use MapTile::killframe instead of duplicating the erase+delete
+  //pattern. killframe already handles the empty-list deletion and the
+  //framesptr=nullptr reset, and is the single point where that invariant
+  //lives. The previous manual duplication (school.cpp history) skipped the
+  //ownership check that killframe centralizes.
+  world.map(point)->killframe(frit);
 }
 
 void School::update() {

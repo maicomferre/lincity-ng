@@ -327,17 +327,13 @@ void Vehicle::walk(unsigned long real_time) {
 
 void
 Vehicle::move_frame(MapPoint newPoint) {
-  if(!world.map(newPoint)->framesptr)
-    world.map(newPoint)->framesptr = new std::list<ExtraFrame>;
-  world.map(newPoint)->framesptr->splice(
-    world.map(newPoint)->framesptr->end(),
-    *world.map(framePt)->framesptr,
-    frameIt
-  );
-  if(world.map(framePt)->framesptr->empty()) {
-    delete world.map(framePt)->framesptr;
-    world.map(framePt)->framesptr = NULL;
-  }
+  //REF-03a: delegate to MapTile::moveFrameTo, the single encapsulated
+  //point for "move an ExtraFrame between tiles". std::list::splice is
+  //O(1) and does NOT invalidate the moved iterator, so `frameIt` stays
+  //valid and points at the same node, now owned by the destination tile.
+  //The source list is deleted inside moveFrameTo if it becomes empty,
+  //exactly like the previous inlined code.
+  world.map(framePt)->moveFrameTo(world.map, newPoint, frameIt);
   framePt = newPoint; //remember where the frame was put
 }
 
