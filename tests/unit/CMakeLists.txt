@@ -1,6 +1,7 @@
 add_executable(lincity-test-unit
   ../tiny_main.cpp
   test_economy.cpp
+  test_maptile_frames.cpp
   test_util.cpp
 )
 

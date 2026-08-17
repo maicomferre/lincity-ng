@@ -181,7 +181,7 @@ void Construction::initialize_commodities(void)
 
 void Construction::init_resources()
 {
-    frameIt = world.map(point)->createframe();
+    frameIt = world.map(point)->addFrame();
     ResourceGroup *resGroup = ResourceGroup::resMap[constructionGroup->resourceID];
     if (resGroup)
     {
@@ -348,7 +348,7 @@ void Construction::detach()
   // world.map.constructions.erase(this);
   if(world.map(point)->construction == this) {
     world.map(point)->construction = NULL;
-    world.map(point)->killframe(frameIt);
+    world.map(point)->removeFrame(frameIt);
     world.stats.groupCount[constructionGroup->group]--;
   }
   else {

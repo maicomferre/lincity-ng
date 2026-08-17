@@ -68,7 +68,7 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
     : -1;
   pickDestination();
 
-  frameIt = world.map(point)->createframe();
+  frameIt = world.map(point)->addFrame();
   frameIt->frame = -2; //special value to indicate fresh fast forward car
   framePt = point;
   switch(model) {
@@ -108,7 +108,7 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 
 Vehicle::~Vehicle() {
   world.vehicleList.remove(this);
-  world.map(framePt)->killframe(frameIt);
+  world.map(framePt)->removeFrame(frameIt);
 }
 
 VehicleModel Vehicle::randomPassengerCar() {

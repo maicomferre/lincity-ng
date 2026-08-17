@@ -155,7 +155,7 @@ void Coal_power::init_resources() {
 
   MapTile& tile = *world.map(point);
   for(auto& frit : frits) {
-    frit = tile.createframe();
+    frit = tile.addFrame();
     frit->resourceGroup = ResourceGroup::resMap["BlackSmoke"];
     frit->frame = -1; // hide smoke
   }
@@ -181,7 +181,7 @@ void
 Coal_power::detach() {
   MapTile& tile = *world.map(point);
   for(const auto& frit : frits) {
-    tile.killframe(frit);
+    tile.removeFrame(frit);
   }
   Construction::detach();
 }
