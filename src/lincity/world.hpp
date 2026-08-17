@@ -76,6 +76,13 @@ class MapTile {
 public:
   MapTile(MapPoint point);
   ~MapTile();
+  /* MapTile owns a Construction (raw pointer, deleted in the destructor)
+   * and an on-demand frame list (unique_ptr, REF-03c). It is movable —
+   * required by std::vector<MapTile> in Map — and not copyable: the two
+   * owning pointers would be freed twice. Map reserves the exact vector
+   * capacity upfront, so tiles are never actually moved at runtime; the
+   * constructor exists to satisfy std::vector's requirements. */
+  MapTile(MapTile&& other) noexcept;
 
   // TODO: make point const. Attention to map_len assignment in load/save.
   //       Option 1: refactor load/save so World::map needn't be assigned.
@@ -102,7 +109,7 @@ public:
    * Nothing outside MapTile may hold or free the list itself; callers
    * only hold iterators, which stay valid across removeFrame(it) of
    * other elements and across moveFrameTo() until their own removal. */
-  bool hasFrames() const noexcept { return framesptr != NULL; } //false iff the tile owns no overlay
+  bool hasFrames() const noexcept { return framesptr != nullptr; } //false iff the tile owns no overlay
   std::list<ExtraFrame>::iterator addFrame(); //appends a default ExtraFrame, returns iterator to it
   void removeFrame(const std::list<ExtraFrame>::iterator& it); //kills an extraframe; asserts ownership in debug builds
   // Moves an ExtraFrame owned by this tile to another tile's list, without
@@ -139,16 +146,26 @@ public:
   void saveMembers(std::ostream *os);//write maptile AND ground members as XML to stram
 
 private:
-  std::list<ExtraFrame>& ensureFrames(); //allocates the frame list on demand; single `new` point
+  std::list<ExtraFrame>& ensureFrames(); //allocates the frame list on demand; single allocation point
 
-  std::list<ExtraFrame> *framesptr;      //Overlays to be rendered on top of type, mostly NULL
-                                          //private since REF-03b: manipulate via addFrame/removeFrame/moveFrameTo
+  //private since REF-03b (manipulate via addFrame/removeFrame/moveFrameTo);
+  //unique_ptr since REF-03c: no manual delete anywhere, the list is freed
+  //automatically when the tile dies or when removeFrame/moveFrameTo empty it
+  std::unique_ptr<std::list<ExtraFrame>> framesptr;
 };
 
 class Map {
 public:
   Map(int map_len);
   ~Map();
+  /* MapTile is movable but not copyable (owning pointers, REF-03c), so Map
+   * must move its tile vector instead of copying it. Declared explicitly:
+   * the user-declared destructor suppresses the implicit move ops, and the
+   * load path assigns a fresh map built with a new side length
+   * (`world.map = Map(len)` in xmlloadsave.cpp), which resolves to move
+   * assignment. */
+  Map(Map&&) = default;
+  Map& operator=(Map&&) = default;
   const MapTile* operator()(MapPoint point) const {
     assert(is_inside(point));
     return &(maptile[point.x + point.y * side_len]);
