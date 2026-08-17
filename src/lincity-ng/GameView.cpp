@@ -1616,6 +1616,23 @@ void GameView::draw(Painter& painter)
             }
             else if (previewBuild)
             {
+                // Recompute the itemized cost only when the drag endpoints
+                // changed; the cost depends on tech_level, which keeps
+                // growing while the simulation runs, so recomputing every
+                // frame made the total flicker with a still cursor. The
+                // tile highlight below must still be drawn every frame.
+                const bool costStale = previewCacheStart != startRoad
+                  || previewCacheEnd != tileUnderMouse;
+                if(costStale) {
+                    previewCacheStart = startRoad;
+                    previewCacheEnd = tileUnderMouse;
+                    previewLandCost = 0;
+                    previewBridgeCost = 0;
+                    previewLandTiles = 0;
+                    previewBridgeTiles = 0;
+                    previewTiles = 0;
+                }
+
                 int* v1 = ctrDrag ? &currentTile.y :&currentTile.x;
                 int* v2 = ctrDrag ? &currentTile.x :&currentTile.y;
                 int* l1 = ctrDrag ? &tileUnderMouse.y :&tileUnderMouse.x;
@@ -1623,45 +1640,54 @@ void GameView::draw(Painter& painter)
                 int* s1 = ctrDrag ? &stepy: &stepx;
                 int* s2 = ctrDrag ? &stepx: &stepy;
 
-                // Itemize the preview: tiles over water become bridges and
-                // cost their real (500x) price (FEAT-01, BUG-04).
+                // Itemize the preview: tiles over water become bridges
+                // and cost their real (500x) price (FEAT-01, BUG-04).
                 while( *v1 != *l1)
                 {
                     markTile( painter, currentTile );
-                    if(previewGroup && isTransportGroup(previewGroup)
-                      && getWorld().map(currentTile)->is_water())
-                    {
-                        ConstructionGroup& g = transport_group_at(*previewGroup,
-                          *getWorld().map(currentTile));
-                        bridgeCost += g.getCosts(getWorld());
-                        bridgeTiles++;
+                    if(costStale) {
+                        if(previewGroup && isTransportGroup(previewGroup)
+                          && getWorld().map(currentTile)->is_water())
+                        {
+                            ConstructionGroup& g = transport_group_at(*previewGroup,
+                              *getWorld().map(currentTile));
+                            previewBridgeCost += g.getCosts(getWorld());
+                            previewBridgeTiles++;
+                        }
+                        else {
+                            previewLandCost += buildCost( currentTile );
+                            previewLandTiles++;
+                        }
+                        previewTiles++;
                     }
-                    else {
-                        landCost += buildCost( currentTile );
-                        landTiles++;
-                    }
-                    tiles++;
                     *v1 += *s1;
                 }
                 while( *v2 != *l2 + *s2 )
                 {
                     markTile( painter, currentTile );
-                    if(previewGroup && isTransportGroup(previewGroup)
-                      && getWorld().map(currentTile)->is_water())
-                    {
-                        ConstructionGroup& g = transport_group_at(*previewGroup,
-                          *getWorld().map(currentTile));
-                        bridgeCost += g.getCosts(getWorld());
-                        bridgeTiles++;
+                    if(costStale) {
+                        if(previewGroup && isTransportGroup(previewGroup)
+                          && getWorld().map(currentTile)->is_water())
+                        {
+                            ConstructionGroup& g = transport_group_at(*previewGroup,
+                              *getWorld().map(currentTile));
+                            previewBridgeCost += g.getCosts(getWorld());
+                            previewBridgeTiles++;
+                        }
+                        else {
+                            previewLandCost += buildCost( currentTile );
+                            previewLandTiles++;
+                        }
+                        previewTiles++;
                     }
-                    else {
-                        landCost += buildCost( currentTile );
-                        landTiles++;
-                    }
-                    tiles++;
                     *v2 += *s2;
                 }
-                cost = landCost + bridgeCost;
+                const long long landCost = previewLandCost;
+                const long long bridgeCost = previewBridgeCost;
+                const int landTiles = previewLandTiles;
+                const int bridgeTiles = previewBridgeTiles;
+                const int tiles = previewTiles;
+                cost = (int)(landCost + bridgeCost);
             }
 
             // floating itemized cost near the cursor (FEAT-01)
@@ -1822,6 +1848,10 @@ static bool isTransportGroup(const ConstructionGroup* group) {
 void GameView::setFloatingText(const std::string& text, Vector2 pos,
     Uint32 lifetimeMs) {
   floatingParagraph->setText(text, floatingTextStyle);
+  // Re-measure at the text's natural size: Paragraph::setText reflows into
+  // the paragraph's *current* width, which Document::resize grows by the
+  // padding every frame, so the box used to expand without bound.
+  floatingParagraph->resize(-1, -1);
   floatingDoc->resize(floatingParagraph->getWidth() + 8,
     floatingParagraph->getHeight() + 4);
   floatingPos = pos;

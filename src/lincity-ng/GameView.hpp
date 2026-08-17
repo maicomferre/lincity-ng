@@ -110,6 +110,17 @@ public:
     void drawFloatingText(Painter& painter);
 
 private:
+    // Cached drag-preview cost (FEAT-01): recomputed only when the target
+    // tile or the drag start moves, so the total does not flicker while the
+    // cursor is still (the cost depends on tech_level, which grows during
+    // the simulation).
+    MapPoint previewCacheStart = MapPoint(0, 0);
+    MapPoint previewCacheEnd = MapPoint(0, 0);
+    long long previewLandCost = 0;
+    long long previewBridgeCost = 0;
+    int previewLandTiles = 0;
+    int previewBridgeTiles = 0;
+    int previewTiles = 0;
     void connectButtons();
     void buttonClicked( Button* button );
     Vector2 getScreenPoint(MapPoint point);
