@@ -124,6 +124,10 @@ Gradient::resize(float width, float height)
     }
 
     texture.reset(texture_manager->create(surface));
+    // BUG-10: texture_manager->create() does not destroy the source
+    // surface (same as fetchTextures/drawTexture in GameView). Destroy it
+    // here so the surface and its pixel buffer do not leak.
+    SDL_DestroySurface(surface);
     this->width = width;
     this->height = height;
 }

@@ -18,3 +18,11 @@ target_link_libraries(lincity-test-sim
 )
 
 add_test(NAME sim COMMAND lincity-test-sim)
+
+# BUG-10: SDL3_ttf/harfbuzz keep process-lifetime shape-plan caches that
+# TTF_Quit does not flush and that ASan reports as a ~74MB leak. They are
+# third-party caches, not lincity-ng bugs, so we point LSAN at a suppression
+# file. The env is inert in the regular (non-ASan) build.
+set_tests_properties(sim PROPERTIES
+  ENVIRONMENT "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/tests/lsan_suppressions.txt"
+)

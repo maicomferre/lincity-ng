@@ -1,0 +1,25 @@
+# LSAN suppression file for lincity-ng headless tests.
+#
+# BUG-10: SDL3_ttf delegates text shaping to harfbuzz, which keeps internal
+# shape-plan caches that TTF_Quit() does not flush (known upstream issue).
+# Those caches show up as a ~74MB leak in every headless test that opens a
+# Dialog (which loads a GUI XML and triggers Paragraph::resize ->
+# TTF_GetStringSize -> hb_shape_plan_create_cached2). They are process-lifetime
+# caches in a third-party library, not bugs in lincity-ng, so we suppress
+# them so ASan's leak detector does not mask real leaks from our own code.
+#
+# Usage: LSAN_OPTIONS=suppressions=<this-file>
+# The file is consulted only when ASan is active (build-asan); it is inert
+# in the regular build.
+
+leak:libSDL3_ttf
+leak:libharfbuzz
+
+# initFactories (ComponentFactory.cpp:147-162) new's 16 Factory singletons
+# into the global component_factories map. IMPLEMENT_COMPONENT_FACTORY
+# (PBar.cpp, EconomyGraph.cpp, ...) also inserts STATIC factory objects
+# into the same map, so the two kinds cannot be told apart at cleanup time
+# and we cannot delete the map entries without double-freeing the static
+# ones. They are 15 x 8-byte process-lifetime singletons (120 bytes total)
+# — harmless and OS-reclaimed at exit.
+leak:initFactories
