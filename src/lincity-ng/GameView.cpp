@@ -1682,11 +1682,14 @@ void GameView::draw(Painter& painter)
                     }
                     *v2 += *s2;
                 }
-                const long long landCost = previewLandCost;
-                const long long bridgeCost = previewBridgeCost;
-                const int landTiles = previewLandTiles;
-                const int bridgeTiles = previewBridgeTiles;
-                const int tiles = previewTiles;
+                // Assign to the outer variables used by the floating text
+                // below: shadowing locals here left them stuck at 0 and hid
+                // the bridge itemization (BUG-09).
+                landCost = previewLandCost;
+                bridgeCost = previewBridgeCost;
+                landTiles = previewLandTiles;
+                bridgeTiles = previewBridgeTiles;
+                tiles = previewTiles;
                 cost = (int)(landCost + bridgeCost);
             }
 
