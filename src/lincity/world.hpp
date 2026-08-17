@@ -72,6 +72,20 @@ public:
 
 class Map; // forward declaration — MapTile::moveFrameTo needs the Map owning it
 
+/* BUG-12 (rule R9): orders Map::constructions by the fixed main-tile point
+ * instead of by heap address. Every iteration over the set (update
+ * shuffling, monthly reports, animations, save) used to inherit the
+ * allocation order, tying the whole simulation trajectory to the memory
+ * layout: the same seed produced different cities on different runs,
+ * builds and machines. Points are unique — every construction owns its
+ * main tile — and never change after registration (assigned in the
+ * Construction constructor before insert), so they are a stable key.
+ * operator() is defined out-of-line in world.cpp (needs the complete
+ * Construction type). */
+struct ConstructionPointLess {
+  bool operator()(const Construction* a, const Construction* b) const;
+};
+
 class MapTile {
 public:
   MapTile(MapPoint point);
@@ -214,8 +228,9 @@ public:
   int alt_min, alt_max, alt_step;
 
   // Using std::set instead of std::unordered_set so iterators remain valid
-  // after insertion.
-  std::set<Construction *> constructions;
+  // after insertion. Ordered by main-tile point (BUG-12): deterministic
+  // iteration independent of heap layout; see ConstructionPointLess.
+  std::set<Construction *, ConstructionPointLess> constructions;
 
   MapPoint recentPoint;
 

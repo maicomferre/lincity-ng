@@ -88,6 +88,15 @@ bool owns_frame(const std::list<ExtraFrame>& frames,
 } // namespace
 #endif
 
+//BUG-12: deterministic set order — see ConstructionPointLess in world.hpp
+bool ConstructionPointLess::operator()(const Construction* a,
+  const Construction* b) const
+{
+  const MapPoint& pa = a->point;
+  const MapPoint& pb = b->point;
+  return pa.x < pb.x || (pa.x == pb.x && pa.y < pb.y);
+}
+
 Ground::Ground() {
   altitude = 0;
   ecotable = 0;

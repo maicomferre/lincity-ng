@@ -243,6 +243,13 @@ World::simulate_mappoints(void) {
   auto& ordering = orderingBuffer;
   ordering.resize(map.constructions.size());
   std::iota(ordering.begin(), ordering.end(), map.constructions.begin());
+  // BUG-12 (rule R9): map.constructions is ordered by the fixed main-tile
+  // point (ConstructionPointLess), not by heap address, so the
+  // RNG-to-construction pairing below — and therefore the whole trajectory
+  // — is reproducible and independent of memory layout. Before, the same
+  // seed produced different cities on different runs/builds/machines
+  // (surfaced by the tax elasticity A/B sim test flipping on CI after an
+  // unrelated memory-layout change).
   std::shuffle(ordering.begin(), ordering.end(), BasicUrbg::get());
   for(auto cstIt : ordering) {
     Construction *cst = *cstIt;
