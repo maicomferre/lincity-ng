@@ -88,6 +88,15 @@ bool owns_frame(const std::list<ExtraFrame>& frames,
 } // namespace
 #endif
 
+//BUG-12: deterministic set order — see ConstructionPointLess in world.hpp
+bool ConstructionPointLess::operator()(const Construction* a,
+  const Construction* b) const
+{
+  const MapPoint& pa = a->point;
+  const MapPoint& pb = b->point;
+  return pa.x < pb.x || (pa.x == pb.x && pa.y < pb.y);
+}
+
 Ground::Ground() {
   altitude = 0;
   ecotable = 0;
@@ -109,7 +118,6 @@ MapTile::MapTile(MapPoint point) :
 {
     construction = NULL;
     reportingConstruction = NULL;
-    framesptr = NULL;
     flags = 0;
     type = 0;
     group = GROUP_BARE;
@@ -119,24 +127,39 @@ MapTile::MapTile(MapPoint point) :
     pollution = 0;
 }
 
+MapTile::MapTile(MapTile&& other) noexcept :
+  point(other.point), ground(other.ground),
+  construction(other.construction),
+  reportingConstruction(other.reportingConstruction),
+  type(other.type), group(other.group), flags(other.flags),
+  coal_reserve(other.coal_reserve), ore_reserve(other.ore_reserve),
+  pollution(other.pollution),
+  framesptr(std::move(other.framesptr))
+{
+    //Ownership of the construction and the frame list moves with the tile;
+    //null the pointers so the moved-from tile's destructor frees nothing.
+    other.construction = nullptr;
+    other.reportingConstruction = nullptr;
+}
+
 MapTile::~MapTile()
 {
-    //Here the order matters
+    //Here the order matters: the Construction is deleted first (its
+    //detach() may still remove frames from this tile's list, which stays
+    //alive until the unique_ptr destroys it right after this body).
     if(construction)
     {   delete construction;}
-    if (framesptr)
-    {
 #ifndef NDEBUG
-        //REF-03d: tiles may die still owning frames (World teardown, test
-        //scopes). Unregister the nodes silently — teardown is not a kill —
-        //so the debug registry holds no stale addresses for later maps in
-        //the same process.
+    //REF-03d: tiles may die still owning frames (World teardown, test
+    //scopes). Unregister the nodes silently — teardown is not a kill —
+    //so the debug registry holds no stale addresses for later maps in
+    //the same process.
+    if(framesptr)
+    {
         for(const ExtraFrame& frame : *framesptr)
         {   g_live_frames.erase(&frame);}
-#endif
-        framesptr->clear();
-        delete framesptr;
     }
+#endif
 }
 
 void MapTile::setTerrain(unsigned short new_group)
@@ -307,7 +330,7 @@ bool MapTile::is_residence() const //true on residences
 std::list<ExtraFrame>& MapTile::ensureFrames()
 {
     if(!framesptr)
-    {   framesptr = new std::list<ExtraFrame>;}
+    {   framesptr = std::make_unique<std::list<ExtraFrame>>();}
     return *framesptr;
 }
 
@@ -338,8 +361,7 @@ void MapTile::removeFrame(const std::list<ExtraFrame>::iterator& it)
     framesptr->erase(it);
     if (framesptr->empty())
     {
-        delete framesptr;
-        framesptr = NULL;
+        framesptr.reset();
     }
 }
 
@@ -361,8 +383,7 @@ void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::
     dstframes.splice(dstframes.end(), *framesptr, it);
     if (framesptr->empty())
     {
-        delete framesptr;
-        framesptr = NULL;
+        framesptr.reset();
     }
 }
 
