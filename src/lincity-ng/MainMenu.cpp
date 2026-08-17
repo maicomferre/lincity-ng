@@ -717,6 +717,8 @@ MainMenu::continueButtonClicked(Button* ) {
 }
 
 namespace {
+/* Base name of a scenario file: "Beach.scn.gz" -> "Beach" (stem() would
+ * only strip the ".gz", leaving "Beach.scn", which no description maps). */
 const char* scenarioDescription(const std::string& stem) {
   if(stem == "good_times")
     return N_("A prosperous city with a strong economy, established "
@@ -736,6 +738,14 @@ const char* scenarioDescription(const std::string& stem) {
     return N_("A space program town from 1998, with rocket pads and a "
       "busy transport network.");
   return "";
+}
+
+/* Strip ".scn.gz" (or any trailing extensions) to get the scenario name. */
+std::string scenarioBaseName(const std::filesystem::path& file) {
+  std::filesystem::path base = file.filename();
+  while(base.has_extension())
+    base.replace_extension();
+  return base.string();
 }
 
 const char* randomDescription(const std::string& name) {
@@ -805,7 +815,7 @@ MainMenu::mapSelectionChanged(RadioButtonGroup*, CheckButton* sel) {
     mapThumbnail->setWorld(world);
 
   mapInfoDesc->setText(_(scenarioDescription(
-    fileIt->second.stem().string())));
+    scenarioBaseName(fileIt->second))));
 
   // Scenarios predate the persisted population stats (0 after load), so
   // only show population when the world actually carries one.
