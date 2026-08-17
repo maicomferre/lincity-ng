@@ -165,6 +165,13 @@ public:
   bool is_edge(MapPoint point) const;
   bool is_visible(MapPoint loc) const;
   int len() const { return side_len; } //tells the actual world.side_len
+#ifndef NDEBUG
+  /* REF-03d: debug-only whole-map invariant check — every overlay frame
+   * node owned by this map's tiles is a registered live frame and no node
+   * is owned by two tiles. Called at the end of each World::do_time_step
+   * so ownership corruption aborts at the exact step it happened. */
+  void assertFramesConsistent() const;
+#endif
   bool maximum(MapPoint point) const;
   bool minimum(MapPoint point) const;
   bool saddlepoint(MapPoint point) const;

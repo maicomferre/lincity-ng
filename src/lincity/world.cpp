@@ -44,6 +44,50 @@
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
 #include "Vehicles.hpp"        // for Vehicle (complete type needed by World::~World)
 
+#ifndef NDEBUG
+namespace {
+/* REF-03d: process-wide registry of every live ExtraFrame node (debug only).
+ * addFrame() registers, removeFrame() asserts membership and unregisters,
+ * ~MapTile() unregisters silently (tiles may die still owning frames, e.g.
+ * World teardown or test scopes). moveFrameTo() does NOT touch it:
+ * std::list::splice moves nodes between lists without changing addresses.
+ * It is global (not per-Map) because MapTile methods have no back-pointer
+ * to their Map and several maps can be alive at once (sim tests); the
+ * consistency check only ever asks "is this address registered", so
+ * entries belonging to other maps cannot cause false positives. */
+std::unordered_set<const ExtraFrame*> g_live_frames;
+
+void register_frame(const ExtraFrame* frame)
+{
+    assert(g_live_frames.insert(frame).second
+      && "register_frame: address already registered");
+}
+void unregister_frame(const ExtraFrame* frame)
+{
+    assert(g_live_frames.erase(frame) == 1
+      && "removeFrame: frame is not a registered live frame "
+      "(double kill of an already removed frame?)");
+}
+
+/* O(n) scan used only by debug asserts. Answers the old question from the
+ * original killframe ("what would actually happen if 'it' belongs to another
+ * maptile?") by aborting at the exact violation point instead of corrupting
+ * memory downstream. Compares node addresses, never iterators of different
+ * lists (comparing those with == would itself be UB). */
+bool owns_frame(const std::list<ExtraFrame>& frames,
+    const std::list<ExtraFrame>::iterator& it)
+{
+    const ExtraFrame* frame = &*it;
+    for(const ExtraFrame& candidate : frames)
+    {
+        if(&candidate == frame)
+        {   return true;}
+    }
+    return false;
+}
+} // namespace
+#endif
+
 Ground::Ground() {
   altitude = 0;
   ecotable = 0;
@@ -82,6 +126,14 @@ MapTile::~MapTile()
     {   delete construction;}
     if (framesptr)
     {
+#ifndef NDEBUG
+        //REF-03d: tiles may die still owning frames (World teardown, test
+        //scopes). Unregister the nodes silently — teardown is not a kill —
+        //so the debug registry holds no stale addresses for later maps in
+        //the same process.
+        for(const ExtraFrame& frame : *framesptr)
+        {   g_live_frames.erase(&frame);}
+#endif
         framesptr->clear();
         delete framesptr;
     }
@@ -251,6 +303,7 @@ bool MapTile::is_residence() const //true on residences
      || (reportingConstruction->constructionGroup->group == GROUP_RESIDENCE_HH) ) );
 }
 
+
 std::list<ExtraFrame>& MapTile::ensureFrames()
 {
     if(!framesptr)
@@ -264,34 +317,18 @@ std::list<ExtraFrame>::iterator MapTile::addFrame(void)
     frames.resize(frames.size() + 1);
     std::list<ExtraFrame>::iterator frit = frames.end();
     std::advance(frit, -1);
+#ifndef NDEBUG
+    register_frame(&*frit);
+#endif
     return frit; //the last position
 }
-
-#ifndef NDEBUG
-namespace {
-/* O(n) scan used only by debug asserts. Answers the old question from the
- * original killframe ("what would actually happen if 'it' belongs to another
- * maptile?") by aborting at the exact violation point instead of corrupting
- * memory downstream. Compares node addresses, never iterators of different
- * lists (comparing those with == would itself be UB). */
-bool owns_frame(const std::list<ExtraFrame>& frames,
-    const std::list<ExtraFrame>::iterator& it)
-{
-    const ExtraFrame* frame = &*it;
-    for(const ExtraFrame& candidate : frames)
-    {
-        if(&candidate == frame)
-        {   return true;}
-    }
-    return false;
-}
-} // namespace
-#endif
 
 void MapTile::removeFrame(const std::list<ExtraFrame>::iterator& it)
 {
     assert(framesptr && "removeFrame: tile owns no frames");
 #ifndef NDEBUG
+    unregister_frame(&*it); //catches double kills even when the address was
+                            //reused by a new node of the same list
     if(!owns_frame(*framesptr, it))
     {
         assert(false && "removeFrame: iterator belongs to another tile's list "
@@ -356,6 +393,30 @@ Map::Map(int map_len) :
 Map::~Map() {
   maptile.clear();
 }
+
+#ifndef NDEBUG
+/* REF-03d: whole-map frame invariant, debug builds only. Checks that every
+ * node owned by this map's tiles is a registered (known-live) frame and
+ * that no node is owned by two tiles (std::list::splice never duplicates
+ * nodes, so a duplicate means corrupted ownership). Registry entries from
+ * other maps are deliberately ignored — this scan only asks whether THIS
+ * map's nodes are registered, so it stays valid with several worlds alive
+ * at once. Called at the end of every World::do_time_step. */
+void Map::assertFramesConsistent() const {
+  std::unordered_set<const ExtraFrame*> seen;
+  for(const MapTile& tile : maptile) {
+    if(!tile.hasFrames())
+      continue;
+    for(const ExtraFrame& frame : tile.frames()) {
+      assert(g_live_frames.count(&frame) == 1
+        && "assertFramesConsistent: frame in a tile list is not registered "
+        "(node created without addFrame? heap reuse after double kill?)");
+      assert(seen.insert(&frame).second
+        && "assertFramesConsistent: same frame node owned by two tiles");
+    }
+  }
+}
+#endif
 
 bool Map::is_border(MapPoint point) const {
   return (point.x == 0 || point.y == 0
