@@ -125,8 +125,13 @@ WindowManager::event(const Event& event) {
         hasMoved = false;
       }
 
-      if(child.inside(event.mousepos) || dragWindow == window) {
-        // bring the window to front
+      if((visible && child.inside(event.mousepos)) || dragWindow == window) {
+        // bring the window to front: only the topmost opaque window under
+        // the cursor qualifies. Without the `visible` guard every window
+        // whose rect overlaps the click claimed bringToFront (last one
+        // wins, i.e. the backmost), so clicking OK on a stack of dialogs
+        // kept rotating the back window to the front and never fired the
+        // front button's click (BUG-10).
         bringToFront = window;
       }
       break;
