@@ -555,21 +555,15 @@ World::~World() {
     // destructors and still debits inventory destruction (TST-03).
     //
     // Vehicles are NOT owned by any MapTile — they live in `vehicleList`
-    // as raw pointers and the engine normally deletes them with
-    // `delete this` when their death_counter hits 0 (Vehicles.cpp:592/615/
-    // 623/655). Any vehicle still alive at teardown (e.g. the test ends
-    // mid-simulation, or the player quits with cars on the road) would
-    // leak. Delete them here.
-    //
-    // Vehicle::~Vehicle (Vehicles.cpp:109-112) calls
-    // `world.vehicleList.remove(this)`. Mutating the container we are
-    // iterating is UB, so swap the list into a local first: the dtor's
-    // remove() then runs on an empty list (a no-op) and the iteration
-    // is safe.
-    std::list<Vehicle*> remaining;
-    remaining.swap(vehicleList);
-    for(Vehicle* v : remaining)
+    // as raw pointers. The engine marks them dead in Vehicle::update and
+    // do_animate() reaps them (REF-03e); any vehicle still alive at
+    // teardown (e.g. the test ends mid-simulation, or the player quits
+    // with cars on the road) would leak, so delete them here.
+    // Vehicle::~Vehicle no longer unlists itself (deletion is
+    // centralized), so iterating and deleting in place is safe.
+    for(Vehicle* v : vehicleList)
         delete v;
+    vehicleList.clear();
 }
 
 void

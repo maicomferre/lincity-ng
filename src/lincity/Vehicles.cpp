@@ -107,7 +107,10 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 }
 
 Vehicle::~Vehicle() {
-  world.vehicleList.remove(this);
+  //REF-03e: deletion is centralized — World::do_animate() erases and
+  //deletes dead vehicles after the update pass, and World::~World() cleans
+  //up the survivors at teardown — so the destructor never needs to unlink
+  //itself from world.vehicleList.
   world.map(framePt)->removeFrame(frameIt);
 }
 
@@ -577,6 +580,11 @@ void Vehicle::getNewHeadings() {
 
 void
 Vehicle::update(unsigned long real_time) {
+  //REF-03e: defensive — a dead vehicle is reaped by do_animate() before
+  //the next update pass, so this should never fire; skip just in case.
+  if(dead)
+    return;
+
   // playing the arriving animation: hold still, drift sideways towards the
   // building, then disappear. No new heading or driving during this.
   if(arriving) {
@@ -585,7 +593,7 @@ Vehicle::update(unsigned long real_time) {
     if(real_time >= arrival_start + ARRIVE_MS)
       death_counter = 0;
     if(death_counter <= 0)
-      delete this;
+      dead = true; //reaped by do_animate() after the update pass
     return;
   }
 
@@ -608,7 +616,7 @@ Vehicle::update(unsigned long real_time) {
   // gives up after BLOCK_TIMEOUT so traffic jams never become permanent.
   if(point == next) {
     if(death_counter <= 0) {
-      delete this;
+      dead = true;
       return;
     }
     if(wait_until == 0)
@@ -616,7 +624,7 @@ Vehicle::update(unsigned long real_time) {
     if(real_time >= wait_until)
       death_counter = 0;
     if(death_counter <= 0)
-      delete this;
+      dead = true;
     return;
   }
 
@@ -648,5 +656,5 @@ Vehicle::update(unsigned long real_time) {
   walk(real_time);
   //cars have limited lifespan
   if(death_counter <= 0)
-    delete this;
+    dead = true;
 }

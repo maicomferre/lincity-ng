@@ -87,6 +87,23 @@ World::do_animate(unsigned long real_time) {
   ) {
     (*(it++))->update(real_time);
   }
+  //REF-03e (rule R8): update() only MARKS vehicles dead — no object
+  //destroys itself while its list is being iterated. Reap them here,
+  // after the update pass, exactly like dead constructions are reaped in
+  // simulate_mappoints(). Erase before delete: the destructor no longer
+  // unlists itself.
+  for(std::list<Vehicle*>::iterator it = vehicleList.begin();
+    it != vehicleList.end();
+  ) {
+    Vehicle* vehicle = *it;
+    if(vehicle->isDead()) {
+      it = vehicleList.erase(it);
+      delete vehicle;
+    }
+    else {
+      ++it;
+    }
+  }
 }
 
 /* ---------------------------------------------------------------------- *

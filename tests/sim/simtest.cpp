@@ -53,8 +53,9 @@
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
 #include "lincity/modules/waterwell.hpp"      // for waterwellConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
-#include "lincity/lintypes.hpp"              // for Construction
+#include "lincity/lintypes.hpp"               // for Construction
 #include "lincity/stats.hpp"                 // for Stats
+#include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
 #include "lincity/world.hpp"                 // for World
 #include "util/randutil.hpp"                 // for BasicUrbg
 
@@ -161,8 +162,20 @@ bool run_days(World& world, int days, bool check_conservation = true,
     const long long money_before = world.total_money;
     const long long accounts_before = money_accounts_delta(world.stats);
     world.do_time_step();
-    if(day % 30 == 0)
+    if(day % 30 == 0) {
       world.do_animate(tick);
+      // REF-03e: dead vehicles must be reaped inside the same do_animate
+      // pass — one left behind would linger in tileOccupied()/spawn
+      // checks forever (its destructor only runs at World teardown).
+      for(const Vehicle* v : world.vehicleList) {
+        if(v->isDead()) {
+          std::fprintf(stderr,
+            "  dead vehicle survived do_animate on day %d\n",
+            world.total_time);
+          return false;
+        }
+      }
+    }
     tick += 100;
 
     if(std::llabs(world.total_money) > 2000000000LL) {
