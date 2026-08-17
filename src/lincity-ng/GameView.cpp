@@ -1217,9 +1217,16 @@ void GameView::fetchTextures() {
       auto& gfx = it->second->graphicsInfoVector[i];
       if(!gfx.texture && gfx.image) {
         gfx.texture = texture_manager->create(gfx.image);
-        if(gfx.texture) { //Image was erased by texture_manager->create.
-          gfx.texture->setScaleMode(Texture::ScaleMode::NEAREST);
+        if(gfx.texture) {
+          // BUG-10: texture_manager->create() does NOT destroy the source
+          // surface (TextureManagerSDL::create only destroys its own mipmap
+          // intermediates). The old comment "Image was erased by
+          // texture_manager->create" was wrong, so the surface and its
+          // pixel buffer leaked every time an image was converted to a
+          // texture. Destroy it here.
+          SDL_DestroySurface(gfx.image);
           gfx.image = 0;
+          gfx.texture->setScaleMode(Texture::ScaleMode::NEAREST);
         }
         --remaining_images;
       }
@@ -1239,9 +1246,12 @@ void GameView::drawTexture(Painter& painter, const MapPoint &tile, GraphicsInfo 
         if(graphicsInfo->image)
         {
             graphicsInfo->texture = texture_manager->create( graphicsInfo->image );
-            if(graphicsInfo->texture) { //Image was erased by texture_manager->create.
-              graphicsInfo->texture->setScaleMode(Texture::ScaleMode::NEAREST);
+            if(graphicsInfo->texture) {
+              // BUG-10: same as fetchTextures — create() does not destroy
+              // the source surface. Destroy it here.
+              SDL_DestroySurface(graphicsInfo->image);
               graphicsInfo->image = 0;
+              graphicsInfo->texture->setScaleMode(Texture::ScaleMode::NEAREST);
             }
             --remaining_images;
         }

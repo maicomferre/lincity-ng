@@ -18,3 +18,8 @@ target_link_libraries(lincity-test-save
 )
 
 add_test(NAME save COMMAND lincity-test-save)
+
+# BUG-10: see tests/sim/CMakeLists.txt — same harfbuzz/SDL3_ttf suppression.
+set_tests_properties(save PROPERTIES
+  ENVIRONMENT "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/tests/lsan_suppressions.txt"
+)

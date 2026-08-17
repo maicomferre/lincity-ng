@@ -78,6 +78,19 @@ void resizeVideo(int width, int height, bool fullscreen)
 
 void initVideo(int width, int height)
 {
+    // BUG-10: if initVideo is called again (e.g. the headless test suite
+    // calls it once per test that needs a GUI), the previous painter/
+    // fontManager/texture_manager/window would be leaked. Clean them up
+    // first. In the real game initVideo is called once, so this is inert.
+    if(painter)          { delete painter;          painter = nullptr; }
+    if(fontManager)      { delete fontManager;      fontManager = nullptr; }
+    if(texture_manager)  { delete texture_manager;  texture_manager = nullptr; }
+    if(window_renderer)  { SDL_DestroyRenderer(window_renderer); window_renderer = nullptr; }
+#ifndef DISABLE_GL_MODE
+    if(window_context)   { SDL_GL_DestroyContext(window_context); window_context = nullptr; }
+#endif
+    if(window)           { SDL_DestroyWindow(window); window = nullptr; }
+
     Uint32 flags = 0;
 
     flags = SDL_WINDOW_RESIZABLE;

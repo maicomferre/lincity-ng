@@ -42,6 +42,7 @@
 #include "modules/tile.hpp"    // for TileConstructionGroup, desertConstruct...
 #include "modules/track_road_rail.hpp"  // for transport_group_at
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
+#include "Vehicles.hpp"        // for Vehicle (complete type needed by World::~World)
 
 Ground::Ground() {
   altitude = 0;
@@ -271,6 +272,22 @@ void MapTile::killframe(const std::list<ExtraFrame>::iterator& it)
     }
 }
 
+void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it)
+{
+    //REF-03a: single encapsulated point for "move an ExtraFrame from this
+    //tile to dest". std::list::splice is O(1) and does NOT invalidate the
+    //moved iterator, so callers (Vehicle::move_frame) can keep holding it.
+    MapTile& dst = *map(dest);
+    if(!dst.framesptr)
+    {   dst.framesptr = new std::list<ExtraFrame>;}
+    dst.framesptr->splice(dst.framesptr->end(), *framesptr, it);
+    if (framesptr->empty())
+    {
+        delete framesptr;
+        framesptr = NULL;
+    }
+}
+
 
 
 Map::Map(int map_len) :
@@ -397,6 +414,27 @@ World::World(int mapSize) :
 }
 
 World::~World() {
+    // Constructions are deleted by MapTile::~MapTile (world.cpp:80-81),
+    // which runs when `map` (declared after `vehicleList`) is destroyed.
+    // The commodityLedger is declared before `map` so it outlives those
+    // destructors and still debits inventory destruction (TST-03).
+    //
+    // Vehicles are NOT owned by any MapTile — they live in `vehicleList`
+    // as raw pointers and the engine normally deletes them with
+    // `delete this` when their death_counter hits 0 (Vehicles.cpp:592/615/
+    // 623/655). Any vehicle still alive at teardown (e.g. the test ends
+    // mid-simulation, or the player quits with cars on the road) would
+    // leak. Delete them here.
+    //
+    // Vehicle::~Vehicle (Vehicles.cpp:109-112) calls
+    // `world.vehicleList.remove(this)`. Mutating the container we are
+    // iterating is UB, so swap the list into a local first: the dtor's
+    // remove() then runs on an empty list (a no-op) and the iteration
+    // is safe.
+    std::list<Vehicle*> remaining;
+    remaining.swap(vehicleList);
+    for(Vehicle* v : remaining)
+        delete v;
 }
 
 void

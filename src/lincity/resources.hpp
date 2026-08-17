@@ -76,6 +76,16 @@ public:
         std::vector<GraphicsInfo>::iterator it;
         for(it = graphicsInfoVector.begin(); it != graphicsInfoVector.end(); ++it)
         {
+            // BUG-10: a surface that was never converted to a texture
+            // (e.g. the test ended mid-preReadImages, or the image was
+            // never drawn) would leak. fetchTextures/drawTexture set
+            // image=0 after handing ownership to texture_manager, so
+            // destroying here is safe and only frees the unconverted ones.
+            if(it->image)
+            {
+                SDL_DestroySurface(it->image);
+                it->image = 0;
+            }
             if(it->texture)
             {
                 delete it->texture;

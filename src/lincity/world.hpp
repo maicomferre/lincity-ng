@@ -70,6 +70,8 @@ public:
   int int4;
 };
 
+class Map; // forward declaration — MapTile::moveFrameTo needs the Map owning it
+
 class MapTile {
 public:
   MapTile(MapPoint point);
@@ -98,6 +100,13 @@ public:
   std::list<ExtraFrame>::iterator createframe(); //creates new empty ExtraFrames
                                                   //to be used by Contstructions and Vehicles
   void killframe(const std::list<ExtraFrame>::iterator& it); //kills an extraframe
+  // Moves an ExtraFrame owned by this tile to another tile's list, without
+  // invalidating the iterator (std::list::splice is O(1) and stable). The
+  // destination list is allocated on demand. The source list is deleted if
+  // it becomes empty, exactly like killframe. Used by Vehicle::move_frame
+  // and the single point where a frame changes tiles.
+  // `map` is the Map owning both this tile and the destination tile.
+  void moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it);
 
   unsigned short getType() const;          //type of bare land or the covering construction
   unsigned short getTopType() const;       //type of bare land or the actual construction
