@@ -1,0 +1,106 @@
+# CI for the lincity-ng fork. Runs the 3-layer ctest suite (unit/sim/save)
+# on every push to master and every PR targeting master, in two variants:
+#   - build:      RelWithDebInfo, the fast correctness path.
+#   - build-asan: Debug + ASan/UBSan + LSAN suppressions, the regression
+#                 guard for UAF/leaks (must pass with detect_leaks=1).
+#
+# Two dependencies are not packaged in ubuntu-26.04's apt at the versions
+# the project requires, so they are built from source release tags and
+# installed into /usr/local (picked up via CMAKE_PREFIX_PATH):
+#   - fmt 11.1.4: the project uses fmt/base.h, introduced in fmt 11.0;
+#     apt has 10.1.1.
+#   - SDL3_mixer 3.2.4: not in any current ubuntu/debian apt; only SDL3
+#     core, image and ttf are packaged.
+# See .devdocs/10-padrao-desenvolvimento.md section 3 for the test-layer
+# contract and .devdocs/06 (CI session) for rationale.
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-24.04
+    container: ubuntu:26.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: build (RelWithDebInfo)
+            build-type: RelWithDebInfo
+            cxxflags: ""
+          - name: build-asan (Debug + ASan/UBSan)
+            build-type: Debug
+            cxxflags: "-fsanitize=address,undefined -fno-omit-frame-pointer"
+
+    steps:
+      - name: Install apt deps (git first so checkout works)
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            git ca-certificates \
+            build-essential cmake ninja-build pkg-config \
+            libxml2-dev libxml++-5.0-dev zlib1g-dev gettext \
+            libxslt1-dev xsltproc \
+            libsdl3-dev libsdl3-image-dev libsdl3-ttf-dev \
+            libogg-dev libvorbis-dev libmpg123-dev
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build & install fmt 11.1.4 from source
+        run: |
+          set -e
+          # The project includes <fmt/base.h>, introduced in fmt 11.0.
+          # ubuntu-26.04 apt has libfmt-dev 10.1.1, too old. Build 11.1.4
+          # (the version the project is developed against) from source.
+          git clone --depth 1 --branch 11.1.4 \
+            https://github.com/fmtlib/fmt.git /tmp/fmt
+          cmake -S /tmp/fmt -B /tmp/fmt/build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr/local \
+            -DFMT_TEST=OFF -DFMT_DOC=OFF
+          cmake --build /tmp/fmt/build
+          cmake --install /tmp/fmt/build
+
+      - name: Build & install SDL3_mixer 3.2.4 from source
+        run: |
+          set -e
+          # SDL3_mixer is not in ubuntu-26.04 apt; build the release tag
+          # the project expects (3.2.0+). Small lib, ~30s with Ninja.
+          git clone --depth 1 --branch release-3.2.4 \
+            https://github.com/libsdl-org/SDL_mixer.git /tmp/sdl3mixer
+          cmake -S /tmp/sdl3mixer -B /tmp/sdl3mixer/build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr/local \
+            -DSDL3MIXER_VENDORED=OFF
+          cmake --build /tmp/sdl3mixer/build
+          cmake --install /tmp/sdl3mixer/build
+          ldconfig
+
+      - name: Configure CMake
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+            -DCMAKE_CXX_FLAGS="${{ matrix.cxxflags }}" \
+            -DCMAKE_PREFIX_PATH=/usr/local
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Test (ctest, 3 layers)
+        env:
+          SDL_VIDEODRIVER: dummy
+          SDL_AUDIODRIVER: dummy
+        run: ctest --test-dir build --output-on-failure --timeout 600
