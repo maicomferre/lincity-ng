@@ -72,16 +72,10 @@ public:
 
 class Map; // forward declaration — MapTile::moveFrameTo needs the Map owning it
 
-/* BUG-12 (rule R9): orders Map::constructions by the fixed main-tile point
- * instead of by heap address. Every iteration over the set (update
- * shuffling, monthly reports, animations, save) used to inherit the
- * allocation order, tying the whole simulation trajectory to the memory
- * layout: the same seed produced different cities on different runs,
- * builds and machines. Points are unique — every construction owns its
- * main tile — and never change after registration (assigned in the
- * Construction constructor before insert), so they are a stable key.
- * operator() is defined out-of-line in world.cpp (needs the complete
- * Construction type). */
+/* BUG-12 (R9): orders Map::constructions by the fixed main-tile point
+ * (unique, never mutated after registration) instead of by heap address,
+ * making iteration — and thus the whole sim trajectory — independent of
+ * memory layout. operator() is out-of-line in world.cpp. */
 struct ConstructionPointLess {
   bool operator()(const Construction* a, const Construction* b) const;
 };
@@ -90,12 +84,9 @@ class MapTile {
 public:
   MapTile(MapPoint point);
   ~MapTile();
-  /* MapTile owns a Construction (raw pointer, deleted in the destructor)
-   * and an on-demand frame list (unique_ptr, REF-03c). It is movable —
-   * required by std::vector<MapTile> in Map — and not copyable: the two
-   * owning pointers would be freed twice. Map reserves the exact vector
-   * capacity upfront, so tiles are never actually moved at runtime; the
-   * constructor exists to satisfy std::vector's requirements. */
+  /* Movable (std::vector<MapTile> requires it) but not copyable: it owns
+   * raw/unique pointers that would be freed twice. Map reserves the exact
+   * vector capacity, so tiles never actually move at runtime. */
   MapTile(MapTile&& other) noexcept;
 
   // TODO: make point const. Attention to map_len assignment in load/save.
@@ -117,21 +108,16 @@ public:
 
   void setTerrain(unsigned short group); //places type & group at MapTile
 
-  /* ExtraFrame ownership (REF-03b, rule R8 of .devdocs/10): overlay
-   * frames are fully encapsulated. The internal list is allocated on
-   * demand by addFrame()/moveFrameTo() and deleted as soon as it empties.
-   * Nothing outside MapTile may hold or free the list itself; callers
-   * only hold iterators, which stay valid across removeFrame(it) of
-   * other elements and across moveFrameTo() until their own removal. */
+  /* ExtraFrame ownership (R8): fully encapsulated. The list is allocated
+   * on demand and deleted when it empties; callers only hold iterators,
+   * which stay valid across removeFrame of other elements and across
+   * moveFrameTo until their own removal. */
   bool hasFrames() const noexcept { return framesptr != nullptr; } //false iff the tile owns no overlay
   std::list<ExtraFrame>::iterator addFrame(); //appends a default ExtraFrame, returns iterator to it
   void removeFrame(const std::list<ExtraFrame>::iterator& it); //kills an extraframe; asserts ownership in debug builds
-  // Moves an ExtraFrame owned by this tile to another tile's list, without
-  // invalidating the iterator (std::list::splice is O(1) and stable). The
-  // destination list is allocated on demand. The source list is deleted if
-  // it becomes empty, exactly like removeFrame. Used by Vehicle::move_frame
-  // and the single point where a frame changes tiles.
-  // `map` is the Map owning both this tile and the destination tile.
+  // Moves a frame to another tile without invalidating the iterator
+  // (splice is O(1) and stable); allocates the destination list on
+  // demand, deletes the source list if it empties.
   void moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::iterator& it);
   std::list<ExtraFrame>& frames();            //precondition: hasFrames(); for iteration (draw, vehicle spawn checks)
   const std::list<ExtraFrame>& frames() const;
@@ -162,9 +148,7 @@ public:
 private:
   std::list<ExtraFrame>& ensureFrames(); //allocates the frame list on demand; single allocation point
 
-  //private since REF-03b (manipulate via addFrame/removeFrame/moveFrameTo);
-  //unique_ptr since REF-03c: no manual delete anywhere, the list is freed
-  //automatically when the tile dies or when removeFrame/moveFrameTo empty it
+  //manipulate via addFrame/removeFrame/moveFrameTo
   std::unique_ptr<std::list<ExtraFrame>> framesptr;
 };
 
@@ -172,12 +156,9 @@ class Map {
 public:
   Map(int map_len);
   ~Map();
-  /* MapTile is movable but not copyable (owning pointers, REF-03c), so Map
-   * must move its tile vector instead of copying it. Declared explicitly:
-   * the user-declared destructor suppresses the implicit move ops, and the
-   * load path assigns a fresh map built with a new side length
-   * (`world.map = Map(len)` in xmlloadsave.cpp), which resolves to move
-   * assignment. */
+  /* Move-only (MapTile is not copyable); declared explicitly because the
+   * user-declared destructor suppresses the implicit move ops, and the
+   * load path assigns a fresh map (`world.map = Map(len)`). */
   Map(Map&&) = default;
   Map& operator=(Map&&) = default;
   const MapTile* operator()(MapPoint point) const {
@@ -197,10 +178,7 @@ public:
   bool is_visible(MapPoint loc) const;
   int len() const { return side_len; } //tells the actual world.side_len
 #ifndef NDEBUG
-  /* REF-03d: debug-only whole-map invariant check — every overlay frame
-   * node owned by this map's tiles is a registered live frame and no node
-   * is owned by two tiles. Called at the end of each World::do_time_step
-   * so ownership corruption aborts at the exact step it happened. */
+  /* Debug-only whole-map invariant, checked after every do_time_step. */
   void assertFramesConsistent() const;
 #endif
   bool maximum(MapPoint point) const;

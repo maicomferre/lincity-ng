@@ -80,11 +80,6 @@ School::School(World& world, ConstructionGroup *cstgrp) :
 }
 
 School::~School() {
-  //REF-03a: delegate to MapTile instead of duplicating the erase+delete
-  //pattern. removeFrame already handles the empty-list deletion and the
-  //framesptr=nullptr reset, and is the single point where that invariant
-  //lives. The previous manual duplication (school.cpp history) skipped the
-  //ownership check that removeFrame centralizes (assert in debug builds).
   world.map(point)->removeFrame(frit);
 }
 

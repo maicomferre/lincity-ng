@@ -46,15 +46,10 @@
 
 #ifndef NDEBUG
 namespace {
-/* REF-03d: process-wide registry of every live ExtraFrame node (debug only).
- * addFrame() registers, removeFrame() asserts membership and unregisters,
- * ~MapTile() unregisters silently (tiles may die still owning frames, e.g.
- * World teardown or test scopes). moveFrameTo() does NOT touch it:
- * std::list::splice moves nodes between lists without changing addresses.
- * It is global (not per-Map) because MapTile methods have no back-pointer
- * to their Map and several maps can be alive at once (sim tests); the
- * consistency check only ever asks "is this address registered", so
- * entries belonging to other maps cannot cause false positives. */
+/* Debug-only registry of every live ExtraFrame node (addFrame/removeFrame/
+ * ~MapTile maintain it). Global, not per-Map: MapTile has no back-pointer
+ * and several maps can be alive at once; splice never changes addresses,
+ * so moveFrameTo does not touch it. */
 std::unordered_set<const ExtraFrame*> g_live_frames;
 
 void register_frame(const ExtraFrame* frame)
@@ -69,11 +64,8 @@ void unregister_frame(const ExtraFrame* frame)
       "(double kill of an already removed frame?)");
 }
 
-/* O(n) scan used only by debug asserts. Answers the old question from the
- * original killframe ("what would actually happen if 'it' belongs to another
- * maptile?") by aborting at the exact violation point instead of corrupting
- * memory downstream. Compares node addresses, never iterators of different
- * lists (comparing those with == would itself be UB). */
+/* O(n) debug scan: does this tile's list own the node `it` points to?
+ * Compares node addresses, never iterators of different lists. */
 bool owns_frame(const std::list<ExtraFrame>& frames,
     const std::list<ExtraFrame>::iterator& it)
 {
@@ -150,10 +142,7 @@ MapTile::~MapTile()
     if(construction)
     {   delete construction;}
 #ifndef NDEBUG
-    //REF-03d: tiles may die still owning frames (World teardown, test
-    //scopes). Unregister the nodes silently — teardown is not a kill —
-    //so the debug registry holds no stale addresses for later maps in
-    //the same process.
+    //teardown is not a kill: unregister silently
     if(framesptr)
     {
         for(const ExtraFrame& frame : *framesptr)
@@ -375,9 +364,7 @@ void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::
         assert(false && "moveFrameTo: iterator belongs to another tile's list");
     }
 #endif
-    //REF-03a: single encapsulated point for "move an ExtraFrame from this
-    //tile to dest". std::list::splice is O(1) and does NOT invalidate the
-    //moved iterator, so callers (Vehicle::move_frame) can keep holding it.
+    //splice is O(1) and keeps the moved iterator valid
     MapTile& dst = *map(dest);
     std::list<ExtraFrame>& dstframes = dst.ensureFrames();
     dstframes.splice(dstframes.end(), *framesptr, it);
@@ -416,13 +403,8 @@ Map::~Map() {
 }
 
 #ifndef NDEBUG
-/* REF-03d: whole-map frame invariant, debug builds only. Checks that every
- * node owned by this map's tiles is a registered (known-live) frame and
- * that no node is owned by two tiles (std::list::splice never duplicates
- * nodes, so a duplicate means corrupted ownership). Registry entries from
- * other maps are deliberately ignored — this scan only asks whether THIS
- * map's nodes are registered, so it stays valid with several worlds alive
- * at once. Called at the end of every World::do_time_step. */
+/* Debug-only whole-map invariant: every node owned by this map's tiles is
+ * a registered live frame, and no node is owned by two tiles. */
 void Map::assertFramesConsistent() const {
   std::unordered_set<const ExtraFrame*> seen;
   for(const MapTile& tile : maptile) {
@@ -549,18 +531,12 @@ World::World(int mapSize) :
 }
 
 World::~World() {
-    // Constructions are deleted by MapTile::~MapTile (world.cpp:80-81),
-    // which runs when `map` (declared after `vehicleList`) is destroyed.
-    // The commodityLedger is declared before `map` so it outlives those
+    // Constructions are deleted by MapTile::~MapTile, which runs when
+    // `map` (declared after `vehicleList`) is destroyed. The
+    // commodityLedger is declared before `map` so it outlives those
     // destructors and still debits inventory destruction (TST-03).
-    //
-    // Vehicles are NOT owned by any MapTile — they live in `vehicleList`
-    // as raw pointers. The engine marks them dead in Vehicle::update and
-    // do_animate() reaps them (REF-03e); any vehicle still alive at
-    // teardown (e.g. the test ends mid-simulation, or the player quits
-    // with cars on the road) would leak, so delete them here.
-    // Vehicle::~Vehicle no longer unlists itself (deletion is
-    // centralized), so iterating and deleting in place is safe.
+    // Vehicles are only owned here: delete the survivors (do_animate
+    // already reaped the dead ones).
     for(Vehicle* v : vehicleList)
         delete v;
     vehicleList.clear();
