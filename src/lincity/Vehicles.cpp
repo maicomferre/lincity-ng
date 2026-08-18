@@ -26,7 +26,7 @@
 #include <stdlib.h>         // for NULL
 #include <bitset>           // for bitset
 #include <cassert>          // for assert
-#include <cmath>            // for ceil
+#include <cmath>            // for abs, ceil
 #include <map>              // for map
 #include <random>           // for discrete_distribution
 #include <string>           // for basic_string, operator<
@@ -107,10 +107,6 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 }
 
 Vehicle::~Vehicle() {
-  //REF-03e: deletion is centralized — World::do_animate() erases and
-  //deletes dead vehicles after the update pass, and World::~World() cleans
-  //up the survivors at teardown — so the destructor never needs to unlink
-  //itself from world.vehicleList.
   world.map(framePt)->removeFrame(frameIt);
 }
 
@@ -252,12 +248,14 @@ void Vehicle::walk(unsigned long real_time) {
   //update absolute floating positions
   xr = (double)prev.x + mx;
   yr = (double)prev.y + my;
-  //choose tile for placing the frame
   MapPoint tile(ceil(xr), ceil(yr));
-  //no need to go up or left
   if(tile.x < prev.x) tile.x = prev.x;
   if(tile.y < prev.y) tile.y = prev.y;
-  //align animation to placement of frame on map
+  // A curve can round into the diagonal corner tile. Keep the frame on one
+  // of the two road tiles instead, while retaining the original straight
+  // line anchor timing.
+  if(tile != prev && tile != point)
+    tile = elapsed < 0.5 ? prev : point;
   mx = xr - (double)tile.x;
   my = yr - (double)tile.y;
   if(tile != framePt)
@@ -330,14 +328,9 @@ void Vehicle::walk(unsigned long real_time) {
 
 void
 Vehicle::move_frame(MapPoint newPoint) {
-  //REF-03a: delegate to MapTile::moveFrameTo, the single encapsulated
-  //point for "move an ExtraFrame between tiles". std::list::splice is
-  //O(1) and does NOT invalidate the moved iterator, so `frameIt` stays
-  //valid and points at the same node, now owned by the destination tile.
-  //The source list is deleted inside moveFrameTo if it becomes empty,
-  //exactly like the previous inlined code.
+  //splice keeps frameIt valid, now under the destination tile
   world.map(framePt)->moveFrameTo(world.map, newPoint, frameIt);
-  framePt = newPoint; //remember where the frame was put
+  framePt = newPoint;
 }
 
 bool Vehicle::tileOccupied(MapPoint p) const {
@@ -580,8 +573,6 @@ void Vehicle::getNewHeadings() {
 
 void
 Vehicle::update(unsigned long real_time) {
-  //REF-03e: defensive — a dead vehicle is reaped by do_animate() before
-  //the next update pass, so this should never fire; skip just in case.
   if(dead)
     return;
 
@@ -593,7 +584,7 @@ Vehicle::update(unsigned long real_time) {
     if(real_time >= arrival_start + ARRIVE_MS)
       death_counter = 0;
     if(death_counter <= 0)
-      dead = true; //reaped by do_animate() after the update pass
+      dead = true;
     return;
   }
 
@@ -646,6 +637,8 @@ Vehicle::update(unsigned long real_time) {
     arrival_start = real_time;
     // drift towards the side of the road the destination building is on
     arrival_side = buildingDirection(destination);
+    anim = real_time;
+    walk(real_time);
     return; // wait for the arrival animation to finish
   }
   if (frameIt->frame < 0)

@@ -75,10 +75,7 @@ public:
   MapPoint destination;
   float xr, yr;
   int death_counter;
-  /* REF-03e (rule R8): set instead of `delete this` when the vehicle's
-   * time is up; World::do_animate() reaps dead vehicles after the update
-   * pass, so no object destroys itself while its list is iterated. */
-  bool dead = false;
+  bool dead = false; //reaped by World::do_animate()
   // ticks left before a blocked car gives up and disappears (anti-deadlock)
   int wait_ticks;
   // true while the car plays its "arriving" animation at the destination

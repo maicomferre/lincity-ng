@@ -26,6 +26,7 @@
 #include <SDL3/SDL.h>                     // for SDL_Scancode, SDL_BUTTON_LEFT
 #include <SDL3_image/SDL_image.h>         // for IMG_Load
 #include <assert.h>                       // for assert
+#include <algorithm>                      // for stable_sort
 #include <fmt/base.h>                     // for println
 #include <fmt/format.h>                   // for format
 #include <libxml++/parsers/textreader.h>  // for TextReader
@@ -1268,7 +1269,9 @@ void GameView::drawTexture(Painter& painter, const MapPoint &tile, GraphicsInfo 
 }
 
 
-void GameView::drawTile(Painter& painter, const MapPoint &tile)
+void GameView::drawTile(Painter& painter, const MapPoint &tile,
+    std::vector<GameView::RenderFrame>& frameQueue,
+    std::vector<MapPoint>& cableTiles)
 {
 
     //is Tile in City? If not draw Blank
@@ -1339,10 +1342,13 @@ void GameView::drawTile(Painter& painter, const MapPoint &tile)
                             int old_y = graphicsInfo->y;
                             graphicsInfo->x = old_x - frit->move_x;
                             graphicsInfo->y = old_y - frit->move_y;
-                            if( frit->resourceGroup->is_vehicle)
+                            const bool vehicle = frit->resourceGroup->is_vehicle;
+                            bool vehicleAllowed = true;
+                            if(vehicle)
                             {
-                                //only draw vehicles on top of...
-                                switch (cstgrp->group)
+                                // Vehicle sprites use the road tile as their
+                                // visual layer, but never a building tile.
+                                switch(cstgrp->group)
                                 {
                                     case GROUP_BARE:
                                     case GROUP_DESERT:
@@ -1358,17 +1364,30 @@ void GameView::drawTile(Painter& painter, const MapPoint &tile)
                                     case GROUP_SHANTY:
                                     case GROUP_CRICKET:
                                     case GROUP_SUBSTATION:
-                                    //add anything else with low northen corner
-                                        drawTexture(painter, upperLeft, graphicsInfo);
-                                    break;
+                                        break;
                                     default:
-                                    break;
+                                        vehicleAllowed = false;
+                                        break;
                                 }
-
-
                             }
-                            else
-                            {   drawTexture(painter, lowerRightTile, graphicsInfo);}
+
+                            if(!vehicle || vehicleAllowed)
+                            {
+                                const bool transportBase = !vehicle
+                                    && isTransportGroup(cstgrp);
+                                const double depth = vehicle
+                                    ? upperLeft.x + upperLeft.y
+                                      + frit->move_y
+                                        / (defaultTileHeight / 2.0)
+                                    : lowerRightTile.x + lowerRightTile.y;
+                                frameQueue.push_back({
+                                    &*frit,
+                                    vehicle ? upperLeft : lowerRightTile,
+                                    depth,
+                                    vehicle ? 1 : 2,
+                                    transportBase
+                                });
+                            }
                             graphicsInfo->x = old_x;
                             graphicsInfo->y = old_y;
                         }
@@ -1389,18 +1408,11 @@ void GameView::drawTile(Painter& painter, const MapPoint &tile)
             painter.setFillColor(getMiniMap()->getColorNormal(*getWorld().map(tile)));
             fillDiamond( painter, tilerect );
         }
-        //last draw suspended power cables on top
-        //only works for size == 1
+        // Suspended power cables are drawn after the depth-sorted frames.
+        // This only works for size == 1.
         if (getWorld().map(upperLeft)->flags & (FLAG_POWER_CABLES_0 | FLAG_POWER_CABLES_90))
         {
-            resgrp = ResourceGroup::resMap["PowerLine"];
-            if(resgrp->images_loaded)
-            {
-                if (getWorld().map(upperLeft)->flags & FLAG_POWER_CABLES_0)
-                {   drawTexture(painter, upperLeft, &resgrp->graphicsInfoVector[23]);}
-                if (getWorld().map(upperLeft)->flags & FLAG_POWER_CABLES_90)
-                {   drawTexture(painter, upperLeft, &resgrp->graphicsInfoVector[22]);}
-            }
+            cableTiles.push_back(upperLeft);
         }
     }
 
@@ -1536,13 +1548,55 @@ void GameView::draw(Painter& painter)
       painter.clear();
 
       if(mapOverlay != overlayOnly) {
+        std::vector<GameView::RenderFrame> frameQueue;
+        std::vector<MapPoint> cableTiles;
         for(int k = 0; k <= 2 * (lowerLeftTile.y - upperLeftTile.y); k++)
         for(int i = 0; i <= upperRightTile.x - upperLeftTile.x; i++) {
           currentTile.x = upperLeftTile.x + i + k / 2 + k % 2;
           currentTile.y = upperLeftTile.y - i + k / 2;
-          drawTile(painter, currentTile);
+          drawTile(painter, currentTile, frameQueue, cableTiles);
         }
-      }
+
+        std::stable_sort(frameQueue.begin(), frameQueue.end(),
+          [](const GameView::RenderFrame& a,
+              const GameView::RenderFrame& b) {
+            if(a.transportBase != b.transportBase)
+              return a.transportBase > b.transportBase;
+            if(a.depth != b.depth)
+              return a.depth < b.depth;
+            return a.layer < b.layer;
+          });
+
+        for(const GameView::RenderFrame& renderFrame : frameQueue) {
+          ResourceGroup* resourceGroup = renderFrame.frame->resourceGroup;
+          if(!resourceGroup || !resourceGroup->images_loaded)
+            continue;
+          size_t size = resourceGroup->graphicsInfoVector.size();
+          if(renderFrame.frame->frame < 0 || !size)
+            continue;
+          GraphicsInfo* graphicsInfo = &resourceGroup->graphicsInfoVector[
+            renderFrame.frame->frame % size];
+          int old_x = graphicsInfo->x;
+          int old_y = graphicsInfo->y;
+          graphicsInfo->x = old_x - renderFrame.frame->move_x;
+          graphicsInfo->y = old_y - renderFrame.frame->move_y;
+          drawTexture(painter, renderFrame.drawTile, graphicsInfo);
+          graphicsInfo->x = old_x;
+          graphicsInfo->y = old_y;
+        }
+
+        ResourceGroup* powerLine = ResourceGroup::resMap["PowerLine"];
+        if(powerLine->images_loaded) {
+          for(const MapPoint& cableTile : cableTiles) {
+            if(getWorld().map(cableTile)->flags & FLAG_POWER_CABLES_0)
+              drawTexture(painter, cableTile,
+                &powerLine->graphicsInfoVector[23]);
+            if(getWorld().map(cableTile)->flags & FLAG_POWER_CABLES_90)
+              drawTexture(painter, cableTile,
+                &powerLine->graphicsInfoVector[22]);
+          }
+        }
+       }
       if(mapOverlay != overlayNone) {
         for(int k = 0; k <= 2 * (lowerLeftTile.y - upperLeftTile.y); k++)
         for(int i = 0; i <= upperRightTile.x - upperLeftTile.x; i++) {
