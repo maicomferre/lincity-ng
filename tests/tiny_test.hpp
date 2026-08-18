@@ -5,12 +5,19 @@
  *   TTEST(my_test) { TCHECK_EQ(1 + 1, 2); }
  *
  * Link tests/tiny_main.cpp into the test executable to provide main().
+ *
+ * Optional CLI flags (parsed by the test's own main, then forwarded here):
+ *   --filter <substr>   run only tests whose name contains <substr>
+ *   --ts                prepend a timestamp to the [ RUN  ]/[  OK  ] lines
+ *   --list-tests        print the test names and exit
  */
 
 #ifndef LINCITYNG_TESTS_TINY_TEST_HPP
 #define LINCITYNG_TESTS_TINY_TEST_HPP
 
+#include <chrono>
 #include <cstdio>
+#include <ctime>
 #include <functional>
 #include <sstream>
 #include <string>
@@ -33,6 +40,35 @@ inline int& failure_count() {
   return failures;
 }
 
+/* --filter / --ts state; main() forwards the CLI flags here. */
+inline std::string& filter() {
+  static std::string filter_str;
+  return filter_str;
+}
+inline bool& timestamps() {
+  static bool ts = false;
+  return ts;
+}
+
+inline void set_filter(const std::string& value) { filter() = value; }
+inline void set_timestamps(bool value) { timestamps() = value; }
+
+inline std::string now_hhmmss() {
+  const auto now = std::chrono::system_clock::now();
+  const std::time_t tt = std::chrono::system_clock::to_time_t(now);
+  std::tm tm_buf;
+  localtime_r(&tt, &tm_buf);
+  char ts[16];
+  strftime(ts, sizeof(ts), "%H:%M:%S", &tm_buf);
+  return ts;
+}
+
+inline int list_tests() {
+  for(const auto& test : registry())
+    std::printf("%s\n", test.name.c_str());
+  return 0;
+}
+
 inline void report_failure(const char* file, int line,
     const std::string& message) {
   ++failure_count();
@@ -46,8 +82,15 @@ struct Registrar {
 };
 
 inline int run_all_tests() {
+  const std::string filter_str = filter();
+  int skipped = 0;
   for(auto& test : registry()) {
-    std::printf("[ RUN  ] %s\n", test.name.c_str());
+    if(!filter_str.empty() && test.name.find(filter_str) == std::string::npos) {
+      skipped++;
+      continue;
+    }
+    const std::string stamp = timestamps() ? now_hhmmss() + " " : "";
+    std::printf("[ RUN  ] %s%s\n", stamp.c_str(), test.name.c_str());
     int failures_before = failure_count();
     try {
       test.fn();
@@ -60,10 +103,13 @@ inline int run_all_tests() {
       ++failure_count();
     }
     std::printf(failure_count() == failures_before
-      ? "[  OK  ] %s\n" : "[ FAIL ] %s\n", test.name.c_str());
+      ? "[  OK  ] %s%s\n" : "[ FAIL ] %s%s\n", stamp.c_str(), test.name.c_str());
   }
+  if(!filter_str.empty())
+    std::printf("filter: %zu/%zu test(s) ran (%d skipped)\n",
+      registry().size() - skipped, registry().size(), skipped);
   std::printf("%zu test(s), %d failure(s)\n",
-    registry().size(), failure_count());
+    registry().size() - skipped, failure_count());
   return failure_count() == 0 ? 0 : 1;
 }
 

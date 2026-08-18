@@ -47,6 +47,7 @@
 #include "stats.hpp"                       // for Stats, Stat
 #include "sustainable.hpp"                 // for SUST_FIRE_YEARS_NEEDED, SUST...
 #include "world.hpp"                       // for World, Map, MapTile
+#include "util/debuglog.hpp"               // for LNG_LOG
 
 /* ---------------------------------------------------------------------- *
  * Public Functions
@@ -55,6 +56,10 @@ void
 World::do_time_step(void) {
     /* Increment game time */
     ++total_time;
+
+    LNG_LOG(lincity::log::kSim, lincity::log::kTrace,
+      "do_time_step day {} money {} tech {}", total_time, total_money,
+      tech_level);
 
     // update stats
     stats.daily();
@@ -87,11 +92,7 @@ World::do_animate(unsigned long real_time) {
   ) {
     (*(it++))->update(real_time);
   }
-  //REF-03e (rule R8): update() only MARKS vehicles dead — no object
-  //destroys itself while its list is being iterated. Reap them here,
-  // after the update pass, exactly like dead constructions are reaped in
-  // simulate_mappoints(). Erase before delete: the destructor no longer
-  // unlists itself.
+  //update() only marks vehicles dead; reap them after the pass (R8)
   for(std::list<Vehicle*>::iterator it = vehicleList.begin();
     it != vehicleList.end();
   ) {
@@ -239,6 +240,15 @@ World::end_of_year_update(void) {
   }
 
   total_money = compute_clamp_money(total_money);
+
+  LNG_LOG(lincity::log::kEcon, lincity::log::kInfo,
+    "end_of_year day {}: income tax {} coal {} ore {} goods {} export {} "
+    "interest {} -> money {}",
+    total_time,
+    stats.income.income_tax.acc, stats.income.coal_tax.acc,
+    stats.income.ore_tax.acc, stats.income.goods_tax.acc,
+    stats.income.export_tax.acc, stats.expenses.interest.acc,
+    total_money);
 
   setUpdated(Updatable::MONEY);
 

@@ -58,6 +58,7 @@
 #include "lintypes.hpp"                   // for xmlTextWriterPtr, Construction
 #include "stats.hpp"                      // for Stats, Stat
 #include "util.hpp"                       // for used_in_assert
+#include "util/debuglog.hpp"              // for LNG_LOG
 #include "util/xmlutil.hpp"               // for xmlParse, xmlStr, xmlFormat
 #include "world.hpp"                      // for World, MapTile, Map, Ground
 
@@ -100,6 +101,8 @@ static void readPbar_old(xmlpp::TextReader& xmlReader,
 
 void
 World::save(const std::filesystem::path& filename) const {
+  LNG_LOG(lincity::log::kSave, lincity::log::kInfo,
+    "save {} ldsv {}", filename.string(), LOADSAVE_VERSION_CURRENT);
   std::string gz_name;
   gzFile gz_file = gzopen(filename.string().c_str(), "wb");
   if(!gz_file)
@@ -214,6 +217,8 @@ World::load(const std::filesystem::path& filename) {
     throw std::runtime_error("load/save version too old");
 
   std::unique_ptr<World> world(new World());
+  LNG_LOG(lincity::log::kSave, lincity::log::kInfo,
+    "load {} ldsv {}", filename.string(), ldsv_version);
 
   // parse sections
   assert(xmlReader.get_node_type() == xmlpp::TextReader::NodeType::Element);

@@ -1,5 +1,6 @@
 add_executable(lincity-test-unit
   ../tiny_main.cpp
+  test_debuglog.cpp
   test_economy.cpp
   test_maptile_frames.cpp
   test_util.cpp
@@ -11,6 +12,7 @@ target_link_libraries(lincity-test-unit
   # (Mps, getConfig) that only get pulled out of the archive when something
   # else needs them.
   "$<LINK_LIBRARY:WHOLE_ARCHIVE,LinCity::ng_lib>"
+  debuglog
 )
 
 add_test(NAME unit COMMAND lincity-test-unit)
