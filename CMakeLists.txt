@@ -119,6 +119,26 @@ if(APPLE)
 	add_compile_definitions("APPLE")
 endif()
 
+### development debugging facility (see .devdocs/10 "Modo de debugging")
+# On by default in builds that carry debug info and lack -DNDEBUG (Debug,
+# DebugOpt, BetaTest) and in RelWithDebInfo (the local build/); off in
+# Release/MinSizeRel where the macro becomes a no-op. Overrideable:
+#   -DLINCITYNG_ENABLE_DEBUG_LOG=OFF
+set(LINCITYNG_ENABLE_DEBUG_LOG_DEFAULT OFF)
+if(BUILD_TYPE_UPPER STREQUAL "DEBUG" OR
+   BUILD_TYPE_UPPER STREQUAL "DEBUGOPT" OR
+   BUILD_TYPE_UPPER STREQUAL "BETATEST" OR
+   BUILD_TYPE_UPPER STREQUAL "RELWITHDEBINFO")
+  set(LINCITYNG_ENABLE_DEBUG_LOG_DEFAULT ON)
+endif()
+option(LINCITYNG_ENABLE_DEBUG_LOG
+  "Enable the development logging facility (LNG_LOG areas + levels)"
+  ${LINCITYNG_ENABLE_DEBUG_LOG_DEFAULT}
+)
+if(LINCITYNG_ENABLE_DEBUG_LOG)
+  add_compile_definitions(LINCITYNG_ENABLE_DEBUG_LOG)
+endif()
+
 include(CheckCSourceCompiles)
 set(CMAKE_REQUIRED_LIBRARIES ${LibIntl_LIBRARIES})
 check_c_source_compiles("\

@@ -39,6 +39,7 @@
 #include "messages.hpp"      // for OutOfMoneyMessage, FireStartedMessage
 #include "stats.hpp"         // for Stat, Stats
 #include "world.hpp"         // for Map, World, MapTile
+#include "util/debuglog.hpp" // for LNG_LOG
 
 void
 World::income(int amt, Stat<int>& account) {
@@ -48,6 +49,8 @@ World::income(int amt, Stat<int>& account) {
     newBal = INT_MAX;
   total_money = newBal;
   account -= amt;
+  LNG_LOG(lincity::log::kEcon, lincity::log::kTrace,
+    "income +{} -> money {}", amt, total_money);
   setUpdated(Updatable::MONEY);
 }
 
@@ -59,6 +62,8 @@ World::expense(int amt, Stat<int>& account, bool allowCredit) {
     OutOfMoneyMessage::create(allowCredit)->throwEx();
   total_money = newBal;
   account += amt;
+  LNG_LOG(lincity::log::kEcon, lincity::log::kTrace,
+    "expense -{} -> money {}", amt, total_money);
   setUpdated(Updatable::MONEY);
   // TODO: move to ng
   if(total_money > 0 && newBal <= 0)

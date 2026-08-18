@@ -37,6 +37,7 @@
 #include "lintypes.hpp"     // for Construction
 #include "resources.hpp"    // for ExtraFrame, ResourceGroup
 #include "util/randutil.hpp"         // for BasicUrbg
+#include "util/debuglog.hpp"         // for LNG_LOG
 #include "world.hpp"        // for World, Map, MapTile
 
 Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
@@ -66,6 +67,8 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
   this->initial_cargo = world.map(point)->reportingConstruction
     ? world.map(point)->reportingConstruction->tellstuff(stuff_id,-2)
     : -1;
+  LNG_LOG(lincity::log::kVehicles, lincity::log::kTrace,
+    "vehicle {} spawned at ({},{})", (const void*)this, point.x, point.y);
   pickDestination();
 
   frameIt = world.map(point)->addFrame();
@@ -107,6 +110,8 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
 }
 
 Vehicle::~Vehicle() {
+  LNG_LOG(lincity::log::kVehicles, lincity::log::kTrace,
+    "vehicle {} destroyed at ({},{})", (const void*)this, framePt.x, framePt.y);
   world.map(framePt)->removeFrame(frameIt);
 }
 
@@ -331,6 +336,9 @@ Vehicle::move_frame(MapPoint newPoint) {
   //splice keeps frameIt valid, now under the destination tile
   world.map(framePt)->moveFrameTo(world.map, newPoint, frameIt);
   framePt = newPoint;
+  LNG_LOG(lincity::log::kVehicles, lincity::log::kTrace,
+    "vehicle {} (type {}) frame -> ({},{})", (const void*)this,
+    (const void*)frameIt->resourceGroup, framePt.x, framePt.y);
 }
 
 bool Vehicle::tileOccupied(MapPoint p) const {

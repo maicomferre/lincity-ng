@@ -58,6 +58,7 @@
 #include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
 #include "lincity/world.hpp"                 // for World
 #include "util/randutil.hpp"                 // for BasicUrbg
+#include "util/debuglog.hpp"                 // for LNG_LOG
 
 namespace {
 
@@ -678,9 +679,21 @@ int main(int argc, char** argv) {
       g_seed = std::stoull(next());
     else if(arg == "--scenario")
       g_scenario = next();
+    else if(arg == "--filter")
+      tiny_test::set_filter(next());
+    else if(arg == "--ts")
+      tiny_test::set_timestamps(true);
+    else if(arg == "--list-tests")
+      return tiny_test::list_tests();
+    else if(arg == "--log-areas")
+      setenv("LINCITYNG_LOG_AREAS", next().c_str(), 1);
+    else if(arg == "--log-level")
+      setenv("LINCITYNG_LOG_LEVEL", next().c_str(), 1);
     else
       throw std::runtime_error("unrecognized argument: " + arg);
   }
+
+  lincity::log::init_logging();
 
   int rc;
   try {

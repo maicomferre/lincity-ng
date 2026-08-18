@@ -47,6 +47,7 @@ target_link_libraries(lincity_lib
   gettext
   xmlutil
   randutil
+  debuglog
   fmt::fmt
 )
 

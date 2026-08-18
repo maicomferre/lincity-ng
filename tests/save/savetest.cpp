@@ -20,6 +20,7 @@
 #include "lincity-ng/Config.hpp"   // for getConfig
 #include "lincity/init_game.hpp"   // for city_settings, new_city
 #include "lincity/world.hpp"       // for World
+#include "util/debuglog.hpp"       // for LNG_LOG, init_logging
 
 namespace {
 
@@ -165,9 +166,21 @@ int main(int argc, char** argv) {
       appData = next();
     else if(arg == "--user-data")
       userData = next();
+    else if(arg == "--filter")
+      tiny_test::set_filter(next());
+    else if(arg == "--ts")
+      tiny_test::set_timestamps(true);
+    else if(arg == "--list-tests")
+      return tiny_test::list_tests();
+    else if(arg == "--log-areas")
+      setenv("LINCITYNG_LOG_AREAS", next().c_str(), 1);
+    else if(arg == "--log-level")
+      setenv("LINCITYNG_LOG_LEVEL", next().c_str(), 1);
     else
       throw std::runtime_error("unrecognized argument: " + arg);
   }
+
+  lincity::log::init_logging();
 
   int rc;
   try {

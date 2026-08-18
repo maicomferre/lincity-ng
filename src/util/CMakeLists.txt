@@ -20,4 +20,11 @@ target_include_directories(randutil INTERFACE ..)
 add_library(ptrutil INTERFACE ptrutil.hpp)
 target_include_directories(ptrutil INTERFACE ..)
 
+add_library(debuglog STATIC debuglog.cpp debuglog.hpp)
+target_link_libraries(debuglog
+  PUBLIC
+  fmt::fmt
+)
+target_include_directories(debuglog INTERFACE ..)
+
 include_directories(.)

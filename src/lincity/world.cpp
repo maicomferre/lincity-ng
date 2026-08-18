@@ -43,6 +43,7 @@
 #include "modules/track_road_rail.hpp"  // for transport_group_at
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
 #include "Vehicles.hpp"        // for Vehicle (complete type needed by World::~World)
+#include "util/debuglog.hpp"   // for LNG_LOG
 
 #ifndef NDEBUG
 namespace {
@@ -338,6 +339,8 @@ std::list<ExtraFrame>::iterator MapTile::addFrame(void)
 void MapTile::removeFrame(const std::list<ExtraFrame>::iterator& it)
 {
     assert(framesptr && "removeFrame: tile owns no frames");
+    LNG_LOG(lincity::log::kFrames, lincity::log::kTrace,
+      "removeFrame ({},{})", point.x, point.y);
 #ifndef NDEBUG
     unregister_frame(&*it); //catches double kills even when the address was
                             //reused by a new node of the same list
@@ -358,6 +361,8 @@ void MapTile::moveFrameTo(Map& map, MapPoint dest, const std::list<ExtraFrame>::
 {
     assert(!(point == dest) && "moveFrameTo: dest must differ from the source tile");
     assert(framesptr && "moveFrameTo: tile owns no frames");
+    LNG_LOG(lincity::log::kFrames, lincity::log::kTrace,
+      "moveFrameTo ({},{}) -> ({},{})", point.x, point.y, dest.x, dest.y);
 #ifndef NDEBUG
     if(!owns_frame(*framesptr, it))
     {
