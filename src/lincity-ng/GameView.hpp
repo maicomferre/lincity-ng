@@ -28,6 +28,7 @@
 #include <filesystem>             // for path
 #include <memory>                 // for unique_ptr
 #include <string>                 // for string, basic_string
+#include <vector>                 // for vector
 
 #include "gui/Component.hpp"      // for Component
 #include "gui/Style.hpp"          // for Style
@@ -110,6 +111,14 @@ public:
     void drawFloatingText(Painter& painter);
 
 private:
+    struct RenderFrame {
+        ExtraFrame* frame;
+        MapPoint drawTile;
+        double depth;
+        int layer;
+        bool transportBase;
+    };
+
     // Cached drag-preview cost (FEAT-01): recomputed only when the target
     // tile or the drag start moves, so the total does not flicker while the
     // cursor is still (the cost depends on tech_level, which grows during
@@ -125,7 +134,8 @@ private:
     void buttonClicked( Button* button );
     Vector2 getScreenPoint(MapPoint point);
     MapPoint getTile(const Vector2& point);
-    void drawTile(Painter& painter, const MapPoint &point);
+    void drawTile(Painter& painter, const MapPoint &point,
+        std::vector<RenderFrame>& frames, std::vector<MapPoint>& cableTiles);
     void drawTexture(Painter& painter, const MapPoint &point, GraphicsInfo *graphicsInfo);
     void drawOverlay(Painter& painter, const MapPoint &point);
     void fillDiamond( Painter& painter, const Rect2D& rect );

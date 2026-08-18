@@ -164,14 +164,20 @@ bool run_days(World& world, int days, bool check_conservation = true,
     world.do_time_step();
     if(day % 30 == 0) {
       world.do_animate(tick);
-      // REF-03e: dead vehicles must be reaped inside the same do_animate
-      // pass — one left behind would linger in tileOccupied()/spawn
-      // checks forever (its destructor only runs at World teardown).
+      // Dead vehicles are reaped, and frames stay on the current segment.
       for(const Vehicle* v : world.vehicleList) {
         if(v->isDead()) {
           std::fprintf(stderr,
             "  dead vehicle survived do_animate on day %d\n",
             world.total_time);
+          return false;
+        }
+        if(v->framePt != v->prev && v->framePt != v->point) {
+          std::fprintf(stderr,
+            "  vehicle frame anchor left segment on day %d: "
+            "frame=(%d,%d) prev=(%d,%d) point=(%d,%d)\n",
+            world.total_time, v->framePt.x, v->framePt.y,
+            v->prev.x, v->prev.y, v->point.x, v->point.y);
           return false;
         }
       }
