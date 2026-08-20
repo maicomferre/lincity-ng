@@ -28,6 +28,8 @@
 #define LINCITY_ECONOMY_HPP
 
 #include <algorithm>          // for min, max
+#include <cstdint>            // for int64_t
+#include <limits>             // for numeric_limits
 
 #include "all_buildings.hpp"  // for INTEREST_RATE
 #include "lin-city.hpp"       // for MAX_TECH_LEVEL
@@ -77,16 +79,18 @@ inline int compute_export_discount(int trade_ex) {
 inline int compute_interest(int total_money) {
   if(total_money >= 0)
     return 0;
-  return std::min((-total_money / 1000) * INTEREST_RATE, 1000000);
+  const std::int64_t debt = -static_cast<std::int64_t>(total_money);
+  return static_cast<int>(std::min(
+    (debt / 1000) * INTEREST_RATE, static_cast<std::int64_t>(1000000)));
 }
 
 /* Engine-wide money clamp. */
-inline int compute_clamp_money(int money) {
-  if(money > 2000000000)
+inline int compute_clamp_money(std::int64_t money) {
+  if(money > 2000000000LL)
     return 2000000000;
-  if(money < -2000000000)
+  if(money < -2000000000LL)
     return -2000000000;
-  return money;
+  return static_cast<int>(money);
 }
 
 /* Regressive daily school cost by occupancy: busy is the number of days

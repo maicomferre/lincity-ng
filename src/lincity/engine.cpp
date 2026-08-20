@@ -25,6 +25,7 @@
 #include <algorithm>         // for max
 #include <cassert>           // for assert
 #include <climits>           // for INT_MAX
+#include <cstdint>           // for int64_t
 #include <cstdlib>           // for rand
 #include <deque>             // for deque
 #include <initializer_list>  // for initializer_list
@@ -45,10 +46,8 @@
 void
 World::income(int amt, Stat<int>& account) {
   assert(amt >= 0);
-  int newBal = total_money + amt;
-  if(newBal < total_money)
-    newBal = INT_MAX;
-  total_money = newBal;
+  const std::int64_t newBal = static_cast<std::int64_t>(total_money) + amt;
+  total_money = newBal > INT_MAX ? INT_MAX : static_cast<int>(newBal);
   account -= amt;
   LNG_LOG(lincity::log::kEcon, lincity::log::kTrace,
     "income +{} -> money {}", amt, total_money);
@@ -58,10 +57,10 @@ World::income(int amt, Stat<int>& account) {
 void
 World::expense(int amt, Stat<int>& account, bool allowCredit) {
   assert(amt >= 0);
-  int newBal = total_money - amt;
+  const std::int64_t newBal = static_cast<std::int64_t>(total_money) - amt;
   if(newBal < (allowCredit ? -2000000000 : 0) || newBal > total_money)
     OutOfMoneyMessage::create(allowCredit)->throwEx();
-  total_money = newBal;
+  total_money = static_cast<int>(newBal);
   account += amt;
   LNG_LOG(lincity::log::kEcon, lincity::log::kTrace,
     "expense -{} -> money {}", amt, total_money);
