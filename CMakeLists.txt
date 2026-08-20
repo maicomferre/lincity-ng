@@ -74,10 +74,10 @@ if(NOT CMAKE_BUILD_TYPE)
 	message(STATUS "No build type specified, defaulting to ${CMAKE_BUILD_TYPE}.")
 endif()
 string(TOUPPER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_UPPER)
-set(CMAKE_CXX_FLAGS_RELEASE        "-O3 -w -DNDEBUG")
-set(CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -w -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE        "-O3 -DNDEBUG")
+set(CMAKE_CXX_FLAGS_MINSIZEREL     "-Os -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -g -DNDEBUG")
-set(CMAKE_CXX_FLAGS_BETATEST       "-O3 -g -w")
+set(CMAKE_CXX_FLAGS_BETATEST       "-O3 -g")
 set(CMAKE_CXX_FLAGS_DEBUG          "-O0 -g -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUGOPT       "-O2 -g -DDEBUG")
 foreach(BType ${BUILD_TYPES})
@@ -103,12 +103,31 @@ if(WIN32)
 endif()
 set(LINCITYNG_RELOCATABLE ${RELOCATABLE_DEFAULT} CACHE BOOL "Build a relocatable binary")
 
+# Warnings are diagnostics, not yet errors: enabling them across all build
+# types gives the fork a visible baseline without making old code unbuildable.
+# CI or a developer can promote the baseline with
+# -DLINCITYNG_WARNINGS_AS_ERRORS=ON after the warning inventory is reduced.
+option(LINCITYNG_ENABLE_WARNINGS
+  "Enable compiler warnings for all build types"
+  ON
+)
+option(LINCITYNG_WARNINGS_AS_ERRORS
+  "Treat compiler warnings as errors"
+  OFF
+)
+
 
 ### compilation options
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options("-fmacro-prefix-map=${CMAKE_SOURCE_DIR}=.")
+if(LINCITYNG_ENABLE_WARNINGS)
+	add_compile_options(-Wall -Wextra)
+	if(LINCITYNG_WARNINGS_AS_ERRORS)
+		add_compile_options(-Werror)
+	endif()
+endif()
 if(UNIX)
 	add_compile_definitions("UNIX")
 endif()
