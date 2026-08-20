@@ -217,6 +217,7 @@ void Port::report(Mps& mps, bool production) const {
 
 void Port::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"tech_made", xmlFormat<int>(tech_made));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"pence", xmlFormat<int>(pence));
 
   const std::string givePfx("give_");
   const std::string takePfx("take_");
@@ -247,6 +248,7 @@ bool Port::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) {
     (give ? rule.give : rule.take) = xmlParse<int>(xmlReader.read_inner_xml());
   }
   else if(tag == "tech_made") tech_made = xmlParse<int>(xmlReader.read_inner_xml());
+  else if(tag == "pence") pence = xmlParse<int>(xmlReader.read_inner_xml());
   else return Construction::loadMember(xmlReader, ldsv_version);
   return true;
 }
