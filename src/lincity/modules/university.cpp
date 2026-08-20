@@ -102,7 +102,7 @@ void University::update() {
       consumeStuff(STUFF_GOODS, UNIVERSITY_GOODS);
       produceStuff(STUFF_WASTE, UNIVERSITY_GOODS / 3);
       ++working_days;
-      world.tech_level += UNIVERSITY_TECH_MADE;
+      world.addTech(UNIVERSITY_TECH_MADE);
       total_tech_made += UNIVERSITY_TECH_MADE;
     }
   } catch(const OutOfMoneyMessage::Exception& ex) { }

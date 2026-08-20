@@ -101,7 +101,7 @@ void Monument::update()
             tail_off++;
             if (tail_off > (world.tech_level / 10000) - 2)
             {
-                world.tech_level++;
+                world.addTech(1);
                 tech_made++;
                 tail_off = 0;
             }

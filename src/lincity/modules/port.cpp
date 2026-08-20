@@ -182,10 +182,10 @@ void Port::update()
             world.map(point)->pollution += PORT_POLLUTION;
             world.stats.sustainability.trade_flag = false;
             tech_made++;
-            world.tech_level++;
+            world.addTech(1);
             working_days++;
             if (daily_ic && daily_et)
-              world.tech_level++;
+              world.addTech(1);
         }
     }
     monthly_ic += daily_ic;
@@ -202,7 +202,7 @@ void Port::update()
     }
 
     daily_et += pence;
-    world.taxable.trade_ex += daily_et / 100;
+    world.recordTaxable(World::TaxableAccount::TRADE_EXPORT, daily_et / 100);
     pence = daily_et % 100;
 }
 
