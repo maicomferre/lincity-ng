@@ -742,7 +742,7 @@ Game::run() {
               world->do_time_step();
             } catch(const std::exception& err) {
               // The simulation is in an unknown state. Save what we have and
-              // get back to the main menu before anything else goes wrong.
+              // leave this run before anything else touches the world.
               fmt::println(stderr, "error: simulation step failed: {}", err.what());
               try {
                 saveCityNG(*world, getConfig()->userDataDir.get()
@@ -753,7 +753,13 @@ Game::run() {
               getGameView().printStatusMessage(fmt::format(
                 "error: simulation step failed: {}; game saved to "
                 "crashsave.scn.gz", err.what()));
-              backToMainMenu();
+              // backToMainMenu() performs the clean-exit save.  That save is
+              // deliberately forbidden after a failed tick: the world may
+              // contain a partially applied transaction.  Returning lets
+              // MainMenu::launchGame() resume the menu without overwriting
+              // the last known-good 9_currentGameNG slot.
+              running = false;
+              return;
             } catch(...) {
               // A non-std exception escaped the simulation (e.g. a thrown
               // exception_ptr, which is what OutOfMoneyMessage used to do).
@@ -768,7 +774,10 @@ Game::run() {
               getGameView().printStatusMessage(fmt::format(
                 "error: simulation step failed (unknown exception); "
                 "game saved to crashsave.scn.gz"));
-              backToMainMenu();
+              // Do not call backToMainMenu(): it would create a clean save
+              // from the same potentially inconsistent world.
+              running = false;
+              return;
             }
 
             // autosave to a dedicated slot, so that Continue (which reads
