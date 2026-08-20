@@ -161,17 +161,20 @@ World::end_of_month_update(void) {
   stats.population.population_m += people_pool * NUMOF_DAYS_IN_MONTH;
 
   if(tech_level > TECH_LEVEL_LOSS_START) {
-    tech_level -= (int)(tech_level * (1. / TECH_LEVEL_LOSS)
+    const int tech_loss = (int)(tech_level * (1. / TECH_LEVEL_LOSS)
       * (1 + (stats.population.population_m.acc
         * (1. / NUMOF_DAYS_IN_MONTH / 120 / (TECH_LEVEL_LOSS - 200)))));
+    addTech(-tech_loss);
   }
   else
-    tech_level += TECH_LEVEL_UNAIDED;
+    addTech(TECH_LEVEL_UNAIDED);
   /* we can go over 100, but it's even more difficult */
   if(tech_level > MAX_TECH_LEVEL) {
-    tech_level -= (int)((tech_level - MAX_TECH_LEVEL) * (1. / TECH_LEVEL_LOSS)
+    const int tech_loss = (int)((tech_level - MAX_TECH_LEVEL)
+      * (1. / TECH_LEVEL_LOSS)
       * (1 + (stats.population.population_m.acc
         * (1. / NUMOF_DAYS_IN_MONTH / 120 / (TECH_LEVEL_LOSS - 100)))));
+    addTech(-tech_loss);
   }
   if(tech_level > stats.highest_tech_level) {
     stats.highest_tech_level = tech_level;
@@ -209,19 +212,15 @@ void
 World::end_of_year_update(void) {
   income(compute_income_tax(taxable.labor, money_rates.income_tax),
     stats.income.income_tax);
-  taxable.labor = 0;
 
   income(compute_coal_tax(taxable.coal, money_rates.coal_tax),
     stats.income.coal_tax);
-  taxable.coal = 0;
 
   income(compute_ore_tax(taxable.ore, money_rates.ore_tax),
     stats.income.ore_tax);
-  taxable.ore = 0;
 
   income(compute_goods_tax(taxable.goods, money_rates.goods_tax,
     tech_level), stats.income.goods_tax);
-  taxable.goods = 0;
 
   /* The price of exports on the world market drops as you export more.
      The exporters have to discount there wares, therefore the
@@ -229,7 +228,7 @@ World::end_of_year_update(void) {
    */
   income(taxable.trade_ex - compute_export_discount(taxable.trade_ex),
     stats.income.export_tax);
-  taxable.trade_ex = 0;
+  clearTaxable();
 
   try {
     const int interest = compute_interest(total_money);

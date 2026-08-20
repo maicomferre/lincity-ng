@@ -864,19 +864,19 @@ int Construction::equilibrate_stuff(int *rem_lvl, CommodityRule rem_rule, int ra
             && (constructionGroup->group != GROUP_MARKET))
         //something is given to a consumer
         {
-            switch (stuff_ID)
-            {
+                switch (stuff_ID)
+                {
                 case (STUFF_LABOR) :
-                    world.taxable.labor += flow;
+                    world.recordTaxable(World::TaxableAccount::LABOR, flow);
                     break;
                 case (STUFF_GOODS) :
-                    world.taxable.goods += flow;
+                    world.recordTaxable(World::TaxableAccount::GOODS, flow);
                     break;
                 case (STUFF_COAL) :
-                    world.taxable.coal += flow;
+                    world.recordTaxable(World::TaxableAccount::COAL, flow);
                     break;
                 case (STUFF_ORE) :
-                    world.taxable.ore += flow;
+                    world.recordTaxable(World::TaxableAccount::ORE, flow);
                     break;
                 default:
                     break;

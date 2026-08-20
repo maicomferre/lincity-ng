@@ -102,7 +102,7 @@ void School::update() {
       consumeStuff(STUFF_GOODS, GOODS_MAKE_TECH_SCHOOL);
       produceStuff(STUFF_WASTE, GOODS_MAKE_TECH_SCHOOL / 3);
       ++working_days;
-      world.tech_level += TECH_MADE_BY_SCHOOL;
+      world.addTech(TECH_MADE_BY_SCHOOL);
       total_tech_made += TECH_MADE_BY_SCHOOL;
     }
   } catch(const OutOfMoneyMessage::Exception& ex) { }

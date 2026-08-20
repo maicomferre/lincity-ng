@@ -27,6 +27,8 @@
 
 #include <stdlib.h>            // for NULL
 #include <cassert>             // for assert
+#include <climits>             // for INT_MAX
+#include <cstdint>             // for int64_t
 #include <initializer_list>    // for initializer_list
 #include <iostream>            // for basic_ostream, operator<<, basic_ostre...
 #include <iterator>            // for advance
@@ -533,6 +535,47 @@ World::World(int mapSize) :
     tradeRule[s].take = true;
     tradeRule[s].give = true;
   }
+}
+
+void World::addTech(int amount)
+{
+  const std::int64_t newTech = static_cast<std::int64_t>(tech_level) + amount;
+  if(newTech <= 0)
+    tech_level = 0;
+  else if(newTech >= INT_MAX)
+    tech_level = INT_MAX;
+  else
+    tech_level = static_cast<int>(newTech);
+}
+
+void World::recordTaxable(TaxableAccount account, int amount)
+{
+  int* value = nullptr;
+  switch(account) {
+    case TaxableAccount::LABOR:        value = &taxable.labor; break;
+    case TaxableAccount::COAL:         value = &taxable.coal; break;
+    case TaxableAccount::ORE:          value = &taxable.ore; break;
+    case TaxableAccount::GOODS:        value = &taxable.goods; break;
+    case TaxableAccount::TRADE_EXPORT: value = &taxable.trade_ex; break;
+  }
+
+  assert(value != nullptr);
+  const std::int64_t newValue = static_cast<std::int64_t>(*value) + amount;
+  if(newValue <= 0)
+    *value = 0;
+  else if(newValue >= INT_MAX)
+    *value = INT_MAX;
+  else
+    *value = static_cast<int>(newValue);
+}
+
+void World::clearTaxable()
+{
+  taxable.labor = 0;
+  taxable.coal = 0;
+  taxable.ore = 0;
+  taxable.goods = 0;
+  taxable.trade_ex = 0;
 }
 
 World::~World() {

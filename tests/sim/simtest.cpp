@@ -352,6 +352,51 @@ TTEST(money_operations_handle_integer_boundaries) {
   }
 }
 
+TTEST(world_economy_mutations_are_centralized_and_safe) {
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+
+  // REF-06: World owns the wide arithmetic and saturation policy for tech.
+  world->addTech(INT_MAX);
+  TCHECK_EQ(INT_MAX, world->tech_level);
+  world->addTech(1);
+  TCHECK_EQ(INT_MAX, world->tech_level);
+  world->addTech(INT_MIN);
+  TCHECK_EQ(0, world->tech_level);
+  world->addTech(-1);
+  TCHECK_EQ(0, world->tech_level);
+
+  World* world_ptr = world.get();
+  const auto record_and_clear = [world_ptr](World::TaxableAccount account,
+    int& value) {
+    world_ptr->recordTaxable(account, INT_MAX);
+    TCHECK_EQ(INT_MAX, value);
+    world_ptr->recordTaxable(account, INT_MIN);
+    TCHECK_EQ(0, value);
+  };
+  record_and_clear(World::TaxableAccount::LABOR, world->taxable.labor);
+  record_and_clear(World::TaxableAccount::COAL, world->taxable.coal);
+  record_and_clear(World::TaxableAccount::ORE, world->taxable.ore);
+  record_and_clear(World::TaxableAccount::GOODS, world->taxable.goods);
+  record_and_clear(World::TaxableAccount::TRADE_EXPORT,
+    world->taxable.trade_ex);
+
+  world->recordTaxable(World::TaxableAccount::LABOR, 10);
+  world->recordTaxable(World::TaxableAccount::COAL, 10);
+  world->recordTaxable(World::TaxableAccount::ORE, 10);
+  world->recordTaxable(World::TaxableAccount::GOODS, 10);
+  world->recordTaxable(World::TaxableAccount::TRADE_EXPORT, 10);
+  world->clearTaxable();
+  TCHECK_EQ(0, world->taxable.labor);
+  TCHECK_EQ(0, world->taxable.coal);
+  TCHECK_EQ(0, world->taxable.ore);
+  TCHECK_EQ(0, world->taxable.goods);
+  TCHECK_EQ(0, world->taxable.trade_ex);
+}
+
 TTEST(scenario_matrix_one_year_each) {
   int loaded = 0;
   for(const auto& entry :

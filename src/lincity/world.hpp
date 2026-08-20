@@ -248,6 +248,19 @@ public:
   void pushMessage(Message::ptr message);
   Message::ptr popMessage();
 
+  enum class TaxableAccount {
+    LABOR,
+    COAL,
+    ORE,
+    GOODS,
+    TRADE_EXPORT,
+  };
+
+  // R1: economy state is mutated through World-owned chokepoints.
+  void addTech(int amount);
+  void recordTaxable(TaxableAccount account, int amount);
+  void clearTaxable();
+
   /* true if one of the orthogonal neighbours of point is a real building
    * (not transport, not transparent vegetation). Used to spawn cars near
    * buildings and to let them die when they reach one. */
