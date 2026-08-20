@@ -24,6 +24,8 @@
 
 #include "pottery.hpp"
 
+#include <libxml++/parsers/textreader.h>  // for TextReader
+#include <libxml/xmlwriter.h>             // for xmlTextWriterWriteElement
 #include <list>                     // for _List_iterator
 #include <string>                   // for basic_string
 #include <vector>                   // for vector
@@ -35,6 +37,7 @@
 #include "lincity/resources.hpp"    // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"        // for World, Map, MapTile
 #include "util/gettextutil.hpp"
+#include "util/xmlutil.hpp"         // for xmlFormat, xmlParse, xmlStr
 
 PotteryConstructionGroup potteryConstructionGroup(
     N_("Pottery"),
@@ -124,6 +127,26 @@ void Pottery::report(Mps& mps, bool production) const {
   mps.addBlank();
   mps.add_sfp(N_("busy"), (float) busy);
   list_commodities(mps, production);
+}
+
+void Pottery::save(xmlTextWriterPtr xmlWriter) const {
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"pause_counter",
+    xmlFormat<int>(pauseCounter));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"working_days",
+    xmlFormat<int>(working_days));
+  Construction::save(xmlWriter);
+}
+
+bool Pottery::loadMember(xmlpp::TextReader& xmlReader,
+    unsigned int ldsv_version) {
+  std::string name = xmlReader.get_name();
+  if(name == "pause_counter")
+    pauseCounter = xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "working_days")
+    working_days = xmlParse<int>(xmlReader.read_inner_xml());
+  else
+    return Construction::loadMember(xmlReader, ldsv_version);
+  return true;
 }
 
 /** @file lincity/modules/pottery.cpp */

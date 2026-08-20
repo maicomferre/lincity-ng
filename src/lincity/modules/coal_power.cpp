@@ -37,6 +37,7 @@
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"              // for World, Map, MapTile
+#include "util/randutil.hpp"              // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlFormat, xmlParse, xmlStr
 #include "util/gettextutil.hpp"
 
@@ -121,9 +122,9 @@ void Coal_power::animate(unsigned long real_time) {
       else if(s == 0) {
         frit->frame = -1; // no sprites loaded, nothing to animate
       }
-      else if(frit->frame < 0 || rand() % 1600 != 0) {
+      else if(frit->frame < 0 || lincityRand() % 1600 != 0) {
         // always randomize new plumes and sometimes existing ones
-        frit->frame = rand() % s;
+        frit->frame = lincityRand() % s;
       }
       else if(++frit->frame >= s) {
         frit->frame = 0;

@@ -76,13 +76,13 @@ void Fire::update()
 {
     /* this so we don't get whole blocks changing in one go. */
     if (burning_days == 0)
-    {   burning_days = rand() % (FIRE_LENGTH / 5);}
+    {   burning_days = lincityRand() % (FIRE_LENGTH / 5);}
 
     if (burning_days > FIRE_LENGTH)
     {
         //is_burning = false;
         if (smoking_days == 0)   /* rand length here also */
-        {   smoking_days = rand() % (AFTER_FIRE_LENGTH / 6);}
+        {   smoking_days = lincityRand() % (AFTER_FIRE_LENGTH / 6);}
         smoking_days++;
         if (world.map(point)->flags & FLAG_FIRE_COVER)
         {   smoking_days += 4;}
@@ -104,7 +104,7 @@ void Fire::update()
 
 void Fire::spread() {
   MapPoint loc;
-  switch(rand() % 80) {
+  switch(lincityRand() % 80) {
   case 0:
     loc = point.n();
     break;
@@ -127,7 +127,7 @@ void Fire::spread() {
     return;
   Construction *cst = world.map(loc)->reportingConstruction;
   if(!cst) return;
-  if(rand() % 100 >= cst->constructionGroup->fire_chance)
+  if(lincityRand() % 100 >= cst->constructionGroup->fire_chance)
     return;
   if(world.map(loc)->flags & FLAG_FIRE_COVER)
     return;

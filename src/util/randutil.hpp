@@ -23,6 +23,7 @@
 #define __LINCITYNG_UTIL_RANDUTIL_HPP__
 
 #include <random>
+#include <string>
 
 class BasicUrbg {
 private:
@@ -43,10 +44,17 @@ public:
   /* Reseed with a fixed value, mostly so tests are deterministic. */
   void reseed(result_type seed);
 
+  /* The state is persisted so a save can continue the same random stream. */
+  std::string state() const;
+  bool restoreState(const std::string& serialized);
+
   static BasicUrbg& get();
 
 private:
   base_engine base_urbg;
 };
+
+/* Compatibility wrapper for the legacy rand()-style call sites. */
+int lincityRand();
 
 #endif // __LINCITYNG_UTIL_RANDUTIL_HPP__

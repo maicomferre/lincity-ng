@@ -52,6 +52,7 @@
 #include "transport.hpp"                  // for TRANSPORT_QUANTA, TRANSPORT...
 #include "util.hpp"                       // for used_in_assert
 #include "util/gettextutil.hpp"           // for _
+#include "util/randutil.hpp"               // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlParse, xmlStr, xmlStrF
 #include "world.hpp"                      // for World, Map, MapTile
 
@@ -222,9 +223,15 @@ void Construction::save(xmlTextWriterPtr xmlWriter) const {
     xmlFormatHex(flags & ~VOLATILE_FLAGS));
   for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
     if(!constructionGroup->commodityRuleCount[stuff].maxload) continue;
-    xmlStr name = (xmlStr)commodityStandardName(stuff);
+    const std::string name = commodityStandardName(stuff);
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)commodityStandardName(stuff),
       xmlFormat<int>(commodityCount[stuff]));
+    const std::string productionName = "prod_" + name;
+    const std::string previousProductionName = "prod_prev_" + name;
+    xmlTextWriterWriteElement(xmlWriter, (xmlStr)productionName.c_str(),
+      xmlFormat<int>(commodityProd[stuff]));
+    xmlTextWriterWriteElement(xmlWriter, (xmlStr)previousProductionName.c_str(),
+      xmlFormat<int>(commodityProdPrev[stuff]));
   }
 }
 
@@ -259,6 +266,20 @@ Construction::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version
     xmlParse<std::string>(name).c_str());
   if(stuff != STUFF_COUNT) {
     commodityCount[stuff] = xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name.rfind("prod_prev_", 0) == 0) {
+    Commodity productionStuff = commodityFromStandardName(
+      name.substr(10).c_str());
+    if(productionStuff == STUFF_COUNT) return false;
+    commodityProdPrev[productionStuff] =
+      xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name.rfind("prod_", 0) == 0) {
+    Commodity productionStuff = commodityFromStandardName(
+      name.substr(5).c_str());
+    if(productionStuff == STUFF_COUNT) return false;
+    commodityProd[productionStuff] =
+      xmlParse<int>(xmlReader.read_inner_xml());
   }
   else if(name == "flags") {
     flags = xmlParse<unsigned int>(xmlReader.read_inner_xml())
@@ -520,6 +541,13 @@ void Construction::link_to(Construction* other)
     {   return;}
 #endif*/
     bool useful = false;
+    auto canonicalize_links = [](std::vector<Construction*>& links) {
+        std::sort(links.begin(), links.end(), [](const Construction* a,
+          const Construction* b) {
+            return a->point.x < b->point.x
+              || (a->point.x == b->point.x && a->point.y < b->point.y);
+        });
+    };
     Commodity stuff_ID;
     for(stuff_ID = STUFF_INIT ; !useful && stuff_ID < STUFF_COUNT ; stuff_ID++ )
     {
@@ -537,6 +565,8 @@ void Construction::link_to(Construction* other)
         {
             neighbors.push_back(other);
             other->neighbors.push_back(this);
+            canonicalize_links(neighbors);
+            canonicalize_links(other->neighbors);
             //std::cout << "power link : " << constructionGroup->name << "(" << x << "," << y << ") - "
             //<< other->constructionGroup->name << "(" << other->x << "," << other->y << ")" << std::endl;
             return;
@@ -551,6 +581,8 @@ void Construction::link_to(Construction* other)
         {
             neighbors.push_back(other);
             other->neighbors.push_back(this);
+            canonicalize_links(neighbors);
+            canonicalize_links(other->neighbors);
             //std::cout << "neighbor : " << constructionGroup->name << "(" << x << "," << y << ") - "
             //<< other->constructionGroup->name << "(" << other->x << "," << other->y << ")" << std::endl;
         }
@@ -561,6 +593,8 @@ void Construction::link_to(Construction* other)
             {
                 partners.push_back(other);
                 other->partners.push_back(this);
+                canonicalize_links(partners);
+                canonicalize_links(other->partners);
                 //std::cout << "partner : " << constructionGroup->name << "(" << x << "," << y << ") - "
                 //<< other->constructionGroup->name << "(" << other->x << "," << other->y << ")" << std::endl;
             }
@@ -746,7 +780,7 @@ void Construction::trade()
                 switch (stuff_ID)
                 {
                     case STUFF_LABOR :
-                        if((rand()%COMMUTER_TRAFFIC_RATE) < (yield+1)/2
+                        if((lincityRand()%COMMUTER_TRAFFIC_RATE) < (yield+1)/2
                           && transport->canPlaceVehicle()
                           && world.hasBuildingNeighbor(point)
                         ) {
@@ -771,7 +805,7 @@ void Construction::trade()
                 && !(neighbors[i]->constructionGroup->group == GROUP_POWER_LINE)
                 && neighbors[i]->constructionGroup->commodityRuleCount[stuff_ID].give
                 && (neighbors[i]->commodityCount[stuff_ID] > 0))
-                {   powerline->anim_counter = POWER_MODULUS + rand()%POWER_MODULUS;}
+                {   powerline->anim_counter = POWER_MODULUS + lincityRand()%POWER_MODULUS;}
                 if(powerline->flashing &&
                   neighbors[i]->constructionGroup->group == GROUP_POWER_LINE
                 ) {
@@ -871,7 +905,7 @@ void Construction::playSound()
 {
     int s = soundGroup->chunks.size();
     if(soundGroup->sounds_loaded && s)
-    {   getSound()->playASound( soundGroup->chunks[ rand()%s ] );}
+    {   getSound()->playASound( soundGroup->chunks[ lincityRand()%s ] );}
 }
 
 

@@ -212,7 +212,7 @@ void setup_land(Map& map, int global_aridity, bool without_trees) {
         arid = (global_aridity * 2) / 3;
     }
     /* Altitude has same effect as distance */
-    r = rand()%(d2w_min/5 + 1) + arid +
+    r = lincityRand()%(d2w_min/5 + 1) + arid +
       (map(p)->ground.altitude - alt0) * 50 / map.alt_step;
     do_rand_ecology(*map(p), r, without_trees);
   }
@@ -241,20 +241,20 @@ create_new_city(city_settings *city, int mapSize, int old_setup_ground,
 
   coal_reserve_setup(world.map);
 
-  int global_mountainity = 100 + rand() % 300;
+  int global_mountainity = 100 + lincityRand() % 300;
   int global_aridity = -1;
   switch(climate) {
   case 0: //old style map, with Y river: lets be very random on climate
-    global_aridity = rand() % 450 - 150;
+    global_aridity = lincityRand() % 450 - 150;
     break;
   case 1: // asked for desert
-    global_aridity = rand() % 200 + 200;
+    global_aridity = lincityRand() % 200 + 200;
     break;
   case 2: // temperate
-    global_aridity = rand() % 200 + 0;
+    global_aridity = lincityRand() % 200 + 0;
     break;
   case 3: //swamp
-    global_aridity = rand() % 200 - 200;
+    global_aridity = lincityRand() % 200 - 200;
     global_mountainity /= 5; // swamps are flat lands
     break;
   }
@@ -284,15 +284,15 @@ static void coal_reserve_setup(Map& map) {
   MapPoint p;
   const int len = map.len();
   for(i = 0; i < NUMOF_COAL_RESERVES; i++) {
-    p.x = (rand() % (len - 12)) + 6;
-    p.y = (rand() % (len - 10)) + 6;
+    p.x = (lincityRand() % (len - 12)) + 6;
+    p.y = (lincityRand() % (len - 10)) + 6;
     do {
-      xx = (rand() % 3) - 1;
-      yy = (rand() % 3) - 1;
+      xx = (lincityRand() % 3) - 1;
+      yy = (lincityRand() % 3) - 1;
     }
     while(xx == 0 && yy == 0);
     for (j = 0; j < 5; j++) {
-      map(p)->coal_reserve += rand() % COAL_RESERVE_SIZE;
+      map(p)->coal_reserve += lincityRand() % COAL_RESERVE_SIZE;
       p.x += xx;
       p.y += yy;
     }
@@ -309,7 +309,7 @@ static void new_setup_river_ground(Map& map,
 ) {
     /* Principle of land generation :
      *     we start with large blocks of land SZ x SZ, and take random height for each
-     *     at each iteration we divide the block size by 2, and Altitude += rand() * fract^N_iter
+     *     at each iteration we divide the block size by 2, and Altitude += lincityRand() * fract^N_iter
      * when fract > 1 the additional height is getting smaller at each iteration
      *         this prevent too many pics and holes
      * then we smooth the land, in order to have several local maxima and minima, but not hudreds
@@ -392,19 +392,19 @@ static void new_setup_river_ground(Map& map,
    // intialisation
 #ifdef DEBUG_EXPERIMENTAL
     // Fix random seed for easier debug
-    srand(1234);
+    BasicUrbg::get().reseed(1234);
 #endif
 
     //inialization for classic Block algorithm
-    //int h = ( rand() % Keco + rand() % Keco ) * global_mountainity ;
+    //int h = ( lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
     //f1.initialize(h);
 
     //initialization for Diamond Square Algorithm
     f1.initialize(0);
-    *f1(0,0) = (float)(rand() % Keco + rand() % Keco ) * global_mountainity ;
-    *f1(0,sz) = (float)(rand() % Keco + rand() % Keco ) * global_mountainity ;
-    *f1(sz,0) = (float)(rand() % Keco + rand() % Keco ) * global_mountainity ;
-    *f1(sz,sz) = (float)(rand() % Keco + rand() % Keco ) * global_mountainity ;
+    *f1(0,0) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
+    *f1(0,sz) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
+    *f1(sz,0) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
+    *f1(sz,sz) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
     // 1/5.3 gives roughly half of the times a little sea
     int sea_level = (int)((*f1(0,0)+*f1(0,sz)+*f1(sz,0)+*f1(sz,sz))/5.3);
     //square diamond Algorithm for lanscape generation
@@ -424,7 +424,7 @@ static void new_setup_river_ground(Map& map,
 /*
                 //old block algorithm
                 // one block
-                h = int ( double((rand() % Keco + rand() % Keco - Keco) * global_mountainity) * pow(fract,k) );
+                h = int ( double((lincityRand() % Keco + lincityRand() % Keco - Keco) * global_mountainity) * pow(fract,k) );
                 for (i = 0 ; i < size; i++)
                     for (j = 0 ; j < size; j++)
                         *f1(l * size + i, m * size + j ) += h;
@@ -444,7 +444,7 @@ static void new_setup_river_ground(Map& map,
                     float right_top = *f1(endx, starty);
                     float right_down = *f1(endx, endy);
                     float center = (left_top + left_down + right_top + right_down)/4
-                    + float((rand() % Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    + float((lincityRand() % Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
                     *f1(midx, midy) = center;
                 }
             }
@@ -472,7 +472,7 @@ static void new_setup_river_ground(Map& map,
                 {
                     float up_center = (left_top + right_top + center + *f1(midx, sz-size/2))/4;
                     *f1(midx, starty) =
-                    up_center + float((rand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    up_center + float((lincityRand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
                 }
                 //right edge
                 if(!*f1(endx, midy))
@@ -487,7 +487,7 @@ static void new_setup_river_ground(Map& map,
                         right_center = (right_top + right_down + center + *f1(size/2, midy))/4;
                     }
                     *f1(endx, midy) =
-                    right_center + float((rand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
+                    right_center + float((lincityRand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
                 }
                 //down edge
                 if (!*f1(midx, endy))
@@ -502,14 +502,14 @@ static void new_setup_river_ground(Map& map,
                         down_center = (left_down + right_down + center + *f1(midx, size/2 ))/4;
                     }
                     *f1(midx, endy) =
-                    down_center + float((rand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    down_center + float((lincityRand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
                 }
                 //left edge
                 if ((l==0) && !*f1(startx, midy))
                 {
                     float left_center = (left_top + left_down + center +*f1(sz - size/2, midy) )/4;
                     *f1(startx, midy) =
-                    left_center + float((rand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
+                    left_center + float((lincityRand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
                     //std::cout << "left " << *f1(startx, midy) << std::endl;
                 }
             }
@@ -756,18 +756,18 @@ static void setup_river(Map& map)
     std::cout << "carving river ..." << std::endl;
     std::cout.flush();
     const int len = map.len();
-    MapPoint p((1 * len + rand() % len) / 3, len - 1);
+    MapPoint p((1 * len + lincityRand() % len) / 3, len - 1);
                         //for rivers .water_alt = .altitude = surface of the water
                         //for "earth tile" .water_alt = alt of underground water
                         //                 .altitude = alt of the ground
                         //            so .water_alt <= .altitude
 
     /* Mouth of the river, 3 tiles wide, 6 + %12 long */
-    for (int j = 1 + len/18 + rand() % (len/8); j > 0; j--) {
+    for (int j = 1 + len/18 + lincityRand() % (len/8); j > 0; j--) {
         set_river_tile(*map(p));
         set_river_tile(*map(p.e()));
         set_river_tile(*map(p.w()));
-        p.x += j <= 2 ? 0 : (rand() % 3) - 1;
+        p.x += j <= 2 ? 0 : (lincityRand() % 3) - 1;
         p.y--;
     }
 #ifdef DEBUG
@@ -903,8 +903,8 @@ static void random_start(World& world, bool without_trees) {
     watchdog = 500;              /* if too many tries, random placement. */
     do {
         do {
-            xx = rand() % (map.len() - 25);
-            yy = rand() % (map.len() - 25);
+            xx = lincityRand() % (map.len() - 25);
+            yy = lincityRand() % (map.len() - 25);
             flag = 0;
             for (y = yy + 2; y < yy + 23; y++)
                 for (x = xx + 2; x < xx + 23; x++)
@@ -945,13 +945,13 @@ static void random_start(World& world, bool without_trees) {
   /* The first two farms have more underground water */
   for(int j = 5; j < 9; j++)
   for(int i = 6; i < 10; i++)
-    if(rand() > RAND_MAX/2)
+    if(lincityRand() > RAND_MAX/2)
       map(p.e(i).s(j))->flags |= FLAG_HAS_UNDERGROUND_WATER;
   organic_farmConstructionGroup.placeItem(world, p.e(6).s(5));
 
   for(int j = 5; j < 9; j++)
   for(int i = 17; i < 21; i++)
-    if(rand() > RAND_MAX/2)
+    if(lincityRand() > RAND_MAX/2)
       map(p.e(i).s(j))->flags |= FLAG_HAS_UNDERGROUND_WATER;
   organic_farmConstructionGroup.placeItem(world, p.e(17).s(5));
 
@@ -989,7 +989,7 @@ static void random_start(World& world, bool without_trees) {
 }
 
 static void do_rand_ecology(MapTile& tile, int r, bool without_trees) {
-  int r3 = rand();
+  int r3 = lincityRand();
   if(r >= 300) {
     /* very dry land */
     int r2 = r3 % 10;
