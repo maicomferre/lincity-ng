@@ -22,7 +22,7 @@
 
 #include "MainLincity.hpp"
 
-#include <stdlib.h>                       // for srand
+#include <stdlib.h>                       // for time-compatible C types
 #include <time.h>                         // for time
 #include <iostream>                       // for char_traits, basic_ostream
 #include <string_view>                    // for string_view
@@ -38,6 +38,7 @@
 #include "lincity/modules/all_modules.hpp"  // for initializeModules
 #include "lincity/world.hpp"                // for World
 #include "util/gettextutil.hpp"
+#include "util/randutil.hpp"                 // for BasicUrbg
 
 extern void init_types(void);
 extern void initFactories(void);
@@ -158,7 +159,7 @@ void initLincity()
     initFactories();
 
     /* Initialize random number generator */
-    srand (time (0));
+    BasicUrbg::get().reseed(static_cast<BasicUrbg::result_type>(time(0)));
 
     //mps_init(); //CK no implemented
 

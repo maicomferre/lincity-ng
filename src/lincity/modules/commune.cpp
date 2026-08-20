@@ -36,6 +36,7 @@
 #include "lincity/modules/parkland.hpp"
 #include "lincity/resources.hpp"            // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"                // for World, Map, MapTile
+#include "util/randutil.hpp"                // for lincityRand
 #include "util/gettextutil.hpp"
 
 CommuneConstructionGroup communeConstructionGroup(
@@ -148,7 +149,7 @@ Commune::update() {
 void Commune::animate(unsigned long real_time) {
   int& frame = frameIt->frame;
   if(animate_enable && real_time >= anim) {
-    anim = real_time + ANIM_THRESHOLD(COMMUNE_ANIM_SPEED - 25 + (rand() % 50));
+    anim = real_time + ANIM_THRESHOLD(COMMUNE_ANIM_SPEED - 25 + (lincityRand() % 50));
     animate_enable = false;
 
     frame++;

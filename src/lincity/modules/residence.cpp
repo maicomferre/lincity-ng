@@ -37,6 +37,7 @@
 #include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity/economy.hpp"            // for compute_tax_*
 #include "lincity/world.hpp"              // for World, Map, MapTile
+#include "util/randutil.hpp"              // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlFormat, xmlParse, xmlStr
 #include "util/gettextutil.hpp"
 
@@ -223,7 +224,7 @@ void Residence::update()
         flags &= ~(FLAG_FED); //disable births
         if (local_population)
         {
-            if (rand() % DAYS_PER_STARVE == 1)
+            if (lincityRand() % DAYS_PER_STARVE == 1)
             {
                 local_population--; //starving maybe deadly
                 ++world.stats.population.deaths_m;
@@ -336,14 +337,14 @@ void Residence::update()
     deaths = (RESIDENCE_BASE_DR - drm - 3*po);
     if (deaths < 1) deaths = 1;
     if (hc) deaths *= 4;
-    r = rand() % deaths;
+    r = lincityRand() % deaths;
     if (local_population > 0 ) //somebody might die
     {
         if (r == 0) //one guy had bad luck
         {
             --local_population;
             ++world.stats.population.deaths_m;
-            if(rand() % 100 < pol_deaths) // deadly pollution
+            if(lincityRand() % 100 < pol_deaths) // deadly pollution
             {
                 world.stats.population.unnat_deaths_m++;
                 world.stats.population.pollution_deaths_t++;
@@ -360,7 +361,7 @@ void Residence::update()
     if (((flags & birth_flag) == birth_flag)
         && (local_population > 0))
     {
-        if (rand() % births == 0)
+        if (lincityRand() % births == 0)
         {
             ++local_population;
             ++world.stats.population.births_t;
@@ -380,7 +381,7 @@ void Residence::update()
       bad += compute_tax_discomfort(world.money_rates.income_tax,
         world.money_rates.coal_tax, world.money_rates.goods_tax);
     desireability = good-bad;
-    r = rand() % ((good + bad) * RESIDENCE_PPM);
+    r = lincityRand() % ((good + bad) * RESIDENCE_PPM);
     if (r < bad || local_population > max_population)
     {
         if (local_population > MIN_RES_POPULATION)

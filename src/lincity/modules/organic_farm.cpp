@@ -36,6 +36,7 @@
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, FALSE, FLAG...
 #include "lincity/resources.hpp"          // for ExtraFrame
 #include "lincity/world.hpp"              // for World, Map, MapTile
+#include "util/randutil.hpp"              // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlFormat, xmlParse, xmlStr
 #include "util/gettextutil.hpp"
 
@@ -63,8 +64,8 @@ Organic_farm::Organic_farm(World& world, ConstructionGroup *cstgrp) :
 {
   this->constructionGroup = cstgrp;
   this->tech = world.tech_level;
-  this->crop_rotation_key = (rand() % 4) + 1;
-  this->month_stagger = rand() % 100;
+  this->crop_rotation_key = (lincityRand() % 4) + 1;
+  this->month_stagger = lincityRand() % 100;
   this->food_this_month = 0;
   this->food_last_month = 0;
   this->max_foodprod = 0;
@@ -144,7 +145,7 @@ void Organic_farm::animate(unsigned long real_time) {
     if ( food_last_month > MIN_FOOD_SOLD_FOR_ANIM) {
       //Every year
       if (i % 4 == 0)
-        month_stagger = rand() % 100;
+        month_stagger = lincityRand() % 100;
       frameIt->frame = 1+i/4;
     }
     else {

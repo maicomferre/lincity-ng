@@ -334,14 +334,14 @@ void Transport::playSound()
             {   avg /= size;}
             int num_sounds = soundGroup->chunks.size()/2;
             if(avg > 5)
-            {   getSound()->playASound(soundGroup->chunks[rand()%num_sounds]);}
+            {   getSound()->playASound(soundGroup->chunks[lincityRand()%num_sounds]);}
             else
-            {   getSound()->playASound(soundGroup->chunks[num_sounds+rand()%num_sounds]);}
+            {   getSound()->playASound(soundGroup->chunks[num_sounds+lincityRand()%num_sounds]);}
         }
         else
         {
             int s = soundGroup->chunks.size();
-            getSound()->playASound(soundGroup->chunks[rand()%s]);
+            getSound()->playASound(soundGroup->chunks[lincityRand()%s]);
         }
     }
 }

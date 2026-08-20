@@ -22,6 +22,9 @@
 #include "randutil.hpp"
 
 #include <algorithm>
+#include <cstdint>
+#include <cstdlib>
+#include <sstream>
 #include <time.h>
 #include <random>
 #include <vector>
@@ -47,7 +50,30 @@ BasicUrbg::reseed(result_type seed) {
   base_urbg.seed(seed);
 }
 
+std::string
+BasicUrbg::state() const {
+  std::ostringstream output;
+  output << base_urbg;
+  return output.str();
+}
+
+bool
+BasicUrbg::restoreState(const std::string& serialized) {
+  base_engine candidate;
+  std::istringstream input(serialized);
+  if(!(input >> candidate))
+    return false;
+  base_urbg = candidate;
+  return true;
+}
+
 BasicUrbg::result_type
 BasicUrbg::operator()() {
   return base_urbg();
+}
+
+int
+lincityRand() {
+  constexpr uint64_t rand_range = static_cast<uint64_t>(RAND_MAX) + 1;
+  return static_cast<int>(BasicUrbg::get()() % rand_range);
 }

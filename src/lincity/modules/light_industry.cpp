@@ -39,6 +39,7 @@
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"              // for World, Map, MapTile
+#include "util/randutil.hpp"              // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlFormat, xmlParse, xmlStr
 #include "util/gettextutil.hpp"
 
@@ -221,9 +222,9 @@ void IndustryLight::animate(unsigned long real_time) {
       else if(i >= active) {
         smoke = -1;
       }
-      else if(smoke < 0 || !(rand() % 1600)) {
+      else if(smoke < 0 || !(lincityRand() % 1600)) {
         // randomize new plumes and sometimes existing ones
-        smoke = rand() % s;
+        smoke = lincityRand() % s;
       }
       else if(goods_today && ++smoke >= s) {
         smoke = 0;

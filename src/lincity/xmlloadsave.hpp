@@ -22,7 +22,7 @@
 #ifndef __xmlloadsave_h__
 #define __xmlloadsave_h__
 
-#define LOADSAVE_VERSION_CURRENT 2141
+#define LOADSAVE_VERSION_CURRENT 2142
 #define LOADSAVE_VERSION_COMPAT 2130
 
 // 2140:

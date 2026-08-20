@@ -120,7 +120,7 @@ VehicleModel Vehicle::randomPassengerCar() {
     VEHICLE_BLUECAR, VEHICLE_REDCAR, VEHICLE_GREENCAR,
     VEHICLE_YELLOWCAR, VEHICLE_WHITECAR
   };
-  return cars[rand() % 5];
+  return cars[lincityRand() % 5];
 }
 
 void Vehicle::drive(void) {

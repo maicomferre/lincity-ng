@@ -59,6 +59,7 @@
 #include "stats.hpp"                      // for Stats, Stat
 #include "util.hpp"                       // for used_in_assert
 #include "util/debuglog.hpp"              // for LNG_LOG
+#include "util/randutil.hpp"               // for BasicUrbg
 #include "util/xmlutil.hpp"               // for xmlParse, xmlStr, xmlFormat
 #include "world.hpp"                      // for World, MapTile, Map, Ground
 
@@ -71,10 +72,10 @@ static inline X p(const xmlpp::ustring& s) { return xmlParse<X>(s); }
 
 static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world);
 static void loadGlobals(xmlpp::TextReader& xmlReader, World& World,
-  unsigned int ldsv_version
+  unsigned int ldsv_version, std::string& rng_state
 );
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
-  unsigned int ldsv_version
+  unsigned int ldsv_version, std::string& rng_state
 );
 static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map);
 static void loadMap(xmlpp::TextReader& xmlReader, World& world,
@@ -217,6 +218,7 @@ World::load(const std::filesystem::path& filename) {
     throw std::runtime_error("load/save version too old");
 
   std::unique_ptr<World> world(new World());
+  std::string rng_state;
   LNG_LOG(lincity::log::kSave, lincity::log::kInfo,
     "load {} ldsv {}", filename.string(), ldsv_version);
 
@@ -234,7 +236,7 @@ World::load(const std::filesystem::path& filename) {
     }
 
     if(xmlReader.get_name() == "globals") {
-      loadGlobals(xmlReader, *world, ldsv_version);
+      loadGlobals(xmlReader, *world, ldsv_version, rng_state);
     }
     else if(xmlReader.get_name() == "map") {
       loadMap(xmlReader, *world, ldsv_version);
@@ -254,6 +256,9 @@ World::load(const std::filesystem::path& filename) {
     unexpectedXmlElement(xmlReader);
   }
 
+  if(!rng_state.empty() && !BasicUrbg::get().restoreState(rng_state))
+    throw std::runtime_error("failed to restore random generator state");
+
   return world;
 }
 
@@ -264,6 +269,8 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"people_pool",                 f(world.people_pool));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"total_money",                 f(world.total_money));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"tech_level",                  f(world.tech_level));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rng_state",
+    f(BasicUrbg::get().state()));
 
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rockets_launched",            f(world.rockets_launched));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rockets_launched_success",    f(world.rockets_launched_success));
@@ -449,10 +456,10 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
 }
 
 static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
-  unsigned int ldsv_version
+  unsigned int ldsv_version, std::string& rng_state
 ) {
   if(ldsv_version <= 2130) {
-    loadGlobals_v2130(xmlReader, world, ldsv_version);
+    loadGlobals_v2130(xmlReader, world, ldsv_version, rng_state);
     return;
   }
 
@@ -473,6 +480,7 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
     else if(xml_tag == "people_pool")                 world.people_pool = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "total_money")                 world.stats.total_money = world.total_money = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "tech_level")                  world.stats.tech_level = world.tech_level = p<int>(xmlReader.read_inner_xml());
+    else if(xml_tag == "rng_state")                   rng_state = p<std::string>(xmlReader.read_inner_xml());
 
     else if(xml_tag == "rockets_launched")            world.rockets_launched = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "rockets_launched_success")    world.rockets_launched_success = p<int>(xmlReader.read_inner_xml());
@@ -773,8 +781,9 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
 }
 
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
-  unsigned int ldsv_version
+  unsigned int ldsv_version, std::string& rng_state
 ) {
+  (void)rng_state;
   int uncounted_import = 0;
   int uncounted_unemployment = 0;
   int uncounted_transport = 0;

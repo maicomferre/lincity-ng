@@ -40,6 +40,7 @@
 #include "stats.hpp"         // for Stat, Stats
 #include "world.hpp"         // for Map, World, MapTile
 #include "util/debuglog.hpp" // for LNG_LOG
+#include "util/randutil.hpp" // for lincityRand
 
 void
 World::income(int amt, Stat<int>& account) {
@@ -85,7 +86,7 @@ World::do_pollution() {
     }
 
     MapPoint neighbor;
-    switch(rand() % 11) {
+    switch(lincityRand() % 11) {
     case 0:
     case 1:
     case 2:
@@ -160,14 +161,14 @@ World::do_fire_health_cricket_power_cover() {
 
 void
 World::do_random_fire() {
-  MapPoint loc(rand() % map.len(), rand() % map.len());\
+  MapPoint loc(lincityRand() % map.len(), lincityRand() % map.len());\
   if(!map.is_visible(loc))
     return;
 
   Construction *cst = map(loc)->reportingConstruction;
   if(!cst) return; // no building to burn down
   const ConstructionGroup& cstGrp = *cst->constructionGroup;
-  if(rand() % 100 >= cstGrp.fire_chance)
+  if(lincityRand() % 100 >= cstGrp.fire_chance)
     return;
   if(map(loc)->flags & FLAG_FIRE_COVER)
     return;
@@ -189,7 +190,7 @@ World::do_daily_ecology() {
         || tile.reportingConstruction->flags & FLAG_TRANSPARENT)
       && tile.group == GROUP_DESERT
       && (tile.flags & FLAG_HAS_UNDERGROUND_WATER)
-      && (rand() % 100 == 1)
+      && (lincityRand() % 100 == 1)
     ) {
       tile.setTerrain(GROUP_BARE);
       map.desert_water_frontiers(tile.point.x - 1, tile.point.y - 1, 1 + 2, 1 + 2);

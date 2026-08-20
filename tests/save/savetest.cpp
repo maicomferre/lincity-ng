@@ -19,9 +19,11 @@
 
 #include "lincity-ng/Config.hpp"   // for getConfig
 #include "lincity/init_game.hpp"   // for city_settings, new_city
+#include "lincity/lintypes.hpp"    // for Construction state comparisons
 #include "lincity/modules/port.hpp" // for Port, portConstructionGroup
 #include "lincity/world.hpp"       // for World
 #include "util/debuglog.hpp"       // for LNG_LOG, init_logging
+#include "util/randutil.hpp"        // for BasicUrbg
 
 namespace {
 
@@ -62,6 +64,27 @@ bool compare_worlds(const World& a, const World& b,
   check("taxable.trade_ex", a.taxable.trade_ex, b.taxable.trade_ex);
   check("constructions", (long long)a.map.constructions.size(),
     (long long)b.map.constructions.size());
+  for(const Construction* ac : a.map.constructions) {
+    const Construction* bc = nullptr;
+    for(const Construction* candidate : b.map.constructions) {
+      if(candidate->point == ac->point) {
+        bc = candidate;
+        break;
+      }
+    }
+    if(!bc) continue;
+    check("construction group", ac->constructionGroup->group,
+      bc->constructionGroup->group);
+    check("construction flags", ac->flags, bc->flags);
+    for(int stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
+      check("construction commodity", ac->commodityCount[stuff],
+        bc->commodityCount[stuff]);
+      check("construction production", ac->commodityProd[stuff],
+        bc->commodityProd[stuff]);
+      check("construction previous production", ac->commodityProdPrev[stuff],
+        bc->commodityProdPrev[stuff]);
+    }
+  }
   return ok;
 }
 
@@ -145,6 +168,54 @@ TTEST(round_trip_new_city) {
 
   TCHECK(compare_worlds(*world, *reloaded, "new_city"));
   std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+}
+
+TTEST(continuation_after_load_preserves_rng) {
+  // TST-08: the save must restore the random stream after map construction
+  // during load, so future simulation steps match the uninterrupted world.
+  BasicUrbg::get().reseed(424242);
+  city_settings city;
+  city.with_village = true;
+  city.without_trees = false;
+  std::unique_ptr<World> world =
+    new_city(&city, getConfig()->worldSize.get());
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  for(int day = 0; day < 200; day++)
+    world->do_time_step();
+
+  const std::filesystem::path tmp =
+    headless::user_data() / "continuation_rng.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  world->save(tmp);
+  const std::string saved_rng_state = BasicUrbg::get().state();
+
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(reloaded) {
+    TCHECK_EQ(BasicUrbg::get().state(), saved_rng_state);
+    TCHECK(compare_worlds(*world, *reloaded, "continuation_rng_before"));
+    std::string next_rng_state = saved_rng_state;
+    bool continuation_ok = true;
+    for(int day = 0; day < 200; day++) {
+      TCHECK(BasicUrbg::get().restoreState(next_rng_state));
+      world->do_time_step();
+      const std::string after_world = BasicUrbg::get().state();
+      TCHECK(BasicUrbg::get().restoreState(next_rng_state));
+      reloaded->do_time_step();
+      if(!compare_worlds(*world, *reloaded, "continuation_rng_day")) {
+        std::fprintf(stderr, "  continuation diverged on day %d\n", day + 1);
+        continuation_ok = false;
+        break;
+      }
+      next_rng_state = after_world;
+    }
+    TCHECK(continuation_ok);
+  }
   std::filesystem::remove(tmp, ec);
 }
 

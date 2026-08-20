@@ -73,9 +73,9 @@ void add_a_shanty(World& world) {
     std::optional<MapPoint> r;
     int numof_shanties = world.stats.groupCount[GROUP_SHANTY];
     const int len = world.map.len();
-    p.x = rand() % len;
-    p.y = rand() % len;
-    if (numof_shanties > 0 && rand() % 8 != 0)
+    p.x = lincityRand() % len;
+    p.y = lincityRand() % len;
+    if (numof_shanties > 0 && lincityRand() % 8 != 0)
     {
         r = world.map.find_group(p, GROUP_SHANTY);
         if (!r) {
@@ -134,7 +134,7 @@ void update_shanty(World& world) {
   }
   else if(numof_shanties > 0 && i < numof_shanties - 1) {
     for(int n = 0; n < 1 + (numof_shanties - i) / 10; n++) {
-      MapPoint p(rand() % len, rand() % len);
+      MapPoint p(lincityRand() % len, lincityRand() % len);
       std::optional<MapPoint> r = world.map.find_group(p, GROUP_SHANTY);
       if(!r) {
         fprintf(stderr, "Can't find a shanty to remove!\n");

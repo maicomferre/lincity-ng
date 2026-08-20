@@ -151,7 +151,7 @@ World::end_of_month_update(void) {
   scan_pollution();
 
   if(people_pool > 100) {
-    if(rand() % 1000 < people_pool)
+    if(lincityRand() % 1000 < people_pool)
       people_pool -= 10;
   }
   if(people_pool < 0) {
@@ -254,9 +254,9 @@ World::end_of_year_update(void) {
 
   // change import/export ability
   for(Commodity s = STUFF_INIT; s < STUFF_COUNT; s++) {
-    tradeRule[s].take ^= !(rand() % (tradeRule[s].take
+    tradeRule[s].take ^= !(lincityRand() % (tradeRule[s].take
       ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD));
-    tradeRule[s].give ^= !(rand() % (tradeRule[s].give
+    tradeRule[s].give ^= !(lincityRand() % (tradeRule[s].give
       ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD));
   }
 }
