@@ -1007,11 +1007,8 @@ MainMenu::loadGameSaveButtonClicked(Button *) {
   filename << world.stats.population.population_m / NUMOF_DAYS_IN_MONTH;
   filename << ".gz";
 
-  saveCityNG(world, getConfig()->userDataDir.get() / filename.str());
-
-  // TODO: remove the old save file, but only if the save was successful
-
-  gotoMainMenu();
+  if(saveCityNG(world, getConfig()->userDataDir.get() / filename.str()))
+    gotoMainMenu();
 }
 
 void

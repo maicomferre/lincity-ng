@@ -484,6 +484,38 @@ TTEST(continue_slot_chain_loads_in_order) {
     TCHECK_EQ(r3->total_time, 0);
 }
 
+TTEST(save_api_reports_io_failure) {
+  // BUG-15: a failed save must be observable by its caller and must not leave
+  // a partial replacement or temporary file behind.
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+
+  const std::filesystem::path parent =
+    headless::user_data() / "bug15-missing-parent";
+  const std::filesystem::path filename = parent / "save.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove_all(parent, ec);
+
+  TCHECK(!saveCityNG(*world, filename));
+  TCHECK(!std::filesystem::exists(filename));
+  TCHECK(!autoSaveCityNG(*world, filename));
+  TCHECK(!std::filesystem::exists(filename));
+  TCHECK(!std::filesystem::exists(filename.string() + ".tmp"));
+
+  // A commit failure must preserve the previous slot as well. A directory at
+  // the destination makes the final rename fail after the temporary save has
+  // succeeded, exercising the atomic-commit branch.
+  std::filesystem::create_directories(parent, ec);
+  std::filesystem::create_directory(filename, ec);
+  TCHECK(!saveCityNG(*world, filename));
+  TCHECK(std::filesystem::is_directory(filename));
+  TCHECK(!std::filesystem::exists(filename.string() + ".tmp"));
+  std::filesystem::remove_all(parent, ec);
+}
+
 TTEST(bridge_charges_resolved_cost) {
   // BUG-04: a road segment placed on water becomes a bridge and must be
   // charged the bridge price (BRIDGE_FACTOR x the road), not the road

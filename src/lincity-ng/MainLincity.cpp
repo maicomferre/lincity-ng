@@ -24,8 +24,8 @@
 
 #include <stdlib.h>                       // for srand
 #include <time.h>                         // for time
-#include <cassert>                        // for assert
 #include <iostream>                       // for char_traits, basic_ostream
+#include <string_view>                    // for string_view
 #include <stdexcept>                      // for runtime_error
 #include <string>                         // for basic_string, operator+
 #include <fmt/format.h>
@@ -45,6 +45,42 @@ extern void initFactories(void);
 int simDelay = SIM_DELAY_SLOW;
 /******************************************/
 
+namespace {
+
+bool saveCityAtomically(const World& world,
+    const std::filesystem::path& filename, std::string_view operation) {
+  std::filesystem::path tmp = filename;
+  tmp += ".tmp";
+  try {
+    world.save(tmp);
+    std::error_code ec;
+    std::filesystem::rename(tmp, filename, ec);
+    if(ec) {
+      std::cerr << "error: failed to commit " << operation << " to '"
+        << filename.string() << "': " << ec.message() << std::endl;
+      std::filesystem::remove(tmp, ec);
+      return false;
+    }
+    std::cout << operation << " game to '" << filename.string() << "'"
+      << std::endl;
+    return true;
+  } catch(const std::exception& err) {
+    std::cerr << "error: failed to " << operation << " to '"
+      << filename.string() << "': " << err.what() << std::endl;
+    std::error_code ec;
+    std::filesystem::remove(tmp, ec);
+    return false;
+  } catch(...) {
+    std::cerr << "error: failed to " << operation << " to '"
+      << filename.string() << "': unknown exception" << std::endl;
+    std::error_code ec;
+    std::filesystem::remove(tmp, ec);
+    return false;
+  }
+}
+
+} // namespace
+
 void setSimulationDelay( int speed )
 {
     simDelay = speed;
@@ -53,16 +89,8 @@ void setSimulationDelay( int speed )
 /*
  * get Data form Lincity NG and Save City
  */
-void saveCityNG(const World& world, const std::filesystem::path& filename) {
-  std::filesystem::path fullname = filename;
-  try {
-    world.save(fullname);
-    std::cout << "saved game to '" << fullname.string() << "'" << std::endl;
-  } catch(std::runtime_error err) {
-    std::cerr << "error: failed to save game to '" << fullname.string() << "': "
-      << err.what() << std::endl;
-    assert(false);
-  }
+bool saveCityNG(const World& world, const std::filesystem::path& filename) {
+  return saveCityAtomically(world, filename, "save");
 }
 
 /*
@@ -70,27 +98,8 @@ void saveCityNG(const World& world, const std::filesystem::path& filename) {
  * Writes to a temporary file first and renames it into place, so that a
  * crash mid-write never corrupts an existing save.
  */
-void autoSaveCityNG(const World& world, const std::filesystem::path& filename) {
-  std::filesystem::path tmp = filename;
-  tmp += ".tmp";
-  try {
-    world.save(tmp);
-    std::error_code ec;
-    std::filesystem::rename(tmp, filename, ec);
-    if(ec) {
-      std::cerr << "error: failed to rename autosave into place at '"
-        << filename.string() << "': " << ec.message() << std::endl;
-      std::filesystem::remove(tmp, ec);
-    } else {
-      std::cout << "autosaved game to '" << filename.string() << "'"
-        << std::endl;
-    }
-  } catch(std::runtime_error err) {
-    std::cerr << "error: failed to autosave game to '" << filename.string()
-      << "': " << err.what() << std::endl;
-    std::error_code ec;
-    std::filesystem::remove(tmp, ec);
-  }
+bool autoSaveCityNG(const World& world, const std::filesystem::path& filename) {
+  return saveCityAtomically(world, filename, "autosave");
 }
 
 /*
