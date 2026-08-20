@@ -4,6 +4,9 @@
 
 #include "../tiny_test.hpp"
 
+#include <cstdint>
+#include <limits>
+
 #include "lincity/economy.hpp"
 
 TTEST(compute_cost_scales_with_tech) {
@@ -57,6 +60,7 @@ TTEST(compute_interest_capped) {
   TCHECK_EQ(0, compute_interest(1000));
   TCHECK_EQ(15000, compute_interest(-1000000)); // 1000 * 15
   TCHECK_EQ(1000000, compute_interest(-1000000000)); // capped
+  TCHECK_EQ(1000000, compute_interest(std::numeric_limits<int>::min()));
 }
 
 TTEST(compute_clamp_money) {
@@ -65,6 +69,10 @@ TTEST(compute_clamp_money) {
   TCHECK_EQ(2000000000, compute_clamp_money(2100000000));
   TCHECK_EQ(-2000000000, compute_clamp_money(-2000000000));
   TCHECK_EQ(-2000000000, compute_clamp_money(-2100000000));
+  TCHECK_EQ(2000000000,
+    compute_clamp_money(std::numeric_limits<std::int64_t>::max()));
+  TCHECK_EQ(-2000000000,
+    compute_clamp_money(std::numeric_limits<std::int64_t>::min()));
 }
 
 TTEST(compute_tax_burden_labor_defaults_inert) {

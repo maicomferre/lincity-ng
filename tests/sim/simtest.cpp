@@ -20,6 +20,7 @@
 #include <SDL3/SDL.h>
 
 #include <array>
+#include <climits>
 #include <cstdlib>
 #include <filesystem>
 #include <iostream>
@@ -328,6 +329,26 @@ TTEST(credit_limit_keeps_simulating) {
       TCHECK(!"simulation threw at the credit limit");
       return;
     }
+  }
+}
+
+TTEST(money_operations_handle_integer_boundaries) {
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+
+  world->total_money = INT_MAX - 1;
+  world->income(10, world->stats.income.income_tax);
+  TCHECK_EQ(INT_MAX, world->total_money);
+
+  world->total_money = INT_MIN;
+  try {
+    world->expense(1, world->stats.expenses.construction);
+    TCHECK(!"expense below the credit limit did not throw");
+  } catch(const Message::Exception&) {
+    TCHECK(true);
   }
 }
 
