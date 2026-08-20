@@ -92,8 +92,10 @@ void Game::showHelpWindow( std::string topic ){
 
 void Game::backToMainMenu(){
     closeAllDialogs();
-    saveCityNG(*world,
-      getConfig()->userDataDir.get() / "9_currentGameNG.scn.gz");
+    if(!saveCityNG(*world,
+      getConfig()->userDataDir.get() / "9_currentGameNG.scn.gz"))
+      getGameView().printStatusMessage(
+        _("Could not save the current game; returning to menu."));
     running = false;
 }
 
@@ -116,7 +118,9 @@ void Game::quickLoad(){
 void Game::quickSave(){
   //save file
   getGameView().printStatusMessage("quick save...");
-  saveCityNG(*world, getConfig()->userDataDir.get() / "quicksave.scn.gz");
+  if(!saveCityNG(*world,
+    getConfig()->userDataDir.get() / "quicksave.scn.gz"))
+    getGameView().printStatusMessage("quick save failed!");
 }
 
 void Game::testAllHelpFiles(){
@@ -744,15 +748,12 @@ Game::run() {
               // The simulation is in an unknown state. Save what we have and
               // leave this run before anything else touches the world.
               fmt::println(stderr, "error: simulation step failed: {}", err.what());
-              try {
-                saveCityNG(*world, getConfig()->userDataDir.get()
-                  / "crashsave.scn.gz");
-              } catch(const std::exception&) {
-                // nothing more we can do
-              }
+              const bool crash_saved = saveCityNG(*world,
+                getConfig()->userDataDir.get() / "crashsave.scn.gz");
               getGameView().printStatusMessage(fmt::format(
-                "error: simulation step failed: {}; game saved to "
-                "crashsave.scn.gz", err.what()));
+                "error: simulation step failed: {}; {}crashsave.scn.gz",
+                err.what(), crash_saved ? "game saved to "
+                                        : "could not save "));
               // backToMainMenu() performs the clean-exit save.  That save is
               // deliberately forbidden after a failed tick: the world may
               // contain a partially applied transaction.  Returning lets
@@ -765,15 +766,12 @@ Game::run() {
               // exception_ptr, which is what OutOfMoneyMessage used to do).
               // Don't let it terminate the game.
               fmt::println(stderr, "error: simulation step failed (unknown exception)");
-              try {
-                saveCityNG(*world, getConfig()->userDataDir.get()
-                  / "crashsave.scn.gz");
-              } catch(const std::exception&) {
-                // nothing more we can do
-              }
+              const bool crash_saved = saveCityNG(*world,
+                getConfig()->userDataDir.get() / "crashsave.scn.gz");
               getGameView().printStatusMessage(fmt::format(
-                "error: simulation step failed (unknown exception); "
-                "game saved to crashsave.scn.gz"));
+                "error: simulation step failed (unknown exception); {}"
+                "crashsave.scn.gz", crash_saved ? "game saved to "
+                                                : "could not save "));
               // Do not call backToMainMenu(): it would create a clean save
               // from the same potentially inconsistent world.
               running = false;
@@ -788,10 +786,11 @@ Game::run() {
             if(world->total_time - lastAutosaveDay >= AUTOSAVE_INTERVAL_DAYS
               && tick - lastAutosaveTick >= AUTOSAVE_INTERVAL_MS
             ) {
-              autoSaveCityNG(*world, getConfig()->userDataDir.get()
-                / "autosave.scn.gz");
-              lastAutosaveDay = world->total_time;
-              lastAutosaveTick = tick;
+              if(autoSaveCityNG(*world, getConfig()->userDataDir.get()
+                / "autosave.scn.gz")) {
+                lastAutosaveDay = world->total_time;
+                lastAutosaveTick = tick;
+              }
             }
 
             new_day = true;
