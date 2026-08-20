@@ -90,7 +90,7 @@ const float GameView::defaultTileHeight = 64;
 const float GameView::defaultZoom = 1.0;    // fastest drawing
 
 GameView::GameView() {
-    loaderThread = 0;
+    loaderThread = nullptr;
     keyScrollState = SCROLL_NONE;
     mouseScrollState = SCROLL_NONE;
     remaining_images = 0;
@@ -105,20 +105,38 @@ GameView::GameView() {
 }
 
 GameView::~GameView() {
-    stopThread = true;
-    SDL_WaitThread( loaderThread, NULL );
+    stopThread.store(true, std::memory_order_release);
+    if(loaderThread) {
+      SDL_WaitThread(loaderThread, NULL);
+      loaderThread = nullptr;
+    }
 }
 
 //Static function to use with SDL_CreateThread
 int GameView::gameViewThread( void* data )
 {
     GameView* gv = (GameView*) data;
-    gv->preReadImages();
-    gv->textures_ready = true;
+    try {
+      gv->preReadImages();
+    } catch(const std::exception& err) {
+      gv->setTextureLoadError(fmt::format("{}", err.what()));
+    } catch(...) {
+      gv->setTextureLoadError("unknown exception while reading images");
+    }
+    gv->textures_ready.store(true, std::memory_order_release);
     //keep thread alive as long as there are SDL_Surfaces
-    while(!gv->stopThread && gv->remaining_images!=0)
+    while(!gv->stopThread.load(std::memory_order_acquire)
+      && gv->remaining_images.load(std::memory_order_acquire) != 0)
     {   SDL_Delay(100);}
     return 0;
+}
+
+void GameView::setTextureLoadError(const std::string& message) {
+  if(!texture_load_failed.load(std::memory_order_relaxed)) {
+    texture_load_error = message;
+    texture_load_failed.store(true, std::memory_order_release);
+    fmt::println(stderr, "error: texture loading failed: {}", message);
+  }
 }
 
 void
@@ -136,8 +154,17 @@ GameView::parse(xmlpp::TextReader& reader) {
   blankGraphicsInfo.x = blankGraphicsInfo.texture->getWidth() / 2;
   blankGraphicsInfo.y = blankGraphicsInfo.texture->getHeight();
 
-  stopThread = false;
+  stopThread.store(false, std::memory_order_release);
+  textures_ready.store(false, std::memory_order_release);
+  remaining_images.store(0, std::memory_order_release);
+  texture_load_failed.store(false, std::memory_order_release);
+  texture_load_error.clear();
   loaderThread = SDL_CreateThread( gameViewThread, "Loader", this );
+  if(!loaderThread) {
+    setTextureLoadError(fmt::format("could not start image loader: {}",
+      SDL_GetError()));
+    textures_ready.store(true, std::memory_order_release);
+  }
 
   //GameView is resizable
   setFlags(FLAG_RESIZABLE);
@@ -553,11 +580,16 @@ GameView::preReadImages(void) {
           fmt::println(stderr, "error: failed to read image {}", key);
         }
         assert(hasX && hasY);
-        if(!hasX) xmlX = int(graphicsInfo->image->w/2);
-        if(!hasY) xmlY = int(graphicsInfo->image->h);
+        if(!hasX)
+          xmlX = graphicsInfo->image ? int(graphicsInfo->image->w/2) : 0;
+        if(!hasY)
+          xmlY = graphicsInfo->image ? int(graphicsInfo->image->h) : 0;
         graphicsInfo->x = xmlX;
         graphicsInfo->y = xmlY;
-        ++remaining_images;
+        // A missing/recoloring-failed image has nothing to convert. Do not
+        // count it as pending or the loading barrier can never reach zero.
+        if(graphicsInfo->image)
+          ++remaining_images;
       }
       key.clear();
     }
@@ -1217,7 +1249,15 @@ void GameView::fetchTextures() {
     for(size_t i = 0; i < it->second->graphicsInfoVector.size(); ++i) {
       auto& gfx = it->second->graphicsInfoVector[i];
       if(!gfx.texture && gfx.image) {
-        gfx.texture = texture_manager->create(gfx.image);
+        try {
+          gfx.texture = texture_manager->create(gfx.image);
+        } catch(const std::exception& err) {
+          setTextureLoadError(err.what());
+          return;
+        } catch(...) {
+          setTextureLoadError("unknown exception while creating texture");
+          return;
+        }
         if(gfx.texture) {
           // BUG-10: texture_manager->create() does NOT destroy the source
           // surface (TextureManagerSDL::create only destroys its own mipmap
@@ -1228,8 +1268,11 @@ void GameView::fetchTextures() {
           SDL_DestroySurface(gfx.image);
           gfx.image = 0;
           gfx.texture->setScaleMode(Texture::ScaleMode::NEAREST);
+          --remaining_images;
+        } else {
+          setTextureLoadError("texture manager returned null");
+          return;
         }
-        --remaining_images;
       }
     }
   }
@@ -1246,15 +1289,26 @@ void GameView::drawTexture(Painter& painter, const MapPoint &tile, GraphicsInfo 
     {
         if(graphicsInfo->image)
         {
-            graphicsInfo->texture = texture_manager->create( graphicsInfo->image );
+            try {
+              graphicsInfo->texture = texture_manager->create(
+                graphicsInfo->image);
+            } catch(const std::exception& err) {
+              setTextureLoadError(err.what());
+              return;
+            } catch(...) {
+              setTextureLoadError("unknown exception while creating texture");
+              return;
+            }
             if(graphicsInfo->texture) {
               // BUG-10: same as fetchTextures — create() does not destroy
               // the source surface. Destroy it here.
               SDL_DestroySurface(graphicsInfo->image);
               graphicsInfo->image = 0;
               graphicsInfo->texture->setScaleMode(Texture::ScaleMode::NEAREST);
+              --remaining_images;
+            } else {
+              setTextureLoadError("texture manager returned null");
             }
-            --remaining_images;
         }
     }
     if (graphicsInfo->texture)

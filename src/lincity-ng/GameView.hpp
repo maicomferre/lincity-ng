@@ -103,6 +103,14 @@ public:
     std::atomic<bool> textures_ready;
     std::atomic<int> remaining_images;
 
+    // A loader failure must terminate the loading barrier instead of leaving
+    // the main thread waiting forever (or allowing an exception to escape
+    // from the SDL worker thread).
+    bool hasTextureLoadError() const {
+        return texture_load_failed.load(std::memory_order_acquire);
+    }
+    std::string textureLoadError() const { return texture_load_error; }
+
     /* Floating cost text near the cursor: itemized preview while dragging
      * and the negative total after releasing (FEAT-01). */
     void setFloatingText(const std::string& text, Vector2 pos,
@@ -149,6 +157,7 @@ private:
     SDL_Surface* recolorSurface(SDL_Surface* src, const Tint& tint);
     void preReadImages(void);
     Texture* readTexture(const std::filesystem::path& filename);
+    void setTextureLoadError(const std::string& message);
     //void loadTextures();
     //void preReadCityTexture(int textureType, const std::string& filename);
 
@@ -190,7 +199,9 @@ private:
     //SDL_mutex* mTextures;
     //SDL_mutex* mThreadRunning;
     SDL_Thread* loaderThread;
-    bool stopThread;
+    std::atomic<bool> stopThread{false};
+    std::atomic<bool> texture_load_failed{false};
+    std::string texture_load_error;
 
     MapPoint tileUnderMouse;
     bool mouseInGameView;

@@ -437,6 +437,7 @@ TTEST(game_flow_reset_and_loading_barrier) {
 
   // When run() returns the whole loading pipeline must be complete.
   TCHECK(game.getGameView().textures_ready);
+  TCHECK(!game.getGameView().hasTextureLoadError());
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
 }
 

@@ -565,9 +565,21 @@ Game::run() {
         if(!pollLoadingEvents()) return;
         SDL_Delay(10);
       }
+      if(getGameView().hasTextureLoadError()) {
+        getGameView().printStatusMessage(fmt::format(
+          _("Texture loading failed: {}"),
+          getGameView().textureLoadError()));
+        return;
+      }
       const int total = getGameView().remaining_images;
       while(getGameView().remaining_images) {
         getGameView().fetchTextures();
+        if(getGameView().hasTextureLoadError()) {
+          getGameView().printStatusMessage(fmt::format(
+            _("Texture loading failed: {}"),
+            getGameView().textureLoadError()));
+          return;
+        }
         if(!pollLoadingEvents()) return;
         drawLoading(total - getGameView().remaining_images, total);
         SDL_Delay(5);
@@ -810,6 +822,13 @@ Game::run() {
           //fetch remaining textures in order loader thread can exit
           if(getGameView().textures_ready && getGameView().remaining_images)
             getGameView().fetchTextures();
+          if(getGameView().hasTextureLoadError()) {
+            getGameView().printStatusMessage(fmt::format(
+              _("Texture loading failed: {}"),
+              getGameView().textureLoadError()));
+            running = false;
+            return;
+          }
           getGameView().setDirty();
           getGameView().setMapDirty();
 
