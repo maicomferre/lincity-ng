@@ -49,3 +49,10 @@ endif()
 add_subdirectory(unit)
 add_subdirectory(sim)
 add_subdirectory(save)
+
+# TST-07: the development driver must propagate failures and keep concurrent
+# runs isolated. It uses a fake ctest binary and does not require app-data.
+add_test(
+  NAME devlog-driver
+  COMMAND bash ${CMAKE_SOURCE_DIR}/tests/devlog_test.sh ${CMAKE_SOURCE_DIR}
+)

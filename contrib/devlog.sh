@@ -40,20 +40,30 @@ fi
 
 tag() {
   local run_tag="${1:-dev}"
-  echo "$(date -u +%Y%m%d-%H%M%S)_${run_tag}"
+  # Seconds are not unique when two CI/debug runs start together. Include the
+  # shell PID and nanoseconds so each run has its own directory.
+  echo "$(date -u +%Y%m%d-%H%M%S.%N)_${BASHPID}_${run_tag}"
 }
 
 # latest symlink + retention pruning, called after a run dir is created.
 finalize_run() {
   local run_dir="$1"
-  ln -sfn "$(basename "$run_dir")" "$LOGS_ROOT/latest"
-  mapfile -t old < <(ls -1dt "$LOGS_ROOT"/[0-9]*_* 2>/dev/null || true)
-  local n_old=${#old[@]}
-  if (( n_old > KEEP )); then
-    for (( i = KEEP; i < n_old; i++ )); do
-      rm -rf "${old[$i]}"
-    done
-  fi
+  (
+    # Protect latest replacement and retention from concurrent test runs.
+    flock -x 9
+    local latest_tmp="$LOGS_ROOT/.latest.${BASHPID}"
+    rm -f "$latest_tmp"
+    ln -s "$(basename "$run_dir")" "$latest_tmp"
+    # rename(2) atomically replaces the previous symlink.
+    mv -Tf "$latest_tmp" "$LOGS_ROOT/latest"
+    mapfile -t old < <(ls -1dt "$LOGS_ROOT"/[0-9]*_* 2>/dev/null || true)
+    local n_old=${#old[@]}
+    if (( n_old > KEEP )); then
+      for (( i = KEEP; i < n_old; i++ )); do
+        rm -rf "${old[$i]}"
+      done
+    fi
+  ) 9>"$LOGS_ROOT/.finalize.lock"
 }
 
 write_run_json() {
@@ -103,7 +113,7 @@ parse_common() {
 run_binary() {
   local name="$1" bin="$2"
   shift 2
-  local run_dir="$LOGS_ROOT/$(tag "$name")"
+  local run_dir="$LOGS_ROOT/$(tag "${RUN_TAG:-$name}")"
   mkdir -p "$run_dir"
   write_run_json "$run_dir" "$name" "$bin" "$@"
   local stdout="$run_dir/stdout.log"
@@ -119,14 +129,20 @@ run_binary() {
   local rc=0
   if (( USE_GDB )); then
     # gdb batch: stdout holds program + backtrace, stderr gets gdb's own output
-    gdb -batch -ex run -ex bt --args "$bin" "$@" >"$stdout" 2>"$stderr"
-    rc=$?
+    if gdb -batch -ex run -ex bt --args "$bin" "$@" >"$stdout" 2>"$stderr"; then
+      rc=0
+    else
+      rc=$?
+    fi
     if grep -q '^Thread\|#0 ' "$stdout"; then
       cp "$stdout" "$run_dir/bt.txt"
     fi
   else
-    "$bin" "$@" >"$stdout" 2>"$stderr"
-    rc=$?
+    if "$bin" "$@" >"$stdout" 2>"$stderr"; then
+      rc=0
+    else
+      rc=$?
+    fi
   fi
   echo "exit=$rc" >> "$stdout"
   finalize_run "$run_dir"
@@ -173,7 +189,7 @@ cmd_ctest() {
   parse_common ctest "$@"
   local dir="$BUILD_DIR"
   [[ $USE_ASAN == 1 ]] && dir="$ASAN_DIR"
-  local run_dir="$LOGS_ROOT/$(tag ctest)"
+  local run_dir="$LOGS_ROOT/$(tag "$RUN_TAG")"
   mkdir -p "$run_dir"
   write_run_json "$run_dir" ctest "ctest --test-dir $dir"
   export LINCITYNG_LOG_LEVEL="${LEVEL_FLAG[1]:-$DEFAULT_LEVEL}"
@@ -181,9 +197,12 @@ cmd_ctest() {
     export LINCITYNG_LOG_AREAS="${AREA_FLAG[1]}"
   fi
   # unit test sinks only via env; sim/save forward their own --log-* flags
-  ctest --test-dir "$dir" "${ARGS[@]}" >"$run_dir/stdout.log" 2>"$run_dir/stderr.log" \
-    || true
-  local rc=$?
+  local rc=0
+  if ctest --test-dir "$dir" "${ARGS[@]}" >"$run_dir/stdout.log" 2>"$run_dir/stderr.log"; then
+    rc=0
+  else
+    rc=$?
+  fi
   echo "exit=$rc" >> "$run_dir/stdout.log"
   finalize_run "$run_dir"
   return $rc
