@@ -19,6 +19,7 @@
 
 #include "lincity-ng/Config.hpp"   // for getConfig
 #include "lincity/init_game.hpp"   // for city_settings, new_city
+#include "lincity/modules/port.hpp" // for Port, portConstructionGroup
 #include "lincity/world.hpp"       // for World
 #include "util/debuglog.hpp"       // for LNG_LOG, init_logging
 
@@ -144,6 +145,32 @@ TTEST(round_trip_new_city) {
 
   TCHECK(compare_worlds(*world, *reloaded, "new_city"));
   std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+}
+
+TTEST(round_trip_port_fractional_remainder) {
+  // BUG-16: pence is the sub-unit carried into the next port update. It is
+  // not derived from the visible totals and must survive a save/load.
+  std::unique_ptr<World> world = std::make_unique<World>(100);
+  auto* port = new Port(*world, &portConstructionGroup);
+  port->pence = 73;
+  const MapPoint point(10, 10);
+  port->place(point);
+
+  const std::filesystem::path tmp =
+    headless::user_data() / "roundtrip_port_pence.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  world->save(tmp);
+
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(reloaded) {
+    auto* loaded = dynamic_cast<Port*>(reloaded->map(point)->construction);
+    TCHECK(loaded != nullptr);
+    if(loaded)
+      TCHECK_EQ(loaded->pence, 73);
+  }
   std::filesystem::remove(tmp, ec);
 }
 
