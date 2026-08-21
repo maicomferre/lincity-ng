@@ -100,6 +100,23 @@ public:
         else
         {   std::cout << "error: unreachable resourceGroup: " << resourceID << std::endl;}
     }
+    // Release per-Game graphics while keeping the module-owned resource
+    // groups registered for the next Game instance (BUG-21/R6).
+    void resetGraphics()
+    {
+        for(auto& gfx : graphicsInfoVector) {
+            if(gfx.image) {
+                SDL_DestroySurface(gfx.image);
+                gfx.image = 0;
+            }
+            // GameView creates these textures directly; they are not owned
+            // by TextureManager's load cache.
+            delete gfx.texture;
+            gfx.texture = 0;
+        }
+        graphicsInfoVector.clear();
+        images_loaded = false;
+    }
     std::string resourceID;
     bool images_loaded;
     bool sounds_loaded;

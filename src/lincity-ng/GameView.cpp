@@ -110,6 +110,8 @@ GameView::~GameView() {
       SDL_WaitThread(loaderThread, NULL);
       loaderThread = nullptr;
     }
+    for(auto& entry : ResourceGroup::resMap)
+      entry.second->resetGraphics();
 }
 
 //Static function to use with SDL_CreateThread
