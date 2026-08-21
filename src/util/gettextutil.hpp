@@ -31,12 +31,12 @@
 
 #define N_(MSG) gettext_noop(MSG)
 
-static const char *
+inline const char *
 _(const char *msg) {
   return gettext(msg);
 }
 
-static const std::string
+inline const std::string
 _(const std::string& msg) {
   return gettext(msg.c_str());
 }
