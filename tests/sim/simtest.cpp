@@ -32,6 +32,7 @@
 
 #include "headless_env.hpp"
 #include "gui/Paragraph.hpp"              // for Paragraph
+#include "gui/SwitchComponent.hpp"        // for active MPS page
 
 #include "lincity-ng/Config.hpp"             // for getConfig
 #include "lincity-ng/Game.hpp"               // for Game
@@ -40,6 +41,7 @@
 #include "lincity-ng/MainLincity.hpp"        // for loadContinueCityNG
 #include "lincity-ng/MapThumbnail.hpp"       // for MapThumbnail
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
+#include "lincity-ng/Mps.hpp"                // for ManagementKpis, MpsFinance
 #include "lincity-ng/Util.hpp"              // for getParagraph
 #include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/all_buildings.hpp"          // for INCOME_TAX_RATE...
@@ -505,6 +507,73 @@ TTEST(game_flow_reset_and_loading_barrier) {
   TCHECK(game.getGameView().textures_ready);
   TCHECK(!game.getGameView().hasTextureLoadError());
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
+}
+
+TTEST(management_kpis_are_shared_by_mps_and_game_stats) {
+  // FEAT-03a: presentation reads one snapshot, so MPS and GameStats cannot
+  // silently diverge in population/reserve definitions.
+  initVideo(800, 600);
+  Game game(window);
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  game.setWorld(std::move(world));
+
+  World& current = game.getWorld();
+  current.total_money = 123456;
+  current.tech_level = 77;
+  current.stats.total_pollution = 42;
+  current.stats.population.population_m.stat = 12345;
+  current.stats.population.housed_m.stat = 9000;
+  current.stats.population.unemployed_m.stat = 500;
+  current.stats.population.starving_m.stat = 200;
+  current.stats.inventory[STUFF_FOOD].amount.stat = 11;
+  current.stats.inventory[STUFF_GOODS].amount.stat = 22;
+  current.stats.inventory[STUFF_COAL].amount.stat = 33;
+  current.stats.inventory[STUFF_ORE].amount.stat = 44;
+  for(MapTile& tile : current.map) {
+    tile.coal_reserve = 0;
+    tile.ore_reserve = 0;
+  }
+  current.map(MapPoint(1, 1))->coal_reserve = 7;
+  current.map(MapPoint(2, 2))->ore_reserve = 9;
+
+  const ManagementKpis kpis = collectManagementKpis(current);
+  TCHECK_EQ(kpis.money, 123456);
+  TCHECK_EQ(kpis.population, 123);
+  TCHECK_EQ(kpis.housed, 90);
+  TCHECK_EQ(kpis.unemployed, 5);
+  TCHECK_EQ(kpis.starving, 2);
+  TCHECK_EQ(kpis.tech, 77);
+  TCHECK_EQ(kpis.pollution, 42);
+  TCHECK_EQ(kpis.food_stock, 11);
+  TCHECK_EQ(kpis.goods_stock, 22);
+  TCHECK_EQ(kpis.coal_stock, 33);
+  TCHECK_EQ(kpis.ore_stock, 44);
+  TCHECK_EQ(kpis.coal_reserve, 7L);
+  TCHECK_EQ(kpis.ore_reserve, 9L);
+
+  game.getMiniMap().switchView("GlobalMPS");
+  game.getMpsFinance().page = MpsFinance::Page::MANAGEMENT;
+  game.getMpsFinance().refresh();
+  SwitchComponent* switcher = getSwitchComponent(
+    game.getGui(), "MiniMapSwitch");
+  Component* mps = switcher ? switcher->getActiveComponent() : nullptr;
+  Paragraph* mpsMoney = mps
+    ? dynamic_cast<Paragraph*>(mps->findComponent("mps_text1")) : nullptr;
+  TCHECK(mpsMoney != nullptr);
+  if(mpsMoney)
+    TCHECK(mpsMoney->getText().find("123") != std::string::npos);
+
+  openGameStats(game);
+  Paragraph* statsReserve = getParagraph(
+    game.getGui(), "statistic_value_15_1");
+  TCHECK(statsReserve != nullptr);
+  if(statsReserve)
+    TCHECK_EQ(statsReserve->getText(), std::string("7"));
+  closeAllDialogs();
 }
 
 TTEST(continue_slot_chain_loads_in_order) {

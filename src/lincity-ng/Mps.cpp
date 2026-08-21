@@ -381,6 +381,30 @@ MpsMap::refreshGround() {
 #endif
 }
 
+ManagementKpis
+collectManagementKpis(const World& world) {
+  ManagementKpis kpis;
+  const Stats& stats = world.stats;
+  kpis.money = world.total_money;
+  kpis.population = stats.population.population_m.stat / NUMOF_DAYS_IN_MONTH;
+  kpis.housed = stats.population.housed_m.stat / NUMOF_DAYS_IN_MONTH;
+  kpis.unemployed = stats.population.unemployed_m.stat
+    / NUMOF_DAYS_IN_MONTH;
+  kpis.starving = stats.population.starving_m.stat / NUMOF_DAYS_IN_MONTH;
+  kpis.tech = world.tech_level;
+  kpis.pollution = stats.total_pollution;
+  kpis.food_stock = stats.inventory[STUFF_FOOD].amount.stat;
+  kpis.goods_stock = stats.inventory[STUFF_GOODS].amount.stat;
+  kpis.coal_stock = stats.inventory[STUFF_COAL].amount.stat;
+  kpis.ore_stock = stats.inventory[STUFF_ORE].amount.stat;
+
+  for(const MapTile& tile : world.map) {
+    kpis.coal_reserve += tile.coal_reserve;
+    kpis.ore_reserve += tile.ore_reserve;
+  }
+  return kpis;
+}
+
 
 void
 MpsFinance::refresh() {
@@ -394,6 +418,9 @@ MpsFinance::refresh() {
     break;
   case Page::POPULATION:
     refreshPopulation();
+    break;
+  case Page::MANAGEMENT:
+    refreshManagement();
     break;
   }
   fillBlank();
@@ -518,6 +545,26 @@ MpsFinance::refreshPopulation() {
   add_sddp(N_("Unnat. Deaths"),
     std::accumulate(stats.history.unnat_deaths.begin(), unnatDeathsEnd, 0),
     std::max({tdeaths, 1}));
+}
+
+void
+MpsFinance::refreshManagement() {
+  const ManagementKpis kpis = collectManagementKpis(game->getWorld());
+
+  add_s(N_("Management"));
+  add_ss(N_("Money"), num_to_ansi(kpis.money));
+  add_sd(N_("Population"), kpis.population);
+  add_sd(N_("Housed"), kpis.housed);
+  add_sddp(N_("Unemployment"), kpis.unemployed, kpis.housed);
+  add_sddp(N_("Starvation"), kpis.starving, kpis.housed);
+  add_sddp(N_("Tech Level"), kpis.tech, MAX_TECH_LEVEL);
+  add_sd(N_("Pollution"), kpis.pollution);
+  add_ss(N_("Coal Reserve"), num_to_ansi(kpis.coal_reserve));
+  add_ss(N_("Ore Reserve"), num_to_ansi(kpis.ore_reserve));
+  add_ss(N_("Food"), num_to_ansi(kpis.food_stock));
+  add_ss(N_("Goods"), num_to_ansi(kpis.goods_stock));
+  add_ss(N_("Coal"), num_to_ansi(kpis.coal_stock));
+  add_ss(N_("Ore"), num_to_ansi(kpis.ore_stock));
 }
 
 IMPLEMENT_COMPONENT_FACTORY(Mps)

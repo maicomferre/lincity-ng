@@ -73,32 +73,31 @@ public:
     }
     ~ResourceGroup()
     {
-        std::vector<GraphicsInfo>::iterator it;
-        for(it = graphicsInfoVector.begin(); it != graphicsInfoVector.end(); ++it)
-        {
-            // BUG-10: a surface that was never converted to a texture
-            // (e.g. the test ended mid-preReadImages, or the image was
-            // never drawn) would leak. fetchTextures/drawTexture set
-            // image=0 after handing ownership to texture_manager, so
-            // destroying here is safe and only frees the unconverted ones.
-            if(it->image)
-            {
-                SDL_DestroySurface(it->image);
-                it->image = 0;
-            }
-            if(it->texture)
-            {
-                delete it->texture;
-                it->texture = 0;
-            }
-        }
+        resetGraphics();
         if ( resMap.count(resourceID))
         {
             resMap.erase(resourceID);
             //std::cout << "sayonara: " << resourceID << std::endl;
         }
-        else
+        else if(!resMap.empty())
         {   std::cout << "error: unreachable resourceGroup: " << resourceID << std::endl;}
+    }
+    // Release per-Game graphics while keeping the module-owned resource
+    // groups registered for the next Game instance (BUG-21/R6).
+    void resetGraphics()
+    {
+        for(auto& gfx : graphicsInfoVector) {
+            if(gfx.image) {
+                SDL_DestroySurface(gfx.image);
+                gfx.image = 0;
+            }
+            // GameView creates these textures directly; they are not owned
+            // by TextureManager's load cache.
+            delete gfx.texture;
+            gfx.texture = 0;
+        }
+        graphicsInfoVector.clear();
+        images_loaded = false;
     }
     std::string resourceID;
     bool images_loaded;

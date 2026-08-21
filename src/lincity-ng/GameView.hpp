@@ -190,6 +190,12 @@ private:
 
     //upper left corner of the viewport on virtual screen
     Vector2 viewport;
+    // Per-view state used to notify the minimap after a viewport change.
+    // Keeping this on GameView avoids carrying one game's camera state into
+    // the next Game instance (R6/BUG-20).
+    MapPoint previousViewportCenter = MapPoint(0, 0);
+    float previousViewportZoom = 0.0f;
+    bool viewportStateInitialized = false;
 
     int bulldozeCost( MapPoint tile );
     int buildCost( MapPoint tile );

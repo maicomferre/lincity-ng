@@ -77,6 +77,8 @@ ButtonPanel::~ButtonPanel() {
   for(auto tool : tools) {
     delete tool.second;
   }
+  if(buttonPanelInstance == this)
+    buttonPanelInstance = nullptr;
 }
 
 void
