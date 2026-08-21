@@ -113,8 +113,8 @@ void Coal_power::animate(unsigned long real_time) {
   if(real_time >= anim) {
     anim = real_time + ANIM_THRESHOLD(SMOKE_ANIM_SPEED);
     int active = 9*busy/100;
-    for(int i = 0; i < frits.size(); i++) {
-      auto& frit = frits[i];
+    int i = 0;
+    for(auto& frit : frits) {
       const int s = frit->resourceGroup->graphicsInfoVector.size();
       if(i >= active) {
         frit->frame = -1;
@@ -129,6 +129,7 @@ void Coal_power::animate(unsigned long real_time) {
       else if(++frit->frame >= s) {
         frit->frame = 0;
       }
+      ++i;
     }
   }
 

@@ -102,7 +102,7 @@ public:
       unsigned int ldsv_version) override;
 
     std::array<std::list<ExtraFrame>::iterator, 8> frits;
-    int anim;
+    unsigned long anim;
     int  hivolt_output;
     int  tech;
     int  working_days, busy;
