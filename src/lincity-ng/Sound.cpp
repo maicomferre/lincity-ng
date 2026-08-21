@@ -380,8 +380,20 @@ Sound::getIdName(const std::string& filename)
 void
 Sound::musicHalted(void *userdate, MIX_Track *track)
 {
-  getSound()->changeTrack(NEXT_OR_FIRST_TRACK);
-  //FIXME: options menu song entry doesn't update while song changes.
+  (void)userdate;
+  (void)track;
+  if(Sound *sound = getSound()) {
+    // SDL_mixer may invoke this callback away from the main thread. Do not
+    // mutate currentTrack or any GUI state here; the main loop consumes the
+    // request before changing the track.
+    sound->trackChangeRequested.store(true, std::memory_order_release);
+  }
+}
+
+bool
+Sound::consumeTrackChangeRequest()
+{
+  return trackChangeRequested.exchange(false, std::memory_order_acquire);
 }
 
 

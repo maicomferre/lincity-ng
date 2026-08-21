@@ -127,6 +127,7 @@ private:
     void doubleClick(Component *button, std::function<void()> action);
 
     Paragraph* musicParagraph;
+    void refreshMusicParagraph();
     void changeTrack( bool next);
 
     void changeResolution( bool next);

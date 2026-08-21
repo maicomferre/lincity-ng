@@ -295,7 +295,7 @@ MainMenu::updateOptionsMenu() {
   }
   //current background track
   musicParagraph = getParagraph( *optionsMenu, "musicParagraph");
-  musicParagraph->setText(getSound()->currentTrack.title);
+  refreshMusicParagraph();
 
 
   int width = 0, height = 0;
@@ -648,7 +648,14 @@ MainMenu::changeTrack( bool next)
         getSound()->playSound("Click");
         getSound()->changeTrack(PREV_TRACK);
     }
-    musicParagraph->setText(getSound()->currentTrack.title);
+    refreshMusicParagraph();
+}
+
+void
+MainMenu::refreshMusicParagraph()
+{
+    if(musicParagraph)
+        musicParagraph->setText(getSound()->currentTrack.title);
 }
 
 #if ENABLE_NLS
@@ -1091,6 +1098,12 @@ MainMenu::run() {
 
         tick = SDL_GetTicks();
         frame++;
+
+        if(getSound()->consumeTrackChangeRequest()) {
+            getSound()->changeTrack(NEXT_OR_FIRST_TRACK);
+            if(menuSwitch->getActiveComponent() == optionsMenu)
+                refreshMusicParagraph();
+        }
 
         if(tick >= next_gui) { // gui update
             // fire update event
