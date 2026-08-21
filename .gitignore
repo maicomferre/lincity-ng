@@ -8,5 +8,8 @@
 # Local agent entry-point (generated, source of truth is .devdocs/)
 /AGENTS.md
 
+# Local agent configuration
+/opencode.json
+
 # clangd/LSP database (symlink to build/compile_commands.json)
 /compile_commands.json
