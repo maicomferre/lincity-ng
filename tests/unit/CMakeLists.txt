@@ -3,6 +3,7 @@ add_executable(lincity-test-unit
   test_debuglog.cpp
   test_economy.cpp
   test_maptile_frames.cpp
+  test_resolution_options.cpp
   test_util.cpp
 )
 
