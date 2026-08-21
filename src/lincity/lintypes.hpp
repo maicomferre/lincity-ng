@@ -66,7 +66,7 @@ public:
 
   virtual void update() = 0;
   virtual void report(Mps& mps, bool production) const = 0;
-  virtual void animate(unsigned long real_time) {}
+  virtual void animate(unsigned long) {}
 
   /**
    * Initializes a new construction (i.e. one that is not loaded from a save

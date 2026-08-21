@@ -359,7 +359,7 @@ protected:
 
 class OutsideMapMessage : public Message {
 public:
-  OutsideMapMessage(const MapPoint point) { }
+  OutsideMapMessage(const MapPoint point) : point(point) { }
 
   virtual std::string str() const override;
 
