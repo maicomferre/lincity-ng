@@ -159,6 +159,7 @@ GameView::parse(xmlpp::TextReader& reader) {
   remaining_images.store(0, std::memory_order_release);
   texture_load_failed.store(false, std::memory_order_release);
   texture_load_error.clear();
+  viewportStateInitialized = false;
   loaderThread = SDL_CreateThread( gameViewThread, "Loader", this );
   if(!loaderThread) {
     setTextureLoadError(fmt::format("could not start image loader: {}",
@@ -1094,12 +1095,18 @@ void GameView::viewportUpdated()
         return;
     }
 
-    static MapPoint oldCenter = this->getCenter();
-    static float oldZoom = zoom;
-
     MapPoint newCenter = this->getCenter();
 
-    if ( (oldCenter != newCenter) || (oldZoom != zoom) ) {
+    if(!viewportStateInitialized) {
+      previousViewportCenter = newCenter;
+      previousViewportZoom = zoom;
+      viewportStateInitialized = true;
+      refreshMap = true;
+      return;
+    }
+
+    if ( (previousViewportCenter != newCenter)
+      || (previousViewportZoom != zoom) ) {
       //Tell Minimap about new Corners
       Vector2 viewport2 = viewport + getSize();
       getMiniMap()->setGameViewCorners(
@@ -1113,8 +1120,8 @@ void GameView::viewportUpdated()
         )
       );
 
-      oldCenter = newCenter;
-      oldZoom = zoom;
+      previousViewportCenter = newCenter;
+      previousViewportZoom = zoom;
     }
 
     refreshMap = true;
