@@ -96,7 +96,7 @@ public:
     virtual bool loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) override;
 
     int daycount, covercount;
-    int anim;
+    unsigned long anim;
     bool animate_enable, active;
     int working_days, busy;
 };
