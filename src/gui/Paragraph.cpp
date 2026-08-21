@@ -174,6 +174,8 @@ Paragraph::parse(xmlpp::TextReader& reader, const Style& parentstyle) {
         assert(false);
       }
     } break;
+    default:
+      break;
     }
     reader.read();
   }
