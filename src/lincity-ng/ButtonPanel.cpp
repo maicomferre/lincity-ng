@@ -38,6 +38,7 @@
 #include <utility>                        // for pair, move
 
 #include "Game.hpp"                       // for Game
+#include "Config.hpp"                     // for getConfig
 #include "UserOperation.hpp"              // for UserOperation
 #include "Util.hpp"                       // for getCheckButton
 #include "gui/CheckButton.hpp"            // for CheckButton
@@ -47,9 +48,18 @@
 #include "gui/Image.hpp"                  // for Image
 #include "gui/Signal.hpp"                 // for Signal
 #include "lincity/groups.hpp"             // for GROUP_RESIDENCE_HH, GROUP_R...
+#include "lincity/economy.hpp"            // for compute_maintenance_cost, compute_school_cost
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL
 #include "lincity/lintypes.hpp"           // for ConstructionGroup
 #include "lincity/messages.hpp"           // for NotEnoughTechMessage, OutOf...
+#include "lincity/modules/cricket.hpp"    // for CRICKET_RUNNING_COST
+#include "lincity/modules/firestation.hpp" // for FIRESTATION_RUNNING_COST
+#include "lincity/modules/health_centre.hpp" // for HEALTH_RUNNING_COST
+#include "lincity/modules/recycle.hpp"    // for RECYCLE_RUNNING_COST
+#include "lincity/modules/rocket_pad.hpp" // for ROCKET_PAD_RUNNING_COST
+#include "lincity/modules/school.hpp"     // for SCHOOL_RUNNING_COST
+#include "lincity/modules/university.hpp" // for UNIVERSITY_RUNNING_COST
+#include "lincity/modules/track_road_rail.hpp" // for transport groups
 #include "lincity/modules/windmill.hpp"   // for WindmillConstructionGroup
 #include "lincity/modules/windpower.hpp"  // for WindpowerConstructionGroup
 #include "lincity/util.hpp"               // for format_money
@@ -58,6 +68,105 @@
 #include "util/xmlutil.hpp"               // for xmlParse, unexpectedXmlAttr...
 
 using namespace std::placeholders;
+
+namespace {
+
+struct MaintenanceEstimate {
+  int low = 0;
+  int high = 0;
+  int interval_days = 1;
+  bool enabled = true;
+  bool while_generating = false;
+};
+
+/* Presentation adapter only. Every amount and interval below mirrors an
+ * existing charge site in its module; this function must not introduce a
+ * second economic rule. See .devdocs/09-mapa-economia-taxas.md. */
+MaintenanceEstimate maintenanceEstimate(const ConstructionGroup& group,
+    const World& world) {
+  switch(group.group) {
+  case GROUP_SCHOOL:
+    return {
+      compute_school_cost(100, SCHOOL_RUNNING_COST),
+      compute_school_cost(0, SCHOOL_RUNNING_COST),
+      1,
+      getConfig()->schoolRunningCost.get()
+    };
+  case GROUP_FIRESTATION:
+    return {
+      compute_maintenance_cost(FIRESTATION_RUNNING_COST,
+        FIRESTATION_RUNNING_COST_MUL, world.tech_level),
+      compute_maintenance_cost(FIRESTATION_RUNNING_COST,
+        FIRESTATION_RUNNING_COST_MUL, world.tech_level)
+    };
+  case GROUP_HEALTH:
+    return {
+      compute_maintenance_cost(HEALTH_RUNNING_COST,
+        HEALTH_RUNNING_COST_MUL, world.tech_level),
+      compute_maintenance_cost(HEALTH_RUNNING_COST,
+        HEALTH_RUNNING_COST_MUL, world.tech_level)
+    };
+  case GROUP_UNIVERSITY:
+    return {UNIVERSITY_RUNNING_COST, UNIVERSITY_RUNNING_COST};
+  case GROUP_RECYCLE:
+    return {RECYCLE_RUNNING_COST, RECYCLE_RUNNING_COST};
+  case GROUP_CRICKET:
+    return {CRICKET_RUNNING_COST, CRICKET_RUNNING_COST};
+  case GROUP_ROCKET:
+    return {ROCKET_PAD_RUNNING_COST, ROCKET_PAD_RUNNING_COST};
+  case GROUP_WINDMILL:
+    return {1, 1, WINDMILL_RCOST};
+  case GROUP_WIND_POWER:
+    return {1, 1, WIND_POWER_RCOST,
+      getConfig()->windPowerMaintenance.get(), true};
+  case GROUP_ROAD:
+  case GROUP_ROAD_BRIDGE:
+    return {world.money_rates.transport_cost,
+      world.money_rates.transport_cost, 100};
+  case GROUP_RAIL:
+  case GROUP_RAIL_BRIDGE:
+    return {3 * world.money_rates.transport_cost,
+      3 * world.money_rates.transport_cost, 100};
+  default:
+    return {};
+  }
+}
+
+void appendCostSummary(std::stringstream& tooltip, const UserOperation& op,
+    const World& world) {
+  if(op.action != UserOperation::ACTION_BUILD || !op.constructionGroup)
+    return;
+
+  const MaintenanceEstimate maintenance =
+    maintenanceEstimate(*op.constructionGroup, world);
+  tooltip << " [" << _("Build") << ": " << _("$")
+    << format_money(op.constructionGroup->getCosts(world));
+  tooltip << " | " << _("Maintenance (estimate)") << ": ";
+
+  if(!maintenance.enabled) {
+    tooltip << _("disabled");
+  }
+  else if(maintenance.low == 0 && maintenance.high == 0) {
+    tooltip << _("none");
+  }
+  else if(maintenance.low != maintenance.high) {
+    tooltip << _("$") << format_money(maintenance.low) << "-"
+      << _("$") << format_money(maintenance.high) << "/" << _("day");
+  }
+  else {
+    tooltip << _("$") << format_money(maintenance.low);
+    if(maintenance.interval_days == 1)
+      tooltip << "/" << _("day");
+    else
+      tooltip << " " << _("every") << " "
+        << maintenance.interval_days << " " << _("days");
+  }
+
+  if(maintenance.while_generating)
+    tooltip << " (" << _("while generating") << ")";
+}
+
+} // namespace
 
 ButtonPanel *buttonPanelInstance = NULL;
 
@@ -321,13 +430,13 @@ ButtonPanel::updateTech() {
 
     Message::ptr msg;
     if(op.isAllowed(world, msg)) {
-      if(!tool->button->isEnabled() || tool->button->getTooltip() == "") {
-        tool->button->setTooltip(createTooltip(tool));
-        tool->button->enable();
+      // Costs depend on the current technology and transport rate, so the
+      // presentation must be refreshed whenever the world is updated.
+      tool->button->setTooltip(createTooltip(tool));
+      tool->button->enable();
 
-        if(tool == tool->menu->activeTool) {
-          tool->menu->button->enable();
-        }
+      if(tool == tool->menu->activeTool) {
+        tool->menu->button->enable();
       }
     }
     else if(tool->button->isEnabled() || tool->button->getTooltip() == "") {
@@ -395,6 +504,7 @@ ButtonPanel::createTooltip(const Tool *tool) {
       tooltip <<  _(": 400 tenants, high birthrate, high deathrate");
       break;
     }
+    appendCostSummary(tooltip, op, game->getWorld());
     break;
   case UserOperation::ACTION_BULLDOZE:
       tooltip <<  _("Bulldozer") ; break;

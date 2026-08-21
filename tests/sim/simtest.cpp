@@ -31,10 +31,12 @@
 #include <string>
 
 #include "headless_env.hpp"
+#include "gui/CheckButton.hpp"             // for build tooltip regression
 #include "gui/Paragraph.hpp"              // for Paragraph
 #include "gui/SwitchComponent.hpp"        // for active MPS page
 
 #include "lincity-ng/Config.hpp"             // for getConfig
+#include "lincity-ng/ButtonPanel.hpp"        // for build tooltip regression
 #include "lincity-ng/Game.hpp"               // for Game
 #include "lincity-ng/GameView.hpp"           // for GameView
 #include "lincity-ng/Dialog.hpp"            // for openGovernor, closeAllDialogs
@@ -59,6 +61,7 @@
 #include "lincity/init_game.hpp"             // for city_settings, new_city
 #include "lincity/lintypes.hpp"               // for Construction
 #include "lincity/stats.hpp"                 // for Stats
+#include "lincity/util.hpp"                  // for format_money
 #include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
 #include "lincity/world.hpp"                 // for World
 #include "util/randutil.hpp"                 // for BasicUrbg
@@ -519,6 +522,32 @@ TTEST(music_callback_defers_track_change_to_main_thread) {
   Sound::musicHalted(nullptr, nullptr);
   TCHECK(sound->consumeTrackChangeRequest());
   TCHECK(!sound->consumeTrackChangeRequest());
+}
+
+TTEST(build_tooltip_shows_cost_and_operating_estimate) {
+  // QW-04: the build menu exposes the same build/maintenance values used by
+  // the engine, without changing any economic state.
+  initVideo(800, 600);
+  Game game(window);
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  game.setWorld(std::move(world));
+
+  CheckButton* road = getCheckButton(game.getButtonPanel(),
+    "BPMStreetButton");
+  TCHECK(road != nullptr);
+  if(!road)
+    return;
+
+  const World& current = game.getWorld();
+  const std::string tooltip = road->getTooltip();
+  TCHECK(tooltip.find(format_money(
+    roadConstructionGroup.getCosts(current))) != std::string::npos);
+  TCHECK(tooltip.find("100") != std::string::npos);
+  TCHECK(tooltip.find("Maintenance") != std::string::npos);
 }
 
 TTEST(management_kpis_are_shared_by_mps_and_game_stats) {

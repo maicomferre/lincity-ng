@@ -24,6 +24,30 @@ msgstr ""
 msgid "requires"
 msgstr "requer"
 
+msgid "Build"
+msgstr "Construção"
+
+msgid "Maintenance (estimate)"
+msgstr "Manutenção (estimada)"
+
+msgid "disabled"
+msgstr "desativada"
+
+msgid "none"
+msgstr "nenhuma"
+
+msgid "day"
+msgstr "dia"
+
+msgid "every"
+msgstr "a cada"
+
+msgid "days"
+msgstr "dias"
+
+msgid "while generating"
+msgstr "enquanto gera"
+
 #: src/lincity-ng/ButtonPanel.cpp:344
 msgid "tech level"
 msgstr "Nível Tecnológico"
