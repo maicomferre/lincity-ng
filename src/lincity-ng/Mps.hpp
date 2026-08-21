@@ -30,6 +30,7 @@
 
 class Game;
 class MapTile;
+class World;
 class Paragraph;
 namespace xmlpp {
 class TextReader;
@@ -99,10 +100,31 @@ private:
   void refreshGround();
 };
 
+/* FEAT-03a: one read-only view of the management values shown by MPS and
+ * GameStats. Values are already normalized to the display units documented in
+ * .devdocs/09-mapa-economia-taxas.md §14.5. */
+struct ManagementKpis {
+  int money = 0;
+  int population = 0;
+  int housed = 0;
+  int unemployed = 0;
+  int starving = 0;
+  int tech = 0;
+  int pollution = 0;
+  long coal_reserve = 0;
+  long ore_reserve = 0;
+  int food_stock = 0;
+  int goods_stock = 0;
+  int coal_stock = 0;
+  int ore_stock = 0;
+};
+
+ManagementKpis collectManagementKpis(const World& world);
+
 class MpsFinance : public Mps {
 public:
   enum class Page {
-    CASH_FLOW, COSTS, POPULATION
+    CASH_FLOW, COSTS, POPULATION, MANAGEMENT
   };
 
   MpsFinance() { }
@@ -119,6 +141,7 @@ private:
   void refreshCashFlow();
   void refreshCosts();
   void refreshPopulation();
+  void refreshManagement();
 };
 
 #endif

@@ -973,6 +973,10 @@ msgstr "borda mais baixa"
 msgid "Tax Income"
 msgstr "Receita de Impostos"
 
+#: src/lincity-ng/Mps.cpp
+msgid "Management"
+msgstr "Gestão"
+
 #: src/lincity-ng/Mps.cpp:411
 msgid "Income"
 msgstr "Receita"

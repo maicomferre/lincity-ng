@@ -311,6 +311,7 @@ void Dialog::refreshGameStats(){
 
     // Fill in Fields.
     World& world = game.getWorld();
+    const ManagementKpis kpis = collectManagementKpis(world);
     int line = 1;
     int maxlength = 567;
     char* outf = (char *) malloc ( maxlength );
@@ -325,7 +326,7 @@ void Dialog::refreshGameStats(){
         setParagraphN( "statistic_text", line++, outf );
     }
     snprintf (outf, maxlength, "%s %d %s %d %s.",
-        _("Population"), world.stats.population.population_m / NUMOF_DAYS_IN_MONTH,
+        _("Population"), kpis.population,
         _("of which"),  world.people_pool, _("are not housed"));
     setParagraphN( "statistic_text", line++, outf );
     snprintf(outf, maxlength, "%s %d %s %d %s %d",
@@ -431,9 +432,9 @@ void Dialog::refreshGameStats(){
     setTableRC("statistic", 14, 2, _("Ore mines"), world.stats.groupCount[GROUP_OREMINE]);
     setTableRC("statistic", 14, 3, _("Forests"), world.stats.groupCount[GROUP_COMMUNE]);
 
-    setTableRC("statistic", 15, 1, "", "");
-    setTableRC("statistic", 15, 2, "", "");
-    setTableRC("statistic", 15, 3, "", "");
+    setTableRC("statistic", 15, 1, _("Coal Reserve"), kpis.coal_reserve);
+    setTableRC("statistic", 15, 2, _("Ore Reserve"), kpis.ore_reserve);
+    setTableRC("statistic", 15, 3, _("Pollution"), kpis.pollution);
 }
 
 void Dialog::governor() {
