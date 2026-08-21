@@ -6,6 +6,7 @@
 		<DefineStyle name="statistic_text" color="black" font-size="13" halign="left" />
 		<DefineStyle name="statistic_label" color="black" font-size="13" halign="right" />
 		<DefineStyle name="statistic_value" color="black" font-size="13" halign="right" />
+		<DefineStyle name="dialogbutton" color="white" font-size="20" />
                <TableLayout rows="26" cols="6">
             <colsize col="1" relative="28"/>
             <colsize col="2" relative="8"/>
