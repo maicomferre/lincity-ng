@@ -46,6 +46,7 @@
 #include "GameView.hpp"                 // for GameView
 #include "MapThumbnail.hpp"              // for MapThumbnail
 #include "MainLincity.hpp"              // for loadCityNG, saveCityNG
+#include "ResolutionOptions.hpp"         // for resolution filtering
 #include "Sound.hpp"                    // for getSound, Sound, MusicTransport
 #include "Util.hpp"                     // for getCheckButton, getButton
 #include "gui/Button.hpp"               // for Button
@@ -558,7 +559,6 @@ void MainMenu::optionsMenuButtonClicked(CheckButton* button, int) {
 /** Changes the displayed resolution in the options menu.
 This does not actually change the resolution. initVideo has to be called to do this.
 @param next if true change to the next resolution in the list; otherwise change to the previous one
-@todo sort modes before in ascending order and remove unsupported modes like 640x480
 */
 void MainMenu::changeResolution(bool next) {
     if(getConfig()->useFullScreen.get()) {
@@ -568,28 +568,20 @@ void MainMenu::changeResolution(bool next) {
 
     // Create a list of candidate resolutions, including a few fallbacks in
     // case the window system doesn't provide any
-    std::vector<std::pair<int, int>> resolutions;
-    resolutions.push_back(std::pair<int, int>(800,600));
-    resolutions.push_back(std::pair<int, int>(1024,768));
-    resolutions.push_back(std::pair<int, int>(1280,1024));
+    std::vector<ResolutionOptions::Size> resolutions{
+        {800, 600}, {1024, 768}, {1280, 1024}};
 
     int display = SDL_GetDisplayForWindow(window);
     int nmodes;
     SDL_DisplayMode **modes = SDL_GetFullscreenDisplayModes(display, &nmodes);
-    for (int i = 0; i < nmodes; ++i) {
+    for (int i = 0; modes && i < nmodes; ++i) {
         const SDL_DisplayMode *mode = modes[i];
-        bool in_list = false;
-        for (size_t j = 0; j < resolutions.size(); j++) {
-            if (resolutions[j].first == mode->w && resolutions[j].second == mode->h) {
-                in_list = true;
-                break;
-            }
-        }
-        if (!in_list) {
-            resolutions.push_back(std::pair<int, int>(mode->w, mode->h));
+        if (mode) {
+            resolutions.emplace_back(mode->w, mode->h);
         }
     }
-    std::sort(resolutions.begin(), resolutions.end());
+    SDL_free(modes);
+    ResolutionOptions::normalize(resolutions);
 
     const int width = getConfig()->videoX.get();
     const int height = getConfig()->videoY.get();
@@ -603,11 +595,7 @@ void MainMenu::changeResolution(bool next) {
         }
     }
 
-    std::string currentMode = getParagraph( *optionsMenu, "resolutionParagraph")->getText();
-
     std::stringstream mode;
-    mode.str("");
-    mode << resolutions[closest_mode].first << "x" << resolutions[closest_mode].second;
 
     int new_mode = closest_mode + (next ? 1 : -1);
     /* Wrap around */
@@ -617,7 +605,6 @@ void MainMenu::changeResolution(bool next) {
         new_mode = 0;
     }
 
-    mode.str("");
     mode << resolutions[new_mode].first << "x" << resolutions[new_mode].second;
 
     getSound()->playSound("Click");
