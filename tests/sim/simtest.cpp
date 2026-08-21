@@ -42,6 +42,7 @@
 #include "lincity-ng/MapThumbnail.hpp"       // for MapThumbnail
 #include "lincity-ng/MiniMap.hpp"            // for MiniMap
 #include "lincity-ng/Mps.hpp"                // for ManagementKpis, MpsFinance
+#include "lincity-ng/Sound.hpp"              // for music callback request
 #include "lincity-ng/Util.hpp"              // for getParagraph
 #include "lincity-ng/main.hpp"               // for initVideo, window
 #include "lincity/all_buildings.hpp"          // for INCOME_TAX_RATE...
@@ -507,6 +508,17 @@ TTEST(game_flow_reset_and_loading_barrier) {
   TCHECK(game.getGameView().textures_ready);
   TCHECK(!game.getGameView().hasTextureLoadError());
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
+}
+
+TTEST(music_callback_defers_track_change_to_main_thread) {
+  Sound *sound = getSound();
+  TCHECK(sound != nullptr);
+  if(!sound)
+    return;
+
+  Sound::musicHalted(nullptr, nullptr);
+  TCHECK(sound->consumeTrackChangeRequest());
+  TCHECK(!sound->consumeTrackChangeRequest());
 }
 
 TTEST(management_kpis_are_shared_by_mps_and_game_stats) {

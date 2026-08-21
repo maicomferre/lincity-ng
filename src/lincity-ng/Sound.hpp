@@ -26,6 +26,7 @@
 
 #include <SDL3/SDL.h>    // for SDL_Thread
 #include <SDL3_mixer/SDL_mixer.h>   // for MIX_Audio
+#include <atomic>        // for atomic_bool
 #include <filesystem>
 #include <map>           // for multimap
 #include <string>        // for basic_string, string, operator<
@@ -63,6 +64,9 @@ public:
     void playMusic();
     static void musicHalted(void *userdate, MIX_Track *track);
     void changeTrack(MusicTransport command);
+    /* Audio callbacks only set this request. Track changes and GUI updates
+     * are consumed by the main thread in Game/MainMenu. */
+    bool consumeTrackChangeRequest();
     void enableMusic(bool enabled);
     /** set Music volume 0..100, 0=silent */
     void setMusicVolume(int vol);
@@ -94,6 +98,7 @@ private:
     MIX_Track *musicTrack;
     MIX_Track *soundTrack;
     MIX_Mixer *mixer;
+    std::atomic_bool trackChangeRequested{false};
 };
 
 //TODO: singleton

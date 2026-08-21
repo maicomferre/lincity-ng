@@ -693,6 +693,9 @@ Game::run() {
               next_task = 0;
         }
 
+        if(getSound()->consumeTrackChangeRequest())
+          getSound()->changeTrack(NEXT_OR_FIRST_TRACK);
+
         Uint32 tick = SDL_GetTicks();
         get_real_time_with(tick);
         frame++;
