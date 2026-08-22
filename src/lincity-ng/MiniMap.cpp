@@ -784,9 +784,9 @@ MiniMap::getColor(MapTile& tile) const {
     int csttileflags = tile.reportingConstruction
       ? game->getWorld().map(tile.reportingConstruction->point)->flags
       : tile.flags;
-    if((csttileflags & FLAG_FIRE_COVER) && mMode==FIRE
-      || (csttileflags & FLAG_CRICKET_COVER) && mMode==CRICKET
-      || (csttileflags & FLAG_HEALTH_COVER) && mMode==HEALTH
+    if(((csttileflags & FLAG_FIRE_COVER) && mMode==FIRE)
+      || ((csttileflags & FLAG_CRICKET_COVER) && mMode==CRICKET)
+      || ((csttileflags & FLAG_HEALTH_COVER) && mMode==HEALTH)
     ) {
       Color mc(0,0xFF,0);
       mc = light(mc,brightness(getColorNormal(tile)));
