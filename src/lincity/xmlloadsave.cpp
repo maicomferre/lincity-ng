@@ -75,7 +75,7 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& World,
   unsigned int ldsv_version, std::string& rng_state
 );
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
-  unsigned int ldsv_version, std::string& rng_state
+  unsigned int, std::string& rng_state
 );
 static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map);
 static void loadMap(xmlpp::TextReader& xmlReader, World& world,
@@ -944,7 +944,10 @@ static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
         break;
       }
     }
-    else goto more_globals; goto found_global; more_globals:
+    else
+      goto more_globals;
+    goto found_global;
+    more_globals:
 
     for(Commodity c = STUFF_INIT; c < STUFF_COUNT; c++) {
       bool *ixenable = NULL;
@@ -1198,7 +1201,7 @@ static void writeArray(xmlTextWriterPtr xmlWriter, const A& array,
 ) {
   xmlTextWriterWriteAttribute(xmlWriter, (xmlStr)"size",
     xmlFormat<std::size_t>(array.size()));
-  for(int i = 0; i < array.size(); i++) {
+  for(typename A::size_type i = 0; i < array.size(); i++) {
     xmlTextWriterStartElement(xmlWriter,
       (xmlStr)(std::ostringstream() << "index_" << i).str().c_str()
     );
@@ -1228,11 +1231,11 @@ static void readArray(xmlpp::TextReader& xmlReader, A& array,
     typename A::value_type *element = nullptr;
     try {
       element = &array.at(std::stoull(xmlReader.get_name().substr(6)));
-    } catch(std::invalid_argument ex) {
+    } catch(const std::invalid_argument&) {
       unexpectedXmlElement(xmlReader);
       xmlReader.next();
       continue;
-    } catch(std::out_of_range ex) {
+    } catch(const std::out_of_range&) {
       unexpectedXmlElement(xmlReader);
       xmlReader.next();
       continue;
