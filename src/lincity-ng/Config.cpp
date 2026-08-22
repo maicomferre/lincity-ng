@@ -431,7 +431,12 @@ Config::printHelp(const std::string& command) {
     << fmt::format("{} [-v|-h] [-w|-f] [-m] [-c <config>]", command)
     << std::endl << std::endl;
 
-  struct Desc { std::string s; std::string l; std::string p; std::string d; };
+  struct Desc {
+    std::string s{};
+    std::string l{};
+    std::string p{};
+    std::string d{};
+  };
   for(const Desc& o : (const Desc[]){
     {.s="-v",.l="--version",   .d=_("show version and exit")},
     {.s="-h",.l="--help",      .d=_("show this text and exit")},
