@@ -81,6 +81,7 @@ Config::Config() {
   bridgeRealCost.default_ = true;
   taxElasticity.default_ = true;
   scrollSpeed.default_ = 100;
+  deterministicScheduler.default_ = false;
   worldSize.default_ = WORLD_SIDE_LEN;
   language.default_ = "autodetect";
 

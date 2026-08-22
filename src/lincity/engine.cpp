@@ -75,6 +75,9 @@ World::do_pollution() {
   //kill pollution from edges of map
   //diffuse pollution inside the map
 
+  std::optional<RandomContext> pollutionRandom;
+  if(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    pollutionRandom.emplace(randomContext(RandomEvent::POLLUTION));
   for(auto it = map.polluted.begin();
     it != map.polluted.end();
     ++it
@@ -85,7 +88,9 @@ World::do_pollution() {
     }
 
     MapPoint neighbor;
-    switch(lincityRand() % 11) {
+    const int direction = pollutionRandom
+      ? static_cast<int>(pollutionRandom->bounded(11)) : lincityRand() % 11;
+    switch(direction) {
     case 0:
     case 1:
     case 2:
@@ -160,14 +165,21 @@ World::do_fire_health_cricket_power_cover() {
 
 void
 World::do_random_fire() {
-  MapPoint loc(lincityRand() % map.len(), lincityRand() % map.len());\
+  std::optional<RandomContext> fireRandom;
+  if(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    fireRandom.emplace(randomContext(RandomEvent::FIRE));
+  const auto bounded = [&](int upper) {
+    return fireRandom ? static_cast<int>(fireRandom->bounded(upper))
+                      : lincityRand() % upper;
+  };
+  MapPoint loc(bounded(map.len()), bounded(map.len()));
   if(!map.is_visible(loc))
     return;
 
   Construction *cst = map(loc)->reportingConstruction;
   if(!cst) return; // no building to burn down
   const ConstructionGroup& cstGrp = *cst->constructionGroup;
-  if(lincityRand() % 100 >= cstGrp.fire_chance)
+  if(bounded(100) >= cstGrp.fire_chance)
     return;
   if(map(loc)->flags & FLAG_FIRE_COVER)
     return;
@@ -178,6 +190,9 @@ World::do_random_fire() {
 
 void
 World::do_daily_ecology() {
+  std::optional<RandomContext> ecologyRandom;
+  if(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    ecologyRandom.emplace(randomContext(RandomEvent::ECOLOGY));
   for(MapTile& tile : map) {
     /* approximately 3 monthes needed to turn bulldoze area into green */
     /* A tile is desert here iff it has no covering construction (or a
@@ -189,7 +204,8 @@ World::do_daily_ecology() {
         || tile.reportingConstruction->flags & FLAG_TRANSPARENT)
       && tile.group == GROUP_DESERT
       && (tile.flags & FLAG_HAS_UNDERGROUND_WATER)
-      && (lincityRand() % 100 == 1)
+      && ((ecologyRandom
+        ? ecologyRandom->bounded(100) : lincityRand() % 100) == 1)
     ) {
       tile.setTerrain(GROUP_BARE);
       map.desert_water_frontiers(tile.point.x - 1, tile.point.y - 1, 1 + 2, 1 + 2);

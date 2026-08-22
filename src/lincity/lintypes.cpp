@@ -780,13 +780,13 @@ void Construction::trade()
                 switch (stuff_ID)
                 {
                     case STUFF_LABOR :
-                        if((lincityRand()%COMMUTER_TRAFFIC_RATE) < (yield+1)/2
+                        if(world.cosmeticRandomInt(COMMUTER_TRAFFIC_RATE) < (yield+1)/2
                           && transport->canPlaceVehicle()
                           && world.hasBuildingNeighbor(point)
                         ) {
                           world.vehicleList.push_back(
                             new Vehicle(world, point,
-                              Vehicle::randomPassengerCar(), VEHICLE_STRATEGY_RANDOM
+                              Vehicle::randomPassengerCar(world), VEHICLE_STRATEGY_RANDOM
                             )
                           );
                         }
@@ -805,7 +805,8 @@ void Construction::trade()
                 && !(neighbors[i]->constructionGroup->group == GROUP_POWER_LINE)
                 && neighbors[i]->constructionGroup->commodityRuleCount[stuff_ID].give
                 && (neighbors[i]->commodityCount[stuff_ID] > 0))
-                {   powerline->anim_counter = POWER_MODULUS + lincityRand()%POWER_MODULUS;}
+                {   powerline->anim_counter = POWER_MODULUS
+                      + world.cosmeticRandomInt(POWER_MODULUS);}
                 if(powerline->flashing &&
                   neighbors[i]->constructionGroup->group == GROUP_POWER_LINE
                 ) {
@@ -905,7 +906,10 @@ void Construction::playSound()
 {
     int s = soundGroup->chunks.size();
     if(soundGroup->sounds_loaded && s)
-    {   getSound()->playASound( soundGroup->chunks[ lincityRand()%s ] );}
+    {   getSound()->playASound(
+          soundGroup->chunks[world.simulationProtocol()
+            == SimulationProtocol::LEGACY ? lincityRand() % s
+            : getSound()->randomIndex(s)] );}
 }
 
 

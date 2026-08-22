@@ -45,7 +45,6 @@
 #include "lincity/lintypes.hpp"           // for Construction
 #include "lincity/resources.hpp"          // for ResourceGroup
 #include "lincity/world.hpp"              // for MapTile
-#include "util/randutil.hpp"              // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlParse, unexpectedXmlAttr...
 
 Sound* soundPtr = 0;
@@ -334,7 +333,7 @@ Sound::playSound(const std::string& name) {
   }
 
   chunks_t::iterator it = waves.find(name);
-  for(int i = lincityRand() % count; i > 0; i--) {
+  for(std::size_t i = randomIndex(count); i > 0; i--) {
     it++;
   }
 
@@ -352,7 +351,12 @@ Sound::playSound(const MapTile& tile) {
     resourceGroup = tile.getTileResourceGroup();
   int count = resourceGroup->chunks.size();
   if(count)
-    playASound(resourceGroup->chunks[lincityRand() % count]);
+    playASound(resourceGroup->chunks[randomIndex(count)]);
+}
+
+std::size_t Sound::randomIndex(std::size_t count) {
+  assert(count > 0);
+  return static_cast<std::size_t>(audioRandom.bounded(count));
 }
 
 void Sound::playASound(MIX_Audio *chunk) {

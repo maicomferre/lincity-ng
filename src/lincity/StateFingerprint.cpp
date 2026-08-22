@@ -211,7 +211,15 @@ StateFingerprint128 fingerprintBytes(std::string_view bytes) {
 
 StateSnapshot captureStateSnapshot(const World& world) {
   std::vector<StateSection> sections;
-  sections.reserve(3);
+  sections.reserve(4);
+  if(world.simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1) {
+    sections.push_back({
+      "random-protocol-v1",
+      std::string("protocol=1\nseed=")
+        + std::to_string(world.simulationSeed()) + "\nversion="
+        + std::to_string(SimulationRandom::PROTOCOL_VERSION) + "\n"
+    });
+  }
   sections.push_back({
     "gameplay-xml-v1", serializeWorldGameplayState(world)
   });

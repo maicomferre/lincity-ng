@@ -32,6 +32,7 @@
 #include <fmt/std.h> // IWYU pragma: keep
 
 #include "TimerInterface.hpp"             // for reset_start_time
+#include "Config.hpp"                     // for getConfig
 #include "gui/DialogBuilder.hpp"          // for DialogBuilder
 #include "lincity/init_game.hpp"          // for city_settings, new_city
 #include "lincity/lin-city.hpp"             // for SIM_DELAY_SLOW
@@ -144,7 +145,11 @@ std::unique_ptr<World> loadContinueCityNG(
   city_settings city;
   city.with_village = true;
   city.without_trees = false;
-  return new_city(&city, worldSize);
+  const bool deterministic = getConfig()->deterministicScheduler.get();
+  return new_city(&city, worldSize,
+    deterministic ? SimulationProtocol::DETERMINISTIC_V1
+                  : SimulationProtocol::LEGACY,
+    deterministic ? BasicUrbg::get()() : 0);
 }
 
 void initLincity()

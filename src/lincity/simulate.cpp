@@ -176,7 +176,7 @@ World::end_of_month_update(void) {
   scan_pollution();
 
   if(people_pool > 100) {
-    if(lincityRand() % 1000 < people_pool)
+    if(randomInt(RandomEvent::DEMOGRAPHY, 1000) < people_pool)
       people_pool -= 10;
   }
   if(people_pool < 0) {
@@ -277,11 +277,22 @@ World::end_of_year_update(void) {
   setUpdated(Updatable::MONEY);
 
   // change import/export ability
+  std::optional<RandomContext> annualRandom;
+  if(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    annualRandom.emplace(randomContext(RandomEvent::ANNUAL_RULES));
   for(Commodity s = STUFF_INIT; s < STUFF_COUNT; s++) {
-    tradeRule[s].take ^= !(lincityRand() % (tradeRule[s].take
-      ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD));
-    tradeRule[s].give ^= !(lincityRand() % (tradeRule[s].give
-      ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD));
+    const int takePeriod = tradeRule[s].take
+      ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD;
+    const int givePeriod = tradeRule[s].give
+      ? IMPORT_EXPORT_DISABLE_PERIOD : IMPORT_EXPORT_ENABLE_PERIOD;
+    const bool toggleTake = annualRandom
+      ? annualRandom->bounded(takePeriod) == 0
+      : lincityRand() % takePeriod == 0;
+    const bool toggleGive = annualRandom
+      ? annualRandom->bounded(givePeriod) == 0
+      : lincityRand() % givePeriod == 0;
+    tradeRule[s].take ^= toggleTake;
+    tradeRule[s].give ^= toggleGive;
   }
 }
 
@@ -301,7 +312,12 @@ World::simulate_mappoints(void) {
   // seed produced different cities on different runs/builds/machines
   // (surfaced by the tax elasticity A/B sim test flipping on CI after an
   // unrelated memory-layout change).
-  std::shuffle(ordering.begin(), ordering.end(), BasicUrbg::get());
+  if(simulationProtocol() == SimulationProtocol::LEGACY)
+    std::shuffle(ordering.begin(), ordering.end(), BasicUrbg::get());
+  else {
+    RandomContext scheduleRandom = randomContext(RandomEvent::SCHEDULE_ORDER);
+    scheduleRandom.shuffle(ordering.begin(), ordering.end());
+  }
   for(auto cstIt : ordering) {
     Construction *cst = *cstIt;
     if(cst->isDead()) {

@@ -115,12 +115,12 @@ Vehicle::~Vehicle() {
   world.map(framePt)->removeFrame(frameIt);
 }
 
-VehicleModel Vehicle::randomPassengerCar() {
+VehicleModel Vehicle::randomPassengerCar(World& world) {
   static const VehicleModel cars[5] = {
     VEHICLE_BLUECAR, VEHICLE_REDCAR, VEHICLE_GREENCAR,
     VEHICLE_YELLOWCAR, VEHICLE_WHITECAR
   };
-  return cars[lincityRand() % 5];
+  return cars[world.cosmeticRandomInt(5)];
 }
 
 void Vehicle::drive(void) {
@@ -566,8 +566,22 @@ void Vehicle::getNewHeadings() {
     }
   }
 
-  int choice = std::discrete_distribution({weights[0], weights[1],
-    weights[2], weights[3]})(BasicUrbg::get());
+  int choice;
+  if(world.simulationProtocol() == SimulationProtocol::LEGACY) {
+    choice = std::discrete_distribution({weights[0], weights[1],
+      weights[2], weights[3]})(BasicUrbg::get());
+  }
+  else {
+    int totalWeight = 0;
+    for(float weight : weights)
+      totalWeight += static_cast<int>(weight);
+    int selected = world.cosmeticRandomInt(totalWeight);
+    choice = 0;
+    while(selected >= static_cast<int>(weights[choice])) {
+      selected -= static_cast<int>(weights[choice]);
+      ++choice;
+    }
+  }
 
   //set the next destination
   switch(choice) {

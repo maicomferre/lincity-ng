@@ -193,6 +193,15 @@ void Residence::update()
     const unsigned int birth_flag = FLAG_FED | FLAG_EMPLOYED;/* can we have babies*/
     bool extra_births = false;  /* full houses are more fertile*/
     bool hc = false;            /* have health cover ? */
+    std::optional<RandomContext> demographyRandom;
+    if(world.simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+      demographyRandom.emplace(
+        world.randomContext(RandomEvent::DEMOGRAPHY, point));
+    const auto randomBounded = [&](int upper) {
+      return demographyRandom
+        ? static_cast<int>(demographyRandom->bounded(upper))
+        : lincityRand() % upper;
+    };
     //int pol_death = 0;             //sometimes pollution kills
 
     /*Determine Health,Fire,Cricket cover*/
@@ -224,7 +233,7 @@ void Residence::update()
         flags &= ~(FLAG_FED); //disable births
         if (local_population)
         {
-            if (lincityRand() % DAYS_PER_STARVE == 1)
+            if (randomBounded(DAYS_PER_STARVE) == 1)
             {
                 local_population--; //starving maybe deadly
                 ++world.stats.population.deaths_m;
@@ -337,14 +346,14 @@ void Residence::update()
     deaths = (RESIDENCE_BASE_DR - drm - 3*po);
     if (deaths < 1) deaths = 1;
     if (hc) deaths *= 4;
-    r = lincityRand() % deaths;
+    r = randomBounded(deaths);
     if (local_population > 0 ) //somebody might die
     {
         if (r == 0) //one guy had bad luck
         {
             --local_population;
             ++world.stats.population.deaths_m;
-            if(lincityRand() % 100 < pol_deaths) // deadly pollution
+            if(randomBounded(100) < pol_deaths) // deadly pollution
             {
                 world.stats.population.unnat_deaths_m++;
                 world.stats.population.pollution_deaths_t++;
@@ -361,7 +370,7 @@ void Residence::update()
     if (((flags & birth_flag) == birth_flag)
         && (local_population > 0))
     {
-        if (lincityRand() % births == 0)
+        if (randomBounded(births) == 0)
         {
             ++local_population;
             ++world.stats.population.births_t;
@@ -381,7 +390,7 @@ void Residence::update()
       bad += compute_tax_discomfort(world.money_rates.income_tax,
         world.money_rates.coal_tax, world.money_rates.goods_tax);
     desireability = good-bad;
-    r = lincityRand() % ((good + bad) * RESIDENCE_PPM);
+    r = randomBounded((good + bad) * RESIDENCE_PPM);
     if (r < bad || local_population > max_population)
     {
         if (local_population > MIN_RES_POPULATION)

@@ -107,7 +107,7 @@ public:
   unsigned long wait_until;
 
   //pick a random passenger-car model among the 5 color variants
-  static VehicleModel randomPassengerCar();
+  static VehicleModel randomPassengerCar(World& world);
 private:
   void getNewHeadings(); //plan ahead for 2 tiles
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy

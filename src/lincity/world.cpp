@@ -46,6 +46,7 @@
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
 #include "Vehicles.hpp"        // for Vehicle (complete type needed by World::~World)
 #include "util/debuglog.hpp"   // for LNG_LOG
+#include "util/randutil.hpp"   // for lincityRand on the Legacy path
 
 #ifndef NDEBUG
 namespace {
@@ -516,7 +517,10 @@ World::World() :
   World(WORLD_SIDE_LEN)
 {}
 
-World::World(int mapSize) :
+World::World(int mapSize, SimulationProtocol protocol,
+  std::uint64_t simulationSeed) :
+  simulationRandom(protocol, simulationSeed),
+  cosmeticRandom(simulationSeed),
   map(mapSize)
 {
   total_time = 0;
@@ -535,6 +539,52 @@ World::World(int mapSize) :
     tradeRule[s].take = true;
     tradeRule[s].give = true;
   }
+}
+
+void World::setSimulationProtocol(SimulationProtocol protocol,
+  std::uint64_t seed)
+{
+  simulationRandom = SimulationRandom(protocol, seed);
+  cosmeticRandom = CosmeticRandom(seed);
+}
+
+RandomContext World::randomContext(RandomEvent event, MapPoint point,
+  std::uint64_t ordinal) const
+{
+  return simulationRandom.context(event, total_time, point, ordinal);
+}
+
+int World::randomInt(RandomEvent event, int upperExclusive, MapPoint point,
+  std::uint64_t ordinal)
+{
+  assert(upperExclusive > 0);
+  if(simulationProtocol() == SimulationProtocol::LEGACY)
+    return lincityRand() % upperExclusive;
+  return static_cast<int>(randomContext(event, point, ordinal).bounded(
+    static_cast<std::uint64_t>(upperExclusive)));
+}
+
+bool World::randomChance(RandomEvent event, std::uint64_t numerator,
+  std::uint64_t denominator, MapPoint point, std::uint64_t ordinal)
+{
+  assert(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1);
+  return randomContext(event, point, ordinal).chance(numerator, denominator);
+}
+
+int World::randomNormal(RandomEvent event, int standardDeviation,
+  MapPoint point, std::uint64_t ordinal)
+{
+  assert(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1);
+  return randomContext(event, point, ordinal).normalApprox(standardDeviation);
+}
+
+int World::cosmeticRandomInt(int upperExclusive)
+{
+  assert(upperExclusive > 0);
+  if(simulationProtocol() == SimulationProtocol::LEGACY)
+    return lincityRand() % upperExclusive;
+  return static_cast<int>(cosmeticRandom.bounded(
+    static_cast<std::uint64_t>(upperExclusive)));
 }
 
 void World::addTech(int amount)

@@ -174,7 +174,12 @@ void Market::update()
 
       double uncontrolledP = WASTE_BURN_UNCONTROLLED
         * constructionGroup->fire_chance / 100;
-      if(std::bernoulli_distribution(uncontrolledP)(BasicUrbg::get())
+      const bool startsFire = world.simulationProtocol()
+        == SimulationProtocol::DETERMINISTIC_V1
+        ? world.randomChance(RandomEvent::WASTE_FIRE,
+            constructionGroup->fire_chance, 100000, point)
+        : std::bernoulli_distribution(uncontrolledP)(BasicUrbg::get());
+      if(startsFire
         && !(world.map(point)->flags & FLAG_FIRE_COVER)
       ) {
         torch();
@@ -257,7 +262,8 @@ void Market::animate(unsigned long real_time) {
     waste_fire_frit->frame = -1;
   }
   else if(real_time >= waste_fire_anim) { // continue fire
-    waste_fire_anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED);
+    waste_fire_anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED_MIN
+      + world.cosmeticRandomInt(FIRE_ANIMATION_SPEED_RANGE));
     int num_frames = waste_fire_frit->resourceGroup->graphicsInfoVector.size();
     if(++waste_fire_frit->frame >= num_frames)
       waste_fire_frit->frame = 0;

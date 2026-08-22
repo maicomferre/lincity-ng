@@ -80,6 +80,8 @@ public:
   Option<bool> taxElasticity;
   // QW-02: map scroll speed in percent of the legacy speed (100 = legacy)
   Option<int> scrollSpeed;
+  // REF-07: use the experimental versioned RNG for newly created worlds
+  Option<bool> deterministicScheduler;
 
   Option<std::string> language;
   Option<std::string> musicTheme;

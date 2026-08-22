@@ -404,6 +404,82 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
   }
 }
 
+TTEST(deterministic_v1_worlds_are_independent_and_repeatable) {
+  city_settings city;
+  city.with_village = true;
+  city.without_trees = false;
+
+  constexpr std::uint64_t seed = 0x0123456789abcdefULL;
+  std::unique_ptr<World> left = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, seed);
+  std::unique_ptr<World> right = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, seed);
+  TCHECK(left != nullptr);
+  TCHECK(right != nullptr);
+  if(!left || !right)
+    return;
+
+  TCHECK(left->simulationProtocol()
+    == SimulationProtocol::DETERMINISTIC_V1);
+  TCHECK_EQ(left->simulationSeed(), seed);
+  TCHECK(captureStateSnapshot(*left).fingerprint()
+    == captureStateSnapshot(*right).fingerprint());
+
+  for(int day = 0; day < 120; ++day) {
+    left->do_time_step();
+    // Perturb the Legacy global between independently owned v1 worlds.
+    (void)BasicUrbg::get()();
+    right->do_time_step();
+    TCHECK(captureStateSnapshot(*left).fingerprint()
+      == captureStateSnapshot(*right).fingerprint());
+  }
+
+  std::unique_ptr<World> different = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, seed + 1);
+  TCHECK(different != nullptr);
+  if(different)
+    TCHECK(captureStateSnapshot(*left).fingerprint()
+      != captureStateSnapshot(*different).fingerprint());
+
+  TCHECK(!getConfig()->deterministicScheduler.get());
+}
+
+TTEST(deterministic_v1_ignores_sound_cars_and_animation_cadence) {
+  Config* config = getConfig();
+  const auto savedCars = config->carsEnabled.session;
+  const auto savedSound = config->soundEnabled.session;
+
+  auto run = [&](bool cars, bool sound, bool animate) {
+    config->carsEnabled.session = cars;
+    config->soundEnabled.session = sound;
+    city_settings city{true, false};
+    std::unique_ptr<World> world = new_city(&city, 100,
+      SimulationProtocol::DETERMINISTIC_V1, 99887766);
+    for(int day = 0; day < 400; ++day) {
+      world->do_time_step();
+      if(animate)
+        world->do_animate(static_cast<unsigned long>(day + 1) * 1000UL);
+    }
+    return captureStateSnapshot(*world).fingerprint();
+  };
+
+  const StateFingerprint128 quiet = run(false, false, false);
+  const StateFingerprint128 visual = run(true, true, true);
+  TCHECK(quiet == visual);
+
+  config->carsEnabled.session = savedCars;
+  config->soundEnabled.session = savedSound;
+}
+
+TTEST(deterministic_v1_keeps_money_and_commodity_conservation) {
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 1234567);
+  TCHECK(world != nullptr);
+  if(world)
+    TCHECK(run_days(*world, 1200));
+}
+
 TTEST(simulation_command_rejects_invalid_input_without_mutation) {
   std::unique_ptr<World> world = make_world();
   TCHECK(world != nullptr);

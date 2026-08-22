@@ -57,23 +57,88 @@
 /* Private functions prototypes */
 
 //static void init_mappoint_array(void);
-static void setup_land(Map& map, int global_aridity, bool without_trees);
-static void random_start(World& world);
-static void coal_reserve_setup(Map& map);
+class MapGenerationRandom;
+static void setup_land(Map& map, int global_aridity, bool without_trees,
+  MapGenerationRandom& random);
+static void random_start(World& world, MapGenerationRandom& random);
+static void coal_reserve_setup(Map& map, MapGenerationRandom& random);
 static void ore_reserve_setup(Map& map);
-static void setup_river(Map& map);
+static void setup_river(Map& map, MapGenerationRandom& random);
 //static void remove_river(void);
-static void setup_river2(Map& map, MapPoint p, int d);
+static void setup_river2(Map& map, MapPoint p, int d,
+  MapGenerationRandom& random);
 static void setup_ground(Map& map, int global_mountainity);
 static void new_setup_river_ground(Map& map,
-  int global_mountainity, int global_aridity);
-static void new_setup_river(Map& map, int global_aridity);
+  int global_mountainity, int global_aridity, MapGenerationRandom& random);
+static void new_setup_river(Map& map, int global_aridity,
+  MapGenerationRandom& random);
 //static void sort_by_altitude(int n, std::vector <int> *tabx, std::vector <int> *taby);
 //static int new_setup_one_river(int x, int y, int lake_id, Shoreline *shore);
 static void set_river_tile(MapTile& tile); //also used in loadsave.cpp
-static void do_rand_ecology(MapTile& tile, int r, bool without_trees);
+static void do_rand_ecology(MapTile& tile, int r, bool without_trees,
+  MapGenerationRandom& random);
 //static Shoreline * init_shore(void);
 //static void free_shore(Shoreline *shore);
+
+class MapGenerationRandom {
+public:
+  explicit MapGenerationRandom(World& world) : world_(world) {}
+
+  bool isLegacy() const noexcept {
+    return world_.simulationProtocol() == SimulationProtocol::LEGACY;
+  }
+
+  int bounded(int upperExclusive) {
+    return world_.randomInt(RandomEvent::MAP_GENERATION, upperExclusive,
+      MapPoint(), ordinal_++);
+  }
+
+  int raw() {
+    if(world_.simulationProtocol() == SimulationProtocol::LEGACY)
+      return lincityRand();
+    RandomContext context = world_.randomContext(RandomEvent::MAP_GENERATION,
+      MapPoint(), ordinal_++);
+    return static_cast<int>(context.bounded(
+      static_cast<std::uint64_t>(RAND_MAX) + 1));
+  }
+
+  int uniformInclusive(int minimum, int maximum) {
+    if(world_.simulationProtocol() == SimulationProtocol::LEGACY)
+      return std::uniform_int_distribution(minimum, maximum)(BasicUrbg::get());
+    return minimum + bounded(maximum - minimum + 1);
+  }
+
+  bool chance(std::uint64_t numerator, std::uint64_t denominator) {
+    if(world_.simulationProtocol() == SimulationProtocol::LEGACY)
+      return std::bernoulli_distribution(
+        static_cast<double>(numerator) / denominator)(BasicUrbg::get());
+    return world_.randomChance(RandomEvent::MAP_GENERATION, numerator,
+      denominator, MapPoint(), ordinal_++);
+  }
+
+  int binomialHalf(int trials) {
+    if(world_.simulationProtocol() == SimulationProtocol::LEGACY)
+      return std::binomial_distribution(trials, 0.5)(BasicUrbg::get());
+    int successes = 0;
+    for(int i = 0; i < trials; ++i)
+      successes += chance(1, 2);
+    return successes;
+  }
+
+  int weighted3(int a, int b, int c) {
+    if(world_.simulationProtocol() == SimulationProtocol::LEGACY)
+      return std::discrete_distribution({static_cast<double>(a),
+        static_cast<double>(b), static_cast<double>(c)})(BasicUrbg::get());
+    int selected = bounded(a + b + c);
+    if(selected < a) return 0;
+    if(selected < a + b) return 1;
+    return 2;
+  }
+
+private:
+  World& world_;
+  std::uint64_t ordinal_ = 0;
+};
 
 
 /* ---------------------------------------------------------------------- *
@@ -81,24 +146,28 @@ static void do_rand_ecology(MapTile& tile, int r, bool without_trees);
  * ---------------------------------------------------------------------- */
 
 std::unique_ptr<World>
-new_city(city_settings *city, int mapSize) {
-  return create_new_city(city, mapSize, true, 0);
+new_city(city_settings *city, int mapSize, SimulationProtocol protocol,
+  std::uint64_t simulationSeed) {
+  return create_new_city(city, mapSize, true, 0, protocol, simulationSeed);
 }
 
 std::unique_ptr<World>
-new_desert_city(city_settings *city, int mapSize) {
-  return create_new_city(city, mapSize, false, 1);
+new_desert_city(city_settings *city, int mapSize, SimulationProtocol protocol,
+  std::uint64_t simulationSeed) {
+  return create_new_city(city, mapSize, false, 1, protocol, simulationSeed);
 }
 
 std::unique_ptr<World>
-new_temperate_city(city_settings *city, int mapSize
+new_temperate_city(city_settings *city, int mapSize,
+  SimulationProtocol protocol, std::uint64_t simulationSeed
 ) {
-    return create_new_city(city, mapSize, false, 2);
+    return create_new_city(city, mapSize, false, 2, protocol, simulationSeed);
 }
 
 std::unique_ptr<World>
-new_swamp_city(city_settings *city, int mapSize) {
-  return create_new_city(city, mapSize, false, 3);
+new_swamp_city(city_settings *city, int mapSize, SimulationProtocol protocol,
+  std::uint64_t simulationSeed) {
+  return create_new_city(city, mapSize, false, 3, protocol, simulationSeed);
 }
 
 template<class T>
@@ -138,7 +207,8 @@ protected:
   std::vector<T> matrix;
 };
 
-void setup_land(Map& map, int global_aridity, bool without_trees) {
+void setup_land(Map& map, int global_aridity, bool without_trees,
+  MapGenerationRandom& random) {
   std::cout << "setting up ecology ";
   std::cout.flush();
   const int len = map.len();
@@ -209,9 +279,9 @@ void setup_land(Map& map, int global_aridity, bool without_trees) {
         arid = (global_aridity * 2) / 3;
     }
     /* Altitude has same effect as distance */
-    r = lincityRand()%(d2w_min/5 + 1) + arid +
+    r = random.bounded(d2w_min/5 + 1) + arid +
       (map(p)->ground.altitude - alt0) * 50 / map.alt_step;
-    do_rand_ecology(*map(p), r, without_trees);
+    do_rand_ecology(*map(p), r, without_trees, random);
   }
 
   std::cout << " done" << std::endl;
@@ -229,45 +299,47 @@ void setup_land(Map& map, int global_aridity, bool without_trees) {
 
 std::unique_ptr<World>
 create_new_city(city_settings *city, int mapSize, int old_setup_ground,
-  int climate
+  int climate, SimulationProtocol protocol, std::uint64_t simulationSeed
 ) {
   assert(city);
 
-  std::unique_ptr<World> worldPtr(new World(mapSize));
+  std::unique_ptr<World> worldPtr(new World(mapSize, protocol, simulationSeed));
   World& world = *worldPtr;
+  MapGenerationRandom random(world);
 
-  coal_reserve_setup(world.map);
+  coal_reserve_setup(world.map, random);
 
-  int global_mountainity = 100 + lincityRand() % 300;
+  int global_mountainity = 100 + random.bounded(300);
   int global_aridity = -1;
   switch(climate) {
   case 0: //old style map, with Y river: lets be very random on climate
-    global_aridity = lincityRand() % 450 - 150;
+    global_aridity = random.bounded(450) - 150;
     break;
   case 1: // asked for desert
-    global_aridity = lincityRand() % 200 + 200;
+    global_aridity = random.bounded(200) + 200;
     break;
   case 2: // temperate
-    global_aridity = lincityRand() % 200 + 0;
+    global_aridity = random.bounded(200);
     break;
   case 3: //swamp
-    global_aridity = lincityRand() % 200 - 200;
+    global_aridity = random.bounded(200) - 200;
     global_mountainity /= 5; // swamps are flat lands
     break;
   }
 
   if(old_setup_ground) {
-    setup_river(world.map);
+    setup_river(world.map, random);
     setup_ground(world.map, global_mountainity);
   }
   else
-    new_setup_river_ground(world.map, global_mountainity, global_aridity);
+    new_setup_river_ground(world.map, global_mountainity, global_aridity,
+      random);
 
-  setup_land(world.map, global_aridity, city && city->without_trees);
+  setup_land(world.map, global_aridity, city && city->without_trees, random);
   ore_reserve_setup(world.map);
 
   if(city->with_village)
-    random_start(world);
+    random_start(world, random);
 
   // TODO: this was already done in setup_land. Need it be done again?
   world.map.connect_transport(1, 1, world.map.len() - 2, world.map.len() - 2);
@@ -276,20 +348,20 @@ create_new_city(city_settings *city, int mapSize, int old_setup_ground,
   return worldPtr;
 }
 
-static void coal_reserve_setup(Map& map) {
+static void coal_reserve_setup(Map& map, MapGenerationRandom& random) {
   int i, j, xx, yy;
   MapPoint p;
   const int len = map.len();
   for(i = 0; i < NUMOF_COAL_RESERVES; i++) {
-    p.x = (lincityRand() % (len - 12)) + 6;
-    p.y = (lincityRand() % (len - 10)) + 6;
+    p.x = random.bounded(len - 12) + 6;
+    p.y = random.bounded(len - 10) + 6;
     do {
-      xx = (lincityRand() % 3) - 1;
-      yy = (lincityRand() % 3) - 1;
+      xx = random.bounded(3) - 1;
+      yy = random.bounded(3) - 1;
     }
     while(xx == 0 && yy == 0);
     for (j = 0; j < 5; j++) {
-      map(p)->coal_reserve += lincityRand() % COAL_RESERVE_SIZE;
+      map(p)->coal_reserve += random.bounded(COAL_RESERVE_SIZE);
       p.x += xx;
       p.y += yy;
     }
@@ -302,7 +374,7 @@ static void ore_reserve_setup(Map& map) {
 }
 
 static void new_setup_river_ground(Map& map,
-  int global_mountainity, int global_aridity
+  int global_mountainity, int global_aridity, MapGenerationRandom& random
 ) {
     /* Principle of land generation :
      *     we start with large blocks of land SZ x SZ, and take random height for each
@@ -388,7 +460,8 @@ static void new_setup_river_ground(Map& map,
    // intialisation
 #ifdef DEBUG_EXPERIMENTAL
     // Fix random seed for easier debug
-    BasicUrbg::get().reseed(1234);
+    if(random.isLegacy())
+      BasicUrbg::get().reseed(1234);
 #endif
 
     //inialization for classic Block algorithm
@@ -397,10 +470,10 @@ static void new_setup_river_ground(Map& map,
 
     //initialization for Diamond Square Algorithm
     f1.initialize(0);
-    *f1(0,0) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
-    *f1(0,sz) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
-    *f1(sz,0) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
-    *f1(sz,sz) = (float)(lincityRand() % Keco + lincityRand() % Keco ) * global_mountainity ;
+    *f1(0,0) = (float)(random.bounded(Keco) + random.bounded(Keco)) * global_mountainity;
+    *f1(0,sz) = (float)(random.bounded(Keco) + random.bounded(Keco)) * global_mountainity;
+    *f1(sz,0) = (float)(random.bounded(Keco) + random.bounded(Keco)) * global_mountainity;
+    *f1(sz,sz) = (float)(random.bounded(Keco) + random.bounded(Keco)) * global_mountainity;
     // 1/5.3 gives roughly half of the times a little sea
     int sea_level = (int)((*f1(0,0)+*f1(0,sz)+*f1(sz,0)+*f1(sz,sz))/5.3);
     //square diamond Algorithm for lanscape generation
@@ -440,7 +513,7 @@ static void new_setup_river_ground(Map& map,
                     float right_top = *f1(endx, starty);
                     float right_down = *f1(endx, endy);
                     float center = (left_top + left_down + right_top + right_down)/4
-                    + float((lincityRand() % Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    + float((random.bounded(Keco) - Keco/2) * global_mountainity) * pow(fract,k);
                     *f1(midx, midy) = center;
                 }
             }
@@ -468,7 +541,7 @@ static void new_setup_river_ground(Map& map,
                 {
                     float up_center = (left_top + right_top + center + *f1(midx, sz-size/2))/4;
                     *f1(midx, starty) =
-                    up_center + float((lincityRand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    up_center + float((random.bounded(Keco) - Keco/2) * global_mountainity) * pow(fract,k);
                 }
                 //right edge
                 if(!*f1(endx, midy))
@@ -483,7 +556,7 @@ static void new_setup_river_ground(Map& map,
                         right_center = (right_top + right_down + center + *f1(size/2, midy))/4;
                     }
                     *f1(endx, midy) =
-                    right_center + float((lincityRand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
+                    right_center + float((random.bounded(Keco) - Keco/2) * global_mountainity) * pow(fract,k);
                 }
                 //down edge
                 if (!*f1(midx, endy))
@@ -498,14 +571,14 @@ static void new_setup_river_ground(Map& map,
                         down_center = (left_down + right_down + center + *f1(midx, size/2 ))/4;
                     }
                     *f1(midx, endy) =
-                    down_center + float((lincityRand()%Keco - Keco/2 ) * global_mountainity) * pow(fract,k);
+                    down_center + float((random.bounded(Keco) - Keco/2) * global_mountainity) * pow(fract,k);
                 }
                 //left edge
                 if ((l==0) && !*f1(startx, midy))
                 {
                     float left_center = (left_top + left_down + center +*f1(sz - size/2, midy) )/4;
                     *f1(startx, midy) =
-                    left_center + float((lincityRand()%Keco - Keco/2) * global_mountainity) * pow(fract,k);
+                    left_center + float((random.bounded(Keco) - Keco/2) * global_mountainity) * pow(fract,k);
                     //std::cout << "left " << *f1(startx, midy) << std::endl;
                 }
             }
@@ -598,7 +671,7 @@ static void new_setup_river_ground(Map& map,
 #ifdef DEBUG
     fprintf(stderr," alt min = %i; max = %i\n", map.alt_min, map.alt_max);
 #endif
-    new_setup_river(map, global_aridity);
+    new_setup_river(map, global_aridity, random);
 
 
     if (sea_level > map.alt_max/3)
@@ -622,8 +695,9 @@ static void new_setup_river_ground(Map& map,
     }
 }
 
-static void new_setup_river(Map& map, int global_aridity) {
-  int r = 5 + std::binomial_distribution(10, 0.5)(BasicUrbg::get());
+static void new_setup_river(Map& map, int global_aridity,
+  MapGenerationRandom& random) {
+  int r = 5 + random.binomialHalf(10);
   int c = (100 - global_aridity/4) * r * map.len()*map.len() / 1000000;
 
   std::cout << "pooring " << c << " lakes ..." << std::endl;
@@ -631,9 +705,8 @@ static void new_setup_river(Map& map, int global_aridity) {
 
   for(int i = c; i > 0; i--) {
     MapPoint start(
-      std::uniform_int_distribution(0, map.len()-1)(BasicUrbg::get()),
-      std::uniform_int_distribution(0, map.len()-1)(BasicUrbg::get())
-    );
+      random.uniformInclusive(0, map.len() - 1),
+      random.uniformInclusive(0, map.len() - 1));
     #ifdef DEBUG
     std::cerr << "river starting at " << start << std::endl;
     #endif
@@ -666,8 +739,8 @@ static void new_setup_river(Map& map, int global_aridity) {
       // this helps with going down hills that are not straight
       int d1 = level - next->ground.altitude;
       int d2 = level - runnerUp->ground.altitude;
-      if(d2 >= 0 && std::bernoulli_distribution(
-        !d1 ? .5 : (double)d2 / (d1 + d2))(BasicUrbg::get())
+      if(d2 >= 0 && random.chance(!d1 ? 1 : d2,
+        !d1 ? 2 : d1 + d2)
       ) {
         edge.pop();
         edge.push(next);
@@ -747,43 +820,43 @@ static void sort_by_altitude(int n, std::vector <int> *tabx, std::vector <int> *
 */
 
 
-static void setup_river(Map& map)
+static void setup_river(Map& map, MapGenerationRandom& random)
 {
     std::cout << "carving river ..." << std::endl;
     std::cout.flush();
     const int len = map.len();
-    MapPoint p((1 * len + lincityRand() % len) / 3, len - 1);
+    MapPoint p((1 * len + random.bounded(len)) / 3, len - 1);
                         //for rivers .water_alt = .altitude = surface of the water
                         //for "earth tile" .water_alt = alt of underground water
                         //                 .altitude = alt of the ground
                         //            so .water_alt <= .altitude
 
     /* Mouth of the river, 3 tiles wide, 6 + %12 long */
-    for (int j = 1 + len/18 + lincityRand() % (len/8); j > 0; j--) {
+    for (int j = 1 + len/18 + random.bounded(len/8); j > 0; j--) {
         set_river_tile(*map(p));
         set_river_tile(*map(p.e()));
         set_river_tile(*map(p.w()));
-        p.x += j <= 2 ? 0 : (lincityRand() % 3) - 1;
+        p.x += j <= 2 ? 0 : random.bounded(3) - 1;
         p.y--;
     }
 #ifdef DEBUG
     std::cerr << "river first fork end at " << p << std::endl;
 #endif
-    setup_river2(map, p.w(), -1); /* left tributary */
-    setup_river2(map, p, 1);  /* right tributary */
+    setup_river2(map, p.w(), -1, random); /* left tributary */
+    setup_river2(map, p, 1, random);  /* right tributary */
     std::cout << " done" << std::endl;
 }
 
-static void setup_river2(Map& map, MapPoint p, int d) {
-  int l = std::uniform_int_distribution(map.len()/6, map.len()/2)(
-    BasicUrbg::get());
+static void setup_river2(Map& map, MapPoint p, int d,
+  MapGenerationRandom& random) {
+  int l = random.uniformInclusive(map.len()/6, map.len()/2);
 #ifdef DEBUG
   std::cerr << "starting river seg at " << p
     << " with length " << l << std::endl;
 #endif
   for(int j = 0; j < l; j++) {
     double slant = p.y < map.len()/2 ? 5 : 7;
-    p.x += (std::discrete_distribution({1, 2, slant})(BasicUrbg::get()) - 1) * d;
+    p.x += (random.weighted3(1, 2, static_cast<int>(slant)) - 1) * d;
     if(p.x < 4 || p.x >= map.len() - 5) return;
     if((j >= 5 || d == -1) && map(p.w(2))->is_river()) return;
     if(d == -1 && map.is_inside(p.w(10)) && map(p.w(10))->is_river()) return;
@@ -802,13 +875,13 @@ static void setup_river2(Map& map, MapPoint p, int d) {
 #ifdef DEBUG
       std::cerr << "forking left at " << p << std::endl;
 #endif
-      setup_river2(map, p, -1);
+      setup_river2(map, p, -1, random);
     }
     if(p.x < map.len() - 7) {
 #ifdef DEBUG
       std::cerr << "forking right at " << p << std::endl;
 #endif
-      setup_river2(map, p, 1);
+      setup_river2(map, p, 1, random);
     }
   }
 }
@@ -890,7 +963,7 @@ static void remove_river(void)
 }
 */
 
-static void random_start(World& world) {
+static void random_start(World& world, MapGenerationRandom& random) {
     Map& map = world.map;
     int x, y, xx, yy, flag, watchdog;
 
@@ -899,8 +972,8 @@ static void random_start(World& world) {
     watchdog = 500;              /* if too many tries, random placement. */
     do {
         do {
-            xx = lincityRand() % (map.len() - 25);
-            yy = lincityRand() % (map.len() - 25);
+            xx = random.bounded(map.len() - 25);
+            yy = random.bounded(map.len() - 25);
             flag = 0;
             for (y = yy + 2; y < yy + 23; y++)
                 for (x = xx + 2; x < xx + 23; x++)
@@ -941,13 +1014,13 @@ static void random_start(World& world) {
   /* The first two farms have more underground water */
   for(int j = 5; j < 9; j++)
   for(int i = 6; i < 10; i++)
-    if(lincityRand() > RAND_MAX/2)
+    if(random.raw() > RAND_MAX/2)
       map(p.e(i).s(j))->flags |= FLAG_HAS_UNDERGROUND_WATER;
   organic_farmConstructionGroup.placeItem(world, p.e(6).s(5));
 
   for(int j = 5; j < 9; j++)
   for(int i = 17; i < 21; i++)
-    if(lincityRand() > RAND_MAX/2)
+    if(random.raw() > RAND_MAX/2)
       map(p.e(i).s(j))->flags |= FLAG_HAS_UNDERGROUND_WATER;
   organic_farmConstructionGroup.placeItem(world, p.e(17).s(5));
 
@@ -984,8 +1057,9 @@ static void random_start(World& world) {
   communeConstructionGroup.placeItem(world, p.e(16).s(17));
 }
 
-static void do_rand_ecology(MapTile& tile, int r, bool without_trees) {
-  int r3 = lincityRand();
+static void do_rand_ecology(MapTile& tile, int r, bool without_trees,
+  MapGenerationRandom& random) {
+  int r3 = random.raw();
   if(r >= 300) {
     /* very dry land */
     int r2 = r3 % 10;

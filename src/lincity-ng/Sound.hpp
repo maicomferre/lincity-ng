@@ -32,6 +32,8 @@
 #include <string>        // for basic_string, string, operator<
 #include <vector>        // for vector
 
+#include "lincity/SimulationRandom.hpp"
+
 class MapTile;
 
 //TODO make use for these:
@@ -61,6 +63,7 @@ public:
     void playSound(const std::string& name);
     void playSound(const MapTile& tile);
     void playASound(MIX_Audio *chunk);
+    std::size_t randomIndex(std::size_t count);
     void playMusic();
     static void musicHalted(void *userdate, MIX_Track *track);
     void changeTrack(MusicTransport command);
@@ -99,6 +102,7 @@ private:
     MIX_Track *soundTrack;
     MIX_Mixer *mixer;
     std::atomic_bool trackChangeRequested{false};
+    CosmeticRandom audioRandom;
 };
 
 //TODO: singleton

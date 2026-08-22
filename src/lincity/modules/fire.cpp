@@ -37,6 +37,7 @@
 #include "lincity/lin-city.hpp"           // for FLAG_FIRE_COVER, ANIM_THRES...
 #include "lincity/resources.hpp"          // for ExtraFrame, GraphicsInfo
 #include "lincity/world.hpp"              // for Map, MapTile, World
+#include "util/randutil.hpp"              // for Legacy RNG
 #include "util/xmlutil.hpp"               // for xmlFormat, xmlParse, xmlStr
 #include "util/gettextutil.hpp"
 
@@ -76,13 +77,15 @@ void Fire::update()
 {
     /* this so we don't get whole blocks changing in one go. */
     if (burning_days == 0)
-    {   burning_days = lincityRand() % (FIRE_LENGTH / 5);}
+    {   burning_days = world.randomInt(RandomEvent::FIRE, FIRE_LENGTH / 5,
+          point, 0);}
 
     if (burning_days > FIRE_LENGTH)
     {
         //is_burning = false;
         if (smoking_days == 0)   /* rand length here also */
-        {   smoking_days = lincityRand() % (AFTER_FIRE_LENGTH / 6);}
+        {   smoking_days = world.randomInt(RandomEvent::FIRE,
+              AFTER_FIRE_LENGTH / 6, point, 1);}
         smoking_days++;
         if (world.map(point)->flags & FLAG_FIRE_COVER)
         {   smoking_days += 4;}
@@ -104,7 +107,14 @@ void Fire::update()
 
 void Fire::spread() {
   MapPoint loc;
-  switch(lincityRand() % 80) {
+  std::optional<RandomContext> fireRandom;
+  if(world.simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    fireRandom.emplace(world.randomContext(RandomEvent::FIRE, point, 2));
+  const auto randomBounded = [&](int upper) {
+    return fireRandom ? static_cast<int>(fireRandom->bounded(upper))
+                      : lincityRand() % upper;
+  };
+  switch(randomBounded(80)) {
   case 0:
     loc = point.n();
     break;
@@ -127,7 +137,7 @@ void Fire::spread() {
     return;
   Construction *cst = world.map(loc)->reportingConstruction;
   if(!cst) return;
-  if(lincityRand() % 100 >= cst->constructionGroup->fire_chance)
+  if(randomBounded(100) >= cst->constructionGroup->fire_chance)
     return;
   if(world.map(loc)->flags & FLAG_FIRE_COVER)
     return;
@@ -145,7 +155,8 @@ void Fire::animate(unsigned long real_time) {
     if(frame >= 4) frame = 4; // shouldn't happen
   }
   else if(real_time >= anim) {
-    anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED);
+    anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED_MIN
+      + world.cosmeticRandomInt(FIRE_ANIMATION_SPEED_RANGE));
     if(++frame >= (int)frameIt->resourceGroup->graphicsInfoVector.size())
       frame = 0;
   }

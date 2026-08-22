@@ -68,14 +68,16 @@ Construction *ShantyConstructionGroup::createConstruction(World& world) {
 
 //TODO remove_a_shanty() and update_shanty() should go to ConstructionRequest
 
-void add_a_shanty(World& world) {
+namespace {
+void add_a_shanty_with_ordinal(World& world, std::uint64_t ordinal) {
     MapPoint p;
     std::optional<MapPoint> r;
     int numof_shanties = world.stats.groupCount[GROUP_SHANTY];
     const int len = world.map.len();
-    p.x = lincityRand() % len;
-    p.y = lincityRand() % len;
-    if (numof_shanties > 0 && lincityRand() % 8 != 0)
+    p.x = world.randomInt(RandomEvent::SHANTY, len, MapPoint(), ordinal++);
+    p.y = world.randomInt(RandomEvent::SHANTY, len, MapPoint(), ordinal++);
+    if (numof_shanties > 0
+      && world.randomInt(RandomEvent::SHANTY, 8, MapPoint(), ordinal++) != 0)
     {
         r = world.map.find_group(p, GROUP_SHANTY);
         if (!r) {
@@ -112,6 +114,11 @@ void add_a_shanty(World& world) {
     }
     shantyConstructionGroup.placeItem(world, p);
 }
+} // namespace
+
+void add_a_shanty(World& world) {
+  add_a_shanty_with_ordinal(world, 0);
+}
 
 void update_shanty(World& world) {
   int numof_communes = world.stats.groupCount[GROUP_COMMUNE];
@@ -130,11 +137,13 @@ void update_shanty(World& world) {
     i = 0;
   if(i > numof_shanties) {
     for(int n = 0; n < 1 + (i - numof_shanties)/10; n++)
-      add_a_shanty(world);
+      add_a_shanty_with_ordinal(world, static_cast<std::uint64_t>(n) * 8);
   }
   else if(numof_shanties > 0 && i < numof_shanties - 1) {
     for(int n = 0; n < 1 + (numof_shanties - i) / 10; n++) {
-      MapPoint p(lincityRand() % len, lincityRand() % len);
+      MapPoint p(
+        world.randomInt(RandomEvent::SHANTY, len, MapPoint(), n * 2),
+        world.randomInt(RandomEvent::SHANTY, len, MapPoint(), n * 2 + 1));
       std::optional<MapPoint> r = world.map.find_group(p, GROUP_SHANTY);
       if(!r) {
         fprintf(stderr, "Can't find a shanty to remove!\n");
@@ -212,7 +221,12 @@ void Shanty::update()
 
         double uncontrolledP = WASTE_BURN_UNCONTROLLED
           * constructionGroup->fire_chance / 100;
-        if(std::bernoulli_distribution(uncontrolledP)(BasicUrbg::get())
+        const bool startsFire = world.simulationProtocol()
+          == SimulationProtocol::DETERMINISTIC_V1
+          ? world.randomChance(RandomEvent::WASTE_FIRE,
+              constructionGroup->fire_chance, 100000, point)
+          : std::bernoulli_distribution(uncontrolledP)(BasicUrbg::get());
+        if(startsFire
           && !(world.map(point)->flags & FLAG_FIRE_COVER)
         ) {
           torch();
@@ -235,7 +249,8 @@ void Shanty::animate(unsigned long real_time) {
     waste_fire_frit->frame = -1;
   }
   else if(real_time >= waste_fire_anim) { // continue fire
-    waste_fire_anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED);
+    waste_fire_anim = real_time + ANIM_THRESHOLD(FIRE_ANIMATION_SPEED_MIN
+      + world.cosmeticRandomInt(FIRE_ANIMATION_SPEED_RANGE));
     int num_frames = waste_fire_frit->resourceGroup->graphicsInfoVector.size();
     if(++waste_fire_frit->frame >= num_frames)
       waste_fire_frit->frame = 0;

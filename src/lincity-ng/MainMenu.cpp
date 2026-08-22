@@ -70,6 +70,7 @@
 #include "util/gettextutil.hpp"
 #include "config.h"
 #include "util/ptrutil.hpp"
+#include "util/randutil.hpp"
 
 using namespace std::placeholders;
 using namespace std::string_literals;
@@ -890,6 +891,10 @@ MainMenu::newGameStartButtonClicked(Button *) {
   getSound()->playSound("Click");
 
   std::unique_ptr<World> world;
+  const bool deterministic = getConfig()->deterministicScheduler.get();
+  const SimulationProtocol protocol = deterministic
+    ? SimulationProtocol::DETERMINISTIC_V1 : SimulationProtocol::LEGACY;
+  const std::uint64_t seed = deterministic ? BasicUrbg::get()() : 0;
   auto fileIt = loadFiles.find(sel);
   if(fileIt == loadFiles.end()) {
     const std::string& bName = sel->getName();
@@ -899,18 +904,20 @@ MainMenu::newGameStartButtonClicked(Button *) {
     settings.without_trees =
       getCheckButton(*newGameMenu, "WithoutTrees")->isChecked();
     if(bName == "RiverDelta") {
-      world = new_city(&settings, getConfig()->worldSize.get());
+      world = new_city(&settings, getConfig()->worldSize.get(), protocol, seed);
     } else if(bName == "DesertArea") {
-      world = new_desert_city(&settings, getConfig()->worldSize.get());
+      world = new_desert_city(&settings, getConfig()->worldSize.get(), protocol, seed);
     } else if(bName == "TemperateArea") {
-      world = new_temperate_city(&settings, getConfig()->worldSize.get());
+      world = new_temperate_city(&settings, getConfig()->worldSize.get(), protocol, seed);
     } else if(bName == "SwampArea") {
-      world = new_swamp_city(&settings, getConfig()->worldSize.get());
+      world = new_swamp_city(&settings, getConfig()->worldSize.get(), protocol, seed);
     }
     assert(world);
   }
   else {
     world = loadCityNG(fileIt->second);
+    if(world && deterministic)
+      world->setSimulationProtocol(protocol, seed);
   }
 
   if(world) {

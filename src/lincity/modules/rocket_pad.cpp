@@ -183,7 +183,19 @@ void RocketPad::compute_launch_result() {
   double successP =
     (double)std::min({tech, world.tech_level, MAX_TECH_LEVEL}) / MAX_TECH_LEVEL
     * std::min(1., world.rockets_launched * .15 + .25);
-  if(std::bernoulli_distribution(successP)(BasicUrbg::get())) {
+  const std::uint64_t launchFactor = static_cast<std::uint64_t>(
+    std::clamp<std::int64_t>(
+      static_cast<std::int64_t>(world.rockets_launched) * 15 + 25, 0, 100));
+  const std::uint64_t successNumerator =
+    static_cast<std::uint64_t>(
+      std::min({tech, world.tech_level, MAX_TECH_LEVEL}))
+    * launchFactor;
+  const bool success = world.simulationProtocol()
+    == SimulationProtocol::DETERMINISTIC_V1
+    ? world.randomChance(RandomEvent::ROCKET, successNumerator,
+        static_cast<std::uint64_t>(MAX_TECH_LEVEL) * 100, point)
+    : std::bernoulli_distribution(successP)(BasicUrbg::get());
+  if(success) {
     getSound()->playSound( "RocketTakeoff" );
     world.rockets_launched_success++;
     /* TODO: Maybe should generate some pollution ? */
@@ -202,13 +214,20 @@ void RocketPad::compute_launch_result() {
     getSound()->playSound( "RocketExplosion" );
     world.rockets_launched_success = 0;
 
+    const auto normal = [&](int deviation, std::uint64_t ordinal) {
+      return world.simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1
+        ? world.randomNormal(RandomEvent::ROCKET, deviation, point, ordinal)
+        : static_cast<int>(
+            std::normal_distribution(0., static_cast<double>(deviation))(
+              BasicUrbg::get()));
+    };
     MapPoint crashCenter = point
-      .e(std::normal_distribution(0., 20.)(BasicUrbg::get()))
-      .s(std::normal_distribution(0., 20.)(BasicUrbg::get()));
+      .e(normal(20, 1))
+      .s(normal(20, 2));
     for(int i = 0; i < 20; i++) {
       MapPoint crashFire = crashCenter
-        .e(std::normal_distribution(.0, 10.)(BasicUrbg::get()))
-        .s(std::normal_distribution(.0, 10.)(BasicUrbg::get()));
+        .e(normal(10, 3 + i * 2))
+        .s(normal(10, 4 + i * 2));
       if(!world.map.is_visible(crashFire)) continue;
       Construction *cst = world.map(crashFire)->reportingConstruction;
       if(!cst) continue;

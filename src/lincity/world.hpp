@@ -44,6 +44,7 @@
 #include "commodities.hpp"  // for Commodity, CommodityRule (ptr only)
 #include "messages.hpp"     // for Message
 #include "resources.hpp"    // for ExtraFrame, ResourceGroup (ptr only)
+#include "SimulationRandom.hpp"
 #include "stats.hpp"          // for Stat, Stats
 
 class Construction;
@@ -232,7 +233,8 @@ private:
 class World {
 public:
   World();
-  World(int mapSize);
+  World(int mapSize, SimulationProtocol protocol = SimulationProtocol::LEGACY,
+    std::uint64_t simulationSeed = 0);
   ~World();
 
   void save(const std::filesystem::path& filename) const;
@@ -273,6 +275,24 @@ public:
   int defaultMoneyRate(MoneyRateAccount account) const;
   bool setMoneyRate(MoneyRateAccount account, int value);
 
+  SimulationProtocol simulationProtocol() const noexcept {
+    return simulationRandom.protocol();
+  }
+  std::uint64_t simulationSeed() const noexcept {
+    return simulationRandom.seed();
+  }
+  void setSimulationProtocol(SimulationProtocol protocol, std::uint64_t seed);
+  RandomContext randomContext(RandomEvent event, MapPoint point = MapPoint(),
+    std::uint64_t ordinal = 0) const;
+  int randomInt(RandomEvent event, int upperExclusive,
+    MapPoint point = MapPoint(), std::uint64_t ordinal = 0);
+  bool randomChance(RandomEvent event, std::uint64_t numerator,
+    std::uint64_t denominator, MapPoint point = MapPoint(),
+    std::uint64_t ordinal = 0);
+  int randomNormal(RandomEvent event, int standardDeviation,
+    MapPoint point = MapPoint(), std::uint64_t ordinal = 0);
+  int cosmeticRandomInt(int upperExclusive);
+
   /* true if one of the orthogonal neighbours of point is a real building
    * (not transport, not transparent vegetation). Used to spawn cars near
    * buildings and to let them die when they reach one. */
@@ -312,6 +332,9 @@ public:
    * outlives the map: constructions are deleted from MapTile's destructor
    * during World teardown and still debit the ledger. */
   std::array<long long, STUFF_COUNT> commodityLedger = {};
+
+  SimulationRandom simulationRandom;
+  CosmeticRandom cosmeticRandom;
 
   Map map;
 

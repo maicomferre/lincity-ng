@@ -38,20 +38,30 @@ struct _CitySettings {
 
 std::unique_ptr<World>
 create_new_city(city_settings *city, int mapSize,
-  int old_setup_ground, int climate);
+  int old_setup_ground, int climate,
+  SimulationProtocol protocol = SimulationProtocol::LEGACY,
+  std::uint64_t simulationSeed = 0);
 
 std::unique_ptr<World>
-new_city(city_settings *city, int mapSize);
+new_city(city_settings *city, int mapSize,
+  SimulationProtocol protocol = SimulationProtocol::LEGACY,
+  std::uint64_t simulationSeed = 0);
 
 std::unique_ptr<World>
-new_desert_city(city_settings *city, int mapSize);
+new_desert_city(city_settings *city, int mapSize,
+  SimulationProtocol protocol = SimulationProtocol::LEGACY,
+  std::uint64_t simulationSeed = 0);
 
 std::unique_ptr<World>
-new_temperate_city(city_settings *city, int mapSize
+new_temperate_city(city_settings *city, int mapSize,
+  SimulationProtocol protocol = SimulationProtocol::LEGACY,
+  std::uint64_t simulationSeed = 0
 );
 
 std::unique_ptr<World>
-new_swamp_city(city_settings *city, int mapSize);
+new_swamp_city(city_settings *city, int mapSize,
+  SimulationProtocol protocol = SimulationProtocol::LEGACY,
+  std::uint64_t simulationSeed = 0);
 
 #endif /* __init_game_h__ */
 
