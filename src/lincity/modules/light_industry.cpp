@@ -214,12 +214,15 @@ void IndustryLight::animate(unsigned long real_time) {
       active = 2;
     else if (busy > 10)
       active = 1;
-    for(int i = 0; i < frits.size(); i++) {
-      auto& frit = frits[i];
+    int i = 0;
+    for(auto& frit : frits) {
       int s = frit->resourceGroup->graphicsInfoVector.size();
       int& smoke = frit->frame;
-      if(!s);
-      else if(i >= active) {
+      if(!s) {
+        ++i;
+        continue;
+      }
+      if(i >= active) {
         smoke = -1;
       }
       else if(smoke < 0 || !(lincityRand() % 1600)) {
@@ -229,6 +232,7 @@ void IndustryLight::animate(unsigned long real_time) {
       else if(goods_today && ++smoke >= s) {
         smoke = 0;
       }
+      ++i;
     }
 
     // This is left over from when the smoke was not rendered separately.
