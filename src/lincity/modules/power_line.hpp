@@ -70,7 +70,7 @@ public:
     void flow_power();
     std::array<int, STUFF_COUNT> trafficCount;
     int anim_counter;
-    int anim;
+    unsigned long anim;
     bool flashing;
 };
 
