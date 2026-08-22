@@ -781,7 +781,7 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
 }
 
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
-  unsigned int ldsv_version, std::string& rng_state
+  unsigned int, std::string& rng_state
 ) {
   (void)rng_state;
   int uncounted_import = 0;
