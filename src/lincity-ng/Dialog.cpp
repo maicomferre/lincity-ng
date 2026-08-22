@@ -451,16 +451,13 @@ void Dialog::governor() {
         return;
     }
 
-    // collect the editable rates; the pointers stay valid because
-    // closeAllDialogs() runs on every setWorld
-    World& world = game.getWorld();
     govTaxes = {
-      {INCOME_TAX_RATE, &world.money_rates.income_tax},
-      {COAL_TAX_RATE, &world.money_rates.coal_tax},
-      {ORE_TAX_RATE, &world.money_rates.ore_tax},
-      {GOODS_TAX_RATE, &world.money_rates.goods_tax},
-      {DOLE_RATE, &world.money_rates.dole},
-      {TRANSPORT_COST_RATE, &world.money_rates.transport_cost},
+      {static_cast<int>(World::MoneyRateAccount::INCOME_TAX)},
+      {static_cast<int>(World::MoneyRateAccount::COAL_TAX)},
+      {static_cast<int>(World::MoneyRateAccount::ORE_TAX)},
+      {static_cast<int>(World::MoneyRateAccount::GOODS_TAX)},
+      {static_cast<int>(World::MoneyRateAccount::DOLE)},
+      {static_cast<int>(World::MoneyRateAccount::TRANSPORT_COST)},
     };
 
     // connect the +/- buttons
@@ -487,19 +484,21 @@ void Dialog::refreshGovernor() {
       return;
     for(int i = 0; i < (int)govTaxes.size(); i++)
       setParagraph("govValue" + std::to_string(i),
-        std::to_string(*govTaxes[i].value));
+        std::to_string(game.getWorld().moneyRate(
+          static_cast<World::MoneyRateAccount>(govTaxes[i].account))));
 }
 
 void Dialog::governorAdjustButtonClicked(Button*, int index, int delta) {
     if(index < 0 || index >= (int)govTaxes.size())
       return;
-    int& value = *govTaxes[index].value;
-    const int lo = 0;
-    const int hi = 2 * govTaxes[index].defaultRate;
-    value = std::min(hi, std::max(lo, value + delta));
+    World& world = game.getWorld();
+    const World::MoneyRateAccount account =
+      static_cast<World::MoneyRateAccount>(govTaxes[index].account);
+    const int value = world.moneyRate(account);
+    const int hi = 2 * world.defaultMoneyRate(account);
+    world.setMoneyRate(account, std::min(hi, std::max(0, value + delta)));
     refreshGovernor();
     game.getMpsFinance().refresh();
-    game.getWorld().setUpdated(World::Updatable::MONEY);
 }
 
 /*

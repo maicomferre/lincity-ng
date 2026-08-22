@@ -81,8 +81,7 @@ class Dialog
 
         // one entry per tax row in data/gui/dialogs/governor.xml
         struct GovTax {
-          int defaultRate;
-          int* value;
+          int account;
         };
         std::vector<GovTax> govTaxes;
         void governorAdjustButtonClicked(Button* button, int index,

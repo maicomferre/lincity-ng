@@ -256,10 +256,22 @@ public:
     TRADE_EXPORT,
   };
 
+  enum class MoneyRateAccount {
+    INCOME_TAX,
+    COAL_TAX,
+    ORE_TAX,
+    DOLE,
+    TRANSPORT_COST,
+    GOODS_TAX,
+  };
+
   // R1: economy state is mutated through World-owned chokepoints.
   void addTech(int amount);
   void recordTaxable(TaxableAccount account, int amount);
   void clearTaxable();
+  int moneyRate(MoneyRateAccount account) const;
+  int defaultMoneyRate(MoneyRateAccount account) const;
+  bool setMoneyRate(MoneyRateAccount account, int value);
 
   /* true if one of the orthogonal neighbours of point is a real building
    * (not transport, not transparent vegetation). Used to spawn cars near

@@ -578,6 +578,55 @@ void World::clearTaxable()
   taxable.trade_ex = 0;
 }
 
+int World::moneyRate(MoneyRateAccount account) const
+{
+  switch(account) {
+    case MoneyRateAccount::INCOME_TAX:     return money_rates.income_tax;
+    case MoneyRateAccount::COAL_TAX:       return money_rates.coal_tax;
+    case MoneyRateAccount::ORE_TAX:        return money_rates.ore_tax;
+    case MoneyRateAccount::DOLE:           return money_rates.dole;
+    case MoneyRateAccount::TRANSPORT_COST: return money_rates.transport_cost;
+    case MoneyRateAccount::GOODS_TAX:      return money_rates.goods_tax;
+  }
+  assert(false);
+  return 0;
+}
+
+int World::defaultMoneyRate(MoneyRateAccount account) const
+{
+  switch(account) {
+    case MoneyRateAccount::INCOME_TAX:     return INCOME_TAX_RATE;
+    case MoneyRateAccount::COAL_TAX:       return COAL_TAX_RATE;
+    case MoneyRateAccount::ORE_TAX:        return ORE_TAX_RATE;
+    case MoneyRateAccount::DOLE:           return DOLE_RATE;
+    case MoneyRateAccount::TRANSPORT_COST: return TRANSPORT_COST_RATE;
+    case MoneyRateAccount::GOODS_TAX:      return GOODS_TAX_RATE;
+  }
+  assert(false);
+  return 0;
+}
+
+bool World::setMoneyRate(MoneyRateAccount account, int value)
+{
+  const int maximum = 2 * defaultMoneyRate(account);
+  if(value < 0 || value > maximum)
+    return false;
+
+  int* target = nullptr;
+  switch(account) {
+    case MoneyRateAccount::INCOME_TAX:     target = &money_rates.income_tax; break;
+    case MoneyRateAccount::COAL_TAX:       target = &money_rates.coal_tax; break;
+    case MoneyRateAccount::ORE_TAX:        target = &money_rates.ore_tax; break;
+    case MoneyRateAccount::DOLE:           target = &money_rates.dole; break;
+    case MoneyRateAccount::TRANSPORT_COST: target = &money_rates.transport_cost; break;
+    case MoneyRateAccount::GOODS_TAX:      target = &money_rates.goods_tax; break;
+  }
+  assert(target != nullptr);
+  *target = value;
+  setUpdated(Updatable::MONEY);
+  return true;
+}
+
 World::~World() {
     // Constructions are deleted by MapTile::~MapTile, which runs when
     // `map` (declared after `vehicleList`) is destroyed. The

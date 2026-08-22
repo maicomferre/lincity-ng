@@ -57,6 +57,7 @@
 #include "lincity/modules/parkland.hpp"       // for parklandConstructionGroup
 #include "lincity/modules/power_line.hpp"     // for powerlineConstructionGroup
 #include "lincity/modules/residence.hpp"      // for residenceLLConstructionGroup
+#include "lincity/modules/rocket_pad.hpp"     // for RocketPad
 #include "lincity/modules/school.hpp"         // for schoolConstructionGroup
 #include "lincity/modules/commune.hpp"        // for Commune
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
@@ -65,6 +66,7 @@
 #include "lincity/lintypes.hpp"               // for Construction
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/StateFingerprint.hpp"      // for captureStateSnapshot
+#include "lincity/SimulationReplay.hpp"       // for deterministic command replay
 #include "lincity/util.hpp"                  // for format_money
 #include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
 #include "lincity/world.hpp"                 // for World
@@ -400,6 +402,157 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
     TCHECK_EQ(first.back().hex(),
       std::string("d0f2975041a730617e7d9fdd039bc845"));
   }
+}
+
+TTEST(simulation_command_rejects_invalid_input_without_mutation) {
+  std::unique_ptr<World> world = make_world();
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  const StateFingerprint128 before =
+    captureStateSnapshot(*world).fingerprint();
+  SimulationCommand invalid;
+  invalid.day = 1;
+  invalid.sequence = 1;
+  invalid.type = SimulationCommandType::BUILD;
+  invalid.point = MapPoint(1, 1);
+  invalid.argument0 = NUM_OF_GROUPS + 100;
+  bool rejected = false;
+  try {
+    executeSimulationCommand(*world, invalid);
+  } catch(const SimulationReplayError&) {
+    rejected = true;
+  }
+  TCHECK(rejected);
+  TCHECK(before == captureStateSnapshot(*world).fingerprint());
+}
+
+TTEST(versioned_external_commands_replay_with_daily_checkpoints) {
+  auto prepare = []() {
+    std::unique_ptr<World> world = make_world();
+    if(!world)
+      return world;
+    world->tech_level = MAX_TECH_LEVEL;
+    world->total_money = 5000000;
+
+    MapPoint rocketPoint;
+    bool foundRocketSite = false;
+    for(MapPoint point(2, 2); point.y < world->map.len() - 5; ++point.y) {
+      for(point.x = 2; point.x < world->map.len() - 5; ++point.x) {
+        Message::ptr message;
+        if(rocketPadConstructionGroup.can_build_here(*world, point, message)) {
+          rocketPoint = point;
+          foundRocketSite = true;
+          break;
+        }
+      }
+      if(foundRocketSite)
+        break;
+    }
+    if(!foundRocketSite)
+      return std::unique_ptr<World>();
+    rocketPadConstructionGroup.placeItem(*world, rocketPoint);
+    RocketPad* rocket = dynamic_cast<RocketPad*>(
+      world->map(rocketPoint)->reportingConstruction);
+    if(!rocket)
+      return std::unique_ptr<World>();
+    rocket->steps = ROCKET_PAD_STEPS;
+    rocket->stage = RocketPad::AWAITING;
+    return world;
+  };
+
+  std::unique_ptr<World> recordedWorld = prepare();
+  TCHECK(recordedWorld != nullptr);
+  if(!recordedWorld)
+    return;
+
+  MapPoint roadPoint;
+  MapPoint floodPoint;
+  MapPoint evacuationPoint;
+  bool foundRoad = false, foundFlood = false, foundEvacuation = false;
+  for(MapPoint point(1, 1); point.y < recordedWorld->map.len() - 1; ++point.y) {
+    for(point.x = 1; point.x < recordedWorld->map.len() - 1; ++point.x) {
+      Construction* construction =
+        recordedWorld->map(point)->reportingConstruction;
+      if(!foundEvacuation && construction
+        && !(construction->flags & FLAG_NEVER_EVACUATE)) {
+        evacuationPoint = construction->point;
+        foundEvacuation = true;
+      }
+      if(recordedWorld->map(point)->is_bare()) {
+        Message::ptr message;
+        if(!foundRoad
+          && roadConstructionGroup.can_build_here(*recordedWorld, point, message)) {
+          roadPoint = point;
+          foundRoad = true;
+        } else if(foundRoad && point != roadPoint && !foundFlood) {
+          floodPoint = point;
+          foundFlood = true;
+        }
+      }
+    }
+  }
+  TCHECK(foundRoad);
+  TCHECK(foundFlood);
+  TCHECK(foundEvacuation);
+  if(!foundRoad || !foundFlood || !foundEvacuation)
+    return;
+
+  MapPoint rocketPoint;
+  for(Construction* construction : recordedWorld->map.constructions)
+    if(dynamic_cast<RocketPad*>(construction))
+      rocketPoint = construction->point;
+
+  SimulationReplay replay;
+  replay.seed = g_seed;
+  replay.origin = "new-city-village-ref07-fixture";
+  replay.initialFingerprint =
+    captureStateSnapshot(*recordedWorld).fingerprint();
+
+  recordSimulationDay(*recordedWorld, replay, 1, {
+    SimulationCommand{.type = SimulationCommandType::BUILD,
+      .point = roadPoint, .argument0 = GROUP_ROAD},
+    SimulationCommand{.type = SimulationCommandType::EVACUATE,
+      .point = evacuationPoint},
+    SimulationCommand{.type = SimulationCommandType::SET_MONEY_RATE,
+      .point = MapPoint(),
+      .argument0 = static_cast<int>(World::MoneyRateAccount::INCOME_TAX),
+      .argument1 = INCOME_TAX_RATE + 1},
+    SimulationCommand{.type = SimulationCommandType::COAL_SURVEY,
+      .point = MapPoint()},
+    SimulationCommand{.type = SimulationCommandType::LAUNCH_ROCKET,
+      .point = rocketPoint},
+  });
+  recordSimulationDay(*recordedWorld, replay, 2, {
+    SimulationCommand{.type = SimulationCommandType::BULLDOZE,
+      .point = roadPoint},
+    SimulationCommand{.type = SimulationCommandType::FLOOD,
+      .point = floodPoint},
+  });
+  recordSimulationDay(*recordedWorld, replay, 3, {});
+
+  const std::string encoded = serializeSimulationReplay(replay);
+  const SimulationReplay decoded = parseSimulationReplay(encoded);
+  TCHECK_EQ(decoded.version, SimulationReplay::FORMAT_VERSION);
+  TCHECK_EQ(decoded.commands.size(), std::size_t(7));
+  TCHECK_EQ(decoded.checkpoints.size(), std::size_t(3));
+  TCHECK_EQ(serializeSimulationReplay(decoded), encoded);
+
+  std::unique_ptr<World> replayedWorld = prepare();
+  TCHECK(replayedWorld != nullptr);
+  if(!replayedWorld)
+    return;
+  bool replayed = true;
+  try {
+    replaySimulation(*replayedWorld, decoded);
+  } catch(const SimulationReplayError& error) {
+    std::fprintf(stderr, "  replay failed: %s\n", error.what());
+    replayed = false;
+  }
+  TCHECK(replayed);
+  TCHECK(captureStateSnapshot(*recordedWorld).fingerprint()
+    == captureStateSnapshot(*replayedWorld).fingerprint());
 }
 
 TTEST(money_conservation_one_year) {
