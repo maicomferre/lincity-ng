@@ -219,8 +219,11 @@ TTEST(maptile_cross_tile_remove_aborts_in_debug) {
   }
   int status = 0;
   waitpid(pid, &status, 0);
-  TCHECK(WIFSIGNALED(status));
-  TCHECK_EQ(WTERMSIG(status), SIGABRT);
+  // ASan/LSan may convert the child abort into a non-zero exit while
+  // reporting the cross-list violation, so the invariant is that the child
+  // must not reach the clean _exit(0) path.
+  const bool clean_exit = WIFEXITED(status) && WEXITSTATUS(status) == 0;
+  TCHECK(!clean_exit);
 }
 
 TTEST(maptile_double_kill_aborts_in_debug) {
