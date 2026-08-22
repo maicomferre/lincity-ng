@@ -110,7 +110,7 @@ void openGameStats(Game& game) {
 }
 
 Dialog::Dialog(Game& game, int type)
-  : game(game), point(MapPoint(-1,-1))
+  : point(MapPoint(-1,-1)), game(game)
 {
     initDialog();
     switch( type ){
@@ -133,7 +133,7 @@ Dialog::Dialog(Game& game, int type)
 }
 
 Dialog::Dialog(Game& game, int type, MapPoint point)
-  : game(game), point(point)
+  : point(point), game(game)
 {
     initDialog();
     switch( type ) {
