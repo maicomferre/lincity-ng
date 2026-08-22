@@ -103,17 +103,16 @@ if(WIN32)
 endif()
 set(LINCITYNG_RELOCATABLE ${RELOCATABLE_DEFAULT} CACHE BOOL "Build a relocatable binary")
 
-# Warnings are diagnostics, not yet errors: enabling them across all build
-# types gives the fork a visible baseline without making old code unbuildable.
-# CI or a developer can promote the baseline with
-# -DLINCITYNG_WARNINGS_AS_ERRORS=ON after the warning inventory is reduced.
+# Keep compiler diagnostics enabled across all build types and fail early when
+# a new warning is introduced. The option remains overridable for temporary
+# compatibility builds while a platform-specific warning is being repaired.
 option(LINCITYNG_ENABLE_WARNINGS
   "Enable compiler warnings for all build types"
   ON
 )
 option(LINCITYNG_WARNINGS_AS_ERRORS
   "Treat compiler warnings as errors"
-  OFF
+  ON
 )
 
 
