@@ -102,7 +102,7 @@ public:
     virtual void report(Mps& mps, bool production) const override;
     virtual void animate(unsigned long real_time) override;
 
-    int  anim;
+    unsigned long anim;
     int  pol_count;
     int  working_days, busy;
     bool animate_enable;
