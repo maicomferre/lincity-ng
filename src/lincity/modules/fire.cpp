@@ -151,7 +151,7 @@ void Fire::animate(unsigned long real_time) {
   }
 }
 
-void Fire::report(Mps& mps, bool production) const {
+void Fire::report(Mps& mps, bool) const {
     mps.add_s(constructionGroup->name);
     mps.addBlank();
     mps.add_sd(N_("Air Pollution"), world.map(point)->pollution);
