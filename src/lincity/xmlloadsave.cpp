@@ -77,7 +77,9 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& World,
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
   unsigned int, std::string& rng_state
 );
-static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map);
+static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map,
+  bool includeUiState
+);
 static void loadMap(xmlpp::TextReader& xmlReader, World& world,
   unsigned int ldsv_version
 );
@@ -98,6 +100,9 @@ static void readArray_old(xmlpp::TextReader& xmlReader, std::deque<int>& array);
 static void readPbar_old(xmlpp::TextReader& xmlReader, std::deque<int>& array);
 static void readPbar_old(xmlpp::TextReader& xmlReader,
   std::deque<Stats::Inventory<>>& array
+);
+static void writeWorldDocument(xmlTextWriterPtr xmlWriter, const World& world,
+  bool indent, bool includeUiState
 );
 
 void
@@ -136,11 +141,51 @@ World::save(const std::filesystem::path& filename) const {
   );
 
 #ifdef DEBUG
-  xmlTextWriterSetIndent(xmlWriter, true);
-  xmlTextWriterSetIndentString(xmlWriter, (xmlStr)"  ");
+  constexpr bool indent = true;
 #else
-  xmlTextWriterSetIndent(xmlWriter, false);
+  constexpr bool indent = false;
 #endif
+  writeWorldDocument(xmlWriter, *this, indent, true);
+  } // end scope closed xmlWriter and sets xmlStatus
+  if(xmlStatus) {
+    throw std::runtime_error(
+      std::string("XML parser error: ") + std::to_string(xmlStatus));
+  }
+}
+
+std::string serializeWorldGameplayState(const World& world) {
+  xmlBufferPtr buffer = xmlBufferCreate();
+  if(!buffer)
+    throw std::runtime_error("failed to create canonical XML buffer");
+
+  xmlTextWriterPtr xmlWriter = xmlNewTextWriterMemory(buffer, 0);
+  if(!xmlWriter) {
+    xmlBufferFree(buffer);
+    throw std::runtime_error("failed to create canonical XML writer");
+  }
+
+  try {
+    writeWorldDocument(xmlWriter, world, false, false);
+    if(xmlTextWriterFlush(xmlWriter) < 0)
+      throw std::runtime_error("failed to flush canonical XML writer");
+    const char* content = reinterpret_cast<const char*>(
+      xmlBufferContent(buffer));
+    const std::string result(content, xmlBufferLength(buffer));
+    xmlFreeTextWriter(xmlWriter);
+    xmlBufferFree(buffer);
+    return result;
+  } catch(...) {
+    xmlFreeTextWriter(xmlWriter);
+    xmlBufferFree(buffer);
+    throw;
+  }
+}
+
+static void writeWorldDocument(xmlTextWriterPtr xmlWriter, const World& world,
+    bool indent, bool includeUiState) {
+  xmlTextWriterSetIndent(xmlWriter, indent);
+  if(indent)
+    xmlTextWriterSetIndentString(xmlWriter, (xmlStr)"  ");
 
   xmlTextWriterStartDocument(xmlWriter, NULL, NULL, NULL);
   xmlTextWriterWriteComment(xmlWriter,
@@ -149,18 +194,13 @@ World::save(const std::filesystem::path& filename) const {
     xmlTextWriterWriteAttribute(xmlWriter, (xmlStr)"ldsv-version",
       f<unsigned int>(LOADSAVE_VERSION_CURRENT));
     xmlTextWriterStartElement(xmlWriter, (xmlStr)"globals");
-      saveGlobals(xmlWriter, *this);
+      saveGlobals(xmlWriter, world);
     xmlTextWriterEndElement(xmlWriter);
     xmlTextWriterStartElement(xmlWriter, (xmlStr)"map");
-      saveMap(xmlWriter, map);
+      saveMap(xmlWriter, world.map, includeUiState);
     xmlTextWriterEndElement(xmlWriter);
   xmlTextWriterEndElement(xmlWriter);
   xmlTextWriterEndDocument(xmlWriter);
-  } // end scope closed xmlWriter and sets xmlStatus
-  if(xmlStatus) {
-    throw std::runtime_error(
-      std::string("XML parser error: ") + std::to_string(xmlStatus));
-  }
 }
 
 std::unique_ptr<World>
@@ -993,7 +1033,8 @@ static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
   world.stats.population.population_m.acc++; // don't lose the game immediately
 }
 
-static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map) {
+static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map,
+    bool includeUiState) {
   xmlTextWriterWriteAttribute(xmlWriter, (xmlStr)"size", f(map.len()));
 
   for(const MapTile& tile : map) {
@@ -1015,10 +1056,12 @@ static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map) {
     xmlTextWriterEndElement(xmlWriter);
   }
 
-  xmlTextWriterStartElement(xmlWriter, (xmlStr)"recentPoint");
-    xmlTextWriterWriteElement(xmlWriter, (xmlStr)"x", f(map.recentPoint.x));
-    xmlTextWriterWriteElement(xmlWriter, (xmlStr)"y", f(map.recentPoint.y));
-  xmlTextWriterEndElement(xmlWriter);
+  if(includeUiState) {
+    xmlTextWriterStartElement(xmlWriter, (xmlStr)"recentPoint");
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"x", f(map.recentPoint.x));
+      xmlTextWriterWriteElement(xmlWriter, (xmlStr)"y", f(map.recentPoint.y));
+    xmlTextWriterEndElement(xmlWriter);
+  }
 }
 
 static void loadMap(xmlpp::TextReader& xmlReader, World& world,

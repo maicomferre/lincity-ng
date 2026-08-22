@@ -19,6 +19,7 @@
 
 #include <SDL3/SDL.h>
 
+#include <algorithm>
 #include <array>
 #include <climits>
 #include <cstdlib>
@@ -29,6 +30,7 @@
 #include <stdexcept>
 #include <thread>
 #include <string>
+#include <vector>
 
 #include "headless_env.hpp"
 #include "gui/CheckButton.hpp"             // for build tooltip regression
@@ -56,11 +58,13 @@
 #include "lincity/modules/power_line.hpp"     // for powerlineConstructionGroup
 #include "lincity/modules/residence.hpp"      // for residenceLLConstructionGroup
 #include "lincity/modules/school.hpp"         // for schoolConstructionGroup
+#include "lincity/modules/commune.hpp"        // for Commune
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
 #include "lincity/modules/waterwell.hpp"      // for waterwellConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
 #include "lincity/lintypes.hpp"               // for Construction
 #include "lincity/stats.hpp"                 // for Stats
+#include "lincity/StateFingerprint.hpp"      // for captureStateSnapshot
 #include "lincity/util.hpp"                  // for format_money
 #include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
 #include "lincity/world.hpp"                 // for World
@@ -288,6 +292,114 @@ TTEST(world_boots_and_runs_one_year) {
     TCHECK_EQ(world->stats.total_money, world->total_money);
   TCHECK(world->total_money >= -2000000000);
   TCHECK(world->total_money <= 2000000000);
+}
+
+TTEST(legacy_state_fingerprint_is_stable_sensitive_and_non_cosmetic) {
+  std::unique_ptr<World> world = make_world();
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  const StateSnapshot baseline = captureStateSnapshot(*world);
+  TCHECK(baseline.fingerprint() ==
+    captureStateSnapshot(*world).fingerprint());
+
+  world->commodityLedger[STUFF_FOOD] += 17;
+  world->setUpdated(World::Updatable::MAP);
+  MapTile* tile = world->map(MapPoint(1, 1));
+  auto frame = tile->addFrame();
+  frame->frame = 7;
+  frame->move_x = 3;
+  const MapPoint recentPoint = world->map.recentPoint;
+  world->map.recentPoint = MapPoint(2, 3);
+  const StateSnapshot withDiagnostics = captureStateSnapshot(*world);
+  TCHECK(baseline.fingerprint() == withDiagnostics.fingerprint());
+  TCHECK(!baseline.firstDifference(withDiagnostics).has_value());
+  world->map.recentPoint = recentPoint;
+  tile->removeFrame(frame);
+
+  ++world->total_money;
+  const StateSnapshot changedMoney = captureStateSnapshot(*world);
+  TCHECK(baseline.fingerprint() != changedMoney.fingerprint());
+  const auto moneyDifference = baseline.firstDifference(changedMoney);
+  TCHECK(moneyDifference.has_value());
+  if(moneyDifference)
+    TCHECK_EQ(moneyDifference->section,
+      std::string("gameplay-xml-v1"));
+  --world->total_money;
+
+  world->map.polluted.push_back(MapPoint(3, 4));
+  const StateSnapshot changedPolluted = captureStateSnapshot(*world);
+  TCHECK(baseline.fingerprint() != changedPolluted.fingerprint());
+  const auto pollutedDifference = baseline.firstDifference(changedPolluted);
+  TCHECK(pollutedDifference.has_value());
+  if(pollutedDifference)
+    TCHECK_EQ(pollutedDifference->section,
+      std::string("legacy-polluted-queue-v1"));
+  world->map.polluted.pop_back();
+
+  Commune* commune = nullptr;
+  for(Construction* construction : world->map.constructions) {
+    commune = dynamic_cast<Commune*>(construction);
+    if(commune)
+      break;
+  }
+  TCHECK(commune != nullptr);
+  if(commune) {
+    ++commune->lazy_months;
+    const StateSnapshot changedTrajectoryExtra = captureStateSnapshot(*world);
+    TCHECK(baseline.fingerprint() != changedTrajectoryExtra.fingerprint());
+    const auto extraDifference =
+      baseline.firstDifference(changedTrajectoryExtra);
+    TCHECK(extraDifference.has_value());
+    if(extraDifference)
+      TCHECK_EQ(extraDifference->section,
+        std::string("legacy-trajectory-extras-v1"));
+    --commune->lazy_months;
+  }
+}
+
+TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
+  auto runTrajectory = []() {
+    std::unique_ptr<World> world = make_world();
+    std::vector<StateFingerprint128> trajectory;
+    if(!world)
+      return trajectory;
+    trajectory.reserve(30);
+    for(int day = 0; day < 30; ++day) {
+      world->do_time_step();
+      trajectory.push_back(captureStateSnapshot(*world).fingerprint());
+    }
+    return trajectory;
+  };
+  auto snapshotAtDay = [](std::size_t targetDay) {
+    std::unique_ptr<World> world = make_world();
+    for(std::size_t day = 0; day <= targetDay; ++day)
+      world->do_time_step();
+    return captureStateSnapshot(*world);
+  };
+
+  const std::vector<StateFingerprint128> first = runTrajectory();
+  const std::vector<StateFingerprint128> second = runTrajectory();
+  TCHECK_EQ(first.size(), std::size_t(30));
+  TCHECK_EQ(first.size(), second.size());
+  for(std::size_t day = 0; day < std::min(first.size(), second.size()); ++day) {
+    if(first[day] == second[day])
+      continue;
+    const StateSnapshot firstSnapshot = snapshotAtDay(day);
+    const StateSnapshot secondSnapshot = snapshotAtDay(day);
+    const auto difference = firstSnapshot.firstDifference(secondSnapshot);
+    if(difference) {
+      std::fprintf(stderr,
+        "  Legacy fingerprint diverged on day %zu, section %s, byte %zu\n",
+        day + 1, difference->section.c_str(), difference->offset);
+    }
+    TCHECK(first[day] == second[day]);
+  }
+  if(!first.empty()) {
+    TCHECK_EQ(first.back().hex(),
+      std::string("d0f2975041a730617e7d9fdd039bc845"));
+  }
 }
 
 TTEST(money_conservation_one_year) {

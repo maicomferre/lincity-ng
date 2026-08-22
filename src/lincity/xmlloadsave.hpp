@@ -22,8 +22,14 @@
 #ifndef __xmlloadsave_h__
 #define __xmlloadsave_h__
 
+#include <string>
+
+class World;
+
 #define LOADSAVE_VERSION_CURRENT 2142
 #define LOADSAVE_VERSION_COMPAT 2130
+
+std::string serializeWorldGameplayState(const World& world);
 
 // 2140:
 // - updated to be consistent with the new World structure

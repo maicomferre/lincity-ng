@@ -18,6 +18,8 @@ add_library(lincity_lib  STATIC
   resources.cpp
   resources.hpp
   simulate.cpp
+  StateFingerprint.cpp
+  StateFingerprint.hpp
   stats.cpp
   stats.hpp
   sustainable.hpp
