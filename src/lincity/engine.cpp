@@ -291,7 +291,7 @@ Map::desert_water_frontiers(MapPoint p0, MapPoint p1) {
  */
 std::optional<MapPoint>
 Map::find_group(MapPoint p, unsigned short group) {
-  for(unsigned int i = 2; i < len() * 4; i++) {
+  for(int i = 2; i < len() * 4; i++) {
     int& c = i & 1 ? p.y : p.x;
     int d = i & 2 ? -1 : 1;
     for(int j = i / 2; j > 0; j--) {
