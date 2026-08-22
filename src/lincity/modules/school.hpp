@@ -102,8 +102,8 @@ public:
     virtual bool loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) override;
 
     std::list<ExtraFrame>::iterator frit;
-    int anim;
-    int anim2;
+    unsigned long anim;
+    unsigned long anim2;
     // bool animate_enable;
     int total_tech_made;
     int working_days, busy;
