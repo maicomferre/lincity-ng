@@ -58,8 +58,7 @@
 
 //static void init_mappoint_array(void);
 static void setup_land(Map& map, int global_aridity, bool without_trees);
-static void random_start(World& world,
-  bool without_trees);
+static void random_start(World& world);
 static void coal_reserve_setup(Map& map);
 static void ore_reserve_setup(Map& map);
 static void setup_river(Map& map);
@@ -71,12 +70,10 @@ static void new_setup_river_ground(Map& map,
 static void new_setup_river(Map& map, int global_aridity);
 //static void sort_by_altitude(int n, std::vector <int> *tabx, std::vector <int> *taby);
 //static int new_setup_one_river(int x, int y, int lake_id, Shoreline *shore);
-static std::optional<MapPoint> quick_river(Map& map, MapPoint start);
 static void set_river_tile(MapTile& tile); //also used in loadsave.cpp
 static void do_rand_ecology(MapTile& tile, int r, bool without_trees);
 //static Shoreline * init_shore(void);
 //static void free_shore(Shoreline *shore);
-static std::optional<MapPoint> overfill_lake(Map& map, MapPoint start);//, Shoreline *shore, int lake_id);
 
 
 /* ---------------------------------------------------------------------- *
@@ -270,7 +267,7 @@ create_new_city(city_settings *city, int mapSize, int old_setup_ground,
   ore_reserve_setup(world.map);
 
   if(city->with_village)
-    random_start(world, city->without_trees);
+    random_start(world);
 
   // TODO: this was already done in setup_land. Need it be done again?
   world.map.connect_transport(1, 1, world.map.len() - 2, world.map.len() - 2);
@@ -332,7 +329,6 @@ static void new_setup_river_ground(Map& map,
       *
       */
     const int len = map.len();
-    const int area = len * len;
     const int mask_size = 7; // useless to be larger than 3*sigma && Must be < SHIFT
     int ii = 2;
     int sz = 4;
@@ -894,7 +890,7 @@ static void remove_river(void)
 }
 */
 
-static void random_start(World& world, bool without_trees) {
+static void random_start(World& world) {
     Map& map = world.map;
     int x, y, xx, yy, flag, watchdog;
 
