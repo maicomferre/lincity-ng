@@ -93,7 +93,7 @@ void Parkland::update() {
     world.map(point)->pollution--;
 }
 
-void Parkland::report(Mps& mps, bool production) const {
+void Parkland::report(Mps& mps, bool) const {
   mps.add_s(constructionGroup->name);
   mps.addBlank();
   mps.add_sd(N_("Air Pollution"), world.map(point)->pollution);
