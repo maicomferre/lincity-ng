@@ -8,7 +8,7 @@
  *     the baseline plus the world commodity ledger (TST-03)
  *   - total_money stays within the engine clamp
  *   - stats.total_money stays in sync at month boundaries
- *   - scenario matrix: every data/opening/*.scn.gz loads and runs 1 year
+ *   - scenario matrix: every opening scenario loads and runs 1 year
  *   - reset flow: a fresh world after a simulated game starts clean
  *
  * Usage: lincity-test-sim [--app-data DIR] [--user-data DIR] [--days N]
