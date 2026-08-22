@@ -119,11 +119,11 @@ public:
     int working_days, busy;
     int labor;
     std::array<CommodityRule, STUFF_COUNT> commodityRuleCount;
-    int anim;
+    unsigned long anim;
     int market_ratio;
     bool start_burning_waste;
     std::list<ExtraFrame>::iterator waste_fire_frit;
-    int waste_fire_anim;
+    unsigned long waste_fire_anim;
 };
 
 #endif // __LINCITYNG_LINCITY_MODULES_MARKET_HPP__

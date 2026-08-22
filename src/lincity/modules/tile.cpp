@@ -122,7 +122,7 @@ TileConstructionGroup tree3ConstructionGroup(
 );
 
 //Dont use this one after all maptiles are no constructions
-Construction *TileConstructionGroup::createConstruction(World& world) {
+Construction *TileConstructionGroup::createConstruction(World&) {
   assert(false);
   return nullptr;
 }

@@ -87,7 +87,7 @@ TableLayout::parse(xmlpp::TextReader& reader) {
     } else if(element == "colsize") {
       parseRowColProperties(reader, false);
     } else if(element == "cell") {
-      int row, col;
+      int row = -1, col = -1;
       int colspan = 1, rowspan = 1;
       Cell::Alignment halign = Cell::CENTER;
       Cell::Alignment valign = Cell::CENTER;
@@ -219,7 +219,8 @@ TableLayout::parseRowColProperties(xmlpp::TextReader& reader, bool isRow) {
   }
   reader.move_to_element();
 
-  if(num < 0 || num >= (isRow ? rowproperties : colproperties).size()) {
+  const Properties& properties = isRow ? rowproperties : colproperties;
+  if(num < 0 || static_cast<Properties::size_type>(num) >= properties.size()) {
     fmt::println(stderr, "error: invalid {} specied: {}",
       isRow ? "row" : "col", num);
     assert(false);

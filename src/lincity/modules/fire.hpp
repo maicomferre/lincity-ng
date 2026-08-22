@@ -88,7 +88,7 @@ public:
     int burning_days;
     int smoking_days;
     int days_before_spread;
-    int anim;
+    unsigned long anim;
 
 private:
   void spread();

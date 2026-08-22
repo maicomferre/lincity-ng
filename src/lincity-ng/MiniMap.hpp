@@ -77,6 +77,7 @@ public:
 
     void setGame(Game *game);
 
+    using Component::setDirty;
     void setDirty() { Component::setDirty(); }
     void setMapDirty() { mFullRefresh = true; }
     bool isMapDirty() const { return mFullRefresh; }

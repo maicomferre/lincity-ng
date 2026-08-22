@@ -549,8 +549,7 @@ Game::run() {
                 / "9_currentGameNG.scn.gz");
               // push the QUIT event back for the main menu to handle
               {
-                int s = SDL_PushEvent(&event);
-                assert(s == 1);
+                assert(SDL_PushEvent(&event) == 1);
               }
               return false;
             default:
@@ -681,8 +680,7 @@ Game::run() {
                     saveCityNG(*world, getConfig()->userDataDir.get()
                       / "9_currentGameNG.scn.gz");
                     // push the QUIT event back for main menu to handle
-                    int s = SDL_PushEvent(&event);
-                    assert(s == 1);
+                    assert(SDL_PushEvent(&event) == 1);
                     return;
                 }
                 default:

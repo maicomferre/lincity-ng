@@ -335,7 +335,7 @@ void Construction::place(MapPoint point) {
 }
 
 bool
-Construction::can_bulldoze(Message::ptr& message) const {
+Construction::can_bulldoze(Message::ptr&) const {
   assert(world.map(point)->construction == this);
   return true;
 }
@@ -1013,9 +1013,9 @@ ConstructionGroup::can_build_here(const World& world, const MapPoint point,
   ) {
     bool open = world.map(point)->is_bare() ||
       world.map(point)->getGroup() == GROUP_POWER_LINE ||
-      world.map(point)->is_water() && !world.map(point)->is_transport() ||
-      world.map(point)->is_transport() &&
-        world.map(point)->getTransportGroup() != group;
+      (world.map(point)->is_water() && !world.map(point)->is_transport()) ||
+      (world.map(point)->is_transport() &&
+        world.map(point)->getTransportGroup() != group);
 
     if(!open)
       message = SpaceOccupiedMessage::create(point);

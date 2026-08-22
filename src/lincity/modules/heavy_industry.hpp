@@ -121,7 +121,7 @@ public:
     int  tech;
     double bonus, extra_bonus;
     int  output_level;
-    int  anim;
+    unsigned long anim;
     int  steel_this_month;
 };
 

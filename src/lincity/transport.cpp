@@ -224,6 +224,7 @@ Map::connect_transport(int originx, int originy, int lastx, int lasty) {
               case GROUP_RAIL:
                   if(check_group(map, p.e(2)) != GROUP_TRACK)
                   {   break;}
+                  [[fallthrough]];
               case GROUP_ROAD:
               case GROUP_TRACK:
               case GROUP_TRACK_BRIDGE:
@@ -245,6 +246,7 @@ Map::connect_transport(int originx, int originy, int lastx, int lasty) {
               case GROUP_RAIL:
                   if(check_group(map, p.s(2)) != GROUP_TRACK)
                   {   break;}
+                  [[fallthrough]];
               case GROUP_ROAD:
               case GROUP_TRACK:
               case GROUP_TRACK_BRIDGE:
@@ -371,6 +373,7 @@ Map::connect_transport(int originx, int originy, int lastx, int lasty) {
               case GROUP_RAIL:
                   if(check_group(map, p.e(2)) != GROUP_ROAD)
                   {   break;}
+                  [[fallthrough]];
               case GROUP_TRACK:
               case GROUP_ROAD:
               case GROUP_COMMUNE:
@@ -390,6 +393,7 @@ Map::connect_transport(int originx, int originy, int lastx, int lasty) {
               case GROUP_RAIL:
                   if(check_group(map, p.s(2)) != GROUP_ROAD)
                   {   break;}
+                  [[fallthrough]];
               case GROUP_TRACK:
               case GROUP_ROAD:
               case GROUP_COMMUNE:

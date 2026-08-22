@@ -147,7 +147,7 @@ void
 TransportConstructionGroup::placeItem(World& world, MapPoint point) {
   MapTile& tile = *world.map(point);
   unsigned short oldGrp = tile.getTransportGroup();
-  if(tile.is_transport() && oldGrp != group || oldGrp == GROUP_POWER_LINE) {
+  if((tile.is_transport() && oldGrp != group) || oldGrp == GROUP_POWER_LINE) {
     assert(tile.construction);
     tile.construction->detach();
     tile.flags &= ~(FLAG_POWER_CABLES_0 | FLAG_POWER_CABLES_90);

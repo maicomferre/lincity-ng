@@ -256,7 +256,7 @@ MainMenu::loadNewGameMenu() {
     [this](){ newGameStartButtonClicked(nullptr); }));
   newGameSelection.registerButton(button);
 
-  for(const std::string& bName :
+  for(const char* bName :
     {"File0", "File1", "File2", "File3", "File4", "File5"}
   ) {
     CheckButton *button = getCheckButton(*newGameMenu, bName);
@@ -398,7 +398,7 @@ MainMenu::loadLoadGameMenu() {
   Button* backButton = getButton(*loadGameMenu, "BackButton");
   backButton->clicked.connect(std::bind(&MainMenu::loadGameBackButtonClicked, this, _1));
 
-  for(const std::string& bName :
+  for(const char* bName :
     {"File0", "File1", "File2", "File3", "File4", "File5"}
   ) {
     CheckButton *button = getCheckButton(*loadGameMenu, bName);
@@ -418,7 +418,7 @@ MainMenu::loadSaveGameMenu() {
   Button* backButton = getButton(*saveGameMenu, "BackButton");
   backButton->clicked.connect(std::bind(&MainMenu::loadGameBackButtonClicked, this, _1));
 
-  for(const std::string& bName :
+  for(const char* bName :
     {"File0", "File1", "File2", "File3", "File4", "File5"}
   ) {
     CheckButton *button = getCheckButton(*saveGameMenu, bName);

@@ -39,5 +39,5 @@ std::ostream& operator<<(std::ostream& os, const MapPoint& point) {
 std::size_t std::hash<MapPoint>::operator()(MapPoint point) const {
   const std::size_t hx = std::hash<int>()(point.x);
   const std::size_t hy = std::hash<int>()(point.y);
-  return hx ^ hy + 0x9e3779b9 + (hx << 6) + (hx >> 2);
+  return hx ^ (hy + 0x9e3779b9 + (hx << 6) + (hx >> 2));
 }

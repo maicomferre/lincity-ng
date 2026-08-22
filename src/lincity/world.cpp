@@ -396,7 +396,7 @@ const std::list<ExtraFrame>& MapTile::frames() const
 
 
 Map::Map(int map_len) :
-  side_len(map_len), recentPoint(map_len / 2, map_len / 2)
+  recentPoint(map_len / 2, map_len / 2), side_len(map_len)
 {
   maptile.reserve(map_len * map_len);
   for(MapPoint p; p.y < map_len; p.y++)

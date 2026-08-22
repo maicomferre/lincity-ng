@@ -43,23 +43,22 @@ Allowed values are:
 ## LINCITYNG_ENABLE_WARNINGS / LINCITYNG_WARNINGS_AS_ERRORS
 
 Compiler diagnostics are enabled by default for every build type with
-`-Wall -Wextra`. The first option can be disabled temporarily while reducing
-the existing warning baseline:
+`-Wall -Wextra`, and warnings are errors by default. The warning set can be
+disabled temporarily while reducing a platform-specific warning:
 
 ```
 cmake -B build -DLINCITYNG_ENABLE_WARNINGS=OFF
 ```
 
-Warnings are not errors by default yet. A maintainer can promote the cleaned
-baseline explicitly with:
+The strict gate can be overridden temporarily with:
 
 ```
-cmake -B build -DLINCITYNG_WARNINGS_AS_ERRORS=ON
+cmake -B build -DLINCITYNG_WARNINGS_AS_ERRORS=OFF
 ```
 
-This separation keeps release builds diagnosable without making the initial
-warning inventory a surprise build break. The fork's roadmap tracks the
-gradual conversion to a mandatory warning gate as TST-09.
+Use `-DLINCITYNG_WARNINGS_AS_ERRORS=OFF` only for a compatibility build while
+repairing a warning; CI and normal maintainer builds keep the mandatory gate.
+The fork's roadmap records the warning-cleanup work as TST-09.
 
 
 ## CMAKE_INSTALL_PREFIX

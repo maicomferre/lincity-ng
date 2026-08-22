@@ -117,7 +117,7 @@ void Monument::update()
     }
 }
 
-void Monument::animate(unsigned long real_time) {
+void Monument::animate(unsigned long) {
   int& frame = frameIt->frame;
   if(completed) {
     frame = 0;

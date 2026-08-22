@@ -17,3 +17,14 @@ target_link_libraries(lincity-test-unit
 )
 
 add_test(NAME unit COMMAND lincity-test-unit)
+
+# The two debug ownership checks in test_maptile_frames.cpp intentionally
+# fork and abort in the child process.  LeakSanitizer cannot safely finalize
+# an aborting fork child, so keep ASan/UBSan active but disable only its leak
+# phase for this test.  The sim/save tests retain leak detection and cover
+# the long-lived process paths.
+if(CMAKE_CXX_FLAGS MATCHES "fsanitize=address")
+  set_tests_properties(unit PROPERTIES
+    ENVIRONMENT "ASAN_OPTIONS=detect_leaks=0"
+  )
+endif()

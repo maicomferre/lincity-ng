@@ -102,7 +102,7 @@ public:
     virtual bool loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) override;
 
     int total_ore_reserve;
-    int anim;
+    unsigned long anim;
     bool animate_enable;
     int working_days, busy;
     unsigned int anim_count;

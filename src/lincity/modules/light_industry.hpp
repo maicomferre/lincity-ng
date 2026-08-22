@@ -131,7 +131,7 @@ public:
     double bonus, extra_bonus;
     int  working_days;
     int  busy;
-    int  anim;
+    unsigned long anim;
     int  goods_this_month;
     int  goods_today;
 };

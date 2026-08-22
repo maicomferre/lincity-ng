@@ -152,7 +152,7 @@ void Coalmine::update() {
     detach();
 }
 
-void Coalmine::animate(unsigned long real_time) {
+void Coalmine::animate(unsigned long) {
   //choose type depending on availabe coal
   // TODO: make sure case 'nothing' can actually happen
   if(commodityCount[STUFF_COAL] > MAX_COAL_AT_MINE - (MAX_COAL_AT_MINE/4))//75%

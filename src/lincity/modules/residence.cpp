@@ -190,7 +190,7 @@ void Residence::update()
     /* birts = 1/(BASE_BR + brm) deaths = 1/(BASE_DR - drm)
     the different signs are intentional higher brm less a little less babys, higher drm much more deaths*/
     bool cc = false;                 /* extra labor from sports activity*/
-    int birth_flag = (FLAG_FED | FLAG_EMPLOYED);/* can we have babies*/
+    const unsigned int birth_flag = FLAG_FED | FLAG_EMPLOYED;/* can we have babies*/
     bool extra_births = false;  /* full houses are more fertile*/
     bool hc = false;            /* have health cover ? */
     //int pol_death = 0;             //sometimes pollution kills

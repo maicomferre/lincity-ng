@@ -2,7 +2,8 @@
 # on every push to master and every PR targeting master, in two variants:
 #   - build:      RelWithDebInfo, the fast correctness path.
 #   - build-asan: Debug + ASan/UBSan + LSAN suppressions, the regression
-#                 guard for UAF/leaks (must pass with detect_leaks=1).
+#                 guard for UAF/leaks. The fork/abort unit death tests disable
+#                 only LSAN; sim/save retain leak detection.
 #
 # Two dependencies are not packaged in ubuntu-26.04's apt at the versions
 # the project requires, so they are built from source release tags and

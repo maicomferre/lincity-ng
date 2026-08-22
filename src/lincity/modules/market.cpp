@@ -264,7 +264,7 @@ void Market::animate(unsigned long real_time) {
   }
 }
 
-void Market::report(Mps& mps, bool production) const {
+void Market::report(Mps& mps, bool) const {
   mps.add_s(constructionGroup->name);
   mps.addBlank();
   mps.add_sfp(N_("busy"), (float)busy);

@@ -107,7 +107,7 @@ public:
 
   int working_days, busy;
   int tech;
-  int anim;
+  unsigned long anim;
   int steps;
   enum Stage {
     BUILDING,  // not completed

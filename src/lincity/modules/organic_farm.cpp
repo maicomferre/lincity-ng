@@ -137,7 +137,7 @@ void Organic_farm::update()
     }
 }
 
-void Organic_farm::animate(unsigned long real_time) {
+void Organic_farm::animate(unsigned long) {
   int i = (world.total_time + crop_rotation_key * 1200 + month_stagger) % 4800;
   //Every three month
   if (i % 300 == 0) {

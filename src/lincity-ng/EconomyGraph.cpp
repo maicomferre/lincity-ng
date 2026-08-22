@@ -154,10 +154,10 @@ EconomyGraph::drawHistoryLineGraph(Painter& painter, Rect2D space) {
 
   auto& history = game->getWorld().stats.history;
   const int w = (int)space.getWidth();
-  if(history.pop.size() < w) history.pop.resize(w);
-  if(history.ppool.size() < w) history.ppool.resize(w);
-  if(history.nojobs.size() < w) history.nojobs.resize(w);
-  if(history.starve.size() < w) history.starve.resize(w);
+  if(history.pop.size() < static_cast<std::size_t>(w)) history.pop.resize(w);
+  if(history.ppool.size() < static_cast<std::size_t>(w)) history.ppool.resize(w);
+  if(history.nojobs.size() < static_cast<std::size_t>(w)) history.nojobs.resize(w);
+  if(history.starve.size() < static_cast<std::size_t>(w)) history.starve.resize(w);
 
   // Half needs to be (.0,.0) to avoid gaps in the line from
   // implementation-dependent tie-breaking. If half is (.5,.5) then lines will
@@ -345,12 +345,13 @@ EconomyGraph::drawFPSGraph(Painter& painter, Rect2D space) {
   painter.fillRectangle(space);
 
   painter.setFillColor(blue);
-  for(int i = 0; i < fps.size(); i++) {
-    assert(i < space.getWidth());
+  for(std::size_t i = 0; i < fps.size(); i++) {
+    const int x = static_cast<int>(i);
+    assert(x < space.getWidth());
     float val = std::min(fps[i] * space.getHeight() / 100, space.getHeight());
     painter.fillRectangle(Rect2D(
-      space.p2 - Vector2(i+1, val),
-      space.p2 - Vector2(i, 0)
+      space.p2 - Vector2(x+1, val),
+      space.p2 - Vector2(x, 0)
     ));
   }
 

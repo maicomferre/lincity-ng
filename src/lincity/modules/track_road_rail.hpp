@@ -148,10 +148,10 @@ public:
     virtual void detach() override;
     std::array<int, STUFF_COUNT> trafficCount;
     void list_traffic(Mps& mps) const;
-    int anim;
+    unsigned long anim;
     bool start_burning_waste;
     std::list<ExtraFrame>::iterator waste_fire_frit;
-    int waste_fire_anim;
+    unsigned long waste_fire_anim;
 };
 
 #endif // __LINCITYNG_LINCITY_MODULES_TRACKROADRAIL_HPP__

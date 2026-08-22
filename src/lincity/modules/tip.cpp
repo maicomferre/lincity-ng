@@ -105,7 +105,7 @@ void Tip::update()
     }
 }
 
-void Tip::animate(unsigned long real_time) {
+void Tip::animate(unsigned long) {
   int i = (total_waste /3 * 22) / MAX_WASTE_AT_TIP;
   if (total_waste > 0 && i < 8)
   {   i++;}

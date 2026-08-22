@@ -93,7 +93,7 @@ public:
 
     int  hivolt_output;
     int  tech;
-    int  anim;
+    unsigned long anim;
     int  working_days, busy;
     bool animate_enable;
     bool paid; // one maintenance payment per plant per WIND_POWER_RCOST

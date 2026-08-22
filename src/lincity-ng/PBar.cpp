@@ -88,10 +88,10 @@ LCPBar::parse(xmlpp::TextReader& reader) {
 void
 LCPBar::refresh() {
   Stats& stats = game->getWorld().stats;
-  for(int b = 0; b < bars.size(); b++) {
+  for(std::size_t b = 0; b < bars.size(); b++) {
     Bar bar = bars[b];
 
-    int val, diff, cap;
+    int val = 0, diff = 0, cap = 0;
     switch(bar) {
     case Bar::POP:
       val = stats.history.pop.at(0) / NUMOF_DAYS_IN_MONTH;

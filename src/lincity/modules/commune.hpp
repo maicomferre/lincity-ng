@@ -108,7 +108,7 @@ public:
 
     void turnIntoParks();
 
-    int  anim;
+    unsigned long anim;
     int  ugwCount;
     int  coalprod;
     int  monthly_stuff_made;

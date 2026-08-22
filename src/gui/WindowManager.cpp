@@ -193,12 +193,15 @@ WindowManager::event(const Event& event) {
           case Edge::N:
           case Edge::S:
             cursorId++;
+            [[fallthrough]];
           case Edge::W:
           case Edge::E:
             cursorId++;
+            [[fallthrough]];
           case Edge::NE:
           case Edge::SW:
             cursorId++;
+            [[fallthrough]];
           case Edge::NW:
           case Edge::SE:
             desktop->setSystemCursor(this, (SDL_SystemCursor)cursorId);

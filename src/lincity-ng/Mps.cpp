@@ -124,7 +124,7 @@ Mps::add_s(const std::string &t) {
 }
 
 void
-Mps::add_fp(int i, double f) {
+Mps::add_fp(int, double f) {
   addText((std::ostringstream() << std::setprecision(1) << std::fixed
     << f << "%"
   ).str());

@@ -60,7 +60,6 @@ Blacksmith::Blacksmith(World& world, ConstructionGroup *cstgrp) :
 {
   this->constructionGroup = cstgrp;
   this->anim = 0;
-  this->pauseCounter = 0;
   this->busy = 0;
   this->working_days = 0;
   this->animate_enable = false;
@@ -75,8 +74,6 @@ Blacksmith::Blacksmith(World& world, ConstructionGroup *cstgrp) :
 
 void Blacksmith::update()
 {
-  if(pauseCounter++ < 0)
-    ;
   if(commodityCount[STUFF_GOODS] + GOODS_MADE_BY_BLACKSMITH
       <= MAX_GOODS_AT_BLACKSMITH
     && commodityCount[STUFF_COAL] >= BLACKSMITH_COAL_USED
@@ -96,7 +93,6 @@ void Blacksmith::update()
   }
   else {
     animate_enable = false;
-    pauseCounter = -BLACKSMITH_CLOSE_TIME;
   }
 
   //monthly update

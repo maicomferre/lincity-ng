@@ -54,8 +54,6 @@ class World;
 #define MAX_COAL_AT_BLACKSMITH (BLACKSMITH_COAL_USED*20)
 #define MAX_STEEL_AT_BLACKSMITH (BLACKSMITH_STEEL_USED*20)
 #define MAX_GOODS_AT_BLACKSMITH (GOODS_MADE_BY_BLACKSMITH*20)
-#define BLACKSMITH_CLOSE_TIME 25
-
 #define BLACKSMITH_BATCH (GOODS_MADE_BY_BLACKSMITH*100)
 //#define BLACKSMITH_ANIM_THRESHOLD 10
 #define BLACKSMITH_ANIM_SPEED    200
@@ -102,8 +100,7 @@ public:
     virtual void animate(unsigned long real_time) override;
 
     int  goods_made;
-    int  anim;
-    int  pauseCounter;
+    unsigned long anim;
     int  working_days, busy;
     bool animate_enable;
 };

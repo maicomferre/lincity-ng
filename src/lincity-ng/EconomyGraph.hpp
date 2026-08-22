@@ -46,6 +46,7 @@ public:
     void parse(xmlpp::TextReader& reader);
     void draw(Painter& painter);
     void newFPS( int frame );
+    using Component::setDirty;
     void setDirty() { Component::setDirty(); }
 
     void setGame(Game *game);

@@ -60,6 +60,7 @@ public:
     void draw(Painter& painter);
     void resize(float width, float height );
     void event(const Event& event);
+    using Component::setDirty;
     void setDirty() { Component::setDirty(); }
     void setMapDirty() { refreshMap = true; }
     bool isMapDirty() const { return refreshMap; }

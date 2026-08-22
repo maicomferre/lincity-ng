@@ -47,7 +47,10 @@ SDL_Renderer* window_renderer = NULL;
 Painter* painter = 0;
 
 void videoSizeChanged(int width, int height) {
-#ifndef DISABLE_GL_MODE
+#ifdef DISABLE_GL_MODE
+    (void)width;
+    (void)height;
+#else
     if(getConfig()->useOpenGL.get()) {
         /* Reset OpenGL state */
         glDisable(GL_DEPTH_TEST);
