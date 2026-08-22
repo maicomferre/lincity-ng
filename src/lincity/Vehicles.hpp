@@ -94,7 +94,8 @@ public:
   std::list<ExtraFrame>::iterator frameIt; //the particular extraframe at the host
   MapPoint framePt; //index of the maptile with the frame, NOT necessarily the current position
 
-  int speed0, speed, anim;
+  int speed0, speed;
+  unsigned long anim;
   void update(unsigned long real_time);
   bool isDead() const { return dead; }
 
