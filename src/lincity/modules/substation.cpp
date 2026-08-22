@@ -88,7 +88,7 @@ void Substation::update()
     }
 }
 
-void Substation::animate(unsigned long real_time) {
+void Substation::animate(unsigned long) {
   if (commodityCount[STUFF_LOVOLT] > (MAX_LOVOLT_AT_SUBSTATION / 2))
     frameIt->resourceGroup = ResourceGroup::resMap["SubstationOn"];
   else if (commodityCount[STUFF_LOVOLT] > (MAX_LOVOLT_AT_SUBSTATION / 10))
