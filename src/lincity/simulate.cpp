@@ -46,6 +46,7 @@
 #include "modules/modules_interfaces.hpp"  // for update_shanty
 #include "stats.hpp"                       // for Stats, Stat
 #include "sustainable.hpp"                 // for SUST_FIRE_YEARS_NEEDED, SUST...
+#include "SimulationCalendar.hpp"          // for explicit Legacy event timing
 #include "world.hpp"                       // for World, Map, MapTile
 #include "util/debuglog.hpp"               // for LNG_LOG
 
@@ -61,12 +62,27 @@ World::do_time_step(void) {
       "do_time_step day {} money {} tech {}", total_time, total_money,
       tech_level);
 
-    // update stats
+    // Update stats at their original position before construction updates.
     stats.daily();
-    if(total_time % NUMOF_DAYS_IN_MONTH == 0)
-      stats.monthly();
-    if(total_time % NUMOF_DAYS_IN_YEAR == 0)
-      stats.yearly();
+    for(const SimulationEvent& event : SimulationCalendar::events()) {
+      if(event.phase != SimulationPhase::STATISTICS
+        || !SimulationCalendar::due(event, total_time, map.len()))
+        continue;
+      LNG_LOG(lincity::log::kSim, lincity::log::kTrace,
+        "calendar event {} day {} phase {} priority {}",
+        SimulationCalendar::name(event.id), total_time,
+        SimulationCalendar::phaseName(event.phase), event.priority);
+      switch(event.id) {
+        case SimulationEventId::STATS_MONTHLY:
+          stats.monthly();
+          break;
+        case SimulationEventId::STATS_YEARLY:
+          stats.yearly();
+          break;
+        default:
+          assert(false);
+      }
+    }
 
     /* Run through simulation equations for each farm, residence, etc. */
     simulate_mappoints();
@@ -113,36 +129,45 @@ World::do_animate(unsigned long real_time) {
 
 void
 World::do_periodic_events(void) {
-  /* do_daily_ecology scans the whole map; run it every 3 days instead of
-     every day. do_daily_ecology() compensates with a 3x higher probability
-     per run, so the average rate of desert->bare is unchanged. */
-  if(total_time % 3 == 0)
-    do_daily_ecology();
-
-  if(total_time % NUMOF_DAYS_IN_YEAR == 0)
-    sustainability_test();
-
-  if(total_time % DAYS_PER_POLLUTION == 3)
-    do_pollution();
-
-  int fire_rate = DAYS_BETWEEN_FIRES*100/map.len()*100/map.len();
-  int fire_tech = GROUP_FIRESTATION_TECH;
-  if(total_time % fire_rate == 9 && tech_level > fire_tech)
-    do_random_fire();
-
-  if(total_time % DAYS_BETWEEN_COVER == 75)
-    do_fire_health_cricket_power_cover();
-
-  if(total_time % DAYS_BETWEEN_SHANTY == 15
-    && tech_level > GROUP_HEALTH_TECH
-  )
-    update_shanty(*this);
-
-  if(total_time % NUMOF_DAYS_IN_MONTH == NUMOF_DAYS_IN_MONTH - 1)
-    end_of_month_update();
-
-  if(total_time % NUMOF_DAYS_IN_YEAR == NUMOF_DAYS_IN_YEAR - 1)
-    end_of_year_update();
+  for(const SimulationEvent& event : SimulationCalendar::events()) {
+    if(event.phase != SimulationPhase::PERIODIC
+      || !SimulationCalendar::due(event, total_time, map.len()))
+      continue;
+    LNG_LOG(lincity::log::kSim, lincity::log::kTrace,
+      "calendar event {} day {} phase {} priority {}",
+      SimulationCalendar::name(event.id), total_time,
+      SimulationCalendar::phaseName(event.phase), event.priority);
+    switch(event.id) {
+      case SimulationEventId::DAILY_ECOLOGY:
+        do_daily_ecology();
+        break;
+      case SimulationEventId::SUSTAINABILITY:
+        sustainability_test();
+        break;
+      case SimulationEventId::POLLUTION:
+        do_pollution();
+        break;
+      case SimulationEventId::RANDOM_FIRE:
+        if(tech_level > GROUP_FIRESTATION_TECH)
+          do_random_fire();
+        break;
+      case SimulationEventId::COVERAGE:
+        do_fire_health_cricket_power_cover();
+        break;
+      case SimulationEventId::SHANTY:
+        if(tech_level > GROUP_HEALTH_TECH)
+          update_shanty(*this);
+        break;
+      case SimulationEventId::END_OF_MONTH:
+        end_of_month_update();
+        break;
+      case SimulationEventId::END_OF_YEAR:
+        end_of_year_update();
+        break;
+      default:
+        assert(false);
+    }
+  }
 }
 
 void

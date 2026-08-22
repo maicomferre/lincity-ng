@@ -4,6 +4,7 @@ add_executable(lincity-test-unit
   test_economy.cpp
   test_maptile_frames.cpp
   test_resolution_options.cpp
+  test_simulation_calendar.cpp
   test_state_fingerprint.cpp
   test_util.cpp
 )

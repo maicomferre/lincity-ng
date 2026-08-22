@@ -18,6 +18,8 @@ add_library(lincity_lib  STATIC
   resources.cpp
   resources.hpp
   simulate.cpp
+  SimulationCalendar.cpp
+  SimulationCalendar.hpp
   SimulationReplay.cpp
   SimulationReplay.hpp
   StateFingerprint.cpp
