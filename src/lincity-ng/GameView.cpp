@@ -979,6 +979,8 @@ GameView::event(const Event& event) {
     case SDL_SCANCODE_M:
       getMiniMap()->scrollPageDown(false);
       break;
+    default:
+      break;
     }
   } break;
   case Event::KEYUP: {
@@ -1057,6 +1059,8 @@ GameView::event(const Event& event) {
       show(MapPoint(getWorld().map.len() / 2, getWorld().map.len() / 2));
       setDirty();
     } break;
+    default:
+      break;
     }
   } break;
   case Event::UPDATE: {
@@ -1358,8 +1362,6 @@ void GameView::drawTile(Painter& painter, const MapPoint &tile,
         resgrp = getWorld().map(upperLeft)->getTileResourceGroup();
         //adjust OnScreenPoint of big Tiles
         MapPoint lowerRightTile(tile.e(size-1));
-        unsigned short textureType = getWorld().map(upperLeft)->getTopType();
-
         // if we hide high buildings, hide trees as well
         if (hideHigh && (cstgrp == &treeConstructionGroup
          || cstgrp == &tree2ConstructionGroup
