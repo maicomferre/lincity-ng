@@ -204,9 +204,6 @@ TTEST(maptile_teardown_with_live_frames_keeps_registry_clean) {
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#if defined(__SANITIZE_ADDRESS__)
-#include <sanitizer/lsan_interface.h>
-#endif
 
 TTEST(maptile_cross_tile_remove_aborts_in_debug) {
   // Invariant 3: prove the ownership assert actually fires. A child process
@@ -214,9 +211,6 @@ TTEST(maptile_cross_tile_remove_aborts_in_debug) {
   // only in debug builds on Linux (CI is ubuntu; release builds skip it).
   pid_t pid = fork();
   if(pid == 0) {
-#if defined(__SANITIZE_ADDRESS__)
-    __lsan_disable();
-#endif
     Map map(4);
     std::list<ExtraFrame>::iterator foreign = map(MapPoint(1, 1))->addFrame();
     map(MapPoint(2, 2))->addFrame();
@@ -240,9 +234,6 @@ TTEST(maptile_double_kill_aborts_in_debug) {
   // nonzero instead of raising SIGABRT, so accept both outcomes).
   pid_t pid = fork();
   if(pid == 0) {
-#if defined(__SANITIZE_ADDRESS__)
-    __lsan_disable();
-#endif
     Map map(4);
     MapTile* tile = map(MapPoint(1, 1));
     std::list<ExtraFrame>::iterator victim = tile->addFrame();
