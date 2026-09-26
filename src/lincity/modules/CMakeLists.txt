@@ -28,10 +28,14 @@ add_library(lincity_lib_modules  STATIC
 		modules_interfaces.hpp
 		monument.cpp
 		monument.hpp
+		oilwell.cpp
+		oilwell.hpp
 		oremine.cpp
 		oremine.hpp
 		organic_farm.cpp
 		organic_farm.hpp
+		refinery.cpp
+		refinery.hpp
 		parkland.cpp
 		parkland.hpp
 		port.cpp

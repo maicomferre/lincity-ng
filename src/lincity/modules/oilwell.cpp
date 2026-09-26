@@ -165,6 +165,19 @@ void Oilwell::bulldoze() {
   Construction::bulldoze();
 }
 
+void
+Oilwell::makeLake() {
+  int size = constructionGroup->size;
+  for(MapPoint p(point); p.y < point.y + size; p.y++)
+  for(p.x = point.x; p.x < point.x + constructionGroup->size; p.x++) {
+    MapTile& tile = *world.map(p);
+    if(tile.oil_reserve < OIL_RESERVE / 2) {
+      tile.setTerrain(GROUP_WATER);
+      tile.flags |= FLAG_HAS_UNDERGROUND_WATER;
+    }
+  }
+}
+
 void Oilwell::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"total_extracted",
     xmlFormat<int>(total_extracted));

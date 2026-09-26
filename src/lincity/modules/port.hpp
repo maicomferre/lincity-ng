@@ -54,7 +54,7 @@ class World;
 #define PORT_GOODS_RATE   3
 #define PORT_STEEL_RATE   30  // benchmark 2026-09: 100 too expensive
 #define PORT_POLLUTION    1
-#define PORT_PETROLEUM_RATE 5  // placeholder: ajustar com benchmark FEAT-03d
+#define PORT_PETROLEUM_RATE 40  // benchmark 2026-09: between COAL=50 ($0.50) and STEEL=30 ($0.30); petroleum is intermediate good like coal/ore
 // Capacity = max stock per commodity (20x units). Benchmarked 2026-09: ORE 300 (6d buffer at rate 50), STEEL 50 (1.7d at rate 30). LABOR 100, FOOD 500, COAL 100, GOODS 100 unchanged — no benchmark data to adjust.
 #define PORT_LABOR  100
 #define PORT_FOOD  500

@@ -83,6 +83,8 @@ public:
     virtual void save(xmlTextWriterPtr xmlWriter) const override;
     virtual bool loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) override;
 
+    void makeLake();
+
     int total_extracted;
     unsigned long anim;
     bool animate_enable;
