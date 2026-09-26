@@ -50,17 +50,19 @@ class World;
 #define PORT_FOOD_RATE    1
 #define PORT_LABOR_RATE    5
 #define PORT_COAL_RATE    50
-#define PORT_ORE_RATE     1
+#define PORT_ORE_RATE     50  // benchmark 2026-09 (Rocket_98, seed 1234567, 1500d): 1 too cheap
 #define PORT_GOODS_RATE   3
-#define PORT_STEEL_RATE   100
+#define PORT_STEEL_RATE   30  // benchmark 2026-09: 100 too expensive
 #define PORT_POLLUTION    1
-//FIXME Guessing some values
+#define PORT_PETROLEUM_RATE 5  // placeholder: ajustar com benchmark FEAT-03d
+// Capacity = max stock per commodity (20x units). Benchmarked 2026-09: ORE 300 (6d buffer at rate 50), STEEL 50 (1.7d at rate 30). LABOR 100, FOOD 500, COAL 100, GOODS 100 unchanged — no benchmark data to adjust.
 #define PORT_LABOR  100
 #define PORT_FOOD  500
 #define PORT_COAL  100
 #define PORT_GOODS 100
 #define PORT_ORE   300
 #define PORT_STEEL 50
+#define PORT_PETROLEUM 0  // fase a: inerte, habilitar fase b
 
 #define MAX_LABOR_ON_PORT  (20 * PORT_LABOR)
 #define MAX_FOOD_ON_PORT  (20 * PORT_FOOD)
@@ -68,6 +70,7 @@ class World;
 #define MAX_GOODS_ON_PORT (20 * PORT_GOODS)
 #define MAX_ORE_ON_PORT   (20 * PORT_ORE)
 #define MAX_STEEL_ON_PORT (20 * PORT_STEEL)
+#define MAX_PETROLEUM_ON_PORT (20 * PORT_PETROLEUM)
 
 /*
   These next two control the stuff bought or sold as a % of what's on the
@@ -113,12 +116,16 @@ public:
         commodityRuleCount[STUFF_STEEL].maxload = MAX_STEEL_ON_PORT;
         commodityRuleCount[STUFF_STEEL].take = true;
         commodityRuleCount[STUFF_STEEL].give = true;
+        commodityRuleCount[STUFF_PETROLEUM].maxload = MAX_PETROLEUM_ON_PORT;
+        commodityRuleCount[STUFF_PETROLEUM].take = true;
+        commodityRuleCount[STUFF_PETROLEUM].give = true;
 
         commodityRates[STUFF_FOOD] = PORT_FOOD_RATE;
         commodityRates[STUFF_COAL] = PORT_COAL_RATE;
         commodityRates[STUFF_GOODS] = PORT_GOODS_RATE;
         commodityRates[STUFF_ORE] = PORT_ORE_RATE;
         commodityRates[STUFF_STEEL] = PORT_STEEL_RATE;
+        commodityRates[STUFF_PETROLEUM] = PORT_PETROLEUM_RATE;
     };
     //map that holds the Rates for the commodities
     std::map<Commodity, int> commodityRates;

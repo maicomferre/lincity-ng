@@ -45,7 +45,7 @@ const char *commodityNames[] = {
   N_("Lo-Volt"),
   N_("Hi-Volt"),
   N_("Water"),
-  "Unknown",
+  N_("Petroleum"),
   "Unknown",
   "Unknown",
 };
@@ -59,7 +59,8 @@ const char *commodityStandardNames[] = {
   "waste",
   "lovolt",
   "hivolt",
-  "water"
+  "water",
+  "petroleum"
 };
 
 const char *commodityName(Commodity stuff) {
@@ -87,5 +88,6 @@ Commodity commodityFromStandardName(const char *name) {
   else if(!std::strcmp(name, "lovolt")) return STUFF_LOVOLT;
   else if(!std::strcmp(name, "hivolt")) return STUFF_HIVOLT;
   else if(!std::strcmp(name, "water"))  return STUFF_WATER;
+  else if(!std::strcmp(name, "petroleum")) return STUFF_PETROLEUM;
   else                                  return STUFF_COUNT;
 }

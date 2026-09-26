@@ -34,6 +34,7 @@ enum Commodity : int {
   STUFF_LOVOLT,
   STUFF_HIVOLT,
   STUFF_WATER,
+  STUFF_PETROLEUM,
   STUFF_COUNT
 };
 Commodity& operator++(Commodity& stuff);
