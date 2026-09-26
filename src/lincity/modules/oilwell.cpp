@@ -116,7 +116,12 @@ void Oilwell::update()
         working_days = 0;
     }
 
-    if(total_extracted >= 99999
+    bool any_oil = false;
+    for(MapPoint p(point); p.y < point.y + constructionGroup->size; p.y++)
+    for(p.x = point.x; p.x < point.x + constructionGroup->size; p.x++)
+      if(world.map(p)->oil_reserve > 0) { any_oil = true; goto check_lake; }
+    check_lake:
+    if(!any_oil && total_extracted > 0
       && commodityCount[STUFF_LABOR] == 0
       && commodityCount[STUFF_PETROLEUM] == 0
     ) {
