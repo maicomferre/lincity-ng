@@ -928,8 +928,10 @@ int Construction::equilibrate_stuff(int *rem_lvl, CommodityRule rem_rule, int ra
         }
         //std::cout.flush();
         if (!(flags & FLAG_IS_TRANSPORT) && (flow > 0)
-            && (constructionGroup->group != GROUP_MARKET))
-        //something is given to a consumer
+            && (constructionGroup->group != GROUP_MARKET)
+            && (constructionGroup->group != GROUP_PORT))
+        //something is given to a consumer (port is exempt:
+        // export tax covers port revenue)
         {
                 switch (stuff_ID)
                 {
@@ -1111,6 +1113,7 @@ void Construction::applyTransport(const std::vector<TransportProposal>& proposal
         // non-market) — same logic as equilibrate_stuff
         if(!(p.origin->flags & FLAG_IS_TRANSPORT) &&
            p.origin->constructionGroup->group != GROUP_MARKET &&
+           p.origin->constructionGroup->group != GROUP_PORT &&
            p.flow > 0) {
             switch(p.stuff) {
                 case STUFF_LABOR:

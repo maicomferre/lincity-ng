@@ -1216,6 +1216,87 @@ TTEST(random_actions_keep_conservation) {
   TCHECK(run_days(*world, 300));
 }
 
+/* Benchmark: mede fluxo de commodities pelo porto após N dias.
+ * Imprime CSV para análise dos PORT_*_RATE.
+ * Tenta cenários com porto se a cidade aleatória não tiver um. */
+void benchmark_port(World& world, int days) {
+  /* Configura o porto para operar: importa food/coal/ore,
+   * exporta goods/steel. */
+  for(Construction* cst : world.map.constructions) {
+    Port* port = dynamic_cast<Port*>(cst);
+    if(!port) continue;
+    port->commodityRuleCount[STUFF_FOOD].take = true;
+    port->commodityRuleCount[STUFF_FOOD].give = false;
+    port->commodityRuleCount[STUFF_COAL].take = true;
+    port->commodityRuleCount[STUFF_COAL].give = false;
+    port->commodityRuleCount[STUFF_ORE].take = true;
+    port->commodityRuleCount[STUFF_ORE].give = false;
+    port->commodityRuleCount[STUFF_GOODS].take = false;
+    port->commodityRuleCount[STUFF_GOODS].give = true;
+    port->commodityRuleCount[STUFF_STEEL].take = false;
+    port->commodityRuleCount[STUFF_STEEL].give = true;
+  }
+
+  /* Snapshot do inventário inicial */
+  std::array<int, STUFF_COUNT> start_inv = {};
+  for(const Construction* cst : world.map.constructions) {
+    const Port* port = dynamic_cast<const Port*>(cst);
+    if(!port) continue;
+    for(Commodity s = STUFF_INIT; s < STUFF_COUNT; s++)
+      start_inv[s] += port->commodityCount[s];
+  }
+
+  run_days(world, days,
+    /*check_conservation=*/true,
+    /*check_commodities=*/true);
+
+  /* Snapshot do inventário final */
+  std::array<int, STUFF_COUNT> end_inv = {};
+  bool foundPort = false;
+  for(const Construction* cst : world.map.constructions) {
+    const Port* port = dynamic_cast<const Port*>(cst);
+    if(!port) continue;
+    foundPort = true;
+    for(Commodity s = STUFF_INIT; s < STUFF_COUNT; s++)
+      end_inv[s] += port->commodityCount[s];
+  }
+
+  std::printf("\n=== PORT BENCHMARK (%d dias, seed %llu) ===\n",
+    days, (unsigned long long)g_seed);
+  std::printf("commodity,start,end,delta,daily_ic,daily_et,lastm_ic,lastm_et\n");
+
+  for(const Construction* cst : world.map.constructions) {
+    const Port* port = dynamic_cast<const Port*>(cst);
+    if(!port) continue;
+    for(Commodity s = STUFF_INIT; s < STUFF_COUNT; s++) {
+      std::printf("%s,%d,%d,%d,%d,%d,%d,%d\n",
+        commodityStandardName(s),
+        start_inv[s], end_inv[s], end_inv[s] - start_inv[s],
+        port->daily_ic, port->daily_et,
+        port->lastm_ic, port->lastm_et);
+    }
+    std::printf("daily_ic,%d,,,\n", port->daily_ic);
+    std::printf("daily_et,%d,,,\n", port->daily_et);
+    std::printf("monthly_ic,%d,,,\n", port->monthly_ic);
+    std::printf("monthly_et,%d,,,\n", port->monthly_et);
+    std::printf("lastm_ic,%d,,,\n", port->lastm_ic);
+    std::printf("lastm_et,%d,,,\n", port->lastm_et);
+    std::printf("pence,%d,,,\n", port->pence);
+    std::printf("busy,%d,,,\n", port->busy);
+    std::printf("working_days,%d,,,\n", port->working_days);
+    std::printf("tech_made,%d,,,\n", port->tech_made);
+  }
+  if(!foundPort)
+    std::printf("NO_PORT_FOUND,,,\n");
+}
+
+TTEST(port_benchmark_365_days) {
+  std::unique_ptr<World> world = make_world();
+  TCHECK(world != nullptr);
+  if(!world) return;
+  benchmark_port(*world, 365);
+}
+
 } // namespace
 
 int main(int argc, char** argv) {
