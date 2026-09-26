@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE!! IT WAS GENERATED AUTOMATICALLY! (you must edit files in help_template directory) -->
+<Document style="helpdocument">
+	<p style="htitle">Oil well</p>
+	<p style="hp">Oil wells extract <a href="petroleum">petroleum</a> from underground oil reserves. There must be sufficient oil reserve at the location to build an oil well (requires at least 1000 oil reserve per tile under the well).</p>
+	<p style="hp">Oil wells need <a href="labor">labor</a> to operate.</p>
+	<p style="hp">Once all oil reserves at the well location are exhausted, the well stops producing. When all reserves are depleted and there is no petroleum in inventory, the oil well is automatically removed from the map.</p>
+
+  <p style="hsubtitle">Formulas</p>
+	<p style="hp">1: 150 labor + 1 oil reserve =&gt; 5 petroleum</p>
+	<p style="hp">Oil wells target producing petroleum as long as labor is available and reserves remain.</p>
+
+  <p style="hsubtitle">See also:</p>
+	<li><a href="petroleum">Petroleum</a></li>
+	<li><a href="refinery">Refinery</a></li>
+	<li><a href="labor">Labor</a></li>
+	<li><a href="transport">Transport</a></li>
+</Document>

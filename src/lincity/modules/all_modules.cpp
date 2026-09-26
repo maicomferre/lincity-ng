@@ -65,6 +65,8 @@ void initializeModules() {
     ConstructionGroup::addConstructionGroup(&parkpondConstructionGroup);
     ConstructionGroup::addConstructionGroup(&oremineConstructionGroup);
     ConstructionGroup::addConstructionGroup(&coalmineConstructionGroup);
+    ConstructionGroup::addConstructionGroup(&oilwellConstructionGroup);
+    ConstructionGroup::addConstructionGroup(&refineryConstructionGroup);
     ConstructionGroup::addConstructionGroup(&tipConstructionGroup);
     ConstructionGroup::addConstructionGroup(&recycleConstructionGroup);
     ConstructionGroup::addConstructionGroup(&portConstructionGroup);
@@ -134,6 +136,8 @@ void initializeModules() {
     ConstructionGroup::addResourceID("ParklandLake", &parkpondConstructionGroup);
     ConstructionGroup::addResourceID("OreMine", &oremineConstructionGroup);
     ConstructionGroup::addResourceID("CoalMine", &coalmineConstructionGroup);
+    ConstructionGroup::addResourceID("OilWell", &oilwellConstructionGroup);
+    ConstructionGroup::addResourceID("Refinery", &refineryConstructionGroup);
     new ResourceGroup("CoalMineLow");
     new ResourceGroup("CoalMineMed");
     new ResourceGroup("CoalMineFull");

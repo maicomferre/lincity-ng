@@ -117,6 +117,7 @@ struct ManagementKpis {
   int goods_stock = 0;
   int coal_stock = 0;
   int ore_stock = 0;
+  int petroleum_stock = 0;
 };
 
 ManagementKpis collectManagementKpis(const World& world);

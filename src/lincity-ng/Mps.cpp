@@ -360,6 +360,7 @@ MpsMap::refreshGround() {
 
   add_sd(N_("Ore Reserve"), tile->ore_reserve);
   add_sd(N_("Coal Reserve"), tile->coal_reserve);
+  add_sd(N_("Oil Reserve"), tile->oil_reserve);
   add_sd(N_("ground level"), tile->ground.altitude);
 
   // TODO: the Map is unreachable from here
@@ -397,6 +398,7 @@ collectManagementKpis(const World& world) {
   kpis.goods_stock = stats.inventory[STUFF_GOODS].amount.stat;
   kpis.coal_stock = stats.inventory[STUFF_COAL].amount.stat;
   kpis.ore_stock = stats.inventory[STUFF_ORE].amount.stat;
+  kpis.petroleum_stock = stats.inventory[STUFF_PETROLEUM].amount.stat;
 
   for(const MapTile& tile : world.map) {
     kpis.coal_reserve += tile.coal_reserve;
@@ -565,6 +567,7 @@ MpsFinance::refreshManagement() {
   add_ss(N_("Goods"), num_to_ansi(kpis.goods_stock));
   add_ss(N_("Coal"), num_to_ansi(kpis.coal_stock));
   add_ss(N_("Ore"), num_to_ansi(kpis.ore_stock));
+  add_ss(N_("Petroleum"), num_to_ansi(kpis.petroleum_stock));
 }
 
 IMPLEMENT_COMPONENT_FACTORY(Mps)

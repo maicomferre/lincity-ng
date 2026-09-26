@@ -57,6 +57,33 @@
 #define LABOR_LOAD_ORE    9
 #define LABOR_LOAD_STEEL 15
 
+#define OILWELL_COST      800
+#define OILWELL_COST_MUL  8
+#define OILWELL_BUL_COST  100000
+#define OILWELL_TECH     (10 * (MAX_TECH_LEVEL / 1000))
+#define OILWELL_FIREC     10
+#define OILWELL_RANGE     0
+#define OILWELL_SIZE      3
+
+#define OILWELL_LABOR   150
+#define MAX_LABOR_AT_OILWELL (20 * OILWELL_LABOR)
+#define PETROLEUM_PER_WELL 5
+#define MIN_OIL_FOR_WELL  OIL_RESERVE
+
+#define REFINERY_COST      1200
+#define REFINERY_COST_MUL  6
+#define REFINERY_BUL_COST  200000
+#define REFINERY_TECH     (20 * (MAX_TECH_LEVEL / 1000))
+#define REFINERY_FIREC     5
+#define REFINERY_RANGE     0
+#define REFINERY_SIZE      3
+
+#define REFINERY_LABOR   200
+#define MAX_LABOR_AT_REFINERY (20 * REFINERY_LABOR)
+#define GOODS_PER_REFINERY 3
+#define MAX_PETROLEUM_AT_REFINERY 10000
+#define MAX_GOODS_AT_REFINERY 2000
+
 //used on markets, transport, shanties when burning waste
 #define WASTE_BURN_TIME 350
 #define WASTE_BURN_UNCONTROLLED .001

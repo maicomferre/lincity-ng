@@ -38,6 +38,8 @@
 #include "market.hpp"
 #include "mill.hpp"
 #include "monument.hpp"
+#include "oilwell.hpp"
+#include "refinery.hpp"
 #include "oremine.hpp"
 #include "organic_farm.hpp"
 #include "parkland.hpp"
