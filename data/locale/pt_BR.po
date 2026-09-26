@@ -2615,3 +2615,28 @@ msgstr "Opções de Comércio"
 
 #~ msgid ".Deaths by starvation %7d   History %8.3f"
 #~ msgstr ".Mortos pela fome %7d   Histórico %8.3f"
+
+# FEAT-03d petroleum (help XML / MPS)
+msgid "Oil Well"
+msgstr "Poço de Petróleo"
+
+msgid "Oil Wells"
+msgstr "Poços de Petróleo"
+
+msgid "Refinery"
+msgstr "Refinaria"
+
+msgid "Refineries"
+msgstr "Refinarias"
+
+msgid "Extracted"
+msgstr "Extraído"
+
+msgid "Processed"
+msgstr "Processado"
+
+msgid "Oil Reserve"
+msgstr "Reserva de Petróleo"
+
+msgid "Petroleum"
+msgstr "Petróleo"

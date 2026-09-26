@@ -138,6 +138,12 @@ void initializeModules() {
     ConstructionGroup::addResourceID("CoalMine", &coalmineConstructionGroup);
     ConstructionGroup::addResourceID("OilWell", &oilwellConstructionGroup);
     ConstructionGroup::addResourceID("Refinery", &refineryConstructionGroup);
+    new ResourceGroup("OilWellLow");
+    new ResourceGroup("OilWellMed");
+    new ResourceGroup("OilWellFull");
+    new ResourceGroup("RefineryLow");
+    new ResourceGroup("RefineryMed");
+    new ResourceGroup("RefineryFull");
     new ResourceGroup("CoalMineLow");
     new ResourceGroup("CoalMineMed");
     new ResourceGroup("CoalMineFull");

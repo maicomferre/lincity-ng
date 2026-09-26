@@ -156,13 +156,6 @@ void Oilwell::report(Mps& mps, bool production) const {
 void
 Oilwell::place(MapPoint point) {
   Construction::place(point);
-
-  int oil = 0;
-  for(MapPoint p(point); p.y < point.y + constructionGroup->size; p.y++)
-  for(p.x = point.x; p.x < point.x + constructionGroup->size; p.x++)
-    oil += world.map(p)->oil_reserve;
-  if(oil < 1)
-    oil = 1;
   this->total_extracted = 0;
 }
 

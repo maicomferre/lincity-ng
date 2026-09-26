@@ -70,7 +70,7 @@ public:
     const std::string& s3);
 
   /* must match the number of mps_text paragraphs in data/gui/mps.xml */
-  static const int PARAGRAPH_COUNT = 14;
+  static const int PARAGRAPH_COUNT = 15;
 
 private:
   std::vector<Paragraph *> paragraphs;
