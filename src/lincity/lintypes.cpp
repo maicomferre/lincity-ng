@@ -709,6 +709,10 @@ void Construction::trade()
     {   powerline = dynamic_cast<Powerline*>(this);}
     // read once per construction instead of once per commodity
     const bool carsEnabled = getConfig()->carsEnabled.get();
+    // REF-07 Fase 6: use transactional phases for DeterministicV1,
+    // legacy shuffle path for LEGACY protocol
+    const bool deterministic =
+        world.simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1;
     /*begin for over all different stuff*/
     for(stuff_ID = STUFF_INIT ; stuff_ID < STUFF_COUNT ; stuff_ID++ )
     {
@@ -720,6 +724,67 @@ void Construction::trade()
             if(!center_lvl) continue;
             center_cap = 0;
         }
+        if(deterministic) {
+            // REF-07 Fase 6: transactional transport
+            // snapshot → resolve → apply (applyTransport updates
+            // commodityCount directly on origin/destination)
+            std::vector<TransportProposal> proposals;
+            proposals.reserve(neighsize);
+            snapshotTransport(this, proposals);
+            resolveTransport(proposals, true);
+            applyTransport(proposals, world);
+            // max_traffic for trafficCount smoothing and vehicle spawning
+            max_traffic = 0;
+            for(const auto& p : proposals) {
+                int t = p.flow > 0 ? p.flow : -p.flow;
+                if(t > max_traffic) max_traffic = t;
+            }
+            max_traffic = max_traffic * TRANSPORT_QUANTA / center_rule.maxload;
+            // trafficCount smoothing + vehicle/powerline animation
+            if(transport) {
+                transport->trafficCount[stuff_ID] =
+                    (9 * transport->trafficCount[stuff_ID] + max_traffic) / 10;
+                if(simDelay != SIM_DELAY_FAST
+                && carsEnabled
+                && 100 * max_traffic * TRANSPORT_RATE / TRANSPORT_QUANTA > 2
+                && world.map(point)->getTransportGroup() == GROUP_ROAD)
+                {
+                    int yield = 50 * max_traffic * TRANSPORT_RATE / TRANSPORT_QUANTA;
+                    if(simDelay == SIM_DELAY_MED)
+                    {   yield = (yield+1)/2;}
+                    if(stuff_ID == STUFF_LABOR
+                    && world.cosmeticRandomInt(COMMUTER_TRAFFIC_RATE) < (yield+1)/2
+                    && transport->canPlaceVehicle()
+                    && world.hasBuildingNeighbor(point))
+                    {
+                        world.vehicleList.push_back(
+                            new Vehicle(world, point,
+                                Vehicle::randomPassengerCar(world),
+                                VEHICLE_STRATEGY_RANDOM));
+                    }
+                }
+            } else if(powerline) {
+                powerline->trafficCount[stuff_ID] =
+                    (9 * powerline->trafficCount[stuff_ID] + max_traffic) / 10;
+                for(size_t i = 0; i < neighsize; ++i) {
+                    if((powerline->anim_counter == 0)
+                    && !(neighbors[i]->constructionGroup->group == GROUP_POWER_LINE)
+                    && neighbors[i]->constructionGroup->commodityRuleCount[stuff_ID].give
+                    && (neighbors[i]->commodityCount[stuff_ID] > 0))
+                    {   powerline->anim_counter = POWER_MODULUS
+                          + world.cosmeticRandomInt(POWER_MODULUS);}
+                    if(powerline->flashing
+                    && neighbors[i]->constructionGroup->group == GROUP_POWER_LINE)
+                    {
+                        int& anim_counter =
+                            dynamic_cast<Powerline*>(neighbors[i])->anim_counter;
+                        if(anim_counter <= POWER_MODULUS / 3)
+                            anim_counter = POWER_MODULUS;
+                    }
+                }
+            }
+        } else {
+        // Legacy path — unchanged behavior
         //first order approximation for ratio
         // ratio = (center_lvl * TRANSPORT_QUANTA / (center_cap) );
         lvl = center_lvl;
@@ -819,6 +884,7 @@ void Construction::trade()
         }
 
         commodityCount[stuff_ID] += flow; //update center_lvl
+        } // end legacy vs deterministic
     } //endfor all different STUFF
 }
 
@@ -900,6 +966,169 @@ int Construction::equilibrate_stuff(int *rem_lvl, CommodityRule rem_rule, int ra
     *loc_lvl += flow;
     *rem_lvl -= flow;
     return traffic;
+}
+
+// REF-07 Fase 6: transactional transport — snapshot phase
+// Collects proposed flows without mutating the World.
+void Construction::snapshotTransport(Construction* cstr,
+  std::vector<TransportProposal>& proposals)
+{
+    if(!cstr) return;
+    const int flags = cstr->flags;
+    const auto& group = cstr->constructionGroup;
+    const size_t neighsize = cstr->neighbors.size();
+
+    for(Commodity stuff_ID = STUFF_INIT; stuff_ID < STUFF_COUNT; stuff_ID++) {
+        const CommodityRule& center_rule =
+            group->commodityRuleCount[stuff_ID];
+        if(!center_rule.maxload) continue;
+        int center_lvl = cstr->commodityCount[stuff_ID];
+        int center_cap = center_rule.maxload;
+        if(flags & FLAG_EVACUATE) {
+            if(!center_lvl) continue;
+            center_cap = 0;
+        }
+        int lvl = center_lvl;
+        int cap = center_cap;
+        for(size_t i = 0; i < neighsize; ++i) {
+            Construction* pear = cstr->neighbors[i];
+            const CommodityRule& pearrule =
+                pear->constructionGroup->commodityRuleCount[stuff_ID];
+            if(!pearrule.maxload) continue;
+            int lvlsi = pear->commodityCount[stuff_ID];
+            int capsi = pearrule.maxload;
+            if(pear->flags & FLAG_EVACUATE) {
+                capsi = 0;
+            } else if(!(((long)lvlsi * center_cap >
+                         (long)center_lvl * capsi) ?
+                        (center_rule.take && pearrule.give) :
+                        (center_rule.give && pearrule.take))) {
+                continue;
+            }
+            lvl += lvlsi;
+            cap += capsi;
+        }
+        if(!cap) continue;
+        const int ratio = lvl * TRANSPORT_QUANTA / cap;
+        for(size_t i = 0; i < neighsize; ++i) {
+            Construction* pear = cstr->neighbors[i];
+            const CommodityRule& pearrule =
+                pear->constructionGroup->commodityRuleCount[stuff_ID];
+            if(!pearrule.maxload) continue;
+            int lvlsi = pear->commodityCount[stuff_ID];
+            int capsi = pearrule.maxload;
+            if(pear->flags & FLAG_EVACUATE) {
+                capsi = 0;
+            } else if(!(((long)lvlsi * center_cap >
+                         (long)center_lvl * capsi) ?
+                        (center_rule.take && pearrule.give) :
+                        (center_rule.give && pearrule.take))) {
+                continue;
+            }
+            TransportProposal p;
+            p.origin = cstr;
+            p.destination = pear;
+            p.stuff = stuff_ID;
+            p.isEvacuation = (flags & FLAG_EVACUATE) != 0;
+            // Calculate flow (same logic as equilibrate_stuff)
+            int flow;
+            int& rem_cap = const_cast<int&>(center_rule.maxload);
+            int* rem_lvl = &center_lvl;
+            int* loc_lvl = &pear->commodityCount[stuff_ID];
+            int loc_cap = pearrule.maxload;
+            CommodityRule& loc_rule =
+                pear->constructionGroup->commodityRuleCount[stuff_ID];
+            flow = (ratio * loc_cap / TRANSPORT_QUANTA) - (*loc_lvl);
+            if(flow > 0 ?
+               !(loc_rule.take && center_rule.give) :
+               !(loc_rule.give && center_rule.take)) {
+                flow = 0;
+            }
+            if(flow > 0) {
+                if(flow * TRANSPORT_RATE > rem_cap)
+                    flow = rem_cap / TRANSPORT_RATE;
+                if(flow > *rem_lvl)
+                    flow = *rem_lvl;
+            } else if(flow < 0) {
+                if(-flow * TRANSPORT_RATE > rem_cap)
+                    flow = -rem_cap / TRANSPORT_RATE;
+                if(-flow > (rem_cap - *rem_lvl)) {
+                    flow = -(rem_cap - *rem_lvl);
+                    if(flow > 0) flow = 0;
+                }
+            }
+            p.flow = flow;
+            if(flow != 0) {
+                proposals.push_back(p);
+            }
+        }
+    }
+}
+
+// REF-07 Fase 6: transactional transport — resolution phase
+// Orders proposals deterministically and resolves conflicts.
+void Construction::resolveTransport(std::vector<TransportProposal>& proposals,
+  bool deterministic)
+{
+    if(proposals.empty()) return;
+    if(deterministic) {
+        // Sort by commodity → origin MapPoint → destination MapPoint
+        auto mapPointLess = [](const MapPoint& a, const MapPoint& b) {
+            return (a.x < b.x) || (a.x == b.x && a.y < b.y);
+        };
+        std::sort(proposals.begin(), proposals.end(),
+            [&mapPointLess](const TransportProposal& a, const TransportProposal& b) {
+                if(a.stuff != b.stuff) return a.stuff < b.stuff;
+                if(a.origin->point != b.origin->point)
+                    return mapPointLess(a.origin->point, b.origin->point);
+                return mapPointLess(a.destination->point, b.destination->point);
+            });
+    } else {
+        // Legacy: preserve existing shuffle-based ordering
+        // Uses the global BasicUrg via lincityRand
+        // Fisher-Yates shuffle with the legacy RNG
+        BasicUrbg& rng = BasicUrbg::get();
+        for(size_t i = proposals.size(); i > 1; --i) {
+            size_t j = rng() % i;
+            if(j != i - 1) {
+                std::swap(proposals[i - 1], proposals[j]);
+            }
+        }
+    }
+}
+
+// REF-07 Fase 6: transactional transport — application phase
+// Applies resolved proposals as a consolidated delta vector.
+void Construction::applyTransport(const std::vector<TransportProposal>& proposals,
+  World& world)
+{
+    for(const auto& p : proposals) {
+        int& src_level = p.origin->commodityCount[p.stuff];
+        int& dst_level = p.destination->commodityCount[p.stuff];
+        src_level -= p.flow;
+        dst_level += p.flow;
+        // Record taxable for deliveries to consumers (non-transport,
+        // non-market) — same logic as equilibrate_stuff
+        if(!(p.origin->flags & FLAG_IS_TRANSPORT) &&
+           p.origin->constructionGroup->group != GROUP_MARKET &&
+           p.flow > 0) {
+            switch(p.stuff) {
+                case STUFF_LABOR:
+                    world.recordTaxable(World::TaxableAccount::LABOR, p.flow);
+                    break;
+                case STUFF_GOODS:
+                    world.recordTaxable(World::TaxableAccount::GOODS, p.flow);
+                    break;
+                case STUFF_COAL:
+                    world.recordTaxable(World::TaxableAccount::COAL, p.flow);
+                    break;
+                case STUFF_ORE:
+                    world.recordTaxable(World::TaxableAccount::ORE, p.flow);
+                    break;
+                default: break;
+            }
+        }
+    }
 }
 
 void Construction::playSound()

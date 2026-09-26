@@ -170,6 +170,22 @@ public:
   void trade(); //exchange commodities with neigbhors
   int equilibrate_stuff(int *rem_lvl, CommodityRule rem_rule , int ratio, Commodity stuff_ID);
   //equilibrates stuff with an external reservoir (e.g. another construction invoking this method)
+
+  // REF-07 Fase 6: transactional transport phases
+  struct TransportProposal {
+    Construction* origin;
+    Construction* destination;
+    Commodity stuff;
+    int flow; // positive = origin → destination
+    bool isEvacuation;
+  };
+
+  static void snapshotTransport(Construction* cstr,
+    std::vector<TransportProposal>& proposals);
+  static void resolveTransport(std::vector<TransportProposal>& proposals,
+    bool deterministic);
+  static void applyTransport(const std::vector<TransportProposal>& proposals,
+    World& world);
   void playSound();//plays random chunk from constructionGroup
   bool isDead() const; // true if this construction is no longer on the map
 };
