@@ -310,6 +310,10 @@ void Market::init_resources() {
 void
 Market::place(MapPoint point) {
   Construction::place(point);
+  if(loadedFromSave) {
+    loadedFromSave = false;
+    return;
+  }
   cover();
 }
 
@@ -338,6 +342,8 @@ void Market::toggleEvacuation()
 }
 
 void Market::save(xmlTextWriterPtr xmlWriter) const {
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"market_labor",
+    xmlFormat<int>(labor));
   const std::string givePfx("give_");
   const std::string takePfx("take_");
   for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
@@ -359,7 +365,11 @@ bool Market::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version)
   std::string tag = xmlReader.get_name();
   bool give;
   Commodity stuff;
-  if(((give = tag.find("give_")) == 0 || tag.find("take_") == 0) &&
+  if(tag == "market_labor") {
+    labor = xmlParse<int>(xmlReader.read_inner_xml());
+    loadedFromSave = true;
+  }
+  else if(((give = tag.find("give_")) == 0 || tag.find("take_") == 0) &&
     (stuff = commodityFromStandardName(tag.substr(5).c_str())) != STUFF_COUNT &&
     commodityRuleCount[stuff].maxload
   ) {

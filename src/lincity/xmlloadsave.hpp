@@ -26,11 +26,19 @@
 
 class World;
 
-#define LOADSAVE_VERSION_CURRENT 2142
+#define LOADSAVE_VERSION_CURRENT 2143
 #define LOADSAVE_VERSION_COMPAT 2130
 
 std::string serializeWorldGameplayState(const World& world);
 
+// 2143:
+// - persist the simulation protocol/seed/version (REF-07), the pollution
+//   queue and the remaining trajectory state of Coalmine, Commune, Market,
+//   School, Windmill and Windpower; 2142 saves load as Legacy with seed 0
+// 2142:
+// - persist the Legacy rng_state (TST-08)
+// 2141:
+// - persist the Port fractional remainder (BUG-16)
 // 2140:
 // - updated to be consistent with the new World structure
 // 2130:

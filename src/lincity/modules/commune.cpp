@@ -24,6 +24,8 @@
 
 #include "commune.hpp"
 
+#include <libxml++/parsers/textreader.h>  // for TextReader
+#include <libxml/xmlwriter.h>             // for xmlTextWriterWriteElement
 #include <cstdlib>                          // for rand
 #include <list>                             // for _List_iterator
 #include <string>                           // for basic_string
@@ -37,6 +39,7 @@
 #include "lincity/resources.hpp"            // for ExtraFrame, ResourceGroup
 #include "lincity/world.hpp"                // for World, Map, MapTile
 #include "util/gettextutil.hpp"
+#include "util/xmlutil.hpp"                 // for xmlFormat, xmlParse, xmlStr
 
 CommuneConstructionGroup communeConstructionGroup(
     N_("Forest"),
@@ -196,6 +199,30 @@ Commune::place(MapPoint point) {
   {   this->coalprod = COMMUNE_COAL_MADE/2;}
   else
   {   this->coalprod = COMMUNE_COAL_MADE;}
+}
+
+void Commune::save(xmlTextWriterPtr xmlWriter) const {
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"monthly_stuff_made",
+    xmlFormat<int>(monthly_stuff_made));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"last_month_output",
+    xmlFormat<int>(last_month_output));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"lazy_months",
+    xmlFormat<int>(lazy_months));
+  Construction::save(xmlWriter);
+}
+
+bool Commune::loadMember(xmlpp::TextReader& xmlReader,
+  unsigned int ldsv_version
+) {
+  std::string name = xmlReader.get_name();
+  if(name == "monthly_stuff_made") monthly_stuff_made =
+    xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "last_month_output") last_month_output =
+    xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "lazy_months") lazy_months =
+    xmlParse<int>(xmlReader.read_inner_xml());
+  else return Construction::loadMember(xmlReader, ldsv_version);
+  return true;
 }
 
 void

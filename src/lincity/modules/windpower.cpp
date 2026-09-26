@@ -160,12 +160,14 @@ void Windpower::place(MapPoint point) {
 
 void Windpower::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"tech", xmlFormat<int>(tech));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"paid", xmlFormat<bool>(paid));
   Construction::save(xmlWriter);
 }
 
 bool Windpower::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) {
   std::string name = xmlReader.get_name();
   if(name == "tech") tech = xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "paid") paid = xmlParse<bool>(xmlReader.read_inner_xml());
   else if(name == "mwh_output");
   else return Construction::loadMember(xmlReader, ldsv_version);
   return true;

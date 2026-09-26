@@ -176,13 +176,21 @@ void Coalmine::report(Mps& mps, bool production) const {
 void Coalmine::place(MapPoint point) {
   Construction::place(point);
 
-  current_coal_reserve = 0;
   mine_nw = point.n(constructionGroup->range).w(constructionGroup->range);
   if(mine_nw.x < 1) mine_nw.x = 1;
   if(mine_nw.y < 1) mine_nw.y = 1;
   mine_se = point.s(constructionGroup->range).e(constructionGroup->range);
   if(mine_se.x >= world.map.len()-1) mine_se.x = world.map.len()-1;
   if(mine_se.y >= world.map.len()-1) mine_se.y = world.map.len()-1;
+
+  if(loadedFromSave) {
+    // 2143 save: keep the persisted scan cursor and reserves; skipping the
+    // recompute also avoids the +20 boost mutating the loaded map.
+    loadedFromSave = false;
+    return;
+  }
+
+  current_coal_reserve = 0;
   mine_cur = mine_nw;
 
   for(MapPoint p = mine_nw; p.y < mine_se.y ; p.y++)
@@ -202,6 +210,16 @@ void Coalmine::place(MapPoint point) {
 void Coalmine::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"initial_coal_reserve",
     xmlFormat<int>(initial_coal_reserve));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"current_coal_reserve",
+    xmlFormat<int>(current_coal_reserve));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"mine_cur_x",
+    xmlFormat<int>(mine_cur.x));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"mine_cur_y",
+    xmlFormat<int>(mine_cur.y));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"working_days",
+    xmlFormat<int>(working_days));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"busy",
+    xmlFormat<int>(busy));
   Construction::save(xmlWriter);
 }
 
@@ -210,6 +228,21 @@ Coalmine::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) {
   std::string name = xmlReader.get_name();
   if(name == "initial_coal_reserve") initial_coal_reserve =
     xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "current_coal_reserve") {
+    current_coal_reserve = xmlParse<int>(xmlReader.read_inner_xml());
+    loadedFromSave = true;
+  }
+  else if(name == "mine_cur_x") {
+    mine_cur.x = xmlParse<int>(xmlReader.read_inner_xml());
+    loadedFromSave = true;
+  }
+  else if(name == "mine_cur_y") {
+    mine_cur.y = xmlParse<int>(xmlReader.read_inner_xml());
+    loadedFromSave = true;
+  }
+  else if(name == "working_days") working_days =
+    xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "busy") busy = xmlParse<int>(xmlReader.read_inner_xml());
   else return Construction::loadMember(xmlReader, ldsv_version);
   return true;
 }

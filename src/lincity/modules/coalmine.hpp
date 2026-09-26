@@ -100,6 +100,11 @@ public:
     MapPoint mine_cur;
     int initial_coal_reserve, current_coal_reserve;
     int working_days, busy;
+
+private:
+    // 2143: place() must keep the loaded scan cursor and reserves instead of
+    // recomputing them (recomputing also re-applies the +20 coal boost).
+    bool loadedFromSave = false;
 };
 
 #endif // __LINCITYNG_LINCITY_MODULES_COALMINE_HPP__

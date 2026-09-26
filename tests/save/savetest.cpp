@@ -18,14 +18,32 @@
 #include "headless_env.hpp"
 
 #include "lincity-ng/Config.hpp"   // for getConfig
+#include "lincity/SimulationRandom.hpp" // for SimulationProtocol
+#include "lincity/StateFingerprint.hpp" // for captureStateSnapshot
 #include "lincity/init_game.hpp"   // for city_settings, new_city
 #include "lincity/lintypes.hpp"    // for Construction state comparisons
 #include "lincity/modules/port.hpp" // for Port, portConstructionGroup
 #include "lincity/world.hpp"       // for World
+#include "lincity/xmlloadsave.hpp" // for serializeWorldGameplayState
 #include "util/debuglog.hpp"       // for LNG_LOG, init_logging
 #include "util/randutil.hpp"        // for BasicUrbg
 
 namespace {
+
+void report_canonical_difference(const std::string& before,
+    const std::string& after, const char* label) {
+  const std::size_t common = std::min(before.size(), after.size());
+  std::size_t index = 0;
+  while(index < common && before[index] == after[index])
+    index++;
+  const std::size_t from = index > 80 ? index - 80 : 0;
+  std::fprintf(stderr,
+    "  %s: canonical state differs at byte %zu (sizes %zu vs %zu)\n"
+    "    before: ...%s...\n"
+    "    after:  ...%s...\n",
+    label, index, before.size(), after.size(),
+    before.substr(from, 160).c_str(), after.substr(from, 160).c_str());
+}
 
 bool compare_worlds(const World& a, const World& b,
     const std::string& label) {
@@ -136,6 +154,12 @@ TTEST(round_trip_all_scenarios) {
       ok = false;
     } else {
       ok = compare_worlds(*world, *reloaded, name) && ok;
+      if(serializeWorldGameplayState(*world)
+        != serializeWorldGameplayState(*reloaded)) {
+        std::fprintf(stderr,
+          "  canonical state differs after round-trip: %s\n", name.c_str());
+        ok = false;
+      }
       roundtripped++;
     }
     std::error_code ec;
@@ -167,6 +191,8 @@ TTEST(round_trip_new_city) {
     return;
 
   TCHECK(compare_worlds(*world, *reloaded, "new_city"));
+  TCHECK_EQ(serializeWorldGameplayState(*world),
+    serializeWorldGameplayState(*reloaded));
   std::error_code ec;
   std::filesystem::remove(tmp, ec);
 }
@@ -243,6 +269,186 @@ TTEST(round_trip_port_fractional_remainder) {
       TCHECK_EQ(loaded->pence, 73);
   }
   std::filesystem::remove(tmp, ec);
+}
+
+TTEST(round_trip_2143_preserves_simulation_protocol) {
+  // REF-07 Fase 5: protocol, seed and version are part of the save contract.
+  city_settings city;
+  city.with_village = true;
+  city.without_trees = false;
+  constexpr std::uint64_t seed = 0x5eed123456789abcULL;
+  std::unique_ptr<World> world =
+    new_city(&city, 100, SimulationProtocol::DETERMINISTIC_V1, seed);
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+  for(int day = 0; day < 120; day++)
+    world->do_time_step();
+
+  const StateFingerprint128 before =
+    captureStateSnapshot(*world).fingerprint();
+  const std::string canonicalBefore = serializeWorldGameplayState(*world);
+
+  const std::filesystem::path tmp =
+    headless::user_data() / "roundtrip_v1.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  world->save(tmp);
+
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(reloaded) {
+    TCHECK(reloaded->simulationProtocol()
+      == SimulationProtocol::DETERMINISTIC_V1);
+    TCHECK_EQ(reloaded->simulationSeed(), seed);
+    const std::string canonicalAfter = serializeWorldGameplayState(*reloaded);
+    if(canonicalAfter != canonicalBefore)
+      report_canonical_difference(canonicalBefore, canonicalAfter, "v1");
+    TCHECK_EQ(canonicalAfter, canonicalBefore);
+    TCHECK(captureStateSnapshot(*reloaded).fingerprint() == before);
+    TCHECK(compare_worlds(*world, *reloaded, "roundtrip_v1"));
+  }
+  std::filesystem::remove(tmp, ec);
+}
+
+TTEST(compat_2142_fixture_loads_as_legacy) {
+  // REF-07 Fase 5 gate: a genuine 2142 save (pre-bump writer) must load with
+  // the Legacy protocol and zeroed seed, and stay deterministic.
+  const std::filesystem::path fixture =
+    std::filesystem::path(LINCITYNG_TEST_FIXTURES_DIR)
+    / "compat" / "compat-2142-basic.scn.gz";
+
+  std::unique_ptr<World> first = World::load(fixture);
+  TCHECK(first != nullptr);
+  if(!first)
+    return;
+  TCHECK(first->simulationProtocol() == SimulationProtocol::LEGACY);
+  TCHECK_EQ(first->simulationSeed(), std::uint64_t(0));
+
+  std::unique_ptr<World> second = World::load(fixture);
+  TCHECK(second != nullptr);
+  if(second) {
+    TCHECK(captureStateSnapshot(*first).fingerprint()
+      == captureStateSnapshot(*second).fingerprint());
+    std::string rng = BasicUrbg::get().state();
+    bool lockstep = true;
+    for(int day = 0; day < 30 && lockstep; day++) {
+      TCHECK(BasicUrbg::get().restoreState(rng));
+      first->do_time_step();
+      const std::string after = BasicUrbg::get().state();
+      TCHECK(BasicUrbg::get().restoreState(rng));
+      second->do_time_step();
+      lockstep = captureStateSnapshot(*first).fingerprint()
+        == captureStateSnapshot(*second).fingerprint();
+      rng = after;
+    }
+    TCHECK(lockstep);
+  }
+
+  // The loaded Legacy save must round-trip through the 2143 writer too.
+  const std::filesystem::path tmp =
+    headless::user_data() / "compat_2142_roundtrip.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  first->save(tmp);
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(reloaded) {
+    TCHECK(reloaded->simulationProtocol() == SimulationProtocol::LEGACY);
+    TCHECK(compare_worlds(*first, *reloaded, "compat_2142"));
+    TCHECK_EQ(serializeWorldGameplayState(*first),
+      serializeWorldGameplayState(*reloaded));
+  }
+  std::filesystem::remove(tmp, ec);
+}
+
+TTEST(continuation_after_load_preserves_v1_trajectory) {
+  // REF-07 Fase 5 gate: a 2143 v1 save must continue exactly for 200 days.
+  city_settings city{true, false};
+  constexpr std::uint64_t seed = 0xabcdef1234567890ULL;
+  std::unique_ptr<World> world =
+    new_city(&city, 100, SimulationProtocol::DETERMINISTIC_V1, seed);
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+  for(int day = 0; day < 200; day++)
+    world->do_time_step();
+
+  const std::filesystem::path tmp =
+    headless::user_data() / "continuation_v1.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  world->save(tmp);
+
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(reloaded) {
+    TCHECK(reloaded->simulationProtocol()
+      == SimulationProtocol::DETERMINISTIC_V1);
+    TCHECK_EQ(reloaded->simulationSeed(), seed);
+    bool ok = captureStateSnapshot(*world).fingerprint()
+      == captureStateSnapshot(*reloaded).fingerprint();
+    for(int day = 0; day < 200 && ok; day++) {
+      world->do_time_step();
+      reloaded->do_time_step();
+      ok = captureStateSnapshot(*world).fingerprint()
+        == captureStateSnapshot(*reloaded).fingerprint();
+    }
+    TCHECK(ok);
+  }
+  std::filesystem::remove(tmp, ec);
+}
+
+TTEST(save_load_crosses_period_boundaries) {
+  // REF-07 Fase 5 gate: save/load on the monthly (99/100) and yearly
+  // (1199/1200) boundaries must not change the following trajectory.
+  const int boundaries[] = {99, 100, 1199, 1200};
+  for(const int boundary : boundaries) {
+    city_settings city{true, false};
+    std::unique_ptr<World> world = new_city(&city, 100,
+      SimulationProtocol::DETERMINISTIC_V1, 424242);
+    TCHECK(world != nullptr);
+    if(!world)
+      return;
+    for(int day = 0; day < boundary; day++)
+      world->do_time_step();
+    TCHECK_EQ(world->total_time, boundary);
+
+    const std::filesystem::path tmp = headless::user_data()
+      / ("boundary_" + std::to_string(boundary) + ".scn.gz");
+    std::error_code ec;
+    std::filesystem::remove(tmp, ec);
+    world->save(tmp);
+
+    std::unique_ptr<World> reloaded = World::load(tmp);
+    TCHECK(reloaded != nullptr);
+    if(!reloaded) {
+      std::filesystem::remove(tmp, ec);
+      continue;
+    }
+    bool ok = captureStateSnapshot(*world).fingerprint()
+      == captureStateSnapshot(*reloaded).fingerprint();
+    for(int day = 0; day < 3 && ok; day++) {
+      world->do_time_step();
+      reloaded->do_time_step();
+      ok = captureStateSnapshot(*world).fingerprint()
+        == captureStateSnapshot(*reloaded).fingerprint();
+      if(!ok) {
+        const StateSnapshot left = captureStateSnapshot(*world);
+        const StateSnapshot right = captureStateSnapshot(*reloaded);
+        if(const auto difference = left.firstDifference(right)) {
+          std::fprintf(stderr,
+            "  boundary %d diverged after %d day(s): section %s byte %zu\n",
+            boundary, day + 1, difference->section.c_str(),
+            difference->offset);
+        }
+        report_canonical_difference(serializeWorldGameplayState(*world),
+          serializeWorldGameplayState(*reloaded), "boundary");
+      }
+    }
+    TCHECK(ok);
+    std::filesystem::remove(tmp, ec);
+  }
 }
 
 } // namespace

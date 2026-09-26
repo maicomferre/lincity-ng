@@ -124,6 +124,12 @@ public:
     bool start_burning_waste;
     std::list<ExtraFrame>::iterator waste_fire_frit;
     unsigned long waste_fire_anim;
+
+private:
+    // 2143: on load the persisted cover check flags must be kept as saved;
+    // running cover() again changes their phase relative to the uninterrupted
+    // world (REF-07 Fase 5).
+    bool loadedFromSave = false;
 };
 
 #endif // __LINCITYNG_LINCITY_MODULES_MARKET_HPP__

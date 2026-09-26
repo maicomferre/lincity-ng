@@ -10,6 +10,7 @@
 
 # Local agent configuration
 /opencode.json
+/.opencode/
 
 # clangd/LSP database (symlink to build/compile_commands.json)
 /compile_commands.json

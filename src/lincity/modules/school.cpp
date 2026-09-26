@@ -159,12 +159,16 @@ void School::init_resources() {
 
 void School::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"total_tech_made", xmlFormat<int>(total_tech_made));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"working_days", xmlFormat<int>(working_days));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"busy", xmlFormat<int>(busy));
   Construction::save(xmlWriter);
 }
 
 bool School::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version) {
   std::string name = xmlReader.get_name();
   if(name == "total_tech_made") total_tech_made = xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "working_days") working_days = xmlParse<int>(xmlReader.read_inner_xml());
+  else if(name == "busy") busy = xmlParse<int>(xmlReader.read_inner_xml());
   else return Construction::loadMember(xmlReader, ldsv_version);
   return true;
 }

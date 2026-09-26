@@ -336,8 +336,11 @@ TTEST(legacy_state_fingerprint_is_stable_sensitive_and_non_cosmetic) {
   const auto pollutedDifference = baseline.firstDifference(changedPolluted);
   TCHECK(pollutedDifference.has_value());
   if(pollutedDifference)
+    // Since Fase 5 the pollution queue is persisted, so it shows up in the
+    // canonical XML section first (the legacy queue section remains as a
+    // diagnostic fallback).
     TCHECK_EQ(pollutedDifference->section,
-      std::string("legacy-polluted-queue-v1"));
+      std::string("gameplay-xml-v1"));
   world->map.polluted.pop_back();
 
   Commune* commune = nullptr;
@@ -355,8 +358,11 @@ TTEST(legacy_state_fingerprint_is_stable_sensitive_and_non_cosmetic) {
       baseline.firstDifference(changedTrajectoryExtra);
     TCHECK(extraDifference.has_value());
     if(extraDifference)
+      // Since Fase 5 this trajectory field is persisted, so the canonical
+      // XML section now reports the difference (the legacy extras section
+      // remains as a diagnostic fallback).
       TCHECK_EQ(extraDifference->section,
-        std::string("legacy-trajectory-extras-v1"));
+        std::string("gameplay-xml-v1"));
     --commune->lazy_months;
   }
 }
@@ -399,8 +405,13 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
     TCHECK(first[day] == second[day]);
   }
   if(!first.empty()) {
+    // REF-07 Fase 5: regenerated once when the 2143 save contract added the
+    // simulation protocol/seed/version, the pollution queue, the module
+    // trajectory extras and the stats inventory to the canonical XML. No
+    // simulation code changed, so the trajectory is identical; only the
+    // fingerprint input grew.
     TCHECK_EQ(first.back().hex(),
-      std::string("d0f2975041a730617e7d9fdd039bc845"));
+      std::string("64f6bd4b89fe3d5ab7db68a83c19a649"));
   }
 }
 

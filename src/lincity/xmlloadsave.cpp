@@ -311,6 +311,13 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"tech_level",                  f(world.tech_level));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rng_state",
     f(BasicUrbg::get().state()));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"simulation_protocol",
+    f<int>(static_cast<int>(world.simulationProtocol())));
+  const std::string simulationSeed = std::to_string(world.simulationSeed());
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"simulation_seed",
+    (xmlStr)simulationSeed.c_str());
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"random_protocol_version",
+    f<int>(static_cast<int>(SimulationRandom::PROTOCOL_VERSION)));
 
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rockets_launched",            f(world.rockets_launched));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"rockets_launched_success",    f(world.rockets_launched_success));
@@ -351,6 +358,22 @@ static void saveGlobals(xmlTextWriterPtr xmlWriter, const World& world) {
   xmlTextWriterStartElement(xmlWriter, (xmlStr)"stats");
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"highest_tech_level",        f(world.stats.highest_tech_level));
     xmlTextWriterWriteElement(xmlWriter, (xmlStr)"total_pollution",           f(world.stats.total_pollution));
+    // 2143: stats.total_money is the month-end snapshot; it can differ from
+    // world.total_money right after end_of_year_update() (REF-07 Fase 5).
+    xmlTextWriterWriteElement(xmlWriter, (xmlStr)"total_money",               f(world.stats.total_money));
+
+    xmlTextWriterStartElement(xmlWriter, (xmlStr)"inventory");
+    for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
+      const std::string name = commodityStandardName(stuff);
+      const Stats::Inventory<Stat<>>& inv = world.stats.inventory[stuff];
+      xmlTextWriterStartElement(xmlWriter, (xmlStr)name.c_str());
+        xmlTextWriterWriteElement(xmlWriter, (xmlStr)"amount_lm",   f(inv.amount.stat));
+        xmlTextWriterWriteElement(xmlWriter, (xmlStr)"amount_mtd",  f(inv.amount.acc));
+        xmlTextWriterWriteElement(xmlWriter, (xmlStr)"capacity_lm", f(inv.capacity.stat));
+        xmlTextWriterWriteElement(xmlWriter, (xmlStr)"capacity_mtd",f(inv.capacity.acc));
+      xmlTextWriterEndElement(xmlWriter);
+    }
+    xmlTextWriterEndElement(xmlWriter);
 
     xmlTextWriterStartElement(xmlWriter, (xmlStr)"population");
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"population_lm",           f(world.stats.population.population_m.stat));
@@ -506,6 +529,10 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
   assert(xmlReader.get_node_type() == xmlpp::TextReader::NodeType::Element);
   assert(xmlReader.get_name() == "globals");
   [[used_in_assert]] int depth = xmlReader.get_depth();
+  bool haveSimulationProtocol = false;
+  SimulationProtocol simulationProtocol = SimulationProtocol::LEGACY;
+  std::uint64_t simulationSeed = 0;
+  std::uint32_t randomProtocolVersion = SimulationRandom::PROTOCOL_VERSION;
   if(!xmlReader.is_empty_element() && xmlReader.read())
   while(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::EndElement) {
     assert(xmlReader.get_depth() == depth + 1);
@@ -521,6 +548,18 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
     else if(xml_tag == "total_money")                 world.stats.total_money = world.total_money = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "tech_level")                  world.stats.tech_level = world.tech_level = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "rng_state")                   rng_state = p<std::string>(xmlReader.read_inner_xml());
+    else if(xml_tag == "simulation_protocol") {
+      const int value = p<int>(xmlReader.read_inner_xml());
+      if(value != static_cast<int>(SimulationProtocol::LEGACY)
+        && value != static_cast<int>(SimulationProtocol::DETERMINISTIC_V1))
+        throw std::runtime_error("unknown simulation protocol");
+      simulationProtocol = static_cast<SimulationProtocol>(value);
+      haveSimulationProtocol = true;
+    }
+    else if(xml_tag == "simulation_seed")             simulationSeed =
+      std::stoull(p<std::string>(xmlReader.read_inner_xml()));
+    else if(xml_tag == "random_protocol_version")     randomProtocolVersion =
+      p<unsigned int>(xmlReader.read_inner_xml());
 
     else if(xml_tag == "rockets_launched")            world.rockets_launched = p<int>(xmlReader.read_inner_xml());
     else if(xml_tag == "rockets_launched_success")    world.rockets_launched_success = p<int>(xmlReader.read_inner_xml());
@@ -603,6 +642,41 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
         const std::string xml_tag = xmlReader.get_name();
         if(xml_tag == "highest_tech_level")   world.stats.highest_tech_level = p<int>(xmlReader.read_inner_xml());
         else if(xml_tag == "total_pollution") world.stats.total_pollution = p<int>(xmlReader.read_inner_xml());
+        else if(xml_tag == "total_money")     world.stats.total_money = p<int>(xmlReader.read_inner_xml());
+
+        else if(xml_tag == "inventory") {
+          if(!xmlReader.is_empty_element() && xmlReader.read())
+          while(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::EndElement) {
+            if(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::Element) {
+              xmlReader.next();
+              continue;
+            }
+            Commodity stuff = commodityFromStandardName(
+              xmlReader.get_name().c_str());
+            if(stuff == STUFF_COUNT) {
+              unexpectedXmlElement(xmlReader);
+              xmlReader.next();
+              continue;
+            }
+            Stats::Inventory<Stat<>>& inv = world.stats.inventory[stuff];
+            if(!xmlReader.is_empty_element() && xmlReader.read())
+            while(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::EndElement) {
+              if(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::Element) {
+                xmlReader.next();
+                continue;
+              }
+              const std::string field = xmlReader.get_name();
+              if(field == "amount_lm")         inv.amount.stat = p<int>(xmlReader.read_inner_xml());
+              else if(field == "amount_mtd")   inv.amount.acc = p<int>(xmlReader.read_inner_xml());
+              else if(field == "capacity_lm")  inv.capacity.stat = p<int>(xmlReader.read_inner_xml());
+              else if(field == "capacity_mtd") inv.capacity.acc = p<int>(xmlReader.read_inner_xml());
+              else
+                unexpectedXmlElement(xmlReader);
+              xmlReader.next();
+            }
+            xmlReader.next();
+          }
+        }
 
         else if(xml_tag == "population") {
           if(!xmlReader.is_empty_element() && xmlReader.read())
@@ -818,6 +892,14 @@ static void loadGlobals(xmlpp::TextReader& xmlReader, World& world,
   }
   assert(xmlReader.get_name() == "globals");
   assert(xmlReader.get_depth() == depth);
+
+  // Apply the persisted protocol before <map> is read: place() and the
+  // post-load map fixups must already run under the saved protocol.
+  if(haveSimulationProtocol) {
+    if(randomProtocolVersion > SimulationRandom::PROTOCOL_VERSION)
+      throw std::runtime_error("random protocol version too new");
+    world.setSimulationProtocol(simulationProtocol, simulationSeed);
+  }
 }
 
 static void loadGlobals_v2130(xmlpp::TextReader& xmlReader, World& world,
@@ -1056,6 +1138,15 @@ static void saveMap(xmlTextWriterPtr xmlWriter, const Map& map,
     xmlTextWriterEndElement(xmlWriter);
   }
 
+  xmlTextWriterStartElement(xmlWriter, (xmlStr)"polluted");
+  for(const MapPoint& point : map.polluted) {
+    xmlTextWriterStartElement(xmlWriter, (xmlStr)"point");
+      xmlTextWriterWriteAttribute(xmlWriter, (xmlStr)"map-x", f(point.x));
+      xmlTextWriterWriteAttribute(xmlWriter, (xmlStr)"map-y", f(point.y));
+    xmlTextWriterEndElement(xmlWriter);
+  }
+  xmlTextWriterEndElement(xmlWriter);
+
   if(includeUiState) {
     xmlTextWriterStartElement(xmlWriter, (xmlStr)"recentPoint");
       xmlTextWriterWriteElement(xmlWriter, (xmlStr)"x", f(map.recentPoint.x));
@@ -1111,6 +1202,29 @@ static void loadMap(xmlpp::TextReader& xmlReader, World& world,
       Construction *cst = cstgrp->createConstruction(world);
       cst->load(xmlReader, ldsv_version);
       constructions.emplace_back(cst, point);
+    }
+    else if(xmlReader.get_name() == "polluted") {
+      map.polluted.clear();
+      if(!xmlReader.is_empty_element() && xmlReader.read())
+      while(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::EndElement) {
+        if(xmlReader.get_node_type() != xmlpp::TextReader::NodeType::Element) {
+          xmlReader.next();
+          continue;
+        }
+        if(xmlReader.get_name() == "point") {
+          MapPoint point(
+            p<int>(xmlReader.get_attribute("map-x")),
+            p<int>(xmlReader.get_attribute("map-y"))
+          );
+          if(!map.is_inside(point))
+            throw std::runtime_error(
+              "a polluted point seems to be outside the map");
+          map.polluted.push_back(point);
+        }
+        else
+          unexpectedXmlElement(xmlReader);
+        xmlReader.next();
+      }
     }
     else if(xmlReader.get_name() == "recentPoint" && ldsv_version > 2130) {
       bool found_x = false, found_y = false;
