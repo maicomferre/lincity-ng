@@ -40,7 +40,7 @@
 #include <vector>                   // for vector
 
 #include "MapPoint.hpp"             // for MapPoint, operator<<, hash
-#include "all_buildings.hpp"        // for COAL_RESERVE_SIZE, ORE_RESERVE
+#include "all_buildings.hpp"        // for COAL_RESERVE_SIZE, ORE_RESERVE, OIL_RESERVE, NUMOF_OIL_RESERVES
 #include "groups.hpp"               // for GROUP_BARE, GROUP_TREE, GROUP_TREE2
 #include "lin-city.hpp"             // for FLAG_HAS_UNDERGROUND_WATER, FLAG_...
 #include "lintypes.hpp"             // for Construction, NUMOF_COAL_RESERVES
@@ -63,6 +63,7 @@ static void setup_land(Map& map, int global_aridity, bool without_trees,
 static void random_start(World& world, MapGenerationRandom& random);
 static void coal_reserve_setup(Map& map, MapGenerationRandom& random);
 static void ore_reserve_setup(Map& map);
+static void oil_reserve_setup(Map& map, MapGenerationRandom& random);
 static void setup_river(Map& map, MapGenerationRandom& random);
 //static void remove_river(void);
 static void setup_river2(Map& map, MapPoint p, int d,
@@ -337,6 +338,7 @@ create_new_city(city_settings *city, int mapSize, int old_setup_ground,
 
   setup_land(world.map, global_aridity, city && city->without_trees, random);
   ore_reserve_setup(world.map);
+  oil_reserve_setup(world.map, random);
 
   if(city->with_village)
     random_start(world, random);
@@ -371,6 +373,26 @@ static void coal_reserve_setup(Map& map, MapGenerationRandom& random) {
 static void ore_reserve_setup(Map& map) {
   for(MapTile& t : map)
     t.ore_reserve = ORE_RESERVE;
+}
+
+static void oil_reserve_setup(Map& map, MapGenerationRandom& random) {
+  int i, j, xx, yy;
+  MapPoint p;
+  const int len = map.len();
+  for(i = 0; i < NUMOF_OIL_RESERVES; i++) {
+    p.x = random.bounded(len - 12) + 6;
+    p.y = random.bounded(len - 10) + 6;
+    do {
+      xx = random.bounded(3) - 1;
+      yy = random.bounded(3) - 1;
+    }
+    while(xx == 0 && yy == 0);
+    for (j = 0; j < 5; j++) {
+      map(p)->oil_reserve += random.bounded(OIL_RESERVE);
+      p.x += xx;
+      p.y += yy;
+    }
+  }
 }
 
 static void new_setup_river_ground(Map& map,

@@ -50,6 +50,8 @@
 #define ORE_RESERVE       1000
 #define COAL_RESERVE_SIZE 10000
 #define COAL_PER_RESERVE  1000
+#define OIL_RESERVE       1000
+#define NUMOF_OIL_RESERVES ((map.len() * map.len()) / 500)
 
 #define LABOR_LOAD_COAL  18
 #define LABOR_LOAD_ORE    9

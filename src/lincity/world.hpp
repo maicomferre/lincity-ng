@@ -105,6 +105,7 @@ public:
   // TODO: prevent access to coal_reserve when coal_survey_done == false
   unsigned short coal_reserve;          //underground coal
   unsigned short ore_reserve;           //underground ore
+  unsigned short oil_reserve;            //underground oil
   int pollution;                        //air pollution (under ground pollution is in ground[][])
 
   void setTerrain(unsigned short group); //places type & group at MapTile

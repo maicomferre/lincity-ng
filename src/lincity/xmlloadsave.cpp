@@ -1278,6 +1278,7 @@ static void saveMapTile(xmlTextWriterPtr xmlWriter, const MapTile& tile) {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"air_pol",    f(tile.pollution));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ore",        f(tile.ore_reserve));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"coal",       f(tile.coal_reserve));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"oil",        f(tile.oil_reserve));
 
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"altitude",   f(tile.ground.altitude));
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"ecotable",   f(tile.ground.ecotable));
@@ -1328,6 +1329,7 @@ static void loadMapTile(xmlpp::TextReader& xmlReader, MapTile& tile,
     else if(xml_tag == "air_pol")    tile.pollution         = p<int>(xml_val);
     else if(xml_tag == "ore")        tile.ore_reserve       = p<int>(xml_val);
     else if(xml_tag == "coal")       tile.coal_reserve      = p<int>(xml_val);
+    else if(xml_tag == "oil")        tile.oil_reserve       = p<int>(xml_val);
 
     else if(xml_tag == "altitude")   tile.ground.altitude   = p<int>(xml_val);
     else if(xml_tag == "ecotable")   tile.ground.ecotable   = p<int>(xml_val);

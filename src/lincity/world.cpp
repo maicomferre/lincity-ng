@@ -120,6 +120,7 @@ MapTile::MapTile(MapPoint point) :
     pollution = 0;
     ore_reserve = 0;
     coal_reserve = 0;
+    oil_reserve = 0;
     pollution = 0;
 }
 
@@ -129,6 +130,7 @@ MapTile::MapTile(MapTile&& other) noexcept :
   reportingConstruction(other.reportingConstruction),
   type(other.type), group(other.group), flags(other.flags),
   coal_reserve(other.coal_reserve), ore_reserve(other.ore_reserve),
+  oil_reserve(other.oil_reserve),
   pollution(other.pollution),
   framesptr(std::move(other.framesptr))
 {

@@ -62,7 +62,7 @@ class World;
 #define PORT_GOODS 100
 #define PORT_ORE   300
 #define PORT_STEEL 50
-#define PORT_PETROLEUM 0  // fase a: inerte, habilitar fase b
+#define PORT_PETROLEUM 500  // fase b: habilitado para poços
 
 #define MAX_LABOR_ON_PORT  (20 * PORT_LABOR)
 #define MAX_FOOD_ON_PORT  (20 * PORT_FOOD)

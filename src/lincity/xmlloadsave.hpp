@@ -26,7 +26,7 @@
 
 class World;
 
-#define LOADSAVE_VERSION_CURRENT 2143
+#define LOADSAVE_VERSION_CURRENT 2144
 #define LOADSAVE_VERSION_COMPAT 2130
 
 std::string serializeWorldGameplayState(const World& world);
