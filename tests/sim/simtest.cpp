@@ -18,6 +18,7 @@
 #include "../tiny_test.hpp"
 
 #include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
 #include <algorithm>
 #include <array>
@@ -35,6 +36,8 @@
 #include "headless_env.hpp"
 #include "gui/CheckButton.hpp"             // for build tooltip regression
 #include "gui/Paragraph.hpp"              // for Paragraph
+#include "gui/Painter.hpp"
+#include "gui/TextureManager.hpp"
 #include "gui/SwitchComponent.hpp"        // for active MPS page
 
 #include "lincity-ng/Config.hpp"             // for getConfig
@@ -53,6 +56,7 @@
 #include "lincity/commodities.hpp"           // for Commodity, STUFF_*
 #include "lincity/groups.hpp"                // for GROUP_ROAD_BRIDGE
 #include "lincity/messages.hpp"             // for Message
+#include "lincity/resources.hpp"
 #include "lincity/modules/all_modules.hpp"   // for *ConstructionGroup
 #include "lincity/modules/parkland.hpp"       // for parklandConstructionGroup
 #include "lincity/modules/power_line.hpp"     // for powerlineConstructionGroup
@@ -863,6 +867,54 @@ TTEST(game_flow_reset_and_loading_barrier) {
   TCHECK(game.getGameView().textures_ready);
   TCHECK(!game.getGameView().hasTextureLoadError());
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
+
+  // BUG-23: a completed loading barrier alone does not detect missing PNGs.
+  const auto* seaFarm = ResourceGroup::resMap.at("SeaFarm");
+  TCHECK_EQ(seaFarm->graphicsInfoVector.size(), size_t(5));
+  for(const auto& frame : seaFarm->graphicsInfoVector) {
+    TCHECK(frame.texture != nullptr);
+    if(frame.texture) {
+      TCHECK_EQ(frame.texture->getWidth(), 512);
+      TCHECK_EQ(frame.texture->getHeight(), 320);
+    }
+    TCHECK_EQ(frame.x, 256);
+    TCHECK_EQ(frame.y, 320);
+  }
+  Texture* seaFarmIcon = texture_manager->load(
+    "images/gui/buttonpanel/parks/seafarm.png");
+  TCHECK(seaFarmIcon != nullptr);
+  if(seaFarmIcon) {
+    TCHECK_EQ(seaFarmIcon->getWidth(), 32);
+    TCHECK_EQ(seaFarmIcon->getHeight(), 32);
+  }
+
+  if(const char* output = std::getenv("LINCITYNG_TEST_SPRITE_PREVIEW")) {
+    // Optional visual fixture; does not exercise gameplay placement rules.
+    auto scene = std::make_unique<World>(100);
+    seaFarmConstructionGroup.placeItem(*scene, MapPoint(40, 40));
+    organic_farmConstructionGroup.placeItem(*scene, MapPoint(44, 40));
+    game.setWorld(std::move(scene));
+    auto& view = game.getGameView();
+    view.resetZoom();
+    for(int i = 0; i < 4; ++i) view.zoomIn();
+    view.show(MapPoint(42, 42));
+    std::filesystem::create_directories(output);
+    for(int level = 0; level < 5; ++level) {
+      painter->clear();
+      view.setMapDirty();
+      game.getGui().draw(*painter);
+      SDL_Surface* shot = SDL_RenderReadPixels(SDL_GetRenderer(window), nullptr);
+      TCHECK(shot != nullptr);
+      if(shot) {
+        const auto path = std::filesystem::path(output) /
+          ("seafarm-zoom-" + std::to_string(level) + ".png");
+        TCHECK(IMG_SavePNG(shot, path.string().c_str()));
+        SDL_DestroySurface(shot);
+      }
+      view.zoomOut();
+      view.zoomOut();
+    }
+  }
 }
 
 TTEST(port_trade_preserves_commodity_conservation) {
