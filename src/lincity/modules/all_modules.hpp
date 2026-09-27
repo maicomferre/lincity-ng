@@ -48,6 +48,7 @@
 #include "power_line.hpp"
 //#include "rail.h" //superseeded by track_road_rail_powerline.h
 #include "recycle.hpp"
+#include "sea_farm.hpp"
 #include "residence.hpp"
 //#include "road.h" //superseeded by track_road_rail_powerline.h
 #include "rocket_pad.hpp"

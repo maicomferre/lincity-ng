@@ -84,6 +84,26 @@
 #define MAX_PETROLEUM_AT_REFINERY 10000
 #define MAX_GOODS_AT_REFINERY 2000
 
+/* FEAT-05: Sea Farm */
+#define SEA_FARM_COST      15000
+#define SEA_FARM_COST_MUL  30
+#define SEA_FARM_BUL_COST  200000
+#define SEA_FARM_TECH      (40 * (MAX_TECH_LEVEL / 1000))
+#define SEA_FARM_FIREC     5
+#define SEA_FARM_RANGE     0
+#define SEA_FARM_SIZE      4
+
+#define SEA_FARM_LABOR     180
+#define MAX_LABOR_AT_SEA_FARM (20 * SEA_FARM_LABOR)
+#define SEA_FARM_POWER     200
+#define MAX_POWER_AT_SEA_FARM (20 * SEA_FARM_POWER)
+#define SEA_FARM_WATER     10
+#define MAX_WATER_AT_SEA_FARM (20 * SEA_FARM_WATER)
+#define SEA_FARM_FOOD      350
+#define SEA_FARM_GOODS     8
+#define MAX_FOOD_AT_SEA_FARM (20 * SEA_FARM_FOOD)
+#define MAX_GOODS_AT_SEA_FARM (20 * SEA_FARM_GOODS)
+
 //used on markets, transport, shanties when burning waste
 #define WASTE_BURN_TIME 350
 #define WASTE_BURN_UNCONTROLLED .001

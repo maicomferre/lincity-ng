@@ -1367,6 +1367,14 @@ msgstr "Minas de Minério"
 msgid "Farm"
 msgstr "Fazenda"
 
+#: src/lincity/modules/sea_farm.cpp:40
+msgid "Sea Farm"
+msgstr "Fazenda Marinha"
+
+#: src/lincity/modules/sea_farm.cpp:41
+msgid "Sea Farms"
+msgstr "Fazendas Marinhas"
+
 #: src/lincity/modules/parkland.cpp:37
 msgid "Park"
 msgstr "Parque"

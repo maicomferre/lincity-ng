@@ -538,6 +538,14 @@
     <image file="farm15.png" x="256" y="265"/>
   </group>
   <group>
+    <resourceID name="SeaFarm"/>
+    <image file="seafarm0.png" x="256" y="265"/>
+    <image file="seafarm3.png" x="256" y="265"/>
+    <image file="seafarm7.png" x="256" y="265"/>
+    <image file="seafarm11.png" x="256" y="265"/>
+    <image file="seafarm15.png" x="256" y="265"/>
+  </group>
+  <group>
     <resourceID name="Mill"/>
     <image file="mill0.png" x="128" y="191"/>
     <image file="mill1.png" x="128" y="249"/>

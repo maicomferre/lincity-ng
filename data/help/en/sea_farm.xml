@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Document style="helpdocument">
+	<p style="htitle">Sea Farm</p>
+	<p style="hp">Sea farms grow food and goods from the sea, consuming labor, water, and energy.</p>
+	<p style="hp">Must be built entirely on water tiles (lake, river, or pond).</p>
+
+  <p style="hp">This is a sea farm</p>
+   <img src="images/tiles/seafarm0.png" halign="center"/>
+
+  <p style="hp">and this its icon</p>
+   <img src="images/gui/buttonpanel/parks/seafarm.png" halign="center"/>
+
+	<p style="hsubtitle">Formulas</p>
+	<p style="hp">180 labor + 200 lo-volt + 10 water =&gt; 350 food + 8 goods</p>
+	<p style="hp">Production scales proportionally with available labor.</p>
+
+  <p style="hsubtitle">See also:</p>
+	<li><a href="food">Food</a></li>
+	<li><a href="goods">Goods</a></li>
+	<li><a href="market">Market</a></li>
+	<li><a href="tech-level">Tech Level</a></li>
+	<li><a href="transport">Transport</a></li>
+	<li><a href="commodities">Commodities</a></li>
+	<li><a href="power">Power</a></li>
+</Document>

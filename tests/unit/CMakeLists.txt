@@ -2,8 +2,10 @@ add_executable(lincity-test-unit
   ../tiny_main.cpp
   test_debuglog.cpp
   test_economy.cpp
+  test_ledger.cpp
   test_maptile_frames.cpp
   test_port_rates.cpp
+  test_sea_farm.cpp
   test_resolution_options.cpp
   test_simulation_calendar.cpp
   test_simulation_random.cpp

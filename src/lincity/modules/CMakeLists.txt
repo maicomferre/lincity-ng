@@ -52,6 +52,8 @@ add_library(lincity_lib_modules  STATIC
 		rocket_pad.hpp
 		school.cpp
 		school.hpp
+		sea_farm.cpp
+		sea_farm.hpp
 		shanty.cpp
 		shanty.hpp
 		solar_power.cpp

@@ -12,15 +12,12 @@
 #include "lincity/init_game.hpp"
 #include "lincity/lintypes.hpp"
 #include "lincity/world.hpp"
-#include "lincity-ng/Config.hpp"
 
 TTEST(ledger_records_expense_and_revenue) {
-  Config::set("city", "test_ledger");
   city_settings city;
-  city.with_village = false;
-  city.without_trees = true;
-  std::unique_ptr<World> world = new_city(&city, 10,
-    SimulationProtocol::V1, 0);
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 0);
   TCHECK(world != nullptr);
 
   // Find any construction to test on
@@ -48,12 +45,10 @@ TTEST(ledger_records_expense_and_revenue) {
 }
 
 TTEST(ledger_purchase_cost_set_at_build) {
-  Config::set("city", "test_ledger_build");
   city_settings city;
-  city.with_village = false;
-  city.without_trees = true;
-  std::unique_ptr<World> world = new_city(&city, 10,
-    SimulationProtocol::V1, 0);
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 0);
   TCHECK(world != nullptr);
 
   // After new_city, there should be at least one construction

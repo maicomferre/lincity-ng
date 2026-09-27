@@ -26,7 +26,7 @@
 
 /******* Buildings // GROUPS ************/
 
-#define NUM_OF_GROUPS    53
+#define NUM_OF_GROUPS    54
 
 #define GROUP_BARE          0
 #define GROUP_POWER_LINE    1
@@ -81,6 +81,7 @@
 #define GROUP_PARKPOND      50
 #define GROUP_OILWELL       51
 #define GROUP_REFINERY      52
+#define GROUP_SEA_FARM      53
 
 #define GROUP_RIVER (GROUP_WATER)
 

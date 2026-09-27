@@ -70,6 +70,7 @@ void initializeModules() {
     ConstructionGroup::addConstructionGroup(&tipConstructionGroup);
     ConstructionGroup::addConstructionGroup(&recycleConstructionGroup);
     ConstructionGroup::addConstructionGroup(&portConstructionGroup);
+    ConstructionGroup::addConstructionGroup(&seaFarmConstructionGroup);
     ConstructionGroup::addConstructionGroup(&fireConstructionGroup);
     ConstructionGroup::addConstructionGroup(&industryLightConstructionGroup);
     ConstructionGroup::addConstructionGroup(&industryHeavyConstructionGroup);
@@ -153,6 +154,7 @@ void initializeModules() {
     ConstructionGroup::addResourceID("Tip", &tipConstructionGroup);
     ConstructionGroup::addResourceID("Recycle", &recycleConstructionGroup);
     ConstructionGroup::addResourceID("Harbor", &portConstructionGroup);
+    ConstructionGroup::addResourceID("SeaFarm", &seaFarmConstructionGroup);
     ConstructionGroup::addResourceID("Fire", &fireConstructionGroup);
     new ResourceGroup("FireWasteLand");
     //ConstructionGroup::addResourceID("FireWasteLand", &fireWasteLandConstructionGroup);
