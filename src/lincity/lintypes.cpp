@@ -221,6 +221,16 @@ void Construction::report_commodities(void) {
 void Construction::save(xmlTextWriterPtr xmlWriter) const {
   xmlTextWriterWriteElement(xmlWriter, (xmlStr)"flags",
     xmlFormatHex(flags & ~VOLATILE_FLAGS));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"purchase_cost",
+    xmlFormat<int>(purchase_cost));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"capital_invested",
+    xmlFormat<int>(capital_invested));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"maintenance",
+    xmlFormat<int>(maintenance));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"operation_cost",
+    xmlFormat<int>(operation_cost));
+  xmlTextWriterWriteElement(xmlWriter, (xmlStr)"revenue",
+    xmlFormat<int>(revenue));
   for(Commodity stuff = STUFF_INIT; stuff < STUFF_COUNT; stuff++) {
     if(!constructionGroup->commodityRuleCount[stuff].maxload) continue;
     const std::string name = commodityStandardName(stuff);
@@ -294,6 +304,21 @@ Construction::loadMember(xmlpp::TextReader& xmlReader, unsigned int ldsv_version
         | (flags & 0x01000000 ? FLAG_HAD_POWER : 0)
         | (flags & 0x08000000 ? FLAG_TRANSPARENT : 0);
     }
+  }
+  else if(name == "purchase_cost") {
+    purchase_cost = xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name == "capital_invested") {
+    capital_invested = xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name == "maintenance") {
+    maintenance = xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name == "operation_cost") {
+    operation_cost = xmlParse<int>(xmlReader.read_inner_xml());
+  }
+  else if(name == "revenue") {
+    revenue = xmlParse<int>(xmlReader.read_inner_xml());
   }
   else return false;
   return true;
@@ -1205,6 +1230,8 @@ ConstructionGroup::placeItem(World& world, MapPoint point) {
       << std::endl;
   }
 #endif
+  tmpConstr->purchase_cost = getCosts(world);
+  tmpConstr->capital_invested = tmpConstr->purchase_cost;
   tmpConstr->place(point);
 }
 
@@ -1279,6 +1306,14 @@ void ConstructionGroup::printGroups()
     {
         std::cout << "group #" << iterator->first << ": " << iterator->second->name << std::endl;
     }
+}
+
+void Construction::recordExpense(int amount) {
+  maintenance += amount;
+}
+
+void Construction::recordRevenue(int amount) {
+  revenue += amount;
 }
 
 std::map<unsigned short, ConstructionGroup *> ConstructionGroup::groupMap;

@@ -147,6 +147,20 @@ public:
   std::array<int, STUFF_COUNT> commodityProdPrev; // production last month
   std::array<int, STUFF_COUNT> commodityMaxProd;  // max production
   std::array<int, STUFF_COUNT> commodityMaxCons;  // max consumption
+
+  // FEAT-04: per-construction ledger
+  int purchase_cost = 0;     // cost paid at build time
+  int capital_invested = 0;  // cumulative capital (purchases + upgrades)
+  int maintenance = 0;       // cumulative monthly maintenance debited
+  int operation_cost = 0;    // cumulative operating costs (labor, power)
+  int revenue = 0;           // cumulative income from this construction
+
+  /** Record an expense against this construction's ledger.
+   *  Modules call this alongside world.expense() to track
+   *  per-construction maintenance / operation costs. */
+  void recordExpense(int amount);
+  /** Record revenue against this construction's ledger. */
+  void recordRevenue(int amount);
   std::vector<Construction*> neighbors;       //adjacent for transport
   std::vector<Construction*> partners;        //remotely for markets
   std::list<ExtraFrame>::iterator frameIt;

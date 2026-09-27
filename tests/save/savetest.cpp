@@ -102,6 +102,12 @@ bool compare_worlds(const World& a, const World& b,
       check("construction previous production", ac->commodityProdPrev[stuff],
         bc->commodityProdPrev[stuff]);
     }
+    // FEAT-04: ledger fields
+    check("ledger purchase_cost", ac->purchase_cost, bc->purchase_cost);
+    check("ledger capital_invested", ac->capital_invested, bc->capital_invested);
+    check("ledger maintenance", ac->maintenance, bc->maintenance);
+    check("ledger operation_cost", ac->operation_cost, bc->operation_cost);
+    check("ledger revenue", ac->revenue, bc->revenue);
   }
   return ok;
 }

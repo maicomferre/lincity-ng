@@ -424,6 +424,9 @@ MpsFinance::refresh() {
   case Page::MANAGEMENT:
     refreshManagement();
     break;
+  case Page::LEDGER:
+    refreshLedger();
+    break;
   }
   fillBlank();
 }
@@ -568,6 +571,38 @@ MpsFinance::refreshManagement() {
   add_ss(N_("Coal"), num_to_ansi(kpis.coal_stock));
   add_ss(N_("Ore"), num_to_ansi(kpis.ore_stock));
   add_ss(N_("Petroleum"), num_to_ansi(kpis.petroleum_stock));
+}
+
+void
+MpsFinance::refreshLedger() {
+  const World& world = game->getWorld();
+  int total_purchase = 0;
+  int total_capital = 0;
+  int total_maintenance = 0;
+  int total_operation = 0;
+  int total_revenue = 0;
+  int count = 0;
+
+  for (const auto* cstr : world.map.constructions) {
+    total_purchase += cstr->purchase_cost;
+    total_capital  += cstr->capital_invested;
+    total_maintenance += cstr->maintenance;
+    total_operation    += cstr->operation_cost;
+    total_revenue      += cstr->revenue;
+    ++count;
+  }
+
+  add_s(N_("Ledger — All Constructions"));
+  add_sd(N_("Count"), count);
+  addBlank();
+  add_ss(N_("Purchase cost"),   num_to_ansi(total_purchase));
+  add_ss(N_("Capital invested"), num_to_ansi(total_capital));
+  add_ss(N_("Maintenance"),     num_to_ansi(total_maintenance));
+  add_ss(N_("Operation cost"),  num_to_ansi(total_operation));
+  add_ss(N_("Revenue"),         num_to_ansi(total_revenue));
+  addBlank();
+  add_ss(N_("Net worth"),
+    num_to_ansi(total_capital - total_maintenance - total_operation + total_revenue));
 }
 
 IMPLEMENT_COMPONENT_FACTORY(Mps)

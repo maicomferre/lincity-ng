@@ -583,6 +583,11 @@ MiniMap::scrollPageDown(bool down) {
         ? MpsFinance::Page::CASH_FLOW
         : MpsFinance::Page::POPULATION;
       break;
+    case MpsFinance::Page::LEDGER:
+      mps.page = down
+        ? MpsFinance::Page::CASH_FLOW
+        : MpsFinance::Page::MANAGEMENT;
+      break;
     }
     mps.refresh();
   }

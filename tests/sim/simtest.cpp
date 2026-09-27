@@ -411,7 +411,7 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
     // simulation code changed, so the trajectory is identical; only the
     // fingerprint input grew.
     TCHECK_EQ(first.back().hex(),
-      std::string("fb235ae8794a39e3ca13c1b155ed829d")); // updated: oil_reserve added to MapTile
+      std::string("0663381900960033e6bc62829e3dadba")); // updated: FEAT-04 ledger fields added to Construction
   }
 }
 

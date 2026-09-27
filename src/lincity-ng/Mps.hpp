@@ -125,7 +125,7 @@ ManagementKpis collectManagementKpis(const World& world);
 class MpsFinance : public Mps {
 public:
   enum class Page {
-    CASH_FLOW, COSTS, POPULATION, MANAGEMENT
+    CASH_FLOW, COSTS, POPULATION, MANAGEMENT, LEDGER
   };
 
   MpsFinance() { }
@@ -143,6 +143,7 @@ private:
   void refreshCosts();
   void refreshPopulation();
   void refreshManagement();
+  void refreshLedger();
 };
 
 #endif
