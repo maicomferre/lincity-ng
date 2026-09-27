@@ -50,20 +50,24 @@
 **Preço por unidade (PORT_*_RATE / 100 para import, PORT_*_RATE para export)**:
 | Commodity | Rate | Preço import | Preço export |
 |---|---|---|---|
-| food | 500 | $5,00 | — |
+| food | 1 | $0,01 | — |
 | coal | 50 | $0,50 | — |
-| ore | 1 | $0,01 | — |
+| ore | 50 | $0,50 | — |
 | goods | 3 | — | $3,00 |
-| steel | 100 | — | $100,00 |
+| steel | 30 | — | $30,00 |
+| petroleum | 40 | $0,40 | — |
 
-**Análise**: ore importa a $0,01/unidade (muito barato — provavelmente subprecificado). steel exporta a $100/unidade (muito caro — pode estar bloqueado exportação). Food a $5 e coal a $0,50 parecem razoáveis. goods a $3 é baixo comparado a steel a $100.
+**Análise**: ore importa a $0,50/unidade (realista). steel exporta a $30/unidade (competitivo). food a $0,01/unidade é muito barato, mas o benchmark com rate=1 manteve estoque saudável (7158). coal e goods já eram razoáveis.
 
-**Ação**: ajustar rates para equilibrar preços relativos:
-- PORT_ORE_RATE: 1 → 50 (import $0,50, mais realista)
-- PORT_STEEL_RATE: 100 → 30 (export $30, mais competitivo)
-- PORT_GOODS_RATE: 3 → manter (similar a steel ajustado)
-- PORT_FOOD_RATE: 500 → manter ($5, razoável)
-- PORT_COAL_RATE: 50 → manter ($0,50, razoável)
+⚠️ **Discrepância resolvida**: a análise original dizia "food a $5 razoável" (rate=500), mas o código nunca foi atualizado para 500. O benchmark foi executado com rate=1 ($0,01/unit) e o estoque de food ficou saudável. Decisão: manter rate=1 — importação de food é barata por design (food é commodity básica de subsistência).
+
+**Ação**: ajustes implementados:
+- PORT_ORE_RATE: 1 → 50 ✅
+- PORT_STEEL_RATE: 100 → 30 ✅
+- PORT_PETROLEUM_RATE: new = 40 ✅
+- PORT_FOOD_RATE: 1 → manter (discrepância doc 13 — rate=1 funciona no benchmark)
+- PORT_COAL_RATE: 50 → manter ✅
+- PORT_GOODS_RATE: 3 → manter ✅
 
 ### 2.3 Resto fracionário (pence)
 **Status**: já existe, persiste, testado em ldsv 2141. **OK** — manter.
