@@ -865,6 +865,83 @@ TTEST(game_flow_reset_and_loading_barrier) {
   TCHECK_EQ((int)game.getGameView().remaining_images, 0);
 }
 
+TTEST(port_trade_preserves_commodity_conservation) {
+  // FEAT-03e item 5: with port trade active, commodity conservation
+  // must hold (imports/exports go through produceStuff/consumeStuff
+  // and the ledger).
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 1234567);
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  // find a bare river-edge tile for port placement
+  // (port needs bare 4x4 area + river at east edge, 4 tiles wide)
+  MapPoint portPoint;
+  bool found = false;
+  for(MapPoint p(2, 2); p.y < world->map.len() - 6; ++p.y) {
+    for(p.x = 2; p.x < world->map.len() - 6; ++p.x) {
+      bool bare = true;
+      for(int dy = 0; dy < GROUP_PORT_SIZE && bare; ++dy)
+        for(int dx = 0; dx < GROUP_PORT_SIZE; ++dx)
+          if(!world->map(MapPoint(p.x + dx, p.y + dy))->is_bare()) {
+            bare = false; break;
+          }
+      if(!bare) continue;
+      MapPoint east = p.e(GROUP_PORT_SIZE);
+      bool river = true;
+      for(int j = 0; j < GROUP_PORT_SIZE; ++j) {
+        if(!world->map(east.s(j))->is_river()) {
+          river = false;
+          break;
+        }
+      }
+      if(river) { portPoint = p; found = true; break; }
+    }
+    if(found) break;
+  }
+  TCHECK(found);
+  if(!found) return;
+
+  world->tech_level = 35000; // PORT_TECH
+  try {
+    world->buildConstruction(portConstructionGroup, portPoint);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  port build failed: %s\n", err.what());
+    TCHECK(!"port build threw");
+    return;
+  }
+  Port* port = dynamic_cast<Port*>(
+    world->map(portPoint)->reportingConstruction);
+  TCHECK(port != nullptr);
+  if(!port) return;
+
+  // configure port: import food/coal/ore, export goods/steel
+  port->commodityRuleCount[STUFF_FOOD] =
+    {MAX_FOOD_ON_PORT, true, false};
+  port->commodityRuleCount[STUFF_COAL] =
+    {MAX_COAL_ON_PORT, true, false};
+  port->commodityRuleCount[STUFF_ORE] =
+    {MAX_ORE_ON_PORT, true, false};
+  port->commodityRuleCount[STUFF_GOODS] =
+    {MAX_GOODS_ON_PORT, false, true};
+  port->commodityRuleCount[STUFF_STEEL] =
+    {MAX_STEEL_ON_PORT, false, true};
+
+  // enable world trade rules for those commodities
+  world->tradeRule[STUFF_FOOD].take = true;
+  world->tradeRule[STUFF_COAL].take = true;
+  world->tradeRule[STUFF_ORE].take = true;
+  world->tradeRule[STUFF_GOODS].give = true;
+  world->tradeRule[STUFF_STEEL].give = true;
+
+  // give the port workforce so it can trade
+  port->commodityCount[STUFF_LABOR] = PORT_LABOR;
+
+  TCHECK(run_days(*world, 120));
+}
+
 TTEST(music_callback_defers_track_change_to_main_thread) {
   Sound *sound = getSound();
   TCHECK(sound != nullptr);
