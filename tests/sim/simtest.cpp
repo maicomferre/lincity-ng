@@ -942,6 +942,116 @@ TTEST(port_trade_preserves_commodity_conservation) {
   TCHECK(run_days(*world, 120));
 }
 
+TTEST(oilwell_produces_petroleum_from_reserve) {
+  // FEAT-03d empirical validation: oil well extracts petroleum
+  // from oil_reserve and produces petroleum commodity.
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 1234567);
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  // find a bare tile and seed it with enough oil reserve
+  MapPoint wellPoint;
+  bool found = false;
+  for(MapPoint p(2, 2); p.y < world->map.len() - 2; ++p.y) {
+    for(p.x = 2; p.x < world->map.len() - 2; ++p.x) {
+      if(world->map(p)->is_bare()) {
+        wellPoint = p;
+        found = true;
+        break;
+      }
+    }
+    if(found) break;
+  }
+  TCHECK(found);
+  if(!found) return;
+
+  // seed oil reserve (map gen rarely reaches MIN_OIL_FOR_WELL=1000)
+  world->map(wellPoint)->oil_reserve = OIL_RESERVE;
+  const int oil_before = world->map(wellPoint)->oil_reserve;
+
+  world->tech_level = OILWELL_TECH; // required to build
+  // build well and give it labor
+  try {
+    world->buildConstruction(oilwellConstructionGroup, wellPoint);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  well build failed: %s\n", err.what());
+    TCHECK(!"well build threw");
+    return;
+  }
+  Oilwell* well = dynamic_cast<Oilwell*>(
+    world->map(wellPoint)->reportingConstruction);
+  TCHECK(well != nullptr);
+  if(!well) return;
+  well->commodityCount[STUFF_LABOR] = OILWELL_LABOR;
+
+  // run enough days for extraction (5 petroleum/day)
+  TCHECK(run_days(*world, 100));
+
+  TCHECK(well->total_extracted > 0);
+  TCHECK(world->map(wellPoint)->oil_reserve < oil_before);
+  // each extraction produces PETROLEUM_PER_WELL (5) petroleum
+  TCHECK_EQ(well->commodityCount[STUFF_PETROLEUM],
+    well->total_extracted * PETROLEUM_PER_WELL);
+}
+
+TTEST(refinery_processes_petroleum_to_goods) {
+  // FEAT-03d empirical validation: refinery consumes petroleum
+  // and produces goods.
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 7654321);
+  TCHECK(world != nullptr);
+  if(!world)
+    return;
+
+  // find a bare tile for refinery (anywhere)
+  MapPoint refPoint;
+  bool found = false;
+  for(MapPoint p(2, 2); p.y < world->map.len() - 2; ++p.y) {
+    for(p.x = 2; p.x < world->map.len() - 2; ++p.x) {
+      if(world->map(p)->is_bare()) {
+        refPoint = p;
+        found = true;
+        break;
+      }
+    }
+    if(found) break;
+  }
+  TCHECK(found);
+  if(!found) return;
+
+  world->tech_level = REFINERY_TECH; // required to build
+  try {
+    world->buildConstruction(refineryConstructionGroup, refPoint);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  refinery build failed: %s\n", err.what());
+    TCHECK(!"refinery build threw");
+    return;
+  }
+  Refinery* ref = dynamic_cast<Refinery*>(
+    world->map(refPoint)->reportingConstruction);
+  TCHECK(ref != nullptr);
+  if(!ref) return;
+
+  // seed petroleum directly (bypasses well dependency for this test)
+  ref->commodityCount[STUFF_PETROLEUM] = 1000;
+  ref->commodityCount[STUFF_LABOR] = REFINERY_LABOR;
+
+  const int petroleum_before = ref->commodityCount[STUFF_PETROLEUM];
+  const int goods_before = ref->commodityCount[STUFF_GOODS];
+
+  TCHECK(run_days(*world, 100));
+
+  TCHECK(ref->total_processed > 0);
+  TCHECK(ref->commodityCount[STUFF_PETROLEUM]
+    < petroleum_before);
+  TCHECK(ref->commodityCount[STUFF_GOODS]
+    > goods_before);
+}
+
 TTEST(music_callback_defers_track_change_to_main_thread) {
   Sound *sound = getSound();
   TCHECK(sound != nullptr);
