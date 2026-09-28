@@ -292,23 +292,23 @@
   </group>
   <group>
     <resourceID name="OilWell"/>
-    <image file="oilwell-empty.png" x="256" y="299"/>
+    <image file="oilwell-empty.png" x="192" y="352"/>
     <resourceID name="OilWellLow"/>
-    <image file="oilwell-low.png" x="256" y="299"/>
+    <image file="oilwell-low.png" x="192" y="352"/>
     <resourceID name="OilWellMed"/>
-    <image file="oilwell-med.png" x="256" y="299"/>
+    <image file="oilwell-med.png" x="192" y="352"/>
     <resourceID name="OilWellFull"/>
-    <image file="oilwell-full.png" x="256" y="299"/>
+    <image file="oilwell-full.png" x="192" y="352"/>
   </group>
   <group>
     <resourceID name="Refinery"/>
-    <image file="refinery-empty.png" x="256" y="299"/>
+    <image file="refinery-empty.png" x="192" y="384"/>
     <resourceID name="RefineryLow"/>
-    <image file="refinery-low.png" x="256" y="299"/>
+    <image file="refinery-low.png" x="192" y="384"/>
     <resourceID name="RefineryMed"/>
-    <image file="refinery-med.png" x="256" y="299"/>
+    <image file="refinery-med.png" x="192" y="384"/>
     <resourceID name="RefineryFull"/>
-    <image file="refinery-full.png" x="256" y="299"/>
+    <image file="refinery-full.png" x="192" y="384"/>
   </group>
   <group>
     <resourceID name="MarketEmpty"/>

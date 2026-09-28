@@ -888,31 +888,58 @@ TTEST(game_flow_reset_and_loading_barrier) {
     TCHECK_EQ(seaFarmIcon->getHeight(), 32);
   }
 
-  if(const char* output = std::getenv("LINCITYNG_TEST_SPRITE_PREVIEW")) {
-    // Optional visual fixture; does not exercise gameplay placement rules.
-    auto scene = std::make_unique<World>(100);
-    seaFarmConstructionGroup.placeItem(*scene, MapPoint(40, 40));
-    organic_farmConstructionGroup.placeItem(*scene, MapPoint(44, 40));
-    game.setWorld(std::move(scene));
-    auto& view = game.getGameView();
-    view.resetZoom();
-    for(int i = 0; i < 4; ++i) view.zoomIn();
-    view.show(MapPoint(42, 42));
-    std::filesystem::create_directories(output);
-    for(int level = 0; level < 5; ++level) {
-      painter->clear();
-      view.setMapDirty();
-      game.getGui().draw(*painter);
-      SDL_Surface* shot = SDL_RenderReadPixels(SDL_GetRenderer(window), nullptr);
-      TCHECK(shot != nullptr);
-      if(shot) {
-        const auto path = std::filesystem::path(output) /
-          ("seafarm-zoom-" + std::to_string(level) + ".png");
-        TCHECK(IMG_SavePNG(shot, path.string().c_str()));
-        SDL_DestroySurface(shot);
+  // BUG-24: native pixel dimensions and anchors must match the 3x3 footprint.
+  for(const char* name : {"OilWell", "OilWellLow", "OilWellMed", "OilWellFull",
+                          "Refinery", "RefineryLow", "RefineryMed", "RefineryFull"}) {
+    const auto* resource = ResourceGroup::resMap.at(name);
+    const int height = std::string(name).find("OilWell") == 0 ? 352 : 384;
+    TCHECK_EQ(resource->graphicsInfoVector.size(), size_t(1));
+    for(const auto& frame : resource->graphicsInfoVector) {
+      TCHECK(frame.texture != nullptr);
+      if(frame.texture) {
+        TCHECK_EQ(frame.texture->getWidth(), 384);
+        TCHECK_EQ(frame.texture->getHeight(), height);
       }
-      view.zoomOut();
-      view.zoomOut();
+      TCHECK_EQ(frame.x, 192);
+      TCHECK_EQ(frame.y, height);
+    }
+  }
+
+  if(const char* output = std::getenv("LINCITYNG_TEST_SPRITE_PREVIEW")) {
+    for(const std::string sceneName : {"seafarm", "petroleum"}) {
+      // Optional visual fixture; does not exercise gameplay placement rules.
+      auto scene = std::make_unique<World>(100);
+      if(sceneName == "seafarm") {
+        seaFarmConstructionGroup.placeItem(*scene, MapPoint(40, 40));
+        organic_farmConstructionGroup.placeItem(*scene, MapPoint(44, 40));
+      } else {
+        oilwellConstructionGroup.placeItem(*scene, MapPoint(40, 40));
+        refineryConstructionGroup.placeItem(*scene, MapPoint(43, 40));
+        industryLightConstructionGroup.placeItem(*scene, MapPoint(40, 44));
+        for(int x = 39; x < 47; ++x)
+          roadConstructionGroup.placeItem(*scene, MapPoint(x, 43));
+      }
+      game.setWorld(std::move(scene));
+      auto& view = game.getGameView();
+      view.resetZoom();
+      for(int i = 0; i < 4; ++i) view.zoomIn();
+      view.show(MapPoint(42, 42));
+      std::filesystem::create_directories(output);
+      for(int level = 0; level < 5; ++level) {
+        painter->clear();
+        view.setMapDirty();
+        game.getGui().draw(*painter);
+        SDL_Surface* shot = SDL_RenderReadPixels(SDL_GetRenderer(window), nullptr);
+        TCHECK(shot != nullptr);
+        if(shot) {
+          const auto path = std::filesystem::path(output) /
+            (sceneName + "-zoom-" + std::to_string(level) + ".png");
+          TCHECK(IMG_SavePNG(shot, path.string().c_str()));
+          SDL_DestroySurface(shot);
+        }
+        view.zoomOut();
+        view.zoomOut();
+      }
     }
   }
 }
