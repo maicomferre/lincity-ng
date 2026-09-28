@@ -1142,6 +1142,57 @@ TTEST(music_callback_defers_track_change_to_main_thread) {
   TCHECK(!sound->consumeTrackChangeRequest());
 }
 
+TTEST(visual_pilot_build_tools_select_registered_groups) {
+  initVideo(800, 600);
+  Game game(window);
+  auto world = make_world();
+  TCHECK(world != nullptr);
+  if(!world) return;
+  game.setWorld(std::move(world));
+  auto& panel = game.getButtonPanel();
+  UserOperation selected;
+  panel.selected.connect([&selected](const UserOperation& op) { selected = op; });
+
+  struct ToolCase {
+    const char* button;
+    ConstructionGroup* group;
+    const char* icon;
+  };
+  for(const auto& entry : {
+      ToolCase{"BPMSeaFarmButton", &seaFarmConstructionGroup,
+        "images/gui/buttonpanel/parks/seafarm.png"},
+      ToolCase{"BPMOilwellButton", &oilwellConstructionGroup,
+        "images/gui/buttonpanel/mining/oilwell.png"},
+      ToolCase{"BPMRefineryButton", &refineryConstructionGroup,
+        "images/gui/buttonpanel/industry/refinery.png"}}) {
+    auto* button = getCheckButton(panel, entry.button);
+    TCHECK(button != nullptr);
+    if(!button) continue;
+    auto& current = game.getWorld();
+    current.total_money = 100000000;
+    current.tech_level = entry.group->tech - 1;
+    panel.updateTech();
+    TCHECK(!button->isEnabled());
+    current.tech_level = MAX_TECH_LEVEL;
+    panel.updateTech();
+    TCHECK(button->isEnabled());
+    button->tryCheck();
+    TCHECK(selected.action == UserOperation::ACTION_BUILD);
+    TCHECK(selected.constructionGroup == entry.group);
+    TCHECK(button->getTooltip().find(entry.group->getName()) != std::string::npos);
+    TCHECK(button->getTooltip().find(format_money(
+      entry.group->getCosts(current))) != std::string::npos);
+    auto* icon = texture_manager->load(entry.icon);
+    TCHECK(icon != nullptr);
+    if(icon) {
+      TCHECK_EQ(icon->getWidth(), 32);
+      TCHECK_EQ(icon->getHeight(), 32);
+    }
+    panel.selectQueryTool();
+    TCHECK(selected.action == UserOperation::ACTION_QUERY);
+  }
+}
+
 TTEST(build_tooltip_shows_cost_and_operating_estimate) {
   // QW-04: the build menu exposes the same build/maintenance values used by
   // the engine, without changing any economic state.

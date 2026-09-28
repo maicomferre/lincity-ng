@@ -84,3 +84,18 @@ Use case: stylized-concept. Asset type: transparent PNG building sprite for LinC
 ## Unused oil transparency-edit prompt
 
 Use case: background-extraction. Edit target: the supplied oil pumpjack sprite. Change ONLY the transparency outside the machinery and concrete diamond platform: remove the entire grey/brown hazy glow and all outside cast shadows. Everything outside the clean cutout of platform plus machinery must be exactly alpha=0, genuinely transparent, not black or checkerboard. Preserve every solid object, platform geometry, colors, camera, framing, dimensions, and image positions unchanged. Keep natural antialiased edges, no fringe. No new elements, no text.
+
+## FEAT-07a panel icons
+
+The panel uses original, hand-specified vector silhouettes (pumpjack and
+refinery vessels), not new AI-generated images. Editable sources live in
+`data/images/gui/buttonpanel/{mining/oilwell,industry/refinery}.svg`.
+They follow the data licensing terms in `COPYING-data.txt`.
+Run `bash data/models/petroleum/export-icons.sh` with ImageMagick to export
+the transparent 32×32 RGBA PNGs. No external artwork or fonts are used.
+
+The pilot remains static: OilWell/Refinery each have one visible frame;
+Low/Med/Full remain compatibility aliases, not inventory indicators.
+Sea Farm also keeps its static artwork. Animation indices in the modules
+are unchanged and the renderer continues its existing frame modulo behavior.
+Final art approval and any animated family require a separate in-game review.

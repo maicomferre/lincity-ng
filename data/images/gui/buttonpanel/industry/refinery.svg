@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Original FEAT-07a icon; distributed under COPYING-data.txt. -->
+  <path d="M1 25 16 20 31 25 16 31Z" fill="#887a58" stroke="#423c32"/>
+  <g stroke="#34474a" stroke-linejoin="round">
+    <path d="M18 23V6Q21 3 24 6V23Z" fill="#859da2"/>
+    <ellipse cx="21" cy="6" rx="3" ry="2" fill="#cad6cd"/>
+    <path d="M26 24V11H29V25M16 23V13H19M19 10H24M19 15H24M19 20H24" fill="none"/>
+    <path d="M3 25V19Q8 14 13 19V25Q8 28 3 25Z" fill="#b3c1b9"/>
+    <ellipse cx="8" cy="19" rx="5" ry="3" fill="#dce1ca"/>
+    <path d="M13 24H17V20H21" fill="none" stroke="#bc8139" stroke-width="2"/>
+  </g>
+</svg>
