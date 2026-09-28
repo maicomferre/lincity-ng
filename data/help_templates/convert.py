@@ -1,6 +1,7 @@
 #!/usr/bin/env /usr/bin/python3
 
 import re
+import argparse
 
 
 class HelpObject:
@@ -162,6 +163,12 @@ LANG=["ru"]
 FILES=["blacksmith","bulldoze","button-index","coalmine","coal","commodities","commune","cricket","dialogs","economy","evacuate","export","farm","fast","finance","firestation","food","goods","health","help","housing","index","industryh","industryl","labor","controls","market","medium","mill","mini-screen","monument","msb-coal","msb-cricket","msb-fire","msb-health","msb-normal","msb-pol","msb-power","msb-starve","msb-transport","msb-ub40","oremine","ore","other-costs","park","pause","pbar","pollution","port","pottery","powerline","powerscoal","powerssolar","power","query","rail","recycle","residential","river","road","rocket","school","slow","steel","substation","sustain","tech-level","tip","track","transport","tutorial-advanced","tutorial-aim","tutorial-basics","tutorial-overview","tutorial-scenario","tutorial","university","waste","water","waterwell","windmill"]
 
 #FILES=["tutorial-aim"]
+parser = argparse.ArgumentParser(description="Generate help XML from templates")
+parser.add_argument("--files", nargs="+", default=FILES)
+parser.add_argument("--languages", nargs="*", default=LANG)
+args = parser.parse_args()
+FILES = args.files
+LANG = args.languages
 BASE={}
 
 # Parse all files...

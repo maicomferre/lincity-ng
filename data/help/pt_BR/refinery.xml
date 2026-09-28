@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE!! IT WAS GENERATED AUTOMATICALLY! (you must edit files in help_template directory) -->
+<Document style="helpdocument">
+	<p style="htitle">Refinaria</p>
+	<p style="hp">Refinarias convertem <a href="petroleum">petróleo</a> em <a href="goods">bens</a>. Elas consomem petróleo e trabalho para produzir bens.</p>
+	<p style="hp">Refinarias precisam de <a href="labor">trabalho</a> e de um fornecimento de petróleo para operar.</p>
+
+  <p style="hp">Esta é uma refinaria</p>
+   <img src="images/tiles/refinery-empty.png" halign="center"/>
+
+  <p style="hp">e este é o seu ícone</p>
+   <img src="images/gui/buttonpanel/industry/refinery.png" halign="center"/>
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">1: 200 trabalho + 5 petróleo =&gt; 3 bens</p>
+	<p style="hp">A refinaria produz enquanto houver trabalho e petróleo disponíveis.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="petroleum">Petróleo</a></li>
+	<li><a href="oilwell">Poço de Petróleo</a></li>
+	<li><a href="labor">Trabalho</a></li>
+	<li><a href="goods">Bens</a></li>
+</Document>

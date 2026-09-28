@@ -1,0 +1,21 @@
+Refinaria
+
+Refinarias convertem <a href="petroleum">petróleo</a> em <a href="goods">bens</a>. Elas consomem petróleo e trabalho para produzir bens.
+
+Refinarias precisam de <a href="labor">trabalho</a> e de um fornecimento de petróleo para operar.
+
+IMG_1[Esta é uma refinaria]
+IMG_2[e este é o seu ícone]
+
+SUBH: Fórmulas
+
+1: 200 trabalho + 5 petróleo =&gt; 3 bens
+
+A refinaria produz enquanto houver trabalho e petróleo disponíveis.
+
+SUBH: Veja também:
+
+* <a href="petroleum">Petróleo</a>
+* <a href="oilwell">Poço de Petróleo</a>
+* <a href="labor">Trabalho</a>
+* <a href="goods">Bens</a>

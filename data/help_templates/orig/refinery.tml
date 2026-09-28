@@ -1,0 +1,21 @@
+Refinery
+
+Refineries convert <a href="petroleum">petroleum</a> into <a href="goods">goods</a>. They consume petroleum and labor to produce goods.
+
+Refineries need <a href="labor">labor</a> and a supply of petroleum to operate.
+
+IMG_1[This is a refinery]: images/tiles/refinery-empty.png
+IMG_2[and this is its icon]: images/gui/buttonpanel/industry/refinery.png
+
+SUBH: Formulas
+
+1: 200 labor + 5 petroleum =&gt; 3 goods
+
+Refineries target producing goods as long as labor and petroleum are available.
+
+SUBH: See also:
+
+* <a href="petroleum">Petroleum</a>
+* <a href="oilwell">Oil well</a>
+* <a href="labor">Labor</a>
+* <a href="goods">Goods</a>

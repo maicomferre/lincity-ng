@@ -1,0 +1,23 @@
+Poço de Petróleo
+
+Poços de petróleo extraem <a href="petroleum">petróleo</a> de reservas subterrâneas. Para construir um poço, é necessário haver uma reserva de pelo menos 1000 unidades em cada terreno sob a construção.
+
+Poços de petróleo precisam de <a href="labor">trabalho</a> para operar.
+
+Quando todas as reservas sob o poço se esgotam, ele para de produzir. Quando as reservas e o estoque de petróleo estão vazios, o poço é removido automaticamente do mapa.
+
+IMG_1[Este é um poço de petróleo]
+IMG_2[e este é o seu ícone]
+
+SUBH: Fórmulas
+
+1: 150 trabalho + 1 reserva de petróleo =&gt; 5 petróleo
+
+O poço produz enquanto houver trabalho disponível e reservas restantes.
+
+SUBH: Veja também:
+
+* <a href="petroleum">Petróleo</a>
+* <a href="refinery">Refinaria</a>
+* <a href="labor">Trabalho</a>
+* <a href="transport">Transporte</a>

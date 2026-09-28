@@ -87,6 +87,21 @@ Use case: background-extraction. Edit target: the supplied oil pumpjack sprite. 
 
 ## FEAT-07a panel icons
 
+The exporter requires Python 3, PyGObject (Rsvg 2.0), pycairo, librsvg and
+ImageMagick. It uses librsvg for SVG rasterization: the local ImageMagick
+MSVG renderer dropped structural strokes. ImageMagick only normalizes the
+result to stripped PNG32. The sim test checks visible structural pixels and
+transparent corners, not just image dimensions.
+
+Regenerate the petroleum help pages from the repository root:
+
+```sh
+(cd data/help_templates && python3 convert.py --files oilwell refinery --languages pt_BR)
+```
+
+Templates are the source of truth for these English and Brazilian Portuguese
+pages; both reference the same building and panel images.
+
 The panel uses original, hand-specified vector silhouettes (pumpjack and
 refinery vessels), not new AI-generated images. Editable sources live in
 `data/images/gui/buttonpanel/{mining/oilwell,industry/refinery}.svg`.

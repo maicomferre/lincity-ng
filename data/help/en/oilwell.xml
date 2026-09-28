@@ -6,11 +6,17 @@
 	<p style="hp">Oil wells need <a href="labor">labor</a> to operate.</p>
 	<p style="hp">Once all oil reserves at the well location are exhausted, the well stops producing. When all reserves are depleted and there is no petroleum in inventory, the oil well is automatically removed from the map.</p>
 
-  <p style="hsubtitle">Formulas</p>
+  <p style="hp">This is an oil well</p>
+   <img src="images/tiles/oilwell-empty.png" halign="center"/>
+
+  <p style="hp">and this is its icon</p>
+   <img src="images/gui/buttonpanel/mining/oilwell.png" halign="center"/>
+
+	<p style="hsubtitle">Formulas</p>
 	<p style="hp">1: 150 labor + 1 oil reserve =&gt; 5 petroleum</p>
 	<p style="hp">Oil wells target producing petroleum as long as labor is available and reserves remain.</p>
 
-  <p style="hsubtitle">See also:</p>
+	<p style="hsubtitle">See also:</p>
 	<li><a href="petroleum">Petroleum</a></li>
 	<li><a href="refinery">Refinery</a></li>
 	<li><a href="labor">Labor</a></li>

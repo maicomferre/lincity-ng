@@ -25,6 +25,7 @@
 #include <climits>
 #include <cstdlib>
 #include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <memory>
 #include <tuple>
@@ -35,6 +36,8 @@
 
 #include "headless_env.hpp"
 #include "gui/CheckButton.hpp"             // for build tooltip regression
+#include "gui/ComponentLoader.hpp"
+#include "gui/Document.hpp"
 #include "gui/Paragraph.hpp"              // for Paragraph
 #include "gui/Painter.hpp"
 #include "gui/TextureManager.hpp"
@@ -1190,6 +1193,54 @@ TTEST(visual_pilot_build_tools_select_registered_groups) {
     }
     panel.selectQueryTool();
     TCHECK(selected.action == UserOperation::ACTION_QUERY);
+  }
+}
+
+TTEST(visual_pilot_petroleum_icons_and_help) {
+  initVideo(800, 600);
+  Game game(window);
+  const auto data = getConfig()->appDataDir.get();
+  struct AssetCase {
+    const char* topic;
+    const char* icon;
+    const char* title;
+    int strokeX;
+    int strokeY;
+  };
+  for(const auto& entry : {
+      AssetCase{"oilwell", "images/gui/buttonpanel/mining/oilwell.png",
+        "Poço de Petróleo", 6, 18},
+      AssetCase{"refinery", "images/gui/buttonpanel/industry/refinery.png",
+        "Refinaria", 29, 16}}) {
+    std::unique_ptr<SDL_Surface, decltype(&SDL_DestroySurface)> icon(
+      IMG_Load((data / entry.icon).string().c_str()), SDL_DestroySurface);
+    TCHECK(icon != nullptr);
+    if(icon) {
+      Uint8 r = 0, g = 0, b = 0, a = 0;
+      // Structural strokes disappeared in the old SVG export despite valid dimensions.
+      TCHECK(SDL_ReadSurfacePixel(icon.get(), entry.strokeX, entry.strokeY,
+        &r, &g, &b, &a));
+      TCHECK(a > 100); // one-pixel strokes have antialiased edges
+      TCHECK(r < 120 && g < 120 && b < 120);
+      TCHECK(SDL_ReadSurfacePixel(icon.get(), 0, 0, &r, &g, &b, &a));
+      TCHECK_EQ(a, 0);
+    }
+    for(const auto* language : {"en", "pt_BR"}) {
+      const auto file = std::filesystem::path("help") / language /
+        (std::string(entry.topic) + ".xml");
+      std::ifstream input(data / file);
+      TCHECK(input.good());
+      const std::string xml{std::istreambuf_iterator<char>(input), {}};
+      TCHECK(xml.find("<img src=\"" + std::string(entry.icon) + "\"") != std::string::npos);
+      const auto tile = "images/tiles/" + std::string(entry.topic) + "-empty.png";
+      TCHECK(xml.find("<img src=\"" + tile + "\"") != std::string::npos);
+      TCHECK(texture_manager->load(tile) != nullptr);
+      if(std::string(language) == "pt_BR")
+        TCHECK(xml.find(entry.title) != std::string::npos);
+      auto contents = loadGUIFile(file);
+      TCHECK(dynamic_cast<Document*>(contents.get()) != nullptr);
+      contents->resize(450, 0);
+    }
   }
 }
 

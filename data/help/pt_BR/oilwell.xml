@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE!! IT WAS GENERATED AUTOMATICALLY! (you must edit files in help_template directory) -->
+<Document style="helpdocument">
+	<p style="htitle">Poço de Petróleo</p>
+	<p style="hp">Poços de petróleo extraem <a href="petroleum">petróleo</a> de reservas subterrâneas. Para construir um poço, é necessário haver uma reserva de pelo menos 1000 unidades em cada terreno sob a construção.</p>
+	<p style="hp">Poços de petróleo precisam de <a href="labor">trabalho</a> para operar.</p>
+	<p style="hp">Quando todas as reservas sob o poço se esgotam, ele para de produzir. Quando as reservas e o estoque de petróleo estão vazios, o poço é removido automaticamente do mapa.</p>
+
+  <p style="hp">Este é um poço de petróleo</p>
+   <img src="images/tiles/oilwell-empty.png" halign="center"/>
+
+  <p style="hp">e este é o seu ícone</p>
+   <img src="images/gui/buttonpanel/mining/oilwell.png" halign="center"/>
+
+	<p style="hsubtitle">Fórmulas</p>
+	<p style="hp">1: 150 trabalho + 1 reserva de petróleo =&gt; 5 petróleo</p>
+	<p style="hp">O poço produz enquanto houver trabalho disponível e reservas restantes.</p>
+
+	<p style="hsubtitle">Veja também:</p>
+	<li><a href="petroleum">Petróleo</a></li>
+	<li><a href="refinery">Refinaria</a></li>
+	<li><a href="labor">Trabalho</a></li>
+	<li><a href="transport">Transporte</a></li>
+</Document>
