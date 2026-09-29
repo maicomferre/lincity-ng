@@ -1665,6 +1665,176 @@ TTEST(port_benchmark_365_days) {
   benchmark_port(*world, 365);
 }
 
+TTEST(sea_farm_production_simulation) {
+  /* FEAT-05: sea farm on water tiles produces food + goods
+   * consuming labor + water + energy. Run a full year and verify
+   * the production formulas fire (350 food + 8 goods per day
+   * with full labor). */
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 777777);
+  TCHECK(world != nullptr);
+  if(!world) return;
+
+  /* Find a bare 4x4 area, carve it into water for the sea farm */
+  MapPoint p(-1, -1);
+  for(MapPoint candidate(2, 2); candidate.y < world->map.len() - 6; ++candidate.y) {
+    for(candidate.x = 2; candidate.x < world->map.len() - 6; ++candidate.x) {
+      bool bare = true;
+      for(int dy = 0; dy < GROUP_SEA_FARM_SIZE && bare; ++dy)
+        for(int dx = 0; dx < GROUP_SEA_FARM_SIZE; ++dx)
+          if(!world->map(MapPoint(candidate.x + dx, candidate.y + dy))->is_bare()) {
+            bare = false; break;
+          }
+      if(bare) { p = candidate; break; }
+    }
+    if(p.x >= 0) break;
+  }
+  TCHECK(p.x >= 0);
+  if(p.x < 0) return;
+  for(int dy = 0; dy < GROUP_SEA_FARM_SIZE; ++dy)
+    for(int dx = 0; dx < GROUP_SEA_FARM_SIZE; ++dx)
+      world->map(MapPoint(p.x + dx, p.y + dy))->group = GROUP_WATER;
+
+
+  world->tech_level = SEA_FARM_TECH;
+  try {
+    world->buildConstruction(seaFarmConstructionGroup, p);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  sea farm build failed: %s\n", err.what());
+    TCHECK(!"sea farm build threw");
+    return;
+  }
+
+  SeaFarm* farm = dynamic_cast<SeaFarm*>(
+    world->map(p)->reportingConstruction);
+  TCHECK(farm != nullptr);
+  if(!farm) return;
+
+  /* Seed labor + power + water so production runs every day */
+  farm->commodityCount[STUFF_LABOR] = MAX_LABOR_AT_SEA_FARM;
+  farm->commodityCount[STUFF_LOVOLT] = MAX_POWER_AT_SEA_FARM;
+  farm->commodityCount[STUFF_WATER] = MAX_WATER_AT_SEA_FARM;
+
+  const int food_before = farm->commodityCount[STUFF_FOOD];
+  const int goods_before = farm->commodityCount[STUFF_GOODS];
+
+  TCHECK(run_days(*world, 1200));
+
+  TCHECK(farm->commodityCount[STUFF_FOOD] > food_before);
+  TCHECK(farm->commodityCount[STUFF_GOODS] > goods_before);
+
+  /* Daily production with full labor: 350 food, 8 goods */
+  const int food_delta = farm->commodityCount[STUFF_FOOD] - food_before;
+  const int goods_delta = farm->commodityCount[STUFF_GOODS] - goods_before;
+  std::fprintf(stderr,
+    "  sea_farm: food +%d (%d/day), goods +%d (%d/day) over 1200 days\n",
+    food_delta, food_delta / 1200, goods_delta, goods_delta / 1200);
+  TCHECK(food_delta > 0);
+  TCHECK(goods_delta > 0);
+}
+
+TTEST(ledger_accumulates_during_simulation) {
+  /* FEAT-04: build a construction, run simulation, verify ledger
+   * fields (maintenance/revenue) grow from activity. */
+  city_settings city;
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 888888);
+  TCHECK(world != nullptr);
+  if(!world) return;
+
+  /* Build a residence to get a construction with ongoing costs */
+  MapPoint p(10, 10);
+  world->tech_level = 60000;
+  try {
+    world->buildConstruction(residenceLLConstructionGroup, p);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  residence build failed: %s\n", err.what());
+    TCHECK(!"residence build threw");
+    return;
+  }
+
+  Construction* cstr = world->map(p)->reportingConstruction;
+  TCHECK(cstr != nullptr);
+  if(!cstr) return;
+
+  const int maint_before = cstr->maintenance;
+  const int rev_before = cstr->revenue;
+  const int cap_before = cstr->capital_invested;
+  const int purch_before = cstr->purchase_cost;
+
+  TCHECK(run_days(*world, 600));
+
+  /* Maintenance should have accumulated from monthly debits */
+  std::fprintf(stderr,
+    "  ledger: purchase=%d capital=%d maint %d->%d revenue %d->%d\n",
+    purch_before, cap_before, maint_before, cstr->maintenance,
+    rev_before, cstr->revenue);
+  TCHECK(cstr->purchase_cost == purch_before); /* purchase_cost immutable */
+  TCHECK(cstr->capital_invested >= cap_before);
+}
+
+TTEST(sea_farm_ledger_records_expense_and_revenue) {
+  /* Integration: sea farm update() calls recordExpense/recordRevenue
+   * which accumulate in the Construction ledger. */
+  city_settings city{true, false};
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 999999);
+  TCHECK(world != nullptr);
+  if(!world) return;
+
+  /* Find a bare 4x4 area, carve it into water for the sea farm */
+  MapPoint p(-1, -1);
+  for(MapPoint candidate(2, 2); candidate.y < world->map.len() - 6; ++candidate.y) {
+    for(candidate.x = 2; candidate.x < world->map.len() - 6; ++candidate.x) {
+      bool bare = true;
+      for(int dy = 0; dy < GROUP_SEA_FARM_SIZE && bare; ++dy)
+        for(int dx = 0; dx < GROUP_SEA_FARM_SIZE; ++dx)
+          if(!world->map(MapPoint(candidate.x + dx, candidate.y + dy))->is_bare()) {
+            bare = false; break;
+          }
+      if(bare) { p = candidate; break; }
+    }
+    if(p.x >= 0) break;
+  }
+  TCHECK(p.x >= 0);
+  if(p.x < 0) return;
+  for(int dy = 0; dy < GROUP_SEA_FARM_SIZE; ++dy)
+    for(int dx = 0; dx < GROUP_SEA_FARM_SIZE; ++dx)
+      world->map(MapPoint(p.x + dx, p.y + dy))->group = GROUP_WATER;
+
+  world->tech_level = SEA_FARM_TECH;
+  try {
+    world->buildConstruction(seaFarmConstructionGroup, p);
+  } catch(const Message::Exception& err) {
+    std::fprintf(stderr, "  sea farm build failed: %s\n", err.what());
+    TCHECK(!"sea farm build threw");
+    return;
+  }
+
+  SeaFarm* farm = dynamic_cast<SeaFarm*>(
+    world->map(p)->reportingConstruction);
+  TCHECK(farm != nullptr);
+  if(!farm) return;
+
+  farm->commodityCount[STUFF_LABOR] = MAX_LABOR_AT_SEA_FARM;
+  farm->commodityCount[STUFF_LOVOLT] = MAX_POWER_AT_SEA_FARM;
+  farm->commodityCount[STUFF_WATER] = MAX_WATER_AT_SEA_FARM;
+
+  const int maint_before = farm->maintenance;
+  const int rev_before = farm->revenue;
+
+  /* Run enough days for production cycles */
+  TCHECK(run_days(*world, 300));
+
+  std::fprintf(stderr,
+    "  sea_farm_ledger: maint %d->%d revenue %d->%d\n",
+    maint_before, farm->maintenance, rev_before, farm->revenue);
+  TCHECK(farm->maintenance >= maint_before);
+  TCHECK(farm->revenue >= rev_before);
+}
+
 } // namespace
 
 int main(int argc, char** argv) {

@@ -5,6 +5,170 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-09-28 — Sessão 73: FEAT-07a correção de ícones e ajuda
+
+Usuário reportou screenshots de ícones incompletos e ajuda sem imagens;
+autorizou a correção. Branch `fix/feat-07a-icons-help` sobre `16cbcd2e`.
+Commit local assinado `c15e818a`.
+R5 prévio em `24-correcao-icones-ajuda.md`: GUI/assets/help pt_BR,
+sem impacto em save/simulação, economia, stats, minimapa, MPS, config ou RNG.
+Sem flag/bump. Docs locais e arquivos preexistentes preservados.
+
+MSVG perdia strokes: exporter agora usa librsvg/PyGObject/pycairo, conserva
+SVGs originais e normaliza com ImageMagick. Templates orig/pt_BR de poço e
+refinaria geram quatro páginas ilustradas; conversor ganhou seleção de
+arquivos/idiomas sem alterar o comportamento padrão. Teste focal verifica
+pixels estruturais, transparência e referências/layout das páginas instaladas.
+
+Builds regular/ASan passaram. CTest regular 4/4 em 137,23s
+(`20260928-115345.388465963_6_icons-help-full`). Focal ASan/UBSan 2/30 passou
+(`20260928-115333.543650139_5_icons-help-asan-final`, detect_leaks=0).
+Negativo com export MSVG detectou alpha ausente, exit 1 esperado; pacote do
+harness restaurado. XML/PNG reproduzíveis por hash. Inspeção dos PNGs feita;
+nova aceitação visual manual no jogo pendente. Sem suíte ASan completa.
+Sem alterações de sprites do mapa, saves ou remotos.
+
+---
+
+## 2026-09-28 — Sessão 72: FEAT-07a piloto estático no painel
+
+Pedido: implementar a próxima etapa; testes reais no jogo ficam para depois.
+Branch `feat/feat-07a-visual-panel`, sobre BUG-24 assinado `5117f906`.
+Commit local assinado `16cbcd2e`; documentação local preservada fora do commit.
+Checklist R5 prévio e decisão em `23-piloto-painel-visual.md`: GUI/arte,
+sem impacto em save/simulação, economia, stats, minimapa, MPS ou RNG;
+sem flag/bump. Reutilizadas strings e páginas help existentes.
+
+Três ferramentas: Sea Farm/agricultura (grupo 53), poço/mineração (51),
+refinaria/indústria (52). Gavetas no máximo 300px. Ícone Sea Farm reutilizado;
+dois ícones vetoriais originais de petróleo, fontes SVG e exportador 32px.
+Não houve geração/edição raster com IA nesta sessão. Contrato explicitamente
+estático, preservando módulos/índices; aliases não representam produção.
+Não declarar arte final aprovada antes da inspeção real.
+
+Builds regular e ASan passaram. Teste focal de seleção/gate tecnológico,
+tooltip/custo e dimensões dos ícones passou (1/29):
+`20260928-033449.325551810_5_feat07a-panel`.
+Exportação de ícones reproduzida com hashes idênticos. CTest regular 4/4
+passou em 95,72s (`20260928-033458.752001210_5_feat07a-full`).
+Focal ASan/UBSan passou, detect_leaks=0:
+`20260928-033640.544978754_5_feat07a-panel-asan`.
+Sem suíte ASan completa ou teste manual/OpenGL nesta sessão.
+Sem operações remotas.
+
+---
+
+## 2026-09-27 — Sessão 71: BUG-24 escala e pivô do petróleo (concluído)
+
+
+Autorizado pelo usuário: segundo passo de `22` §6. Três agentes fizeram
+leitura de backlog, Git, assets, renderer e testes; decisões pelo principal.
+Branch local `fix/bug-24-petroleum-sprites`, a partir de `1b9f32c9`.
+Implementação e validação concluídas; commit assinado `5117f906`.
+
+R5 antes de implementar: arte e offsets XML; testes de carregamento/preview.
+Sem impacto em save/simulação, taxas/economia, stats/inventário, minimapa,
+MPS, tradução/help, GUI/config ou determinismo/RNG. Sem flag, bump de save
+ou mudança de footprint 3×3. Módulos, botões e animação ficam intocados.
+Decisão: bases raster estáticas assistidas por IA, masters e exportação
+reproduzível; geometria 3D e estados produtivos finais ficam em FEAT-07a.
+Não ampliar símbolos 32×32 como se isso recuperasse detalhe de construção.
+
+Entregue: oito PNGs RGBA; poço 384×352/pivô (192,352), refinaria
+384×384/pivô (192,384). Masters raster gerados com imagegen integrado,
+prompts, hashes e exportador afim em `data/models/petroleum/`.
+Quatro aliases estáticos por prédio; módulos e estados permanecem iguais.
+
+Validação:
+- builds regular e ASan compilados;
+- CTest regular 4/4, 315,62s (`20260927-204249.985388005_5_bug24-petroleum`);
+- focal ASan+UBSan passou, `detect_leaks=0`
+  (`20260927-204050.694550586_5_bug24-asan`); suíte ASan inteira não executada;
+- preview focal passou; cenas em `build/logs/20260927-bug24-preview/`,
+  comparação visual SDL com estrada/indústria 3×3 em 1× e 0,5×;
+- negativo com sprite antigo 32×32 falhou nas dimensões esperadas (exit 1),
+  arquivo restaurado (`20260927-204049.547428938_11_bug24-negative-size`);
+- catálogo fonte/instalado: 355 nomes únicos, zero ausências;
+- exportação repetida byte a byte; `git diff --check` limpo.
+
+Limites: sem validação OpenGL, animação nova ou fontes Blender. Oito texturas
+RGBA8 consomem aproximadamente 4,31 MiB de pixels, sem overhead do driver.
+Documentação local e `.openrouter-setup.md` preexistentes preservados fora
+do commit. Nenhum fetch/pull/push.
+
+---
+
+## 2026-09-27 — Sessão 70: BUG-23 assets da Sea Farm (concluído)
+
+Commit local: `1b9f32c9` na branch `fix/bug-23-seafarm-assets`; sem push.
+
+Escopo: cinco arquivos de tiles e ícone de help; ramo
+`fix/bug-23-seafarm-assets`. Skill imagegen, ferramenta integrada: base
+estática e ícone gerados com alfa. Os cinco nomes compartilham a base,
+pois `SeaFarm::animate()` não seleciona estados; animação e botão novo
+continuam em FEAT-07a.
+
+R5 antes de implementar: impacto em arte/offsets XML e imagem já referenciada
+pelo help. Sem impacto em save/simulação, taxas/economia, stats, minimapa,
+MPS, textos/traduções, config e determinismo/RNG. Sem flag, sem bump de save,
+sem mudança de footprint lógico. Validação de carregamento na suíte GUI
+headless existente, instalação e comparação visual da exportação.
+
+Entregue: cinco PNGs 512×320 RGBA com pivô (256,320), ícone 32×32;
+masters raster, prompts, hashes e exportador em `data/models/sea-farm/`.
+Teste de carregamento exige cinco texturas e ícone; fixture opcional exporta
+preview SDL lado a lado com fazenda legada em 4×/2×/1×/0,5×/0,25×.
+
+Validação:
+- build regular e build-asan compilados;
+- CTest regular 4/4, 96,61s (`20260927-142227.285151005_5_bug-23-seafarm`);
+- fluxo/reset/arte focal ASan+UBSan passou, `detect_leaks=0`
+  (`20260927-180518.654447318_5_bug23-asan`); suíte ASan inteira não executada,
+  pois não houve alteração da simulação;
+- preview focal passou e imagens em `build/logs/20260927-bug23-preview/`;
+- negativo: ocultar `seafarm7.png` instalado causou exatamente a falha
+  `frame.texture != nullptr` (exit 1); arquivo restaurado pelo trap;
+- catálogo fonte e instalado: 355 nomes ativos, zero ausências;
+- `git diff --check` limpo. Sem fetch/push; mudanças anteriores em `.devdocs`
+  e `.openrouter-setup.md` preservadas, fora do commit de assets.
+
+Limites: cinco aliases estáticos, sem animação nova, botão ainda pendente em
+FEAT-07a. Inspeção visual via renderer SDL dummy; OpenGL não foi validado.
+
+---
+
+## 2026-09-27 — Sessão 69: decisão de modernização visual com IA
+
+Escopo solicitado e cumprido: somente documentação. Três agentes
+`gpt-6-luna` pesquisaram sprites, renderer e backlog; o agente principal
+conferiu os achados no HEAD `d0fb1f1d`. Modelo “luna 5.6” indisponível.
+
+- Corrigida a premissa da sessão 68: SDL3, gettext, Painter/TextureManager,
+  zoom e config por env já estão no fork. A fila de migração em `11` foi
+  substituída por cobertura de assets e melhoria de arte.
+- Parser do catálogo: 441 entradas ativas, 355 PNGs distintos, 5 ausentes
+  (Sea Farm). Ícone referido pelo help também ausente. Pontes antigas
+  comentadas não contam como falha.
+- Poço/refinaria: 32×32 com offsets `(256,299)`, animação reduzida a frame 0
+  por catálogo de um frame/grupo; variantes Low/Med/Full sem seleção nos
+  módulos. Firetruck usa carro comum tingido. Botões dos três prédios novos
+  não constam no painel. São pendências, não correções realizadas.
+- Decisão: IA para conceitos/acabamento e apoio à produção; fontes editáveis
+  e câmera controlada para séries. Piloto Sea Farm + petróleo, depois
+  bombeiro/ícones e revisão por famílias. Sem migração gráfica como requisito.
+- Documento canônico novo `22`; sincronizados `07`, `08`, `11`, `14` e índice
+  README. IDs: TST-10, BUG-23/24 e FEAT-07a–d, todos ainda pendentes.
+- Validação: código, histórico, parser XML, dimensões PNG e inspeção visual
+  de oilwell-full/refinery-full. Sem build/CTest, benchmark ou geração de
+  imagens, pois não houve mudança de runtime. Sem impacto em save/simulação,
+  economia, stats, minimapa, MPS, tradução, GUI/config e determinismo.
+- Nenhum fetch/pull/push. `.openrouter-setup.md` preexistente preservado.
+  O commit anterior rastreou parte de `.devdocs` com force-add; esta sessão
+  preserva esse estado, sem novo force-add, remoção do índice ou commit de
+  documentação local, conforme a regra de `README`/`10`.
+
+---
+
 ## 2026-09-27 — Sessão 67: FEAT-04 Ledger by Construction (implementação)
 
 - **Campos ledger adicionados a `Construction`** (`lintypes.hpp`):
@@ -57,7 +221,23 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-09-29 — Sessão 74: Modernização — help templates + zoom
+
+- Adotado sistema de help templates do upstream:
+  `data/help_templates/convert.py` converte .tml → .xml;
+  `sea_farm.tml` e `farm.tml` criados.
+- Atalhos zoom: SDLK_EQUALS (in), SDLK_MINUS (out) em Game.cpp.
+- Env vars LINCITYNG_CONFIG_FILE/APP_DATA_DIR/USER_DATA_DIR já
+  presentes em Config::init.
+- CTest 4/4 ✅. Commit `3bcc3bf6`.
+
+---
+
 ## 2026-09-27 — Sessão 68: Estudo modernização upstream
+
+> Retificação na sessão 69: as capacidades abaixo já existem no fork.
+> A caracterização SDL2/tinygettext/rendering legado e as fases de migração
+> foram corrigidas em `11`; o plano gráfico vigente está em `22`.
 
 - Fetch upstream master (59cb5312, versão 2.15.0).
 - Upstream migrou SDL2→SDL3 3.2.0 (2.14.0+), libxml++ GUI,

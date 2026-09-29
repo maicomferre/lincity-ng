@@ -23,6 +23,7 @@
 #include "lincity/init_game.hpp"   // for city_settings, new_city
 #include "lincity/lintypes.hpp"    // for Construction state comparisons
 #include "lincity/modules/port.hpp" // for Port, portConstructionGroup
+#include "lincity/modules/sea_farm.hpp" // for SeaFarm, seaFarmConstructionGroup
 #include "lincity/world.hpp"       // for World
 #include "lincity/xmlloadsave.hpp" // for serializeWorldGameplayState
 #include "util/debuglog.hpp"       // for LNG_LOG, init_logging
@@ -455,6 +456,71 @@ TTEST(save_load_crosses_period_boundaries) {
     TCHECK(ok);
     std::filesystem::remove(tmp, ec);
   }
+}
+
+TTEST(round_trip_sea_farm_state) {
+  // FEAT-05: place a sea farm on water, save/load, verify
+  // construction type, ledger fields, and sea-farm-specific state.
+  std::unique_ptr<World> world = std::make_unique<World>(100);
+  world->tech_level = SEA_FARM_TECH;
+
+  MapPoint p(40, 40);
+  // ensure the area is water for placement
+  for(int dy = 0; dy < GROUP_SEA_FARM_SIZE; ++dy)
+    for(int dx = 0; dx < GROUP_SEA_FARM_SIZE; ++dx)
+      world->map(MapPoint(p.x + dx, p.y + dy))
+        ->group = GROUP_WATER;
+
+  auto* SeaFarmCG = dynamic_cast<SeaFarmConstructionGroup*>(
+    ConstructionGroup::getConstructionGroup(GROUP_SEA_FARM));
+  TCHECK(SeaFarmCG != nullptr);
+  if(!SeaFarmCG) return;
+
+  SeaFarm* farm = dynamic_cast<SeaFarm*>(
+    SeaFarmCG->createConstruction(*world));
+  TCHECK(farm != nullptr);
+  if(!farm) return;
+
+  farm->place(p);
+  farm->commodityCount[STUFF_LABOR] = MAX_LABOR_AT_SEA_FARM;
+  farm->commodityCount[STUFF_LOVOLT] = MAX_POWER_AT_SEA_FARM;
+  farm->commodityCount[STUFF_WATER] = MAX_WATER_AT_SEA_FARM;
+
+  const int purch_cost = farm->purchase_cost;
+  const int capital_before = farm->capital_invested;
+  const int maint_before = farm->maintenance;
+  const int rev_before = farm->revenue;
+  const int food_before = farm->food_this_month;
+  const int goods_before = farm->goods_this_month;
+
+  const std::filesystem::path tmp =
+    headless::user_data() / "roundtrip_sea_farm.scn.gz";
+  std::error_code ec;
+  std::filesystem::remove(tmp, ec);
+  world->save(tmp);
+
+  std::unique_ptr<World> reloaded = World::load(tmp);
+  TCHECK(reloaded != nullptr);
+  if(!reloaded) return;
+
+  auto* loadedTile = reloaded->map(p);
+  TCHECK(loadedTile->construction != nullptr);
+  if(!loadedTile->construction) return;
+
+  auto* loaded = dynamic_cast<SeaFarm*>(loadedTile->construction);
+  TCHECK(loaded != nullptr);
+  if(!loaded) return;
+
+  TCHECK_EQ(loaded->purchase_cost, purch_cost);
+  TCHECK_EQ(loaded->capital_invested, capital_before);
+  TCHECK_EQ(loaded->maintenance, maint_before);
+  TCHECK_EQ(loaded->operation_cost, 0);
+  TCHECK_EQ(loaded->revenue, rev_before);
+  TCHECK_EQ(loaded->food_this_month, food_before);
+  TCHECK_EQ(loaded->goods_this_month, goods_before);
+
+  // ledger fields survive round-trip (FEAT-04 + FEAT-05)
+  std::filesystem::remove(tmp, ec);
 }
 
 } // namespace

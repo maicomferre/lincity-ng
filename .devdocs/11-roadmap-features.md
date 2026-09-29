@@ -262,7 +262,7 @@ devem aparecer nos commits e no diário.
 | ID | Item | Estado | Dependências e decisão necessária |
 |---|---|---|---|
 | FEAT-04 | Ledger por construção: compra, capital investido, manutenção, operação e receita separados | **feito** (`a3f2c1d0`) | 5 campos em `Construction`; save 2145; MPS LEDGER page; `recordExpense`/`recordRevenue` hooks; tests camadas 1-3 |
-| FEAT-05 | Sea farm inspirada no upstream #339 | **feito** (`d1dc6a88`) | Módulo em sea_farm.hpp/cpp; water-tile can_build_here; constantes em all_buildings.hpp; sprites/images.xml; help + pt_BR; save/load; tests camadas 1-3 |
+| FEAT-05 | Sea farm inspirada no upstream #339 | **implementado** (`d1dc6a88`), integração visual pendente | BUG-23 completou os cinco PNGs de tiles e ícone do help na sessão 70; integração de botão e estados visuais distintos continuam em FEAT-07a. |
 | FEAT-06 | Poluição hídrica inspirada no upstream #338 | **proposto** | modelo bounded, custo de CPU medido e A/B com ecologia atual |
 | REF-07 | Scheduler/eventos determinísticos para transporte, ecologia e RNG | **feito** — Fases 0–6 concluídas | RNG v1 pertencente ao `World`, domínios keyed e cosméticos isolados; save 2143 com protocolo/seed/versão e lacunas de trajetória persistidas; Legacy golden regenerado (`64f6bd4b…`); plano em `15`, relatórios em `16`–`21`; Fase 6: extração transacional do transporte (snapshotTransport → resolveTransport → applyTransport) |
 
@@ -380,42 +380,34 @@ QW-05/QW-04 → FEAT-03e (porto 2.0) → FEAT-05/FEAT-06 → FEAT-03d
 
 ---
 
-## Modernização upstream (estudo 2026-09-27)
+## Modernização visual — decisão revisada em 2026-09-27
 
-> Análise do upstream `lincity-ng/lincity-ng` master (59cb5312,
-> versão 2.15.0) comparada com o fork atual (ldsv 2145).
+O estudo registrado em `d0fb1f1d` tratou capacidades já existentes como
+migrações pendentes. O fork **já usa SDL3 ≥ 3.2**, gettext/libintl, Painter,
+TextureManager, zoom 0,0312×–4× e `LINCITYNG_CONFIG_FILE`; também contém
+help_templates e instalação AppStream/ícone 256. Evidências e limites em
+[`22-modernizacao-visual-e-sprites-ia.md`](22-modernizacao-visual-e-sprites-ia.md).
+As três fases de migração anteriores ficam substituídas, para o objetivo
+gráfico, pelo plano abaixo. Isso não declara equivalência integral ao upstream.
 
-### O que o upstream modernizou
+**Decisão:** completar arte ausente, corrigir escala/âncora e criar uma
+linguagem visual coerente usando IA para conceitos e acabamento, com fontes
+editáveis e câmera controlada para famílias/animados. Preservar o renderer
+atual e exportar em escala nativa; um pacote HD exige estudo próprio.
 
-| Área | Upstream | Fork atual | Esforço de migração |
+| ID | Item | Estado | Prioridade / critério |
 |---|---|---|---|
-| SDL | SDL3 3.2.0 (2.14.0+) | SDL2 (implícito) | **alto** — API de rendering, eventos, janela |
-| GUI XML | libxml++ (2.14+) | libxml++ | compatível |
-| Traduções | gettext/libintl, .mo binário, PO unificado | tinygettext, POs separados | **médio** — novo sistema de locale |
-| Rendering | Painter, TextureManager, zoom | legacy SDL blit | **alto** — refatorar GameView |
-| Config | LINCITYNG_CONFIG_FILE env vars | cfgpath + Config.hpp | baixo — adicionar env vars |
-| Build | CMake 3.21, CMAKE_BUILD_TYPE=None, relocatable | CMake 3.x | baixo |
-| Ajuda | help_templates/ regenerado | data/help/en/ manual | baixo — adotar templates |
+| TST-10 | Validação de referências e contratos de assets | proposto | Primeiro: XML ativo, arquivos legíveis, recursos e pacote instalado; detectar Sea Farm ausente sem acusar pontes comentadas. |
+| BUG-23 | Sea Farm: cinco PNGs de tiles e ícone do help ausentes | **feito** (`1b9f32c9`), sessão 70 | Cinco entradas estáticas com uma base 512×320 RGBA, pivô (256,320), ícone 32×32, masters/prompts/exportador. Catálogo fonte/instalado sem ausências, CTest regular 4/4, fluxo focal ASan/UBSan, regressão negativa e preview SDL em cinco zooms. |
+| BUG-24 | Poço/refinaria: 32×32 com offsets `(256,299)` | FEITO (sessão 71) | Novas bases estáticas RGBA 384×352/384×384, pivôs (192,352)/(192,384); oito aliases, masters/prompts/exportador; comparação SDL ao lado de estrada e indústria 3×3. CTest 4/4, focal ASan/UBSan e regressão negativa validados. Estados/botões permanecem em FEAT-07a. |
+| FEAT-07 | Modernização visual assistida por IA | proposto; decisão de abordagem documentada | Agregador; nenhuma implementação nesta sessão. Especificação e validação em `22`. |
+| FEAT-07a | Piloto Sea Farm + petróleo, cobertura de frames e botões | piloto estático implementado; correção pós-teste real | Sessão 73: exportação librsvg preserva strokes dos ícones de petróleo; ajuda en/pt_BR com tile/ícone e templates seletivos. Regressão de pixels e páginas instaladas (`24`). Arte final/animação continuam pendentes; decisão estática em `23`. |
+| FEAT-07b | Arte própria de bombeiro | proposto | Substituir carro tingido por caminhão com 16 poses e pivô estável. |
+| FEAT-07c | Ícones de incêndio, dinheiro e foguete | proposto | Resolver cinco TODOs de diálogos com três identidades visuais. |
+| FEAT-07d | Melhorar acervo por famílias + animação de saúde | proposto | Após piloto: comparar em cena, preservar semântica de frames, topologia de vias e identidade dos prédios. |
 
-### Itens gráficos visíveis do upstream
-
-1. **Zoom** (GameView::zoomIn/zoomOut/zoomMouse) — fator 0.0312× a 4×
-2. **SDL3 textures** — TextureManager, drawTile/drawTexture/drawOverlay
-3. **Component refactor** — Painter-based, resize/Event handling
-4. **Idioma sem reiniciar** — parcial (componentes já traduzidos não re-traduzem)
-5. **AppStream metainfo** — desktop file, icon 256×256
-6. **Ajuda regenerada** — help_templates/ → data/help/en/
-
-### Decisão necessária
-
-Migrar para SDL3 é o passo mais impactante. Alternativa: manter SDL2
-e portar só as melhorias sem impacto em rendering (gettext, config,
-help templates, zoom logic). Recomendado: fazer em fases.
-
-Fase 1 (baixo risco): gettext, config env vars, help templates
-Fase 2 (médio): zoom, component refactor, Painter
-Fase 3 (alto): SDL3 completo, TextureManager
-
-(petróleo). REF-07 entra antes de qualquer otimização estrutural de
-transporte. FEAT-04 só entra depois de uma decisão explícita sobre o formato
-de save.
+Ordem: TST-10 → BUG-23 → BUG-24 → FEAT-07a → FEAT-07b/c → FEAT-07d.
+FEAT-06 continua reservado a poluição hídrica. As filas históricas econômicas
+acima não são pré-requisitos para substituição puramente visual de PNGs.
+R5 desta sessão: **sem impacto em save/simulação**, economia, stats, minimapa,
+MPS, tradução em runtime, GUI/config ou RNG; sem flag e sem bump de save.

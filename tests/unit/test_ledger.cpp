@@ -61,3 +61,66 @@ TTEST(ledger_purchase_cost_set_at_build) {
     TCHECK(cstr->purchase_cost >= 0);
   }
 }
+
+TTEST(ledger_maintenance_accumulates) {
+  city_settings city;
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 0);
+  TCHECK(world != nullptr);
+
+  Construction* cstr = nullptr;
+  for(auto* c : world->map.constructions) {
+    cstr = c; break;
+  }
+  TCHECK(cstr != nullptr);
+
+  const int before = cstr->maintenance;
+  cstr->recordExpense(100);
+  cstr->recordExpense(250);
+  cstr->recordExpense(75);
+  TCHECK_EQ(cstr->maintenance, before + 425);
+}
+
+TTEST(ledger_revenue_accumulates) {
+  city_settings city;
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 0);
+  TCHECK(world != nullptr);
+
+  Construction* cstr = nullptr;
+  for(auto* c : world->map.constructions) {
+    cstr = c; break;
+  }
+  TCHECK(cstr != nullptr);
+
+  const int before = cstr->revenue;
+  cstr->recordRevenue(1000);
+  cstr->recordRevenue(500);
+  TCHECK_EQ(cstr->revenue, before + 1500);
+}
+
+TTEST(ledger_net_worth_is_revenue_minus_expenses) {
+  city_settings city;
+  city.with_village = true;
+  std::unique_ptr<World> world = new_city(&city, 100,
+    SimulationProtocol::DETERMINISTIC_V1, 0);
+  TCHECK(world != nullptr);
+
+  Construction* cstr = nullptr;
+  for(auto* c : world->map.constructions) {
+    cstr = c; break;
+  }
+  TCHECK(cstr != nullptr);
+
+  cstr->recordExpense(200);
+  cstr->recordExpense(300);
+  cstr->recordRevenue(1000);
+  cstr->recordRevenue(500);
+
+  const int net_worth = cstr->revenue - (cstr->maintenance + cstr->operation_cost);
+  TCHECK_EQ(net_worth, 1000);
+  TCHECK(cstr->revenue > 0);
+  TCHECK(cstr->maintenance > 0);
+}

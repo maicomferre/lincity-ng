@@ -1217,7 +1217,8 @@ ConstructionGroup::placeItem(World& world, MapPoint point) {
     if(cst) {
       throw std::logic_error("space occupied");
     }
-    if(tile.is_water() && !dynamic_cast<TransportConstructionGroup *>(this)) {
+    if(tile.is_water() && !dynamic_cast<TransportConstructionGroup *>(this)
+       && !buildOnWater()) {
       throw std::logic_error("water here");
     }
   }

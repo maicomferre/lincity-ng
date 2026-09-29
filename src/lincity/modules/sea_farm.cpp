@@ -61,20 +61,25 @@ bool
 SeaFarmConstructionGroup::can_build_here(const World& world,
   const MapPoint point, Message::ptr& message
 ) const {
-  if(!ConstructionGroup::can_build_here(world, point, message))
-    return false;
-
-  /* Sea farm must be on water (lake, river, or pond) */
-  MapPoint east = point.e(size);
+  /* Sea farm must fit within map bounds and every tile must be
+   * water (lake/river/pond) with no covering construction.
+   * Note: is_bare() returns false for water, so we check
+   * group==GROUP_WATER && reportingConstruction==nullptr. */
   for(int j = 0; j < size; j++) {
-    const MapTile* tile = world.map(east.s(j));
-    if(tile->group != GROUP_WATER) {
-      auto* self = const_cast<SeaFarmConstructionGroup*>(this);
-      message = CannotBuildHereMessage::create(*self, point, message);
-      return false;
+    for(int i = 0; i < size; i++) {
+      MapPoint pt = point.e(i).s(j);
+      if(!world.map.is_visible(pt)) {
+        message = OutsideMapMessage::create(point);
+        return false;
+      }
+      const MapTile* tile = world.map(pt);
+      if(tile->group != GROUP_WATER || tile->reportingConstruction) {
+        auto* self = const_cast<SeaFarmConstructionGroup*>(this);
+        message = CannotBuildHereMessage::create(*self, point, message);
+        return false;
+      }
     }
   }
-
   return true;
 }
 

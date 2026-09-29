@@ -236,6 +236,10 @@ public:
 
     virtual void placeItem(World& world, MapPoint point);
 
+    /* Allow subclasses to opt into water placement.
+     * Default false; SeaFarm overrides to true. */
+    virtual bool buildOnWater() const { return false; }
+
     // this method must be overriden by the concrete ConstructionGroup classes.
     virtual Construction *createConstruction(World& world) = 0;
 

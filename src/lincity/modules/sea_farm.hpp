@@ -77,7 +77,8 @@ public:
     }
     virtual bool can_build_here(const World& world,
       const MapPoint point, Message::ptr& message) const override;
-    virtual Construction *createConstruction(World& world);
+    virtual Construction *createConstruction(World& world) override;
+    virtual bool buildOnWater() const override { return true; }
 };
 
 extern SeaFarmConstructionGroup seaFarmConstructionGroup;
