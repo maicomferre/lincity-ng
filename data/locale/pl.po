@@ -27,1651 +27,2049 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
-"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-24 21:11+0100\n"
-"PO-Revision-Date: 2006-12-17 18:35+0100\n"
-"Last-Translator: \n"
-"Language-Team:  <pl@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
-"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
-"Project-Id-Version: pl\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Feb 18 22:35:34 2008\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
 "PO-Revision-Date: 2006-12-17 17:16+0100\n"
 "Last-Translator: Michał Drzał <neurotoxic@wp.pl>\n"
 "Language-Team:  <pl@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
+"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
 "X-Generator: KBabel 1.11.2\n"
 "#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
-"Project-Id-Version: pl\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Feb 18 22:35:34 2008\n"
-"PO-Revision-Date: 2006-12-17 17:16+0100\n"
-"Last-Translator: Michał Drzał <neurotoxic@wp.pl>\n"
-"Language-Team:  <pl@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+"#-#-#-#-#  pl.po (pl)  #-#-#-#-#\n"
 "X-Generator: KBabel 1.11.2\n"
 
-#: src/lincity-ng/ButtonPanel.cpp:200
-msgid "Query Tool"
-msgstr "Tryb Szczegółów"
-
-#: src/lincity-ng/ButtonPanel.cpp:201
-msgid "Bulldozer"
-msgstr "Buldożer"
-
-#: src/lincity-ng/ButtonPanel.cpp:203
-msgid "Residential: 50 denizens, low birthrate, high deathrate"
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+msgid "requires"
 msgstr ""
 
-#: src/lincity-ng/ButtonPanel.cpp:204
-msgid "Residential: 100 denizens, high birthrate, low deathrate"
-msgstr ""
+#: src/lincity-ng/ButtonPanel.cpp:344
+#, fuzzy
+msgid "tech level"
+msgstr "Poziom technologiczny"
 
-#: src/lincity-ng/ButtonPanel.cpp:205
-msgid "Residential: 200 denizens, high birthrate, high deathrate"
-msgstr ""
-
-#: src/lincity-ng/ButtonPanel.cpp:206
-msgid "Residential: 100 denizens, low birthrate, high deathrate"
-msgstr ""
-
-#: src/lincity-ng/ButtonPanel.cpp:207
-msgid "Residential: 200 denizens, high birthrate, low deathrate"
-msgstr ""
-
-#: src/lincity-ng/ButtonPanel.cpp:208
-msgid "Residential: 400 denizens, high birthrate, high deathrate"
-msgstr ""
-
-#: src/lincity-ng/ButtonPanel.cpp:217
-msgid " [Click right for help.]"
-msgstr " [Kliknij prawym aby uzyskać pomoc.]"
-
-#: src/lincity-ng/ButtonPanel.cpp:245 src/lincity-ng/ButtonPanel.cpp:288
-#, c-format
-msgid "%s (Techlevel %.1f required.)"
-msgstr "%s (Wymagany poziom technologi: %.1f)"
-
-#: src/lincity-ng/ButtonPanel.cpp:254
-#, c-format
-msgid "%s is disabled (loaded old game)."
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:174
-msgid "Launchsite"
-msgstr "Strefa wystrzału"
-
-#: src/lincity-ng/Dialog.cpp:343
-msgid "----- IN TEST MODE -------"
-msgstr "----- W TRYBIE TESTOWYM -------"
-
-#: src/lincity-ng/Dialog.cpp:345
-#, c-format
-msgid "Game statistics from LinCity-NG Version %s"
-msgstr "Statystyki LinCity-NG wersji %s"
-
-#: src/lincity-ng/Dialog.cpp:348
-#, c-format
-msgid "Initial loaded scene - %s"
-msgstr "Wczytana początkowo scena - %s"
-
-#: src/lincity-ng/Dialog.cpp:352
-#, c-format
-msgid "Economy is sustainable"
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:355
-#, c-format
-msgid "Population  %d  of which  %d  are not housed."
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:359
-#, c-format
-msgid "Max population %d  Number evacuated %d Total births %d"
-msgstr "Maksymalna populacja %d Ilość ewakuowanych %d Suma narodzin %d"
-
-#: src/lincity-ng/Dialog.cpp:363
-#, c-format
-msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
-msgstr "Data %s %04d  Pieniądze %8d   Poziom tech. %5.1f (%5.1f)"
-
-#: src/lincity-ng/Dialog.cpp:369
-#, c-format
-msgid ".Deaths by starvation %7d   History %8.3f"
-msgstr ".   Zgonów z        głodu %7d  Historia %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:373
-#, c-format
-msgid "Deaths from pollution %7d   History %8.3f"
-msgstr "Zgonów z zanieczyszczenia %7d  Historia %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:376
-#, c-format
-msgid "Years of unemployment %7d   History %8.3f"
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:379
-#, c-format
-msgid "Rockets launched %2d  Successful launches %2d"
-msgstr "Rakiety wystrzelone %2d Udane wystrzelenia % 2d"
-
-#: src/lincity-ng/Dialog.cpp:388
-#, c-format
-msgid ".   Residences %4d         Markets %4d            Farms %4d"
-msgstr ". Strefy mieszkalne %4d                 Sklepy %4d          Farmy %4d"
-
-#: src/lincity-ng/Dialog.cpp:398
-#, c-format
-msgid ".  Water wells %4d"
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:400
-#, c-format
-msgid ".    Monuments %4d         Schools %4d     Universities %4d"
-msgstr ".           Pomniki %4d                 Szkoły %4d   Uniwersytety %4d"
-
-#: src/lincity-ng/Dialog.cpp:404
-#, c-format
-msgid ".Fire stations %4d           Parks %4d    Sports fields %4d"
-msgstr ". Remizy strażackie %4d              Parki %4d     Ośrodki sport. %4d"
-
-#: src/lincity-ng/Dialog.cpp:408
-#, c-format
-msgid "Health centres %4d            Tips %4d         Shanties %4d"
-msgstr "           Szpitale %4d  Wysypiska śmieci  %4d             Slumsy %4d"
-
-#: src/lincity-ng/Dialog.cpp:414
-#, c-format
-msgid ".    Windmills %4d     Coal powers %4d     Solar powers %4d"
-msgstr ".          Wiatraki %4d    Elektr. węglowe %4d  Elektr. słoneczne %4d"
-
-#: src/lincity-ng/Dialog.cpp:419
-#, c-format
-msgid ".  Substations %4d     Power lines %4d            Ports %4d"
-msgstr ". Podstacji elektr. %4d      Linie elektr. %4d              Porty %4d"
-
-#: src/lincity-ng/Dialog.cpp:423
-#, c-format
-msgid ".       Tracks %4d           Roads %4d             Rail %4d"
-msgstr ".             Drogi %4d                    Ulice %4d    Tory Kol. %4d"
-
-#: src/lincity-ng/Dialog.cpp:429
-#, c-format
-msgid ".    Potteries %4d     Blacksmiths %4d            Mills %4d"
-msgstr ".        Garncarnie %4d                  Kuźnie %4d       Fabryki %4d"
-
-#: src/lincity-ng/Dialog.cpp:433
-#, c-format
-msgid ".   Light inds %4d      Heavy inds %4d        Recyclers %4d"
-msgstr ".      Lekki przem. %4d      Cięzki przem. %4d   Zakł. Recyklingu %4d"
-
-#: src/lincity-ng/Dialog.cpp:437
-#, c-format
-msgid ".   Coal mines %4d       Ore mines %4d         Communes %4d"
-msgstr ".    Kopalnie węgla %4d      Kopalnie rudy %4d            Retorty %4d"
-
-#: src/lincity-ng/Dialog.cpp:594 src/lincity/lintypes.cpp:88
-#: src/lincity/modules/market.cpp:1001
-msgid "Market"
-msgstr "Sklep"
-
-#: src/lincity-ng/Dialog.cpp:648 src/lincity/lintypes.cpp:209
-#: src/lincity/modules/port.cpp:281
-msgid "Port"
-msgstr "Port"
-
-#: src/lincity-ng/EconomyGraph.cpp:124
-msgid "Mining"
-msgstr "Wydobycie"
-
-#: src/lincity-ng/EconomyGraph.cpp:126
-msgid "Trade"
-msgstr "Handel"
-
-#: data/gui/pbar.xml
-msgid "Money"
-msgstr "Kapitał"
-
-#: src/lincity-ng/EconomyGraph.cpp:130
-msgid "Popul."
-msgstr "Populacja"
-
-#: src/lincity-ng/EconomyGraph.cpp:132
-msgid "Techn."
-msgstr "Tech."
-
-#: src/lincity-ng/EconomyGraph.cpp:134 src/lincity-ng/MpsInterface.cpp:382
-#: src/lincity/lintypes.cpp:399 src/lincity/modules/residence.cpp:283
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire"
-msgstr "Ogień"
-
-#: src/lincity-ng/EconomyGraph.cpp:137
-msgid "Economy Overview:"
-msgstr "Przegląd ekonomii:"
-
-#: src/lincity-ng/EconomyGraph.cpp:140
-msgid "Sustainability:"
-msgstr ""
-
-#: src/lincity-ng/EconomyGraph.cpp:143
-msgid "Frames per Second:"
-msgstr "Liczba klatek na sekundę:"
-
-#: src/lincity-ng/EconomyGraph.cpp:219
-msgid "You lose."
-msgstr "Przegrałeś."
-
-#: src/lincity-ng/GameView.cpp:239
-msgid "Minimap: outline map"
-msgstr "Minimapa: mapa konturowa"
-
-#: src/lincity-ng/GameView.cpp:242
-msgid "Minimap: unemployment"
-msgstr "Minimapa: bezrobocie"
-
-#: src/lincity-ng/GameView.cpp:245
-msgid "Minimap: pollution"
-msgstr "Minimapa: zanieczyszczenie"
-
-#: src/lincity-ng/GameView.cpp:248
-msgid "Minimap: nourishments"
-msgstr "Minimapa: zaopatrzenie w żywność"
-
-#: src/lincity-ng/GameView.cpp:251
-msgid "Minimap: power supply"
-msgstr "Minimapa: zaopatrzenie w energię"
-
-#: src/lincity-ng/GameView.cpp:254
-msgid "Minimap: firedepartment cover"
-msgstr "Minimapa: zasięg remiz strażackich"
-
-#: src/lincity-ng/GameView.cpp:257
-msgid "Minimap: sport cover"
-msgstr "Minimapa: zasięg obiektów sportowych"
-
-#: src/lincity-ng/GameView.cpp:260
-msgid "Minimap: medical care"
-msgstr "Minimapa: opieka zdrowotna"
-
-#: src/lincity-ng/GameView.cpp:263
-msgid "Minimap: coal depots"
-msgstr "Minimapa: złoża węgla"
-
-#: src/lincity-ng/GameView.cpp:266
-msgid "Minimap: traffic density"
-msgstr "Minimapa: natężenie ruchu"
-
-#: src/lincity-ng/GameView.cpp:1593
-msgid "Estimated Bulldoze Cost: "
-msgstr "Szacowany kosze wyburzenia:"
-
-#: src/lincity-ng/GameView.cpp:1595
-msgid "Bulldoze Cost: "
-msgstr "Koszt wyburzenia:"
-
-#: src/lincity-ng/GameView.cpp:1598 src/lincity-ng/GameView.cpp:1629
-#: src/lincity-ng/ScreenInterface.cpp:274 data/gui/minimap.xml
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "PLN"
 
-#: src/lincity-ng/GameView.cpp:1600
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:373
+msgid "Query Tool"
+msgstr "Tryb Szczegółów"
+
+#: src/lincity-ng/ButtonPanel.cpp:378
+msgid ": 50 tenants, low birthrate, high deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:381
+msgid ": 100 tenants, high birthrate, low deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:384
+msgid ": 200 tenants, high birthrate, high deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:387
+msgid ": 100 tenants, low birthrate, high deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:390
+msgid ": 200 tenants, high birthrate, low deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:393
+msgid ": 400 tenants, high birthrate, high deathrate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:398
+msgid "Bulldozer"
+msgstr "Buldożer"
+
+#: src/lincity-ng/ButtonPanel.cpp:400
+msgid "Evacuate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "Woda"
+
+#: src/lincity-ng/ButtonPanel.cpp:406
+#, fuzzy
+msgid "Click right for help."
+msgstr " [Kliknij prawym aby uzyskać pomoc.]"
+
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
+msgstr "Tryp pełnoekranowy"
+
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
+msgstr "Strefa wystrzału"
+
+#: src/lincity-ng/Dialog.cpp:317
+#, fuzzy
+msgid "Game statistics from LinCity-NG Version"
+msgstr "Statystyki LinCity-NG wersji %s"
+
+#: src/lincity-ng/Dialog.cpp:320
+#, fuzzy
+msgid "Initial loaded scene"
+msgstr "Wczytana początkowo scena - %s"
+
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
+msgid "Population"
+msgstr "Populacja"
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:332
+#, fuzzy
+msgid "Max population"
+msgstr "Populacja"
+
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
+msgid "Money"
+msgstr "Kapitał"
+
+#: src/lincity-ng/Dialog.cpp:339
+#, fuzzy
+msgid "Tech-level"
+msgstr "Poziom technologiczny"
+
+#: src/lincity-ng/Dialog.cpp:343
+#, fuzzy
+msgid "Deaths by starvation"
+msgstr ".   Zgonów z        głodu %7d  Historia %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:347
+#, fuzzy
+msgid "Deaths from pollution"
+msgstr "Zgonów z zanieczyszczenia %7d  Historia %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:351
+#, fuzzy
+msgid "Years of unemployment"
+msgstr "Pokazuje bezrobocie"
+
+#: src/lincity-ng/Dialog.cpp:355
+#, fuzzy
+msgid "Rockets launched"
+msgstr "Kosmodrom"
+
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:364
+msgid "Residences"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:371
+#, fuzzy
+msgid "Markets"
+msgstr "Sklep"
+
+#: src/lincity-ng/Dialog.cpp:372
+#, fuzzy
+msgid "Farms"
+msgstr "Farma"
+
+#: src/lincity-ng/Dialog.cpp:374
+#, fuzzy
+msgid "Water wells"
+msgstr "Woda"
+
+#: src/lincity-ng/Dialog.cpp:375
+#, fuzzy
+msgid "Windmills"
+msgstr "Wiatrak"
+
+#: src/lincity-ng/Dialog.cpp:382
+#, fuzzy
+msgid "Monuments"
+msgstr "Pomnik"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "Szkoły"
+
+#: src/lincity-ng/Dialog.cpp:384
+#, fuzzy
+msgid "Universities"
+msgstr "Uniwersytet"
+
+#: src/lincity-ng/Dialog.cpp:386
+#, fuzzy
+msgid "Fire stations"
+msgstr "Remiza strażacka"
+
+#: src/lincity-ng/Dialog.cpp:387
+#, fuzzy
+msgid "Parks"
+msgstr "Park"
+
+#: src/lincity-ng/Dialog.cpp:390
+#, fuzzy
+msgid "Sports fields"
+msgstr "Centrum sportowe"
+
+#: src/lincity-ng/Dialog.cpp:392
+#, fuzzy
+msgid "Health centres"
+msgstr "Szpital"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "Slumsy"
+
+#: src/lincity-ng/Dialog.cpp:400
+msgid "Wind powers"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:401
+#, fuzzy
+msgid "Coal powers"
+msgstr "Kopalnia węgla"
+
+#: src/lincity-ng/Dialog.cpp:402
+#, fuzzy
+msgid "Solar powers"
+msgstr "Pokazuje zaopatrzenie w energię"
+
+#: src/lincity-ng/Dialog.cpp:404
+#, fuzzy
+msgid "Substations"
+msgstr "Podstacja elekrtyczna"
+
+#: src/lincity-ng/Dialog.cpp:405
+#, fuzzy
+msgid "Power lines"
+msgstr "Linia wysokiego napięcia"
+
+#: src/lincity-ng/Dialog.cpp:406
+#, fuzzy
+msgid "Ports"
+msgstr "Port"
+
+#: src/lincity-ng/Dialog.cpp:408
+#, fuzzy
+msgid "Tracks"
+msgstr "Droga"
+
+#: src/lincity-ng/Dialog.cpp:411
+#, fuzzy
+msgid "Roads"
+msgstr "Ulica"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "Tory kolejowe"
+
+#: src/lincity-ng/Dialog.cpp:422
+#, fuzzy
+msgid "Potteries"
+msgstr "Garncarnia"
+
+#: src/lincity-ng/Dialog.cpp:423
+#, fuzzy
+msgid "Blacksmiths"
+msgstr "Kuźnia"
+
+#: src/lincity-ng/Dialog.cpp:424
+#, fuzzy
+msgid "Mills"
+msgstr "Fabryka"
+
+#: src/lincity-ng/Dialog.cpp:426
+msgid "Light inds"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:427
+#, fuzzy
+msgid "Heavy inds"
+msgstr "Ciężki"
+
+#: src/lincity-ng/Dialog.cpp:428
+#, fuzzy
+msgid "Recyclers"
+msgstr "Zakład recyklingu"
+
+#: src/lincity-ng/Dialog.cpp:430
+#, fuzzy
+msgid "Coal mines"
+msgstr "Kopalnia węgla"
+
+#: src/lincity-ng/Dialog.cpp:431
+#, fuzzy
+msgid "Ore mines"
+msgstr "Kopalnia rudy"
+
+#: src/lincity-ng/Dialog.cpp:432
+msgid "Forests"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "Sklep"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "Port"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "Wydobycie"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "Handel"
+
+#: src/lincity-ng/EconomyGraph.cpp:118
+msgid "Popul."
+msgstr "Populacja"
+
+#: src/lincity-ng/EconomyGraph.cpp:120
+msgid "Techn."
+msgstr "Tech."
+
+#: src/lincity-ng/EconomyGraph.cpp:122
+msgid "Fire"
+msgstr "Ogień"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
+msgid "Economy Overview:"
+msgstr "Przegląd ekonomii:"
+
+#: src/lincity-ng/EconomyGraph.cpp:128
+msgid "Sustainability:"
+msgstr ""
+
+#: src/lincity-ng/EconomyGraph.cpp:131
+msgid "Frames per Second:"
+msgstr "Liczba klatek na sekundę:"
+
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "Nowy wynalazek"
+
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "Fabryki dostępne"
+
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
+msgid ""
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr ""
+"Osiągnąłeś poziom technologiczny pozwalający na budowe ulic. Zobacz ekran "
+"pomocy w celu uzyskania większej ilości informacji."
+
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
+msgstr "Wyburzenie pomnika dużo kosztuje."
+
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "Wczytywanie sceny"
+
+#: src/lincity-ng/Game.cpp:848
+msgid "Fire!"
+msgstr "Pożar!"
+
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "Wybuch pożar!"
+
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "Uwaga"
+
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "Autorzy"
+
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:889
+msgid "Rocket Ready"
+msgstr "Rakieta gotowa"
+
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
+msgstr "Rakiet gotowa do wystrzału"
+
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "Wystrzelić teraz?"
+
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "Kosmodrom"
+
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "Kosmodrom"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "Wystrzelenie powiodło się"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "Wystrzelenie powiodło się"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"Ewakuowałeś 1000 ludzi. Powinieneś zredukować zakres swojej ekonomi by "
+"odpowiadał obecnej populacji."
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "Przegrałeś."
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "Gospodarka rentowna."
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {} here."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+msgid "You cannot build this on credit."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "W mieście nie ma już żadnych ludzi."
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "Wyburzyć?"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+msgid "Cannot Evacuate"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+msgid "Bridge"
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "Buldożer"
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "Szacowany kosze wyburzenia:"
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "Koszt wyburzenia:"
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
 msgid "n/a"
 msgstr "n/d"
 
-#: src/lincity-ng/GameView.cpp:1618
-msgid "Query Tool: Show information about selected building."
-msgstr "Tryb Szczegółów: Pokazuje informacje o wybranej budowli"
-
-#: src/lincity-ng/GameView.cpp:1622
-msgid "Bulldozer: remove building -price varies-"
-msgstr "Buldożer"
-
-#: src/lincity-ng/GameView.cpp:1629
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
 msgid ": Cost to build "
 msgstr ": Koszt budowy"
 
-#: src/lincity-ng/GameView.cpp:1630 src/lincity-ng/GameView.cpp:1633
-msgid "$."
-msgstr "PLN."
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "Tryb Szczegółów: Pokazuje informacje o wybranej budowli"
 
-#: src/lincity-ng/GameView.cpp:1630
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "Buldożer"
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
 msgid ", to bulldoze "
 msgstr ", do wyburzenia "
 
-#: src/lincity-ng/GameView.cpp:1632
+#: src/lincity-ng/GameView.cpp:1755
 msgid " To build "
 msgstr " Do wybudowania "
 
-#: src/lincity-ng/GameView.cpp:1632
+#: src/lincity-ng/GameView.cpp:1755
 msgid " of them "
 msgstr " z "
 
-#: src/lincity-ng/GameView.cpp:1633
+#: src/lincity-ng/GameView.cpp:1756
 msgid "will cost about "
 msgstr "będzie kosztować około "
 
-#: src/lincity-ng/MainMenu.cpp:141
-msgid "good_times"
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
 msgstr ""
 
-#: src/lincity-ng/MainMenu.cpp:142
-msgid "bad_times"
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
 msgstr ""
 
-#: src/lincity-ng/MainMenu.cpp:143
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "Towary"
+
+#: src/lincity-ng/MainMenu.cpp:151
+msgid "Bad Times"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:155
+msgid "Extreme Arid"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:159
+msgid "Extreme Wetland"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:163
 #, fuzzy
 msgid "Beach"
 msgstr "Tech"
 
-#: src/lincity-ng/MainMenu.cpp:144
-msgid "extreme_arid"
-msgstr ""
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "Rakiety"
 
-#: src/lincity-ng/MainMenu.cpp:145
-msgid "extreme_wetland"
-msgstr ""
-
-#: src/lincity-ng/MainMenu.cpp:212
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
 msgid "empty"
 msgstr "pusty"
 
-#: src/lincity-ng/MpsInterface.cpp:227
-msgid "build something here"
-msgstr "wybuduj coś tutaj"
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:229
+#: src/lincity-ng/MainMenu.cpp:241
+msgid "semi desert"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, c++-format
+msgid "Map size: {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "Wybuch pożar!"
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "Minimapa: mapa konturowa"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "Minimapa: bezrobocie"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "Minimapa: zanieczyszczenie"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "Minimapa: zaopatrzenie w żywność"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "Minimapa: zaopatrzenie w energię"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "Minimapa: zasięg remiz strażackich"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "Minimapa: zasięg obiektów sportowych"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "Minimapa: opieka zdrowotna"
+
+#: src/lincity-ng/MiniMap.cpp:1043
+#, fuzzy
+msgid "Minimap: coal deposits"
+msgstr "Minimapa: złoża węgla"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+msgid "Minimap: traffic density"
+msgstr "Minimapa: natężenie ruchu"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "Minimapa: złoża węgla"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+#, fuzzy
+msgid "River"
+msgstr "Uniwersytety"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:289
 msgid "no further information available"
 msgstr "brak dalszych informacji"
 
-#: src/lincity-ng/MpsInterface.cpp:380
-msgid "Coverage"
-msgstr "Relacja"
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr "wybuduj coś tutaj"
 
-#: src/lincity-ng/MpsInterface.cpp:381 src/lincity-ng/MpsInterface.cpp:384
-#: src/lincity-ng/MpsInterface.cpp:387 src/lincity/modules/commune.cpp:179
-#: src/lincity/modules/commune.cpp:181 src/lincity/modules/commune.cpp:183
-#: src/lincity/modules/commune.cpp:185 src/lincity/modules/water.cpp:20
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml data/gui/coal_survey_yn.xml
-#: data/gui/launch_rocket_yn.xml
-msgid "No"
-msgstr "Nie"
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:381 src/lincity-ng/MpsInterface.cpp:384
-#: src/lincity-ng/MpsInterface.cpp:387 src/lincity/modules/commune.cpp:179
-#: src/lincity/modules/commune.cpp:181 src/lincity/modules/commune.cpp:183
-#: src/lincity/modules/commune.cpp:185 src/lincity/modules/water.cpp:20
-#: src/lincity/modules/waterwell.cpp:62 data/gui/bulldoze_monument_yn.xml
-#: data/gui/bulldoze_river_yn.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/coal_survey_yn.xml data/gui/launch_rocket_yn.xml
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
 msgid "Yes"
 msgstr "Tak"
 
-#: src/lincity-ng/MpsInterface.cpp:385
-msgid "Health"
-msgstr "Zdrowie"
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "No"
+msgstr "Nie"
 
-#: src/lincity-ng/MpsInterface.cpp:388 src/lincity-ng/MpsInterface.cpp:516
-#: src/lincity/modules/residence.cpp:286
-msgid "Sport"
-msgstr "Sport"
+#: src/lincity-ng/Mps.cpp:322
+#, fuzzy
+msgid "Fire Protection"
+msgstr "Remiza strażacka"
 
-#: src/lincity-ng/MpsInterface.cpp:390 src/lincity/modules/residence.cpp:288
-#: src/lincity/modules/waterwell.cpp:59
-msgid "Pollution"
-msgstr "Zanieczyszczenie"
+#: src/lincity-ng/Mps.cpp:325
+#, fuzzy
+msgid "Health Care"
+msgstr "Zasięg szpitali"
 
-#: src/lincity-ng/MpsInterface.cpp:393
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:331
+#, fuzzy
+msgid "Market Range"
+msgstr "Sklep"
+
+#: src/lincity-ng/Mps.cpp:336
 msgid "clear"
 msgstr "przejrzyście"
 
-#: src/lincity-ng/MpsInterface.cpp:395 src/lincity/modules/residence.cpp:276
+#: src/lincity-ng/Mps.cpp:338
 msgid "good"
 msgstr "dobry"
 
-#: src/lincity-ng/MpsInterface.cpp:397
+#: src/lincity-ng/Mps.cpp:340
 msgid "fair"
 msgstr "umiarkowanie"
 
-#: src/lincity-ng/MpsInterface.cpp:399
+#: src/lincity-ng/Mps.cpp:342
 msgid "smelly"
 msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:401
+#: src/lincity-ng/Mps.cpp:344
 msgid "smokey"
 msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:403
+#: src/lincity-ng/Mps.cpp:346
 msgid "smoggy"
 msgstr "mgliście"
 
-#: src/lincity-ng/MpsInterface.cpp:405
+#: src/lincity-ng/Mps.cpp:348
 msgid "bad"
 msgstr "źle"
 
-#: src/lincity-ng/MpsInterface.cpp:407
+#: src/lincity-ng/Mps.cpp:350
 msgid "very bad"
 msgstr "bardzo źle"
 
-#: src/lincity-ng/MpsInterface.cpp:409
+#: src/lincity-ng/Mps.cpp:352
 msgid "death!"
 msgstr "zgon!"
 
-#: src/lincity-ng/MpsInterface.cpp:414
-msgid "Bulldoze Cost"
+#: src/lincity-ng/Mps.cpp:354
+#, fuzzy
+msgid "Air Pollution"
+msgstr "Zanieczyszczenie"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+#, fuzzy
+msgid "Bull. Cost"
 msgstr "Koszt wyburzenia"
 
-#: src/lincity-ng/MpsInterface.cpp:420
+#: src/lincity-ng/Mps.cpp:357
 msgid "N/A"
 msgstr "N/D"
 
-#: src/lincity-ng/MpsInterface.cpp:438
+#: src/lincity-ng/Mps.cpp:361
+#, fuzzy
+msgid "Ore Reserve"
+msgstr "Zapas"
+
+#: src/lincity-ng/Mps.cpp:362
+#, fuzzy
+msgid "Coal Reserve"
+msgstr "Zapas"
+
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:408
 msgid "Tax Income"
 msgstr "Podatek dochodowy"
 
-#: src/lincity-ng/MpsInterface.cpp:442
+#: src/lincity-ng/Mps.cpp:411
 msgid "Income"
 msgstr "Przychód"
 
-#: src/lincity-ng/MpsInterface.cpp:446 src/lincity/modules/blacksmith.cpp:98
-#: src/lincity/modules/coal_power.cpp:97 src/lincity/modules/commune.cpp:180
-#: src/lincity/modules/heavy_industry.cpp:275
-#: src/lincity/modules/heavy_industry.cpp:287
-#: src/lincity/modules/market.cpp:1007 src/lincity/modules/mill.cpp:101
-#: src/lincity/modules/port.cpp:290 src/lincity/modules/pottery.cpp:113
-#: src/lincity/modules/rail.cpp:52 src/lincity/modules/road.cpp:47
-#: src/lincity/modules/track.cpp:38 data/gui/pbar.xml data/gui/portdialog.xml
-#: data/gui/tradedialog.xml
-msgid "Coal"
-msgstr "Węgiel"
-
-#: src/lincity-ng/MpsInterface.cpp:450 src/lincity/modules/blacksmith.cpp:97
-#: src/lincity/modules/cricket.cpp:96 src/lincity/modules/firestation.cpp:113
-#: src/lincity/modules/health_centre.cpp:62 src/lincity/modules/market.cpp:1008
-#: src/lincity/modules/mill.cpp:99 src/lincity/modules/port.cpp:298
-#: src/lincity/modules/pottery.cpp:111 src/lincity/modules/rail.cpp:53
-#: src/lincity/modules/road.cpp:48 src/lincity/modules/rocket_pad.cpp:196
-#: src/lincity/modules/school.cpp:50 src/lincity/modules/track.cpp:39
-#: src/lincity/modules/university.cpp:67 data/gui/pbar.xml
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Goods"
-msgstr "Towary"
-
-#: src/lincity-ng/MpsInterface.cpp:454
+#: src/lincity-ng/Mps.cpp:427
 msgid "Export"
 msgstr "Export"
 
-#: src/lincity-ng/MpsInterface.cpp:458
+#: src/lincity-ng/Mps.cpp:432
 msgid "Expenses"
 msgstr "Wydatki"
 
-#: src/lincity-ng/MpsInterface.cpp:462
+#: src/lincity-ng/Mps.cpp:435
 msgid "Unemp."
 msgstr "Bezrobocie"
 
-#: src/lincity-ng/MpsInterface.cpp:466
+#: src/lincity-ng/Mps.cpp:439
 msgid "Transport"
 msgstr "Transport"
 
-#: src/lincity-ng/MpsInterface.cpp:470
+#: src/lincity-ng/Mps.cpp:443
 msgid "Imports"
 msgstr "Import"
 
-#: src/lincity-ng/MpsInterface.cpp:474
+#: src/lincity-ng/Mps.cpp:456
 msgid "Others"
 msgstr "Inne"
 
-#: src/lincity-ng/MpsInterface.cpp:479
+#: src/lincity-ng/Mps.cpp:461
 msgid "Net"
 msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:491
+#: src/lincity-ng/Mps.cpp:467
 msgid "Other Costs"
 msgstr "Inne koszty"
 
-#: src/lincity-ng/MpsInterface.cpp:496
+#: src/lincity-ng/Mps.cpp:468
 msgid "For year"
 msgstr "Przez rok"
 
-#: src/lincity-ng/MpsInterface.cpp:500
+#: src/lincity-ng/Mps.cpp:470
 msgid "Interest"
 msgstr "Oprocentowanie"
 
-#: src/lincity-ng/MpsInterface.cpp:502
-msgid "Schools"
-msgstr "Szkoły"
-
-#: src/lincity-ng/MpsInterface.cpp:504
+#: src/lincity-ng/Mps.cpp:472
 msgid "Univers."
 msgstr "Uniwersytety"
 
-#: src/lincity-ng/MpsInterface.cpp:506
+#: src/lincity-ng/Mps.cpp:473
 msgid "Deaths"
 msgstr "Zgony"
 
-#: src/lincity-ng/MpsInterface.cpp:508 src/lincity/lintypes.cpp:286
-#: src/lincity/modules/windmill.cpp:74
+#: src/lincity-ng/Mps.cpp:474
 msgid "Windmill"
 msgstr "Wiatrak"
 
-#: src/lincity-ng/MpsInterface.cpp:510
+#: src/lincity-ng/Mps.cpp:475
 msgid "Hospital"
 msgstr "Szpital"
 
-#: src/lincity-ng/MpsInterface.cpp:512
+#: src/lincity-ng/Mps.cpp:476
 msgid "Rockets"
 msgstr "Rakiety"
 
-#: src/lincity-ng/MpsInterface.cpp:514
+#: src/lincity-ng/Mps.cpp:477
 msgid "Fire Stn"
 msgstr "Remizy strażackie"
 
-#: src/lincity-ng/MpsInterface.cpp:518 src/lincity/lintypes.cpp:242
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr "Sport"
+
+#: src/lincity-ng/Mps.cpp:479
 msgid "Recycle"
 msgstr "Zakład recyklingu"
 
-#: src/lincity-ng/MpsInterface.cpp:532 data/gui/pbar.xml
-msgid "Population"
-msgstr "Populacja"
-
-#: src/lincity-ng/MpsInterface.cpp:534 src/lincity/modules/port.cpp:306
+#: src/lincity-ng/Mps.cpp:487
 msgid "Total"
 msgstr "Całkowity"
 
-#: src/lincity-ng/MpsInterface.cpp:535
+#: src/lincity-ng/Mps.cpp:488
 msgid "Housed"
 msgstr "Zamieszkałych"
 
-#: src/lincity-ng/MpsInterface.cpp:536
+#: src/lincity-ng/Mps.cpp:489
 msgid "Homeless"
 msgstr "Bezdomnych"
 
-#: src/lincity-ng/MpsInterface.cpp:537
-msgid "Shanties"
-msgstr "Slumsy"
-
-#: src/lincity-ng/MpsInterface.cpp:538
-msgid "Unn Dths"
-msgstr ""
-
-#: src/lincity-ng/MpsInterface.cpp:539
+#: src/lincity-ng/Mps.cpp:494
 msgid "Unemployment"
 msgstr "Bezrobotnych"
 
-#: src/lincity-ng/MpsInterface.cpp:540
-msgid "Claims"
-msgstr "Roszczenia"
-
-#: src/lincity-ng/MpsInterface.cpp:541 src/lincity-ng/MpsInterface.cpp:546
-msgid "Rate"
-msgstr "Ocena"
-
-#: src/lincity-ng/MpsInterface.cpp:543
+#: src/lincity-ng/Mps.cpp:497
 msgid "Starvation"
 msgstr "Głód"
 
-#: src/lincity-ng/MpsInterface.cpp:544
-msgid "Cases"
-msgstr "Przypadki"
-
-#: src/lincity-ng/ScreenInterface.cpp:263
-msgid "MM"
+#: src/lincity-ng/Mps.cpp:504
+msgid "Births p.a."
 msgstr ""
 
-#: src/lincity/engine.cpp:149
-msgid "Port must be connected to river all along right side."
+#: src/lincity-ng/Mps.cpp:512
+#, fuzzy
+msgid "Deaths p.a."
+msgstr "Zgony"
+
+#: src/lincity-ng/Mps.cpp:518
+#, fuzzy
+msgid "Unnat. Deaths"
+msgstr "Zgony"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+msgid "M"
 msgstr ""
 
-#: src/lincity/engine.cpp:161
-msgid "You can't build a water well here: it is all desert."
-msgstr ""
-
-#: src/lincity/engine.cpp:175
-msgid "You can't build a tip here: this area was once a landfill"
-msgstr ""
-
-#: src/lincity/engine.cpp:190
-msgid "You can't build a mine here: This area was once a landfill"
-msgstr ""
-
-#: src/lincity/engine.cpp:201
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr ""
-
-#: src/lincity/engine.cpp:211
-msgid "You can't build a park here: it is a desert, parks need water"
-msgstr ""
-
-#: src/lincity/engine.cpp:226
-msgid "Too many substations + windmills. You cannot build one more"
-msgstr ""
-
-#: src/lincity/engine.cpp:235
-msgid "Too many markets. You cannot build one more"
-msgstr ""
-
-#: src/lincity/engine.cpp:259
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
-msgstr ""
-
-#: src/lincity/engine.cpp:565
-msgid "It's at a power line."
-msgstr "To jest linia wysokiego napięcia."
-
-#: src/lincity/engine.cpp:567
-msgid "It's at a solar power station."
-msgstr "To jest elektrownia słoneczna."
-
-#: src/lincity/engine.cpp:569
-msgid "It's at a substation."
-msgstr "To jest podstacja elektryczna."
-
-#: src/lincity/engine.cpp:571
-msgid "It's at a residential area."
-msgstr "To jest strefa mieszkalna."
-
-#: src/lincity/engine.cpp:573
-msgid "It's at a farm."
-msgstr "To jest farma."
-
-#: src/lincity/engine.cpp:575
-msgid "It's at a market."
-msgstr "To jest sklep."
-
-#: src/lincity/engine.cpp:577
-msgid "It's at a track."
-msgstr "To jest droga."
-
-#: src/lincity/engine.cpp:579
-msgid "It's at a coal mine."
-msgstr "To jest kopalnia węgla."
-
-#: src/lincity/engine.cpp:581
-msgid "It's at a railway."
-msgstr "To są tory kolejowe."
-
-#: src/lincity/engine.cpp:583
-msgid "It's at a coal power station."
-msgstr "To jest elektrownia węglowa."
-
-#: src/lincity/engine.cpp:585
-msgid "It's at a road."
-msgstr "To jest ulica."
-
-#: src/lincity/engine.cpp:587
-msgid "It's at light industry."
-msgstr "To jest lekki przemysł."
-
-#: src/lincity/engine.cpp:589
-msgid "It's at a university."
-msgstr "To jest uniwersytet."
-
-#: src/lincity/engine.cpp:591
-msgid "It's at a commune."
-msgstr "To jest retorta."
-
-#: src/lincity/engine.cpp:593
-msgid "It's at a tip."
-msgstr "To jest wysypisko śmieci."
-
-#: src/lincity/engine.cpp:595
-msgid "It's at a port."
-msgstr "To jest port."
-
-#: src/lincity/engine.cpp:597
-msgid "It's at a steel works."
-msgstr "To jest huta."
-
-#: src/lincity/engine.cpp:599
-msgid "It's at a recycle centre."
-msgstr "To jest zakład recyklingu"
-
-#: src/lincity/engine.cpp:601
-msgid "It's at a health centre."
-msgstr "To jest szpital."
-
-#: src/lincity/engine.cpp:603
-msgid "It's at a rocket site."
-msgstr "To jest kosmodrom."
-
-#: src/lincity/engine.cpp:605
-msgid "It's at a windmill."
-msgstr "To jest wiatrak."
-
-#: src/lincity/engine.cpp:607
-msgid "It's at a school."
-msgstr "To jest szkoła."
-
-#: src/lincity/engine.cpp:609
-msgid "It's at a blacksmith."
-msgstr "To jest kuźnia."
-
-#: src/lincity/engine.cpp:611
-msgid "It's at a mill."
-msgstr "To jest fabryka."
-
-#: src/lincity/engine.cpp:613
-msgid "It's at a pottery."
-msgstr "To jest garncarnia."
-
-#: src/lincity/engine.cpp:615
-msgid "It's at a fire station!!!."
-msgstr "To jest remiza strażacka!!!"
-
-#: src/lincity/engine.cpp:617
-msgid "It's at a sports field!!!."
-msgstr "To jest boisko!!!"
-
-#: src/lincity/engine.cpp:619
-msgid "It's at a shanty town."
-msgstr "To jest dzielnica slumsów."
-
-#: src/lincity/engine.cpp:621
-msgid "UNKNOWN!"
-msgstr "NIEZNANY!"
-
-#: src/lincity/fileutil.cpp:233 src/lincity/fileutil.cpp:277
-msgid "Error. Can't find LINCITY_HOME"
-msgstr "Błąd: Nie znaleziono LINCITY_HOME"
-
-#: src/lincity/fileutil.cpp:463
-msgid "Error verifying package. Can't find colour.pal."
-msgstr "Błąd weryfikacji pakietów. Nie znaleziono color.pal."
-
-#: src/lincity/fileutil.cpp:476 src/lincity/fileutil.cpp:484
-#, c-format
-msgid "Couldn't create the save directory '%s'\n"
-msgstr "Nie można stworzyć katalogu z zapisami gry '%s'\n"
-
-#: src/lincity/fileutil.cpp:501
-#, c-format
-msgid "Out of memory: malloc failure\n"
-msgstr "Brak wolnej pamięci: błąd malloc\n"
-
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "Kwi"
-
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "Lut"
-
-#: src/lincity/lclib.cpp:15
-msgid "Jan"
-msgstr "Sty "
-
-#: src/lincity/lclib.cpp:15
-msgid "Mar"
-msgstr "Mar"
-
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "Sie"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "Lip"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "Cze"
-
-#: src/lincity/lclib.cpp:16
-msgid "May"
-msgstr "Maj"
-
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "Gru"
-
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "Lis"
-
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "Paź"
-
-#: src/lincity/lclib.cpp:17
-msgid "Sep"
-msgstr "Wrz"
-
-#: src/lincity/lintypes.cpp:21
-msgid "Empty"
-msgstr "Pusty"
-
-#: src/lincity/lintypes.cpp:33
-msgid "Power line"
-msgstr "Linia wysokiego napięcia"
-
-#: src/lincity/lintypes.cpp:44
-msgid "Solar PS"
-msgstr "Elektr. Słoneczna"
-
-#: src/lincity/lintypes.cpp:55 src/lincity/modules/substation.cpp:93
-msgid "Substation"
-msgstr "Podstacja elekrtyczna"
-
-#: src/lincity/lintypes.cpp:66
-msgid "Residential LL"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:77
-msgid "Farm"
-msgstr "Farma"
-
-#: src/lincity/lintypes.cpp:99 src/lincity/modules/track.cpp:33
-msgid "Track"
-msgstr "Droga"
-
-#: src/lincity/lintypes.cpp:110
-msgid "Coalmine"
-msgstr "Kopalnia węgla"
-
-#: src/lincity/lintypes.cpp:121
-msgid "Railway"
-msgstr "Tory kolejowe"
-
-#: src/lincity/lintypes.cpp:132
-msgid "Coal PS"
-msgstr "Elektr. węglowa"
-
-#: src/lincity/lintypes.cpp:143 src/lincity/modules/road.cpp:42
-msgid "Road"
-msgstr "Ulica"
-
-#: src/lincity/lintypes.cpp:154
-msgid "Lt. Industry"
-msgstr "Lekki Przemysł"
-
-#: src/lincity/lintypes.cpp:165 src/lincity/modules/university.cpp:59
-msgid "University"
-msgstr "Uniwersytet"
-
-#: src/lincity/lintypes.cpp:176 src/lincity/modules/commune.cpp:174
-msgid "Commune"
-msgstr "Retorta"
-
-#: src/lincity/lintypes.cpp:187
-msgid "Ore mine"
-msgstr "Kopalnia rudy"
-
-#: src/lincity/lintypes.cpp:198
-msgid "Rubbish tip"
-msgstr "Wysypisko śmieci"
-
-#: src/lincity/lintypes.cpp:220
-msgid "Hv. Industry"
-msgstr "Ciężki przemysł"
-
-#: src/lincity/lintypes.cpp:231
-msgid "Park"
-msgstr "Park"
-
-#: src/lincity/lintypes.cpp:253 src/lincity/modules/residence.cpp:264
-#: src/lincity/modules/water.cpp:17
-msgid "Water"
-msgstr "Woda"
-
-#: src/lincity/lintypes.cpp:264
-msgid "Health centre"
-msgstr "Szpital"
-
-#: src/lincity/lintypes.cpp:275
-msgid "Rocket pad"
-msgstr "Kosmodrom"
-
-#: src/lincity/lintypes.cpp:297 src/lincity/modules/monument.cpp:51
-msgid "Monument"
-msgstr "Pomnik"
-
-#: src/lincity/lintypes.cpp:308 src/lincity/modules/school.cpp:43
-msgid "School"
-msgstr "Szkoła"
-
-#: src/lincity/lintypes.cpp:319 src/lincity/modules/blacksmith.cpp:91
-msgid "Blacksmith"
-msgstr "Kuźnia"
-
-#: src/lincity/lintypes.cpp:330
-msgid "Mill"
-msgstr "Fabryka"
-
-#: src/lincity/lintypes.cpp:341 src/lincity/modules/pottery.cpp:105
-msgid "Pottery"
-msgstr "Garncarnia"
-
-#: src/lincity/lintypes.cpp:352
-msgid "Fire sta'n"
-msgstr "Remiza strażacka"
-
-#: src/lincity/lintypes.cpp:363 src/lincity/modules/cricket.cpp:92
-msgid "Sports field"
-msgstr "Centrum sportowe"
-
-#: src/lincity/lintypes.cpp:375
-msgid "Burnt"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:387
-msgid "Shanty town"
-msgstr "Dzielnica slumsów"
-
-#: src/lincity/lintypes.cpp:411
-msgid "Used"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:422
-msgid "Residential ML"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:433
-msgid "Residential HL"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:444
-msgid "Residential LH"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:455
-msgid "Residential MH"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:466
-msgid "Residential HH"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:477
-msgid "Water well"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:489
-msgid "Desert"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:501
-msgid "Tree"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:514
-msgid "Trees"
-msgstr ""
-
-#: src/lincity/lintypes.cpp:527
-msgid "Forest"
-msgstr ""
-
-#: src/lincity/loadsave.cpp:129
-#, c-format
-msgid "Save file <%s> - "
-msgstr "Zapisano plik <%s> - "
-
-#: src/lincity/loadsave.cpp:130
-msgid "Can't open save file!"
-msgstr "Nie można otworzyć zapisanego pliku!"
-
-#: src/lincity/loadsave.cpp:292 src/lincity/old_ldsvguts.cpp:130
-#, c-format
-msgid "Can't open <%s> (gzipped)"
-msgstr "Nie można otworzyć <%s> (gzipowany)"
-
-#: src/lincity/modules/blacksmith.cpp:94
-#: src/lincity/modules/heavy_industry.cpp:288
-#: src/lincity/modules/light_industry.cpp:278 src/lincity/modules/mill.cpp:96
-#: src/lincity/modules/pottery.cpp:107 src/lincity/modules/recycle.cpp:137
-#: src/lincity/modules/school.cpp:52 src/lincity/modules/university.cpp:68
-msgid "Capacity"
-msgstr "Pojemność"
-
-#: src/lincity/modules/blacksmith.cpp:96 src/lincity/modules/cricket.cpp:94
-#: src/lincity/modules/firestation.cpp:111
-#: src/lincity/modules/health_centre.cpp:60 src/lincity/modules/mill.cpp:98
-#: src/lincity/modules/pottery.cpp:109 src/lincity/modules/recycle.cpp:144
-#: src/lincity/modules/rocket_pad.cpp:194 src/lincity/modules/school.cpp:48
-#: src/lincity/modules/university.cpp:65
-msgid "Inventory"
-msgstr "Skład"
-
-#: src/lincity/modules/coal_power.cpp:84
-msgid "Coal Power Station"
-msgstr ""
-
-#: src/lincity/modules/coal_power.cpp:88 src/lincity/modules/solar_power.cpp:49
-msgid "Max Output"
-msgstr "Maksymalna moc"
-
-#: src/lincity/modules/coal_power.cpp:93 src/lincity/modules/solar_power.cpp:54
-msgid "Current Output"
-msgstr "Bieżąca moc"
-
-#: data/gui/pbar.xml data/gui/tradedialog.xml
-msgid "Jobs"
-msgstr "Siła robocza."
-
-#: src/lincity/modules/coal_power.cpp:99
-#: src/lincity/modules/organic_farm.cpp:212 src/lincity/modules/recycle.cpp:142
-#: src/lincity/modules/solar_power.cpp:58 src/lincity/modules/windmill.cpp:75
-msgid "Tech"
-msgstr "Tech"
-
-#: src/lincity/modules/coal_power.cpp:100 src/lincity/modules/power_line.cpp:49
-#: src/lincity/modules/solar_power.cpp:59
-#: src/lincity/modules/substation.cpp:113 src/lincity/modules/windmill.cpp:99
-msgid "Grid ID"
-msgstr ""
-
-#: src/lincity/modules/coalmine.cpp:151
-msgid "Coal Mine"
-msgstr "Kopalnia węgla"
-
-#: src/lincity/modules/coalmine.cpp:158 src/lincity/modules/oremine.cpp:164
-msgid "Stock"
-msgstr ""
-
-#: src/lincity/modules/coalmine.cpp:160 src/lincity/modules/coalmine.cpp:162
-#: src/lincity/modules/oremine.cpp:167
-msgid "Reserve"
-msgstr "Zapas"
-
-#: src/lincity/modules/coalmine.cpp:162
-msgid "EMPTY"
-msgstr "PUSTY"
-
-#: src/lincity/modules/commune.cpp:177
-msgid "Activity"
-msgstr "Aktywność"
-
-#: src/lincity/modules/commune.cpp:182
-#: src/lincity/modules/heavy_industry.cpp:286
-#: src/lincity/modules/light_industry.cpp:284
-#: src/lincity/modules/market.cpp:1009 src/lincity/modules/port.cpp:294
-#: src/lincity/modules/pottery.cpp:112 src/lincity/modules/rail.cpp:54
-#: src/lincity/modules/recycle.cpp:145 src/lincity/modules/road.cpp:49
-#: src/lincity/modules/track.cpp:40 data/gui/pbar.xml data/gui/portdialog.xml
-#: data/gui/tradedialog.xml
-msgid "Ore"
-msgstr "Ruda"
-
-#: src/lincity/modules/commune.cpp:184
-#: src/lincity/modules/light_industry.cpp:285
-#: src/lincity/modules/market.cpp:1010 src/lincity/modules/port.cpp:302
-#: src/lincity/modules/rail.cpp:55 src/lincity/modules/road.cpp:50
-#: src/lincity/modules/rocket_pad.cpp:197 src/lincity/modules/track.cpp:41
-#: data/gui/pbar.xml data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Steel"
-msgstr "Stal"
-
-#: src/lincity/modules/commune.cpp:186 src/lincity/modules/market.cpp:1011
-#: src/lincity/modules/rail.cpp:56 src/lincity/modules/recycle.cpp:146
-#: src/lincity/modules/road.cpp:51 src/lincity/modules/track.cpp:42
-msgid "Waste"
-msgstr "Zniszczone"
-
-#: src/lincity/modules/firestation.cpp:109
-msgid "Fire Station"
-msgstr "Remiza strażacka"
-
-#: src/lincity/modules/health_centre.cpp:58
-msgid "Health Centre"
-msgstr "Szpital"
-
-#: src/lincity/modules/heavy_industry.cpp:270
-msgid "Heavy Industry"
-msgstr ""
-
-#: src/lincity/modules/heavy_industry.cpp:277
-msgid "Grid"
-msgstr "Siatka"
-
-#: src/lincity/modules/heavy_industry.cpp:280
-#: src/lincity/modules/light_industry.cpp:281
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:139
-#: src/lincity/modules/residence.cpp:263 src/lincity/modules/residence.cpp:267
-#: src/lincity/modules/residence.cpp:270 src/lincity/modules/residence.cpp:273
-#: src/lincity/modules/residence.cpp:279 src/lincity/modules/residence.cpp:282
-#: src/lincity/modules/residence.cpp:285
-msgid "NO"
-msgstr "NIE"
-
-#: src/lincity/modules/heavy_industry.cpp:283
-#: src/lincity/modules/light_industry.cpp:282
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:140
-#: src/lincity/modules/residence.cpp:271
-msgid "Power"
-msgstr "Energia"
-
-#: src/lincity/modules/heavy_industry.cpp:285
-#: src/lincity/modules/light_industry.cpp:283
-msgid "Store"
-msgstr "Magazyn"
-
-#: src/lincity/modules/light_industry.cpp:275
-msgid "Light Industry"
-msgstr ""
-
-#: src/lincity/modules/light_industry.cpp:281
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:139
-#: src/lincity/modules/residence.cpp:263 src/lincity/modules/residence.cpp:267
-#: src/lincity/modules/residence.cpp:270 src/lincity/modules/residence.cpp:273
-#: src/lincity/modules/residence.cpp:279 src/lincity/modules/residence.cpp:282
-#: src/lincity/modules/residence.cpp:285
-msgid "YES"
-msgstr "TAK"
-
-#: src/lincity/modules/market.cpp:1005 src/lincity/modules/mill.cpp:100
-#: src/lincity/modules/port.cpp:286 src/lincity/modules/rail.cpp:50
-#: src/lincity/modules/road.cpp:45 src/lincity/modules/track.cpp:36
-#: data/gui/pbar.xml data/gui/portdialog.xml data/gui/tradedialog.xml
+#: src/lincity-ng/ScreenInterface.cpp:80
+#, fuzzy
+msgid "k"
+msgstr "Ok"
+
+#: src/lincity/commodities.cpp:38
 msgid "Food"
 msgstr "Żywność"
 
-#: src/lincity/modules/mill.cpp:94
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
+msgstr ""
+
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "Węgiel"
+
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "Towary"
+
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "Ruda"
+
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "Stal"
+
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "Zniszczone"
+
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr ""
+
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr ""
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Production:"
+msgstr "Produkt"
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Inventory:"
+msgstr "Skład"
+
+#: src/lincity/util.cpp:39
+msgid "Jan"
+msgstr "Sty "
+
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "Lut"
+
+#: src/lincity/util.cpp:39
+msgid "Mar"
+msgstr "Mar"
+
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "Kwi"
+
+#: src/lincity/util.cpp:40
+msgid "May"
+msgstr "Maj"
+
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "Cze"
+
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "Lip"
+
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "Sie"
+
+#: src/lincity/util.cpp:41
+msgid "Sep"
+msgstr "Wrz"
+
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "Paź"
+
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "Lis"
+
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "Gru"
+
+#: src/lincity/modules/blacksmith.cpp:40
+msgid "Blacksmith"
+msgstr "Kuźnia"
+
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr ""
+
+#: src/lincity/modules/coal_power.cpp:44
+msgid "Coal Power Station"
+msgstr ""
+
+#: src/lincity/modules/coal_power.cpp:45
+#, fuzzy
+msgid "Coal Power Stations"
+msgstr "Elektrownia"
+
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "Tech"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+#, fuzzy
+msgid "Output"
+msgstr "Maksymalna moc"
+
+#: src/lincity/modules/coalmine.cpp:44
+msgid "Coal Mine"
+msgstr "Kopalnia węgla"
+
+#: src/lincity/modules/coalmine.cpp:45
+#, fuzzy
+msgid "Coal Mines"
+msgstr "Kopalnia węgla"
+
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
+msgid "Forest"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+msgid "Fertility"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "Zanieczyszczenie"
+
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr ""
+
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "Boiska do koszykówki dostępne"
+
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "Boiska do koszykówki dostępne"
+
+#: src/lincity/modules/cricket.cpp:150
+msgid "Public sports"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr "Ogień"
+
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:161
+#, fuzzy
+msgid "degraded"
+msgstr "Handel"
+
+#: src/lincity/modules/firestation.cpp:47
+msgid "Fire Station"
+msgstr "Remiza strażacka"
+
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "Remiza strażacka"
+
+#: src/lincity/modules/health_centre.cpp:46
+#, fuzzy
+msgid "Hospitals"
+msgstr "Szpital"
+
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+#, fuzzy
+msgid "Steel Works"
+msgstr "Stal"
+
+#: src/lincity/modules/light_industry.cpp:46
+msgid "Light Industry"
+msgstr ""
+
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "Lekki przemysł dostępny"
+
+#: src/lincity/modules/mill.cpp:40
 msgid "Textile Mill"
 msgstr "Fabryka odzieży"
 
-#: src/lincity/modules/monument.cpp:57
-msgid "Wisdom Bestowed"
-msgstr ""
-
-#: src/lincity/modules/monument.cpp:61
-#, c-format
-msgid "% Complete"
-msgstr "% Gotowy"
-
-#: src/lincity/modules/oremine.cpp:161
-msgid "Ore Mine"
-msgstr "Kopalnia rudy"
-
-#: src/lincity/modules/organic_farm.cpp:208
-msgid "Organic Farm"
-msgstr "Farma ekologiczna"
-
-#: src/lincity/modules/organic_farm.cpp:213
-msgid "Prod"
-msgstr "Prod"
-
-#: src/lincity/modules/organic_farm.cpp:218
-msgid "Debug info"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:219
-msgid "max with power&water"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:220
-msgid "N tiles with water"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:221
+#: src/lincity/modules/mill.cpp:41
 #, fuzzy
-msgid "Current production"
-msgstr "Bieżąca moc"
+msgid "Textile Mills"
+msgstr "Fabryka odzieży"
 
-#: src/lincity/modules/power_line.cpp:46
-msgid "Power Line"
-msgstr "Linia wysokiego napięcia"
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "Pomnik"
 
-#: src/lincity/modules/rail.cpp:47
-msgid "Rail"
-msgstr "Tory kolejowe"
-
-#: src/lincity/modules/recycle.cpp:134
-msgid "Recycling Center"
+#: src/lincity/modules/monument.cpp:137
+msgid "Wisdom bestowed"
 msgstr ""
 
-#: src/lincity/modules/residence.cpp:255
-msgid "Residence"
-msgstr ""
-
-#: src/lincity/modules/residence.cpp:259
-msgid "People"
-msgstr "Ludzie"
-
-#: src/lincity/modules/residence.cpp:268
-msgid "Fed"
-msgstr "Wyżywienie"
-
-#: src/lincity/modules/residence.cpp:274
-msgid "Employed"
-msgstr "Zatrudnienie"
-
-#: src/lincity/modules/residence.cpp:276
-msgid "poor"
-msgstr "biedny"
-
-#: src/lincity/modules/residence.cpp:277
-msgid "Job"
-msgstr ""
-
-#: src/lincity/modules/residence.cpp:280
-msgid "Health Cvr"
-msgstr "Zasięg szpitali"
-
-#: src/lincity/modules/rocket_pad.cpp:188
-msgid "Rocket Pad"
-msgstr "Kosmodrom"
-
-#: src/lincity/modules/rocket_pad.cpp:191
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
 msgid "Completion"
 msgstr ""
 
-#: src/lincity/modules/school.cpp:45
-msgid "Lessons Learned"
+#: src/lincity/modules/oremine.cpp:43
+msgid "Ore Mine"
+msgstr "Kopalnia rudy"
+
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "Kopalnia rudy"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "Farma"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "Park"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
+msgstr ""
+
+#: src/lincity/modules/parkland.cpp:53
+msgid "Parks (Pond)"
+msgstr ""
+
+#: src/lincity/modules/port.cpp:213
+#, fuzzy
+msgid "Import"
+msgstr "Import"
+
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr ""
+
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "Garncarnia"
+
+#: src/lincity/modules/power_line.cpp:38
+msgid "Power Line"
+msgstr "Linia wysokiego napięcia"
+
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "Linia wysokiego napięcia"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:42
+msgid "Recycling Center"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "Zakłady recyklingu dostępne"
+
+#: src/lincity/modules/recycle.cpp:115
+msgid "Efficiency Ore"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:116
+msgid "Efficiency Steel"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+msgid "Residence"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:422
+msgid "Desireability"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:424
+#, fuzzy
+msgid "Death p.a."
+msgstr "Zgony"
+
+#: src/lincity/modules/residence.cpp:425
+msgid "Unnat. mortality"
+msgstr ""
+
+#: src/lincity/modules/rocket_pad.cpp:53
+msgid "Rocket Pad"
+msgstr "Kosmodrom"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "Kosmodrom"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:48
+msgid "Elementary Schools"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:154
+#, fuzzy
+msgid "Lessons learned"
 msgstr "Lekcji nauczonych"
 
-#: src/lincity/modules/solar_power.cpp:43
-msgid "Solar power station"
+#: src/lincity/modules/shanty.cpp:51
+#, fuzzy
+msgid "Shanty Town"
+msgstr "Dzielnica slumsów"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "Dzielnica slumsów"
+
+#: src/lincity/modules/solar_power.cpp:40
+msgid "Solar Power Plant"
 msgstr ""
 
-#: src/lincity/modules/substation.cpp:97
-msgid "Local Demand"
-msgstr "Lokalne Zapotrzebowanie"
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "Elektrownie słoneczne dostępne"
 
-#: src/lincity/modules/substation.cpp:101 src/lincity/modules/windmill.cpp:89
-msgid "Grid Status"
+#: src/lincity/modules/substation.cpp:39
+#, fuzzy
+msgid "Power Substation"
+msgstr "Elektrownia"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "Elektrownia"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "Pusty"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+msgid "Desert"
 msgstr ""
 
-#: src/lincity/modules/substation.cpp:104 src/lincity/modules/windmill.cpp:92
-msgid "T. Cap."
-msgstr "Całkowita Pojemność"
+#: src/lincity/modules/tile.cpp:80
+msgid "Tree"
+msgstr ""
 
-#: src/lincity/modules/substation.cpp:107 src/lincity/modules/windmill.cpp:95
-msgid "A. Cap."
-msgstr "Dostępna Pojemność"
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+msgid "Trees"
+msgstr ""
 
-#: src/lincity/modules/substation.cpp:110 src/lincity/modules/windmill.cpp:86
-#: src/lincity/modules/windmill.cpp:98
-msgid "Demand"
-msgstr "Zapotrzebowanie"
-
-#: src/lincity/modules/tip.cpp:100
-msgid "Landfill"
+#: src/lincity/modules/tip.cpp:42
+#, fuzzy
+msgid "Land Fill"
 msgstr "Wysypisko śmieci"
 
-#: src/lincity/modules/tip.cpp:103
-msgid "Last Month"
-msgstr "Ostatni miesiąc"
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "Wysypisko śmieci"
 
-#: src/lincity/modules/tip.cpp:104
-msgid "Tons"
-msgstr "Ton"
-
-#: src/lincity/modules/tip.cpp:105
-msgid "Percent"
-msgstr "Procent"
-
-#: src/lincity/modules/tip.cpp:107
-#, c-format
-msgid "% Filled"
+#: src/lincity/modules/tip.cpp:120
+#, fuzzy
+msgid "Filled"
 msgstr "% Wypełnione"
 
-#: src/lincity/modules/university.cpp:61
-msgid "Tech Produced"
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "Droga"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+msgid "Track (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:66
+msgid "Tracks (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "Ulica"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+msgid "Road (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:97
+msgid "Roads (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "Tory kolejowe"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+msgid "Rail (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:129
+msgid "Rails (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr ""
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "Uniwersytet"
+
+#: src/lincity/modules/university.cpp:122
+#, fuzzy
+msgid "Tech researched"
 msgstr "Technologie wynalezione"
 
-#: src/lincity/modules/water.cpp:21
-msgid "Navigable"
+#: src/lincity/modules/waterwell.cpp:37
+#, fuzzy
+msgid "Water Tower"
+msgstr "Woda"
+
+#: src/lincity/modules/waterwell.cpp:38
+msgid "Water Towers"
 msgstr ""
 
-#: src/lincity/modules/waterwell.cpp:56
-msgid "Water_well"
-msgstr ""
-
-#: src/lincity/modules/waterwell.cpp:63
+#: src/lincity/modules/waterwell.cpp:106
 msgid "Drinkable"
 msgstr ""
 
-#: src/lincity/modules/windmill.cpp:80
-msgid "Local Status"
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+#, fuzzy
+msgid "Wind Power"
+msgstr "Energia"
+
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "Autorzy"
+
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "Oryginalny pomysł i programowanie"
+
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "Programowanie"
+
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "Grafika"
+
+#: data/gui/creditslist.xml:122
+msgid "Sound and Music"
+msgstr "Dźwięk i muzyka"
+
+#: data/gui/creditslist.xml:138
+msgid "Translation"
 msgstr ""
 
-#: src/lincity/modules/windmill.cpp:83
-msgid "Prod."
-msgstr "Prod."
-
-#: src/lincity/old_ldsvguts.cpp:162
-msgid "Loading scene"
-msgstr "Wczytywanie sceny"
-
-#: src/lincity/power.cpp:271
-msgid "You have too many power grids. Join some of them"
+#: data/gui/creditslist.xml:278
+msgid "License"
 msgstr ""
 
-#: src/lincity/simulate.cpp:80
-msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
-msgstr ""
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "Wróć"
 
-#: data/gui/allgone.xml
-msgid "Nobody Home"
-msgstr "Pusty dom"
-
-#: data/gui/allgone.xml data/gui/blacksmithup.xml data/gui/coalmineup.xml
-#: data/gui/coalpowerup.xml data/gui/cricketup.xml data/gui/fire.xml
-#: data/gui/firestationup.xml data/gui/healthup.xml data/gui/hvindustryup.xml
-#: data/gui/import-exportup.xml data/gui/launch-evac.xml
-#: data/gui/launch-fail.xml data/gui/launch-gone.xml data/gui/launch-good.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/no-credit-parkland.xml data/gui/no-credit-recycle.xml
-#: data/gui/no-credit-rocket.xml data/gui/no-credit-solar-power.xml
-#: data/gui/no-credit-university.xml data/gui/nobull-tip.xml
-#: data/gui/options.xml data/gui/parkup.xml data/gui/potteryup.xml
-#: data/gui/railwayup.xml data/gui/recycleup.xml data/gui/riverup.xml
-#: data/gui/roadup.xml data/gui/rocketup.xml data/gui/schoolup.xml
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml data/gui/solarpowerup.xml
-#: data/gui/sustain.xml data/gui/too-old.xml data/gui/universityup.xml
-#: data/gui/warning.xml data/gui/windmillup.xml
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
 msgid "Ok"
 msgstr "Ok"
 
-#: data/gui/allgone.xml
-msgid "There are no people left in this city."
-msgstr "W mieście nie ma już żadnych ludzi."
-
-#: data/gui/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "Powinieneś rozpocząć nową karierę gdzieś indziej."
-
-#: data/gui/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "Kuźnie dostępne"
-
-#: data/gui/blacksmithup.xml data/gui/coalmineup.xml data/gui/coalpowerup.xml
-#: data/gui/cricketup.xml data/gui/firestationup.xml data/gui/healthup.xml
-#: data/gui/hvindustryup.xml data/gui/import-exportup.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/parkup.xml data/gui/potteryup.xml data/gui/railwayup.xml
-#: data/gui/recycleup.xml data/gui/riverup.xml data/gui/roadup.xml
-#: data/gui/rocketup.xml data/gui/schoolup.xml data/gui/solarpowerup.xml
-#: data/gui/universityup.xml data/gui/windmillup.xml
-msgid "New Invention"
-msgstr "Nowy wynalazek"
-
-#: data/gui/blacksmithup.xml data/gui/coalpowerup.xml data/gui/cricketup.xml
-#: data/gui/firestationup.xml data/gui/healthup.xml data/gui/hvindustryup.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/parkup.xml data/gui/potteryup.xml data/gui/railwayup.xml
-#: data/gui/recycleup.xml data/gui/riverup.xml data/gui/rocketup.xml
-#: data/gui/schoolup.xml data/gui/solarpowerup.xml data/gui/universityup.xml
-#: data/gui/windmillup.xml
-msgid "See the help screen for more information."
-msgstr "Zobacz ekran pomocy w celu uzyskania większej ilości informacji. "
-
-#: data/gui/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use jobs and steel to make goods."
+#: data/gui/helpwindow.xml:17
+msgid "Help"
 msgstr ""
-"Osiągnąłeś poziom technologiczny, pozwalający na budowe kuźni. Kuźnie "
-"wymagają stali i siły roboczej do produkowania towarów."
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
-msgstr "Wyburzenie pomnika dużo kosztuje."
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "Wczytaj grę"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Want to bulldoze?"
-msgstr "Wyburzyć?"
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "Wczytaj"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml data/gui/too-old.xml data/gui/warning.xml
-msgid "Warning"
-msgstr "Uwaga"
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "Nowa gra"
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "Uwaga: Wyburzanie pomników jest kosztowne"
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "Kontynuuj"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "Wyburzenie części rzeki dużo kosztuje."
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
+msgid "Save"
+msgstr "Zapisz"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "Uwaga: Wyburzanie jest niebezpieczne"
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "Opcje"
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
-msgstr "Wyburzenie slumsów dużo kosztuje i może wywołac pożar."
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "Wyjście"
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "Uwaga: Wyburzanie slumsów jest niebezpieczne"
+#: data/gui/minimapswitchbuttons.xml:11
+msgid "Show map outline"
+msgstr "Pokazuje mape konturową"
 
-#: data/gui/coal_survey_yn.xml
+#: data/gui/minimapswitchbuttons.xml:21
+msgid "Show nourishments"
+msgstr "Pokazuje zaopatrzenie w żywność"
+
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "Pokazuje bezrobocie"
+
+#: data/gui/minimapswitchbuttons.xml:41
+msgid "Show power supply"
+msgstr "Pokazuje zaopatrzenie w energię"
+
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "Pokazuje zasięg remiz strażackich"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "Pokazuje zasięg obiektów sportowych"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "Pokazuje opiekę zdrowotną"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "Pokazuje natężenie ruchu"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "Pokazuje poziom zanieczyszczenia"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "Pokazuje złoża węgla"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "Mapa"
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "Pokazuje minimapę"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "Statystyki"
+
+#: data/gui/minimap.xml:28
+#, fuzzy
+msgid "Show resources. Use scroll buttons to cycle through views."
+msgstr ""
+"Pokazuje przychód oraz wydatki. Kliknij na tej karcie w celu przełączenia "
+"widoku."
+
+#: data/gui/minimap.xml:38
+#, fuzzy
+msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
+msgstr ""
+"Pokazuje przychód oraz wydatki. Kliknij na tej karcie w celu przełączenia "
+"widoku."
+
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "Eko"
+
+#: data/gui/minimap.xml:48
+msgid "Show economy graphs."
+msgstr "Pokazuje wykres ekonomii."
+
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr ""
+
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr ""
+
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
+msgstr ""
+"[+] Przybliżenie widoku - widać mniej budynków, ale są bardziej szczegółowe."
+
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] Oddal widok."
+
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr ""
+
+#: data/gui/minimap.xml:124
+msgid "Gov."
+msgstr ""
+
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
+
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr "[F1] Pomoc"
+
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] Ukrycie wysokich budowli"
+
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "Naciśnij ten przycisk, żeby zobaczyć statystyki"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] Przełącz widok z minimapy."
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "Wybierz scenariusz"
+
+#: data/gui/newgame.xml:56
+msgid "Village"
+msgstr ""
+
+#: data/gui/newgame.xml:65
+msgid "Without trees"
+msgstr ""
+
+#: data/gui/newgame.xml:208
+msgid "Start"
+msgstr "Rozpocznij grę"
+
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "Muzyka w tle"
+
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "Efekty dźwiękowe"
+
+#: data/gui/options.xml:87
+#, fuzzy
+msgid "Resolution"
+msgstr "Zanieczyszczenie"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr ""
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "Tryp pełnoekranowy"
+
+#: data/gui/options.xml:146
+msgid "Scroll Speed"
+msgstr ""
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
+msgid "Tech Level"
+msgstr "Poziom technologiczny"
+
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr ""
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "Zapisz grę"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "Zatrzymaj grę"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "Uruchom symulacje w trybie normalnym"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "Uruchom symulacje w trybie szybkim"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "Uruchom symulacje w trybie bardzo szybkim"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "Wróć do głównego menu"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "Coal Survey"
 msgstr "Złoża węgla"
 
-#: data/gui/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "Wykonać pomiary złóż węgla?"
-
-#: data/gui/coal_survey_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "Send out Prospectors"
 msgstr "Wyślij poszukiwaczy"
 
-#: data/gui/coal_survey_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "This will cost you 1 million once. After that it is free to call again."
 msgstr ""
 "To będzie Cię kosztować jednorazowo 1 milion. Później jest już dostępne za "
 "darmo."
 
-#: data/gui/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "Kopalnie węgla dostępne"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "Wykonać pomiary złóż węgla?"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
-msgstr ""
-"Zobacz ekran pomoy w celu uzyskania większej ilości informacji na temat "
-"kopalni oraz zasobów węgla"
-
-#: data/gui/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr ""
-"Osiągnąłeś poziom technologiczny, pozwalający na wydobywanie węgla z "
-"głębszych złóż. "
-
-#: data/gui/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "Elektrownie węglowe dostępne"
-
-#: data/gui/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe elektrowni węglowych."
-
-#: data/gui/credits.xml data/gui/loadgame.xml data/gui/newgame.xml
-#: data/gui/savegame.xml
-msgid "Back"
-msgstr "Wróć"
-
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "Programowanie"
-
-#: data/gui/creditslist.xml data/gui/mainmenu.xml
-msgid "Credits"
-msgstr "Autorzy"
-
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "Grafika"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "Oryginalny pomysł i programowanie"
-
-#: data/gui/creditslist.xml
-msgid "Sound and Music"
-msgstr "Dźwięk i muzyka"
-
-#: data/gui/creditslist.xml
-msgid "Translation"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
 msgstr ""
 
-#: data/gui/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "Boiska do koszykówki dostępne"
-
-#: data/gui/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a few jobs and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
 msgstr ""
-"Twoi ludzie wynaleźli koszykówkę. Boiska do koszykówki wykorzystują niewiele "
-"siły roboczej oraz towarów, a ludzie w okolicy (około 10 pól w każdym "
-"kierunku) są szczęśliwsi."
 
-#: data/gui/fire.xml
-msgid "A Fire has started"
-msgstr "Wybuch pożar!"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Income tax"
+msgstr "Przychód"
 
-#: data/gui/fire.xml
-msgid "You better go and look for it"
-msgstr "Powinieneś  się tym zainteresować."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "Elektr. węglowa"
 
-#: data/gui/firestationup.xml
-msgid "Fire Stations available"
-msgstr "Remizy strażackie dostępne"
-
-#: data/gui/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
 msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe remiz strażackich. "
-"Remizy strażackie zapobiegają większości pożarów. Jeśli nie miałeś jeszcze "
-"żadnych pożarów, może Ci się wydawać, że ich nie potrzebujesz."
 
-#: data/gui/gamestats.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "Towary"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Transport cost"
+msgstr "Transport"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
 msgid "Gamestats"
 msgstr "Statystyki gry"
 
-#: data/gui/gamestats.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
 msgid "Okay"
 msgstr "Dobrze."
 
-#: data/gui/healthup.xml
-msgid "Health Centres available"
-msgstr "Szpitale dostępne"
-
-#: data/gui/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe szpitali. Szpitale "
-"zmniejszają ilość ludzi zabitych przez zanieczyszczenia oraz zwiększają "
-"całkowitą wydajność."
-
-#: data/gui/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "Ciężki przemysł dostępny"
-
-#: data/gui/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów ciężkiego "
-"przemysłu. Zakłady ciężkiego przemysłu produkują stal. "
-
-#: data/gui/import-exportup.xml
-msgid "Import/Export available"
-msgstr "Import/Export dostępny"
-
-#: data/gui/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"Teraz możesz importować i eksportować węgiel, towary, rude i stal. "
-"Przeczytaj strony pomocy tych tematów, żeby dowiedzieć się jak to zrobić."
-
-#: data/gui/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr " Udane rozpoczęcie ewakuacji."
-
-#: data/gui/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr ""
-"Ewakuowałeś 1000 ludzi. Powinieneś zredukować zakres swojej ekonomi by "
-"odpowiadał obecnej populacji."
-
-#: data/gui/launch-fail.xml
-msgid "Launch Failure"
-msgstr "Wystrzelenie nie powiodło się"
-
-#: data/gui/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"Twoja rakieta miała wypadek krótko po starcie. Ludzie nie ufają już "
-"technologii ewakuacji. Musisz wystrzelić pięc lotów bezzałogowych, żeby "
-"przywrócić zaufanie ludzi.  "
-
-#: data/gui/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "Całkowita ewakuacja zakończona."
-
-#: data/gui/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "Bardzo dobrze, ewakuowałeś całą populacje."
-
-#: data/gui/launch-gone.xml data/gui/sustain.xml
-msgid "You have won the game."
-msgstr "Wygrałeś."
-
-#: data/gui/launch-good.xml
-msgid "Doing well."
-msgstr "Lot przebiega bez zakłóceń."
-
-#: data/gui/launch-good.xml
-msgid "Launch Successfull"
-msgstr "Wystrzelenie powiodło się"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "Wystrzelić teraz?"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Rocket Ready"
-msgstr "Rakieta gotowa"
-
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid "Rocket ready to launch"
 msgstr "Rakiet gotowa do wystrzału"
 
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1681,458 +2079,663 @@ msgstr ""
 "utrzymywanie rakiety w stanie gotowości będzie Cię kosztować. Możesz ją "
 "potem wystrzelić klikając na kosmodrom."
 
-#: data/gui/loadgame.xml data/gui/mainmenu.xml
-msgid "Load"
-msgstr "Wczytaj"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "Wczytaj grę"
-
-#: data/gui/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "Lekki przemysł dostępny"
-
-#: data/gui/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów lekkiego "
-"przemysłu. Zakłady lekkiego przemysłu produkują towary. "
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "Kontynuuj"
-
-#: data/gui/mainmenu.xml data/gui/newgame.xml
-msgid "New Game"
-msgstr "Nowa gra"
-
-#: data/gui/mainmenu.xml data/gui/options.xml
-msgid "Options"
-msgstr "Opcje"
-
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "Wyjście"
-
-#: data/gui/mainmenu.xml
-msgid "Save"
-msgstr "Zapisz"
-
-#: data/gui/millup.xml
-msgid "Mills available"
-msgstr "Fabryki dostępne"
-
-#: data/gui/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"jobs and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe fabryk. Fabryki "
-"dzięki sile roboczej oraz żywności wytwarzają towary. Uważaj! Potrafią "
-"wykorzystać dużą ilość żywności."
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "Eko"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "Mapa"
-
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "Naciśnij ten przycisk, żeby zobaczyć statystyki"
-
-#: data/gui/minimap.xml
-msgid "Show Income and Expenses. Click this tab again to cycle through views."
-msgstr ""
-"Pokazuje przychód oraz wydatki. Kliknij na tej karcie w celu przełączenia "
-"widoku."
-
-#: data/gui/minimap.xml
-msgid "Show economy graphs."
-msgstr "Pokazuje wykres ekonomii."
-
-#: data/gui/minimap.xml
-#, fuzzy
-msgid "Show resources."
-msgstr "Pokazuje zasoby."
-
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "Pokazuje minimapę"
-
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "Statystyki"
-
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr ""
-"[+] Przybliżenie widoku - widać mniej budynków, ale są bardziej szczegółowe."
-
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] Oddal widok."
-
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr "[F1] Pomoc"
-
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] Ukrycie wysokich budowli"
-
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] Przełącz widok z minimapy."
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "Pokazuje złoża węgla"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "Pokazuje zasięg remiz strażackich"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show map outline"
-msgstr "Pokazuje mape konturową"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "Pokazuje opiekę zdrowotną"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show nourishments"
-msgstr "Pokazuje zaopatrzenie w żywność"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "Pokazuje poziom zanieczyszczenia"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show power supply"
-msgstr "Pokazuje zaopatrzenie w energię"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "Pokazuje zasięg obiektów sportowych"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "Pokazuje natężenie ruchu"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "Pokazuje bezrobocie"
-
-#: data/gui/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "Nowoczesne fabryki dostępne"
-
-#: data/gui/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe nowoczesnych, "
-"bardziej efektywnych wiatraków. "
-
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "Wybierz scenariusz"
-
-#: data/gui/newgame.xml
-msgid "Start"
-msgstr "Rozpocznij grę"
-
-#: data/gui/newgame.xml
-msgid "Start with empty board."
-msgstr "Rozpocznij grę na pustej planszy."
-
-#: data/gui/newgame.xml
-msgid "Start with random village."
-msgstr "Rozpocznij grę z losową osadą."
-
-#: data/gui/no-credit-parkland.xml data/gui/no-credit-recycle.xml
-#: data/gui/no-credit-rocket.xml data/gui/no-credit-solar-power.xml
-#: data/gui/no-credit-university.xml
-msgid "No Credit Available"
-msgstr "Brak dostępnego kredytu"
-
-#: data/gui/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr ""
-"Masz deficyt budżetu. Rada miejska zabroniła Ci budowy parków na kredyt"
-
-#: data/gui/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr ""
-"Masz deficyt budżetu. Rada miejska zabroniła Ci budowy zakładów recyklingu "
-"na kredyt."
-
-#: data/gui/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr ""
-"Masz deficyt budżetu. Rada miejska zabroniła Ci budowy kosmodromów  na "
-"kredyt."
-
-#: data/gui/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr ""
-"Masz deficyt budżetu. Rada miejska zabroniła Ci budowy elektrowni "
-"słonecznych na kredyt."
-
-#: data/gui/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr ""
-"Masz deficyt budżetu. Rada miejska zabroniła Ci budowy uniwersytetów na "
-"kredyt."
-
-#: data/gui/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "Nie dozwolone."
-
-#: data/gui/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "Niestety, nie możesz wyburzyć wysypiska śmieci."
-
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "Muzyka w tle"
-
-#: data/gui/options.xml
-msgid "Fullscreen"
-msgstr "Tryp pełnoekranowy"
-
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "Efekty dźwiękowe"
-
-#: data/gui/parkup.xml
-msgid "Parks available"
-msgstr "Parki dostępne"
-
-#: data/gui/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe parków. Parki "
-"redukują zanieczyszczenie. "
-
-#: data/gui/pbar.xml
-msgid "Tech Level"
-msgstr "Poziom technologiczny"
-
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Buy"
-msgstr "Kup"
-
-#: data/gui/portdialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
 msgid "Harbour Trade Settings"
 msgstr "Ustawienia handlu portowego."
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
 msgid "Product"
 msgstr "Produkt"
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "Kup"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
 msgid "Sell"
 msgstr "Sprzedaj"
 
-#: data/gui/potteryup.xml
-msgid "Potteries available"
-msgstr "Garncarnie dostępne"
-
-#: data/gui/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe garncarni. Garncarnie "
-"wykorzystują siłę roboczą oraz rudę do wytwarzania towarów. (Musisz mieć "
-"kopalnie rudy, żeby uzyskać rudę) "
-
-#: data/gui/railwayup.xml
-msgid "Railways available"
-msgstr "Tory kolejowe dostępne"
-
-#: data/gui/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe torów kolejowych. "
-
-#: data/gui/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "Zakłady recyklingu dostępne"
-
-#: data/gui/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów recyklingu. "
-"Zakłady recyklingu przerabiają towary na rudę. "
-
-#: data/gui/riverup.xml
-msgid "Rivers available"
-msgstr "Rzeki dostępne"
-
-#: data/gui/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr "Osiągnąłeś poziom technologiczny pozwalający na budowe rzek. "
-
-#: data/gui/roadup.xml
-msgid "Roads available"
-msgstr "Ulice dostępne"
-
-#: data/gui/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe ulic. Zobacz ekran "
-"pomocy w celu uzyskania większej ilości informacji."
-
-#: data/gui/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "Kosmodromy dostępne"
-
-#: data/gui/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe kosmodromów. Rakiety "
-"pozwalają ewakuować mieszkańców miasta, co jest sposobem na 'przejście' tej "
-"gry."
-
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "Zapisz grę"
-
-#: data/gui/savegame.xml
-msgid "save to selected slot"
-msgstr "Zapisz w wybranym slocie"
-
-#: data/gui/schoolup.xml
-msgid "Schools available"
-msgstr "Szkoły dostępne"
-
-#: data/gui/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use jobs and goods to increase tech level. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe szkół. Szkoły "
-"wykorzystują siłę roboczą oraz towary do podnoszenia poziomu "
-"technologicznego."
-
-#: data/gui/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
-msgstr ""
-"Pożar ogarnął slumsy. Ogień wymknął się spod kontroli i istnieje szansa jego "
-"rozprzestrzenienia się."
-
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire!"
-msgstr "Pożar!"
-
-#: data/gui/shfire-uc.xml
-msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
-msgstr ""
-"Pożar ogarnął slumsy. Jest jednak w strefie zabezpieczonej przed ogniem i "
-"wydaje się być pod kontrolą."
-
-#: data/gui/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "Elektrownie słoneczne dostępne"
-
-#: data/gui/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe elektrowni "
-"słonecznych. "
-
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "Wróć do głównego menu"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "Zatrzymaj grę"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "Uruchom symulacje w trybie szybkim"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "Uruchom symulacje w trybie normalnym"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "Uruchom symulacje w trybie bardzo szybkim"
-
-#: data/gui/sustain.xml
-msgid "Economy Sustainable."
-msgstr "Gospodarka rentowna."
-
-#: data/gui/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "LinCity określa twoją gospodarkę jako rentowną."
-
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
-msgstr ""
-
-#: data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
 msgid "Trade Settings"
 msgstr "Ustawienia handlu"
 
-#: data/gui/universityup.xml
-msgid "University available"
-msgstr "Uniwersytety dostępne"
+#, c-format
+#~ msgid "%s (Techlevel %.1f required.)"
+#~ msgstr "%s (Wymagany poziom technologi: %.1f)"
 
-#: data/gui/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr ""
-"Osiągnąłeś poziom technologiczny pozwalający na budowe uniwersytetów. "
-"Uniwersytety produkują jajogłowych, którzy opracowywują nowe technologię."
+#~ msgid "----- IN TEST MODE -------"
+#~ msgstr "----- W TRYBIE TESTOWYM -------"
 
-#: data/gui/windmillup.xml
-msgid "Windmills available"
-msgstr "Wiatraki dostępne"
+#, c-format
+#~ msgid "Max population %d  Number evacuated %d Total births %d"
+#~ msgstr "Maksymalna populacja %d Ilość ewakuowanych %d Suma narodzin %d"
 
-#: data/gui/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr "Osiągnąłeś poziom technologiczny pozwalający na budowe wiatraków. "
+#, c-format
+#~ msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
+#~ msgstr "Data %s %04d  Pieniądze %8d   Poziom tech. %5.1f (%5.1f)"
+
+#, c-format
+#~ msgid "Rockets launched %2d  Successful launches %2d"
+#~ msgstr "Rakiety wystrzelone %2d Udane wystrzelenia % 2d"
+
+#, c-format
+#~ msgid ".   Residences %4d         Markets %4d            Farms %4d"
+#~ msgstr ""
+#~ ". Strefy mieszkalne %4d                 Sklepy %4d          Farmy %4d"
+
+#, c-format
+#~ msgid ".    Monuments %4d         Schools %4d     Universities %4d"
+#~ msgstr ""
+#~ ".           Pomniki %4d                 Szkoły %4d   Uniwersytety %4d"
+
+#, c-format
+#~ msgid ".Fire stations %4d           Parks %4d    Sports fields %4d"
+#~ msgstr ""
+#~ ". Remizy strażackie %4d              Parki %4d     Ośrodki sport. %4d"
+
+#, c-format
+#~ msgid "Health centres %4d            Tips %4d         Shanties %4d"
+#~ msgstr ""
+#~ "           Szpitale %4d  Wysypiska śmieci  %4d             Slumsy %4d"
+
+#, c-format
+#~ msgid ".    Windmills %4d     Coal powers %4d     Solar powers %4d"
+#~ msgstr ""
+#~ ".          Wiatraki %4d    Elektr. węglowe %4d  Elektr. słoneczne %4d"
+
+#, c-format
+#~ msgid ".  Substations %4d     Power lines %4d            Ports %4d"
+#~ msgstr ""
+#~ ". Podstacji elektr. %4d      Linie elektr. %4d              Porty %4d"
+
+#, c-format
+#~ msgid ".       Tracks %4d           Roads %4d             Rail %4d"
+#~ msgstr ""
+#~ ".             Drogi %4d                    Ulice %4d    Tory Kol. %4d"
+
+#, c-format
+#~ msgid ".    Potteries %4d     Blacksmiths %4d            Mills %4d"
+#~ msgstr ""
+#~ ".        Garncarnie %4d                  Kuźnie %4d       Fabryki %4d"
+
+#, c-format
+#~ msgid ".   Light inds %4d      Heavy inds %4d        Recyclers %4d"
+#~ msgstr ""
+#~ ".      Lekki przem. %4d      Cięzki przem. %4d   Zakł. Recyklingu %4d"
+
+#, c-format
+#~ msgid ".   Coal mines %4d       Ore mines %4d         Communes %4d"
+#~ msgstr ""
+#~ ".    Kopalnie węgla %4d      Kopalnie rudy %4d            Retorty %4d"
+
+#~ msgid "$."
+#~ msgstr "PLN."
+
+#~ msgid "Coverage"
+#~ msgstr "Relacja"
+
+#~ msgid "Health"
+#~ msgstr "Zdrowie"
+
+#~ msgid "Claims"
+#~ msgstr "Roszczenia"
+
+#~ msgid "Rate"
+#~ msgstr "Ocena"
+
+#~ msgid "Cases"
+#~ msgstr "Przypadki"
+
+#~ msgid "It's at a power line."
+#~ msgstr "To jest linia wysokiego napięcia."
+
+#~ msgid "It's at a solar power station."
+#~ msgstr "To jest elektrownia słoneczna."
+
+#~ msgid "It's at a substation."
+#~ msgstr "To jest podstacja elektryczna."
+
+#~ msgid "It's at a residential area."
+#~ msgstr "To jest strefa mieszkalna."
+
+#~ msgid "It's at a farm."
+#~ msgstr "To jest farma."
+
+#~ msgid "It's at a market."
+#~ msgstr "To jest sklep."
+
+#~ msgid "It's at a track."
+#~ msgstr "To jest droga."
+
+#~ msgid "It's at a coal mine."
+#~ msgstr "To jest kopalnia węgla."
+
+#~ msgid "It's at a railway."
+#~ msgstr "To są tory kolejowe."
+
+#~ msgid "It's at a coal power station."
+#~ msgstr "To jest elektrownia węglowa."
+
+#~ msgid "It's at a road."
+#~ msgstr "To jest ulica."
+
+#~ msgid "It's at light industry."
+#~ msgstr "To jest lekki przemysł."
+
+#~ msgid "It's at a university."
+#~ msgstr "To jest uniwersytet."
+
+#~ msgid "It's at a commune."
+#~ msgstr "To jest retorta."
+
+#~ msgid "It's at a tip."
+#~ msgstr "To jest wysypisko śmieci."
+
+#~ msgid "It's at a port."
+#~ msgstr "To jest port."
+
+#~ msgid "It's at a steel works."
+#~ msgstr "To jest huta."
+
+#~ msgid "It's at a recycle centre."
+#~ msgstr "To jest zakład recyklingu"
+
+#~ msgid "It's at a health centre."
+#~ msgstr "To jest szpital."
+
+#~ msgid "It's at a rocket site."
+#~ msgstr "To jest kosmodrom."
+
+#~ msgid "It's at a windmill."
+#~ msgstr "To jest wiatrak."
+
+#~ msgid "It's at a school."
+#~ msgstr "To jest szkoła."
+
+#~ msgid "It's at a blacksmith."
+#~ msgstr "To jest kuźnia."
+
+#~ msgid "It's at a mill."
+#~ msgstr "To jest fabryka."
+
+#~ msgid "It's at a pottery."
+#~ msgstr "To jest garncarnia."
+
+#~ msgid "It's at a fire station!!!."
+#~ msgstr "To jest remiza strażacka!!!"
+
+#~ msgid "It's at a sports field!!!."
+#~ msgstr "To jest boisko!!!"
+
+#~ msgid "It's at a shanty town."
+#~ msgstr "To jest dzielnica slumsów."
+
+#~ msgid "UNKNOWN!"
+#~ msgstr "NIEZNANY!"
+
+#~ msgid "Error. Can't find LINCITY_HOME"
+#~ msgstr "Błąd: Nie znaleziono LINCITY_HOME"
+
+#~ msgid "Error verifying package. Can't find colour.pal."
+#~ msgstr "Błąd weryfikacji pakietów. Nie znaleziono color.pal."
+
+#, c-format
+#~ msgid "Couldn't create the save directory '%s'\n"
+#~ msgstr "Nie można stworzyć katalogu z zapisami gry '%s'\n"
+
+#, c-format
+#~ msgid "Out of memory: malloc failure\n"
+#~ msgstr "Brak wolnej pamięci: błąd malloc\n"
+
+#~ msgid "Solar PS"
+#~ msgstr "Elektr. Słoneczna"
+
+#~ msgid "Railway"
+#~ msgstr "Tory kolejowe"
+
+#~ msgid "Lt. Industry"
+#~ msgstr "Lekki Przemysł"
+
+#~ msgid "Commune"
+#~ msgstr "Retorta"
+
+#~ msgid "Rubbish tip"
+#~ msgstr "Wysypisko śmieci"
+
+#~ msgid "Hv. Industry"
+#~ msgstr "Ciężki przemysł"
+
+#~ msgid "School"
+#~ msgstr "Szkoła"
+
+#~ msgid "Fire sta'n"
+#~ msgstr "Remiza strażacka"
+
+#, c-format
+#~ msgid "Save file <%s> - "
+#~ msgstr "Zapisano plik <%s> - "
+
+#~ msgid "Can't open save file!"
+#~ msgstr "Nie można otworzyć zapisanego pliku!"
+
+#, c-format
+#~ msgid "Can't open <%s> (gzipped)"
+#~ msgstr "Nie można otworzyć <%s> (gzipowany)"
+
+#~ msgid "Capacity"
+#~ msgstr "Pojemność"
+
+#~ msgid "Current Output"
+#~ msgstr "Bieżąca moc"
+
+#~ msgid "Jobs"
+#~ msgstr "Siła robocza."
+
+#~ msgid "EMPTY"
+#~ msgstr "PUSTY"
+
+#~ msgid "Activity"
+#~ msgstr "Aktywność"
+
+#~ msgid "Health Centre"
+#~ msgstr "Szpital"
+
+#~ msgid "Grid"
+#~ msgstr "Siatka"
+
+#~ msgid "NO"
+#~ msgstr "NIE"
+
+#~ msgid "Store"
+#~ msgstr "Magazyn"
+
+#~ msgid "YES"
+#~ msgstr "TAK"
+
+#, c-format
+#~ msgid "% Complete"
+#~ msgstr "% Gotowy"
+
+#~ msgid "Organic Farm"
+#~ msgstr "Farma ekologiczna"
+
+#~ msgid "Prod"
+#~ msgstr "Prod"
+
+#, fuzzy
+#~ msgid "Current production"
+#~ msgstr "Bieżąca moc"
+
+#~ msgid "People"
+#~ msgstr "Ludzie"
+
+#~ msgid "Fed"
+#~ msgstr "Wyżywienie"
+
+#~ msgid "Employed"
+#~ msgstr "Zatrudnienie"
+
+#~ msgid "poor"
+#~ msgstr "biedny"
+
+#~ msgid "Local Demand"
+#~ msgstr "Lokalne Zapotrzebowanie"
+
+#~ msgid "T. Cap."
+#~ msgstr "Całkowita Pojemność"
+
+#~ msgid "A. Cap."
+#~ msgstr "Dostępna Pojemność"
+
+#~ msgid "Demand"
+#~ msgstr "Zapotrzebowanie"
+
+#~ msgid "Last Month"
+#~ msgstr "Ostatni miesiąc"
+
+#~ msgid "Tons"
+#~ msgstr "Ton"
+
+#~ msgid "Percent"
+#~ msgstr "Procent"
+
+#~ msgid "Prod."
+#~ msgstr "Prod."
+
+#~ msgid "Nobody Home"
+#~ msgstr "Pusty dom"
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "Powinieneś rozpocząć nową karierę gdzieś indziej."
+
+#~ msgid "Blacksmiths available"
+#~ msgstr "Kuźnie dostępne"
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "Zobacz ekran pomocy w celu uzyskania większej ilości informacji. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny, pozwalający na budowe kuźni. Kuźnie "
+#~ "wymagają stali i siły roboczej do produkowania towarów."
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "Uwaga: Wyburzanie pomników jest kosztowne"
+
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "Wyburzenie części rzeki dużo kosztuje."
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "Uwaga: Wyburzanie jest niebezpieczne"
+
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr "Wyburzenie slumsów dużo kosztuje i może wywołac pożar."
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "Uwaga: Wyburzanie slumsów jest niebezpieczne"
+
+#~ msgid "Coal Mine available"
+#~ msgstr "Kopalnie węgla dostępne"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "Zobacz ekran pomoy w celu uzyskania większej ilości informacji na temat "
+#~ "kopalni oraz zasobów węgla"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny, pozwalający na wydobywanie węgla z "
+#~ "głębszych złóż. "
+
+#~ msgid "Coal Fired Power Stations available"
+#~ msgstr "Elektrownie węglowe dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe elektrowni "
+#~ "węglowych."
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "Twoi ludzie wynaleźli koszykówkę. Boiska do koszykówki wykorzystują "
+#~ "niewiele siły roboczej oraz towarów, a ludzie w okolicy (około 10 pól w "
+#~ "każdym kierunku) są szczęśliwsi."
+
+#~ msgid "You better go and look for it"
+#~ msgstr "Powinieneś  się tym zainteresować."
+
+#~ msgid "Fire Stations available"
+#~ msgstr "Remizy strażackie dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe remiz strażackich. "
+#~ "Remizy strażackie zapobiegają większości pożarów. Jeśli nie miałeś "
+#~ "jeszcze żadnych pożarów, może Ci się wydawać, że ich nie potrzebujesz."
+
+#~ msgid "Health Centres available"
+#~ msgstr "Szpitale dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe szpitali. Szpitale "
+#~ "zmniejszają ilość ludzi zabitych przez zanieczyszczenia oraz zwiększają "
+#~ "całkowitą wydajność."
+
+#~ msgid "Heavy Industry available"
+#~ msgstr "Ciężki przemysł dostępny"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów ciężkiego "
+#~ "przemysłu. Zakłady ciężkiego przemysłu produkują stal. "
+
+#~ msgid "Import/Export available"
+#~ msgstr "Import/Export dostępny"
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "Teraz możesz importować i eksportować węgiel, towary, rude i stal. "
+#~ "Przeczytaj strony pomocy tych tematów, żeby dowiedzieć się jak to zrobić."
+
+#~ msgid "Evacuation Launch Good"
+#~ msgstr " Udane rozpoczęcie ewakuacji."
+
+#~ msgid "Launch Failure"
+#~ msgstr "Wystrzelenie nie powiodło się"
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "Twoja rakieta miała wypadek krótko po starcie. Ludzie nie ufają już "
+#~ "technologii ewakuacji. Musisz wystrzelić pięc lotów bezzałogowych, żeby "
+#~ "przywrócić zaufanie ludzi.  "
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "Całkowita ewakuacja zakończona."
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "Bardzo dobrze, ewakuowałeś całą populacje."
+
+#~ msgid "You have won the game."
+#~ msgstr "Wygrałeś."
+
+#~ msgid "Doing well."
+#~ msgstr "Lot przebiega bez zakłóceń."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów lekkiego "
+#~ "przemysłu. Zakłady lekkiego przemysłu produkują towary. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe fabryk. Fabryki "
+#~ "dzięki sile roboczej oraz żywności wytwarzają towary. Uważaj! Potrafią "
+#~ "wykorzystać dużą ilość żywności."
+
+#, fuzzy
+#~ msgid "Show resources."
+#~ msgstr "Pokazuje zasoby."
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "Nowoczesne fabryki dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe nowoczesnych, "
+#~ "bardziej efektywnych wiatraków. "
+
+#~ msgid "Start with empty board."
+#~ msgstr "Rozpocznij grę na pustej planszy."
+
+#~ msgid "Start with random village."
+#~ msgstr "Rozpocznij grę z losową osadą."
+
+#~ msgid "No Credit Available"
+#~ msgstr "Brak dostępnego kredytu"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr ""
+#~ "Masz deficyt budżetu. Rada miejska zabroniła Ci budowy parków na kredyt"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "Masz deficyt budżetu. Rada miejska zabroniła Ci budowy zakładów "
+#~ "recyklingu na kredyt."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "Masz deficyt budżetu. Rada miejska zabroniła Ci budowy kosmodromów  na "
+#~ "kredyt."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "Masz deficyt budżetu. Rada miejska zabroniła Ci budowy elektrowni "
+#~ "słonecznych na kredyt."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "Masz deficyt budżetu. Rada miejska zabroniła Ci budowy uniwersytetów na "
+#~ "kredyt."
+
+#~ msgid "Not Allowed"
+#~ msgstr "Nie dozwolone."
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "Niestety, nie możesz wyburzyć wysypiska śmieci."
+
+#~ msgid "Parks available"
+#~ msgstr "Parki dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe parków. Parki "
+#~ "redukują zanieczyszczenie. "
+
+#~ msgid "Potteries available"
+#~ msgstr "Garncarnie dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe garncarni. "
+#~ "Garncarnie wykorzystują siłę roboczą oraz rudę do wytwarzania towarów. "
+#~ "(Musisz mieć kopalnie rudy, żeby uzyskać rudę) "
+
+#~ msgid "Railways available"
+#~ msgstr "Tory kolejowe dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe torów kolejowych. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe zakładów "
+#~ "recyklingu. Zakłady recyklingu przerabiają towary na rudę. "
+
+#~ msgid "Rivers available"
+#~ msgstr "Rzeki dostępne"
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr "Osiągnąłeś poziom technologiczny pozwalający na budowe rzek. "
+
+#~ msgid "Roads available"
+#~ msgstr "Ulice dostępne"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "Kosmodromy dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe kosmodromów. "
+#~ "Rakiety pozwalają ewakuować mieszkańców miasta, co jest sposobem na "
+#~ "'przejście' tej gry."
+
+#~ msgid "save to selected slot"
+#~ msgstr "Zapisz w wybranym slocie"
+
+#~ msgid "Schools available"
+#~ msgstr "Szkoły dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe szkół. Szkoły "
+#~ "wykorzystują siłę roboczą oraz towary do podnoszenia poziomu "
+#~ "technologicznego."
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "Pożar ogarnął slumsy. Ogień wymknął się spod kontroli i istnieje szansa "
+#~ "jego rozprzestrzenienia się."
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "Pożar ogarnął slumsy. Jest jednak w strefie zabezpieczonej przed ogniem i "
+#~ "wydaje się być pod kontrolą."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe elektrowni "
+#~ "słonecznych. "
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "LinCity określa twoją gospodarkę jako rentowną."
+
+#~ msgid "University available"
+#~ msgstr "Uniwersytety dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "Osiągnąłeś poziom technologiczny pozwalający na budowe uniwersytetów. "
+#~ "Uniwersytety produkują jajogłowych, którzy opracowywują nowe technologię."
+
+#~ msgid "Windmills available"
+#~ msgstr "Wiatraki dostępne"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr "Osiągnąłeś poziom technologiczny pozwalający na budowe wiatraków. "
 
 #~ msgid "Saving scene"
 #~ msgstr "Zapisywanie sceny"
@@ -2140,14 +2743,8 @@ msgstr "Osiągnąłeś poziom technologiczny pozwalający na budowe wiatraków. 
 #~ msgid "Solar"
 #~ msgstr "Słoneczny"
 
-#~ msgid "Power Station"
-#~ msgstr "Elektrownia"
-
 #~ msgid "Industry"
 #~ msgstr "Przemysł"
-
-#~ msgid "Heavy"
-#~ msgstr "Ciężki"
 
 #~ msgid "Center"
 #~ msgstr "Centrum"

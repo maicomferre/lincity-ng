@@ -24,30 +24,6 @@ msgstr ""
 msgid "requires"
 msgstr "requer"
 
-msgid "Build"
-msgstr "Construção"
-
-msgid "Maintenance (estimate)"
-msgstr "Manutenção (estimada)"
-
-msgid "disabled"
-msgstr "desativada"
-
-msgid "none"
-msgstr "nenhuma"
-
-msgid "day"
-msgstr "dia"
-
-msgid "every"
-msgstr "a cada"
-
-msgid "days"
-msgstr "dias"
-
-msgid "while generating"
-msgstr "enquanto gera"
-
 #: src/lincity-ng/ButtonPanel.cpp:344
 msgid "tech level"
 msgstr "Nível Tecnológico"
@@ -70,27 +46,33 @@ msgstr "Ferr. de Pesquisa"
 
 #: src/lincity-ng/ButtonPanel.cpp:378
 msgid ": 50 tenants, low birthrate, high deathrate"
-msgstr "Residencial: 50 habitantes, baixo índice de natalidade, alta mortalidade"
+msgstr ""
+"Residencial: 50 habitantes, baixo índice de natalidade, alta mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:381
 msgid ": 100 tenants, high birthrate, low deathrate"
-msgstr "Residencial: 100 habitantes, alto índice de natalidade, baixa mortalidade"
+msgstr ""
+"Residencial: 100 habitantes, alto índice de natalidade, baixa mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:384
 msgid ": 200 tenants, high birthrate, high deathrate"
-msgstr "Residencial: 200 habitantes, alto índice de natalidade, alta mortalidade"
+msgstr ""
+"Residencial: 200 habitantes, alto índice de natalidade, alta mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:387
 msgid ": 100 tenants, low birthrate, high deathrate"
-msgstr "Residencial: 100 habitantes, baixo índice de natalidade, alta mortalidade"
+msgstr ""
+"Residencial: 100 habitantes, baixo índice de natalidade, alta mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:390
 msgid ": 200 tenants, high birthrate, low deathrate"
-msgstr "Residencial: 200 habitantes, alto índice de natalidade, baixa mortalidade"
+msgstr ""
+"Residencial: 200 habitantes, alto índice de natalidade, baixa mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:393
 msgid ": 400 tenants, high birthrate, high deathrate"
-msgstr "Residencial: 400 habitantes, alto índice de natalidade, alta mortalidade"
+msgstr ""
+"Residencial: 400 habitantes, alto índice de natalidade, alta mortalidade"
 
 #: src/lincity-ng/ButtonPanel.cpp:398
 msgid "Bulldozer"
@@ -420,8 +402,12 @@ msgstr "{} Disponível"
 
 #: src/lincity-ng/Game.cpp:270
 #, c++-format
-msgid "You have reached the tech level which enables you to build {}. See the help screen for more information about this type of building."
-msgstr "Você alcançou o nível tecnológico que permite construir {}. Consulte a tela de ajuda para mais informações sobre este tipo de construção."
+msgid ""
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr ""
+"Você alcançou o nível tecnológico que permite construir {}. Consulte a tela "
+"de ajuda para mais informações sobre este tipo de construção."
 
 #: src/lincity-ng/Game.cpp:390
 #, c++-format
@@ -447,8 +433,12 @@ msgstr "Um Incêndio Começou"
 
 #: src/lincity-ng/Game.cpp:850
 #, c++-format
-msgid "A fire has broken out in a {}! You should address this promptly before the whole city burns down."
-msgstr "Um incêndio começou em um(a) {}! Você deve resolvê-lo rapidamente antes que a cidade inteira queime."
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
+"Um incêndio começou em um(a) {}! Você deve resolvê-lo rapidamente antes que "
+"a cidade inteira queime."
 
 #: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
 msgid "Warning!"
@@ -459,16 +449,29 @@ msgid "Out of Credit"
 msgstr "Sem Crédito"
 
 #: src/lincity-ng/Game.cpp:864
-msgid "You are deep in debt and at the end of your credit line. You are about to find out what happens when government checks bounce."
-msgstr "Você está muito endividado e chegou ao limite do seu crédito. Você está prestes a descobrir o que acontece quando os cheques do governo não são compensados."
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
+"Você está muito endividado e chegou ao limite do seu crédito. Você está "
+"prestes a descobrir o que acontece quando os cheques do governo não são "
+"compensados."
 
 #: src/lincity-ng/Game.cpp:874
 msgid "Out of Money"
 msgstr "Sem Dinheiro"
 
 #: src/lincity-ng/Game.cpp:875
-msgid "You just spent all your money. Further spending will require you to take out a loan which you must pay interest on. And certain projects you are not allowed to pay for with credit. The legislative council strongly advises you learn to budget."
-msgstr "Você acabou de gastar todo o seu dinheiro. Gastos adicionais exigirão um empréstimo, sobre o qual você deverá pagar juros. Além disso, certos projetos não podem ser pagos com crédito. O conselho legislativo recomenda fortemente que você aprenda a fazer orçamento."
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
+"Você acabou de gastar todo o seu dinheiro. Gastos adicionais exigirão um "
+"empréstimo, sobre o qual você deverá pagar juros. Além disso, certos "
+"projetos não podem ser pagos com crédito. O conselho legislativo recomenda "
+"fortemente que você aprenda a fazer orçamento."
 
 #: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
@@ -480,8 +483,14 @@ msgstr "Um Foguete Está Pronto para o Lançamento"
 
 #: src/lincity-ng/Game.cpp:891
 #, c++-format
-msgid "The rocket at {} has finished construction and is ready for takeoff. You may choose to launch now or later. If you choose to wait, beware it costs money to keep the rocket in tip-top shape until launch day."
-msgstr "O foguete em {} terminou a construção e está pronto para decolar. Você pode lançá-lo agora ou mais tarde. Se optar por esperar, cuidado: manter o foguete em perfeito estado até o dia do lançamento custa dinheiro."
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
+"O foguete em {} terminou a construção e está pronto para decolar. Você pode "
+"lançá-lo agora ou mais tarde. Se optar por esperar, cuidado: manter o "
+"foguete em perfeito estado até o dia do lançamento custa dinheiro."
 
 #: src/lincity-ng/Game.cpp:896
 msgid "Launch now?"
@@ -496,8 +505,16 @@ msgid "Rocket Crashed"
 msgstr "Foguete Caiu"
 
 #: src/lincity-ng/Game.cpp:919
-msgid "Looks like your rocket technology leaves some to be desired. Thankfully this was a test flight, so no people were on board. The scientists say they have identified the cause of the crash and are confident future launches will go smoothly."
-msgstr "Parece que a sua tecnologia de foguetes deixa a desejar. Felizmente, este foi um voo de teste e ninguém estava a bordo. Os cientistas dizem que identificaram a causa do acidente e estão confiantes de que os próximos lançamentos ocorrerão sem problemas."
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+"Parece que a sua tecnologia de foguetes deixa a desejar. Felizmente, este "
+"foi um voo de teste e ninguém estava a bordo. Os cientistas dizem que "
+"identificaram a causa do acidente e estão confiantes de que os próximos "
+"lançamentos ocorrerão sem problemas."
 
 #: src/lincity-ng/Game.cpp:927
 msgid "Test Launch Successful"
@@ -512,16 +529,24 @@ msgid "Evacuation Launch Successful"
 msgstr "Lançamento de Evacuação Bem-sucedido"
 
 #: src/lincity-ng/Game.cpp:936
-msgid "You have successfully evacuated 1000 people. You may consider reducing the size of your economy appropriately."
-msgstr "Você evacuou 1000 pessoas. Você pode considerar reduzir o tamanho da sua economia de forma adequada."
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"Você evacuou 1000 pessoas. Você pode considerar reduzir o tamanho da sua "
+"economia de forma adequada."
 
 #: src/lincity-ng/Game.cpp:942
 msgid "You Evacuated Everyone!"
 msgstr "Você Evacuou Todos!"
 
 #: src/lincity-ng/Game.cpp:943
-msgid "Congratulations! You have successfully evacuated everyone from the city and won the game."
-msgstr "Parabéns! Você evacuou com sucesso todos os habitantes da cidade e venceu o jogo."
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+"Parabéns! Você evacuou com sucesso todos os habitantes da cidade e venceu o "
+"jogo."
 
 #: src/lincity-ng/Game.cpp:955
 msgid "You Lost!"
@@ -544,8 +569,16 @@ msgid "Economy Sustainable"
 msgstr "Economia Sustentável"
 
 #: src/lincity-ng/Game.cpp:969
-msgid "Well done! Thanks to your excellent leadership, the city council has determined the economy is sustainable and (at least theoretically) may continue indefinitely in prosperity. Therefore, you may retire from your position -- of course with a substantial pension."
-msgstr "Muito bem! Graças à sua excelente liderança, o conselho municipal concluiu que a economia é sustentável e (pelo menos teoricamente) pode continuar prosperando indefinidamente. Portanto, você pode se aposentar do cargo — claro, com uma pensão substancial."
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+"Muito bem! Graças à sua excelente liderança, o conselho municipal concluiu "
+"que a economia é sustentável e (pelo menos teoricamente) pode continuar "
+"prosperando indefinidamente. Portanto, você pode se aposentar do cargo — "
+"claro, com uma pensão substancial."
 
 #: src/lincity-ng/Game.cpp:991
 msgid "Cannot Build"
@@ -571,13 +604,21 @@ msgstr "Você não pode construir isto a crédito."
 
 #: src/lincity-ng/Game.cpp:1012
 #, c++-format
-msgid "Your tech level is too low. Building a {} here requires {:.1f} tech level, but you have only {:.1f} tech level."
-msgstr "Seu nível tecnológico é muito baixo. Construir um(a) {} aqui requer nível tecnológico {:.1f}, mas você tem apenas {:.1f}."
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+"Seu nível tecnológico é muito baixo. Construir um(a) {} aqui requer nível "
+"tecnológico {:.1f}, mas você tem apenas {:.1f}."
 
 #: src/lincity-ng/Game.cpp:1014
 #, c++-format
-msgid "Your tech level is too low. Building a {} requires {:.1f} tech level, but you have only {:.1f} tech level."
-msgstr "Seu nível tecnológico é muito baixo. Construir um(a) {} requer nível tecnológico {:.1f}, mas você tem apenas {:.1f}."
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+"Seu nível tecnológico é muito baixo. Construir um(a) {} requer nível "
+"tecnológico {:.1f}, mas você tem apenas {:.1f}."
 
 #: src/lincity-ng/Game.cpp:1024
 msgid "This space is occupied."
@@ -598,8 +639,12 @@ msgstr "Não há mais reservas de minério aqui."
 
 #: src/lincity-ng/Game.cpp:1046
 #, c++-format
-msgid "You need {} schools to support building a new University, but you only have {}."
-msgstr "Você precisa de {} escolas para apoiar a construção de uma nova Universidade, mas só tem {}."
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+"Você precisa de {} escolas para apoiar a construção de uma nova "
+"Universidade, mas só tem {}."
 
 #: src/lincity-ng/Game.cpp:1069
 msgid "unrecognized reason"
@@ -616,11 +661,14 @@ msgstr "Não é possível demolir este(a) {}."
 
 #: src/lincity-ng/Game.cpp:1088
 msgid "You cannot bulldoze this land fill because it is full of waste."
-msgstr "Você não pode demolir este depósito de lixo porque ele está cheio de lixo."
+msgstr ""
+"Você não pode demolir este depósito de lixo porque ele está cheio de lixo."
 
 #: src/lincity-ng/Game.cpp:1094
-msgid "You cannot bulldoze this monument because it is still under construction."
-msgstr "Você não pode demolir este monumento porque ele ainda está em construção."
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+"Você não pode demolir este monumento porque ele ainda está em construção."
 
 #: src/lincity-ng/Game.cpp:1101
 #, c++-format
@@ -629,8 +677,11 @@ msgstr "Você não tem permissão para demolir {}."
 
 #: src/lincity-ng/Game.cpp:1115
 #, c++-format
-msgid "You are not allowed to bulldoze this {}, but we're not exactly sure why."
-msgstr "Você não tem permissão para demolir este(a) {}, mas não sabemos exatamente por quê."
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+"Você não tem permissão para demolir este(a) {}, mas não sabemos exatamente "
+"por quê."
 
 #: src/lincity-ng/Game.cpp:1127
 msgid "Cannot Evacuate"
@@ -761,28 +812,47 @@ msgid "Continue: game loaded."
 msgstr "Continuar: jogo carregado."
 
 #: src/lincity-ng/MainMenu.cpp:716
-msgid "A prosperous city with a strong economy, established industry and a high tech level."
-msgstr "Uma cidade próspera, com economia forte, indústria estabelecida e alto nível tecnológico."
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+"Uma cidade próspera, com economia forte, indústria estabelecida e alto nível "
+"tecnológico."
 
 #: src/lincity-ng/MainMenu.cpp:719
-msgid "A struggling city: debt, unemployment and outdated industry. A hard start."
-msgstr "Uma cidade em dificuldades: dívidas, desemprego e indústria obsoleta. Um começo difícil."
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+"Uma cidade em dificuldades: dívidas, desemprego e indústria obsoleta. Um "
+"começo difícil."
 
 #: src/lincity-ng/MainMenu.cpp:722
-msgid "A small settlement in a harsh desert. Water is precious and farming is difficult."
-msgstr "Um pequeno assentamento em um deserto árido. A água é preciosa e a agricultura é difícil."
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+"Um pequeno assentamento em um deserto árido. A água é preciosa e a "
+"agricultura é difícil."
 
 #: src/lincity-ng/MainMenu.cpp:725
-msgid "A settlement surrounded by swamps. Land is scarce and flooding is a constant threat."
-msgstr "Um assentamento cercado por pântanos. A terra é escassa e as enchentes são uma ameaça constante."
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+"Um assentamento cercado por pântanos. A terra é escassa e as enchentes são "
+"uma ameaça constante."
 
 #: src/lincity-ng/MainMenu.cpp:728
 msgid "A coastal town with beaches and sea access."
 msgstr "Uma cidade costeira com praias e acesso ao mar."
 
 #: src/lincity-ng/MainMenu.cpp:730
-msgid "A space program town from 1998, with rocket pads and a busy transport network."
-msgstr "Uma cidade de programa espacial de 1998, com plataformas de foguete e uma rede de transporte movimentada."
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+"Uma cidade de programa espacial de 1998, com plataformas de foguete e uma "
+"rede de transporte movimentada."
 
 #: src/lincity-ng/MainMenu.cpp:737
 msgid "A brand new city in a river delta. The terrain is generated randomly."
@@ -793,12 +863,15 @@ msgid "A brand new city in semi-desert. The terrain is generated randomly."
 msgstr "Uma cidade nova em um semi-deserto. O terreno é gerado aleatoriamente."
 
 #: src/lincity-ng/MainMenu.cpp:743
-msgid "A brand new city in a temperate area. The terrain is generated randomly."
-msgstr "Uma cidade nova em uma área temperada. O terreno é gerado aleatoriamente."
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+"Uma cidade nova em uma área temperada. O terreno é gerado aleatoriamente."
 
 #: src/lincity-ng/MainMenu.cpp:746
 msgid "A brand new city in a swampy area. The terrain is generated randomly."
-msgstr "Uma cidade nova em uma área pantanosa. O terreno é gerado aleatoriamente."
+msgstr ""
+"Uma cidade nova em uma área pantanosa. O terreno é gerado aleatoriamente."
 
 #: src/lincity-ng/MainMenu.cpp:774
 #, c++-format
@@ -810,11 +883,13 @@ msgid "Could not load this scenario."
 msgstr "Não foi possível carregar este cenário."
 
 #: src/lincity-ng/MainMenu.cpp:809
-msgid "Money {} | Tech {} | Year {} | Population {} | Size {}x{}"
+#, fuzzy
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
 msgstr "Dinheiro {} | Tecnologia {} | Ano {} | População {} | Tamanho {}x{}"
 
 #: src/lincity-ng/MainMenu.cpp:815
-msgid "Money {} | Tech {} | Year {} | Size {}x{}"
+#, fuzzy
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
 msgstr "Dinheiro {} | Tecnologia {} | Ano {} | Tamanho {}x{}"
 
 #: src/lincity-ng/MainMenu.cpp:910
@@ -996,10 +1071,6 @@ msgstr "borda mais baixa"
 #: src/lincity-ng/Mps.cpp:408
 msgid "Tax Income"
 msgstr "Receita de Impostos"
-
-#: src/lincity-ng/Mps.cpp
-msgid "Management"
-msgstr "Gestão"
 
 #: src/lincity-ng/Mps.cpp:411
 msgid "Income"
@@ -1367,14 +1438,6 @@ msgstr "Minas de Minério"
 msgid "Farm"
 msgstr "Fazenda"
 
-#: src/lincity/modules/sea_farm.cpp:40
-msgid "Sea Farm"
-msgstr "Fazenda Marinha"
-
-#: src/lincity/modules/sea_farm.cpp:41
-msgid "Sea Farms"
-msgstr "Fazendas Marinhas"
-
 #: src/lincity/modules/parkland.cpp:37
 msgid "Park"
 msgstr "Parque"
@@ -1709,11 +1772,15 @@ msgstr "Estat"
 
 #: data/gui/minimap.xml:28
 msgid "Show resources. Use scroll buttons to cycle through views."
-msgstr "Exibir recursos. Use os botões de rolagem para circular entre as visualizações."
+msgstr ""
+"Exibir recursos. Use os botões de rolagem para circular entre as "
+"visualizações."
 
 #: data/gui/minimap.xml:38
 msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
-msgstr "Exibir receitas e despesas. Use os botões de rolagem para circular entre as visualizações."
+msgstr ""
+"Exibir receitas e despesas. Use os botões de rolagem para circular entre as "
+"visualizações."
 
 #: data/gui/minimap.xml:47
 msgid "Eco"
@@ -1857,7 +1924,8 @@ msgstr "Enviar Prospectos"
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "This will cost you 1 million once. After that it is free to call again."
-msgstr "Isto custará 1 milhão apenas uma vez. Depois será grátis para usar novamente."
+msgstr ""
+"Isto custará 1 milhão apenas uma vez. Depois será grátis para usar novamente."
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
 msgid "Do coal survey?"
@@ -1897,7 +1965,8 @@ msgstr "Custo de transporte"
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
 msgid "High taxes make industry produce less and citizens move away."
-msgstr "Impostos altos fazem a indústria produzir menos e os cidadãos se mudarem."
+msgstr ""
+"Impostos altos fazem a indústria produzir menos e os cidadãos se mudarem."
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
 msgid "Close"
@@ -1916,8 +1985,14 @@ msgid "Rocket ready to launch"
 msgstr "Foguete pronto para lançar"
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
-msgid "You can launch the rocket now or wait until later. If you wait it will continue costing you money to keep the rocket ready. Launch it later by clicking on the rocket area."
-msgstr "Você pode lançar o foguete agora ou mais tarde. Lançar mais tarde continuará custando para manter o foguete pronto para o lançamento. Lance-o depois clicando na área do foguete."
+msgid ""
+"You can launch the rocket now or wait until later. If you wait it will "
+"continue costing you money to keep the rocket ready. Launch it later by "
+"clicking on the rocket area."
+msgstr ""
+"Você pode lançar o foguete agora ou mais tarde. Lançar mais tarde continuará "
+"custando para manter o foguete pronto para o lançamento. Lance-o depois "
+"clicando na área do foguete."
 
 #: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
 msgid "Harbour Trade Settings"
@@ -1942,6 +2017,39 @@ msgstr "Vender"
 msgid "Trade Settings"
 msgstr "Opções de Comércio"
 
+#~ msgid "Build"
+#~ msgstr "Construção"
+
+#~ msgid "Maintenance (estimate)"
+#~ msgstr "Manutenção (estimada)"
+
+#~ msgid "disabled"
+#~ msgstr "desativada"
+
+#~ msgid "none"
+#~ msgstr "nenhuma"
+
+#~ msgid "day"
+#~ msgstr "dia"
+
+#~ msgid "every"
+#~ msgstr "a cada"
+
+#~ msgid "days"
+#~ msgstr "dias"
+
+#~ msgid "while generating"
+#~ msgstr "enquanto gera"
+
+#~ msgid "Management"
+#~ msgstr "Gestão"
+
+#~ msgid "Sea Farm"
+#~ msgstr "Fazenda Marinha"
+
+#~ msgid "Sea Farms"
+#~ msgstr "Fazendas Marinhas"
+
 #, c++-format
 #~ msgid "starting {} ..."
 #~ msgstr "iniciando {} ..."
@@ -1952,8 +2060,12 @@ msgstr "Opções de Comércio"
 #~ msgid "Restart Required"
 #~ msgstr "Reinício Necessário"
 
-#~ msgid "Changing the language requires restarting LinCity for changes to take full effect."
-#~ msgstr "Alterar o idioma exige reiniciar o LinCity para que as mudanças tenham efeito completo."
+#~ msgid ""
+#~ "Changing the language requires restarting LinCity for changes to take "
+#~ "full effect."
+#~ msgstr ""
+#~ "Alterar o idioma exige reiniciar o LinCity para que as mudanças tenham "
+#~ "efeito completo."
 
 #, c-format
 #~ msgid "%s (Techlevel %.1f required.)"
@@ -2014,25 +2126,38 @@ msgstr "Opções de Comércio"
 #~ msgstr "Porto deve estar conectado ao rio pelo lado direito."
 
 #~ msgid "You can't build a tip here: this area was once a landfill"
-#~ msgstr "Você não pode construir um aterro aqui: Este lugar já foi antes um aterro"
+#~ msgstr ""
+#~ "Você não pode construir um aterro aqui: Este lugar já foi antes um aterro"
 
 #~ msgid "You can't build a mine here: This area was once a landfill"
-#~ msgstr "Você não pode construir uma mina aqui: Este lugar foi antes um aterro"
+#~ msgstr ""
+#~ "Você não pode construir uma mina aqui: Este lugar foi antes um aterro"
 
 #~ msgid "You can't build a mine here: there is no ore left at this site"
-#~ msgstr "Você não pode construir uma mina aqui: Não existe mais minério neste terreno"
+#~ msgstr ""
+#~ "Você não pode construir uma mina aqui: Não existe mais minério neste "
+#~ "terreno"
 
 #~ msgid "You can't build a park here: it is a desert, parks need water"
-#~ msgstr "Você não pode construir um parque aqui: é um deserto e parques precisam de água"
+#~ msgstr ""
+#~ "Você não pode construir um parque aqui: é um deserto e parques precisam "
+#~ "de água"
 
 #~ msgid "Too many substations + windmills. You cannot build one more"
-#~ msgstr "Muitas estações e moinhos de vento. Você não pode construir mais um(a)."
+#~ msgstr ""
+#~ "Muitas estações e moinhos de vento. Você não pode construir mais um(a)."
 
 #~ msgid "Too many markets. You cannot build one more"
 #~ msgstr "Muitos mercados. Você não pode construir mais um."
 
-#~ msgid "ERROR: group does not exist. This should not happen! Please consider filling a bug report to lincity-ng team, with the saved game and what you did :-) "
-#~ msgstr "Erro: grupo não existe. Isto não deveria ocorrer! Por favor, considere preencher um relatório de bug para o time do lincity-ng, com o arquivo do jogo salvo e uma descrição do que você fez :-)"
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "Erro: grupo não existe. Isto não deveria ocorrer! Por favor, considere "
+#~ "preencher um relatório de bug para o time do lincity-ng, com o arquivo do "
+#~ "jogo salvo e uma descrição do que você fez :-)"
 
 #~ msgid "It's at a power line."
 #~ msgstr "Isto é uma linha de transmissão de energia."
@@ -2337,10 +2462,17 @@ msgstr "Opções de Comércio"
 #~ msgstr "Abrindo a cena"
 
 #~ msgid "You have too many power grids. Join some of them"
-#~ msgstr "Você possui muitas malhas de transmissão de energia. Junte algumas delas"
+#~ msgstr ""
+#~ "Você possui muitas malhas de transmissão de energia. Junte algumas delas"
 
-#~ msgid "Upgrading from old game. You have 10 years to build water wells where needed. After, starvation will occur!  You should check starvation minimap, and read waterwell help page :-)"
-#~ msgstr "Atualizando do jogo antigo. Você tem 10 anos para construir poços onde for preciso. Depois disso, escassez irá ocorrer! Você deve verificar o mini-mapa de escassez e ler a página de ajuda sobre poços."
+#~ msgid ""
+#~ "Upgrading from old game. You have 10 years to build water wells where "
+#~ "needed. After, starvation will occur!  You should check starvation "
+#~ "minimap, and read waterwell help page :-)"
+#~ msgstr ""
+#~ "Atualizando do jogo antigo. Você tem 10 anos para construir poços onde "
+#~ "for preciso. Depois disso, escassez irá ocorrer! Você deve verificar o "
+#~ "mini-mapa de escassez e ler a página de ajuda sobre poços."
 
 #~ msgid "Nobody Home"
 #~ msgstr "Ninguém em casa"
@@ -2354,8 +2486,12 @@ msgstr "Opções de Comércio"
 #~ msgid "See the help screen for more information."
 #~ msgstr "Veja a tela de ajuda para maiores informações."
 
-#~ msgid "You have reached the tech level which enables you to build blacksmiths. Blacksmiths use jobs and steel to make goods."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir ferreiros. Ferreiros utilizam a empregos e aço para produzir bens."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir ferreiros. "
+#~ "Ferreiros utilizam a empregos e aço para produzir bens."
 
 #~ msgid "Warning: Bulldozing monuments is expensive"
 #~ msgstr "Atenção: Demolir monumentos é muito caro"
@@ -2375,20 +2511,36 @@ msgstr "Opções de Comércio"
 #~ msgid "Coal Mine available"
 #~ msgstr "Mina de Carvão disponível"
 
-#~ msgid "See the help screen for more information on coal mines and coal surveys."
-#~ msgstr "Veja a tela de ajuda para maiores informações sobre minas de carvão e análise do carvão."
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "Veja a tela de ajuda para maiores informações sobre minas de carvão e "
+#~ "análise do carvão."
 
-#~ msgid "You have reached the tech level which enables you to dig deep coal mines."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a cavar profundamente nas minas de carvão."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a cavar profundamente nas "
+#~ "minas de carvão."
 
 #~ msgid "Coal Fired Power Stations available"
 #~ msgstr "Usina Elétrica Carvoeira disponível"
 
-#~ msgid "You have reached the tech level which enables you to build coal fired power stations."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir usinas elétricas carvoeiras."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir usinas "
+#~ "elétricas carvoeiras."
 
-#~ msgid "Your people have invented basketball. Basketball Courts use a few jobs and goods and make people in the surrounding areas (about 10 units in each direction) happier."
-#~ msgstr "Seus habitantes inventaram o basquete. As quadras de basquete utilizam um pouca produção e bens e fazem as pessoas ao redor (mais ou menos 10 pessoas em cada direção) mais felizes."
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "Seus habitantes inventaram o basquete. As quadras de basquete utilizam um "
+#~ "pouca produção e bens e fazem as pessoas ao redor (mais ou menos 10 "
+#~ "pessoas em cada direção) mais felizes."
 
 #~ msgid "You better go and look for it"
 #~ msgstr "Você pode ir a procurar por isso"
@@ -2396,26 +2548,46 @@ msgstr "Opções de Comércio"
 #~ msgid "Fire Stations available"
 #~ msgstr "Bombeiros disponíveis"
 
-#~ msgid "You have reached the tech level which enables you to build fire stations. Fire stations prevent most fires from starting. If you haven't had any fires yet, you might not think you need them."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir Bombeiros. Bombeiro previne a maioria dos incêndios antes de começar. Se você não teve um incêndio ainda, não deve pensar que não precisa deles."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir Bombeiros. "
+#~ "Bombeiro previne a maioria dos incêndios antes de começar. Se você não "
+#~ "teve um incêndio ainda, não deve pensar que não precisa deles."
 
 #~ msgid "Health Centres available"
 #~ msgstr "Hospitais disponíveis"
 
-#~ msgid "You have reached the tech level which enables you to build health centres. Heath centres reduce the number of people killed by pollution and increase overall productivity."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir hospitais. Hospitais reduzem o número de pessoas mortas pela poluição e aumentam a produtividade."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir hospitais. "
+#~ "Hospitais reduzem o número de pessoas mortas pela poluição e aumentam a "
+#~ "produtividade."
 
 #~ msgid "Heavy Industry available"
 #~ msgstr "Indústria pesada disponível"
 
-#~ msgid "You have reached the tech level which enables you to build heavy industry (steel works). Heavy industry produces steel. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir indústrias pesadas (siderúrgicas). Indústrias pesadas produzem aço."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir indústrias "
+#~ "pesadas (siderúrgicas). Indústrias pesadas produzem aço."
 
 #~ msgid "Import/Export available"
 #~ msgstr "Importação/Exportação disponível"
 
-#~ msgid "You can now import and export coal, goods, ore and steel. Read the help pages on these subjects to find out how to use them. "
-#~ msgstr "Você pode agora importar e exportar carvão, bens, minérios e aço. Leia as páginas de ajuda destes itens para saber como utilizá-los."
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "Você pode agora importar e exportar carvão, bens, minérios e aço. Leia as "
+#~ "páginas de ajuda destes itens para saber como utilizá-los."
 
 #~ msgid "Evacuation Launch Good"
 #~ msgstr "Lançamento de Evacuação bom"
@@ -2423,8 +2595,14 @@ msgstr "Opções de Comércio"
 #~ msgid "Launch Failure"
 #~ msgstr "Falha no lançamento"
 
-#~ msgid "Your rocket crashed shortly after launch. People no longer trust the technology for evacuation. You must launch five more unmanned rockets to restore confidence."
-#~ msgstr "Seu foguete explodiu logo após o lançamento. As pessoas não confiam mais nesta tecnologia para evacuação. Você deverá lançar mais 5 foguetes não tripulados para que eles recuperem a confiança."
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "Seu foguete explodiu logo após o lançamento. As pessoas não confiam mais "
+#~ "nesta tecnologia para evacuação. Você deverá lançar mais 5 foguetes não "
+#~ "tripulados para que eles recuperem a confiança."
 
 #~ msgid "Total Evacuation Complete."
 #~ msgstr "Evacuação Total Completada."
@@ -2441,11 +2619,20 @@ msgstr "Opções de Comércio"
 #~ msgid "Light Industry available"
 #~ msgstr "Indústria leve disponível"
 
-#~ msgid "You have reached the tech level which enables you to build light industry. Light industry produces goods. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir indústrias leves. Indústrias leves produzem bens."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir indústrias "
+#~ "leves. Indústrias leves produzem bens."
 
-#~ msgid "You have reached the tech level which enables you to build mills. Mills use jobs and food to make goods. Watch out, they can use a lot of food! "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir moinhos. Moinhos utilizam produção e alimento para produzir bens. Atençao, eles podem utilizar bastante alimentos!"
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir moinhos. "
+#~ "Moinhos utilizam produção e alimento para produzir bens. Atençao, eles "
+#~ "podem utilizar bastante alimentos!"
 
 #~ msgid "Show resources."
 #~ msgstr "Exibir recursos."
@@ -2453,8 +2640,12 @@ msgstr "Opções de Comércio"
 #~ msgid "Modern Windmills available"
 #~ msgstr "Moinho de Vento disponível"
 
-#~ msgid "You have reached the tech level which enables you to build modern, more efficient, windmills. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir modernos, e mais eficientes, moinhos de vento."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir modernos, e "
+#~ "mais eficientes, moinhos de vento."
 
 #~ msgid "Start with empty board."
 #~ msgstr "Iniciar uma cidade vazia."
@@ -2465,20 +2656,40 @@ msgstr "Opções de Comércio"
 #~ msgid "No Credit Available"
 #~ msgstr "Sem Crédito Disponível"
 
-#~ msgid "You have a budget deficit. The legislative council will not allow you to build parks on credit."
-#~ msgstr "Você tem um déficit no orçamento. O conselho legislativo não deixará que você construa parques à crédito."
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr ""
+#~ "Você tem um déficit no orçamento. O conselho legislativo não deixará que "
+#~ "você construa parques à crédito."
 
-#~ msgid "You have a budget deficit. The legislative council will not allow you to build recycling centres on credit."
-#~ msgstr "Você tem um déficit no orçamento. O conselho legislativo não deixará que você construa centros de reciclagem à crédito."
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "Você tem um déficit no orçamento. O conselho legislativo não deixará que "
+#~ "você construa centros de reciclagem à crédito."
 
-#~ msgid "You have a budget deficit. The legislative council will not allow you to build rocket launch pads on credit."
-#~ msgstr "Você tem um déficit no orçamento. O conselho legislativo não deixará que você construa áreas de lançamento à crédito."
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "Você tem um déficit no orçamento. O conselho legislativo não deixará que "
+#~ "você construa áreas de lançamento à crédito."
 
-#~ msgid "You have a budget deficit. The legislative council will not allow you to build solar power stations on credit."
-#~ msgstr "Você tem um déficit no orçamento. O conselho legislativo não deixará que você construa usinas elétricas solares à crédito."
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "Você tem um déficit no orçamento. O conselho legislativo não deixará que "
+#~ "você construa usinas elétricas solares à crédito."
 
-#~ msgid "You have a budget deficit. The legislative council will not allow you to build universities on credit."
-#~ msgstr "Você tem um déficit no orçamento. O conselho legislativo não deixará que você construa universidades à crédito."
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "Você tem um déficit no orçamento. O conselho legislativo não deixará que "
+#~ "você construa universidades à crédito."
 
 #~ msgid "Not Allowed"
 #~ msgstr "Não Permitido"
@@ -2489,26 +2700,42 @@ msgstr "Opções de Comércio"
 #~ msgid "Parks available"
 #~ msgstr "Parque disponível"
 
-#~ msgid "You have reached the tech level which enables you to build parks. Parks are used to absorb pollution. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir parques. Parques são utilizados para absorver a poluição."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir parques. "
+#~ "Parques são utilizados para absorver a poluição."
 
 #~ msgid "Potteries available"
 #~ msgstr "Olaria disponível"
 
-#~ msgid "You have reached the tech level which enables you to build potteries. Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir olarias. Olarias utilizam produção e minério para produzir bens. (Você necessita de minas para conseguir os minérios)"
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir olarias. "
+#~ "Olarias utilizam produção e minério para produzir bens. (Você necessita "
+#~ "de minas para conseguir os minérios)"
 
 #~ msgid "Railways available"
 #~ msgstr "Estrada de ferro disponível"
 
-#~ msgid "You have reached the tech level which enables you to build railways. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir estradas de ferro."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir estradas de "
+#~ "ferro."
 
 #~ msgid "Recycling Centres available"
 #~ msgstr "Centro de Reciclagem disponível"
 
-#~ msgid "You have reached the tech level which enables you to recycling centres. Recycling centres recycle used goods back into ore. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir centros de reciclagem. Centros de reciclagem transformam bens usados em minérios."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir centros de "
+#~ "reciclagem. Centros de reciclagem transformam bens usados em minérios."
 
 #~ msgid "Rivers available"
 #~ msgstr "Rios disponíveis"
@@ -2522,8 +2749,14 @@ msgstr "Opções de Comércio"
 #~ msgid "Rocket Launch Pad available"
 #~ msgstr "Base de lançamento de foguetes disponível"
 
-#~ msgid "You have reached the tech level which enables you to build rocket launch pads. Rockets enable you to evacuate your population and is a way to 'win' the game."
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir bases de lançamentos. Foguetes habilitam você a evacuar sua população e é um meio de 'ganhar' o jogo."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir bases de "
+#~ "lançamentos. Foguetes habilitam você a evacuar sua população e é um meio "
+#~ "de 'ganhar' o jogo."
 
 #~ msgid "save to selected slot"
 #~ msgstr "salva no slot selecionado"
@@ -2531,38 +2764,65 @@ msgstr "Opções de Comércio"
 #~ msgid "Schools available"
 #~ msgstr "Escolas disponíves"
 
-#~ msgid "You have reached the tech level which enables you to build schools. Schools use jobs and goods to increase tech level. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir escolas. Escolas utilizam produção e bens para aumentar o nível tecnológico."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir escolas. "
+#~ "Escolas utilizam produção e bens para aumentar o nível tecnológico."
 
-#~ msgid "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may spread to other areas. "
-#~ msgstr "Um incêndio iniciou na favela, o fogo esta FORA DE CONTROLE e poderá se espalhar para outras áreas."
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "Um incêndio iniciou na favela, o fogo esta FORA DE CONTROLE e poderá se "
+#~ "espalhar para outras áreas."
 
-#~ msgid "A fire has broken out at a shanty town. It is in a fire cover area and APPEARS to be under control. "
-#~ msgstr "Um incêndio iniciou na favela, que esta numa área coberta pelos bombeiros e APARENTA estar sob controle."
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "Um incêndio iniciou na favela, que esta numa área coberta pelos bombeiros "
+#~ "e APARENTA estar sob controle."
 
 #~ msgid "Solar Power Stations available"
 #~ msgstr "Usina elétrica solar disponível"
 
-#~ msgid "You have reached the tech level which enables you to build solar power stations. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir usinas elétricas solares."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir usinas "
+#~ "elétricas solares."
 
 #~ msgid "LinCity has determined that you have a sustainable economy."
 #~ msgstr "LinCity determinou que você tem uma economia sustentável."
 
-#~ msgid "Sorry, the game you wanted is too old. Cannot load it. Still play with previous game."
-#~ msgstr "Desculpe, mas o jogo que você quer é muito antigo. Impossível carregá-lo. Continue a jogar com o jogo antigo."
+#~ msgid ""
+#~ "Sorry, the game you wanted is too old. Cannot load it. Still play with "
+#~ "previous game."
+#~ msgstr ""
+#~ "Desculpe, mas o jogo que você quer é muito antigo. Impossível carregá-lo. "
+#~ "Continue a jogar com o jogo antigo."
 
 #~ msgid "University available"
 #~ msgstr "Universidade disponível"
 
-#~ msgid "You have reached the tech level which enables you to build universities. Universities produces PhDs, which produce more technology. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir universidades. Universidades produzem PhDs, que produzem mais tecnologia."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir universidades. "
+#~ "Universidades produzem PhDs, que produzem mais tecnologia."
 
 #~ msgid "Windmills available"
 #~ msgstr "Moinho de Vento disponível"
 
-#~ msgid "You have reached the tech level which enables you to build windmills. "
-#~ msgstr "Você alcançou o nível tecnológico que habilita a construir moinhos de vento."
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr ""
+#~ "Você alcançou o nível tecnológico que habilita a construir moinhos de "
+#~ "vento."
 
 #~ msgid "NO "
 #~ msgstr "NÃO "
@@ -2592,7 +2852,8 @@ msgstr "Opções de Comércio"
 #~ msgstr ".   Minas de carvão %4d   Minas de minério %4d    Comunas %4d"
 
 #~ msgid ".   Light inds %4d      Heavy inds %4d        Recyclers %4d"
-#~ msgstr ".    Indústias lv %4d      Indústrias pes %4d  Centros de reciclagem %4d"
+#~ msgstr ""
+#~ ".    Indústias lv %4d      Indústrias pes %4d  Centros de reciclagem %4d"
 
 #~ msgid ".    Potteries %4d     Blacksmiths %4d            Mills %4d"
 #~ msgstr ".     Olarias %4d     Ferreiros %4d            Moinhos %4d"
@@ -2604,7 +2865,8 @@ msgstr "Opções de Comércio"
 #~ msgstr ".  Sub-estações %4d   Linhas de transmissão %4d   Portos %4d"
 
 #~ msgid ".    Windmills %4d     Coal powers %4d     Solar powers %4d"
-#~ msgstr ".   Moinhos de vento %4d   Usinas de carvão %4d   Usinas solares %4d"
+#~ msgstr ""
+#~ ".   Moinhos de vento %4d   Usinas de carvão %4d   Usinas solares %4d"
 
 #~ msgid "Health centres %4d            Tips %4d         Shanties %4d"
 #~ msgstr "Centros de saúde %4d         Aterros %4d         Favelas %4d"
@@ -2625,26 +2887,26 @@ msgstr "Opções de Comércio"
 #~ msgstr ".Mortos pela fome %7d   Histórico %8.3f"
 
 # FEAT-03d petroleum (help XML / MPS)
-msgid "Oil Well"
-msgstr "Poço de Petróleo"
+#~ msgid "Oil Well"
+#~ msgstr "Poço de Petróleo"
 
-msgid "Oil Wells"
-msgstr "Poços de Petróleo"
+#~ msgid "Oil Wells"
+#~ msgstr "Poços de Petróleo"
 
-msgid "Refinery"
-msgstr "Refinaria"
+#~ msgid "Refinery"
+#~ msgstr "Refinaria"
 
-msgid "Refineries"
-msgstr "Refinarias"
+#~ msgid "Refineries"
+#~ msgstr "Refinarias"
 
-msgid "Extracted"
-msgstr "Extraído"
+#~ msgid "Extracted"
+#~ msgstr "Extraído"
 
-msgid "Processed"
-msgstr "Processado"
+#~ msgid "Processed"
+#~ msgstr "Processado"
 
-msgid "Oil Reserve"
-msgstr "Reserva de Petróleo"
+#~ msgid "Oil Reserve"
+#~ msgstr "Reserva de Petróleo"
 
-msgid "Petroleum"
-msgstr "Petróleo"
+#~ msgid "Petroleum"
+#~ msgstr "Petróleo"

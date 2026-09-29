@@ -20,25 +20,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  gd.po (Lincity-NG)  #-#-#-#-#\n"
-"#-#-#-#-#  gd.po (Lincity-NG)  #-#-#-#-#\n"
-"Project-Id-Version: Lincity-NG\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-29 18:39+0000\n"
-"PO-Revision-Date: 2014-01-21 13:10+0100\n"
-"Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
-"Language-Team: Fòram na Gàidhlig http://www.foramnagaidhlig.net\n"
-"Language: gd\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
-"(n > 2 && n < 20) ? 2 : 3;\n"
-"X-Generator: Virtaal 0.7.1\n"
-"#-#-#-#-#  gd.po (Lincity-NG GUI)  #-#-#-#-#\n"
 "Project-Id-Version: Lincity-NG GUI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Oct 29 18:39:39 2013\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
 "PO-Revision-Date: 2016-09-13 10:15+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -46,1380 +30,2041 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  gd.po (Lincity-NG)  #-#-#-#-#\n"
+"#-#-#-#-#  gd.po (Lincity-NG)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Virtaal 0.7.1\n"
 "#-#-#-#-#  gd.po (Lincity-NG GUI)  #-#-#-#-#\n"
-"Project-Id-Version: Lincity-NG GUI\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Oct 29 18:39:39 2013\n"
-"PO-Revision-Date: 2016-09-13 10:15+0100\n"
-"Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
-"Language-Team: Fòram na Gàidhlig\n"
-"Language: gd\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"#-#-#-#-#  gd.po (Lincity-NG GUI)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
 "(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Virtaal 0.7.1\n"
 
-#: src/lincity/lclib.cpp:15
-msgid "Jan"
-msgstr "Faoi"
-
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "Gearr"
-
-#: src/lincity/lclib.cpp:15
-msgid "Mar"
-msgstr "Màrt"
-
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "Gib"
-
-#: src/lincity/lclib.cpp:16
-msgid "May"
-msgstr "Cèit"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "Ògmh"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "Iuch"
-
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "Lùn"
-
-#: src/lincity/lclib.cpp:17
-msgid "Sep"
-msgstr "Sult"
-
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "Dàmh"
-
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "Samh"
-
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "Dùbh"
-
-#: src/lincity/loadsave.cpp:161
-#, c-format
-msgid "Save file <%s> - "
-msgstr "Faidhle sàbhalaidh <%s> - "
-
-#: src/lincity/loadsave.cpp:162
-msgid "Can't open save file!"
-msgstr "Cha ghabh am faidhle sàbhalaidh fhosgladh"
-
-#: src/lincity/loadsave.cpp:355 src/lincity/old_ldsvguts.cpp:132
-#, c-format
-msgid "Can't open <%s> (gzipped)"
-msgstr "Cha ghabh <%s> fhosgladh (gzip)"
-
-#: src/lincity/simulate.cpp:89
-msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+msgid "requires"
 msgstr ""
-"Ag ùrachadh o sheann gheama. Tha 10 bliadhna agad gus tobraichean a togail "
-"far a bheil feum orra. Bidh gortas ann an uairsin! Thoir sùil air meanbh-"
-"mhapa a' ghortais is leugh duilleag na cobharach mu thobraichean :-)"
 
-#: src/lincity/fileutil.cpp:201 src/lincity/fileutil.cpp:245
-msgid "Error. Can't find LINCITY_HOME"
-msgstr "Mearachd. Cha deach LINCITY_HOME a lorg"
-
-#: src/lincity/fileutil.cpp:431
-msgid "Error verifying package. Can't find colour.pal."
-msgstr "Mearachd a' dearbhadh na pacaide. Cha deach colour.pal a lorg."
-
-#: src/lincity/fileutil.cpp:444 src/lincity/fileutil.cpp:454
-#, c-format
-msgid "Couldn't create the save directory '%s'\n"
-msgstr "Cha b' urrainn dhuinn am pasgan sàbhalaidh \"%s\" a chruthachadh\n"
-
-#: src/lincity/fileutil.cpp:450
-#, c-format
-msgid "Failed to chown '%s'\n"
-msgstr "Cha deach leinn chown a dhèanamh air \"%s\"\n"
-
-#: src/lincity/fileutil.cpp:471
-msgid "Out of memory: malloc failure\n"
-msgstr "Tha cuimhne a dhìth: fàilligeadh malloc\n"
-
-#: src/lincity/engine.cpp:62
-msgid "You just spent all your money."
-msgstr "Tha thu air a h-uile airgead agad a chosg."
-
-#: src/lincity/engine.cpp:77
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
-msgstr ""
-"MEARACHD: chan eil am buidheann ann. Cha bu chòir seo a thachairt! Nach cuir "
-"thu aithris air a' bhuga seo dhan sgioba lincity-ng leis a' gheama air a "
-"shàbhaladh na cois is fios mu na rinn thu :-) "
-
-#: src/lincity/engine.cpp:206
-msgid "ups, Bulldozer found a dangling reportingConstruction"
-msgstr "oich, lorg am milltear reportingConstruction a' clifeadh"
-
-#: src/lincity/engine.cpp:350
-msgid "UNKNOWN!"
-msgstr "NEO-AITHNICHTE!"
-
-#: src/lincity/old_ldsvguts.cpp:164
-msgid "Loading scene"
-msgstr "A' luchdadh sealladh"
-
-#: src/lincity/lintypes.cpp:1343
-msgid "Port must be connected to river all along right side."
-msgstr ""
-"Feumaidh an taobh deas uile gu lèir aig port a bhith ceangailte ri abhainn."
-
-#: src/lincity/lintypes.cpp:1359
-msgid "You can't build a water well here: it is all desert."
-msgstr "Chan urrainn dhut tobar a thogail an-seo: chan eil ach fàsach ann."
-
-#: src/lincity/lintypes.cpp:1378
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr ""
-"Chan urrainn dhut mèinn a thogail an-seo: chan eil clach-mhèinneir air "
-"fhàgail aig an ionad seo"
-
-#: src/lincity/lintypes.cpp:1389
-msgid "You can't build a park here: it is a desert, parks need water"
-msgstr ""
-"Chan urrainn dhut pàirc a thogail an-seo: 's e fàsach a th' ann, ach tha "
-"pàirc feumach air uisge"
-
-#: src/lincity/lintypes.cpp:1450
-msgid "Empty"
-msgstr "Falamh"
-
-#: src/lincity/lintypes.cpp:1463
-msgid "Power line"
-msgstr "Loidhne-dhealain"
-
-#: src/lincity/lintypes.cpp:1475
-msgid "Solar PS"
-msgstr "Stèisean cumhachd-grèine"
-
-#: src/lincity/lintypes.cpp:1486
-msgid "Substation"
-msgstr "Fo-stèisean"
-
-#: src/lincity/lintypes.cpp:1497
-msgid "Residential LL"
-msgstr "Còmhnaidh bheag"
-
-#: src/lincity/lintypes.cpp:1508
-msgid "Farm"
-msgstr "Tuathanas"
-
-#: src/lincity/lintypes.cpp:1519 src/lincity-ng/Dialog.cpp:636
-msgid "Market"
-msgstr "Margaid"
-
-#: src/lincity/lintypes.cpp:1530
-msgid "Track"
-msgstr "Slighe"
-
-#: src/lincity/lintypes.cpp:1541
-msgid "Coalmine"
-msgstr "Mèinn guail"
-
-#: src/lincity/lintypes.cpp:1552
-msgid "Railway"
-msgstr "Rèile"
-
-#: src/lincity/lintypes.cpp:1563
-msgid "Coal PS"
-msgstr "Stèisean cumhachd-guail"
-
-#: src/lincity/lintypes.cpp:1574
-msgid "Road"
-msgstr "Rathad"
-
-#: src/lincity/lintypes.cpp:1585
-msgid "Lt. Industry"
-msgstr "Gnìomhachas aotrom"
-
-#: src/lincity/lintypes.cpp:1596
-msgid "University"
-msgstr "Oilthigh"
-
-#: src/lincity/lintypes.cpp:1607
-msgid "Commune"
-msgstr "Coille"
-
-#: src/lincity/lintypes.cpp:1618
-msgid "Ore mine"
-msgstr "Mèinn cloiche-mèinneir"
-
-#: src/lincity/lintypes.cpp:1629
-msgid "Rubbish tip"
-msgstr "Òtrach"
-
-#: src/lincity/lintypes.cpp:1640 src/lincity-ng/Dialog.cpp:697
-msgid "Port"
-msgstr "Port"
-
-#: src/lincity/lintypes.cpp:1651
-msgid "Hv. Industry"
-msgstr "Ceàrdach stàilinn"
-
-#: src/lincity/lintypes.cpp:1662
-msgid "Park"
-msgstr "Pàirc"
-
-#: src/lincity/lintypes.cpp:1673
-msgid "Recycle"
-msgstr "Ionad ath-chuairteachaidh"
-
-#: src/lincity/lintypes.cpp:1684 src/lincity/modules/water.cpp:17
-#: data/gui/pbar2nd.xml
-msgid "Water"
-msgstr "Uisge"
-
-#: src/lincity/lintypes.cpp:1695
-msgid "Health centre"
-msgstr "Ionad-slàinte"
-
-#: src/lincity/lintypes.cpp:1706
-msgid "Rocket pad"
-msgstr "Raon-rocaide"
-
-#: src/lincity/lintypes.cpp:1717
-msgid "Windmill"
-msgstr "Muileann-gaoithe"
-
-#: src/lincity/lintypes.cpp:1728
-msgid "Monument"
-msgstr "Carragh"
-
-#: src/lincity/lintypes.cpp:1739
-msgid "School"
-msgstr "Sgoil"
-
-#: src/lincity/lintypes.cpp:1750
-msgid "Blacksmith"
-msgstr "Gobha-dubh"
-
-#: src/lincity/lintypes.cpp:1761
-msgid "Mill"
-msgstr "Muileann-clòtha"
-
-#: src/lincity/lintypes.cpp:1772
-msgid "Pottery"
-msgstr "Criadhadaireachd"
-
-#: src/lincity/lintypes.cpp:1783
-msgid "Fire sta'n"
-msgstr "Stèisean-smàlaidh"
-
-#: src/lincity/lintypes.cpp:1794
-msgid "Sports field"
-msgstr "Raon spòrsa"
-
-#: src/lincity/lintypes.cpp:1806
-msgid "Burnt"
-msgstr "Loisgte"
-
-#: src/lincity/lintypes.cpp:1818
-msgid "Shanty town"
-msgstr "Bothain"
-
-#: src/lincity/lintypes.cpp:1830 src/lincity-ng/EconomyGraph.cpp:135
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire"
-msgstr "Teine"
-
-#: src/lincity/lintypes.cpp:1842
-msgid "Used"
-msgstr "'Ga chleachdadh"
-
-#: src/lincity/lintypes.cpp:1853
-msgid "Residential ML"
-msgstr "Còmhnaidh mheadhanach"
-
-#: src/lincity/lintypes.cpp:1864
-msgid "Residential HL"
-msgstr "Còmhnaidh mhòr"
-
-#: src/lincity/lintypes.cpp:1875
-msgid "Residential LH"
-msgstr "Còmhnaidh nuadh bheag"
-
-#: src/lincity/lintypes.cpp:1886
-msgid "Residential MH"
-msgstr "Còmhnaidh nuadh mheadhanach"
-
-#: src/lincity/lintypes.cpp:1897
-msgid "Residential HH"
-msgstr "Còmhnaidh nuadh mhòr"
-
-#: src/lincity/lintypes.cpp:1908
-msgid "Water well"
-msgstr "Tobar"
-
-#: src/lincity/lintypes.cpp:1920
-msgid "Desert"
-msgstr "Fàsach"
-
-#: src/lincity/lintypes.cpp:1932
-msgid "Tree"
-msgstr "Craobh"
-
-#: src/lincity/lintypes.cpp:1945
-msgid "Trees"
-msgstr "Craobhan"
-
-#: src/lincity/lintypes.cpp:1958
-msgid "Forest"
-msgstr "Coille"
-
-#: src/lincity/lintypes.cpp:1971
-msgid "Track Bridge"
-msgstr "Drochaid slighe"
-
-#: src/lincity/lintypes.cpp:1983
-msgid "Road Bridge"
-msgstr "Drochaid rathaid"
-
-#: src/lincity/lintypes.cpp:1995
-msgid "Rail Bridge"
-msgstr "Drochaid rèile"
-
-#: src/lincity/lintypes.cpp:2007
-msgid "Wind Power"
-msgstr "Cumhachd-ghaoithe"
-
-#: src/lincity/modules/recycle.cpp:70 src/lincity/modules/organic_farm.cpp:170
-#: src/lincity/modules/heavy_industry.cpp:251
-#: src/lincity/modules/windpower.cpp:78 src/lincity/modules/rocket_pad.cpp:236
-#: src/lincity/modules/light_industry.cpp:219
-#: src/lincity/modules/coal_power.cpp:66 src/lincity/modules/solar_power.cpp:54
-msgid "Tech"
+#: src/lincity-ng/ButtonPanel.cpp:344
+#, fuzzy
+msgid "tech level"
 msgstr "Teicneolas"
 
-#: src/lincity/modules/recycle.cpp:71
-msgid "Efficiency Ore"
-msgstr "Èifeachdachd cloiche-mèinneir"
-
-#: src/lincity/modules/recycle.cpp:72
-msgid "Efficiency Steel"
-msgstr "Èifeachdachd stàilinn"
-
-#: src/lincity/modules/recycle.cpp:73 src/lincity/modules/organic_farm.cpp:171
-#: src/lincity/modules/market.cpp:182
-#: src/lincity/modules/heavy_industry.cpp:250
-#: src/lincity/modules/windpower.cpp:77 src/lincity/modules/blacksmith.cpp:99
-#: src/lincity/modules/rocket_pad.cpp:235 src/lincity/modules/monument.cpp:115
-#: src/lincity/modules/light_industry.cpp:218
-#: src/lincity/modules/coal_power.cpp:65 src/lincity/modules/solar_power.cpp:53
-#: src/lincity/modules/mill.cpp:91
-msgid "busy"
-msgstr "Trang"
-
-#: src/lincity/modules/organic_farm.cpp:172
-msgid "Output"
-msgstr "Toradh"
-
-#: src/lincity/modules/waterwell.cpp:65 data/gui/pbar2nd.xml
-msgid "Pollution"
-msgstr "Truailleadh"
-
-#: src/lincity/modules/waterwell.cpp:67
-msgid "Drinkable"
-msgstr "Gabhaidh e òl"
-
-#: src/lincity/modules/university.cpp:58
-msgid "Tech researched"
-msgstr "Teicneolas air a rannsachadh"
-
-#: src/lincity/modules/tip.cpp:114
-msgid "Filled"
-msgstr "Làn"
-
-#: src/lincity/modules/water.cpp:20
-msgid "River"
-msgstr "Abhainn"
-
-#: src/lincity/modules/water.cpp:20
-msgid "Lake"
-msgstr "Loch"
-
-#: src/lincity/modules/residence.cpp:349 data/gui/pbar2nd.xml
-msgid "Tenants"
-msgstr "Màladairean"
-
-#: src/lincity/modules/residence.cpp:350
-msgid "Desireability"
-msgstr "Goireasachd"
-
-#: src/lincity/modules/residence.cpp:351
-msgid "Births per year"
-msgstr "Breithean / bliadhna"
-
-#: src/lincity/modules/residence.cpp:352
-msgid "Death per year"
-msgstr "Caochladh / bliadhna"
-
-#: src/lincity/modules/residence.cpp:353
-msgid "Unnat. mortality"
-msgstr "Bàs mì-nàdarra"
-
-#: src/lincity/modules/school.cpp:57
-msgid "Lessons learned"
-msgstr "Leasanan air an ionnsachadh"
-
-#: src/lincity-ng/EconomyGraph.cpp:125
-msgid "Mining"
-msgstr "Mèinnean"
-
-#: src/lincity-ng/EconomyGraph.cpp:127
-msgid "Trade"
-msgstr "Malart"
-
-#: src/lincity-ng/EconomyGraph.cpp:129 data/gui/pbar2nd.xml data/gui/pbar.xml
-msgid "Money"
-msgstr "Airgead"
-
-#: src/lincity-ng/EconomyGraph.cpp:131
-msgid "Popul."
-msgstr "Sluagh"
-
-#: src/lincity-ng/EconomyGraph.cpp:133
-msgid "Techn."
-msgstr "Teicneolas"
-
-#: src/lincity-ng/EconomyGraph.cpp:138
-msgid "Economy Overview:"
-msgstr "Foir-shealladh an eaconamaidh:"
-
-#: src/lincity-ng/EconomyGraph.cpp:141
-msgid "Sustainability:"
-msgstr "Seasmhachd:"
-
-#: src/lincity-ng/EconomyGraph.cpp:144
-msgid "Frames per Second:"
-msgstr "Frèaman gach diog:"
-
-#: src/lincity-ng/EconomyGraph.cpp:219
-msgid "You lose."
-msgstr "Chaill thu."
-
-#: src/lincity-ng/MainMenu.cpp:154
-msgid "river delta"
-msgstr "gobhlan aibhne"
-
-#: src/lincity-ng/MainMenu.cpp:158
-msgid "semi desert"
-msgstr "leth-fhàsach"
-
-#: src/lincity-ng/MainMenu.cpp:162
-msgid "temperate"
-msgstr "measarra"
-
-#: src/lincity-ng/MainMenu.cpp:166
-msgid "swamp"
-msgstr "boglach"
-
-#: src/lincity-ng/MainMenu.cpp:171
-msgid "good_times"
-msgstr "deagh amannan"
-
-#: src/lincity-ng/MainMenu.cpp:172
-msgid "bad_times"
-msgstr "droch amannan"
-
-#: src/lincity-ng/MainMenu.cpp:173
-msgid "Beach"
-msgstr "Tràigh"
-
-#: src/lincity-ng/MainMenu.cpp:174
-msgid "extreme_arid"
-msgstr "glè thioram"
-
-#: src/lincity-ng/MainMenu.cpp:175
-msgid "extreme_wetland"
-msgstr "glè fhliuch"
-
-#: src/lincity-ng/MainMenu.cpp:234
-msgid "empty"
-msgstr "falamh"
-
-#: src/lincity-ng/Dialog.cpp:175
-msgid "Launchsite"
-msgstr "Raon-rocaide"
-
-#: src/lincity-ng/Dialog.cpp:373
-msgid "----- IN TEST MODE -------"
-msgstr "----- ANN AM MODH DEUCHAINN -------"
-
-#: src/lincity-ng/Dialog.cpp:375
-#, c-format
-msgid "Game statistics from LinCity-NG Version %s"
-msgstr "Stadastaireachd a' gheama o LinCity-NG tionndadh %s"
-
-#: src/lincity-ng/Dialog.cpp:378
-#, c-format
-msgid "Initial loaded scene - %s"
-msgstr "Sealladh tòiseachaidh - %s"
-
-#: src/lincity-ng/Dialog.cpp:382
-msgid "Economy is sustainable"
-msgstr "Tha an eaconamaidh seasmhach"
-
-#: src/lincity-ng/Dialog.cpp:385
-#, c-format
-msgid "Population  %d  of which  %d  are not housed."
-msgstr "Sluagh de %d le %d gun dachaigh."
-
-#: src/lincity-ng/Dialog.cpp:389
-#, c-format
-msgid "Max population %d  Number evacuated %d Total births %d"
-msgstr "Sluagh as motha: %d   Air às-àiteachadh: %d   Breithean iomlan: %d"
-
-#: src/lincity-ng/Dialog.cpp:393
-#, c-format
-msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
-msgstr "Ceann-là: %s %04d   Airgead: %8d   Teicneolas %5.1f (%5.1f)"
-
-#: src/lincity-ng/Dialog.cpp:399
-#, c-format
-msgid "Deaths by starvation %7d   History %8.3f"
-msgstr "Bàs leis an acras: %7d   Eachdraidh: %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:403
-#, c-format
-msgid "Deaths from pollution %7d   History %8.3f"
-msgstr "Bàs leis an truailleadh: %7d   Eachdraidh: %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:406
-#, c-format
-msgid "Years of unemployment %7d   History %8.3f"
-msgstr "Bliadhnaichean gun obair: %7d   Eachdraidh: %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:409
-#, c-format
-msgid "Rockets launched %2d  Successful launches %2d"
-msgstr "Rocaidean air losgadh: %2d   Losgaidhean soirbheachail: %2d"
-
-#: src/lincity-ng/Dialog.cpp:418
-msgid "Residences"
-msgstr "Còmhnaidhean"
-
-#: src/lincity-ng/Dialog.cpp:426
-msgid "Markets"
-msgstr "Margaidean"
-
-#: src/lincity-ng/Dialog.cpp:427
-msgid "Farms"
-msgstr "Tuathanasan"
-
-#: src/lincity-ng/Dialog.cpp:429
-msgid "Water wells"
-msgstr "Tobraichean"
-
-#: src/lincity-ng/Dialog.cpp:430
-msgid "Wind powers"
-msgstr "Muilleann-gaoithe nuadh"
-
-#: src/lincity-ng/Dialog.cpp:437
-msgid "Monuments"
-msgstr "Carraighean"
-
-#: src/lincity-ng/Dialog.cpp:438
-msgid "Schools"
-msgstr "Sgoiltean"
-
-#: src/lincity-ng/Dialog.cpp:439
-msgid "Universities"
-msgstr "Oilthighean"
-
-#: src/lincity-ng/Dialog.cpp:441
-msgid "Fire stations"
-msgstr "Stèiseanan-smàlaidh"
-
-#: src/lincity-ng/Dialog.cpp:442
-msgid "Parks"
-msgstr "Pàircean"
-
-#: src/lincity-ng/Dialog.cpp:443
-msgid "Sports fields"
-msgstr "Raointean spòrsa"
-
-#: src/lincity-ng/Dialog.cpp:445
-msgid "Health centres"
-msgstr "Ionadan-slàinte"
-
-#: src/lincity-ng/Dialog.cpp:446
-msgid "Tips"
-msgstr "Òtraichean"
-
-#: src/lincity-ng/Dialog.cpp:447
-msgid "Shanties"
-msgstr "Bothain"
-
-#: src/lincity-ng/Dialog.cpp:453
-msgid "Windmills"
-msgstr "Muileannan-gaoithe"
-
-#: src/lincity-ng/Dialog.cpp:454
-msgid "Coal powers"
-msgstr "St. cumhachd-guail"
-
-#: src/lincity-ng/Dialog.cpp:455
-msgid "Solar powers"
-msgstr "St. cumhachd-grèine"
-
-#: src/lincity-ng/Dialog.cpp:457
-msgid "Substations"
-msgstr "Fo-stèiseanan"
-
-#: src/lincity-ng/Dialog.cpp:458
-msgid "Power lines"
-msgstr "Loidhnichean-dealain"
-
-#: src/lincity-ng/Dialog.cpp:459
-msgid "Ports"
-msgstr "Puirt"
-
-#: src/lincity-ng/Dialog.cpp:461
-msgid "Tracks"
-msgstr "Slighean"
-
-#: src/lincity-ng/Dialog.cpp:462
-msgid "Roads"
-msgstr "Rathaidean"
-
-#: src/lincity-ng/Dialog.cpp:463
-msgid "Rail"
-msgstr "Rèilean"
-
-#: src/lincity-ng/Dialog.cpp:469
-msgid "Potteries"
-msgstr "Criadhadaireachd"
-
-#: src/lincity-ng/Dialog.cpp:470
-msgid "Blacksmiths"
-msgstr "Goibhnean-dubha"
-
-#: src/lincity-ng/Dialog.cpp:471
-msgid "Mills"
-msgstr "Muileannan-clòtha"
-
-#: src/lincity-ng/Dialog.cpp:473
-msgid "Light inds"
-msgstr "Gnìomh. aotrom"
-
-#: src/lincity-ng/Dialog.cpp:474
-msgid "Heavy inds"
-msgstr "Ceàrd. stàilinn"
-
-#: src/lincity-ng/Dialog.cpp:475
-msgid "Recyclers"
-msgstr "Ath-chuairteachadh"
-
-#: src/lincity-ng/Dialog.cpp:477
-msgid "Coal mines"
-msgstr "Mèinnean guail"
-
-#: src/lincity-ng/Dialog.cpp:478
-msgid "Ore mines"
-msgstr "Clach-mhèinneir"
-
-#: src/lincity-ng/Dialog.cpp:479
-msgid "Forests"
-msgstr "Coilltean"
-
-#: src/lincity-ng/ButtonPanel.cpp:296 src/lincity-ng/ButtonPanel.cpp:342
-#: src/lincity-ng/ButtonPanel.cpp:473 src/lincity-ng/ButtonPanel.cpp:498
-#, c-format
-msgid "%s (Techlevel %.1f required.)"
-msgstr "%s (Ìre teicneolais %.1f riatanach.)"
-
-#: src/lincity-ng/ButtonPanel.cpp:305
-#, c-format
-msgid "%s is disabled (loaded old game)."
-msgstr "Tha %s à comas (chaidh seann gheama a luchdadh)."
-
-#: src/lincity-ng/ScreenInterface.cpp:234
-msgid "M"
-msgstr "M"
-
-#: src/lincity-ng/ScreenInterface.cpp:245 src/lincity-ng/GameView.cpp:1774
-#: src/lincity-ng/GameView.cpp:1786 src/lincity-ng/GameView.cpp:1816
-#: data/gui/minimap.xml
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "£"
 
-#: src/lincity-ng/GameView.cpp:260
-msgid "Minimap: outline map"
-msgstr "Meanbh-mhapa: oir-loidhne"
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:263
-msgid "Minimap: unemployment"
-msgstr "Meanbh-mhapa: cion-cosnaidh"
+#: src/lincity-ng/ButtonPanel.cpp:373
+msgid "Query Tool"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:266
-msgid "Minimap: pollution"
-msgstr "Meanbh-mhapa: truailleadh"
+#: src/lincity-ng/ButtonPanel.cpp:378
+msgid ": 50 tenants, low birthrate, high deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:269
-msgid "Minimap: nourishments"
-msgstr "Meanbh-mhapa: biadh"
+#: src/lincity-ng/ButtonPanel.cpp:381
+msgid ": 100 tenants, high birthrate, low deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:272
-msgid "Minimap: power supply"
-msgstr "Meanbh-mhapa: solar cumhachd"
+#: src/lincity-ng/ButtonPanel.cpp:384
+msgid ": 200 tenants, high birthrate, high deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:275
-msgid "Minimap: firedepartment cover"
-msgstr "Meanbh-mhapa: còmhdachadh smàlaidh"
+#: src/lincity-ng/ButtonPanel.cpp:387
+msgid ": 100 tenants, low birthrate, high deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:278
-msgid "Minimap: sport cover"
-msgstr "Meanbh-mhapa: còmhdachadh spòrsa"
+#: src/lincity-ng/ButtonPanel.cpp:390
+msgid ": 200 tenants, high birthrate, low deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:281
-msgid "Minimap: medical care"
-msgstr "Meanbh-mhapa: cùram slàinte"
+#: src/lincity-ng/ButtonPanel.cpp:393
+msgid ": 400 tenants, high birthrate, high deathrate"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:284
-msgid "Minimap: coal deposits"
-msgstr "Meanbh-mhapa: tionalan guail"
-
-#: src/lincity-ng/GameView.cpp:1769
-msgid "Estimated Bulldoze Cost: "
-msgstr "Tuairmse air cosgais a' mhillidh: "
-
-#: src/lincity-ng/GameView.cpp:1771
-msgid "Bulldoze Cost: "
+#: src/lincity-ng/ButtonPanel.cpp:398
+#, fuzzy
+msgid "Bulldozer"
 msgstr "Cosgais a' mhillidh: "
 
-#: src/lincity-ng/GameView.cpp:1776 src/lincity-ng/GameView.cpp:1788
-msgid "n/a"
-msgstr "[chan eil seo iomchaidh]"
-
-#: src/lincity-ng/GameView.cpp:1784 src/lincity-ng/GameView.cpp:1816
-msgid ": Cost to build "
-msgstr ": Cosgais togail "
-
-#: src/lincity-ng/GameView.cpp:1806
-msgid "Query Tool: Show information about selected building."
-msgstr "Inneal ceiste: seall fiosrachadh mun togalach air a thaghadh."
-
-#: src/lincity-ng/GameView.cpp:1810
-msgid "Bulldozer: remove building -price varies-"
-msgstr "Milltear: thoir togalach air falbh - prìs chaochlaideach -"
-
-#: src/lincity-ng/GameView.cpp:1817
-msgid ", to bulldoze "
-msgstr ", airson milleadh "
-
-#: src/lincity-ng/GameView.cpp:1817 src/lincity-ng/GameView.cpp:1820
-msgid "$."
-msgstr "£."
-
-#: src/lincity-ng/GameView.cpp:1819
-msgid " To build "
-msgstr " Airson togail "
-
-#: src/lincity-ng/GameView.cpp:1819
-msgid " of them "
-msgstr " dhiubh "
-
-#: src/lincity-ng/GameView.cpp:1820
-msgid "will cost about "
-msgstr "cosgaidh e mu "
-
-#: data/gui/fire.xml
-msgid "A Fire has started"
-msgstr "Tha taighean air theine"
-
-#: data/gui/shfire-uc.xml
-msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
+#: src/lincity-ng/ButtonPanel.cpp:400
+msgid "Evacuate"
 msgstr ""
-"Tha bothain air theine. Tha e fo chòmhdachadh-smàlaidh is fhuair sinn smachd "
-"air a-rèir coltais."
 
-#: data/gui/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "Uisge"
+
+#: src/lincity-ng/ButtonPanel.cpp:406
+msgid "Click right for help."
 msgstr ""
-"Tha bothain air theine. Cha d' fhuair sinn smachd air is dh'fhaoidte gun "
-"sgaoil e gu raointean eile."
 
-#: data/gui/savegame.xml data/gui/loadgame.xml data/gui/newgame.xml
-#: data/gui/credits.xml
-msgid "Back"
-msgstr "Air ais"
-
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "Ceòl cùlaibh"
-
-#: data/gui/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "Tha raointean spòrsa ri làimh"
-
-#: data/gui/options.xml
-msgid "Binary saving"
-msgstr "Sàbhaladh bìnearaidh"
-
-#: data/gui/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "Tha goibhnean-dubha ri làimh"
-
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
-msgstr "Tha e glè chosgail carragh a mhilleadh."
-
-#: data/gui/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "Tha e glè chosgail roinn de dh'abhainn a mhilleadh."
-
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
 msgstr ""
-"Tha e glè chosgail bothain a mhilleadh is dh'fhaoidte gun adhbharaich seo "
-"teine."
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Buy"
-msgstr "Ceannaich"
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
+msgstr ""
 
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "Tagh cnàmh-sgeul"
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Coal"
-msgstr "Gual"
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
 
-#: data/gui/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "Tha stèiseanan cumhachd-guail ri làimh"
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
 
-#: data/gui/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "Tha mèinnean-guail ri làimh"
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
 
-#: data/gui/coal_survey_yn.xml
-msgid "Coal Survey"
-msgstr "Rùrachadh airson guail"
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "Còd"
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "Lean air adhart"
-
-#: data/gui/creditslist.xml data/gui/mainmenu.xml
-msgid "Credits"
-msgstr "Cliù"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "A bheil thu airson rùrachadh airson guail?"
-
-#: data/gui/launch-good.xml
-msgid "Doing well."
-msgstr "Ri dol gu math."
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "Eaco"
-
-#: data/gui/sustain.xml
-msgid "Economy Sustainable."
-msgstr "Tha an eaconamaidh seasmhach."
-
-#: data/gui/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr "Tha losgadh an às-àiteachaidh ri dol gu math"
-
-#: data/gui/firestationup.xml
-msgid "Fire Stations available"
-msgstr "Tha stèiseanan smàlaidh ri làimh"
-
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire!"
-msgstr "Teine!"
-
-#: data/gui/portdialog.xml data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Food"
-msgstr "Biadh"
-
-#: data/gui/options.xml
-msgid "Fullscreen"
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
 msgstr "Làn-sgrìn"
 
-#: data/gui/gamestats.xml
-msgid "Gamestats"
-msgstr "Stadastaireachd a' gheama"
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "Till dhan phrìomh chlàr-taice"
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Goods"
-msgstr "Bathar"
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "Grafaigeachd"
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
 
-#: data/gui/portdialog.xml
-msgid "Harbour Trade Settings"
-msgstr "Roghainnean malart a' phuirt"
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
 
-#: data/gui/healthup.xml
-msgid "Health Centres available"
-msgstr "Tha ionadan-slàinte ri làimh"
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
 
-#: data/gui/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "Tha ceàrdaichean stàilinn ri làimh"
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
+msgstr "Raon-rocaide"
 
-#: data/gui/import-exportup.xml
-msgid "Import/Export available"
-msgstr "Tha ion-mhalairt/às-mhalairt ri làimh"
+#: src/lincity-ng/Dialog.cpp:317
+#, fuzzy
+msgid "Game statistics from LinCity-NG Version"
+msgstr "Stadastaireachd a' gheama o LinCity-NG tionndadh %s"
 
-#: data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Jobs"
-msgstr "Obair"
+#: src/lincity-ng/Dialog.cpp:320
+#, fuzzy
+msgid "Initial loaded scene"
+msgstr "Sealladh tòiseachaidh - %s"
 
-#: data/gui/options.xml
-msgid "Language"
-msgstr "Cànan"
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr "Tha an eaconamaidh seasmhach"
 
-#: data/gui/launch-fail.xml
-msgid "Launch Failure"
-msgstr "Dh'fhàillig leis an losgadh"
-
-#: data/gui/launch-good.xml
-msgid "Launch Successfull"
-msgstr "Shoirbhich leis an losgadh"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "A bheil thu airson 'ga losgadh an-dràsta?"
-
-#: data/gui/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "Tha gnìomhachasan aotrom ri làimh"
-
-#: data/gui/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "Mhothaich LinCity gu bheil eaconamaidh seasmhach agad."
-
-#: data/gui/loadgame.xml data/gui/mainmenu.xml
-msgid "Load"
-msgstr "Luchdaich"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "Luchdaich geama"
-
-#: data/gui/pbar2nd.xml
-msgid "MWh"
-msgstr "MWh"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "Mapa"
-
-#: data/gui/options.xml
-msgid "Map Size"
-msgstr "Meud a' mhapa"
-
-#: data/gui/millup.xml
-msgid "Mills available"
-msgstr "Tha muileannan-clòtha ri làimh"
-
-#: data/gui/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "Tha muileannan-gaoithe nuadha ri làimh"
-
-#: data/gui/mainmenu.xml data/gui/newgame.xml
-msgid "New Game"
-msgstr "Geama ùr"
-
-#: data/gui/universityup.xml data/gui/solarpowerup.xml data/gui/railwayup.xml
-#: data/gui/rocketup.xml data/gui/mod_wind_up.xml data/gui/potteryup.xml
-#: data/gui/hvindustryup.xml data/gui/coalmineup.xml data/gui/healthup.xml
-#: data/gui/blacksmithup.xml data/gui/millup.xml data/gui/riverup.xml
-#: data/gui/cricketup.xml data/gui/ltindustryup.xml data/gui/windmillup.xml
-#: data/gui/schoolup.xml data/gui/firestationup.xml data/gui/roadup.xml
-#: data/gui/coalpowerup.xml data/gui/import-exportup.xml data/gui/recycleup.xml
-#: data/gui/parkup.xml
-msgid "New Invention"
-msgstr "Tionnsgnadh ùr"
-
-#: data/gui/coal_survey_yn.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/launch_rocket_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_monument_yn.xml
-msgid "No"
-msgstr "Chan eil"
-
-#: data/gui/no-credit-recycle.xml data/gui/no-credit-rocket.xml
-#: data/gui/no-credit-university.xml data/gui/no-credit-solar-power.xml
-#: data/gui/no-credit-parkland.xml
-msgid "No Credit Available"
-msgstr "Chan eil creideis ri làimh"
-
-#: data/gui/allgone.xml
-msgid "Nobody Home"
-msgstr "Chan eil duine a-staigh"
-
-#: data/gui/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "Chan eil seo ceadaichte"
-
-#: data/gui/launch-good.xml data/gui/fire.xml data/gui/universityup.xml
-#: data/gui/solarpowerup.xml data/gui/railwayup.xml data/gui/rocketup.xml
-#: data/gui/mod_wind_up.xml data/gui/potteryup.xml data/gui/allgone.xml
-#: data/gui/warning.xml data/gui/hvindustryup.xml
-#: data/gui/no-credit-recycle.xml data/gui/options.xml data/gui/coalmineup.xml
-#: data/gui/healthup.xml data/gui/blacksmithup.xml data/gui/millup.xml
-#: data/gui/launch-gone.xml data/gui/riverup.xml data/gui/cricketup.xml
-#: data/gui/ltindustryup.xml data/gui/windmillup.xml data/gui/sustain.xml
-#: data/gui/launch-fail.xml data/gui/no-credit-rocket.xml
-#: data/gui/launch-evac.xml data/gui/no-credit-university.xml
-#: data/gui/too-old.xml data/gui/nobull-tip.xml data/gui/schoolup.xml
-#: data/gui/firestationup.xml data/gui/roadup.xml data/gui/coalpowerup.xml
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml data/gui/import-exportup.xml
-#: data/gui/no-credit-solar-power.xml data/gui/recycleup.xml
-#: data/gui/parkup.xml data/gui/no-credit-parkland.xml
-msgid "Ok"
-msgstr "Ceart ma-thà"
-
-#: data/gui/gamestats.xml
-msgid "Okay"
-msgstr "Ceart ma-thà"
-
-#: data/gui/options.xml data/gui/mainmenu.xml
-msgid "Options"
-msgstr "Roghainnean"
-
-#: data/gui/portdialog.xml data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Ore"
-msgstr "Clach-mhèinneir"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "Beachd tùsail is còd"
-
-#: data/gui/parkup.xml
-msgid "Parks available"
-msgstr "Tha pàircean ri làimh"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "Cuir an geama 'na stad"
-
-#: data/gui/pbar2nd.xml data/gui/pbar.xml
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
 msgid "Population"
 msgstr "Sluagh"
 
-#: data/gui/potteryup.xml
-msgid "Potteries available"
-msgstr "Tha criadhadaireachd ri làimh"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr ""
 
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "Briog air a' phutan seo gus stadastaireachd a shealltainn"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr ""
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Product"
-msgstr "Bathar"
+#: src/lincity-ng/Dialog.cpp:332
+#, fuzzy
+msgid "Max population"
+msgstr "Sluagh"
 
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "Fàg an-seo"
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr ""
 
-#: data/gui/railwayup.xml
-msgid "Railways available"
-msgstr "Tha rèilean ri làimh"
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr ""
 
-#: data/gui/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "Tha ionadan ath-chuairteachaidh ri làimh"
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr ""
 
-#: data/gui/options.xml
-msgid "Resolution"
-msgstr "Dùmhlachd-bhreacaidh"
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
+msgid "Money"
+msgstr "Airgead"
 
-#: data/gui/riverup.xml
-msgid "Rivers available"
-msgstr "Tha aibhnean ri làimh"
+#: src/lincity-ng/Dialog.cpp:339
+#, fuzzy
+msgid "Tech-level"
+msgstr "Teicneolas"
 
-#: data/gui/roadup.xml
-msgid "Roads available"
-msgstr "Tha rathaidean ri làimh"
+#: src/lincity-ng/Dialog.cpp:343
+#, fuzzy
+msgid "Deaths by starvation"
+msgstr "Bàs leis an acras: %7d   Eachdraidh: %8.3f"
 
-#: data/gui/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "Tha raon-rocaide ri làimh"
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr ""
 
-#: data/gui/launch_rocket_yn.xml
+#: src/lincity-ng/Dialog.cpp:347
+#, fuzzy
+msgid "Deaths from pollution"
+msgstr "Bàs leis an truailleadh: %7d   Eachdraidh: %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:351
+#, fuzzy
+msgid "Years of unemployment"
+msgstr "Seall cion-cosnaidh"
+
+#: src/lincity-ng/Dialog.cpp:355
+#, fuzzy
+msgid "Rockets launched"
+msgstr "Raon-rocaide"
+
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:364
+msgid "Residences"
+msgstr "Còmhnaidhean"
+
+#: src/lincity-ng/Dialog.cpp:371
+msgid "Markets"
+msgstr "Margaidean"
+
+#: src/lincity-ng/Dialog.cpp:372
+msgid "Farms"
+msgstr "Tuathanasan"
+
+#: src/lincity-ng/Dialog.cpp:374
+msgid "Water wells"
+msgstr "Tobraichean"
+
+#: src/lincity-ng/Dialog.cpp:375
+msgid "Windmills"
+msgstr "Muileannan-gaoithe"
+
+#: src/lincity-ng/Dialog.cpp:382
+msgid "Monuments"
+msgstr "Carraighean"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "Sgoiltean"
+
+#: src/lincity-ng/Dialog.cpp:384
+msgid "Universities"
+msgstr "Oilthighean"
+
+#: src/lincity-ng/Dialog.cpp:386
+msgid "Fire stations"
+msgstr "Stèiseanan-smàlaidh"
+
+#: src/lincity-ng/Dialog.cpp:387
+msgid "Parks"
+msgstr "Pàircean"
+
+#: src/lincity-ng/Dialog.cpp:390
+msgid "Sports fields"
+msgstr "Raointean spòrsa"
+
+#: src/lincity-ng/Dialog.cpp:392
+msgid "Health centres"
+msgstr "Ionadan-slàinte"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr "Òtraichean"
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "Bothain"
+
+#: src/lincity-ng/Dialog.cpp:400
+msgid "Wind powers"
+msgstr "Muilleann-gaoithe nuadh"
+
+#: src/lincity-ng/Dialog.cpp:401
+msgid "Coal powers"
+msgstr "St. cumhachd-guail"
+
+#: src/lincity-ng/Dialog.cpp:402
+msgid "Solar powers"
+msgstr "St. cumhachd-grèine"
+
+#: src/lincity-ng/Dialog.cpp:404
+msgid "Substations"
+msgstr "Fo-stèiseanan"
+
+#: src/lincity-ng/Dialog.cpp:405
+msgid "Power lines"
+msgstr "Loidhnichean-dealain"
+
+#: src/lincity-ng/Dialog.cpp:406
+msgid "Ports"
+msgstr "Puirt"
+
+#: src/lincity-ng/Dialog.cpp:408
+msgid "Tracks"
+msgstr "Slighean"
+
+#: src/lincity-ng/Dialog.cpp:411
+msgid "Roads"
+msgstr "Rathaidean"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "Rèilean"
+
+#: src/lincity-ng/Dialog.cpp:422
+msgid "Potteries"
+msgstr "Criadhadaireachd"
+
+#: src/lincity-ng/Dialog.cpp:423
+msgid "Blacksmiths"
+msgstr "Goibhnean-dubha"
+
+#: src/lincity-ng/Dialog.cpp:424
+msgid "Mills"
+msgstr "Muileannan-clòtha"
+
+#: src/lincity-ng/Dialog.cpp:426
+msgid "Light inds"
+msgstr "Gnìomh. aotrom"
+
+#: src/lincity-ng/Dialog.cpp:427
+msgid "Heavy inds"
+msgstr "Ceàrd. stàilinn"
+
+#: src/lincity-ng/Dialog.cpp:428
+msgid "Recyclers"
+msgstr "Ath-chuairteachadh"
+
+#: src/lincity-ng/Dialog.cpp:430
+msgid "Coal mines"
+msgstr "Mèinnean guail"
+
+#: src/lincity-ng/Dialog.cpp:431
+msgid "Ore mines"
+msgstr "Clach-mhèinneir"
+
+#: src/lincity-ng/Dialog.cpp:432
+msgid "Forests"
+msgstr "Coilltean"
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "Margaid"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "Port"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "Mèinnean"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "Malart"
+
+#: src/lincity-ng/EconomyGraph.cpp:118
+msgid "Popul."
+msgstr "Sluagh"
+
+#: src/lincity-ng/EconomyGraph.cpp:120
+msgid "Techn."
+msgstr "Teicneolas"
+
+#: src/lincity-ng/EconomyGraph.cpp:122
+msgid "Fire"
+msgstr "Teine"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
+msgid "Economy Overview:"
+msgstr "Foir-shealladh an eaconamaidh:"
+
+#: src/lincity-ng/EconomyGraph.cpp:128
+msgid "Sustainability:"
+msgstr "Seasmhachd:"
+
+#: src/lincity-ng/EconomyGraph.cpp:131
+msgid "Frames per Second:"
+msgstr "Frèaman gach diog:"
+
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "Tionnsgnadh ùr"
+
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "Tha muileannan-clòtha ri làimh"
+
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
+msgid ""
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr ""
+"Ràinig thu ìre an teicneolais a leigeas leat rathaidean a thogail. Faic "
+"sgrìn na cobharach airson barrachd fiosrachaidh."
+
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
+msgstr "Tha e glè chosgail carragh a mhilleadh."
+
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "A' luchdadh sealladh"
+
+#: src/lincity-ng/Game.cpp:848
+msgid "Fire!"
+msgstr "Teine!"
+
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "Tha taighean air theine"
+
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "Rabhadh"
+
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "Cliù"
+
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
 msgstr "Tha rocaid ullamh"
 
-#: data/gui/launch_rocket_yn.xml
-msgid "Rocket ready to launch"
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
 msgstr "Tha rocaid ullamh airson a losgadh"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "Ruith an geama gu luath"
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "Ruith an geama aig luaths àbhaisteach"
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "A bheil thu airson 'ga losgadh an-dràsta?"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "Ruith an geama glè luath"
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "Raon-rocaide"
 
-#: data/gui/savegame.xml data/gui/mainmenu.xml
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "Raon-rocaide"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "Shoirbhich leis an losgadh"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "Shoirbhich leis an losgadh"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"Tha thu air mìle daoine às-àiteachadh. 'S dòcha gum b' fheairrde thu an "
+"eaconamaidh agad lùghdachadh ach am freagair e ris an t-sluagh as lugha."
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "Chaill thu."
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "Tha an eaconamaidh seasmhach."
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {} here."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+msgid "You cannot build this on credit."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "Chan eil duine air fhàgail sa bhaile seo."
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "A bheil thu airson seo a mhilleadh?"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+#, fuzzy
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr "Chan urrainn dhut tobar a thogail an-seo: chan eil ach fàsach ann."
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+msgid "Cannot Evacuate"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+#, fuzzy
+msgid "Bridge"
+msgstr "Drochaid rathaid"
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "Cosgais a' mhillidh: "
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "Tuairmse air cosgais a' mhillidh: "
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "Cosgais a' mhillidh: "
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
+msgid "n/a"
+msgstr "[chan eil seo iomchaidh]"
+
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
+msgid ": Cost to build "
+msgstr ": Cosgais togail "
+
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "Inneal ceiste: seall fiosrachadh mun togalach air a thaghadh."
+
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "Milltear: thoir togalach air falbh - prìs chaochlaideach -"
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
+msgid ", to bulldoze "
+msgstr ", airson milleadh "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " To build "
+msgstr " Airson togail "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " of them "
+msgstr " dhiubh "
+
+#: src/lincity-ng/GameView.cpp:1756
+msgid "will cost about "
+msgstr "cosgaidh e mu "
+
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "deagh amannan"
+
+#: src/lincity-ng/MainMenu.cpp:151
+#, fuzzy
+msgid "Bad Times"
+msgstr "droch amannan"
+
+#: src/lincity-ng/MainMenu.cpp:155
+#, fuzzy
+msgid "Extreme Arid"
+msgstr "glè thioram"
+
+#: src/lincity-ng/MainMenu.cpp:159
+#, fuzzy
+msgid "Extreme Wetland"
+msgstr "glè fhliuch"
+
+#: src/lincity-ng/MainMenu.cpp:163
+msgid "Beach"
+msgstr "Tràigh"
+
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "Raon-rocaide"
+
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
+msgid "empty"
+msgstr "falamh"
+
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr "gobhlan aibhne"
+
+#: src/lincity-ng/MainMenu.cpp:241
+msgid "semi desert"
+msgstr "leth-fhàsach"
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr "measarra"
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr "boglach"
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, fuzzy, c++-format
+msgid "Map size: {}x{}"
+msgstr "Meud a' mhapa"
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "Tha taighean air theine"
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "Meanbh-mhapa: oir-loidhne"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "Meanbh-mhapa: cion-cosnaidh"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "Meanbh-mhapa: truailleadh"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "Meanbh-mhapa: biadh"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "Meanbh-mhapa: solar cumhachd"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "Meanbh-mhapa: còmhdachadh smàlaidh"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "Meanbh-mhapa: còmhdachadh spòrsa"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "Meanbh-mhapa: cùram slàinte"
+
+#: src/lincity-ng/MiniMap.cpp:1043
+msgid "Minimap: coal deposits"
+msgstr "Meanbh-mhapa: tionalan guail"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+#, fuzzy
+msgid "Minimap: traffic density"
+msgstr "Seall dùmhlachd na trafaige"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "Meanbh-mhapa: tionalan guail"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr "Loch"
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+msgid "River"
+msgstr "Abhainn"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:289
+#, fuzzy
+msgid "no further information available"
+msgstr "Tha stèiseanan cumhachd-guail ri làimh"
+
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "Yes"
+msgstr "Tha"
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "No"
+msgstr "Chan eil"
+
+#: src/lincity-ng/Mps.cpp:322
+#, fuzzy
+msgid "Fire Protection"
+msgstr "Stèiseanan-smàlaidh"
+
+#: src/lincity-ng/Mps.cpp:325
+#, fuzzy
+msgid "Health Care"
+msgstr "Ionad-slàinte"
+
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:331
+#, fuzzy
+msgid "Market Range"
+msgstr "Margaid"
+
+#: src/lincity-ng/Mps.cpp:336
+msgid "clear"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:338
+msgid "good"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:340
+msgid "fair"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:342
+msgid "smelly"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:344
+msgid "smokey"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:346
+msgid "smoggy"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:348
+msgid "bad"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:350
+msgid "very bad"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:352
+msgid "death!"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:354
+#, fuzzy
+msgid "Air Pollution"
+msgstr "Truailleadh"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+#, fuzzy
+msgid "Bull. Cost"
+msgstr "Cosgais a' mhillidh: "
+
+#: src/lincity-ng/Mps.cpp:357
+msgid "N/A"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:361
+#, fuzzy
+msgid "Ore Reserve"
+msgstr "Clach-mhèinneir"
+
+#: src/lincity-ng/Mps.cpp:362
+#, fuzzy
+msgid "Coal Reserve"
+msgstr "Rùrachadh airson guail"
+
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:408
+msgid "Tax Income"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:411
+msgid "Income"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:427
+msgid "Export"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:432
+msgid "Expenses"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:435
+msgid "Unemp."
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:439
+#, fuzzy
+msgid "Transport"
+msgstr "Eadar-theangachadh"
+
+#: src/lincity-ng/Mps.cpp:443
+#, fuzzy
+msgid "Imports"
+msgstr "Puirt"
+
+#: src/lincity-ng/Mps.cpp:456
+msgid "Others"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:461
+msgid "Net"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:467
+msgid "Other Costs"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:468
+msgid "For year"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:470
+msgid "Interest"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:472
+#, fuzzy
+msgid "Univers."
+msgstr "Oilthigh"
+
+#: src/lincity-ng/Mps.cpp:473
+msgid "Deaths"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:474
+msgid "Windmill"
+msgstr "Muileann-gaoithe"
+
+#: src/lincity-ng/Mps.cpp:475
+msgid "Hospital"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:476
+#, fuzzy
+msgid "Rockets"
+msgstr "Raon-rocaide"
+
+#: src/lincity-ng/Mps.cpp:477
+#, fuzzy
+msgid "Fire Stn"
+msgstr "Stèisean-smàlaidh"
+
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:479
+msgid "Recycle"
+msgstr "Ionad ath-chuairteachaidh"
+
+#: src/lincity-ng/Mps.cpp:487
+msgid "Total"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:488
+msgid "Housed"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:489
+msgid "Homeless"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:494
+#, fuzzy
+msgid "Unemployment"
+msgstr "Seall cion-cosnaidh"
+
+#: src/lincity-ng/Mps.cpp:497
+#, fuzzy
+msgid "Starvation"
+msgstr "Fo-stèisean"
+
+#: src/lincity-ng/Mps.cpp:504
+#, fuzzy
+msgid "Births p.a."
+msgstr "Breithean / bliadhna"
+
+#: src/lincity-ng/Mps.cpp:512
+#, fuzzy
+msgid "Deaths p.a."
+msgstr "Caochladh / bliadhna"
+
+#: src/lincity-ng/Mps.cpp:518
+#, fuzzy
+msgid "Unnat. Deaths"
+msgstr "Bàs mì-nàdarra"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+msgid "M"
+msgstr "M"
+
+#: src/lincity-ng/ScreenInterface.cpp:80
+#, fuzzy
+msgid "k"
+msgstr "Ceart ma-thà"
+
+#: src/lincity/commodities.cpp:38
+msgid "Food"
+msgstr "Biadh"
+
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
+msgstr ""
+
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "Gual"
+
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "Bathar"
+
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "Clach-mhèinneir"
+
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "Stàilinn"
+
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "Sgudal"
+
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr ""
+
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr ""
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Production:"
+msgstr "Bathar"
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Inventory:"
+msgstr "Tionnsgnadh ùr"
+
+#: src/lincity/util.cpp:39
+msgid "Jan"
+msgstr "Faoi"
+
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "Gearr"
+
+#: src/lincity/util.cpp:39
+msgid "Mar"
+msgstr "Màrt"
+
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "Gib"
+
+#: src/lincity/util.cpp:40
+msgid "May"
+msgstr "Cèit"
+
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "Ògmh"
+
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "Iuch"
+
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "Lùn"
+
+#: src/lincity/util.cpp:41
+msgid "Sep"
+msgstr "Sult"
+
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "Dàmh"
+
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "Samh"
+
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "Dùbh"
+
+#: src/lincity/modules/blacksmith.cpp:40
+msgid "Blacksmith"
+msgstr "Gobha-dubh"
+
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr "Trang"
+
+#: src/lincity/modules/coal_power.cpp:44
+#, fuzzy
+msgid "Coal Power Station"
+msgstr "Tha stèiseanan cumhachd-guail ri làimh"
+
+#: src/lincity/modules/coal_power.cpp:45
+#, fuzzy
+msgid "Coal Power Stations"
+msgstr "Tha stèiseanan cumhachd-guail ri làimh"
+
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "Teicneolas"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+msgid "Output"
+msgstr "Toradh"
+
+#: src/lincity/modules/coalmine.cpp:44
+#, fuzzy
+msgid "Coal Mine"
+msgstr "Mèinnean guail"
+
+#: src/lincity/modules/coalmine.cpp:45
+#, fuzzy
+msgid "Coal Mines"
+msgstr "Mèinnean guail"
+
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
+msgid "Forest"
+msgstr "Coille"
+
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+#, fuzzy
+msgid "Fertility"
+msgstr "Goireasachd"
+
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "Truailleadh"
+
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr ""
+
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "Tha raointean spòrsa ri làimh"
+
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "Tha raointean spòrsa ri làimh"
+
+#: src/lincity/modules/cricket.cpp:150
+msgid "Public sports"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr "Teine"
+
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:161
+#, fuzzy
+msgid "degraded"
+msgstr "Malart"
+
+#: src/lincity/modules/firestation.cpp:47
+#, fuzzy
+msgid "Fire Station"
+msgstr "Stèiseanan-smàlaidh"
+
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "Stèiseanan-smàlaidh"
+
+#: src/lincity/modules/health_centre.cpp:46
+msgid "Hospitals"
+msgstr ""
+
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+#, fuzzy
+msgid "Steel Works"
+msgstr "Stàilinn"
+
+#: src/lincity/modules/light_industry.cpp:46
+#, fuzzy
+msgid "Light Industry"
+msgstr "Gnìomhachas aotrom"
+
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "Tha gnìomhachasan aotrom ri làimh"
+
+#: src/lincity/modules/mill.cpp:40
+msgid "Textile Mill"
+msgstr ""
+
+#: src/lincity/modules/mill.cpp:41
+msgid "Textile Mills"
+msgstr ""
+
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "Carragh"
+
+#: src/lincity/modules/monument.cpp:137
+msgid "Wisdom bestowed"
+msgstr ""
+
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
+#, fuzzy
+msgid "Completion"
+msgstr "Sluagh"
+
+#: src/lincity/modules/oremine.cpp:43
+#, fuzzy
+msgid "Ore Mine"
+msgstr "Mèinn cloiche-mèinneir"
+
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "Clach-mhèinneir"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "Tuathanas"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "Pàirc"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
+msgstr ""
+
+#: src/lincity/modules/parkland.cpp:53
+msgid "Parks (Pond)"
+msgstr ""
+
+#: src/lincity/modules/port.cpp:213
+msgid "Import"
+msgstr ""
+
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr ""
+
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "Criadhadaireachd"
+
+#: src/lincity/modules/power_line.cpp:38
+#, fuzzy
+msgid "Power Line"
+msgstr "Loidhne-dhealain"
+
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "Loidhnichean-dealain"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:42
+#, fuzzy
+msgid "Recycling Center"
+msgstr "Tha ionadan ath-chuairteachaidh ri làimh"
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "Tha ionadan ath-chuairteachaidh ri làimh"
+
+#: src/lincity/modules/recycle.cpp:115
+msgid "Efficiency Ore"
+msgstr "Èifeachdachd cloiche-mèinneir"
+
+#: src/lincity/modules/recycle.cpp:116
+msgid "Efficiency Steel"
+msgstr "Èifeachdachd stàilinn"
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+#, fuzzy
+msgid "Residence"
+msgstr "Còmhnaidhean"
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr "Màladairean"
+
+#: src/lincity/modules/residence.cpp:422
+msgid "Desireability"
+msgstr "Goireasachd"
+
+#: src/lincity/modules/residence.cpp:424
+#, fuzzy
+msgid "Death p.a."
+msgstr "Caochladh / bliadhna"
+
+#: src/lincity/modules/residence.cpp:425
+msgid "Unnat. mortality"
+msgstr "Bàs mì-nàdarra"
+
+#: src/lincity/modules/rocket_pad.cpp:53
+#, fuzzy
+msgid "Rocket Pad"
+msgstr "Raon-rocaide"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "Raon-rocaide"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:48
+msgid "Elementary Schools"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:154
+msgid "Lessons learned"
+msgstr "Leasanan air an ionnsachadh"
+
+#: src/lincity/modules/shanty.cpp:51
+#, fuzzy
+msgid "Shanty Town"
+msgstr "Bothain"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "Bothain"
+
+#: src/lincity/modules/solar_power.cpp:40
+#, fuzzy
+msgid "Solar Power Plant"
+msgstr "St. cumhachd-grèine"
+
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "St. cumhachd-grèine"
+
+#: src/lincity/modules/substation.cpp:39
+#, fuzzy
+msgid "Power Substation"
+msgstr "Fo-stèisean"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "Fo-stèiseanan"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "Falamh"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+msgid "Desert"
+msgstr "Fàsach"
+
+#: src/lincity/modules/tile.cpp:80
+msgid "Tree"
+msgstr "Craobh"
+
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+msgid "Trees"
+msgstr "Craobhan"
+
+#: src/lincity/modules/tip.cpp:42
+msgid "Land Fill"
+msgstr ""
+
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "Muileannan-gaoithe"
+
+#: src/lincity/modules/tip.cpp:120
+msgid "Filled"
+msgstr "Làn"
+
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "Slighe"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+#, fuzzy
+msgid "Track (Bridge)"
+msgstr "Drochaid slighe"
+
+#: src/lincity/modules/track_road_rail.cpp:66
+#, fuzzy
+msgid "Tracks (Bridge)"
+msgstr "Drochaid slighe"
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "Rathad"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+#, fuzzy
+msgid "Road (Bridge)"
+msgstr "Drochaid rathaid"
+
+#: src/lincity/modules/track_road_rail.cpp:97
+#, fuzzy
+msgid "Roads (Bridge)"
+msgstr "Drochaid rathaid"
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "Rèilean"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+#, fuzzy
+msgid "Rail (Bridge)"
+msgstr "Drochaid rèile"
+
+#: src/lincity/modules/track_road_rail.cpp:129
+#, fuzzy
+msgid "Rails (Bridge)"
+msgstr "Drochaid rèile"
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr ""
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "Oilthigh"
+
+#: src/lincity/modules/university.cpp:122
+msgid "Tech researched"
+msgstr "Teicneolas air a rannsachadh"
+
+#: src/lincity/modules/waterwell.cpp:37
+#, fuzzy
+msgid "Water Tower"
+msgstr "Tobar"
+
+#: src/lincity/modules/waterwell.cpp:38
+#, fuzzy
+msgid "Water Towers"
+msgstr "Tobraichean"
+
+#: src/lincity/modules/waterwell.cpp:106
+msgid "Drinkable"
+msgstr "Gabhaidh e òl"
+
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+msgid "Wind Power"
+msgstr "Cumhachd-ghaoithe"
+
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "Cliù"
+
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "Beachd tùsail is còd"
+
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "Còd"
+
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "Grafaigeachd"
+
+#: data/gui/creditslist.xml:122
+msgid "Sound and Music"
+msgstr "Fuaim is ceòl"
+
+#: data/gui/creditslist.xml:138
+msgid "Translation"
+msgstr "Eadar-theangachadh"
+
+#: data/gui/creditslist.xml:278
+msgid "License"
+msgstr ""
+
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "Air ais"
+
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
+msgid "Ok"
+msgstr "Ceart ma-thà"
+
+#: data/gui/helpwindow.xml:17
+msgid "Help"
+msgstr ""
+
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "Luchdaich geama"
+
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "Luchdaich"
+
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "Geama ùr"
+
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "Lean air adhart"
+
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
 msgid "Save"
 msgstr "Sàbhail"
 
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "Sàbhail an geama"
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "Roghainnean"
 
-#: data/gui/schoolup.xml
-msgid "Schools available"
-msgstr "Tha sgoiltean ri làimh"
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "Fàg an-seo"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
+#: data/gui/minimapswitchbuttons.xml:11
+msgid "Show map outline"
+msgstr "Seall oir-loidhne a' mhapa"
+
+#: data/gui/minimapswitchbuttons.xml:21
+msgid "Show nourishments"
+msgstr "Seall biadh"
+
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "Seall cion-cosnaidh"
+
+#: data/gui/minimapswitchbuttons.xml:41
+msgid "Show power supply"
+msgstr "Seall solar cumhachd"
+
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "Seall an còmhdachadh smàlaidh"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "Seall còmhdachadh spòrsa"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "Seall cùram slàinte"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "Seall dùmhlachd na trafaige"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "Seall dùmhlachd an truaillidh"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "Seall tionalan guail"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "Mapa"
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "Seall am meanbh-mhapa"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "Stats"
+
+#: data/gui/minimap.xml:28
+#, fuzzy
+msgid "Show resources. Use scroll buttons to cycle through views."
 msgstr ""
-"Thoir sùil air sgrìn na cobharach airson barrachd fiosrachaidh mu mhèinnean-"
-"guail is rùrachadh guail."
+"Seall stòrasan. Cleachd na putanan sgrolaidh gus dol mun cuairt air na "
+"seallaidhean."
 
-#: data/gui/universityup.xml data/gui/solarpowerup.xml data/gui/railwayup.xml
-#: data/gui/rocketup.xml data/gui/mod_wind_up.xml data/gui/potteryup.xml
-#: data/gui/hvindustryup.xml data/gui/healthup.xml data/gui/blacksmithup.xml
-#: data/gui/millup.xml data/gui/riverup.xml data/gui/cricketup.xml
-#: data/gui/ltindustryup.xml data/gui/windmillup.xml data/gui/schoolup.xml
-#: data/gui/firestationup.xml data/gui/coalpowerup.xml data/gui/recycleup.xml
-#: data/gui/parkup.xml
-msgid "See the help screen for more information."
-msgstr "Thoir sùil air sgrìn na cobharach airson barrachd fiosrachaidh."
-
-#: data/gui/options.xml
-msgid "Seed saving"
-msgstr "Sàbhaladh sìol"
-
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Sell"
-msgstr "Reic"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Send out Prospectors"
-msgstr "Cuir lorgairean"
-
-#: data/gui/minimap.xml
+#: data/gui/minimap.xml:38
 msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
 msgstr ""
 "Seall teachd a-steach is cosgaisean. Cleachd na putanan sgrolaidh gus dol "
 "mun cuairt air na seallaidhean."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "Seall tionalan guail"
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "Eaco"
 
-#: data/gui/minimap.xml
+#: data/gui/minimap.xml:48
 msgid "Show economy graphs."
 msgstr "Seall grafaichean an eaconamaidh."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "Seall an còmhdachadh smàlaidh"
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr "[m] Sgrolaich suas."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show map outline"
-msgstr "Seall oir-loidhne a' mhapa"
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr "[n] Sgrolaich sìos."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "Seall cùram slàinte"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show nourishments"
-msgstr "Seall biadh"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "Seall dùmhlachd an truaillidh"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show power supply"
-msgstr "Seall solar cumhachd"
-
-#: data/gui/minimap.xml
-msgid "Show resources. Use scroll buttons to cylce through views."
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
 msgstr ""
-"Seall stòrasan. Cleachd na putanan sgrolaidh gus dol mun cuairt air na "
-"seallaidhean."
+"[+] Sùm an sealladh a-steach ach am faic thu nas lugha de thogalaichean ach "
+"barrachd mion-fhiosrachadh"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "Seall còmhdachadh spòrsa"
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] Sùm a-mach"
 
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "Seall am meanbh-mhapa"
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr "toglaich reandaradh aig àirde na tìre"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "Seall dùmhlachd na trafaige"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "Seall cion-cosnaidh"
-
-#: data/gui/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "Tha stèiseanan cumhachd-grèine ri làimh"
-
-#: data/gui/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "Duilich ach chan urrainn dhut òtrach a mhilleadh."
-
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
+#: data/gui/minimap.xml:124
+msgid "Gov."
 msgstr ""
-"Duilich, ach tha an geama a dh'iarr thu ro shean. Cha ghabh a luchdadh. 'S "
-"urrainn dhut a chluiche fhathast le seann-tionndaidhean a' gheama."
 
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "Èifeachdan fuaime"
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Sound and Music"
-msgstr "Fuaim is ceòl"
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr "[F1] Brùth air an iuchair seo airson cobharach"
 
-#: data/gui/newgame.xml
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] Falaich togalaichean àrda. "
+
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "Briog air a' phutan seo gus stadastaireachd a shealltainn"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] Rach mun cuairt air modhan tar-chòmhdachaidh a' mheanbh-mhapa. "
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "Tagh cnàmh-sgeul"
+
+#: data/gui/newgame.xml:56
+msgid "Village"
+msgstr "Baile"
+
+#: data/gui/newgame.xml:65
+msgid "Without trees"
+msgstr ""
+
+#: data/gui/newgame.xml:208
 msgid "Start"
 msgstr "Tòisich"
 
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "Stats"
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "Ceòl cùlaibh"
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Steel"
-msgstr "Stàilinn"
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "Èifeachdan fuaime"
 
-#: data/gui/pbar2nd.xml data/gui/pbar.xml
+#: data/gui/options.xml:87
+msgid "Resolution"
+msgstr "Dùmhlachd-bhreacaidh"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr "Meud a' mhapa"
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "Làn-sgrìn"
+
+#: data/gui/options.xml:146
+#, fuzzy
+msgid "Scroll Speed"
+msgstr "[m] Sgrolaich suas."
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr "Cànan"
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
 msgid "Tech Level"
 msgstr "Teicneolas"
 
-#: data/gui/allgone.xml
-msgid "There are no people left in this city."
-msgstr "Chan eil duine air fhàgail sa bhaile seo."
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr ""
 
-#: data/gui/coal_survey_yn.xml
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr ""
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "Sàbhail an geama"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "Cuir an geama 'na stad"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "Ruith an geama aig luaths àbhaisteach"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "Ruith an geama gu luath"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "Ruith an geama glè luath"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "Till dhan phrìomh chlàr-taice"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Coal Survey"
+msgstr "Rùrachadh airson guail"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Send out Prospectors"
+msgstr "Cuir lorgairean"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "This will cost you 1 million once. After that it is free to call again."
 msgstr ""
 "Cosgaidh seo millean not aon turas. 'S urrainn ghut gairm an-asgaidh an "
 "uairsin."
 
-#: data/gui/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "Tha an t-às-àiteachadh iomlan coileanta."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "A bheil thu airson rùrachadh airson guail?"
 
-#: data/gui/tradedialog.xml
-msgid "Trade Settings"
-msgstr "Roghainnean malairt"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Translation"
-msgstr "Eadar-theangachadh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
+msgstr ""
 
-#: data/gui/universityup.xml
-msgid "University available"
-msgstr "Tha oilthighean ri làimh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Income tax"
+msgstr ""
 
-#: data/gui/newgame.xml
-msgid "Village"
-msgstr "Baile"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "Stèisean cumhachd-guail"
 
-#: data/gui/bulldoze_shanty_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Want to bulldoze?"
-msgstr "A bheil thu airson seo a mhilleadh?"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
+msgstr ""
 
-#: data/gui/warning.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/bulldoze_river_yn.xml data/gui/too-old.xml
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning"
-msgstr "Rabhadh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "Bathar"
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "Rabhadh: tha e cosgail carraighean a mhilleadh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "Rabhadh: tha e cunnartach bothain a mhilleadh."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Transport cost"
+msgstr ""
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "Rabhadh: tha e cosgail abhainn a mhilleadh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
 
-#: data/gui/tradedialog.xml data/gui/pbar2nd.xml
-msgid "Waste"
-msgstr "Sgudal"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
 
-#: data/gui/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "Meal do naidheachd! Tha thu air a h-uile duine às-àiteachadh."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Gamestats"
+msgstr "Stadastaireachd a' gheama"
 
-#: data/gui/windmillup.xml
-msgid "Windmills available"
-msgstr "Tha muileannan-gaoithe ri làimh"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Okay"
+msgstr "Ceart ma-thà"
 
-#: data/gui/coal_survey_yn.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/launch_rocket_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Yes"
-msgstr "Tha"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "Rocket ready to launch"
+msgstr "Tha rocaid ullamh airson a losgadh"
 
-#: data/gui/fire.xml
-msgid "You better go and look for it"
-msgstr "B' fheairrde thu a lorg"
-
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1429,284 +2074,528 @@ msgstr ""
 "Ma dh'fhuiricheas tu, cosgaidh e airgead gus an rocaid a chumail ullamh. "
 "Loisg i an uairsin 's tu a' briogadh air raon na rocaide."
 
-#: data/gui/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"'S urrainn dhut gual, bathar, clach-mhèinneir is stàilinn às-phortadh is ion-"
-"phortadh a-nis. Leugh duilleagan na cobharach air na cuspairean seo gus "
-"faighinn a-mach mar a chleachdas tu e."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+msgid "Harbour Trade Settings"
+msgstr "Roghainnean malart a' phuirt"
 
-#: data/gui/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr ""
-"Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
-"pàircean le creideis."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Product"
+msgstr "Bathar"
 
-#: data/gui/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr ""
-"Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
-"ionadan ath-chuairteachaidh le creideis."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "Ceannaich"
 
-#: data/gui/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr ""
-"Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
-"ionadan-rocaide le creideis."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
+msgid "Sell"
+msgstr "Reic"
 
-#: data/gui/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr ""
-"Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
-"stèiseanan cumhachd-grèine le creideis."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Trade Settings"
+msgstr "Roghainnean malairt"
 
-#: data/gui/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr ""
-"Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
-"oilthighean le creideis."
+#, c-format
+#~ msgid "Save file <%s> - "
+#~ msgstr "Faidhle sàbhalaidh <%s> - "
 
-#: data/gui/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr ""
-"Tha thu air mìle daoine às-àiteachadh. 'S dòcha gum b' fheairrde thu an "
-"eaconamaidh agad lùghdachadh ach am freagair e ris an t-sluagh as lugha."
+#~ msgid "Can't open save file!"
+#~ msgstr "Cha ghabh am faidhle sàbhalaidh fhosgladh"
 
-#: data/gui/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use jobs and steel to make goods."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat goibhnean-dubha a thogail. "
-"Cleachdaidh goibhnean-dubha obair is stàilinn gus bathar a dhèanamh."
+#, c-format
+#~ msgid "Can't open <%s> (gzipped)"
+#~ msgstr "Cha ghabh <%s> fhosgladh (gzip)"
 
-#: data/gui/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat stèiseanan cumhachd-guail a "
-"thogail."
+#~ msgid ""
+#~ "Upgrading from old game. You have 10 years to build water wells where "
+#~ "needed. After, starvation will occur!  You should check starvation "
+#~ "minimap, and read waterwell help page :-)"
+#~ msgstr ""
+#~ "Ag ùrachadh o sheann gheama. Tha 10 bliadhna agad gus tobraichean a "
+#~ "togail far a bheil feum orra. Bidh gortas ann an uairsin! Thoir sùil air "
+#~ "meanbh-mhapa a' ghortais is leugh duilleag na cobharach mu "
+#~ "thobraichean :-)"
 
-#: data/gui/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat stèiseanan-smàlaidh a thogail. "
-"Cuiridh stèiseanan-smàlaidh casg air a' mhòrchuid a theintean. Mur eil teine "
-"air a bhith ann fhathast, 's dòcha gu bheil thu dhen bheachd nach biodh feum "
-"agad orra."
+#~ msgid "Error. Can't find LINCITY_HOME"
+#~ msgstr "Mearachd. Cha deach LINCITY_HOME a lorg"
 
-#: data/gui/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat ionadan-slàinte a thogail. "
-"Lùghdaichidh ionadan-slàinte an àireamh de dhaoine a gheibh bàs leis an "
-"truailleadh is cuiridh iad ris an cinneasachadh."
+#~ msgid "Error verifying package. Can't find colour.pal."
+#~ msgstr "Mearachd a' dearbhadh na pacaide. Cha deach colour.pal a lorg."
 
-#: data/gui/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat ceàrdaichean stàilinn a "
-"thogail. Saothraichidh iad stàilinn."
+#, c-format
+#~ msgid "Couldn't create the save directory '%s'\n"
+#~ msgstr "Cha b' urrainn dhuinn am pasgan sàbhalaidh \"%s\" a chruthachadh\n"
 
-#: data/gui/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat gnìomhachasan aotrom a thogail. "
-"Saothraichidh gnìomhachasan aotrom bathar."
+#, c-format
+#~ msgid "Failed to chown '%s'\n"
+#~ msgstr "Cha deach leinn chown a dhèanamh air \"%s\"\n"
 
-#: data/gui/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"jobs and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat muileannan-clòtha a thogail. "
-"Cleachdaidh muileannan-clòtha obair is biadh gus bathar a dhèanamh. Thoir an "
-"aire gun cleachd iad torr bìdh!"
+#~ msgid "Out of memory: malloc failure\n"
+#~ msgstr "Tha cuimhne a dhìth: fàilligeadh malloc\n"
 
-#: data/gui/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat muileannan-gaoithe ùr-nòsach is "
-"as èifeachdaiche a thogail."
+#~ msgid "You just spent all your money."
+#~ msgstr "Tha thu air a h-uile airgead agad a chosg."
 
-#: data/gui/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat pàircean a thogail. Sùghaidh "
-"pàircean truailleadh."
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "MEARACHD: chan eil am buidheann ann. Cha bu chòir seo a thachairt! Nach "
+#~ "cuir thu aithris air a' bhuga seo dhan sgioba lincity-ng leis a' gheama "
+#~ "air a shàbhaladh na cois is fios mu na rinn thu :-) "
 
-#: data/gui/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat criadhadaireachd a thogail. "
-"Cleachdaich criadhadaireachd obair is clach-mhèinneir gus bathar a "
-"shaothrachadh. (feumaidh tu mèinnean cloiche-mèinneir gus clach-mhèinneir "
-"fhaighinn)"
+#~ msgid "ups, Bulldozer found a dangling reportingConstruction"
+#~ msgstr "oich, lorg am milltear reportingConstruction a' clifeadh"
 
-#: data/gui/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr "Ràinig thu ìre an teicneolais a leigeas leat rèilean a thogail."
+#~ msgid "UNKNOWN!"
+#~ msgstr "NEO-AITHNICHTE!"
 
-#: data/gui/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr "Ràinig thu ìre an teicneolais a leigeas leat aibhnean a thogail."
+#~ msgid "Port must be connected to river all along right side."
+#~ msgstr ""
+#~ "Feumaidh an taobh deas uile gu lèir aig port a bhith ceangailte ri "
+#~ "abhainn."
 
-#: data/gui/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat rathaidean a thogail. Faic "
-"sgrìn na cobharach airson barrachd fiosrachaidh."
+#~ msgid "You can't build a mine here: there is no ore left at this site"
+#~ msgstr ""
+#~ "Chan urrainn dhut mèinn a thogail an-seo: chan eil clach-mhèinneir air "
+#~ "fhàgail aig an ionad seo"
 
-#: data/gui/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat ionadan-rocaide a thogail. 'S "
-"urrainn dhut an sluagh agad às-àiteachadh is 's e dòigh gus an geama a "
-"bhuannachd a th' ann."
+#~ msgid "You can't build a park here: it is a desert, parks need water"
+#~ msgstr ""
+#~ "Chan urrainn dhut pàirc a thogail an-seo: 's e fàsach a th' ann, ach tha "
+#~ "pàirc feumach air uisge"
 
-#: data/gui/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use jobs and goods to increase tech level. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat sgoiltean a thogail. "
-"Cleachdaich sgoiltean obair is bathar gus ìre an teicneolais adhartachadh."
+#~ msgid "Solar PS"
+#~ msgstr "Stèisean cumhachd-grèine"
 
-#: data/gui/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat stèiseanan cumhachd-grèine a "
-"thogail."
+#~ msgid "Residential LL"
+#~ msgstr "Còmhnaidh bheag"
 
-#: data/gui/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat oilthighean a thogail. "
-"Saothraichidh oilthighean ollamhan a shaothraicheas barrachd teicneolais."
+#~ msgid "Coalmine"
+#~ msgstr "Mèinn guail"
 
-#: data/gui/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat muileannan-gaoithe a thogail."
+#~ msgid "Railway"
+#~ msgstr "Rèile"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat mèinnean-guail domhain a "
-"thochladh."
+#~ msgid "Commune"
+#~ msgstr "Coille"
 
-#: data/gui/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr ""
-"Ràinig thu ìre an teicneolais a leigeas leat ionadan ath-chuairteachaidh a "
-"thogail. Nì ionadan ath-chuairteachaidh clach-mhèinneir dhe bhathar air a "
-"chleachdadh."
+#~ msgid "Rubbish tip"
+#~ msgstr "Òtrach"
 
-#: data/gui/launch-gone.xml data/gui/sustain.xml
-msgid "You have won the game."
-msgstr "Bhuannaich thu an geama."
+#~ msgid "Hv. Industry"
+#~ msgstr "Ceàrdach stàilinn"
 
-#: data/gui/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "Bu chòir dhut dreuchd a lorg àiteigin eile."
+#~ msgid "School"
+#~ msgstr "Sgoil"
 
-#: data/gui/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a few jobs and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
-msgstr ""
-"Thionnsgainn do mhuinntir raointean spòrsa. Cleachdaidh raointean spòrsa "
-"beagan obrach is bathair is nì iad na daoine am fagas nas toilichte (mu 10 "
-"aonadan anns gach comhair)."
+#~ msgid "Mill"
+#~ msgstr "Muileann-clòtha"
 
-#: data/gui/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"Bha tubaist aig an rocaid às dèidh a losgaidh. Chan eil earbsa aig do "
-"mhuinntir air an teicneolas airson às-àiteachadh tuilleadh. Feumaidh tu còig "
-"rocaidean gun duine ann a losgadh mus gabh iad earbsa ann a-rithist."
+#~ msgid "Sports field"
+#~ msgstr "Raon spòrsa"
 
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr ""
-"[+] Sùm an sealladh a-steach ach am faic thu nas lugha de thogalaichean ach "
-"barrachd mion-fhiosrachadh"
+#~ msgid "Burnt"
+#~ msgstr "Loisgte"
 
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] Sùm a-mach"
+#~ msgid "Used"
+#~ msgstr "'Ga chleachdadh"
 
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr "[F1] Brùth air an iuchair seo airson cobharach"
+#~ msgid "Residential ML"
+#~ msgstr "Còmhnaidh mheadhanach"
 
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] Falaich togalaichean àrda. "
+#~ msgid "Residential HL"
+#~ msgstr "Còmhnaidh mhòr"
 
-#: data/gui/minimap.xml
-msgid "[m] Scroll up."
-msgstr "[m] Sgrolaich suas."
+#~ msgid "Residential LH"
+#~ msgstr "Còmhnaidh nuadh bheag"
 
-#: data/gui/minimap.xml
-msgid "[n] Scroll down."
-msgstr "[n] Sgrolaich sìos."
+#~ msgid "Residential MH"
+#~ msgstr "Còmhnaidh nuadh mheadhanach"
 
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] Rach mun cuairt air modhan tar-chòmhdachaidh a' mheanbh-mhapa. "
+#~ msgid "Residential HH"
+#~ msgstr "Còmhnaidh nuadh mhòr"
 
-#: data/gui/pbar2nd.xml
-msgid "kWh"
-msgstr "kWh"
+#~ msgid "----- IN TEST MODE -------"
+#~ msgstr "----- ANN AM MODH DEUCHAINN -------"
 
-#: data/gui/minimap.xml
-msgid "toggle terrain height rendering"
-msgstr "toglaich reandaradh aig àirde na tìre"
+#, c-format
+#~ msgid "Population  %d  of which  %d  are not housed."
+#~ msgstr "Sluagh de %d le %d gun dachaigh."
+
+#, c-format
+#~ msgid "Max population %d  Number evacuated %d Total births %d"
+#~ msgstr "Sluagh as motha: %d   Air às-àiteachadh: %d   Breithean iomlan: %d"
+
+#, c-format
+#~ msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
+#~ msgstr "Ceann-là: %s %04d   Airgead: %8d   Teicneolas %5.1f (%5.1f)"
+
+#, c-format
+#~ msgid "Years of unemployment %7d   History %8.3f"
+#~ msgstr "Bliadhnaichean gun obair: %7d   Eachdraidh: %8.3f"
+
+#, c-format
+#~ msgid "Rockets launched %2d  Successful launches %2d"
+#~ msgstr "Rocaidean air losgadh: %2d   Losgaidhean soirbheachail: %2d"
+
+#, c-format
+#~ msgid "%s (Techlevel %.1f required.)"
+#~ msgstr "%s (Ìre teicneolais %.1f riatanach.)"
+
+#, c-format
+#~ msgid "%s is disabled (loaded old game)."
+#~ msgstr "Tha %s à comas (chaidh seann gheama a luchdadh)."
+
+#~ msgid "$."
+#~ msgstr "£."
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "Tha bothain air theine. Tha e fo chòmhdachadh-smàlaidh is fhuair sinn "
+#~ "smachd air a-rèir coltais."
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "Tha bothain air theine. Cha d' fhuair sinn smachd air is dh'fhaoidte gun "
+#~ "sgaoil e gu raointean eile."
+
+#~ msgid "Binary saving"
+#~ msgstr "Sàbhaladh bìnearaidh"
+
+#~ msgid "Blacksmiths available"
+#~ msgstr "Tha goibhnean-dubha ri làimh"
+
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "Tha e glè chosgail roinn de dh'abhainn a mhilleadh."
+
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr ""
+#~ "Tha e glè chosgail bothain a mhilleadh is dh'fhaoidte gun adhbharaich seo "
+#~ "teine."
+
+#~ msgid "Coal Mine available"
+#~ msgstr "Tha mèinnean-guail ri làimh"
+
+#~ msgid "Doing well."
+#~ msgstr "Ri dol gu math."
+
+#~ msgid "Evacuation Launch Good"
+#~ msgstr "Tha losgadh an às-àiteachaidh ri dol gu math"
+
+#~ msgid "Fire Stations available"
+#~ msgstr "Tha stèiseanan smàlaidh ri làimh"
+
+#~ msgid "Health Centres available"
+#~ msgstr "Tha ionadan-slàinte ri làimh"
+
+#~ msgid "Heavy Industry available"
+#~ msgstr "Tha ceàrdaichean stàilinn ri làimh"
+
+#~ msgid "Import/Export available"
+#~ msgstr "Tha ion-mhalairt/às-mhalairt ri làimh"
+
+#~ msgid "Jobs"
+#~ msgstr "Obair"
+
+#~ msgid "Launch Failure"
+#~ msgstr "Dh'fhàillig leis an losgadh"
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "Mhothaich LinCity gu bheil eaconamaidh seasmhach agad."
+
+#~ msgid "MWh"
+#~ msgstr "MWh"
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "Tha muileannan-gaoithe nuadha ri làimh"
+
+#~ msgid "No Credit Available"
+#~ msgstr "Chan eil creideis ri làimh"
+
+#~ msgid "Nobody Home"
+#~ msgstr "Chan eil duine a-staigh"
+
+#~ msgid "Not Allowed"
+#~ msgstr "Chan eil seo ceadaichte"
+
+#~ msgid "Parks available"
+#~ msgstr "Tha pàircean ri làimh"
+
+#~ msgid "Potteries available"
+#~ msgstr "Tha criadhadaireachd ri làimh"
+
+#~ msgid "Railways available"
+#~ msgstr "Tha rèilean ri làimh"
+
+#~ msgid "Rivers available"
+#~ msgstr "Tha aibhnean ri làimh"
+
+#~ msgid "Roads available"
+#~ msgstr "Tha rathaidean ri làimh"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "Tha raon-rocaide ri làimh"
+
+#~ msgid "Schools available"
+#~ msgstr "Tha sgoiltean ri làimh"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "Thoir sùil air sgrìn na cobharach airson barrachd fiosrachaidh mu "
+#~ "mhèinnean-guail is rùrachadh guail."
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "Thoir sùil air sgrìn na cobharach airson barrachd fiosrachaidh."
+
+#~ msgid "Seed saving"
+#~ msgstr "Sàbhaladh sìol"
+
+#~ msgid "Solar Power Stations available"
+#~ msgstr "Tha stèiseanan cumhachd-grèine ri làimh"
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "Duilich ach chan urrainn dhut òtrach a mhilleadh."
+
+#~ msgid ""
+#~ "Sorry, the game you wanted is too old. Cannot load it. Still play with "
+#~ "previous game."
+#~ msgstr ""
+#~ "Duilich, ach tha an geama a dh'iarr thu ro shean. Cha ghabh a luchdadh. "
+#~ "'S urrainn dhut a chluiche fhathast le seann-tionndaidhean a' gheama."
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "Tha an t-às-àiteachadh iomlan coileanta."
+
+#~ msgid "University available"
+#~ msgstr "Tha oilthighean ri làimh"
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "Rabhadh: tha e cosgail carraighean a mhilleadh"
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "Rabhadh: tha e cunnartach bothain a mhilleadh."
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "Rabhadh: tha e cosgail abhainn a mhilleadh"
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "Meal do naidheachd! Tha thu air a h-uile duine às-àiteachadh."
+
+#~ msgid "Windmills available"
+#~ msgstr "Tha muileannan-gaoithe ri làimh"
+
+#~ msgid "You better go and look for it"
+#~ msgstr "B' fheairrde thu a lorg"
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "'S urrainn dhut gual, bathar, clach-mhèinneir is stàilinn às-phortadh is "
+#~ "ion-phortadh a-nis. Leugh duilleagan na cobharach air na cuspairean seo "
+#~ "gus faighinn a-mach mar a chleachdas tu e."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr ""
+#~ "Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
+#~ "pàircean le creideis."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
+#~ "ionadan ath-chuairteachaidh le creideis."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
+#~ "ionadan-rocaide le creideis."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
+#~ "stèiseanan cumhachd-grèine le creideis."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "Tha easbhaidh sa bhuidsead agad. Cha leig a' chomhairle leat gun tog thu "
+#~ "oilthighean le creideis."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat goibhnean-dubha a thogail. "
+#~ "Cleachdaidh goibhnean-dubha obair is stàilinn gus bathar a dhèanamh."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat stèiseanan cumhachd-guail a "
+#~ "thogail."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat stèiseanan-smàlaidh a "
+#~ "thogail. Cuiridh stèiseanan-smàlaidh casg air a' mhòrchuid a theintean. "
+#~ "Mur eil teine air a bhith ann fhathast, 's dòcha gu bheil thu dhen "
+#~ "bheachd nach biodh feum agad orra."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat ionadan-slàinte a thogail. "
+#~ "Lùghdaichidh ionadan-slàinte an àireamh de dhaoine a gheibh bàs leis an "
+#~ "truailleadh is cuiridh iad ris an cinneasachadh."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat ceàrdaichean stàilinn a "
+#~ "thogail. Saothraichidh iad stàilinn."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat gnìomhachasan aotrom a "
+#~ "thogail. Saothraichidh gnìomhachasan aotrom bathar."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat muileannan-clòtha a thogail. "
+#~ "Cleachdaidh muileannan-clòtha obair is biadh gus bathar a dhèanamh. Thoir "
+#~ "an aire gun cleachd iad torr bìdh!"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat muileannan-gaoithe ùr-nòsach "
+#~ "is as èifeachdaiche a thogail."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat pàircean a thogail. Sùghaidh "
+#~ "pàircean truailleadh."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat criadhadaireachd a thogail. "
+#~ "Cleachdaich criadhadaireachd obair is clach-mhèinneir gus bathar a "
+#~ "shaothrachadh. (feumaidh tu mèinnean cloiche-mèinneir gus clach-mhèinneir "
+#~ "fhaighinn)"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr "Ràinig thu ìre an teicneolais a leigeas leat rèilean a thogail."
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr "Ràinig thu ìre an teicneolais a leigeas leat aibhnean a thogail."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat ionadan-rocaide a thogail. "
+#~ "'S urrainn dhut an sluagh agad às-àiteachadh is 's e dòigh gus an geama a "
+#~ "bhuannachd a th' ann."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat sgoiltean a thogail. "
+#~ "Cleachdaich sgoiltean obair is bathar gus ìre an teicneolais adhartachadh."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat stèiseanan cumhachd-grèine a "
+#~ "thogail."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat oilthighean a thogail. "
+#~ "Saothraichidh oilthighean ollamhan a shaothraicheas barrachd teicneolais."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat muileannan-gaoithe a thogail."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat mèinnean-guail domhain a "
+#~ "thochladh."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "Ràinig thu ìre an teicneolais a leigeas leat ionadan ath-chuairteachaidh "
+#~ "a thogail. Nì ionadan ath-chuairteachaidh clach-mhèinneir dhe bhathar air "
+#~ "a chleachdadh."
+
+#~ msgid "You have won the game."
+#~ msgstr "Bhuannaich thu an geama."
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "Bu chòir dhut dreuchd a lorg àiteigin eile."
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "Thionnsgainn do mhuinntir raointean spòrsa. Cleachdaidh raointean spòrsa "
+#~ "beagan obrach is bathair is nì iad na daoine am fagas nas toilichte (mu "
+#~ "10 aonadan anns gach comhair)."
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "Bha tubaist aig an rocaid às dèidh a losgaidh. Chan eil earbsa aig do "
+#~ "mhuinntir air an teicneolas airson às-àiteachadh tuilleadh. Feumaidh tu "
+#~ "còig rocaidean gun duine ann a losgadh mus gabh iad earbsa ann a-rithist."
+
+#~ msgid "kWh"
+#~ msgstr "kWh"

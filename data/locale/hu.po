@@ -6,1769 +6,2004 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
-"#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
 "Project-Id-Version: LinCity NG\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-05 19:46+0200\n"
-"PO-Revision-Date: 2024-09-05 19:46+0200\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
+"PO-Revision-Date: Thu Sep  5 19:46:32 2024\n"
 "Last-Translator: Captain Picard <pikarkapitany@gmail.com>\n"
 "Language-Team: \n"
 "Language: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
+"#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
-"Project-Id-Version: LinCity NG\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Thu Sep  5 19:46:32 2024\n"
-"PO-Revision-Date: Thu Sep  5 19:46:32 2024\n"
-"Last-Translator: Captain Picard <pikarkapitany@gmail.com>\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "#-#-#-#-#  hu.po (LinCity NG)  #-#-#-#-#\n"
-"Project-Id-Version: LinCity NG\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Thu Sep  5 19:46:32 2024\n"
-"PO-Revision-Date: Thu Sep  5 19:46:32 2024\n"
-"Last-Translator: Captain Picard <pikarkapitany@gmail.com>\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/lincity-ng/ButtonPanel.cpp:202 src/lincity-ng/ButtonPanel.cpp:240
-#: src/lincity-ng/ButtonPanel.cpp:373 src/lincity-ng/ButtonPanel.cpp:397
-msgid "Techlevel"
-msgstr "Műszaki szint"
-
-#: src/lincity-ng/ButtonPanel.cpp:203 src/lincity-ng/ButtonPanel.cpp:241
-#: src/lincity-ng/ButtonPanel.cpp:374 src/lincity-ng/ButtonPanel.cpp:398
-msgid "required"
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+#, fuzzy
+msgid "requires"
 msgstr "szükséges"
 
-#: src/lincity-ng/Dialog.cpp:194
-msgid "Launchsite"
-msgstr "Rakétabázis"
-
-#: src/lincity-ng/Dialog.cpp:397
-msgid "----- IN TEST MODE -------"
-msgstr "----- TESZT MÓD -------"
-
-#: src/lincity-ng/Dialog.cpp:399
-msgid "Game statistics from LinCity-NG Version"
-msgstr "Játék statisztikák a LinCity-NG Verzió"
-
-#: src/lincity-ng/Dialog.cpp:402
-msgid "Initial loaded scene"
-msgstr "Kezdő helyszín"
-
-#: src/lincity-ng/Dialog.cpp:406
-msgid "Economy is sustainable"
-msgstr "A gazdaság fenntartható"
-
-#: src/lincity-ng/Dialog.cpp:410 src/lincity-ng/MpsInterface.cpp:556
-#: data/gui/pbar.xml data/gui/pbar2nd.xml
-msgid "Population"
-msgstr "Népesség"
-
-#: src/lincity-ng/Dialog.cpp:410
-msgid "of which"
-msgstr "amiből"
-
-#: src/lincity-ng/Dialog.cpp:410
-msgid "are not housed"
-msgstr "nincs elhelyezve"
-
-#: src/lincity-ng/Dialog.cpp:413
-msgid "Max population"
-msgstr "Maximális népesség"
-
-#: src/lincity-ng/Dialog.cpp:413
-msgid "Number evacuated"
-msgstr "Kitelepített száma"
-
-#: src/lincity-ng/Dialog.cpp:413
-msgid "Total births"
-msgstr "Kitelepített száma"
-
-#: src/lincity-ng/Dialog.cpp:416
-msgid "Date"
-msgstr "Dátum"
-
-#: src/lincity-ng/Dialog.cpp:417 src/lincity-ng/EconomyGraph.cpp:139
-#: data/gui/pbar.xml data/gui/pbar2nd.xml
-msgid "Money"
-msgstr "Pénz"
-
-#: src/lincity-ng/Dialog.cpp:417
-msgid "Tech-level"
+#: src/lincity-ng/ButtonPanel.cpp:344
+#, fuzzy
+msgid "tech level"
 msgstr "Műszaki szint"
 
-#: src/lincity-ng/Dialog.cpp:422
-msgid "Deaths by starvation"
-msgstr "Éhenhaltak"
-
-#: src/lincity-ng/Dialog.cpp:423 src/lincity-ng/Dialog.cpp:427
-#: src/lincity-ng/Dialog.cpp:431
-msgid "History"
-msgstr "Történelem"
-
-#: src/lincity-ng/Dialog.cpp:426
-msgid "Deaths from pollution"
-msgstr "Légszennyezettség miatt meghaltak"
-
-#: src/lincity-ng/Dialog.cpp:430
-msgid "Years of unemployment"
-msgstr "Munkanélküli évek"
-
-#: src/lincity-ng/Dialog.cpp:434
-msgid "Rockets launched"
-msgstr "Rakéta kilőve"
-
-#: src/lincity-ng/Dialog.cpp:435
-msgid "Successful launches"
-msgstr "Sikeres kilövés"
-
-#: src/lincity-ng/Dialog.cpp:443
-msgid "Residences"
-msgstr "Lakóhelyek"
-
-#: src/lincity-ng/Dialog.cpp:445
-msgid "Markets"
-msgstr "Piacok"
-
-#: src/lincity-ng/Dialog.cpp:446
-msgid "Farms"
-msgstr "Farmok"
-
-#: src/lincity-ng/Dialog.cpp:448
-msgid "Water wells"
-msgstr "Kutak"
-
-#: src/lincity-ng/Dialog.cpp:449
-msgid "Wind powers"
-msgstr "Szélerőművek"
-
-#: src/lincity-ng/Dialog.cpp:456
-msgid "Monuments"
-msgstr "Emlékművek"
-
-#: src/lincity-ng/Dialog.cpp:457 src/lincity-ng/MpsInterface.cpp:526
-msgid "Schools"
-msgstr "Iskolák"
-
-#: src/lincity-ng/Dialog.cpp:458
-msgid "Universities"
-msgstr "Egyetemek"
-
-#: src/lincity-ng/Dialog.cpp:460
-msgid "Fire stations"
-msgstr "Tűzoltóságok"
-
-#: src/lincity-ng/Dialog.cpp:461
-msgid "Parks"
-msgstr "Parkok"
-
-#: src/lincity-ng/Dialog.cpp:462
-msgid "Sports fields"
-msgstr "Sportpályák"
-
-#: src/lincity-ng/Dialog.cpp:464
-msgid "Health centres"
-msgstr "Egészségközpontok"
-
-#: src/lincity-ng/Dialog.cpp:465
-msgid "Tips"
-msgstr "Szeméttelepek"
-
-#: src/lincity-ng/Dialog.cpp:466 src/lincity-ng/MpsInterface.cpp:561
-msgid "Shanties"
-msgstr "Nyomortelepek"
-
-#: src/lincity-ng/Dialog.cpp:472
-msgid "Windmills"
-msgstr "Szélmalmok"
-
-#: src/lincity-ng/Dialog.cpp:473
-msgid "Coal powers"
-msgstr "Szénerőművek"
-
-#: src/lincity-ng/Dialog.cpp:474
-msgid "Solar powers"
-msgstr "Naperőművek"
-
-#: src/lincity-ng/Dialog.cpp:476
-msgid "Substations"
-msgstr "Alállomások"
-
-#: src/lincity-ng/Dialog.cpp:477
-msgid "Power lines"
-msgstr "Villamos vezetékek"
-
-#: src/lincity-ng/Dialog.cpp:478
-msgid "Ports"
-msgstr "Kikötők"
-
-#: src/lincity-ng/Dialog.cpp:480
-msgid "Tracks"
-msgstr "Gyalogutak"
-
-#: src/lincity-ng/Dialog.cpp:481
-msgid "Roads"
-msgstr "Közutak"
-
-#: src/lincity-ng/Dialog.cpp:482 src/lincity/modules/track_road_rail.cpp:79
-msgid "Rail"
-msgstr "Vasút"
-
-#: src/lincity-ng/Dialog.cpp:488
-msgid "Potteries"
-msgstr "Fazekasműhelyek"
-
-#: src/lincity-ng/Dialog.cpp:489
-msgid "Blacksmiths"
-msgstr "Kovácsműhelyek"
-
-#: src/lincity-ng/Dialog.cpp:490
-msgid "Mills"
-msgstr "Malmok"
-
-#: src/lincity-ng/Dialog.cpp:492
-msgid "Light inds"
-msgstr "Könnyüipari létesítmény"
-
-#: src/lincity-ng/Dialog.cpp:493
-msgid "Heavy inds"
-msgstr "Nehézipari létesítmény"
-
-#: src/lincity-ng/Dialog.cpp:494
-msgid "Recyclers"
-msgstr "Hulladék újrahasznosítók"
-
-#: src/lincity-ng/Dialog.cpp:496
-msgid "Coal mines"
-msgstr "Szénbányák"
-
-#: src/lincity-ng/Dialog.cpp:497
-msgid "Ore mines"
-msgstr "Ércbányák"
-
-#: src/lincity-ng/Dialog.cpp:498
-msgid "Forests"
-msgstr "Szénégetők"
-
-#: src/lincity-ng/Dialog.cpp:655 src/lincity/modules/market.cpp:16
-msgid "Market"
-msgstr "Piac"
-
-#: src/lincity-ng/Dialog.cpp:720 src/lincity/modules/port.cpp:14
-msgid "Port"
-msgstr "Kikötő"
-
-#: src/lincity-ng/EconomyGraph.cpp:135
-msgid "Mining"
-msgstr "Bánya"
-
-#: src/lincity-ng/EconomyGraph.cpp:137
-msgid "Trade"
-msgstr "Ker."
-
-#: src/lincity-ng/EconomyGraph.cpp:141
-msgid "Popul."
-msgstr "Pop"
-
-#: src/lincity-ng/EconomyGraph.cpp:143
-msgid "Techn."
-msgstr "Tech"
-
-#: src/lincity-ng/EconomyGraph.cpp:145 src/lincity/modules/fire.cpp:21
-#: data/gui/dialogs/shfire-oc.xml data/gui/dialogs/shfire-uc.xml
-msgid "Fire"
-msgstr "Tűz"
-
-#: src/lincity-ng/EconomyGraph.cpp:148
-msgid "Economy Overview:"
-msgstr "Gazdasági áttekintés:"
-
-#: src/lincity-ng/EconomyGraph.cpp:151
-msgid "Sustainability:"
-msgstr "Fenntarthatóság:"
-
-#: src/lincity-ng/EconomyGraph.cpp:154
-msgid "Frames per Second:"
-msgstr "Kép per másodperc"
-
-#: src/lincity-ng/EconomyGraph.cpp:229
-msgid "You lose."
-msgstr "Vesztettél"
-
-#: src/lincity-ng/GameView.cpp:261
-msgid "Minimap: outline map"
-msgstr "Mini térkép: áttekintő"
-
-#: src/lincity-ng/GameView.cpp:264
-msgid "Minimap: unemployment"
-msgstr "Mini térkép: munkanélküliség"
-
-#: src/lincity-ng/GameView.cpp:267
-msgid "Minimap: pollution"
-msgstr "Mini térkép: légszennyezettség"
-
-#: src/lincity-ng/GameView.cpp:270
-msgid "Minimap: nourishments"
-msgstr "Mini térkép: élelmiszer"
-
-#: src/lincity-ng/GameView.cpp:273
-msgid "Minimap: power supply"
-msgstr "Mini térkép: villamos ellátás"
-
-#: src/lincity-ng/GameView.cpp:276
-msgid "Minimap: firedepartment cover"
-msgstr "Mini térkép: tűzoltóság"
-
-#: src/lincity-ng/GameView.cpp:279
-msgid "Minimap: sport cover"
-msgstr "Mini térlép: sport"
-
-#: src/lincity-ng/GameView.cpp:282
-msgid "Minimap: medical care"
-msgstr "Mini térkép: egészségügy"
-
-#: src/lincity-ng/GameView.cpp:285
-msgid "Minimap: coal deposits"
-msgstr "Mini térkép: szén lerakat"
-
-#: src/lincity-ng/GameView.cpp:289
-msgid "Minimap: traffic density:"
-msgstr "Mini térkép: forgalom sűrűség"
-
-#: src/lincity-ng/GameView.cpp:296
-msgid "Minimap: commodities:"
-msgstr "Mini térkép: áruk"
-
-#: src/lincity-ng/GameView.cpp:1730
-msgid "Estimated Bulldoze Cost: "
-msgstr "Becsült bontási költség:"
-
-#: src/lincity-ng/GameView.cpp:1732
-msgid "Bulldoze Cost: "
-msgstr "Bontási költség:"
-
-#: src/lincity-ng/GameView.cpp:1735 src/lincity-ng/GameView.cpp:1747
-#: src/lincity-ng/GameView.cpp:1776 src/lincity-ng/GameView.cpp:1777
-#: src/lincity-ng/GameView.cpp:1780 src/lincity-ng/GameView.cpp:1789
-#: src/lincity-ng/GameView.cpp:1790 src/lincity-ng/ScreenInterface.cpp:250
-#: data/gui/minimap.xml
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "€"
 
-#: src/lincity-ng/GameView.cpp:1737 src/lincity-ng/GameView.cpp:1749
-msgid "n/a"
-msgstr "nincs"
-
-#: src/lincity-ng/GameView.cpp:1745 src/lincity-ng/GameView.cpp:1776
-#: src/lincity-ng/GameView.cpp:1789
-msgid ": Cost to build "
-msgstr "Építési költség"
-
-#: src/lincity-ng/GameView.cpp:1767
-msgid "Query Tool: Show information about selected building."
-msgstr "Lekérdezés: információk a kiválasztott épületről."
-
-#: src/lincity-ng/GameView.cpp:1771
-msgid "Bulldozer: remove building -price varies-"
-msgstr "Bontás: Épület bontása. Változó árak."
-
-#: src/lincity-ng/GameView.cpp:1777 src/lincity-ng/GameView.cpp:1790
-msgid ", to bulldoze "
-msgstr ", lebontása "
-
-#: src/lincity-ng/GameView.cpp:1779
-msgid " To build "
-msgstr "építése "
-
-#: src/lincity-ng/GameView.cpp:1779
-msgid " of them "
-msgstr "amiből "
-
-#: src/lincity-ng/GameView.cpp:1780
-msgid "will cost about "
-msgstr "becsült költsége "
-
-#: src/lincity-ng/GameView.cpp:1785
-msgid "Evacuation of commodities is for free."
-msgstr "A fogyasztási cikkek vámkezelése ingyenes"
-
-#: src/lincity-ng/GameView.cpp:1789 src/lincity/UserOperation.cpp:106
-#: src/lincity/all_buildings.cpp:14 src/lincity/commodities.cpp:24
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar2nd.xml
-msgid "Water"
-msgstr "Víz"
-
-#: src/lincity-ng/MainMenu.cpp:120
-msgid "Rocket_98"
-msgstr "Rakéta_98"
-
-#: src/lincity-ng/MainMenu.cpp:121
-msgid "Beach"
-msgstr "Strand"
-
-#: src/lincity-ng/MainMenu.cpp:122
-msgid "bad_times"
-msgstr "Rossz idők"
-
-#: src/lincity-ng/MainMenu.cpp:123
-msgid "extreme_arid"
-msgstr "Száraz terület"
-
-#: src/lincity-ng/MainMenu.cpp:124
-msgid "extreme_wetland"
-msgstr "Vizes terület"
-
-#: src/lincity-ng/MainMenu.cpp:125
-msgid "good_times"
-msgstr "Jó idők"
-
-#: src/lincity-ng/MainMenu.cpp:171
-msgid "river delta"
-msgstr "Folyó delta"
-
-#: src/lincity-ng/MainMenu.cpp:175
-msgid "semi desert"
-msgstr "Félsivatag"
-
-#: src/lincity-ng/MainMenu.cpp:179
-msgid "temperate"
-msgstr "Mérsékelt"
-
-#: src/lincity-ng/MainMenu.cpp:183
-msgid "swamp"
-msgstr "Mocsár"
-
-#: src/lincity-ng/MainMenu.cpp:244
-msgid "empty"
-msgstr "üres"
-
-#: src/lincity-ng/MpsInterface.cpp:140
-msgid "no further information available"
-msgstr "nincs további információ"
-
-#: src/lincity-ng/MpsInterface.cpp:144
-msgid "build something here"
-msgstr "építs itt valamit"
-
-#: src/lincity-ng/MpsInterface.cpp:370 src/lincity-ng/MpsInterface.cpp:386
-#: src/lincity-ng/MpsInterface.cpp:389 src/lincity-ng/MpsInterface.cpp:392
-#: src/lincity-ng/MpsInterface.cpp:395 src/lincity/modules/cricket.cpp:100
-#: src/lincity/modules/firestation.cpp:101
-#: src/lincity/modules/health_centre.cpp:83
-#: src/lincity/modules/waterwell.cpp:71
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-#: data/gui/dialogs/bulldoze_river_yn.xml
-#: data/gui/dialogs/bulldoze_shanty_yn.xml data/gui/dialogs/coal_survey_yn.xml
-#: data/gui/dialogs/launch_rocket_yn.xml
-msgid "Yes"
-msgstr "Igen"
-
-#: src/lincity-ng/MpsInterface.cpp:370 src/lincity-ng/MpsInterface.cpp:386
-#: src/lincity-ng/MpsInterface.cpp:389 src/lincity-ng/MpsInterface.cpp:392
-#: src/lincity-ng/MpsInterface.cpp:395 src/lincity/modules/cricket.cpp:100
-#: src/lincity/modules/firestation.cpp:101
-#: src/lincity/modules/health_centre.cpp:83
-#: src/lincity/modules/waterwell.cpp:71
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-#: data/gui/dialogs/bulldoze_river_yn.xml
-#: data/gui/dialogs/bulldoze_shanty_yn.xml data/gui/dialogs/coal_survey_yn.xml
-#: data/gui/dialogs/launch_rocket_yn.xml
-msgid "No"
-msgstr "Nem"
-
-#: src/lincity-ng/MpsInterface.cpp:371
-msgid "Fertile"
-msgstr "Termékeny"
-
-#: src/lincity-ng/MpsInterface.cpp:375 src/lincity/modules/water.cpp:25
-msgid "Lake"
-msgstr "Tó"
-
-#: src/lincity-ng/MpsInterface.cpp:377 src/lincity/modules/water.cpp:27
-msgid "River"
-msgstr "Folyó"
-
-#: src/lincity-ng/MpsInterface.cpp:379 src/lincity/modules/water.cpp:29
-msgid "Pond"
-msgstr "Tavacska"
-
-#: src/lincity-ng/MpsInterface.cpp:387 src/lincity/modules/firestation.cpp:102
-msgid "Fire Protection"
-msgstr "Tűzoltóság"
-
-#: src/lincity-ng/MpsInterface.cpp:390 src/lincity/modules/health_centre.cpp:84
-msgid "Health Care"
-msgstr "Egészségügy"
-
-#: src/lincity-ng/MpsInterface.cpp:393
-msgid "Public Sports"
-msgstr "Tömegsport"
-
-#: src/lincity-ng/MpsInterface.cpp:396
-msgid "Market Range"
-msgstr "Piaci tartomány"
-
-#: src/lincity-ng/MpsInterface.cpp:399
-msgid "clear"
-msgstr "tiszta"
-
-#: src/lincity-ng/MpsInterface.cpp:401
-msgid "good"
-msgstr "jó"
-
-#: src/lincity-ng/MpsInterface.cpp:403
-msgid "fair"
-msgstr "igazságos"
-
-#: src/lincity-ng/MpsInterface.cpp:405
-msgid "smelly"
-msgstr "büdös"
-
-#: src/lincity-ng/MpsInterface.cpp:407
-msgid "smokey"
-msgstr "füstös"
-
-#: src/lincity-ng/MpsInterface.cpp:409
-msgid "smoggy"
-msgstr "szmogos"
-
-#: src/lincity-ng/MpsInterface.cpp:411
-msgid "bad"
-msgstr "rossz"
-
-#: src/lincity-ng/MpsInterface.cpp:413
-msgid "very bad"
-msgstr "nagyon rossz"
-
-#: src/lincity-ng/MpsInterface.cpp:415
-msgid "death!"
-msgstr "halálos"
-
-#: src/lincity-ng/MpsInterface.cpp:417 src/lincity/modules/fire.cpp:114
-#: src/lincity/modules/parkland.cpp:59 src/lincity/modules/shanty.cpp:195
-#: src/lincity/modules/waterwell.cpp:70 data/gui/pbar2nd.xml
-msgid "Air Pollution"
-msgstr "Légszennyezettség"
-
-#: src/lincity-ng/MpsInterface.cpp:421 src/lincity-ng/MpsInterface.cpp:426
-#: src/lincity-ng/MpsInterface.cpp:428
-msgid "Bull. Cost"
-msgstr "Bontási költség"
-
-#: src/lincity-ng/MpsInterface.cpp:426
-msgid "N/A"
-msgstr "nincs"
-
-#: src/lincity-ng/MpsInterface.cpp:430
-msgid "Ore Reserve"
-msgstr "Érc tartalék"
-
-#: src/lincity-ng/MpsInterface.cpp:431
-msgid "Coal Reserve"
-msgstr "Érc tartalék"
-
-#: src/lincity-ng/MpsInterface.cpp:432
-msgid "ground level"
-msgstr "tengerszint"
-
-#: src/lincity-ng/MpsInterface.cpp:442
-msgid "saddle point"
-msgstr "nyeregpont"
-
-#: src/lincity-ng/MpsInterface.cpp:444
-msgid "minimum"
-msgstr "minimum"
-
-#: src/lincity-ng/MpsInterface.cpp:446
-msgid "maximum"
-msgstr "maximum"
-
-#: src/lincity-ng/MpsInterface.cpp:448
-msgid "lowest edge"
-msgstr "alsó él"
-
-#: src/lincity-ng/MpsInterface.cpp:462
-msgid "Tax Income"
-msgstr "Adóbevétel"
-
-#: src/lincity-ng/MpsInterface.cpp:466
-msgid "Income"
-msgstr "Bevétel"
-
-#: src/lincity-ng/MpsInterface.cpp:478 src/lincity/modules/port.cpp:119
-msgid "Export"
-msgstr "Export"
-
-#: src/lincity-ng/MpsInterface.cpp:482
-msgid "Expenses"
-msgstr "Kiadás"
-
-#: src/lincity-ng/MpsInterface.cpp:486
-msgid "Unemp."
-msgstr "Munkanélküli"
-
-#: src/lincity-ng/MpsInterface.cpp:490
-msgid "Transport"
-msgstr "Szállítás"
-
-#: src/lincity-ng/MpsInterface.cpp:494
-msgid "Imports"
-msgstr "Import"
-
-#: src/lincity-ng/MpsInterface.cpp:498
-msgid "Others"
-msgstr "Egyéb"
-
-#: src/lincity-ng/MpsInterface.cpp:503
-msgid "Net"
-msgstr "Nettó"
-
-#: src/lincity-ng/MpsInterface.cpp:515
-msgid "Other Costs"
-msgstr "Egyéb költségek"
-
-#: src/lincity-ng/MpsInterface.cpp:520
-msgid "For year"
-msgstr "Éves"
-
-#: src/lincity-ng/MpsInterface.cpp:524
-msgid "Interest"
-msgstr "Kamatok"
-
-#: src/lincity-ng/MpsInterface.cpp:528
-msgid "Univers."
-msgstr "Egyetemek"
-
-#: src/lincity-ng/MpsInterface.cpp:530
-msgid "Deaths"
-msgstr "Halálozások"
-
-#: src/lincity-ng/MpsInterface.cpp:532 src/lincity/modules/windmill.cpp:16
-msgid "Windmill"
-msgstr "Szélmalmok"
-
-#: src/lincity-ng/MpsInterface.cpp:534
-msgid "Hospital"
-msgstr "Kórház"
-
-#: src/lincity-ng/MpsInterface.cpp:536
-msgid "Rockets"
-msgstr "Rakéták"
-
-#: src/lincity-ng/MpsInterface.cpp:538
-msgid "Fire Stn"
-msgstr "Tűzoltóságok"
-
-#: src/lincity-ng/MpsInterface.cpp:540
-msgid "Sport"
-msgstr "Sport"
-
-#: src/lincity-ng/MpsInterface.cpp:542
-msgid "Recycle"
-msgstr "Hulladék újrahasznosító"
-
-#: src/lincity-ng/MpsInterface.cpp:558
-msgid "Total"
-msgstr "Összesen"
-
-#: src/lincity-ng/MpsInterface.cpp:559
-msgid "Housed"
-msgstr "Lakással rendelkező"
-
-#: src/lincity-ng/MpsInterface.cpp:560
-msgid "Homeless"
-msgstr "Hajléktalan"
-
-#: src/lincity-ng/MpsInterface.cpp:563
-msgid "Unemployment"
-msgstr "Munkanélküliség"
-
-#: src/lincity-ng/MpsInterface.cpp:564
-msgid "Starvation"
-msgstr "Éhezés"
-
-#: src/lincity-ng/MpsInterface.cpp:565 src/lincity/modules/residence.cpp:337
-msgid "Births p.a."
-msgstr "Születések"
-
-#: src/lincity-ng/MpsInterface.cpp:566
-msgid "Deaths p.a."
-msgstr "Halálozás"
-
-#: src/lincity-ng/MpsInterface.cpp:567
-msgid "Unnat. Deaths"
-msgstr "Halálesetek"
-
-#: src/lincity-ng/ScreenInterface.cpp:232
-msgid "M"
-msgstr "Millió"
-
-#: src/lincity-ng/ScreenInterface.cpp:235
-msgid "k"
-msgstr "ezer"
-
-#: src/lincity/UserOperation.cpp:20
-msgid "query"
-msgstr "lekérdezés"
-
-#: src/lincity/UserOperation.cpp:88
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:373
 msgid "Query Tool"
 msgstr "Lekérdező eszköz"
 
-#: src/lincity/UserOperation.cpp:93
+#: src/lincity-ng/ButtonPanel.cpp:378
 msgid ": 50 tenants, low birthrate, high deathrate"
 msgstr "Lakók száma: 50, alacsony születési arány, magas halálozás."
 
-#: src/lincity/UserOperation.cpp:94
+#: src/lincity-ng/ButtonPanel.cpp:381
 msgid ": 100 tenants, high birthrate, low deathrate"
 msgstr "Lakók száma: 100, magas születési arány, alacsony halálozás."
 
-#: src/lincity/UserOperation.cpp:95
+#: src/lincity-ng/ButtonPanel.cpp:384
 msgid ": 200 tenants, high birthrate, high deathrate"
 msgstr "Lakók száma: 200, magas születési arány, magas halálozás."
 
-#: src/lincity/UserOperation.cpp:96
+#: src/lincity-ng/ButtonPanel.cpp:387
 msgid ": 100 tenants, low birthrate, high deathrate"
 msgstr "Lakók száma: 100, alacsony születési arány, magas halálozás."
 
-#: src/lincity/UserOperation.cpp:97
+#: src/lincity-ng/ButtonPanel.cpp:390
 msgid ": 200 tenants, high birthrate, low deathrate"
 msgstr "Lakók száma: 200, magas születési arány, alacsony halálozás."
 
-#: src/lincity/UserOperation.cpp:98
+#: src/lincity-ng/ButtonPanel.cpp:393
 msgid ": 400 tenants, high birthrate, high deathrate"
 msgstr "Lakók száma: 400, magas születési arány, magas halálozás."
 
-#: src/lincity/UserOperation.cpp:102
+#: src/lincity-ng/ButtonPanel.cpp:398
 msgid "Bulldozer"
 msgstr "Bulldozer"
 
-#: src/lincity/UserOperation.cpp:104
+#: src/lincity-ng/ButtonPanel.cpp:400
 msgid "Evacuate"
 msgstr "Evakuálás"
 
-#: src/lincity/UserOperation.cpp:111
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "Víz"
+
+#: src/lincity-ng/ButtonPanel.cpp:406
 msgid "Click right for help."
 msgstr "Jobb kattintás: súgó."
 
-#: src/lincity/all_buildings.cpp:28
-msgid "Empty"
-msgstr "Üres"
-
-#: src/lincity/all_buildings.cpp:42
-msgid "Desert"
-msgstr "Sivatag"
-
-#: src/lincity/all_buildings.cpp:57
-msgid "Tree"
-msgstr "Fa"
-
-#: src/lincity/all_buildings.cpp:71
-msgid "Trees"
-msgstr "Fák"
-
-#: src/lincity/all_buildings.cpp:85 src/lincity/modules/commune.cpp:20
-msgid "Forest"
-msgstr "Szénégető"
-
-#: src/lincity/commodities.cpp:15 data/gui/dialogs/portdialog.xml
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar.xml
-msgid "Food"
-msgstr "Élelmiszer"
-
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar.xml
-msgid "Labor"
-msgstr "Munkahelyek"
-
-#: src/lincity/commodities.cpp:17 data/gui/dialogs/portdialog.xml
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar.xml
-msgid "Coal"
-msgstr "Szén"
-
-#: data/gui/dialogs/portdialog.xml data/gui/dialogs/tradedialog.xml
-#: data/gui/pbar.xml
-msgid "Goods"
-msgstr "Áruk"
-
-#: src/lincity/commodities.cpp:19 data/gui/dialogs/portdialog.xml
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar.xml
-msgid "Ore"
-msgstr "Érc"
-
-#: src/lincity/commodities.cpp:20 data/gui/dialogs/portdialog.xml
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar.xml
-msgid "Steel"
-msgstr "Acél"
-
-#: data/gui/dialogs/tradedialog.xml data/gui/pbar2nd.xml
-msgid "Waste"
-msgstr "Szemét"
-
-#: src/lincity/commodities.cpp:22
-msgid "Lo-Volt"
-msgstr "Alacsony feszültség"
-
-#: src/lincity/commodities.cpp:23
-msgid "Hi-Volt"
-msgstr "Magasfeszültség"
-
-#: src/lincity/engine.cpp:72
-msgid "You just spent all your money."
-msgstr "Elköltötted az összes pénzedet."
-
-#: src/lincity/engine.cpp:86
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
 msgstr ""
-"Hiba: a csoport nem létezik. Kérlek jelezd a hibát a lincity-ng csapatnak a, "
-"küldd el az elmentett játékot és írd le a hiba körülményeit."
 
-#: src/lincity/engine.cpp:192
-msgid "ups, Bulldozer found a dangling reportingConstruction"
-msgstr "Hoppá, a Bulldozer egy függőben lévő építkezést talált."
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
+msgstr ""
 
-#: src/lincity/engine.cpp:326
-msgid "UNKNOWN!"
-msgstr "Ismeretlen."
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
 
-#: src/lincity/lclib.cpp:15
-msgid "Jan"
-msgstr "Jan"
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
 
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "Feb"
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
 
-#: src/lincity/lclib.cpp:15
-msgid "Mar"
-msgstr "Már"
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
 
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "Ápr"
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
 
-#: src/lincity/lclib.cpp:16
-msgid "May"
-msgstr "Máj"
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
+msgstr "Teljes képernyő"
 
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "Jún"
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
 
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "Júl"
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
 
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "Aug"
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
 
-#: src/lincity/lclib.cpp:17
-msgid "Sep"
-msgstr "Szep"
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
 
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "Okt"
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
 
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "Nov"
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
 
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "Dec"
-
-#: src/lincity/lintypes.cpp:51
-msgid "Inventory:"
-msgstr "Leltár:"
-
-#: src/lincity/lintypes.cpp:55
-msgid "Production:"
-msgstr "Termelés:"
-
-#: src/lincity/lintypes.cpp:1181
-msgid "Not enough students, build more schools."
-msgstr "Nincs elég tanuló, építs több iskolát."
-
-#: src/lincity/lintypes.cpp:1210
-msgid "Port must be connected to river all along right side."
-msgstr "A kikötő a teljes jobb oldalának csatlakoznia kell a folyóhoz"
-
-#: src/lincity/lintypes.cpp:1226
-msgid "You can't build a water well here: it is all desert."
-msgstr "Itt nem építhetsz kutat, ez sivatag."
-
-#: src/lincity/lintypes.cpp:1245
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr "Itt nem építhetsz bányát, ezen a területen nem maradt több érc."
-
-#: src/lincity/lintypes.cpp:1256
-msgid "You can't build a park here: it is a desert, parks need water"
-msgstr "Itt nem építhetsz parkot, ez sivatag, a parknak vízre van szüksége."
-
-#: src/lincity/lintypes.cpp:1272
-msgid "You cannot build this item on credit!"
-msgstr "Ezt az elemet nem építheted meg hitelből."
-
-#: src/lincity/loadsave.cpp:144
-msgid "Save file"
-msgstr "Fájl mentése"
-
-#: src/lincity/loadsave.cpp:145
-msgid "Can't open save file!"
-msgstr "Nem lehet megnyitni a fájlt."
-
-#: src/lincity/loadsave.cpp:331 src/lincity/old_ldsvguts.cpp:120
-msgid "Can't open"
-msgstr "Nem lehet megnyitni a fájlt."
-
-#: src/lincity/loadsave.cpp:331 src/lincity/old_ldsvguts.cpp:120
-msgid "gzipped"
-msgstr "tömörített"
-
-#: src/lincity/modules/blacksmith.cpp:89 src/lincity/modules/coal_power.cpp:97
-#: src/lincity/modules/coalmine.cpp:132 src/lincity/modules/commune.cpp:141
-#: src/lincity/modules/cricket.cpp:97 src/lincity/modules/firestation.cpp:98
-#: src/lincity/modules/health_centre.cpp:80
-#: src/lincity/modules/heavy_industry.cpp:142
-#: src/lincity/modules/light_industry.cpp:163
-#: src/lincity/modules/market.cpp:200 src/lincity/modules/mill.cpp:82
-#: src/lincity/modules/monument.cpp:105 src/lincity/modules/oremine.cpp:132
-#: src/lincity/modules/organic_farm.cpp:119 src/lincity/modules/port.cpp:118
-#: src/lincity/modules/pottery.cpp:88 src/lincity/modules/recycle.cpp:74
-#: src/lincity/modules/rocket_pad.cpp:235 src/lincity/modules/school.cpp:86
-#: src/lincity/modules/solar_power.cpp:59 src/lincity/modules/substation.cpp:72
-#: src/lincity/modules/tip.cpp:81 src/lincity/modules/university.cpp:60
-#: src/lincity/modules/waterwell.cpp:69 src/lincity/modules/windmill.cpp:70
-#: src/lincity/modules/windpower.cpp:82
-msgid "busy"
-msgstr "elfoglalt"
-
-#: src/lincity/modules/blacksmith.h:8
-msgid "Blacksmith"
-msgstr "Kovácsműhely"
-
-#: src/lincity/modules/coal_power.cpp:15
-msgid "Coal Power Station"
-msgstr "Szénerőmű"
-
-#: src/lincity/modules/coal_power.cpp:98
-#: src/lincity/modules/heavy_industry.cpp:143
-#: src/lincity/modules/light_industry.cpp:164
-#: src/lincity/modules/organic_farm.cpp:118 src/lincity/modules/recycle.cpp:71
-#: src/lincity/modules/rocket_pad.cpp:236
-#: src/lincity/modules/solar_power.cpp:60 src/lincity/modules/windmill.cpp:71
-#: src/lincity/modules/windpower.cpp:83
-msgid "Tech"
-msgstr "Technológia"
-
-#: src/lincity/modules/coal_power.cpp:99
-#: src/lincity/modules/organic_farm.cpp:120
-#: src/lincity/modules/solar_power.cpp:61 src/lincity/modules/windmill.cpp:72
-#: src/lincity/modules/windpower.cpp:84
-msgid "Output"
-msgstr "Termelés"
-
-#: src/lincity/modules/coalmine.cpp:20
-msgid "Coal Mine"
-msgstr "Szénbánya"
-
-#: src/lincity/modules/coalmine.cpp:133 src/lincity/modules/oremine.cpp:133
-msgid "Deposits"
-msgstr "Lerakatok"
-
-#: src/lincity/modules/commune.cpp:140 src/lincity/modules/organic_farm.cpp:117
-#: src/lincity/modules/waterwell.cpp:68
-msgid "Fertility"
-msgstr "Termékenység"
-
-#: src/lincity/modules/commune.cpp:142
-msgid "Pollution"
-msgstr "Légszennyezettség"
-
-#: src/lincity/modules/commune.cpp:144
-msgid "lazy months"
-msgstr "lusta hónapok"
-
-#: src/lincity/modules/cricket.cpp:18
-msgid "Basketball court"
-msgstr "Kosárlabdapálya"
-
-#: src/lincity/modules/cricket.cpp:101
-msgid "Public sports"
-msgstr "Tömegsport"
-
-#: src/lincity/modules/fire.cpp:116
-msgid "burnt down"
-msgstr "leégett"
-
-#: src/lincity/modules/fire.cpp:118
-msgid "degraded"
-msgstr "leépült"
-
-#: src/lincity/modules/firestation.cpp:19
-msgid "Fire Station"
-msgstr "Tűzoltóság"
-
-#: src/lincity/modules/health_centre.cpp:14
-msgid "Health Centre"
-msgstr "Egészségközpont"
-
-#: src/lincity/modules/heavy_industry.cpp:18
-msgid "Steel Works"
-msgstr "Acélüzem"
-
-#: src/lincity/modules/light_industry.cpp:17
-msgid "Light Industry"
-msgstr "Könnyüipari létesítmény"
-
-#: src/lincity/modules/mill.cpp:18
-msgid "Textile Mill"
-msgstr "Textilgyár"
-
-#: src/lincity/modules/monument.cpp:18
-msgid "Monument"
-msgstr "Emlékmű"
-
-#: src/lincity/modules/monument.cpp:101
-msgid "Wisdom bestowed"
-msgstr "Begyűjtőtt tudás"
-
-#: src/lincity/modules/monument.cpp:109
-msgid "Completion"
-msgstr "Kész állapot"
-
-#: src/lincity/modules/oremine.cpp:19
-msgid "Ore Mine"
-msgstr "Ércbánya"
-
-#: src/lincity/modules/organic_farm.cpp:16
-msgid "Farm"
-msgstr "Farm"
-
-#: src/lincity/modules/parkland.cpp:16
-msgid "Park"
-msgstr "Park"
-
-#: src/lincity/modules/parkland.cpp:30
-msgid "Park (Pond)"
-msgstr "Park (Tavacskával)"
-
-#: src/lincity/modules/port.cpp:120
-msgid "Import"
-msgstr "Import"
-
-#: src/lincity/modules/port.cpp:121
-msgid "Culture exchanged"
-msgstr "Kultúrális hatás"
-
-#: src/lincity/modules/pottery.cpp:17
-msgid "Pottery"
-msgstr "Fazekasműhely"
-
-#: src/lincity/modules/power_line.cpp:17
-msgid "Power line"
-msgstr "Villamos vezeték"
-
-#: src/lincity/modules/power_line.cpp:73
-msgid "usage"
-msgstr "használat"
-
-#: src/lincity/modules/recycle.cpp:14
-msgid "Recycling Centre"
-msgstr "Hulladék újrahasznosító"
-
-#: src/lincity/modules/recycle.cpp:72
-msgid "Efficiency Ore"
-msgstr "Hatékonyság: érc"
-
-#: src/lincity/modules/recycle.cpp:73
-msgid "Efficiency Steel"
-msgstr "Hatékonyság: acél"
-
-#: src/lincity/modules/residence.cpp:15 src/lincity/modules/residence.cpp:29
-#: src/lincity/modules/residence.cpp:43 src/lincity/modules/residence.cpp:57
-#: src/lincity/modules/residence.cpp:71 src/lincity/modules/residence.cpp:85
-msgid "Residence"
-msgstr "Lakóövezet"
-
-#: data/gui/pbar2nd.xml
-msgid "Tenants"
-msgstr "Bérlő"
-
-#: src/lincity/modules/residence.cpp:336
-msgid "Desireability"
-msgstr "Vonzóság"
-
-#: src/lincity/modules/residence.cpp:338
-msgid "Death p.a."
-msgstr "Halálozások"
-
-#: src/lincity/modules/residence.cpp:339
-msgid "Unnat. mortality"
-msgstr "Halálozás"
-
-#: src/lincity/modules/rocket_pad.cpp:22
-msgid "Rocket Pad"
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
 msgstr "Rakétabázis"
 
-#: src/lincity/modules/rocket_pad.cpp:237
-msgid "Overall Progress"
-msgstr "Általános fejlettség"
+#: src/lincity-ng/Dialog.cpp:317
+msgid "Game statistics from LinCity-NG Version"
+msgstr "Játék statisztikák a LinCity-NG Verzió"
 
-#: src/lincity/modules/rocket_pad.cpp:238
-msgid "Next Step"
-msgstr "Következő lépés"
+#: src/lincity-ng/Dialog.cpp:320
+msgid "Initial loaded scene"
+msgstr "Kezdő helyszín"
 
-#: src/lincity/modules/school.cpp:15
-msgid "Elementary School"
-msgstr "Általános iskola"
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr "A gazdaság fenntartható"
 
-#: src/lincity/modules/school.cpp:87
-msgid "Lessons learned"
-msgstr "Levont tanulságok"
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
+msgid "Population"
+msgstr "Népesség"
 
-#: src/lincity/modules/shanty.cpp:23
-msgid "Shanty Town"
-msgstr "Nyomortelep"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr "amiből"
 
-#: src/lincity/modules/solar_power.cpp:16
-msgid "Solar Power Plant"
-msgstr "Naperőmű"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr "nincs elhelyezve"
 
-#: src/lincity/modules/substation.cpp:17
-msgid "Power Substation"
-msgstr "Alállomás"
+#: src/lincity-ng/Dialog.cpp:332
+msgid "Max population"
+msgstr "Maximális népesség"
 
-#: src/lincity/modules/tip.cpp:16
-msgid "Land Fill"
-msgstr "Szeméttelep"
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr "Kitelepített száma"
 
-#: src/lincity/modules/tip.cpp:83
-msgid "Filled"
-msgstr "% telített"
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr "Kitelepített száma"
 
-#: src/lincity/modules/track_road_rail.cpp:19
-msgid "Track"
-msgstr "Gyalogút"
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr "Dátum"
 
-#: src/lincity/modules/track_road_rail.cpp:34
-msgid "Track Bridge"
-msgstr "Gyalogos híd"
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
+msgid "Money"
+msgstr "Pénz"
 
-#: src/lincity/modules/track_road_rail.cpp:49
-msgid "Road"
-msgstr "Közút"
+#: src/lincity-ng/Dialog.cpp:339
+msgid "Tech-level"
+msgstr "Műszaki szint"
 
-#: src/lincity/modules/track_road_rail.cpp:63
-msgid "Road Bridge"
-msgstr "Közúti híd"
+#: src/lincity-ng/Dialog.cpp:343
+msgid "Deaths by starvation"
+msgstr "Éhenhaltak"
 
-#: src/lincity/modules/track_road_rail.cpp:93
-msgid "Rail Bridge"
-msgstr "Vasúti híd"
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr "Történelem"
 
-#: src/lincity/modules/track_road_rail.cpp:201
-msgid "Traffic"
-msgstr "Forgalom"
+#: src/lincity-ng/Dialog.cpp:347
+msgid "Deaths from pollution"
+msgstr "Légszennyezettség miatt meghaltak"
 
-#: src/lincity/modules/track_road_rail.cpp:206
-msgid "Commodities"
-msgstr "Áruk"
+#: src/lincity-ng/Dialog.cpp:351
+msgid "Years of unemployment"
+msgstr "Munkanélküli évek"
 
-#: src/lincity/modules/university.cpp:14
-msgid "University"
-msgstr "Egyetem"
+#: src/lincity-ng/Dialog.cpp:355
+msgid "Rockets launched"
+msgstr "Rakéta kilőve"
 
-#: src/lincity/modules/university.cpp:61
-msgid "Tech researched"
-msgstr "Kutatott technológiák"
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr "Sikeres kilövés"
 
-#: src/lincity/modules/waterwell.cpp:27
-msgid "Water tower"
-msgstr "Víztorony"
+#: src/lincity-ng/Dialog.cpp:364
+msgid "Residences"
+msgstr "Lakóhelyek"
 
-#: src/lincity/modules/waterwell.cpp:72
-msgid "Drinkable"
-msgstr "Iható"
+#: src/lincity-ng/Dialog.cpp:371
+msgid "Markets"
+msgstr "Piacok"
 
-#: src/lincity/modules/windpower.cpp:16
-msgid "Wind Power"
-msgstr "Szélerőmű"
+#: src/lincity-ng/Dialog.cpp:372
+msgid "Farms"
+msgstr "Farmok"
 
-#: src/lincity/old_ldsvguts.cpp:151
-msgid "Loading scene"
-msgstr "Helyszín betöltése"
+#: src/lincity-ng/Dialog.cpp:374
+msgid "Water wells"
+msgstr "Kutak"
 
-#: src/lincity/simulate.cpp:79
+#: src/lincity-ng/Dialog.cpp:375
+msgid "Windmills"
+msgstr "Szélmalmok"
+
+#: src/lincity-ng/Dialog.cpp:382
+msgid "Monuments"
+msgstr "Emlékművek"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "Iskolák"
+
+#: src/lincity-ng/Dialog.cpp:384
+msgid "Universities"
+msgstr "Egyetemek"
+
+#: src/lincity-ng/Dialog.cpp:386
+msgid "Fire stations"
+msgstr "Tűzoltóságok"
+
+#: src/lincity-ng/Dialog.cpp:387
+msgid "Parks"
+msgstr "Parkok"
+
+#: src/lincity-ng/Dialog.cpp:390
+msgid "Sports fields"
+msgstr "Sportpályák"
+
+#: src/lincity-ng/Dialog.cpp:392
+msgid "Health centres"
+msgstr "Egészségközpontok"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr "Szeméttelepek"
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "Nyomortelepek"
+
+#: src/lincity-ng/Dialog.cpp:400
+msgid "Wind powers"
+msgstr "Szélerőművek"
+
+#: src/lincity-ng/Dialog.cpp:401
+msgid "Coal powers"
+msgstr "Szénerőművek"
+
+#: src/lincity-ng/Dialog.cpp:402
+msgid "Solar powers"
+msgstr "Naperőművek"
+
+#: src/lincity-ng/Dialog.cpp:404
+msgid "Substations"
+msgstr "Alállomások"
+
+#: src/lincity-ng/Dialog.cpp:405
+msgid "Power lines"
+msgstr "Villamos vezetékek"
+
+#: src/lincity-ng/Dialog.cpp:406
+msgid "Ports"
+msgstr "Kikötők"
+
+#: src/lincity-ng/Dialog.cpp:408
+msgid "Tracks"
+msgstr "Gyalogutak"
+
+#: src/lincity-ng/Dialog.cpp:411
+msgid "Roads"
+msgstr "Közutak"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "Vasút"
+
+#: src/lincity-ng/Dialog.cpp:422
+msgid "Potteries"
+msgstr "Fazekasműhelyek"
+
+#: src/lincity-ng/Dialog.cpp:423
+msgid "Blacksmiths"
+msgstr "Kovácsműhelyek"
+
+#: src/lincity-ng/Dialog.cpp:424
+msgid "Mills"
+msgstr "Malmok"
+
+#: src/lincity-ng/Dialog.cpp:426
+msgid "Light inds"
+msgstr "Könnyüipari létesítmény"
+
+#: src/lincity-ng/Dialog.cpp:427
+msgid "Heavy inds"
+msgstr "Nehézipari létesítmény"
+
+#: src/lincity-ng/Dialog.cpp:428
+msgid "Recyclers"
+msgstr "Hulladék újrahasznosítók"
+
+#: src/lincity-ng/Dialog.cpp:430
+msgid "Coal mines"
+msgstr "Szénbányák"
+
+#: src/lincity-ng/Dialog.cpp:431
+msgid "Ore mines"
+msgstr "Ércbányák"
+
+#: src/lincity-ng/Dialog.cpp:432
+msgid "Forests"
+msgstr "Szénégetők"
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "Piac"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "Kikötő"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "Bánya"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "Ker."
+
+#: src/lincity-ng/EconomyGraph.cpp:118
+msgid "Popul."
+msgstr "Pop"
+
+#: src/lincity-ng/EconomyGraph.cpp:120
+msgid "Techn."
+msgstr "Tech"
+
+#: src/lincity-ng/EconomyGraph.cpp:122
+msgid "Fire"
+msgstr "Tűz"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
+msgid "Economy Overview:"
+msgstr "Gazdasági áttekintés:"
+
+#: src/lincity-ng/EconomyGraph.cpp:128
+msgid "Sustainability:"
+msgstr "Fenntarthatóság:"
+
+#: src/lincity-ng/EconomyGraph.cpp:131
+msgid "Frames per Second:"
+msgstr "Kép per másodperc"
+
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "Új találmány"
+
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "Malom elérhető"
+
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
 msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
 msgstr ""
-"Frissítés egy régebbi játékról. 10 éved van hogy kutakat építsél, ahol "
-"szükséges. Ezt követően éhezés tör ki. Ellenőrizheted az éhezést a térképen "
-"és olvasd el a kutakra vontkozó súgót."
+"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy közutakat építs. "
+"További információkért tekintsd meg a súgót."
 
-#: data/gui/dialogs/fire.xml
-msgid "A Fire has started"
-msgstr "Tűz ütött ki."
-
-#: data/gui/dialogs/shfire-uc.xml
-msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
-msgstr ""
-"Tűz ütött ki egy nyomortelepen. A tűzoltóság lefedettségi területén van, és "
-"úgy tűnik, hogy ellenőrzés alatt áll."
-
-#: data/gui/dialogs/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
-msgstr ""
-"Tűz ütött ki egy nyomortelepen. A tűz NEM ÁLL ELLENŐRZÉS ALATT, és más "
-"területekre is átterjedhet."
-
-#: data/gui/credits.xml data/gui/loadgame.xml data/gui/newgame.xml
-#: data/gui/savegame.xml
-msgid "Back"
-msgstr "Vissza"
-
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "Háttérzene"
-
-#: data/gui/dialogs/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "Kosárlabdapálya elérhető"
-
-#: data/gui/options.xml
-msgid "Binary Saving"
-msgstr "Bináris mentés"
-
-#: data/gui/dialogs/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "Kovácsműhely elérhető"
-
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
 msgstr "Egy emlékmű lebontása sok pénzbe kerülhet."
 
-#: data/gui/dialogs/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "A folyó terület egyengetése sok pénzbe kerülhet."
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr ""
 
-#: data/gui/dialogs/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
-msgstr "A nyomortelep lebontása sok pézbe kerülhet és tüzet is okozhat."
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "Helyszín betöltése"
 
-#: data/gui/dialogs/portdialog.xml data/gui/dialogs/tradedialog.xml
-msgid "Buy"
-msgstr "Vásárlás"
-
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "Helyszín választás"
-
-#: data/gui/dialogs/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "Szénerőmű elérhető"
-
-#: data/gui/dialogs/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "Szénbánya elérhető"
-
-#: data/gui/dialogs/coal_survey_yn.xml
-msgid "Coal Survey"
-msgstr "Szén keresése"
-
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "Program"
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "Folytatás"
-
-#: data/gui/creditslist.xml data/gui/mainmenu.xml
-msgid "Credits"
-msgstr "Közreműködők"
-
-#: data/gui/dialogs/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "Végezzünk szén keresést?"
-
-#: data/gui/dialogs/launch-good.xml
-msgid "Doing well."
-msgstr "Jól megy."
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "Gazd"
-
-#: data/gui/dialogs/sustain.xml
-msgid "Economy Sustainable."
-msgstr "Fenntartható gazdaság"
-
-#: data/gui/dialogs/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr "Sikeres az evakuálás megkezdése"
-
-#: data/gui/dialogs/firestationup.xml
-msgid "Fire Stations available"
-msgstr "Tűzoltóság elérhető"
-
-#: data/gui/dialogs/shfire-oc.xml data/gui/dialogs/shfire-uc.xml
+#: src/lincity-ng/Game.cpp:848
 msgid "Fire!"
 msgstr "Tűz!"
 
-#: data/gui/options.xml
-msgid "Fullscreen"
-msgstr "Teljes képernyő"
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "Tűz ütött ki."
 
-#: data/gui/dialogs/gamestats.xml
-msgid "Gamestats"
-msgstr "Játék statisztika"
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "Vissza a főmenübe"
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "Figyelem"
 
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "Grafika"
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "Közreműködők"
 
-#: data/gui/dialogs/portdialog.xml
-msgid "Harbour Trade Settings"
-msgstr "Kikötői kereskedés beállítása"
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
 
-#: data/gui/dialogs/healthup.xml
-msgid "Health Centres available"
-msgstr "Egészségközpont elérhető"
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
 
-#: data/gui/dialogs/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "Nehézipari létesítmény elérhető"
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
 
-#: data/gui/helpwindow.xml
-msgid "Help"
-msgstr "Súgó"
-
-#: data/gui/pbar2nd.xml
-msgid "High Voltage"
-msgstr "Magasfeszültség"
-
-#: data/gui/dialogs/import-exportup.xml
-msgid "Import/Export available"
-msgstr "Import/Export elérhető"
-
-#: data/gui/options.xml
-msgid "Language"
-msgstr "Nyelv"
-
-#: data/gui/dialogs/launch-fail.xml
-msgid "Launch Failure"
-msgstr "Sikertelen indítás"
-
-#: data/gui/dialogs/launch-good.xml
-msgid "Launch Successfull"
-msgstr "Sikeres indítás"
-
-#: data/gui/dialogs/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "Indítsuk?"
-
-#: data/gui/dialogs/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "Könnyüipari létesítmény elérhető"
-
-#: data/gui/dialogs/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "A LinCity megállapította, hogy gazdaság fenntartható."
-
-#: data/gui/loadgame.xml data/gui/mainmenu.xml
-msgid "Load"
-msgstr "Betöltés"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "Játék betöltése"
-
-#: data/gui/pbar2nd.xml
-msgid "Low Voltage"
-msgstr "Alacsony feszültség"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "Tér"
-
-#: data/gui/options.xml
-msgid "Map Size"
-msgstr "Térkép méret"
-
-#: data/gui/dialogs/millup.xml
-msgid "Mills available"
-msgstr "Malom elérhető"
-
-#: data/gui/dialogs/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "Modern szélmalom elérhető"
-
-#: data/gui/mainmenu.xml data/gui/newgame.xml
-msgid "New Game"
-msgstr "Új játék"
-
-#: data/gui/dialogs/blacksmithup.xml data/gui/dialogs/coalmineup.xml
-#: data/gui/dialogs/coalpowerup.xml data/gui/dialogs/cricketup.xml
-#: data/gui/dialogs/firestationup.xml data/gui/dialogs/healthup.xml
-#: data/gui/dialogs/hvindustryup.xml data/gui/dialogs/import-exportup.xml
-#: data/gui/dialogs/ltindustryup.xml data/gui/dialogs/millup.xml
-#: data/gui/dialogs/mod_wind_up.xml data/gui/dialogs/parkup.xml
-#: data/gui/dialogs/potteryup.xml data/gui/dialogs/railwayup.xml
-#: data/gui/dialogs/recycleup.xml data/gui/dialogs/riverup.xml
-#: data/gui/dialogs/roadup.xml data/gui/dialogs/rocketup.xml
-#: data/gui/dialogs/schoolup.xml data/gui/dialogs/solarpowerup.xml
-#: data/gui/dialogs/universityup.xml data/gui/dialogs/windmillup.xml
-msgid "New Invention"
-msgstr "Új találmány"
-
-#: data/gui/dialogs/no-credit-parkland.xml
-#: data/gui/dialogs/no-credit-parklamessages.pot
-msgid "Nobody Home"
-msgstr "Senki nincs otthon"
-
-#: data/gui/dialogs/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "Nem megengedett"
-
-#: data/gui/dialogs/allgone.xml data/gui/dialogs/blacksmithup.xml
-#: data/gui/dialogs/coalmineup.xml data/gui/dialogs/coalpowerup.xml
-#: data/gui/dialogs/cricketup.xml data/gui/dialogs/fire.xml
-#: data/gui/dialogs/firestationup.xml data/gui/dialogs/healthup.xml
-#: data/gui/dialogs/hvindustryup.xml data/gui/dialogs/import-exportup.xml
-#: data/gui/dialogs/launch-evac.xml data/gui/dialogs/launch-fail.xml
-#: data/gui/dialogs/launch-gone.xml data/gui/dialogs/launch-good.xml
-#: data/gui/dialogs/ltindustryup.xml data/gui/dialogs/millup.xml
-#: data/gui/dialogs/mod_wind_up.xml data/gui/dialogs/no-credit-parkland.xml
-#: data/gui/dialogs/no-credit-recycle.xml data/gui/dialogs/no-credit-rocket.xml
-#: data/gui/dialogs/no-credit-solar-power.xml
-#: data/gui/dialogs/no-credit-university.xml data/gui/dialogs/nobull-tip.xml
-#: data/gui/dialogs/parkup.xml data/gui/dialogs/potteryup.xml
-#: data/gui/dialogs/railwayup.xml data/gui/dialogs/recycleup.xml
-#: data/gui/dialogs/riverup.xml data/gui/dialogs/roadup.xml
-#: data/gui/dialogs/rocketup.xml data/gui/dialogs/schoolup.xml
-#: data/gui/dialogs/shfire-oc.xml data/gui/dialogs/shfire-uc.xml
-#: data/gui/dialogs/solarpowerup.xml data/gui/dialogs/sustain.xml
-#: data/gui/dialogs/universityup.xml data/gui/dialogs/warning.xml
-#: data/gui/dialogs/windmillup.xml data/gui/options.xml data/gui/too-old.xml
-msgid "Ok"
-msgstr "OK"
-
-#: data/gui/dialogs/gamestats.xml
-msgid "Okay"
-msgstr "OK"
-
-#: data/gui/mainmenu.xml data/gui/options.xml
-msgid "Options"
-msgstr "Opciók"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "Eredeti ötlet és program"
-
-#: data/gui/dialogs/parkup.xml
-msgid "Parks available"
-msgstr "Park elérhető"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "Szünet"
-
-#: data/gui/dialogs/potteryup.xml
-msgid "Potteries available"
-msgstr "Fazekasműhely elérhető"
-
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "Nyomd meg ezt a gombot a statisztikák megtekintéséhez"
-
-#: data/gui/dialogs/portdialog.xml data/gui/dialogs/tradedialog.xml
-msgid "Product"
-msgstr "Termék"
-
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "Kilépés"
-
-#: data/gui/dialogs/railwayup.xml
-msgid "Railways available"
-msgstr "Vasút elérhető"
-
-#: data/gui/dialogs/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "Hulladék újrahasznosító elérhető"
-
-#: data/gui/options.xml
-msgid "Resolution"
-msgstr "Felbontás"
-
-#: data/gui/dialogs/riverup.xml
-msgid "Rivers available"
-msgstr "Csatorna elérhető"
-
-#: data/gui/dialogs/roadup.xml
-msgid "Roads available"
-msgstr "Közút elérhető"
-
-#: data/gui/dialogs/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "Rakétabázis elérhető"
-
-#: data/gui/dialogs/launch_rocket_yn.xml
+#: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
 msgstr "Rakéta kész"
 
-#: data/gui/dialogs/launch_rocket_yn.xml
-msgid "Rocket ready to launch"
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
 msgstr "Rakéta indításra kész"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "Nagy sebességű szimuláció"
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "Normál sebességű szimuláció"
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "Indítsuk?"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "Nagyon gyors sebességű szimuláció"
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "Rakéta kilőve"
 
-#: data/gui/mainmenu.xml data/gui/savegame.xml
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "Rakétabázis"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "Sikeres indítás"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "Sikeres indítás"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"1000 embert evakuáltál. A gazdaság méretét a népességcsökkenéshez kell "
+"igazítanod."
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "Vesztettél"
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "Fenntartható gazdaság"
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {} here."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+#, fuzzy
+msgid "You cannot build this on credit."
+msgstr "Ezt az elemet nem építheted meg hitelből."
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "Nincsenek emberek ebben a városban."
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "Szeretnéd lebontani?"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+#, fuzzy
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr "Itt nem építhetsz kutat, ez sivatag."
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+#, fuzzy
+msgid "Cannot Evacuate"
+msgstr "Evakuálás"
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+#, fuzzy
+msgid "Bridge"
+msgstr "Közúti híd"
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "Bulldozer"
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "Becsült bontási költség:"
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "Bontási költség:"
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
+msgid "n/a"
+msgstr "nincs"
+
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
+msgid ": Cost to build "
+msgstr "Építési költség"
+
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "Lekérdezés: információk a kiválasztott épületről."
+
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "Bontás: Épület bontása. Változó árak."
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
+msgid ", to bulldoze "
+msgstr ", lebontása "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " To build "
+msgstr "építése "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " of them "
+msgstr "amiből "
+
+#: src/lincity-ng/GameView.cpp:1756
+msgid "will cost about "
+msgstr "becsült költsége "
+
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
+msgstr "A fogyasztási cikkek vámkezelése ingyenes"
+
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "Jó idők"
+
+#: src/lincity-ng/MainMenu.cpp:151
+#, fuzzy
+msgid "Bad Times"
+msgstr "Rossz idők"
+
+#: src/lincity-ng/MainMenu.cpp:155
+#, fuzzy
+msgid "Extreme Arid"
+msgstr "Száraz terület"
+
+#: src/lincity-ng/MainMenu.cpp:159
+#, fuzzy
+msgid "Extreme Wetland"
+msgstr "Vizes terület"
+
+#: src/lincity-ng/MainMenu.cpp:163
+msgid "Beach"
+msgstr "Strand"
+
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "Rakéta_98"
+
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
+msgid "empty"
+msgstr "üres"
+
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr "Folyó delta"
+
+#: src/lincity-ng/MainMenu.cpp:241
+msgid "semi desert"
+msgstr "Félsivatag"
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr "Mérsékelt"
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr "Mocsár"
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, fuzzy, c++-format
+msgid "Map size: {}x{}"
+msgstr "Térkép méret"
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "Tűz ütött ki."
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "Mini térkép: áttekintő"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "Mini térkép: munkanélküliség"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "Mini térkép: légszennyezettség"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "Mini térkép: élelmiszer"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "Mini térkép: villamos ellátás"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "Mini térkép: tűzoltóság"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "Mini térlép: sport"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "Mini térkép: egészségügy"
+
+#: src/lincity-ng/MiniMap.cpp:1043
+msgid "Minimap: coal deposits"
+msgstr "Mini térkép: szén lerakat"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+#, fuzzy
+msgid "Minimap: traffic density"
+msgstr "Mini térkép: forgalom sűrűség"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "Mini térkép: áruk"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr "Tó"
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+msgid "River"
+msgstr "Folyó"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr "Tavacska"
+
+#: src/lincity-ng/Mps.cpp:289
+msgid "no further information available"
+msgstr "nincs további információ"
+
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr "építs itt valamit"
+
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr "Termékeny"
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "Yes"
+msgstr "Igen"
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "No"
+msgstr "Nem"
+
+#: src/lincity-ng/Mps.cpp:322
+msgid "Fire Protection"
+msgstr "Tűzoltóság"
+
+#: src/lincity-ng/Mps.cpp:325
+msgid "Health Care"
+msgstr "Egészségügy"
+
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr "Tömegsport"
+
+#: src/lincity-ng/Mps.cpp:331
+msgid "Market Range"
+msgstr "Piaci tartomány"
+
+#: src/lincity-ng/Mps.cpp:336
+msgid "clear"
+msgstr "tiszta"
+
+#: src/lincity-ng/Mps.cpp:338
+msgid "good"
+msgstr "jó"
+
+#: src/lincity-ng/Mps.cpp:340
+msgid "fair"
+msgstr "igazságos"
+
+#: src/lincity-ng/Mps.cpp:342
+msgid "smelly"
+msgstr "büdös"
+
+#: src/lincity-ng/Mps.cpp:344
+msgid "smokey"
+msgstr "füstös"
+
+#: src/lincity-ng/Mps.cpp:346
+msgid "smoggy"
+msgstr "szmogos"
+
+#: src/lincity-ng/Mps.cpp:348
+msgid "bad"
+msgstr "rossz"
+
+#: src/lincity-ng/Mps.cpp:350
+msgid "very bad"
+msgstr "nagyon rossz"
+
+#: src/lincity-ng/Mps.cpp:352
+msgid "death!"
+msgstr "halálos"
+
+#: src/lincity-ng/Mps.cpp:354
+msgid "Air Pollution"
+msgstr "Légszennyezettség"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+msgid "Bull. Cost"
+msgstr "Bontási költség"
+
+#: src/lincity-ng/Mps.cpp:357
+msgid "N/A"
+msgstr "nincs"
+
+#: src/lincity-ng/Mps.cpp:361
+msgid "Ore Reserve"
+msgstr "Érc tartalék"
+
+#: src/lincity-ng/Mps.cpp:362
+msgid "Coal Reserve"
+msgstr "Érc tartalék"
+
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr "tengerszint"
+
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr "nyeregpont"
+
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr "minimum"
+
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr "maximum"
+
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr "alsó él"
+
+#: src/lincity-ng/Mps.cpp:408
+msgid "Tax Income"
+msgstr "Adóbevétel"
+
+#: src/lincity-ng/Mps.cpp:411
+msgid "Income"
+msgstr "Bevétel"
+
+#: src/lincity-ng/Mps.cpp:427
+msgid "Export"
+msgstr "Export"
+
+#: src/lincity-ng/Mps.cpp:432
+msgid "Expenses"
+msgstr "Kiadás"
+
+#: src/lincity-ng/Mps.cpp:435
+msgid "Unemp."
+msgstr "Munkanélküli"
+
+#: src/lincity-ng/Mps.cpp:439
+msgid "Transport"
+msgstr "Szállítás"
+
+#: src/lincity-ng/Mps.cpp:443
+msgid "Imports"
+msgstr "Import"
+
+#: src/lincity-ng/Mps.cpp:456
+msgid "Others"
+msgstr "Egyéb"
+
+#: src/lincity-ng/Mps.cpp:461
+msgid "Net"
+msgstr "Nettó"
+
+#: src/lincity-ng/Mps.cpp:467
+msgid "Other Costs"
+msgstr "Egyéb költségek"
+
+#: src/lincity-ng/Mps.cpp:468
+msgid "For year"
+msgstr "Éves"
+
+#: src/lincity-ng/Mps.cpp:470
+msgid "Interest"
+msgstr "Kamatok"
+
+#: src/lincity-ng/Mps.cpp:472
+msgid "Univers."
+msgstr "Egyetemek"
+
+#: src/lincity-ng/Mps.cpp:473
+msgid "Deaths"
+msgstr "Halálozások"
+
+#: src/lincity-ng/Mps.cpp:474
+msgid "Windmill"
+msgstr "Szélmalmok"
+
+#: src/lincity-ng/Mps.cpp:475
+msgid "Hospital"
+msgstr "Kórház"
+
+#: src/lincity-ng/Mps.cpp:476
+msgid "Rockets"
+msgstr "Rakéták"
+
+#: src/lincity-ng/Mps.cpp:477
+msgid "Fire Stn"
+msgstr "Tűzoltóságok"
+
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr "Sport"
+
+#: src/lincity-ng/Mps.cpp:479
+msgid "Recycle"
+msgstr "Hulladék újrahasznosító"
+
+#: src/lincity-ng/Mps.cpp:487
+msgid "Total"
+msgstr "Összesen"
+
+#: src/lincity-ng/Mps.cpp:488
+msgid "Housed"
+msgstr "Lakással rendelkező"
+
+#: src/lincity-ng/Mps.cpp:489
+msgid "Homeless"
+msgstr "Hajléktalan"
+
+#: src/lincity-ng/Mps.cpp:494
+msgid "Unemployment"
+msgstr "Munkanélküliség"
+
+#: src/lincity-ng/Mps.cpp:497
+msgid "Starvation"
+msgstr "Éhezés"
+
+#: src/lincity-ng/Mps.cpp:504
+msgid "Births p.a."
+msgstr "Születések"
+
+#: src/lincity-ng/Mps.cpp:512
+msgid "Deaths p.a."
+msgstr "Halálozás"
+
+#: src/lincity-ng/Mps.cpp:518
+msgid "Unnat. Deaths"
+msgstr "Halálesetek"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+msgid "M"
+msgstr "Millió"
+
+#: src/lincity-ng/ScreenInterface.cpp:80
+msgid "k"
+msgstr "ezer"
+
+#: src/lincity/commodities.cpp:38
+msgid "Food"
+msgstr "Élelmiszer"
+
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
+msgstr "Munkahelyek"
+
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "Szén"
+
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "Áruk"
+
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "Érc"
+
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "Acél"
+
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "Szemét"
+
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr "Alacsony feszültség"
+
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr "Magasfeszültség"
+
+#: src/lincity/lintypes.cpp:81
+msgid "Production:"
+msgstr "Termelés:"
+
+#: src/lincity/lintypes.cpp:81
+msgid "Inventory:"
+msgstr "Leltár:"
+
+#: src/lincity/util.cpp:39
+msgid "Jan"
+msgstr "Jan"
+
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "Feb"
+
+#: src/lincity/util.cpp:39
+msgid "Mar"
+msgstr "Már"
+
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "Ápr"
+
+#: src/lincity/util.cpp:40
+msgid "May"
+msgstr "Máj"
+
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "Jún"
+
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "Júl"
+
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "Aug"
+
+#: src/lincity/util.cpp:41
+msgid "Sep"
+msgstr "Szep"
+
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "Okt"
+
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "Nov"
+
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "Dec"
+
+#: src/lincity/modules/blacksmith.cpp:40
+msgid "Blacksmith"
+msgstr "Kovácsműhely"
+
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr "elfoglalt"
+
+#: src/lincity/modules/coal_power.cpp:44
+msgid "Coal Power Station"
+msgstr "Szénerőmű"
+
+#: src/lincity/modules/coal_power.cpp:45
+#, fuzzy
+msgid "Coal Power Stations"
+msgstr "Szénerőmű"
+
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "Technológia"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+msgid "Output"
+msgstr "Termelés"
+
+#: src/lincity/modules/coalmine.cpp:44
+msgid "Coal Mine"
+msgstr "Szénbánya"
+
+#: src/lincity/modules/coalmine.cpp:45
+#, fuzzy
+msgid "Coal Mines"
+msgstr "Szénbánya"
+
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr "Lerakatok"
+
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
+msgid "Forest"
+msgstr "Szénégető"
+
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+msgid "Fertility"
+msgstr "Termékenység"
+
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "Légszennyezettség"
+
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr "lusta hónapok"
+
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "Kosárlabdapálya"
+
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "Kosárlabdapálya"
+
+#: src/lincity/modules/cricket.cpp:150
+msgid "Public sports"
+msgstr "Tömegsport"
+
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr "Tűz"
+
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr "leégett"
+
+#: src/lincity/modules/fire.cpp:161
+msgid "degraded"
+msgstr "leépült"
+
+#: src/lincity/modules/firestation.cpp:47
+msgid "Fire Station"
+msgstr "Tűzoltóság"
+
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "Tűzoltóság"
+
+#: src/lincity/modules/health_centre.cpp:46
+#, fuzzy
+msgid "Hospitals"
+msgstr "Kórház"
+
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+msgid "Steel Works"
+msgstr "Acélüzem"
+
+#: src/lincity/modules/light_industry.cpp:46
+msgid "Light Industry"
+msgstr "Könnyüipari létesítmény"
+
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "Könnyüipari létesítmény"
+
+#: src/lincity/modules/mill.cpp:40
+msgid "Textile Mill"
+msgstr "Textilgyár"
+
+#: src/lincity/modules/mill.cpp:41
+#, fuzzy
+msgid "Textile Mills"
+msgstr "Textilgyár"
+
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "Emlékmű"
+
+#: src/lincity/modules/monument.cpp:137
+msgid "Wisdom bestowed"
+msgstr "Begyűjtőtt tudás"
+
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
+msgid "Completion"
+msgstr "Kész állapot"
+
+#: src/lincity/modules/oremine.cpp:43
+msgid "Ore Mine"
+msgstr "Ércbánya"
+
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "Ércbánya"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "Farm"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "Park"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
+msgstr "Park (Tavacskával)"
+
+#: src/lincity/modules/parkland.cpp:53
+#, fuzzy
+msgid "Parks (Pond)"
+msgstr "Park (Tavacskával)"
+
+#: src/lincity/modules/port.cpp:213
+msgid "Import"
+msgstr "Import"
+
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr "Kultúrális hatás"
+
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "Fazekasműhely"
+
+#: src/lincity/modules/power_line.cpp:38
+#, fuzzy
+msgid "Power Line"
+msgstr "Villamos vezeték"
+
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "Villamos vezetékek"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr "használat"
+
+#: src/lincity/modules/recycle.cpp:42
+#, fuzzy
+msgid "Recycling Center"
+msgstr "Hulladék újrahasznosító"
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "Hulladék újrahasznosító"
+
+#: src/lincity/modules/recycle.cpp:115
+msgid "Efficiency Ore"
+msgstr "Hatékonyság: érc"
+
+#: src/lincity/modules/recycle.cpp:116
+msgid "Efficiency Steel"
+msgstr "Hatékonyság: acél"
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+msgid "Residence"
+msgstr "Lakóövezet"
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr "Bérlő"
+
+#: src/lincity/modules/residence.cpp:422
+msgid "Desireability"
+msgstr "Vonzóság"
+
+#: src/lincity/modules/residence.cpp:424
+msgid "Death p.a."
+msgstr "Halálozások"
+
+#: src/lincity/modules/residence.cpp:425
+msgid "Unnat. mortality"
+msgstr "Halálozás"
+
+#: src/lincity/modules/rocket_pad.cpp:53
+msgid "Rocket Pad"
+msgstr "Rakétabázis"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "Rakétabázis"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr "Általános iskola"
+
+#: src/lincity/modules/school.cpp:48
+#, fuzzy
+msgid "Elementary Schools"
+msgstr "Általános iskola"
+
+#: src/lincity/modules/school.cpp:154
+msgid "Lessons learned"
+msgstr "Levont tanulságok"
+
+#: src/lincity/modules/shanty.cpp:51
+msgid "Shanty Town"
+msgstr "Nyomortelep"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "Nyomortelep"
+
+#: src/lincity/modules/solar_power.cpp:40
+msgid "Solar Power Plant"
+msgstr "Naperőmű"
+
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "Naperőmű"
+
+#: src/lincity/modules/substation.cpp:39
+msgid "Power Substation"
+msgstr "Alállomás"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "Alállomás"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "Üres"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+msgid "Desert"
+msgstr "Sivatag"
+
+#: src/lincity/modules/tile.cpp:80
+msgid "Tree"
+msgstr "Fa"
+
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+msgid "Trees"
+msgstr "Fák"
+
+#: src/lincity/modules/tip.cpp:42
+msgid "Land Fill"
+msgstr "Szeméttelep"
+
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "Szeméttelep"
+
+#: src/lincity/modules/tip.cpp:120
+msgid "Filled"
+msgstr "% telített"
+
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "Gyalogút"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+#, fuzzy
+msgid "Track (Bridge)"
+msgstr "Gyalogos híd"
+
+#: src/lincity/modules/track_road_rail.cpp:66
+#, fuzzy
+msgid "Tracks (Bridge)"
+msgstr "Gyalogos híd"
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "Közút"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+#, fuzzy
+msgid "Road (Bridge)"
+msgstr "Közúti híd"
+
+#: src/lincity/modules/track_road_rail.cpp:97
+#, fuzzy
+msgid "Roads (Bridge)"
+msgstr "Közúti híd"
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "Vasút"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+#, fuzzy
+msgid "Rail (Bridge)"
+msgstr "Vasúti híd"
+
+#: src/lincity/modules/track_road_rail.cpp:129
+#, fuzzy
+msgid "Rails (Bridge)"
+msgstr "Vasúti híd"
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr "Forgalom"
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "Egyetem"
+
+#: src/lincity/modules/university.cpp:122
+msgid "Tech researched"
+msgstr "Kutatott technológiák"
+
+#: src/lincity/modules/waterwell.cpp:37
+#, fuzzy
+msgid "Water Tower"
+msgstr "Víztorony"
+
+#: src/lincity/modules/waterwell.cpp:38
+#, fuzzy
+msgid "Water Towers"
+msgstr "Víztorony"
+
+#: src/lincity/modules/waterwell.cpp:106
+msgid "Drinkable"
+msgstr "Iható"
+
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+msgid "Wind Power"
+msgstr "Szélerőmű"
+
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "Közreműködők"
+
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "Eredeti ötlet és program"
+
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "Program"
+
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "Grafika"
+
+#: data/gui/creditslist.xml:122
+msgid "Sound and Music"
+msgstr "Hang és zene"
+
+#: data/gui/creditslist.xml:138
+msgid "Translation"
+msgstr "Fordítás"
+
+#: data/gui/creditslist.xml:278
+msgid "License"
+msgstr ""
+
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "Vissza"
+
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
+msgid "Ok"
+msgstr "OK"
+
+#: data/gui/helpwindow.xml:17
+msgid "Help"
+msgstr "Súgó"
+
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "Játék betöltése"
+
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "Betöltés"
+
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "Új játék"
+
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "Folytatás"
+
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
 msgid "Save"
 msgstr "Mentés"
 
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "Játék mentése"
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "Opciók"
 
-#: data/gui/dialogs/schoolup.xml
-msgid "Schools available"
-msgstr "Iskola elérhető"
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "Kilépés"
 
-#: data/gui/dialogs/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
-msgstr ""
-"A szénbányákról és kutatókról további információkért tekintsd meg a súgót."
-
-#: data/gui/dialogs/blacksmithup.xml data/gui/dialogs/coalpowerup.xml
-#: data/gui/dialogs/cricketup.xml data/gui/dialogs/firestationup.xml
-#: data/gui/dialogs/healthup.xml data/gui/dialogs/hvindustryup.xml
-#: data/gui/dialogs/ltindustryup.xml data/gui/dialogs/millup.xml
-#: data/gui/dialogs/mod_wind_up.xml data/gui/dialogs/parkup.xml
-#: data/gui/dialogs/potteryup.xml data/gui/dialogs/railwayup.xml
-#: data/gui/dialogs/recycleup.xml data/gui/dialogs/riverup.xml
-#: data/gui/dialogs/rocketup.xml data/gui/dialogs/schoolup.xml
-#: data/gui/dialogs/solarpowerup.xml data/gui/dialogs/universityup.xml
-#: data/gui/dialogs/windmillup.xml
-msgid "See the help screen for more information."
-msgstr "További információért tekintsd meg a súgót."
-
-#: data/gui/options.xml
-msgid "Seed Saving"
-msgstr "Vetőmag megtakarítás"
-
-#: data/gui/dialogs/portdialog.xml data/gui/dialogs/tradedialog.xml
-msgid "Sell"
-msgstr "Eladás"
-
-#: data/gui/dialogs/coal_survey_yn.xml
-msgid "Send out Prospectors"
-msgstr "Szeretnél kutatókat küldeni?"
-
-#: data/gui/minimap.xml
-msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
-msgstr ""
-"Bevételek és kiadások megjelenítése. Kattints ide ismét a különböző nézetek "
-"közötti váltáshoz."
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "Szén lerakatok megjelenítése"
-
-#: data/gui/minimap.xml
-msgid "Show economy graphs."
-msgstr "Gazdasági adatok megjelenítése"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "Tűzoltóság lefedettségének megjelenítése"
-
-#: data/gui/minimapswitchbuttons.xml
+#: data/gui/minimapswitchbuttons.xml:11
 msgid "Show map outline"
 msgstr "Áttekintő térkép megjelenítése"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "Egészségügyi adatok megjelenítése"
-
-#: data/gui/minimapswitchbuttons.xml
+#: data/gui/minimapswitchbuttons.xml:21
 msgid "Show nourishments"
 msgstr "Élelmiszer adatok megjelenítése"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "Légszennyezettségi adatok megjelenítése"
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "Munkanélküliség megjelenítése"
 
-#: data/gui/minimapswitchbuttons.xml
+#: data/gui/minimapswitchbuttons.xml:41
 msgid "Show power supply"
 msgstr "Villamos hálózati adatok megjelenítése"
 
-#: data/gui/minimap.xml
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "Tűzoltóság lefedettségének megjelenítése"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "Sport adatok megjelenítése"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "Egészségügyi adatok megjelenítése"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "Forgalmi adatok megjelenítése"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "Légszennyezettségi adatok megjelenítése"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "Szén lerakatok megjelenítése"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "Tér"
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "Mini térkép megjelenítése"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "Stat"
+
+#: data/gui/minimap.xml:28
 msgid "Show resources. Use scroll buttons to cycle through views."
 msgstr ""
 "Bevételek és kiadások megjelenítése. Kattints ide ismét a különböző nézetek "
 "közötti váltáshoz."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "Sport adatok megjelenítése"
-
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "Mini térkép megjelenítése"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "Forgalmi adatok megjelenítése"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "Munkanélküliség megjelenítése"
-
-#: data/gui/dialogs/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "Naperőmű elérhető"
-
-#: data/gui/dialogs/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "A szeméttelepeket sajnos nem lehet lebontani."
-
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
+#: data/gui/minimap.xml:38
+msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
 msgstr ""
-"Sajnálom, a kért mentés túl régi, és nem tudom betölteni. Az előző játék "
-"folytatódik."
+"Bevételek és kiadások megjelenítése. Kattints ide ismét a különböző nézetek "
+"közötti váltáshoz."
 
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "Hangeffektusok"
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "Gazd"
 
-#: data/gui/creditslist.xml
-msgid "Sound and Music"
-msgstr "Hang és zene"
+#: data/gui/minimap.xml:48
+msgid "Show economy graphs."
+msgstr "Gazdasági adatok megjelenítése"
 
-#: data/gui/newgame.xml
-msgid "Start"
-msgstr "Start"
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr "[m] felfelé görgetés."
 
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "Stat"
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr "[n] lefelé görgetés."
 
-#: data/gui/pbar.xml data/gui/pbar2nd.xml
-msgid "Tech Level"
-msgstr "Műszaki szint"
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
+msgstr "[+] Nagyíts rá, hogy kevesebb épület, de több részlet legyen látható"
 
-#: data/gui/dialogs/allgone.xml
-msgid "There are no people left in this city."
-msgstr "Nincsenek emberek ebben a városban."
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] Kicsinyít"
 
-#: data/gui/dialogs/coal_survey_yn.xml
-msgid "This will cost you 1 million once. After that it is free to call again."
-msgstr "Ennek egyszeri egymilliós költsége van. A további hívások ingyenesek."
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr "domborzati magasság megjelenítésének váltása"
 
-#: data/gui/dialogs/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "A teljes evakuálás befejeződött."
+#: data/gui/minimap.xml:124
+msgid "Gov."
+msgstr ""
 
-#: data/gui/dialogs/tradedialog.xml
-msgid "Trade Settings"
-msgstr "Kereskedési beállítások"
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Translation"
-msgstr "Fordítás"
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr "Nyomd meg az [F1] gombot a súgó eléréséhez."
 
-#: data/gui/dialogs/universityup.xml
-msgid "University available"
-msgstr "Egyetem elérhető"
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] A magas épületek elrejtése."
 
-#: data/gui/newgame.xml
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "Nyomd meg ezt a gombot a statisztikák megtekintéséhez"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] A mini térkép megjelenítése a fő térkép fölött."
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "Helyszín választás"
+
+#: data/gui/newgame.xml:56
 msgid "Village"
 msgstr "Falu"
 
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-#: data/gui/dialogs/bulldoze_river_yn.xml
-#: data/gui/dialogs/bulldoze_shanty_yn.xml
-msgid "Want to bulldoze?"
-msgstr "Szeretnéd lebontani?"
-
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-#: data/gui/dialogs/bulldoze_river_yn.xml
-#: data/gui/dialogs/bulldoze_shanty_yn.xml data/gui/dialogs/warning.xml
-#: data/gui/too-old.xml
-msgid "Warning"
-msgstr "Figyelem"
-
-#: data/gui/dialogs/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "Figyelmeztetés: az emlékművek lebontása költséges."
-
-#: data/gui/dialogs/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "Figyelmeztetés, a nyomortelep lebontása veszélyes."
-
-#: data/gui/dialogs/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "Figyelmeztetés: vízterület egyengetése költséges."
-
-#: data/gui/dialogs/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "Szép munka, minden ember evakuálva."
-
-#: data/gui/dialogs/windmillup.xml
-msgid "Windmills available"
-msgstr "Szélmalom elérhető"
-
-#: data/gui/newgame.xml
+#: data/gui/newgame.xml:65
 msgid "Without trees"
 msgstr "Fák nélkül"
 
-#: data/gui/dialogs/fire.xml
-msgid "You better go and look for it"
-msgstr "Jobb ha utánanézel"
+#: data/gui/newgame.xml:208
+msgid "Start"
+msgstr "Start"
 
-#: data/gui/dialogs/launch_rocket_yn.xml
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "Háttérzene"
+
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "Hangeffektusok"
+
+#: data/gui/options.xml:87
+msgid "Resolution"
+msgstr "Felbontás"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr "Térkép méret"
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
+
+#: data/gui/options.xml:146
+#, fuzzy
+msgid "Scroll Speed"
+msgstr "[m] felfelé görgetés."
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr "Nyelv"
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
+msgid "Tech Level"
+msgstr "Műszaki szint"
+
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr "Alacsony feszültség"
+
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr "Magasfeszültség"
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "Játék mentése"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "Szünet"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "Normál sebességű szimuláció"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "Nagy sebességű szimuláció"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "Nagyon gyors sebességű szimuláció"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "Vissza a főmenübe"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Coal Survey"
+msgstr "Szén keresése"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Send out Prospectors"
+msgstr "Szeretnél kutatókat küldeni?"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "This will cost you 1 million once. After that it is free to call again."
+msgstr "Ennek egyszeri egymilliós költsége van. A további hívások ingyenesek."
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "Végezzünk szén keresést?"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Income tax"
+msgstr "Bevétel"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "Szén"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "Áruk"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Transport cost"
+msgstr "Szállítás"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Gamestats"
+msgstr "Játék statisztika"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Okay"
+msgstr "OK"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "Rocket ready to launch"
+msgstr "Rakéta indításra kész"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1778,280 +2013,443 @@ msgstr ""
 "kerülni, hogy a rakétát indulásra készen tartsák. Kattints a rakétára a "
 "párbeszédpanel későbbi ismételt megnyitásához."
 
-#: data/gui/dialogs/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"Mostantól szenet, árukat, ércet és acélt importálhatsz és exportálhatsz. "
-"Olvasd el a súgót, hogy többet megtudj."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+msgid "Harbour Trade Settings"
+msgstr "Kikötői kereskedés beállítása"
 
-#: data/gui/dialogs/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr ""
-"Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
-"parkokat építs."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Product"
+msgstr "Termék"
 
-#: data/gui/dialogs/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr ""
-"Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
-"újrahasznosító központokat építs."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "Vásárlás"
 
-#: data/gui/dialogs/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr ""
-"Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
-"rakétabázist építs."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
+msgid "Sell"
+msgstr "Eladás"
 
-#: data/gui/dialogs/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr ""
-"Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
-"naperőműveket építs."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Trade Settings"
+msgstr "Kereskedési beállítások"
 
-#: data/gui/dialogs/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr ""
-"Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
-"egyetemeket építs."
+#~ msgid "----- IN TEST MODE -------"
+#~ msgstr "----- TESZT MÓD -------"
 
-#: data/gui/dialogs/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr ""
-"1000 embert evakuáltál. A gazdaság méretét a népességcsökkenéshez kell "
-"igazítanod."
+#~ msgid "query"
+#~ msgstr "lekérdezés"
 
-#: data/gui/dialogs/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use labor and steel to make goods."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy kovácsműhelyeket "
-"építs. A kovácsműhelyek munkaerőt és acélt használnak fel a termékek "
-"előállításához."
+#~ msgid "You just spent all your money."
+#~ msgstr "Elköltötted az összes pénzedet."
 
-#: data/gui/dialogs/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy szénerőműveket "
-"építs."
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "Hiba: a csoport nem létezik. Kérlek jelezd a hibát a lincity-ng csapatnak "
+#~ "a, küldd el az elmentett játékot és írd le a hiba körülményeit."
 
-#: data/gui/dialogs/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy tűzoltóságokat "
-"építs. A tűzoltóságok megakadályozzák a legtöbb tűz keletkezését."
+#~ msgid "ups, Bulldozer found a dangling reportingConstruction"
+#~ msgstr "Hoppá, a Bulldozer egy függőben lévő építkezést talált."
 
-#: data/gui/dialogs/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy "
-"egészségközpontokat építs. Az egészségközpontok ​​központok csökkentik a "
-"légszennyezettség miatt meghalt emberek számát és növelik az általános "
-"születésszámot."
+#~ msgid "UNKNOWN!"
+#~ msgstr "Ismeretlen."
 
-#: data/gui/dialogs/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy nehézipari "
-"létesíményeket építs. A nehézipar acélt termel."
+#~ msgid "Not enough students, build more schools."
+#~ msgstr "Nincs elég tanuló, építs több iskolát."
 
-#: data/gui/dialogs/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy könnyüipari "
-"létesíményeket építs. A könnyüipar árukat állít elő."
+#~ msgid "Port must be connected to river all along right side."
+#~ msgstr "A kikötő a teljes jobb oldalának csatlakoznia kell a folyóhoz"
 
-#: data/gui/dialogs/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"labor and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy malmokat építs. A "
-"malmok munkaerőt és élelmiszereket használnak az áruk előállításához. "
-"Vigyázz, sok ételt használhatnak fel!"
+#~ msgid "You can't build a mine here: there is no ore left at this site"
+#~ msgstr "Itt nem építhetsz bányát, ezen a területen nem maradt több érc."
 
-#: data/gui/dialogs/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy modern hatékony "
-"szélmalmokat építs."
+#~ msgid "You can't build a park here: it is a desert, parks need water"
+#~ msgstr "Itt nem építhetsz parkot, ez sivatag, a parknak vízre van szüksége."
 
-#: data/gui/dialogs/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy parkokat építs. A "
-"parkokat a légszennyezettség csökkentésére használhatod."
+#~ msgid "Save file"
+#~ msgstr "Fájl mentése"
 
-#: data/gui/dialogs/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use labor and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy fazekasműhelyeket "
-"építs. A fazekasműhelyek munkaerőt és ércet használnak az áruk "
-"előállításához. Egy ércet előállító bányára, hulladékfeldolgozóra vagy "
-"szénégetőre is szükséged lesz."
+#~ msgid "Can't open save file!"
+#~ msgstr "Nem lehet megnyitni a fájlt."
 
-#: data/gui/dialogs/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy vasutat építs."
+#~ msgid "Can't open"
+#~ msgstr "Nem lehet megnyitni a fájlt."
 
-#: data/gui/dialogs/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy csatornákat építs."
+#~ msgid "gzipped"
+#~ msgstr "tömörített"
 
-#: data/gui/dialogs/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy közutakat építs. "
-"További információkért tekintsd meg a súgót."
+#~ msgid "Health Centre"
+#~ msgstr "Egészségközpont"
 
-#: data/gui/dialogs/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy rakétabázisokat "
-"építs. A rakéták lehetővé teszik a lakosság evakuálását, és egy módja annak, "
-"hogy „megnyerjük” a játékot."
+#~ msgid "Overall Progress"
+#~ msgstr "Általános fejlettség"
 
-#: data/gui/dialogs/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use labor and goods to increase tech level. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy iskolákat építs. "
-"Az iskolák munkaerőt és arukat használnak fel hogy növeljék a műszaki "
-"szintet."
+#~ msgid "Next Step"
+#~ msgstr "Következő lépés"
 
-#: data/gui/dialogs/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy naperőműveket "
-"építs."
+#~ msgid "Commodities"
+#~ msgstr "Áruk"
 
-#: data/gui/dialogs/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy egyetemeket építs. "
-"Az egyetemek PhD végzettséget adnak, ami magasabb műszaki szintet eredményez."
+#~ msgid ""
+#~ "Upgrading from old game. You have 10 years to build water wells where "
+#~ "needed. After, starvation will occur!  You should check starvation "
+#~ "minimap, and read waterwell help page :-)"
+#~ msgstr ""
+#~ "Frissítés egy régebbi játékról. 10 éved van hogy kutakat építsél, ahol "
+#~ "szükséges. Ezt követően éhezés tör ki. Ellenőrizheted az éhezést a "
+#~ "térképen és olvasd el a kutakra vontkozó súgót."
 
-#: data/gui/dialogs/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy szélmalmokat építs."
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "Tűz ütött ki egy nyomortelepen. A tűzoltóság lefedettségi területén van, "
+#~ "és úgy tűnik, hogy ellenőrzés alatt áll."
 
-#: data/gui/dialogs/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy mélyebb "
-"szénbányákat építs."
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "Tűz ütött ki egy nyomortelepen. A tűz NEM ÁLL ELLENŐRZÉS ALATT, és más "
+#~ "területekre is átterjedhet."
 
-#: data/gui/dialogs/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr ""
-"Elérted azt a műszaki szintet, amely lehetővé teszi, hogy hulladék "
-"újrahasznosítókat építs. A hulladék újrahasznosítók a nem használt árukat "
-"érccé alakítják."
+#~ msgid "Basketball Courts available"
+#~ msgstr "Kosárlabdapálya elérhető"
 
-#: data/gui/dialogs/launch-gone.xml data/gui/dialogs/sustain.xml
-msgid "You have won the game."
-msgstr "Megnyerted a játékot."
+#~ msgid "Binary Saving"
+#~ msgstr "Bináris mentés"
 
-#: data/gui/dialogs/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "Elölről kellene kezdened egy másik városban."
+#~ msgid "Blacksmiths available"
+#~ msgstr "Kovácsműhely elérhető"
 
-#: data/gui/dialogs/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a some labor and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
-msgstr ""
-"Az emberek feltalálták a kosárlabdát. A kosárlabdapályák némi munkaerőt és "
-"árukat használnak fel és körülbelül 10 egységnyi körzetben boldogabb "
-"embereket eredményeznek."
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "A folyó terület egyengetése sok pénzbe kerülhet."
 
-#: data/gui/dialogs/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"A rakéta nem sokkal az indítás után lezuhant. Az emberek már nem bíznak az "
-"evakuálás technológiában. A bizalom helyreállításához további öt pilóta "
-"nélküli rakétát kell elindítani."
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr "A nyomortelep lebontása sok pézbe kerülhet és tüzet is okozhat."
 
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr "[+] Nagyíts rá, hogy kevesebb épület, de több részlet legyen látható"
+#~ msgid "Coal Fired Power Stations available"
+#~ msgstr "Szénerőmű elérhető"
 
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] Kicsinyít"
+#~ msgid "Coal Mine available"
+#~ msgstr "Szénbánya elérhető"
 
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr "Nyomd meg az [F1] gombot a súgó eléréséhez."
+#~ msgid "Doing well."
+#~ msgstr "Jól megy."
 
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] A magas épületek elrejtése."
+#~ msgid "Evacuation Launch Good"
+#~ msgstr "Sikeres az evakuálás megkezdése"
 
-#: data/gui/minimap.xml
-msgid "[m] Scroll up."
-msgstr "[m] felfelé görgetés."
+#~ msgid "Fire Stations available"
+#~ msgstr "Tűzoltóság elérhető"
 
-#: data/gui/minimap.xml
-msgid "[n] Scroll down."
-msgstr "[n] lefelé görgetés."
+#~ msgid "Health Centres available"
+#~ msgstr "Egészségközpont elérhető"
 
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] A mini térkép megjelenítése a fő térkép fölött."
+#~ msgid "Heavy Industry available"
+#~ msgstr "Nehézipari létesítmény elérhető"
 
-#: data/gui/minimap.xml
-msgid "toggle terrain height rendering"
-msgstr "domborzati magasság megjelenítésének váltása"
+#~ msgid "Import/Export available"
+#~ msgstr "Import/Export elérhető"
+
+#~ msgid "Launch Failure"
+#~ msgstr "Sikertelen indítás"
+
+#~ msgid "Light Industry available"
+#~ msgstr "Könnyüipari létesítmény elérhető"
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "A LinCity megállapította, hogy gazdaság fenntartható."
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "Modern szélmalom elérhető"
+
+#~ msgid "Nobody Home"
+#~ msgstr "Senki nincs otthon"
+
+#~ msgid "Not Allowed"
+#~ msgstr "Nem megengedett"
+
+#~ msgid "Parks available"
+#~ msgstr "Park elérhető"
+
+#~ msgid "Potteries available"
+#~ msgstr "Fazekasműhely elérhető"
+
+#~ msgid "Railways available"
+#~ msgstr "Vasút elérhető"
+
+#~ msgid "Recycling Centres available"
+#~ msgstr "Hulladék újrahasznosító elérhető"
+
+#~ msgid "Rivers available"
+#~ msgstr "Csatorna elérhető"
+
+#~ msgid "Roads available"
+#~ msgstr "Közút elérhető"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "Rakétabázis elérhető"
+
+#~ msgid "Schools available"
+#~ msgstr "Iskola elérhető"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "A szénbányákról és kutatókról további információkért tekintsd meg a súgót."
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "További információért tekintsd meg a súgót."
+
+#~ msgid "Seed Saving"
+#~ msgstr "Vetőmag megtakarítás"
+
+#~ msgid "Solar Power Stations available"
+#~ msgstr "Naperőmű elérhető"
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "A szeméttelepeket sajnos nem lehet lebontani."
+
+#~ msgid ""
+#~ "Sorry, the game you wanted is too old. Cannot load it. Still play with "
+#~ "previous game."
+#~ msgstr ""
+#~ "Sajnálom, a kért mentés túl régi, és nem tudom betölteni. Az előző játék "
+#~ "folytatódik."
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "A teljes evakuálás befejeződött."
+
+#~ msgid "University available"
+#~ msgstr "Egyetem elérhető"
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "Figyelmeztetés: az emlékművek lebontása költséges."
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "Figyelmeztetés, a nyomortelep lebontása veszélyes."
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "Figyelmeztetés: vízterület egyengetése költséges."
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "Szép munka, minden ember evakuálva."
+
+#~ msgid "Windmills available"
+#~ msgstr "Szélmalom elérhető"
+
+#~ msgid "You better go and look for it"
+#~ msgstr "Jobb ha utánanézel"
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "Mostantól szenet, árukat, ércet és acélt importálhatsz és exportálhatsz. "
+#~ "Olvasd el a súgót, hogy többet megtudj."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr ""
+#~ "Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
+#~ "parkokat építs."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
+#~ "újrahasznosító központokat építs."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
+#~ "rakétabázist építs."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
+#~ "naperőműveket építs."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "Költségvetési hiányod van. A törvényhozó tanács nem engedi, hogy hitelből "
+#~ "egyetemeket építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use labor and steel to make goods."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy "
+#~ "kovácsműhelyeket építs. A kovácsműhelyek munkaerőt és acélt használnak "
+#~ "fel a termékek előállításához."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy szénerőműveket "
+#~ "építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy tűzoltóságokat "
+#~ "építs. A tűzoltóságok megakadályozzák a legtöbb tűz keletkezését."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy "
+#~ "egészségközpontokat építs. Az egészségközpontok ​​központok csökkentik a "
+#~ "légszennyezettség miatt meghalt emberek számát és növelik az általános "
+#~ "születésszámot."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy nehézipari "
+#~ "létesíményeket építs. A nehézipar acélt termel."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy könnyüipari "
+#~ "létesíményeket építs. A könnyüipar árukat állít elő."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use labor and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy malmokat építs. "
+#~ "A malmok munkaerőt és élelmiszereket használnak az áruk előállításához. "
+#~ "Vigyázz, sok ételt használhatnak fel!"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy modern hatékony "
+#~ "szélmalmokat építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy parkokat építs. "
+#~ "A parkokat a légszennyezettség csökkentésére használhatod."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use labor and ore to make goods. (You need ore mines to get "
+#~ "ore) "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy "
+#~ "fazekasműhelyeket építs. A fazekasműhelyek munkaerőt és ércet használnak "
+#~ "az áruk előállításához. Egy ércet előállító bányára, hulladékfeldolgozóra "
+#~ "vagy szénégetőre is szükséged lesz."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy vasutat építs."
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy csatornákat "
+#~ "építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy rakétabázisokat "
+#~ "építs. A rakéták lehetővé teszik a lakosság evakuálását, és egy módja "
+#~ "annak, hogy „megnyerjük” a játékot."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use labor and goods to increase tech level. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy iskolákat "
+#~ "építs. Az iskolák munkaerőt és arukat használnak fel hogy növeljék a "
+#~ "műszaki szintet."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy naperőműveket "
+#~ "építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy egyetemeket "
+#~ "építs. Az egyetemek PhD végzettséget adnak, ami magasabb műszaki szintet "
+#~ "eredményez."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy szélmalmokat "
+#~ "építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy mélyebb "
+#~ "szénbányákat építs."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "Elérted azt a műszaki szintet, amely lehetővé teszi, hogy hulladék "
+#~ "újrahasznosítókat építs. A hulladék újrahasznosítók a nem használt árukat "
+#~ "érccé alakítják."
+
+#~ msgid "You have won the game."
+#~ msgstr "Megnyerted a játékot."
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "Elölről kellene kezdened egy másik városban."
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a some labor "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "Az emberek feltalálták a kosárlabdát. A kosárlabdapályák némi munkaerőt "
+#~ "és árukat használnak fel és körülbelül 10 egységnyi körzetben boldogabb "
+#~ "embereket eredményeznek."
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "A rakéta nem sokkal az indítás után lezuhant. Az emberek már nem bíznak "
+#~ "az evakuálás technológiában. A bizalom helyreállításához további öt "
+#~ "pilóta nélküli rakétát kell elindítani."

@@ -6,1111 +6,36 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
 "Project-Id-Version: LINCITY Chinese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-19 13:48+0100\n"
-"PO-Revision-Date: 2013-03-09 16:22-0800\n"
-"Last-Translator: Z-Localization <azaytseva@miis.edu>\n"
-"Language-Team: Z Localization <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
-"Language: zh_CN\n"
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
-"Project-Id-Version: LINCITY Chinese\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Dec 19 13:48:29 2007\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
 "PO-Revision-Date: 2013-03-01 14:12-0800\n"
 "Last-Translator: Z-Localization <azaytseva@miis.edu>\n"
 "Language-Team: Z Localization <azaytseva@miis.edu>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
 "X-Generator: Poedit 1.5.5\n"
-"Language: zh_CN\n"
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"X-Generator: Poedit 1.5.5\n"
 
-#: src/lincity/loadsave.cpp:127
-#, c-format
-msgid "Save file <%s> - "
-msgstr "保存文件 <%s> - "
-
-#: src/lincity/loadsave.cpp:128
-msgid "Can't open save file!"
-msgstr "无法打开保存文件！"
-
-#: src/lincity/loadsave.cpp:288 src/lincity/old_ldsvguts.cpp:127
-#, c-format
-msgid "Can't open <%s> (gzipped)"
-msgstr "无法打开 <%s> (gzipped)"
-
-#: src/lincity/fileutil.cpp:232 src/lincity/fileutil.cpp:276
-msgid "Error. Can't find LINCITY_HOME"
-msgstr "错误。找不到LINCITY_HOME"
-
-#: src/lincity/fileutil.cpp:478
-msgid "Error verifying package. Can't find colour.pal."
-msgstr "无法定位组合"
-
-#: src/lincity/fileutil.cpp:491 src/lincity/fileutil.cpp:499
-#, c-format
-msgid "Couldn't create the save directory '%s'\n"
-msgstr "无法创建保存路径'%s'\n"
-
-#: src/lincity/fileutil.cpp:516
-#, c-format
-msgid "Out of memory: malloc failure\n"
-msgstr "内存不足：存储器问题\n"
-
-#: src/lincity/old_ldsvguts.cpp:159
-msgid "Loading scene"
-msgstr "加载页面"
-
-#: src/lincity/simulate.cpp:90
-msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+msgid "requires"
 msgstr ""
-"从之前的游戏加载。你有十年时间在需要的地方建立水井。之后，饥荒就会到来！你可"
-"以查看关于饥荒的迷你地图，并阅读水井帮助页面:-)"
 
-#: src/lincity/power.cpp:271
-msgid "You have too many power grids. Join some of them"
-msgstr "你有过多的电网。请合并其中一些"
-
-#: src/lincity/engine.cpp:149
-msgid "Port must be connected to river all along right side."
-msgstr "港口必须与河流右侧连接。"
-
-#: src/lincity/engine.cpp:161
-msgid "You can't build a water well here: it is all desert."
-msgstr "你不能在此建水井：这里全是沙漠。"
-
-#: src/lincity/engine.cpp:175
-msgid "You can't build a tip here: this area was once a landfill"
-msgstr "你不能在此建垃圾场：这里曾经是垃圾填埋地"
-
-#: src/lincity/engine.cpp:190
-msgid "You can't build a mine here: This area was once a landfill"
-msgstr "你不能在此建矿井：这里曾经是垃圾填埋地"
-
-#: src/lincity/engine.cpp:201
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr "你不能在此建矿井：这里没有留守人员"
-
-#: src/lincity/engine.cpp:210
-msgid "You can't build a park here: it is a desert, parks need water"
-msgstr "你不能在此建停车场：这里全是沙漠，停车场需要水源"
-
-#: src/lincity/engine.cpp:225
-msgid "Too many substations + windmills. You cannot build one more"
-msgstr "太多变电所 + 风车。你不能再建一个了"
-
-#: src/lincity/engine.cpp:234
-msgid "Too many markets. You cannot build one more"
-msgstr "市场太多了。你不能再建一个了"
-
-#: src/lincity/engine.cpp:258
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
-msgstr ""
-"错误：小组不存在。这不应该发生！请考虑填写故障报告给lincity-ng开发团队，包括"
-"保存的游戏以及你的步骤 :-)"
-
-#: src/lincity/engine.cpp:559
-msgid "It's at a power line."
-msgstr "它在输电线处。"
-
-#: src/lincity/engine.cpp:561
-msgid "It's at a solar power station."
-msgstr "它在太阳能发电站处。"
-
-#: src/lincity/engine.cpp:563
-msgid "It's at a substation."
-msgstr "它在变电所处。"
-
-#: src/lincity/engine.cpp:565
-msgid "It's at a residential area."
-msgstr "它在居民区处。"
-
-#: src/lincity/engine.cpp:567
-msgid "It's at a farm."
-msgstr "它在农场处。"
-
-#: src/lincity/engine.cpp:569
-msgid "It's at a market."
-msgstr "它在市场处。"
-
-#: src/lincity/engine.cpp:571
-msgid "It's at a track."
-msgstr "它在铁轨处。"
-
-#: src/lincity/engine.cpp:573
-msgid "It's at a coal mine."
-msgstr "它在煤矿处。"
-
-#: src/lincity/engine.cpp:575
-msgid "It's at a railway."
-msgstr "它在轨道处。"
-
-#: src/lincity/engine.cpp:577
-msgid "It's at a coal power station."
-msgstr "它在煤电站处。"
-
-#: src/lincity/engine.cpp:579
-msgid "It's at a road."
-msgstr "它在道路处。"
-
-#: src/lincity/engine.cpp:581
-msgid "It's at light industry."
-msgstr "它在轻工业处。"
-
-#: src/lincity/engine.cpp:583
-msgid "It's at a university."
-msgstr "它在学校处。"
-
-#: src/lincity/engine.cpp:585
-msgid "It's at a commune."
-msgstr "它在公社处。"
-
-#: src/lincity/engine.cpp:587
-msgid "It's at a tip."
-msgstr "它在垃圾场处。"
-
-#: src/lincity/engine.cpp:589
-msgid "It's at a port."
-msgstr "它在港口处。"
-
-#: src/lincity/engine.cpp:591
-msgid "It's at a steel works."
-msgstr "它在钢铁厂处。"
-
-#: src/lincity/engine.cpp:593
-msgid "It's at a recycle centre."
-msgstr "它在回收中心处。"
-
-#: src/lincity/engine.cpp:595
-msgid "It's at a health centre."
-msgstr "它在医疗中心处。"
-
-#: src/lincity/engine.cpp:597
-msgid "It's at a rocket site."
-msgstr "它在火箭基地处。"
-
-#: src/lincity/engine.cpp:599
-msgid "It's at a windmill."
-msgstr "它在风车处。"
-
-#: src/lincity/engine.cpp:601
-msgid "It's at a school."
-msgstr "它在学校处。"
-
-#: src/lincity/engine.cpp:603
-msgid "It's at a blacksmith."
-msgstr "它在铁匠处。"
-
-#: src/lincity/engine.cpp:605
-msgid "It's at a mill."
-msgstr "它在磨坊处。"
-
-#: src/lincity/engine.cpp:607
-msgid "It's at a pottery."
-msgstr "它在陶器厂处。"
-
-#: src/lincity/engine.cpp:609
-msgid "It's at a fire station!!!."
-msgstr "它在消防站！！！"
-
-#: src/lincity/engine.cpp:611
-msgid "It's at a sports field!!!."
-msgstr "它在田径场！！！"
-
-#: src/lincity/engine.cpp:613
-msgid "It's at a shanty town."
-msgstr "它在贫民窟处。"
-
-#: src/lincity/engine.cpp:615
-msgid "UNKNOWN!"
-msgstr "未知！"
-
-#: src/lincity/lintypes.cpp:21
-msgid "Empty"
-msgstr "空地"
-
-#: src/lincity/lintypes.cpp:33
-msgid "Power line"
-msgstr "输电线"
-
-#: src/lincity/lintypes.cpp:44
-msgid "Solar PS"
-msgstr "太阳能发电塔"
-
-#: src/lincity/lintypes.cpp:55 src/lincity/modules/substation.cpp:93
-msgid "Substation"
-msgstr "变电所"
-
-#: src/lincity/lintypes.cpp:66
-msgid "Residential LL"
-msgstr "LL居民区"
-
-#: src/lincity/lintypes.cpp:77
-msgid "Farm"
-msgstr "农场"
-
-#: src/lincity/lintypes.cpp:88 src/lincity/modules/market.cpp:979
-#: src/lincity-ng/Dialog.cpp:508
-msgid "Market"
-msgstr "市场"
-
-#: src/lincity/lintypes.cpp:99 src/lincity/modules/track.cpp:34
-msgid "Track"
-msgstr "铁轨"
-
-#: src/lincity/lintypes.cpp:110
-msgid "Coalmine"
-msgstr "煤矿"
-
-#: src/lincity/lintypes.cpp:121
-msgid "Railway"
-msgstr "铁路"
-
-#: src/lincity/lintypes.cpp:132
-msgid "Coal PS"
-msgstr "煤电发电塔"
-
-#: src/lincity/lintypes.cpp:143 src/lincity/modules/road.cpp:43
-msgid "Road"
-msgstr "道路"
-
-#: src/lincity/lintypes.cpp:154
-msgid "Lt. Industry"
-msgstr "轻工业"
-
-#: src/lincity/lintypes.cpp:165 src/lincity/modules/university.cpp:59
-msgid "University"
-msgstr "大学"
-
-#: src/lincity/lintypes.cpp:176 src/lincity/modules/commune.cpp:174
-msgid "Commune"
-msgstr "公社"
-
-#: src/lincity/lintypes.cpp:187
-msgid "Ore mine"
-msgstr "矿山"
-
-#: src/lincity/lintypes.cpp:198
-msgid "Rubbish tip"
-msgstr "垃圾场"
-
-#: src/lincity/lintypes.cpp:209 src/lincity/modules/port.cpp:281
-#: src/lincity-ng/Dialog.cpp:562
-msgid "Port"
-msgstr "港口"
-
-#: src/lincity/lintypes.cpp:220
-msgid "Hv. Industry"
-msgstr "重工业"
-
-#: src/lincity/lintypes.cpp:231
-msgid "Park"
-msgstr "停车场"
-
-#: src/lincity/lintypes.cpp:242 src/lincity-ng/MpsInterface.cpp:519
-msgid "Recycle"
-msgstr "回收中心"
-
-#: src/lincity/lintypes.cpp:253 src/lincity/modules/water.cpp:17
-#: src/lincity/modules/residence.cpp:264
-msgid "Water"
-msgstr "水源"
-
-#: src/lincity/lintypes.cpp:264
-msgid "Health centre"
-msgstr "医疗中心"
-
-#: src/lincity/lintypes.cpp:275
-msgid "Rocket pad"
-msgstr "火箭发射台"
-
-#: src/lincity/lintypes.cpp:286 src/lincity/modules/windmill.cpp:74
-#: src/lincity-ng/MpsInterface.cpp:509
-msgid "Windmill"
-msgstr "风车"
-
-#: src/lincity/lintypes.cpp:297 src/lincity/modules/monument.cpp:51
-msgid "Monument"
-msgstr "纪念碑"
-
-#: src/lincity/lintypes.cpp:308 src/lincity/modules/school.cpp:43
-msgid "School"
-msgstr "学校"
-
-#: src/lincity/lintypes.cpp:319 src/lincity/modules/blacksmith.cpp:91
-msgid "Blacksmith"
-msgstr "铁匠"
-
-#: src/lincity/lintypes.cpp:330
-msgid "Mill"
-msgstr "磨坊"
-
-#: src/lincity/lintypes.cpp:341 src/lincity/modules/pottery.cpp:105
-msgid "Pottery"
-msgstr "陶器厂"
-
-#: src/lincity/lintypes.cpp:352
-msgid "Fire sta'n"
-msgstr "消防站"
-
-#: src/lincity/lintypes.cpp:363 src/lincity/modules/cricket.cpp:92
-msgid "Sports field"
-msgstr "田径场"
-
-#: src/lincity/lintypes.cpp:375
-msgid "Burnt"
-msgstr "化石厂"
-
-#: src/lincity/lintypes.cpp:387
-msgid "Shanty town"
-msgstr "贫民区"
-
-#: src/lincity/lintypes.cpp:399 src/lincity/modules/residence.cpp:283
-#: src/lincity-ng/MpsInterface.cpp:383 src/lincity-ng/EconomyGraph.cpp:134
-#: data/gui/shfire-uc.xml data/gui/shfire-oc.xml
+#: src/lincity-ng/ButtonPanel.cpp:344
 #, fuzzy
-msgid "Fire"
-msgstr ""
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
-"消防站\n"
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
-"火灾"
-
-#: src/lincity/lintypes.cpp:411
-msgid "Used"
-msgstr "旧的"
-
-#: src/lincity/lintypes.cpp:422
-msgid "Residential ML"
-msgstr "ML居民区"
-
-#: src/lincity/lintypes.cpp:433
-msgid "Residential HL"
-msgstr "HL居民区"
-
-#: src/lincity/lintypes.cpp:444
-msgid "Residential LH"
-msgstr "LH居民区"
-
-#: src/lincity/lintypes.cpp:455
-msgid "Residential MH"
-msgstr "MH居民区"
-
-#: src/lincity/lintypes.cpp:466
-msgid "Residential HH"
-msgstr "HH居民区"
-
-#: src/lincity/lintypes.cpp:477
-msgid "Water well"
-msgstr "水井"
-
-#: src/lincity/lintypes.cpp:489
-msgid "Desert"
-msgstr "沙漠"
-
-#: src/lincity/lintypes.cpp:501
-msgid "Tree"
-msgstr "树"
-
-#: src/lincity/lintypes.cpp:514
-msgid "Trees"
-msgstr "树木"
-
-#: src/lincity/lintypes.cpp:527
-msgid "Forest"
-msgstr "森林"
-
-#: src/lincity/lclib.cpp:15
-msgid "Jan"
-msgstr "一月"
-
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "二月"
-
-#: src/lincity/lclib.cpp:15
-msgid "Mar"
-msgstr "三月"
-
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "四月"
-
-#: src/lincity/lclib.cpp:16
-msgid "May"
-msgstr "五月"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "六月"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "七月"
-
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "八月"
-
-#: src/lincity/lclib.cpp:17
-msgid "Sep"
-msgstr "九月"
-
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "十月"
-
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "十一月"
-
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "十二月"
-
-#: src/lincity/modules/waterwell.cpp:56
-msgid "Water_well"
-msgstr "水井"
-
-#: src/lincity/modules/waterwell.cpp:59 src/lincity/modules/residence.cpp:288
-#: src/lincity-ng/MpsInterface.cpp:391
-msgid "Pollution"
-msgstr "污染"
-
-#: src/lincity/modules/waterwell.cpp:62 src/lincity/modules/water.cpp:20
-#: src/lincity/modules/commune.cpp:179 src/lincity/modules/commune.cpp:181
-#: src/lincity/modules/commune.cpp:183 src/lincity/modules/commune.cpp:185
-#: src/lincity-ng/MpsInterface.cpp:382 src/lincity-ng/MpsInterface.cpp:385
-#: src/lincity-ng/MpsInterface.cpp:388 data/gui/bulldoze_monument_yn.xml
-#: data/gui/launch_rocket_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/coal_survey_yn.xml data/gui/bulldoze_shanty_yn.xml
-msgid "Yes"
-msgstr "是"
-
-#: src/lincity/modules/waterwell.cpp:63
-msgid "Drinkable"
-msgstr "可以饮用的"
-
-#: src/lincity/modules/health_centre.cpp:58
-msgid "Health Centre"
-msgstr "医疗中心"
-
-#: src/lincity/modules/health_centre.cpp:60
-#: src/lincity/modules/rocket_pad.cpp:194 src/lincity/modules/recycle.cpp:149
-#: src/lincity/modules/mill.cpp:94 src/lincity/modules/university.cpp:65
-#: src/lincity/modules/cricket.cpp:94 src/lincity/modules/pottery.cpp:109
-#: src/lincity/modules/blacksmith.cpp:96
-#: src/lincity/modules/firestation.cpp:111 src/lincity/modules/school.cpp:48
-msgid "Inventory"
-msgstr "存货"
-
-#: src/lincity/modules/health_centre.cpp:61
-#: src/lincity/modules/rocket_pad.cpp:195 src/lincity/modules/market.cpp:984
-#: src/lincity/modules/road.cpp:47 src/lincity/modules/rail.cpp:51
-#: src/lincity/modules/coal_power.cpp:100 src/lincity/modules/university.cpp:66
-#: src/lincity/modules/cricket.cpp:95 src/lincity/modules/track.cpp:38
-#: src/lincity/modules/pottery.cpp:110 src/lincity/modules/firestation.cpp:112
-#: src/lincity/modules/school.cpp:49 data/gui/pbar.xml data/gui/tradedialog.xml
-msgid "Jobs"
-msgstr "工作"
-
-#: src/lincity/modules/health_centre.cpp:62
-#: src/lincity/modules/rocket_pad.cpp:196 src/lincity/modules/market.cpp:986
-#: src/lincity/modules/port.cpp:298 src/lincity/modules/road.cpp:49
-#: src/lincity/modules/rail.cpp:53 src/lincity/modules/mill.cpp:95
-#: src/lincity/modules/university.cpp:67 src/lincity/modules/cricket.cpp:96
-#: src/lincity/modules/track.cpp:40 src/lincity/modules/pottery.cpp:111
-#: src/lincity/modules/blacksmith.cpp:97
-#: src/lincity/modules/firestation.cpp:113 src/lincity/modules/school.cpp:50
-#: src/lincity-ng/MpsInterface.cpp:451 data/gui/pbar.xml
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Goods"
-msgstr "物品"
-
-#: src/lincity/modules/rocket_pad.cpp:188
-msgid "Rocket Pad"
-msgstr "火箭发射台"
-
-#: src/lincity/modules/rocket_pad.cpp:191
-msgid "Completion"
-msgstr "完成"
-
-#: src/lincity/modules/rocket_pad.cpp:197 src/lincity/modules/market.cpp:988
-#: src/lincity/modules/port.cpp:302 src/lincity/modules/road.cpp:51
-#: src/lincity/modules/rail.cpp:55 src/lincity/modules/light_industry.cpp:287
-#: src/lincity/modules/commune.cpp:184 src/lincity/modules/track.cpp:42
-#: data/gui/pbar.xml data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Steel"
-msgstr "钢铁"
-
-#: src/lincity/modules/windmill.cpp:75 src/lincity/modules/recycle.cpp:147
-#: src/lincity/modules/coal_power.cpp:101
-#: src/lincity/modules/organic_farm.cpp:228
-#: src/lincity/modules/solar_power.cpp:57
-msgid "Tech"
-msgstr "科技"
-
-#: src/lincity/modules/windmill.cpp:79
-msgid "Local Status"
-msgstr "本地状况"
-
-#: src/lincity/modules/windmill.cpp:82
-msgid "Prod."
-msgstr "产品"
-
-#: src/lincity/modules/windmill.cpp:85 src/lincity/modules/windmill.cpp:98
-#: src/lincity/modules/substation.cpp:110
-msgid "Demand"
-msgstr "要求"
-
-#: src/lincity/modules/windmill.cpp:89 src/lincity/modules/substation.cpp:101
-msgid "Grid Status"
-msgstr "电网状况"
-
-#: src/lincity/modules/windmill.cpp:92 src/lincity/modules/substation.cpp:104
-msgid "T. Cap."
-msgstr "T.人口"
-
-#: src/lincity/modules/windmill.cpp:95 src/lincity/modules/substation.cpp:107
-msgid "A. Cap."
-msgstr "A.人口"
-
-#: src/lincity/modules/windmill.cpp:101 src/lincity/modules/coal_power.cpp:102
-#: src/lincity/modules/substation.cpp:113 src/lincity/modules/power_line.cpp:49
-#: src/lincity/modules/solar_power.cpp:58
-msgid "Grid ID"
-msgstr "电网号码"
-
-#: src/lincity/modules/water.cpp:20 src/lincity/modules/commune.cpp:179
-#: src/lincity/modules/commune.cpp:181 src/lincity/modules/commune.cpp:183
-#: src/lincity/modules/commune.cpp:185 src/lincity-ng/MpsInterface.cpp:382
-#: src/lincity-ng/MpsInterface.cpp:385 src/lincity-ng/MpsInterface.cpp:388
-#: data/gui/bulldoze_monument_yn.xml data/gui/launch_rocket_yn.xml
-#: data/gui/bulldoze_river_yn.xml data/gui/coal_survey_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-#, fuzzy
-msgid "No"
-msgstr ""
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
-"号码\n"
-"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
-"否"
-
-#: src/lincity/modules/water.cpp:21
-msgid "Navigable"
-msgstr "可驾驶的"
-
-#: src/lincity/modules/recycle.cpp:138
-msgid "Recycling"
-msgstr "可回收"
-
-#: src/lincity/modules/recycle.cpp:139
-msgid "Center"
-msgstr "中心"
-
-#: src/lincity/modules/recycle.cpp:142
-#: src/lincity/modules/heavy_industry.cpp:290 src/lincity/modules/mill.cpp:92
-#: src/lincity/modules/light_industry.cpp:288
-#: src/lincity/modules/university.cpp:68 src/lincity/modules/pottery.cpp:107
-#: src/lincity/modules/blacksmith.cpp:94 src/lincity/modules/school.cpp:52
-msgid "Capacity"
-msgstr "容量"
-
-#: src/lincity/modules/recycle.cpp:144 src/lincity/modules/residence.cpp:263
-#: src/lincity/modules/residence.cpp:267 src/lincity/modules/residence.cpp:270
-#: src/lincity/modules/residence.cpp:273 src/lincity/modules/residence.cpp:279
-#: src/lincity/modules/residence.cpp:282 src/lincity/modules/residence.cpp:285
-#: src/lincity/modules/light_industry.cpp:280
-#: src/lincity/modules/organic_farm.cpp:221
-msgid "YES"
-msgstr "是"
-
-#: src/lincity/modules/recycle.cpp:144 src/lincity/modules/residence.cpp:263
-#: src/lincity/modules/residence.cpp:267 src/lincity/modules/residence.cpp:270
-#: src/lincity/modules/residence.cpp:273 src/lincity/modules/residence.cpp:279
-#: src/lincity/modules/residence.cpp:282 src/lincity/modules/residence.cpp:285
-#: src/lincity/modules/heavy_industry.cpp:281
-#: src/lincity/modules/light_industry.cpp:280
-msgid "NO"
-msgstr "否"
-
-#: src/lincity/modules/recycle.cpp:145 src/lincity/modules/residence.cpp:271
-#: src/lincity/modules/heavy_industry.cpp:284
-#: src/lincity/modules/light_industry.cpp:281
-#: src/lincity/modules/organic_farm.cpp:225
-msgid "Power"
-msgstr "电力"
-
-#: src/lincity/modules/recycle.cpp:150
-#: src/lincity/modules/heavy_industry.cpp:288
-#: src/lincity/modules/market.cpp:987 src/lincity/modules/port.cpp:294
-#: src/lincity/modules/road.cpp:50 src/lincity/modules/rail.cpp:54
-#: src/lincity/modules/light_industry.cpp:286
-#: src/lincity/modules/commune.cpp:182 src/lincity/modules/track.cpp:41
-#: src/lincity/modules/pottery.cpp:112 data/gui/pbar.xml
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Ore"
-msgstr "矿石"
-
-#: src/lincity/modules/recycle.cpp:151 src/lincity/modules/market.cpp:989
-#: src/lincity/modules/road.cpp:52 src/lincity/modules/rail.cpp:56
-#: src/lincity/modules/commune.cpp:186 src/lincity/modules/track.cpp:43
-msgid "Waste"
-msgstr "废物"
-
-#: src/lincity/modules/coalmine.cpp:132
-msgid "Coal Mine"
-msgstr "矿山"
-
-#: src/lincity/modules/coalmine.cpp:135 src/lincity/modules/oremine.cpp:144
-msgid "Stock"
-msgstr "存货"
-
-#: src/lincity/modules/coalmine.cpp:138 src/lincity/modules/coalmine.cpp:140
-#: src/lincity/modules/oremine.cpp:147
-msgid "Reserve"
-msgstr "保存"
-
-#: src/lincity/modules/coalmine.cpp:140
-msgid "EMPTY"
-msgstr "空地"
-
-#: src/lincity/modules/residence.cpp:255
-msgid "Residence"
-msgstr "居民区"
-
-#: src/lincity/modules/residence.cpp:259
-msgid "People"
-msgstr "人群"
-
-#: src/lincity/modules/residence.cpp:268
-msgid "Fed"
-msgstr "联邦"
-
-#: src/lincity/modules/residence.cpp:274
-msgid "Employed"
-msgstr "受雇用的"
-
-#: src/lincity/modules/residence.cpp:276 src/lincity-ng/MpsInterface.cpp:396
-msgid "good"
-msgstr "好的"
-
-#: src/lincity/modules/residence.cpp:276
-msgid "poor"
-msgstr "差的"
-
-#: src/lincity/modules/residence.cpp:277
-msgid "Job"
-msgstr "工作"
-
-#: src/lincity/modules/residence.cpp:280
-msgid "Health Cvr"
-msgstr "医疗中心"
-
-#: src/lincity/modules/residence.cpp:286 src/lincity-ng/MpsInterface.cpp:389
-#: src/lincity-ng/MpsInterface.cpp:517
-msgid "Sport"
-msgstr "运动"
-
-#: src/lincity/modules/monument.cpp:57
-msgid "Wisdom Bestowed"
-msgstr "拥有智慧"
-
-#: src/lincity/modules/monument.cpp:61
-#, c-format
-msgid "% Complete"
-msgstr "% 完成"
-
-#: src/lincity/modules/heavy_industry.cpp:270
-msgid "Heavy"
-msgstr "重"
-
-#: src/lincity/modules/heavy_industry.cpp:271
-#: src/lincity/modules/light_industry.cpp:276
-msgid "Industry"
-msgstr "工业"
-
-#: src/lincity/modules/heavy_industry.cpp:276
-#: src/lincity/modules/heavy_industry.cpp:289
-#: src/lincity/modules/market.cpp:985 src/lincity/modules/port.cpp:290
-#: src/lincity/modules/road.cpp:48 src/lincity/modules/rail.cpp:52
-#: src/lincity/modules/coal_power.cpp:85 src/lincity/modules/coal_power.cpp:99
-#: src/lincity/modules/mill.cpp:97 src/lincity/modules/commune.cpp:180
-#: src/lincity/modules/track.cpp:39 src/lincity/modules/pottery.cpp:113
-#: src/lincity/modules/blacksmith.cpp:98 src/lincity-ng/MpsInterface.cpp:447
-#: data/gui/pbar.xml data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Coal"
-msgstr "矿山"
-
-#: src/lincity/modules/heavy_industry.cpp:278
-msgid "Grid"
-msgstr "电网"
-
-#: src/lincity/modules/heavy_industry.cpp:286
-#: src/lincity/modules/light_industry.cpp:283
-msgid "Output"
-msgstr "产出"
-
-#: src/lincity/modules/heavy_industry.cpp:287
-#: src/lincity/modules/light_industry.cpp:285
-msgid "Store"
-msgstr "商店"
-
-#: src/lincity/modules/market.cpp:983 src/lincity/modules/port.cpp:286
-#: src/lincity/modules/road.cpp:46 src/lincity/modules/rail.cpp:50
-#: src/lincity/modules/mill.cpp:96 src/lincity/modules/track.cpp:37
-#: data/gui/pbar.xml data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Food"
-msgstr "食品"
-
-#: src/lincity/modules/port.cpp:306 src/lincity-ng/MpsInterface.cpp:535
-msgid "Total"
-msgstr "总计"
-
-#: src/lincity/modules/rail.cpp:47
-msgid "Rail"
-msgstr "铁路"
-
-#: src/lincity/modules/coal_power.cpp:86 src/lincity/modules/solar_power.cpp:44
-msgid "Power Station"
-msgstr "发电厂"
-
-#: src/lincity/modules/coal_power.cpp:90 src/lincity/modules/solar_power.cpp:48
-msgid "Max Output"
-msgstr "最大产出"
-
-#: src/lincity/modules/coal_power.cpp:95 src/lincity/modules/solar_power.cpp:53
-msgid "Current Output"
-msgstr "现有产出"
-
-#: src/lincity/modules/substation.cpp:97
-msgid "Local Demand"
-msgstr "本地要求"
-
-#: src/lincity/modules/mill.cpp:90
-msgid "Textile Mill"
-msgstr "纺织厂"
-
-#: src/lincity/modules/oremine.cpp:141
-msgid "Ore Mine"
-msgstr "矿山"
-
-#: src/lincity/modules/power_line.cpp:46
-msgid "Power Line"
-msgstr "输电线"
-
-#: src/lincity/modules/light_industry.cpp:275
-msgid "Light"
-msgstr "轻"
-
-#: src/lincity/modules/university.cpp:61
-msgid "Tech Produced"
-msgstr "科技产品"
-
-#: src/lincity/modules/tip.cpp:100
-msgid "Landfill"
-msgstr "垃圾填埋地"
-
-#: src/lincity/modules/tip.cpp:103
-msgid "Last Month"
-msgstr "上月"
-
-#: src/lincity/modules/tip.cpp:104
-msgid "Tons"
-msgstr "吨数"
-
-#: src/lincity/modules/tip.cpp:105
-msgid "Percent"
-msgstr "百分比"
-
-#: src/lincity/modules/tip.cpp:107
-#, c-format
-msgid "% Filled"
-msgstr "% 完成"
-
-#: src/lincity/modules/commune.cpp:177
-msgid "Activity"
-msgstr "活动"
-
-#: src/lincity/modules/firestation.cpp:109
-msgid "Fire Station"
-msgstr "消防站"
-
-#: src/lincity/modules/organic_farm.cpp:217
-msgid "Organic Farm"
-msgstr "有机农场"
-
-#: src/lincity/modules/organic_farm.cpp:223
-msgid "NO "
-msgstr "否"
-
-#: src/lincity/modules/organic_farm.cpp:231
-msgid "Prod"
-msgstr "产品"
-
-#: src/lincity/modules/organic_farm.cpp:237
-msgid "Debug info"
-msgstr "调试信息"
-
-#: src/lincity/modules/organic_farm.cpp:238
-msgid "max with power&water"
-msgstr "电力及水源满载"
-
-#: src/lincity/modules/organic_farm.cpp:239
-msgid "N tiles with water"
-msgstr "N块水源"
-
-#: src/lincity/modules/organic_farm.cpp:240
-msgid "Current production"
-msgstr "现有产出"
-
-#: src/lincity/modules/school.cpp:45
-msgid "Lessons Learned"
-msgstr "经验教训"
-
-#: src/lincity/modules/solar_power.cpp:43
-msgid "Solar"
-msgstr "太阳能"
-
-#: src/lincity-ng/Dialog.cpp:174
-msgid "Launchsite"
-msgstr "发射点"
-
-#: src/lincity-ng/Dialog.cpp:353 src/lincity-ng/Dialog.cpp:354
-msgid "----- IN TEST MODE -------"
-msgstr "测试模式"
-
-#: src/lincity-ng/Dialog.cpp:356
-#, c-format
-msgid "Game statistics from LinCity-NG Version %s"
-msgstr "来自LinCity-NG的游戏数据 %s"
-
-#: src/lincity-ng/Dialog.cpp:360
-#, c-format
-msgid "Initial loaded scene - %s"
-msgstr "原始加载页面 - %s"
-
-#: src/lincity-ng/Dialog.cpp:365
-#, c-format
-msgid "Economy is sustainable"
-msgstr "可持续发展的经济"
-
-#: src/lincity-ng/Dialog.cpp:369
-#, c-format
-msgid "Population  %d  of which  %d  are not housed."
-msgstr "人口 %d 其中 %d 无家可归"
-
-#: src/lincity-ng/Dialog.cpp:374
-#, c-format
-msgid "Max population %d  Number evacuated %d Total births %d"
-msgstr "最大人口 %d 转移人数 %d 出生率 %d"
-
-#: src/lincity-ng/Dialog.cpp:379
-#, c-format
-msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
-msgstr "日期 %s %04d 钱数 %8d 技术水平 %5.1f(%5.1f)"
-
-#: src/lincity-ng/Dialog.cpp:386
-#, c-format
-msgid "Deaths by starvation %7d   History %8.3f"
-msgstr "饥荒死亡率 %7d 历史记录 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:391
-#, c-format
-msgid "Deaths from pollution %7d   History %8.3f"
-msgstr "人口死亡率 %7d 历史记录 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:395
-#, c-format
-msgid "Years of unemployment %7d   History %8.3f"
-msgstr "年失业率 %7d 历史记录 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:399
-#, c-format
-msgid "Rockets launched %2d  Successful launches %2d"
-msgstr "发射火箭数 %2d 成功发射率 %2d"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Residences"
-msgstr "居住率"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Markets"
-msgstr "市场"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Farms"
-msgstr "农场"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Water wells"
-msgstr "水井"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Monuments"
-msgstr "纪念碑"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Schools"
-msgstr "学校"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Universities"
-msgstr "大学"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Fire stations"
-msgstr "消防站"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Parks"
-msgstr "停车场"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Sports fields"
-msgstr "田径场"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Health centres"
-msgstr "医疗中心"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Tips"
-msgstr "垃圾场"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Shanties"
-msgstr "贫民区"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Windmills"
-msgstr "风车"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Coal powers"
-msgstr "矿石"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Solar powers"
-msgstr "太阳能"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Substations"
-msgstr "变电所"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Power lines"
-msgstr "输电线"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Ports"
-msgstr "港口"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Tracks"
-msgstr "铁轨"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Roads"
-msgstr "道路"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Potteries"
-msgstr "陶器厂"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Blacksmiths"
-msgstr "铁匠"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Mills"
-msgstr "磨坊"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Light inds"
-msgstr "轻工业"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Heavy inds"
-msgstr "重工业"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Recyclers"
-msgstr "回收中心"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Coal mines"
-msgstr "煤矿"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Ore mines"
-msgstr "矿山"
-
-#: src/lincity-ng/MpsInterface.cpp:500
-msgid "Communes"
-msgstr "公社"
-
-#: src/lincity-ng/GameView.cpp:239
-msgid "Minimap: outline map"
-msgstr "迷你地图：概要图"
-
-#: src/lincity-ng/GameView.cpp:242
-msgid "Minimap: unemployment"
-msgstr "迷你地图：失业"
-
-#: src/lincity-ng/GameView.cpp:245
-msgid "Minimap: pollution"
-msgstr "迷你地图：污染"
-
-#: src/lincity-ng/GameView.cpp:248
-msgid "Minimap: nourishments"
-msgstr "迷你地图：食物"
-
-#: src/lincity-ng/GameView.cpp:251
-msgid "Minimap: power supply"
-msgstr "迷你地图：能源供给"
-
-#: src/lincity-ng/GameView.cpp:254
-msgid "Minimap: firedepartment cover"
-msgstr "迷你地图：消防站覆盖"
-
-#: src/lincity-ng/GameView.cpp:257
-msgid "Minimap: sport cover"
-msgstr "迷你地图：运动场覆盖"
-
-#: src/lincity-ng/GameView.cpp:260
-msgid "Minimap: medical care"
-msgstr "迷你地图：医疗中心"
-
-#: src/lincity-ng/GameView.cpp:263
-msgid "Minimap: coal depots"
-msgstr "迷你地图：矿产"
-
-#: src/lincity-ng/GameView.cpp:266
-msgid "Minimap: traffic density"
-msgstr "迷你地图：交通密集"
-
-#: src/lincity-ng/GameView.cpp:1587
-msgid "Estimated Bulldoze Cost: "
-msgstr "预计推土机成本："
-
-#: src/lincity-ng/GameView.cpp:1589
-msgid "Bulldoze Cost: "
-msgstr "推土机成本："
-
-#: src/lincity-ng/GameView.cpp:1592 src/lincity-ng/GameView.cpp:1623
-#: src/lincity-ng/ScreenInterface.cpp:275 data/gui/minimap.xml
+msgid "tech level"
+msgstr "科技程度"
+
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 #, fuzzy
 msgid "$"
 msgstr ""
@@ -1119,215 +44,166 @@ msgstr ""
 "#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
 "＄"
 
-#: src/lincity-ng/GameView.cpp:1594
-msgid "n/a"
-msgstr "不可用"
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
 
-#: src/lincity-ng/GameView.cpp:1612
-msgid "Query Tool: Show information about selected building."
-msgstr "问题工具：显示所选建筑信息。"
+#: src/lincity-ng/ButtonPanel.cpp:373
+msgid "Query Tool"
+msgstr "问题工具"
 
-#: src/lincity-ng/GameView.cpp:1616
-msgid "Bulldozer: remove building -price varies-"
-msgstr "推土机：清除"
+#: src/lincity-ng/ButtonPanel.cpp:378
+#, fuzzy
+msgid ": 50 tenants, low birthrate, high deathrate"
+msgstr "居民的：50个居民，低出生率，高死亡率"
 
-#: src/lincity-ng/GameView.cpp:1623
-msgid ": Cost to build "
-msgstr ":建设成本"
+#: src/lincity-ng/ButtonPanel.cpp:381
+#, fuzzy
+msgid ": 100 tenants, high birthrate, low deathrate"
+msgstr "居民的：100个居民，高出生率，低死亡率"
 
-#: src/lincity-ng/GameView.cpp:1624
-msgid ", to bulldoze "
-msgstr "使用推土机"
+#: src/lincity-ng/ButtonPanel.cpp:384
+#, fuzzy
+msgid ": 200 tenants, high birthrate, high deathrate"
+msgstr "居民的：200个居民，高出生率，低死亡率"
 
-#: src/lincity-ng/GameView.cpp:1624 src/lincity-ng/GameView.cpp:1627
-msgid "$."
-msgstr "$"
+#: src/lincity-ng/ButtonPanel.cpp:387
+#, fuzzy
+msgid ": 100 tenants, low birthrate, high deathrate"
+msgstr "居民的：100个居民，低出生率，高死亡率"
 
-#: src/lincity-ng/GameView.cpp:1626
-msgid " To build "
-msgstr "建造"
+#: src/lincity-ng/ButtonPanel.cpp:390
+#, fuzzy
+msgid ": 200 tenants, high birthrate, low deathrate"
+msgstr "居民的：200个居民，高出生率，低死亡率"
 
-#: src/lincity-ng/GameView.cpp:1626
-msgid " of them "
-msgstr "他们的"
+#: src/lincity-ng/ButtonPanel.cpp:393
+#, fuzzy
+msgid ": 400 tenants, high birthrate, high deathrate"
+msgstr "居民的：400个居民，高出生率，低死亡率"
 
-#: src/lincity-ng/GameView.cpp:1627
-msgid "will cost about "
-msgstr "将花费"
+#: src/lincity-ng/ButtonPanel.cpp:398
+msgid "Bulldozer"
+msgstr "推土机"
 
-#: src/lincity-ng/MainMenu.cpp:199
-msgid "empty"
-msgstr "空地"
+#: src/lincity-ng/ButtonPanel.cpp:400
+msgid "Evacuate"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:227
-msgid "build something here"
-msgstr "在此建设"
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "水源"
 
-#: src/lincity-ng/MpsInterface.cpp:229
-msgid "no further information available"
-msgstr "没有进一步消息"
+#: src/lincity-ng/ButtonPanel.cpp:406
+#, fuzzy
+msgid "Click right for help."
+msgstr "【单击右键帮助】"
 
-#: src/lincity-ng/MpsInterface.cpp:381
-msgid "Coverage"
-msgstr "覆盖"
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:386
-msgid "Health"
-msgstr "医疗"
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:394
-msgid "clear"
-msgstr "清除"
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:398
-msgid "fair"
-msgstr "一般"
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:400
-msgid "smelly"
-msgstr "发臭的"
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:402
-msgid "smokey"
-msgstr "有烟的"
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:404
-msgid "smoggy"
-msgstr "有雾的"
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:406
-msgid "bad"
-msgstr "坏的"
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
+msgstr "全屏"
 
-#: src/lincity-ng/MpsInterface.cpp:408
-msgid "very bad"
-msgstr "很差的"
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:410
-msgid "death!"
-msgstr "死亡！"
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:415
-msgid "Bulldoze Cost"
-msgstr "推土机成本"
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:421
-msgid "N/A"
-msgstr "不可用"
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:439
-msgid "Tax Income"
-msgstr "税收收入"
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:443
-msgid "Income"
-msgstr "收入"
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:455
-msgid "Export"
-msgstr "出口"
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
+msgstr "发射点"
 
-#: src/lincity-ng/MpsInterface.cpp:459
-msgid "Expenses"
-msgstr "花费"
+#: src/lincity-ng/Dialog.cpp:317
+#, fuzzy
+msgid "Game statistics from LinCity-NG Version"
+msgstr "来自LinCity-NG的游戏数据 %s"
 
-#: src/lincity-ng/MpsInterface.cpp:463
-msgid "Unemp."
-msgstr "不空的"
+#: src/lincity-ng/Dialog.cpp:320
+#, fuzzy
+msgid "Initial loaded scene"
+msgstr "原始加载页面 - %s"
 
-#: src/lincity-ng/MpsInterface.cpp:467
-msgid "Transport"
-msgstr "交通"
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr "可持续发展的经济"
 
-#: src/lincity-ng/MpsInterface.cpp:471
-msgid "Imports"
-msgstr "进口"
-
-#: src/lincity-ng/MpsInterface.cpp:475
-msgid "Others"
-msgstr "其他"
-
-#: src/lincity-ng/MpsInterface.cpp:480
-msgid "Net"
-msgstr "网"
-
-#: src/lincity-ng/MpsInterface.cpp:492
-msgid "Other Costs"
-msgstr "其他花销"
-
-#: src/lincity-ng/MpsInterface.cpp:497
-msgid "For year"
-msgstr "每年"
-
-#: src/lincity-ng/MpsInterface.cpp:501
-msgid "Interest"
-msgstr "利息"
-
-#: src/lincity-ng/MpsInterface.cpp:503 src/lincity-ng/MpsInterface.cpp:505
-msgid "Univers."
-msgstr "大学"
-
-#: src/lincity-ng/MpsInterface.cpp:507
-msgid "Deaths"
-msgstr "死亡"
-
-#: src/lincity-ng/MpsInterface.cpp:511
-msgid "Hospital"
-msgstr "医院"
-
-#: src/lincity-ng/MpsInterface.cpp:513
-msgid "Rockets"
-msgstr "火箭"
-
-#: src/lincity-ng/MpsInterface.cpp:515
-msgid "Fire Stn"
-msgstr "消防站"
-
-#: src/lincity-ng/MpsInterface.cpp:533 data/gui/pbar.xml
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
 msgid "Population"
 msgstr "人口"
 
-#: src/lincity-ng/MpsInterface.cpp:536
-msgid "Housed"
-msgstr "有家的"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:537
-msgid "Homeless"
-msgstr "无家的"
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:538 src/lincity-ng/MpsInterface.cpp:539
-msgid "Unn Dths"
-msgstr "死亡人数"
+#: src/lincity-ng/Dialog.cpp:332
+#, fuzzy
+msgid "Max population"
+msgstr "人口"
 
-#: src/lincity-ng/MpsInterface.cpp:540
-msgid "Unemployment"
-msgstr "失业"
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:541
-msgid "Claims"
-msgstr "宣告"
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:542 src/lincity-ng/MpsInterface.cpp:547
-msgid "Rate"
-msgstr "比例"
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:544
-msgid "Starvation"
-msgstr "饥荒"
-
-#: src/lincity-ng/MpsInterface.cpp:545
-msgid "Cases"
-msgstr "案例"
-
-#: src/lincity-ng/EconomyGraph.cpp:124
-msgid "Mining"
-msgstr "采矿"
-
-#: src/lincity-ng/EconomyGraph.cpp:126
-msgid "Trade"
-msgstr "贸易"
-
-#: src/lincity-ng/EconomyGraph.cpp:128 data/gui/pbar.xml
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
 #, fuzzy
 msgid "Money"
 msgstr ""
@@ -1336,573 +212,1844 @@ msgstr ""
 "#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
 "钱币"
 
-#: src/lincity-ng/EconomyGraph.cpp:130
+#: src/lincity-ng/Dialog.cpp:339
+#, fuzzy
+msgid "Tech-level"
+msgstr "科技程度"
+
+#: src/lincity-ng/Dialog.cpp:343
+#, fuzzy
+msgid "Deaths by starvation"
+msgstr "饥荒死亡率 %7d 历史记录 %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:347
+#, fuzzy
+msgid "Deaths from pollution"
+msgstr "人口死亡率 %7d 历史记录 %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:351
+#, fuzzy
+msgid "Years of unemployment"
+msgstr "显示失业情况"
+
+#: src/lincity-ng/Dialog.cpp:355
+#, fuzzy
+msgid "Rockets launched"
+msgstr "火箭发射台"
+
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:364
+msgid "Residences"
+msgstr "居住率"
+
+#: src/lincity-ng/Dialog.cpp:371
+msgid "Markets"
+msgstr "市场"
+
+#: src/lincity-ng/Dialog.cpp:372
+msgid "Farms"
+msgstr "农场"
+
+#: src/lincity-ng/Dialog.cpp:374
+msgid "Water wells"
+msgstr "水井"
+
+#: src/lincity-ng/Dialog.cpp:375
+msgid "Windmills"
+msgstr "风车"
+
+#: src/lincity-ng/Dialog.cpp:382
+msgid "Monuments"
+msgstr "纪念碑"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "学校"
+
+#: src/lincity-ng/Dialog.cpp:384
+msgid "Universities"
+msgstr "大学"
+
+#: src/lincity-ng/Dialog.cpp:386
+msgid "Fire stations"
+msgstr "消防站"
+
+#: src/lincity-ng/Dialog.cpp:387
+msgid "Parks"
+msgstr "停车场"
+
+#: src/lincity-ng/Dialog.cpp:390
+msgid "Sports fields"
+msgstr "田径场"
+
+#: src/lincity-ng/Dialog.cpp:392
+msgid "Health centres"
+msgstr "医疗中心"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr "垃圾场"
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "贫民区"
+
+#: src/lincity-ng/Dialog.cpp:400
+#, fuzzy
+msgid "Wind powers"
+msgstr "矿石"
+
+#: src/lincity-ng/Dialog.cpp:401
+msgid "Coal powers"
+msgstr "矿石"
+
+#: src/lincity-ng/Dialog.cpp:402
+msgid "Solar powers"
+msgstr "太阳能"
+
+#: src/lincity-ng/Dialog.cpp:404
+msgid "Substations"
+msgstr "变电所"
+
+#: src/lincity-ng/Dialog.cpp:405
+msgid "Power lines"
+msgstr "输电线"
+
+#: src/lincity-ng/Dialog.cpp:406
+msgid "Ports"
+msgstr "港口"
+
+#: src/lincity-ng/Dialog.cpp:408
+msgid "Tracks"
+msgstr "铁轨"
+
+#: src/lincity-ng/Dialog.cpp:411
+msgid "Roads"
+msgstr "道路"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "铁路"
+
+#: src/lincity-ng/Dialog.cpp:422
+msgid "Potteries"
+msgstr "陶器厂"
+
+#: src/lincity-ng/Dialog.cpp:423
+msgid "Blacksmiths"
+msgstr "铁匠"
+
+#: src/lincity-ng/Dialog.cpp:424
+msgid "Mills"
+msgstr "磨坊"
+
+#: src/lincity-ng/Dialog.cpp:426
+msgid "Light inds"
+msgstr "轻工业"
+
+#: src/lincity-ng/Dialog.cpp:427
+msgid "Heavy inds"
+msgstr "重工业"
+
+#: src/lincity-ng/Dialog.cpp:428
+msgid "Recyclers"
+msgstr "回收中心"
+
+#: src/lincity-ng/Dialog.cpp:430
+msgid "Coal mines"
+msgstr "煤矿"
+
+#: src/lincity-ng/Dialog.cpp:431
+msgid "Ore mines"
+msgstr "矿山"
+
+#: src/lincity-ng/Dialog.cpp:432
+#, fuzzy
+msgid "Forests"
+msgstr "森林"
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "市场"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "港口"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "采矿"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "贸易"
+
+#: src/lincity-ng/EconomyGraph.cpp:118
 msgid "Popul."
 msgstr "人口"
 
-#: src/lincity-ng/EconomyGraph.cpp:132
+#: src/lincity-ng/EconomyGraph.cpp:120
 msgid "Techn."
 msgstr "科技"
 
-#: src/lincity-ng/EconomyGraph.cpp:137
+#: src/lincity-ng/EconomyGraph.cpp:122
+#, fuzzy
+msgid "Fire"
+msgstr ""
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"消防站\n"
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"火灾"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
 msgid "Economy Overview:"
 msgstr "经济概况："
 
-#: src/lincity-ng/EconomyGraph.cpp:140
+#: src/lincity-ng/EconomyGraph.cpp:128
 msgid "Sustainability:"
 msgstr "可持续："
 
-#: src/lincity-ng/EconomyGraph.cpp:143
+#: src/lincity-ng/EconomyGraph.cpp:131
 msgid "Frames per Second:"
 msgstr "每秒画面数"
 
-#: src/lincity-ng/EconomyGraph.cpp:219
-msgid "You lose."
-msgstr "你输了。"
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "新发明"
 
-#: src/lincity-ng/ButtonPanel.cpp:200
-msgid "Query Tool"
-msgstr "问题工具"
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "磨坊可用"
 
-#: src/lincity-ng/ButtonPanel.cpp:201
-msgid "Bulldozer"
-msgstr "推土机"
-
-#: src/lincity-ng/ButtonPanel.cpp:203
-msgid "Residential: 50 denizens, low birthrate, high deathrate"
-msgstr "居民的：50个居民，低出生率，高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:204
-msgid "Residential: 100 denizens, high birthrate, low deathrate"
-msgstr "居民的：100个居民，高出生率，低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:205
-msgid "Residential: 200 denizens, high birthrate, high deathrate"
-msgstr "居民的：200个居民，高出生率，低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:206
-msgid "Residential: 100 denizens, low birthrate, high deathrate"
-msgstr "居民的：100个居民，低出生率，高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:207
-msgid "Residential: 200 denizens, high birthrate, low deathrate"
-msgstr "居民的：200个居民，高出生率，低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:208
-msgid "Residential: 400 denizens, high birthrate, high deathrate"
-msgstr "居民的：400个居民，高出生率，低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:217
-msgid " [Click right for help.]"
-msgstr "【单击右键帮助】"
-
-#: src/lincity-ng/ButtonPanel.cpp:245 src/lincity-ng/ButtonPanel.cpp:288
-#, c-format
-msgid "%s (Techlevel %.1f required.)"
-msgstr "%s (科技水平 %.1f如果要求.)"
-
-#: src/lincity-ng/ButtonPanel.cpp:254
-#, c-format
-msgid "%s is disabled (loaded old game)."
-msgstr "%s 不可用 (加载历史游戏)"
-
-#: src/lincity-ng/ScreenInterface.cpp:264
-msgid "MM"
-msgstr "MM"
-
-#: data/gui/fire.xml
-msgid "A Fire has started"
-msgstr "着火了"
-
-#: data/gui/shfire-uc.xml
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
 msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
-msgstr "在一个贫民窟处开始着火。火势覆盖范围之内，貌似一切在可控范围之内。"
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr "您的科技程度已经允许建造道路。查看帮助屏幕了解更多信息。"
 
-#: data/gui/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
-msgstr "在一个贫民窟处开始着火。火势无法控制，可能蔓延至其他地区。"
-
-#: data/gui/newgame.xml data/gui/loadgame.xml data/gui/credits.xml
-#: data/gui/savegame.xml
-msgid "Back"
-msgstr "后退"
-
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "背景音乐"
-
-#: data/gui/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "篮球场可用"
-
-#: data/gui/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "铁匠铺可用"
-
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
 msgstr "推倒一个纪念碑要花很多钱。"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "推倒一个河段要花很多钱。"
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr ""
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
-msgstr "推倒一个贫民窟要花很多钱，并有火灾危险。"
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "加载页面"
 
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Buy"
-msgstr "购买"
-
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "选择情景"
-
-#: data/gui/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "煤电站可用"
-
-#: data/gui/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "矿山"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Coal Survey"
-msgstr "煤矿调查"
-
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "代码"
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "继续"
-
-#: data/gui/mainmenu.xml data/gui/creditslist.xml
-msgid "Credits"
-msgstr "积分"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "做煤矿调查吗？"
-
-#: data/gui/launch-good.xml
-msgid "Doing well."
-msgstr "做的很好。"
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "经济"
-
-#: data/gui/sustain.xml
-msgid "Economy Sustainable."
-msgstr "可持续的经济"
-
-#: data/gui/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr "迁移进展顺利"
-
-#: data/gui/firestationup.xml
-msgid "Fire Stations available"
-msgstr "消防站可用"
-
-#: data/gui/shfire-uc.xml data/gui/shfire-oc.xml
+#: src/lincity-ng/Game.cpp:848
 msgid "Fire!"
 msgstr "着火了！"
 
-#: data/gui/options.xml
-msgid "Fullscreen"
-msgstr "全屏"
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "着火了"
 
-#: data/gui/gamestats.xml
-msgid "Gamestats"
-msgstr "游戏数据"
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "回到主菜单"
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "警告"
 
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "图像"
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "积分"
 
-#: data/gui/portdialog.xml
-msgid "Harbour Trade Settings"
-msgstr "港口贸易设定"
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
 
-#: data/gui/healthup.xml
-msgid "Health Centres available"
-msgstr "医疗中心可用"
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
 
-#: data/gui/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "重工业可用"
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
 
-#: data/gui/import-exportup.xml
-msgid "Import/Export available"
-msgstr "进/出口可用"
-
-#: data/gui/launch-fail.xml
-msgid "Launch Failure"
-msgstr "启动失败"
-
-#: data/gui/launch-good.xml
-msgid "Launch Successfull"
-msgstr "启动成功"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "现在启动？"
-
-#: data/gui/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "轻工业可用"
-
-#: data/gui/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "LinCity认为你有可持续发展的经济。"
-
-#: data/gui/mainmenu.xml data/gui/loadgame.xml
-msgid "Load"
-msgstr "加载"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "加载游戏"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "地图"
-
-#: data/gui/millup.xml
-msgid "Mills available"
-msgstr "磨坊可用"
-
-#: data/gui/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "现代风车可用"
-
-#: data/gui/newgame.xml data/gui/mainmenu.xml
-msgid "New Game"
-msgstr "新游戏"
-
-#: data/gui/riverup.xml data/gui/hvindustryup.xml data/gui/windmillup.xml
-#: data/gui/ltindustryup.xml data/gui/cricketup.xml data/gui/coalmineup.xml
-#: data/gui/coalpowerup.xml data/gui/parkup.xml data/gui/solarpowerup.xml
-#: data/gui/potteryup.xml data/gui/railwayup.xml data/gui/roadup.xml
-#: data/gui/rocketup.xml data/gui/millup.xml data/gui/healthup.xml
-#: data/gui/universityup.xml data/gui/recycleup.xml data/gui/blacksmithup.xml
-#: data/gui/firestationup.xml data/gui/schoolup.xml
-#: data/gui/import-exportup.xml data/gui/mod_wind_up.xml
-msgid "New Invention"
-msgstr "新发明"
-
-#: data/gui/no-credit-solar-power.xml data/gui/no-credit-rocket.xml
-#: data/gui/no-credit-parkland.xml data/gui/no-credit-university.xml
-#: data/gui/no-credit-recycle.xml
-msgid "No Credit Available"
-msgstr "无积分可用"
-
-#: data/gui/allgone.xml
-msgid "Nobody Home"
-msgstr "无人屋"
-
-#: data/gui/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "不允许"
-
-#: data/gui/riverup.xml data/gui/hvindustryup.xml
-#: data/gui/no-credit-solar-power.xml data/gui/windmillup.xml
-#: data/gui/options.xml data/gui/ltindustryup.xml data/gui/cricketup.xml
-#: data/gui/coalmineup.xml data/gui/launch-good.xml data/gui/coalpowerup.xml
-#: data/gui/parkup.xml data/gui/solarpowerup.xml data/gui/potteryup.xml
-#: data/gui/railwayup.xml data/gui/allgone.xml data/gui/nobull-tip.xml
-#: data/gui/sustain.xml data/gui/roadup.xml data/gui/rocketup.xml
-#: data/gui/millup.xml data/gui/no-credit-rocket.xml data/gui/healthup.xml
-#: data/gui/no-credit-parkland.xml data/gui/shfire-uc.xml data/gui/fire.xml
-#: data/gui/universityup.xml data/gui/launch-evac.xml data/gui/recycleup.xml
-#: data/gui/no-credit-university.xml data/gui/no-credit-recycle.xml
-#: data/gui/launch-fail.xml data/gui/blacksmithup.xml
-#: data/gui/firestationup.xml data/gui/schoolup.xml
-#: data/gui/import-exportup.xml data/gui/launch-gone.xml
-#: data/gui/mod_wind_up.xml data/gui/warning.xml data/gui/shfire-oc.xml
-#: data/gui/too-old.xml
-msgid "Ok"
-msgstr "可以"
-
-#: data/gui/gamestats.xml
-msgid "Okay"
-msgstr "好的"
-
-#: data/gui/mainmenu.xml data/gui/options.xml
-msgid "Options"
-msgstr "选择"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "原创想法和代码"
-
-#: data/gui/parkup.xml
-msgid "Parks available"
-msgstr "停车场可用"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "暂停游戏"
-
-#: data/gui/potteryup.xml
-msgid "Potteries available"
-msgstr "陶器厂可用"
-
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "按此按钮显示数据"
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Product"
-msgstr "产出"
-
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "退出"
-
-#: data/gui/railwayup.xml
-msgid "Railways available"
-msgstr "铁路可用"
-
-#: data/gui/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "回收中心可用"
-
-#: data/gui/riverup.xml
-msgid "Rivers available"
-msgstr "河流可用"
-
-#: data/gui/roadup.xml
-msgid "Roads available"
-msgstr "道路可用"
-
-#: data/gui/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "火箭发射台可用"
-
-#: data/gui/launch_rocket_yn.xml
+#: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
 msgstr "火箭已准备好"
 
-#: data/gui/launch_rocket_yn.xml
-msgid "Rocket ready to launch"
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
 msgstr "火箭准备发射"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "高速运行模拟器"
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "常速运行模拟器"
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "现在启动？"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "超高速运行模拟器"
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "火箭发射台"
 
-#: data/gui/mainmenu.xml
-msgid "Save"
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "火箭发射台"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "启动成功"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "启动成功"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr "您已转移1000人。您应缩小经济规模以反映人口减少。"
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "你输了。"
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "可持续的经济"
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {} here."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+msgid "You cannot build this on credit."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "这个城市里没有人了。"
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "使用推土机？"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+#, fuzzy
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr "你不能在此建水井：这里全是沙漠。"
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+msgid "Cannot Evacuate"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+msgid "Bridge"
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "推土机"
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "预计推土机成本："
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "推土机成本："
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
+msgid "n/a"
+msgstr "不可用"
+
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
+msgid ": Cost to build "
+msgstr ":建设成本"
+
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "问题工具：显示所选建筑信息。"
+
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "推土机：清除"
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
+msgid ", to bulldoze "
+msgstr "使用推土机"
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " To build "
+msgstr "建造"
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " of them "
+msgstr "他们的"
+
+#: src/lincity-ng/GameView.cpp:1756
+msgid "will cost about "
+msgstr "将花费"
+
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "物品"
+
+#: src/lincity-ng/MainMenu.cpp:151
+msgid "Bad Times"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:155
+msgid "Extreme Arid"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:159
+msgid "Extreme Wetland"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:163
+msgid "Beach"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "火箭"
+
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
+msgid "empty"
+msgstr "空地"
+
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:241
+msgid "semi desert"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, c++-format
+msgid "Map size: {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "着火了"
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "迷你地图：概要图"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "迷你地图：失业"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "迷你地图：污染"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "迷你地图：食物"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "迷你地图：能源供给"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "迷你地图：消防站覆盖"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "迷你地图：运动场覆盖"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "迷你地图：医疗中心"
+
+#: src/lincity-ng/MiniMap.cpp:1043
+#, fuzzy
+msgid "Minimap: coal deposits"
+msgstr "迷你地图：矿产"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+msgid "Minimap: traffic density"
+msgstr "迷你地图：交通密集"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "迷你地图：矿产"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+#, fuzzy
+msgid "River"
+msgstr "大学"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:289
+msgid "no further information available"
+msgstr "没有进一步消息"
+
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr "在此建设"
+
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "Yes"
+msgstr "是"
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+#, fuzzy
+msgid "No"
+msgstr ""
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"号码\n"
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"否"
+
+#: src/lincity-ng/Mps.cpp:322
+#, fuzzy
+msgid "Fire Protection"
+msgstr "消防站"
+
+#: src/lincity-ng/Mps.cpp:325
+#, fuzzy
+msgid "Health Care"
+msgstr "医疗中心"
+
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:331
+#, fuzzy
+msgid "Market Range"
+msgstr "市场"
+
+#: src/lincity-ng/Mps.cpp:336
+msgid "clear"
+msgstr "清除"
+
+#: src/lincity-ng/Mps.cpp:338
+msgid "good"
+msgstr "好的"
+
+#: src/lincity-ng/Mps.cpp:340
+msgid "fair"
+msgstr "一般"
+
+#: src/lincity-ng/Mps.cpp:342
+msgid "smelly"
+msgstr "发臭的"
+
+#: src/lincity-ng/Mps.cpp:344
+msgid "smokey"
+msgstr "有烟的"
+
+#: src/lincity-ng/Mps.cpp:346
+msgid "smoggy"
+msgstr "有雾的"
+
+#: src/lincity-ng/Mps.cpp:348
+msgid "bad"
+msgstr "坏的"
+
+#: src/lincity-ng/Mps.cpp:350
+msgid "very bad"
+msgstr "很差的"
+
+#: src/lincity-ng/Mps.cpp:352
+msgid "death!"
+msgstr "死亡！"
+
+#: src/lincity-ng/Mps.cpp:354
+#, fuzzy
+msgid "Air Pollution"
+msgstr "污染"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+#, fuzzy
+msgid "Bull. Cost"
+msgstr "推土机成本"
+
+#: src/lincity-ng/Mps.cpp:357
+msgid "N/A"
+msgstr "不可用"
+
+#: src/lincity-ng/Mps.cpp:361
+#, fuzzy
+msgid "Ore Reserve"
 msgstr "保存"
 
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "保存游戏"
+#: src/lincity-ng/Mps.cpp:362
+#, fuzzy
+msgid "Coal Reserve"
+msgstr "保存"
 
-#: data/gui/schoolup.xml
-msgid "Schools available"
-msgstr "学校可用"
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr ""
 
-#: data/gui/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
-msgstr "查看帮助屏幕了解更多煤矿和煤炭调查信息。"
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr ""
 
-#: data/gui/riverup.xml data/gui/hvindustryup.xml data/gui/windmillup.xml
-#: data/gui/ltindustryup.xml data/gui/cricketup.xml data/gui/coalpowerup.xml
-#: data/gui/parkup.xml data/gui/solarpowerup.xml data/gui/potteryup.xml
-#: data/gui/railwayup.xml data/gui/rocketup.xml data/gui/millup.xml
-#: data/gui/healthup.xml data/gui/universityup.xml data/gui/recycleup.xml
-#: data/gui/blacksmithup.xml data/gui/firestationup.xml data/gui/schoolup.xml
-#: data/gui/mod_wind_up.xml
-msgid "See the help screen for more information."
-msgstr "查看帮助屏幕了解更多信息。"
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr ""
 
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Sell"
-msgstr "卖出"
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr ""
 
-#: data/gui/coal_survey_yn.xml
-msgid "Send out Prospectors"
-msgstr "派遣勘探者"
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr ""
 
-#: data/gui/minimap.xml
-msgid "Show Income and Expenses. Click this tab again to cycle through views."
-msgstr "显示收入和支出。再次单击此标签转换视图。"
+#: src/lincity-ng/Mps.cpp:408
+msgid "Tax Income"
+msgstr "税收收入"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "显示矿藏"
+#: src/lincity-ng/Mps.cpp:411
+msgid "Income"
+msgstr "收入"
 
-#: data/gui/minimap.xml
-msgid "Show economy graphs."
-msgstr "显示经济图表。"
+#: src/lincity-ng/Mps.cpp:427
+msgid "Export"
+msgstr "出口"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "显示消防站覆盖"
+#: src/lincity-ng/Mps.cpp:432
+msgid "Expenses"
+msgstr "花费"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show map outline"
-msgstr "显示概要地图"
+#: src/lincity-ng/Mps.cpp:435
+msgid "Unemp."
+msgstr "不空的"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "显示医疗中心"
+#: src/lincity-ng/Mps.cpp:439
+msgid "Transport"
+msgstr "交通"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show nourishments"
-msgstr "显示食物"
+#: src/lincity-ng/Mps.cpp:443
+msgid "Imports"
+msgstr "进口"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "显示污染程度"
+#: src/lincity-ng/Mps.cpp:456
+msgid "Others"
+msgstr "其他"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show power supply"
-msgstr "显示能源供给"
+#: src/lincity-ng/Mps.cpp:461
+msgid "Net"
+msgstr "网"
 
-#: data/gui/minimap.xml
-msgid "Show resources."
-msgstr "显示资源"
+#: src/lincity-ng/Mps.cpp:467
+msgid "Other Costs"
+msgstr "其他花销"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "显示运动场覆盖"
+#: src/lincity-ng/Mps.cpp:468
+msgid "For year"
+msgstr "每年"
 
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "显示迷你地图"
+#: src/lincity-ng/Mps.cpp:470
+msgid "Interest"
+msgstr "利息"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "显示交通密集程度"
+#: src/lincity-ng/Mps.cpp:472
+msgid "Univers."
+msgstr "大学"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "显示失业情况"
+#: src/lincity-ng/Mps.cpp:473
+msgid "Deaths"
+msgstr "死亡"
 
-#: data/gui/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "太阳能发电站可用"
+#: src/lincity-ng/Mps.cpp:474
+msgid "Windmill"
+msgstr "风车"
 
-#: data/gui/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "对不起，您不能推倒垃圾场。"
+#: src/lincity-ng/Mps.cpp:475
+msgid "Hospital"
+msgstr "医院"
 
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
-msgstr "对不起，您想要的游戏是太久之前的。无法加载。仍然继续之前游戏。"
+#: src/lincity-ng/Mps.cpp:476
+msgid "Rockets"
+msgstr "火箭"
 
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "音效"
+#: src/lincity-ng/Mps.cpp:477
+msgid "Fire Stn"
+msgstr "消防站"
 
-#: data/gui/creditslist.xml
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr "运动"
+
+#: src/lincity-ng/Mps.cpp:479
+msgid "Recycle"
+msgstr "回收中心"
+
+#: src/lincity-ng/Mps.cpp:487
+msgid "Total"
+msgstr "总计"
+
+#: src/lincity-ng/Mps.cpp:488
+msgid "Housed"
+msgstr "有家的"
+
+#: src/lincity-ng/Mps.cpp:489
+msgid "Homeless"
+msgstr "无家的"
+
+#: src/lincity-ng/Mps.cpp:494
+msgid "Unemployment"
+msgstr "失业"
+
+#: src/lincity-ng/Mps.cpp:497
+msgid "Starvation"
+msgstr "饥荒"
+
+#: src/lincity-ng/Mps.cpp:504
+msgid "Births p.a."
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:512
+#, fuzzy
+msgid "Deaths p.a."
+msgstr "死亡"
+
+#: src/lincity-ng/Mps.cpp:518
+#, fuzzy
+msgid "Unnat. Deaths"
+msgstr "死亡"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+#, fuzzy
+msgid "M"
+msgstr "MM"
+
+#: src/lincity-ng/ScreenInterface.cpp:80
+#, fuzzy
+msgid "k"
+msgstr "可以"
+
+#: src/lincity/commodities.cpp:38
+msgid "Food"
+msgstr "食品"
+
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
+msgstr ""
+
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "矿山"
+
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "物品"
+
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "矿石"
+
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "钢铁"
+
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "废物"
+
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr ""
+
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr ""
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Production:"
+msgstr "产出"
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Inventory:"
+msgstr "存货"
+
+#: src/lincity/util.cpp:39
+msgid "Jan"
+msgstr "一月"
+
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "二月"
+
+#: src/lincity/util.cpp:39
+msgid "Mar"
+msgstr "三月"
+
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "四月"
+
+#: src/lincity/util.cpp:40
+msgid "May"
+msgstr "五月"
+
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "六月"
+
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "七月"
+
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "八月"
+
+#: src/lincity/util.cpp:41
+msgid "Sep"
+msgstr "九月"
+
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "十月"
+
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "十一月"
+
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "十二月"
+
+#: src/lincity/modules/blacksmith.cpp:40
+msgid "Blacksmith"
+msgstr "铁匠"
+
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr ""
+
+#: src/lincity/modules/coal_power.cpp:44
+#, fuzzy
+msgid "Coal Power Station"
+msgstr "发电厂"
+
+#: src/lincity/modules/coal_power.cpp:45
+#, fuzzy
+msgid "Coal Power Stations"
+msgstr "发电厂"
+
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "科技"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+msgid "Output"
+msgstr "产出"
+
+#: src/lincity/modules/coalmine.cpp:44
+msgid "Coal Mine"
+msgstr "矿山"
+
+#: src/lincity/modules/coalmine.cpp:45
+#, fuzzy
+msgid "Coal Mines"
+msgstr "矿山"
+
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
+msgid "Forest"
+msgstr "森林"
+
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+msgid "Fertility"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "污染"
+
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr ""
+
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "篮球场可用"
+
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "篮球场可用"
+
+#: src/lincity/modules/cricket.cpp:150
+msgid "Public sports"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr ""
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"消防站\n"
+"#-#-#-#-#  zh_CN.po (LINCITY Chinese)  #-#-#-#-#\n"
+"火灾"
+
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:161
+#, fuzzy
+msgid "degraded"
+msgstr "贸易"
+
+#: src/lincity/modules/firestation.cpp:47
+msgid "Fire Station"
+msgstr "消防站"
+
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "消防站"
+
+#: src/lincity/modules/health_centre.cpp:46
+#, fuzzy
+msgid "Hospitals"
+msgstr "医院"
+
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+#, fuzzy
+msgid "Steel Works"
+msgstr "钢铁"
+
+#: src/lincity/modules/light_industry.cpp:46
+#, fuzzy
+msgid "Light Industry"
+msgstr "轻工业"
+
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "轻工业可用"
+
+#: src/lincity/modules/mill.cpp:40
+msgid "Textile Mill"
+msgstr "纺织厂"
+
+#: src/lincity/modules/mill.cpp:41
+#, fuzzy
+msgid "Textile Mills"
+msgstr "纺织厂"
+
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "纪念碑"
+
+#: src/lincity/modules/monument.cpp:137
+#, fuzzy
+msgid "Wisdom bestowed"
+msgstr "拥有智慧"
+
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
+msgid "Completion"
+msgstr "完成"
+
+#: src/lincity/modules/oremine.cpp:43
+msgid "Ore Mine"
+msgstr "矿山"
+
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "矿山"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "农场"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "停车场"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
+msgstr ""
+
+#: src/lincity/modules/parkland.cpp:53
+msgid "Parks (Pond)"
+msgstr ""
+
+#: src/lincity/modules/port.cpp:213
+#, fuzzy
+msgid "Import"
+msgstr "进口"
+
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr ""
+
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "陶器厂"
+
+#: src/lincity/modules/power_line.cpp:38
+msgid "Power Line"
+msgstr "输电线"
+
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "输电线"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:42
+#, fuzzy
+msgid "Recycling Center"
+msgstr "可回收"
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "回收中心可用"
+
+#: src/lincity/modules/recycle.cpp:115
+msgid "Efficiency Ore"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:116
+msgid "Efficiency Steel"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+msgid "Residence"
+msgstr "居民区"
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:422
+#, fuzzy
+msgid "Desireability"
+msgstr "可持续："
+
+#: src/lincity/modules/residence.cpp:424
+#, fuzzy
+msgid "Death p.a."
+msgstr "死亡"
+
+#: src/lincity/modules/residence.cpp:425
+msgid "Unnat. mortality"
+msgstr ""
+
+#: src/lincity/modules/rocket_pad.cpp:53
+msgid "Rocket Pad"
+msgstr "火箭发射台"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "火箭发射台"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:48
+msgid "Elementary Schools"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:154
+#, fuzzy
+msgid "Lessons learned"
+msgstr "经验教训"
+
+#: src/lincity/modules/shanty.cpp:51
+#, fuzzy
+msgid "Shanty Town"
+msgstr "贫民区"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "贫民区"
+
+#: src/lincity/modules/solar_power.cpp:40
+#, fuzzy
+msgid "Solar Power Plant"
+msgstr "太阳能"
+
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "太阳能"
+
+#: src/lincity/modules/substation.cpp:39
+#, fuzzy
+msgid "Power Substation"
+msgstr "发电厂"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "发电厂"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "空地"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+msgid "Desert"
+msgstr "沙漠"
+
+#: src/lincity/modules/tile.cpp:80
+msgid "Tree"
+msgstr "树"
+
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+msgid "Trees"
+msgstr "树木"
+
+#: src/lincity/modules/tip.cpp:42
+#, fuzzy
+msgid "Land Fill"
+msgstr "垃圾填埋地"
+
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "垃圾填埋地"
+
+#: src/lincity/modules/tip.cpp:120
+#, fuzzy
+msgid "Filled"
+msgstr "% 完成"
+
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "铁轨"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+msgid "Track (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:66
+msgid "Tracks (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "道路"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+msgid "Road (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:97
+msgid "Roads (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "铁路"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+msgid "Rail (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:129
+msgid "Rails (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr ""
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "大学"
+
+#: src/lincity/modules/university.cpp:122
+#, fuzzy
+msgid "Tech researched"
+msgstr "科技产品"
+
+#: src/lincity/modules/waterwell.cpp:37
+#, fuzzy
+msgid "Water Tower"
+msgstr "水井"
+
+#: src/lincity/modules/waterwell.cpp:38
+#, fuzzy
+msgid "Water Towers"
+msgstr "水井"
+
+#: src/lincity/modules/waterwell.cpp:106
+msgid "Drinkable"
+msgstr "可以饮用的"
+
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+#, fuzzy
+msgid "Wind Power"
+msgstr "电力"
+
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "积分"
+
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "原创想法和代码"
+
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "代码"
+
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "图像"
+
+#: data/gui/creditslist.xml:122
 msgid "Sound and Music"
 msgstr "音效和音乐"
 
-#: data/gui/newgame.xml
-msgid "Start"
-msgstr "开始"
-
-#: data/gui/newgame.xml
-msgid "Start with empty board."
-msgstr "在空地开始。"
-
-#: data/gui/newgame.xml
-msgid "Start with random village."
-msgstr "在任意村庄开始。"
-
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "数据"
-
-#: data/gui/pbar.xml
-msgid "Tech Level"
-msgstr "科技程度"
-
-#: data/gui/allgone.xml
-msgid "There are no people left in this city."
-msgstr "这个城市里没有人了。"
-
-#: data/gui/coal_survey_yn.xml
-msgid "This will cost you 1 million once. After that it is free to call again."
-msgstr "您将一次花费一百万。之后您可以免费再打。"
-
-#: data/gui/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "全部转移完成。"
-
-#: data/gui/tradedialog.xml
-msgid "Trade Settings"
-msgstr "贸易设定"
-
-#: data/gui/creditslist.xml
+#: data/gui/creditslist.xml:138
 msgid "Translation"
 msgstr "翻译"
 
-#: data/gui/universityup.xml
-msgid "University available"
-msgstr "大学可用"
+#: data/gui/creditslist.xml:278
+msgid "License"
+msgstr ""
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Want to bulldoze?"
-msgstr "使用推土机？"
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "后退"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml data/gui/warning.xml data/gui/too-old.xml
-msgid "Warning"
-msgstr "警告"
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
+msgid "Ok"
+msgstr "可以"
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "警告：推倒纪念碑很贵"
+#: data/gui/helpwindow.xml:17
+msgid "Help"
+msgstr ""
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "警告：推倒贫民窟很危险。"
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "加载游戏"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "警告：推倒水源很贵"
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "加载"
 
-#: data/gui/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "做的好，您已转移了所有人。"
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "新游戏"
 
-#: data/gui/windmillup.xml
-msgid "Windmills available"
-msgstr "风车可用"
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "继续"
 
-#: data/gui/fire.xml
-msgid "You better go and look for it"
-msgstr "您最好去找找看"
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
+msgid "Save"
+msgstr "保存"
 
-#: data/gui/launch_rocket_yn.xml
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "选择"
+
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "退出"
+
+#: data/gui/minimapswitchbuttons.xml:11
+msgid "Show map outline"
+msgstr "显示概要地图"
+
+#: data/gui/minimapswitchbuttons.xml:21
+msgid "Show nourishments"
+msgstr "显示食物"
+
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "显示失业情况"
+
+#: data/gui/minimapswitchbuttons.xml:41
+msgid "Show power supply"
+msgstr "显示能源供给"
+
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "显示消防站覆盖"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "显示运动场覆盖"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "显示医疗中心"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "显示交通密集程度"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "显示污染程度"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "显示矿藏"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "地图"
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "显示迷你地图"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "数据"
+
+#: data/gui/minimap.xml:28
+#, fuzzy
+msgid "Show resources. Use scroll buttons to cycle through views."
+msgstr "显示收入和支出。再次单击此标签转换视图。"
+
+#: data/gui/minimap.xml:38
+#, fuzzy
+msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
+msgstr "显示收入和支出。再次单击此标签转换视图。"
+
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "经济"
+
+#: data/gui/minimap.xml:48
+msgid "Show economy graphs."
+msgstr "显示经济图表。"
+
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr ""
+
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr ""
+
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
+msgstr "[+] 放大可看到更多细节和更少的建筑"
+
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] 缩小"
+
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr ""
+
+#: data/gui/minimap.xml:124
+msgid "Gov."
+msgstr ""
+
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
+
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr "[F1] 按此按钮获得帮助"
+
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] 隐藏高楼。"
+
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "按此按钮显示数据"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] 在迷你地图叠加模式间转换。"
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "选择情景"
+
+#: data/gui/newgame.xml:56
+msgid "Village"
+msgstr ""
+
+#: data/gui/newgame.xml:65
+msgid "Without trees"
+msgstr ""
+
+#: data/gui/newgame.xml:208
+msgid "Start"
+msgstr "开始"
+
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "背景音乐"
+
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "音效"
+
+#: data/gui/options.xml:87
+#, fuzzy
+msgid "Resolution"
+msgstr "污染"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr ""
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "全屏"
+
+#: data/gui/options.xml:146
+msgid "Scroll Speed"
+msgstr ""
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
+msgid "Tech Level"
+msgstr "科技程度"
+
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr ""
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "保存游戏"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "暂停游戏"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "常速运行模拟器"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "高速运行模拟器"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "超高速运行模拟器"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "回到主菜单"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Coal Survey"
+msgstr "煤矿调查"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Send out Prospectors"
+msgstr "派遣勘探者"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "This will cost you 1 million once. After that it is free to call again."
+msgstr "您将一次花费一百万。之后您可以免费再打。"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "做煤矿调查吗？"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Income tax"
+msgstr "收入"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "煤电发电塔"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "物品"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Transport cost"
+msgstr "交通"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Gamestats"
+msgstr "游戏数据"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Okay"
+msgstr "好的"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "Rocket ready to launch"
+msgstr "火箭准备发射"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1911,220 +2058,719 @@ msgstr ""
 "您可以现在发射火箭或之后再说。如果您想要继续花钱维护火箭准备状态。单击火箭区"
 "域，之后发射。"
 
-#: data/gui/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"您可以进出口煤炭，商品，矿石和钢铁。阅读这些物品的帮助页面，了解如何使用。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+msgid "Harbour Trade Settings"
+msgstr "港口贸易设定"
 
-#: data/gui/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr "您有预算赤字。法律部门不会允许您用积分建停车场。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Product"
+msgstr "产出"
 
-#: data/gui/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr "您有预算赤字。法律部门不会允许您用积分建回收中心。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "购买"
 
-#: data/gui/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr "您有预算赤字。法律部门不会允许您用积分建火箭发射台。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
+msgid "Sell"
+msgstr "卖出"
 
-#: data/gui/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr "您有预算赤字。法律部门不会允许您用积分建太阳能发电站。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Trade Settings"
+msgstr "贸易设定"
 
-#: data/gui/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr "您有预算赤字。法律部门不会允许您用积分建大学。"
+#, c-format
+#~ msgid "Save file <%s> - "
+#~ msgstr "保存文件 <%s> - "
 
-#: data/gui/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr "您已转移1000人。您应缩小经济规模以反映人口减少。"
+#~ msgid "Can't open save file!"
+#~ msgstr "无法打开保存文件！"
 
-#: data/gui/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use jobs and steel to make goods."
-msgstr "您的科技程度已经允许建造铁匠铺。铁匠铺用工作和钢铁制造物品。"
+#, c-format
+#~ msgid "Can't open <%s> (gzipped)"
+#~ msgstr "无法打开 <%s> (gzipped)"
 
-#: data/gui/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr "您的科技程度已经允许建造煤炭发电站。"
+#~ msgid "Error. Can't find LINCITY_HOME"
+#~ msgstr "错误。找不到LINCITY_HOME"
 
-#: data/gui/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
-msgstr ""
-"您的科技程度已经允许建造消防站。消防站可以防止大部分火灾发生。如果您没遇到过"
-"火灾，可能不会需要他们。"
+#~ msgid "Error verifying package. Can't find colour.pal."
+#~ msgstr "无法定位组合"
 
-#: data/gui/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"您的科技程度已经允许建造医疗中心。医疗中心可以帮助人口因污染问题而减少，并提"
-"高综合生产力。"
+#, c-format
+#~ msgid "Couldn't create the save directory '%s'\n"
+#~ msgstr "无法创建保存路径'%s'\n"
 
-#: data/gui/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr "您的科技程度已经允许建造重工业（钢铁厂）。重工业生产钢铁。"
+#, c-format
+#~ msgid "Out of memory: malloc failure\n"
+#~ msgstr "内存不足：存储器问题\n"
 
-#: data/gui/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr "您的科技程度已经允许建造轻工业。轻工业生产物品。"
+#~ msgid ""
+#~ "Upgrading from old game. You have 10 years to build water wells where "
+#~ "needed. After, starvation will occur!  You should check starvation "
+#~ "minimap, and read waterwell help page :-)"
+#~ msgstr ""
+#~ "从之前的游戏加载。你有十年时间在需要的地方建立水井。之后，饥荒就会到来！你"
+#~ "可以查看关于饥荒的迷你地图，并阅读水井帮助页面:-)"
 
-#: data/gui/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"jobs and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"您的科技程度已经允许建造磨坊。磨坊用工作和食物制造物品。小心，他们会用掉很多"
-"食物！"
+#~ msgid "You have too many power grids. Join some of them"
+#~ msgstr "你有过多的电网。请合并其中一些"
 
-#: data/gui/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr "您的科技程度已经允许建造现代，更高效的风车。"
+#~ msgid "Port must be connected to river all along right side."
+#~ msgstr "港口必须与河流右侧连接。"
 
-#: data/gui/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr "您的科技程度已经允许建造公园。公园用来吸收污染。"
+#~ msgid "You can't build a tip here: this area was once a landfill"
+#~ msgstr "你不能在此建垃圾场：这里曾经是垃圾填埋地"
 
-#: data/gui/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"您的科技程度已经允许建造陶器厂。陶器厂用工作和矿石制造物品。（您需要有矿山来"
-"获得矿石）"
+#~ msgid "You can't build a mine here: This area was once a landfill"
+#~ msgstr "你不能在此建矿井：这里曾经是垃圾填埋地"
 
-#: data/gui/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr "您的科技程度已经允许建造铁路。"
+#~ msgid "You can't build a mine here: there is no ore left at this site"
+#~ msgstr "你不能在此建矿井：这里没有留守人员"
 
-#: data/gui/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr "您的科技程度已经允许建造河流。"
+#~ msgid "You can't build a park here: it is a desert, parks need water"
+#~ msgstr "你不能在此建停车场：这里全是沙漠，停车场需要水源"
 
-#: data/gui/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr "您的科技程度已经允许建造道路。查看帮助屏幕了解更多信息。"
+#~ msgid "Too many substations + windmills. You cannot build one more"
+#~ msgstr "太多变电所 + 风车。你不能再建一个了"
 
-#: data/gui/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"您的科技程度已经允许建造火箭发射台。火箭可以帮助转移人口，并取得游戏胜利。"
+#~ msgid "Too many markets. You cannot build one more"
+#~ msgstr "市场太多了。你不能再建一个了"
 
-#: data/gui/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use jobs and goods to increase tech level. "
-msgstr "您的科技程度已经允许建造学校。学校用工作和物品来提高科技程度。"
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "错误：小组不存在。这不应该发生！请考虑填写故障报告给lincity-ng开发团队，包"
+#~ "括保存的游戏以及你的步骤 :-)"
 
-#: data/gui/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr "您的科技程度已经允许建造太阳能发电站。"
+#~ msgid "It's at a power line."
+#~ msgstr "它在输电线处。"
 
-#: data/gui/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr "您的科技程度已经允许建造大学。大学培养博士，他们带来更多科技。"
+#~ msgid "It's at a solar power station."
+#~ msgstr "它在太阳能发电站处。"
 
-#: data/gui/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr "您的科技程度已经允许建造风车。"
+#~ msgid "It's at a substation."
+#~ msgstr "它在变电所处。"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr "您的科技程度已经允许建造煤矿。"
+#~ msgid "It's at a residential area."
+#~ msgstr "它在居民区处。"
 
-#: data/gui/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr "您的科技程度已经允许建造回收中心。回收中心回收旧物到矿山。"
+#~ msgid "It's at a farm."
+#~ msgstr "它在农场处。"
 
-#: data/gui/sustain.xml data/gui/launch-gone.xml
-msgid "You have won the game."
-msgstr "您已取得胜利。"
+#~ msgid "It's at a market."
+#~ msgstr "它在市场处。"
 
-#: data/gui/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "您可以在其他地方开始新的事业。"
+#~ msgid "It's at a track."
+#~ msgstr "它在铁轨处。"
 
-#: data/gui/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a few jobs and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
-msgstr ""
-"您的人们已发明篮球。篮球场需要一些工作和物品，并让附近（大概方圆十个单位）的"
-"人们更加快乐。"
+#~ msgid "It's at a coal mine."
+#~ msgstr "它在煤矿处。"
 
-#: data/gui/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"您的火箭在发射不久后坠地。转移之后的人们不再相信科技。您必须发射五个以上无人"
-"火箭来重建信心。"
+#~ msgid "It's at a railway."
+#~ msgstr "它在轨道处。"
 
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr "[+] 放大可看到更多细节和更少的建筑"
+#~ msgid "It's at a coal power station."
+#~ msgstr "它在煤电站处。"
 
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] 缩小"
+#~ msgid "It's at a road."
+#~ msgstr "它在道路处。"
 
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr "[F1] 按此按钮获得帮助"
+#~ msgid "It's at light industry."
+#~ msgstr "它在轻工业处。"
 
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] 隐藏高楼。"
+#~ msgid "It's at a university."
+#~ msgstr "它在学校处。"
 
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] 在迷你地图叠加模式间转换。"
+#~ msgid "It's at a commune."
+#~ msgstr "它在公社处。"
 
-#: data/gui/savegame.xml
-msgid "save to selected slot"
-msgstr "保存至所选位置"
+#~ msgid "It's at a tip."
+#~ msgstr "它在垃圾场处。"
+
+#~ msgid "It's at a port."
+#~ msgstr "它在港口处。"
+
+#~ msgid "It's at a steel works."
+#~ msgstr "它在钢铁厂处。"
+
+#~ msgid "It's at a recycle centre."
+#~ msgstr "它在回收中心处。"
+
+#~ msgid "It's at a health centre."
+#~ msgstr "它在医疗中心处。"
+
+#~ msgid "It's at a rocket site."
+#~ msgstr "它在火箭基地处。"
+
+#~ msgid "It's at a windmill."
+#~ msgstr "它在风车处。"
+
+#~ msgid "It's at a school."
+#~ msgstr "它在学校处。"
+
+#~ msgid "It's at a blacksmith."
+#~ msgstr "它在铁匠处。"
+
+#~ msgid "It's at a mill."
+#~ msgstr "它在磨坊处。"
+
+#~ msgid "It's at a pottery."
+#~ msgstr "它在陶器厂处。"
+
+#~ msgid "It's at a fire station!!!."
+#~ msgstr "它在消防站！！！"
+
+#~ msgid "It's at a sports field!!!."
+#~ msgstr "它在田径场！！！"
+
+#~ msgid "It's at a shanty town."
+#~ msgstr "它在贫民窟处。"
+
+#~ msgid "UNKNOWN!"
+#~ msgstr "未知！"
+
+#~ msgid "Power line"
+#~ msgstr "输电线"
+
+#~ msgid "Solar PS"
+#~ msgstr "太阳能发电塔"
+
+#~ msgid "Substation"
+#~ msgstr "变电所"
+
+#~ msgid "Residential LL"
+#~ msgstr "LL居民区"
+
+#~ msgid "Coalmine"
+#~ msgstr "煤矿"
+
+#~ msgid "Railway"
+#~ msgstr "铁路"
+
+#~ msgid "Commune"
+#~ msgstr "公社"
+
+#~ msgid "Ore mine"
+#~ msgstr "矿山"
+
+#~ msgid "Rubbish tip"
+#~ msgstr "垃圾场"
+
+#~ msgid "Hv. Industry"
+#~ msgstr "重工业"
+
+#~ msgid "Health centre"
+#~ msgstr "医疗中心"
+
+#~ msgid "School"
+#~ msgstr "学校"
+
+#~ msgid "Mill"
+#~ msgstr "磨坊"
+
+#~ msgid "Fire sta'n"
+#~ msgstr "消防站"
+
+#~ msgid "Sports field"
+#~ msgstr "田径场"
+
+#~ msgid "Burnt"
+#~ msgstr "化石厂"
+
+#~ msgid "Used"
+#~ msgstr "旧的"
+
+#~ msgid "Residential ML"
+#~ msgstr "ML居民区"
+
+#~ msgid "Residential HL"
+#~ msgstr "HL居民区"
+
+#~ msgid "Residential LH"
+#~ msgstr "LH居民区"
+
+#~ msgid "Residential MH"
+#~ msgstr "MH居民区"
+
+#~ msgid "Residential HH"
+#~ msgstr "HH居民区"
+
+#~ msgid "Water_well"
+#~ msgstr "水井"
+
+#~ msgid "Health Centre"
+#~ msgstr "医疗中心"
+
+#~ msgid "Jobs"
+#~ msgstr "工作"
+
+#~ msgid "Local Status"
+#~ msgstr "本地状况"
+
+#~ msgid "Prod."
+#~ msgstr "产品"
+
+#~ msgid "Demand"
+#~ msgstr "要求"
+
+#~ msgid "Grid Status"
+#~ msgstr "电网状况"
+
+#~ msgid "T. Cap."
+#~ msgstr "T.人口"
+
+#~ msgid "A. Cap."
+#~ msgstr "A.人口"
+
+#~ msgid "Grid ID"
+#~ msgstr "电网号码"
+
+#~ msgid "Navigable"
+#~ msgstr "可驾驶的"
+
+#~ msgid "Center"
+#~ msgstr "中心"
+
+#~ msgid "Capacity"
+#~ msgstr "容量"
+
+#~ msgid "YES"
+#~ msgstr "是"
+
+#~ msgid "NO"
+#~ msgstr "否"
+
+#~ msgid "Stock"
+#~ msgstr "存货"
+
+#~ msgid "EMPTY"
+#~ msgstr "空地"
+
+#~ msgid "People"
+#~ msgstr "人群"
+
+#~ msgid "Fed"
+#~ msgstr "联邦"
+
+#~ msgid "Employed"
+#~ msgstr "受雇用的"
+
+#~ msgid "poor"
+#~ msgstr "差的"
+
+#~ msgid "Job"
+#~ msgstr "工作"
+
+#, c-format
+#~ msgid "% Complete"
+#~ msgstr "% 完成"
+
+#~ msgid "Heavy"
+#~ msgstr "重"
+
+#~ msgid "Industry"
+#~ msgstr "工业"
+
+#~ msgid "Grid"
+#~ msgstr "电网"
+
+#~ msgid "Store"
+#~ msgstr "商店"
+
+#~ msgid "Max Output"
+#~ msgstr "最大产出"
+
+#~ msgid "Current Output"
+#~ msgstr "现有产出"
+
+#~ msgid "Local Demand"
+#~ msgstr "本地要求"
+
+#~ msgid "Light"
+#~ msgstr "轻"
+
+#~ msgid "Last Month"
+#~ msgstr "上月"
+
+#~ msgid "Tons"
+#~ msgstr "吨数"
+
+#~ msgid "Percent"
+#~ msgstr "百分比"
+
+#~ msgid "Activity"
+#~ msgstr "活动"
+
+#~ msgid "Organic Farm"
+#~ msgstr "有机农场"
+
+#~ msgid "NO "
+#~ msgstr "否"
+
+#~ msgid "Prod"
+#~ msgstr "产品"
+
+#~ msgid "Debug info"
+#~ msgstr "调试信息"
+
+#~ msgid "max with power&water"
+#~ msgstr "电力及水源满载"
+
+#~ msgid "N tiles with water"
+#~ msgstr "N块水源"
+
+#~ msgid "Current production"
+#~ msgstr "现有产出"
+
+#~ msgid "Solar"
+#~ msgstr "太阳能"
+
+#~ msgid "----- IN TEST MODE -------"
+#~ msgstr "测试模式"
+
+#, c-format
+#~ msgid "Population  %d  of which  %d  are not housed."
+#~ msgstr "人口 %d 其中 %d 无家可归"
+
+#, c-format
+#~ msgid "Max population %d  Number evacuated %d Total births %d"
+#~ msgstr "最大人口 %d 转移人数 %d 出生率 %d"
+
+#, c-format
+#~ msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
+#~ msgstr "日期 %s %04d 钱数 %8d 技术水平 %5.1f(%5.1f)"
+
+#, c-format
+#~ msgid "Years of unemployment %7d   History %8.3f"
+#~ msgstr "年失业率 %7d 历史记录 %8.3f"
+
+#, c-format
+#~ msgid "Rockets launched %2d  Successful launches %2d"
+#~ msgstr "发射火箭数 %2d 成功发射率 %2d"
+
+#~ msgid "Communes"
+#~ msgstr "公社"
+
+#~ msgid "$."
+#~ msgstr "$"
+
+#~ msgid "Coverage"
+#~ msgstr "覆盖"
+
+#~ msgid "Health"
+#~ msgstr "医疗"
+
+#~ msgid "Unn Dths"
+#~ msgstr "死亡人数"
+
+#~ msgid "Claims"
+#~ msgstr "宣告"
+
+#~ msgid "Rate"
+#~ msgstr "比例"
+
+#~ msgid "Cases"
+#~ msgstr "案例"
+
+#, c-format
+#~ msgid "%s (Techlevel %.1f required.)"
+#~ msgstr "%s (科技水平 %.1f如果要求.)"
+
+#, c-format
+#~ msgid "%s is disabled (loaded old game)."
+#~ msgstr "%s 不可用 (加载历史游戏)"
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr "在一个贫民窟处开始着火。火势覆盖范围之内，貌似一切在可控范围之内。"
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr "在一个贫民窟处开始着火。火势无法控制，可能蔓延至其他地区。"
+
+#~ msgid "Blacksmiths available"
+#~ msgstr "铁匠铺可用"
+
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "推倒一个河段要花很多钱。"
+
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr "推倒一个贫民窟要花很多钱，并有火灾危险。"
+
+#~ msgid "Coal Fired Power Stations available"
+#~ msgstr "煤电站可用"
+
+#~ msgid "Coal Mine available"
+#~ msgstr "矿山"
+
+#~ msgid "Doing well."
+#~ msgstr "做的很好。"
+
+#~ msgid "Evacuation Launch Good"
+#~ msgstr "迁移进展顺利"
+
+#~ msgid "Fire Stations available"
+#~ msgstr "消防站可用"
+
+#~ msgid "Health Centres available"
+#~ msgstr "医疗中心可用"
+
+#~ msgid "Heavy Industry available"
+#~ msgstr "重工业可用"
+
+#~ msgid "Import/Export available"
+#~ msgstr "进/出口可用"
+
+#~ msgid "Launch Failure"
+#~ msgstr "启动失败"
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "LinCity认为你有可持续发展的经济。"
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "现代风车可用"
+
+#~ msgid "No Credit Available"
+#~ msgstr "无积分可用"
+
+#~ msgid "Nobody Home"
+#~ msgstr "无人屋"
+
+#~ msgid "Not Allowed"
+#~ msgstr "不允许"
+
+#~ msgid "Parks available"
+#~ msgstr "停车场可用"
+
+#~ msgid "Potteries available"
+#~ msgstr "陶器厂可用"
+
+#~ msgid "Railways available"
+#~ msgstr "铁路可用"
+
+#~ msgid "Rivers available"
+#~ msgstr "河流可用"
+
+#~ msgid "Roads available"
+#~ msgstr "道路可用"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "火箭发射台可用"
+
+#~ msgid "Schools available"
+#~ msgstr "学校可用"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr "查看帮助屏幕了解更多煤矿和煤炭调查信息。"
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "查看帮助屏幕了解更多信息。"
+
+#~ msgid "Show resources."
+#~ msgstr "显示资源"
+
+#~ msgid "Solar Power Stations available"
+#~ msgstr "太阳能发电站可用"
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "对不起，您不能推倒垃圾场。"
+
+#~ msgid ""
+#~ "Sorry, the game you wanted is too old. Cannot load it. Still play with "
+#~ "previous game."
+#~ msgstr "对不起，您想要的游戏是太久之前的。无法加载。仍然继续之前游戏。"
+
+#~ msgid "Start with empty board."
+#~ msgstr "在空地开始。"
+
+#~ msgid "Start with random village."
+#~ msgstr "在任意村庄开始。"
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "全部转移完成。"
+
+#~ msgid "University available"
+#~ msgstr "大学可用"
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "警告：推倒纪念碑很贵"
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "警告：推倒贫民窟很危险。"
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "警告：推倒水源很贵"
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "做的好，您已转移了所有人。"
+
+#~ msgid "Windmills available"
+#~ msgstr "风车可用"
+
+#~ msgid "You better go and look for it"
+#~ msgstr "您最好去找找看"
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "您可以进出口煤炭，商品，矿石和钢铁。阅读这些物品的帮助页面，了解如何使用。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr "您有预算赤字。法律部门不会允许您用积分建停车场。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr "您有预算赤字。法律部门不会允许您用积分建回收中心。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr "您有预算赤字。法律部门不会允许您用积分建火箭发射台。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr "您有预算赤字。法律部门不会允许您用积分建太阳能发电站。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr "您有预算赤字。法律部门不会允许您用积分建大学。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr "您的科技程度已经允许建造铁匠铺。铁匠铺用工作和钢铁制造物品。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr "您的科技程度已经允许建造煤炭发电站。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "您的科技程度已经允许建造消防站。消防站可以防止大部分火灾发生。如果您没遇到"
+#~ "过火灾，可能不会需要他们。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "您的科技程度已经允许建造医疗中心。医疗中心可以帮助人口因污染问题而减少，并"
+#~ "提高综合生产力。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr "您的科技程度已经允许建造重工业（钢铁厂）。重工业生产钢铁。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr "您的科技程度已经允许建造轻工业。轻工业生产物品。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "您的科技程度已经允许建造磨坊。磨坊用工作和食物制造物品。小心，他们会用掉很"
+#~ "多食物！"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr "您的科技程度已经允许建造现代，更高效的风车。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr "您的科技程度已经允许建造公园。公园用来吸收污染。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "您的科技程度已经允许建造陶器厂。陶器厂用工作和矿石制造物品。（您需要有矿山"
+#~ "来获得矿石）"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr "您的科技程度已经允许建造铁路。"
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr "您的科技程度已经允许建造河流。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "您的科技程度已经允许建造火箭发射台。火箭可以帮助转移人口，并取得游戏胜利。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr "您的科技程度已经允许建造学校。学校用工作和物品来提高科技程度。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr "您的科技程度已经允许建造太阳能发电站。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr "您的科技程度已经允许建造大学。大学培养博士，他们带来更多科技。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr "您的科技程度已经允许建造风车。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr "您的科技程度已经允许建造煤矿。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr "您的科技程度已经允许建造回收中心。回收中心回收旧物到矿山。"
+
+#~ msgid "You have won the game."
+#~ msgstr "您已取得胜利。"
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "您可以在其他地方开始新的事业。"
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "您的人们已发明篮球。篮球场需要一些工作和物品，并让附近（大概方圆十个单位）"
+#~ "的人们更加快乐。"
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "您的火箭在发射不久后坠地。转移之后的人们不再相信科技。您必须发射五个以上无"
+#~ "人火箭来重建信心。"
+
+#~ msgid "save to selected slot"
+#~ msgstr "保存至所选位置"

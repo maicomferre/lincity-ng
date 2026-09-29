@@ -15,24 +15,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
-"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-30 19:30+0200\n"
-"PO-Revision-Date: 2013-07-30 20:36+0200\n"
-"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
-"Language: tr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.5\n"
-"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
-"Project-Id-Version: tr\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Jul 30 19:30:05 2013\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
 "PO-Revision-Date: 2013-07-30 19:46+0200\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -40,1591 +25,2041 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
+"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 "#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
-"Project-Id-Version: tr\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Jul 30 19:30:05 2013\n"
-"PO-Revision-Date: 2013-07-30 19:46+0200\n"
-"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
-"Language: tr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+"#-#-#-#-#  tr.po (tr)  #-#-#-#-#\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: src/lincity/loadsave.cpp:160
-#, c-format
-msgid "Save file <%s> - "
-msgstr "Kayıt dosyası <%s> - "
-
-#: src/lincity/loadsave.cpp:161
-msgid "Can't open save file!"
-msgstr "Kayıt dosyası açılamadı!"
-
-#: src/lincity/loadsave.cpp:351 src/lincity/old_ldsvguts.cpp:132
-#, c-format
-msgid "Can't open <%s> (gzipped)"
-msgstr "Açılamıyor <%s> (gzip'li)"
-
-#: src/lincity/old_ldsvguts.cpp:164
-msgid "Loading scene"
-msgstr "Sahne yükleniyor"
-
-#: src/lincity/engine.cpp:86
-msgid "You just spent all your money."
-msgstr "Tüm paranızı harcadınız."
-
-#: src/lincity/engine.cpp:158
-msgid "Port must be connected to river all along right side."
-msgstr "Liman tüm sağ taraf boyunca nehire bağlı olmalıdır."
-
-#: src/lincity/engine.cpp:171
-msgid "You can't build a water well here: it is all desert."
-msgstr "Buraya bir su kuyusu inşa edemezsiniz: tamamen çöl."
-
-#: src/lincity/engine.cpp:189
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr "Buraya bir maden inşa edemezsiniz: bu alanda hiçbir mineral kalmadı"
-
-#: src/lincity/engine.cpp:200
-msgid "You can't build a park here: it is a desert, parks need water"
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+msgid "requires"
 msgstr ""
-"Buraya bir park inşa edemezsiniz: burası bir çöl ve parkların suya ihtiyacı "
-"var"
 
-#: src/lincity/engine.cpp:237
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
-msgstr ""
-"HATA: grup mevcut değil. Bu olmamalıydı! Lütfen lincity-ng takımına bir hata "
-"kaydı gönderin. Buna kayıtlı oyun ile ne yaptığınızı da yazın :-) "
-
-#: src/lincity/engine.cpp:367
-msgid "ups, Bulldozer found a dangling reportingConstruction"
-msgstr "olamaz. Buldozer asılı bir reportingConstruction buldu"
-
-#: src/lincity/engine.cpp:516
-msgid "UNKNOWN!"
-msgstr "BİLİNMİYOR!"
-
-#: src/lincity/lintypes.cpp:809
-msgid "Empty"
-msgstr "Boş"
-
-#: src/lincity/lintypes.cpp:822
-msgid "Power line"
-msgstr "Elektrik hattı"
-
-#: src/lincity/lintypes.cpp:834
-msgid "Solar PS"
-msgstr "Güneş Pan."
-
-#: src/lincity/lintypes.cpp:845
-msgid "Substation"
-msgstr "Trafo"
-
-#: src/lincity/lintypes.cpp:856
-msgid "Residential LL"
-msgstr "Yerleşim DS"
-
-#: src/lincity/lintypes.cpp:867
-msgid "Farm"
-msgstr "Çiftlik"
-
-#: src/lincity/lintypes.cpp:878 src/lincity-ng/Dialog.cpp:636
-msgid "Market"
-msgstr "Bakkal"
-
-#: src/lincity/lintypes.cpp:889
-msgid "Track"
-msgstr "Tali Yol"
-
-#: src/lincity/lintypes.cpp:900
-msgid "Coalmine"
-msgstr "Kömür Madeni"
-
-#: src/lincity/lintypes.cpp:911
-msgid "Railway"
-msgstr "Demiryolu"
-
-#: src/lincity/lintypes.cpp:922
-msgid "Coal PS"
-msgstr "Termik Sant."
-
-#: src/lincity/lintypes.cpp:933
-msgid "Road"
-msgstr "Yol"
-
-#: src/lincity/lintypes.cpp:944
-msgid "Lt. Industry"
-msgstr "Hafif Sanayi"
-
-#: src/lincity/lintypes.cpp:955
-msgid "University"
-msgstr "Üniversite"
-
-#: src/lincity/lintypes.cpp:966
-msgid "Commune"
-msgstr "Komün"
-
-#: src/lincity/lintypes.cpp:977
-msgid "Ore mine"
-msgstr "Mineral Madeni"
-
-#: src/lincity/lintypes.cpp:988
-msgid "Rubbish tip"
-msgstr "Atıklık"
-
-#: src/lincity/lintypes.cpp:999 src/lincity-ng/Dialog.cpp:697
-msgid "Port"
-msgstr "Liman"
-
-#: src/lincity/lintypes.cpp:1010
-msgid "Hv. Industry"
-msgstr "Ağır Sanayi"
-
-#: src/lincity/lintypes.cpp:1021
-msgid "Park"
-msgstr "Park"
-
-#: src/lincity/lintypes.cpp:1032 src/lincity-ng/MpsInterface.cpp:517
-msgid "Recycle"
-msgstr "Geridönüşüm"
-
-#: src/lincity/lintypes.cpp:1043 src/lincity/modules/water.cpp:20
-#: data/gui/pbar2nd.xml
-msgid "Water"
-msgstr "Su"
-
-#: src/lincity/lintypes.cpp:1054
-msgid "Health centre"
-msgstr "Sağlık. Merk."
-
-#: src/lincity/lintypes.cpp:1065
-msgid "Rocket pad"
-msgstr "Füze rampası"
-
-#: src/lincity/lintypes.cpp:1076 src/lincity-ng/MpsInterface.cpp:507
-msgid "Windmill"
-msgstr "Rüzgar değirmeni"
-
-#: src/lincity/lintypes.cpp:1087
-msgid "Monument"
-msgstr "Anıt"
-
-#: src/lincity/lintypes.cpp:1098
-msgid "School"
-msgstr "Okul"
-
-#: src/lincity/lintypes.cpp:1109
-msgid "Blacksmith"
-msgstr "Demirci"
-
-#: src/lincity/lintypes.cpp:1120
-msgid "Mill"
-msgstr "Değirmen"
-
-#: src/lincity/lintypes.cpp:1131
-msgid "Pottery"
-msgstr "Çömlekçi"
-
-#: src/lincity/lintypes.cpp:1142
-msgid "Fire sta'n"
-msgstr "İtfaiye"
-
-#: src/lincity/lintypes.cpp:1153
-msgid "Sports field"
-msgstr "Spor merkezi"
-
-#: src/lincity/lintypes.cpp:1165
-msgid "Burnt"
-msgstr "Yanık"
-
-#: src/lincity/lintypes.cpp:1177
-msgid "Shanty town"
-msgstr "Gecekondu semti"
-
-#: data/gui/shfire-uc.xml data/gui/shfire-oc.xml
-msgid "Fire"
-msgstr "Yangın"
-
-#: src/lincity/lintypes.cpp:1201
-msgid "Used"
-msgstr "Kullanıldı"
-
-#: src/lincity/lintypes.cpp:1212
-msgid "Residential ML"
-msgstr "Yerleşim OS"
-
-#: src/lincity/lintypes.cpp:1223
-msgid "Residential HL"
-msgstr "Yerleşim YS"
-
-#: src/lincity/lintypes.cpp:1234
-msgid "Residential LH"
-msgstr "Yerleşim DY"
-
-#: src/lincity/lintypes.cpp:1245
-msgid "Residential MH"
-msgstr "Yerleşim OY"
-
-#: src/lincity/lintypes.cpp:1256
-msgid "Residential HH"
-msgstr "Yerleşim YY"
-
-#: src/lincity/lintypes.cpp:1267
-msgid "Water well"
-msgstr "Su kuyusu"
-
-#: src/lincity/lintypes.cpp:1279
-msgid "Desert"
-msgstr "Çöl"
-
-#: src/lincity/lintypes.cpp:1291
-msgid "Tree"
-msgstr "Ağaç"
-
-#: src/lincity/lintypes.cpp:1304
-msgid "Trees"
-msgstr "Ağaçlar"
-
-#: src/lincity/lintypes.cpp:1317
-msgid "Forest"
-msgstr "Orman"
-
-#: src/lincity/lintypes.cpp:1330
-msgid "Track Bridge"
-msgstr "Tali Yol Köprüsü"
-
-#: src/lincity/lintypes.cpp:1342
-msgid "Road Bridge"
-msgstr "Yol Köprüsü"
-
-#: src/lincity/lintypes.cpp:1354
-msgid "Rail Bridge"
-msgstr "Ray Köprü"
-
-#: src/lincity/lintypes.cpp:1366
-msgid "Wind Power"
-msgstr "Rüzgar Gücü"
-
-#: src/lincity/lclib.cpp:15
-msgid "Jan"
-msgstr "Ocak"
-
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "Şub"
-
-#: src/lincity/lclib.cpp:15
-msgid "Mar"
-msgstr "Mart"
-
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "Nis"
-
-#: src/lincity/lclib.cpp:16
-msgid "May"
-msgstr "May"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "Haz"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "Tem"
-
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "Ağu"
-
-#: src/lincity/lclib.cpp:17
-msgid "Sep"
-msgstr "Eyl"
-
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "Ekim"
-
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "Kas"
-
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "Ara"
-
-#: src/lincity/fileutil.cpp:201 src/lincity/fileutil.cpp:245
-msgid "Error. Can't find LINCITY_HOME"
-msgstr "Hata. LINCITY_HOME bulunamıyor"
-
-#: src/lincity/fileutil.cpp:431
-msgid "Error verifying package. Can't find colour.pal."
-msgstr "Paket doğrulama hatası. colour.pal bulunamıyor."
-
-#: src/lincity/fileutil.cpp:444 src/lincity/fileutil.cpp:454
-#, c-format
-msgid "Couldn't create the save directory '%s'\n"
-msgstr "'%s' kayıt dizini oluşturulamadı\n"
-
-#: src/lincity/fileutil.cpp:450
-#, c-format
-msgid "Failed to chown '%s'\n"
-msgstr "chown '%s' başarısız\n"
-
-#: src/lincity/fileutil.cpp:471
-msgid "Out of memory: malloc failure\n"
-msgstr "Hafıza aşımı: malloc başarısız \n"
-
-#: src/lincity/simulate.cpp:91
-msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
-msgstr ""
-"Eski oyundan yükseltiliyor. Gerektiği yerde su kuyusu yapmanız için 10 "
-"yılınız var. Sonrasında açlık olacak! Açlığı küçük haritadan kontrol etmeli "
-"ve su kuyusu yardım sayfasını okumalısınız :-)"
-
-#: src/lincity/modules/windpower.cpp:77 src/lincity/modules/mill.cpp:92
-#: src/lincity/modules/light_industry.cpp:213
-#: src/lincity/modules/recycle.cpp:95 src/lincity/modules/organic_farm.cpp:175
-#: src/lincity/modules/heavy_industry.cpp:268
-#: src/lincity/modules/coal_power.cpp:62 src/lincity/modules/substation.cpp:76
-#: src/lincity/modules/blacksmith.cpp:98 src/lincity/modules/rocket_pad.cpp:224
-#: src/lincity/modules/pottery.cpp:105 src/lincity/modules/solar_power.cpp:53
-#: src/lincity/modules/windmill.cpp:65
-msgid "busy"
-msgstr "meşgul"
-
-#: src/lincity/modules/windpower.cpp:78
-#: src/lincity/modules/light_industry.cpp:214
-#: src/lincity/modules/recycle.cpp:93 src/lincity/modules/organic_farm.cpp:174
-#: src/lincity/modules/heavy_industry.cpp:269
-#: src/lincity/modules/coal_power.cpp:63 src/lincity/modules/rocket_pad.cpp:225
-#: src/lincity/modules/solar_power.cpp:54 src/lincity/modules/windmill.cpp:66
-msgid "Tech"
-msgstr "Teknoloji"
-
-#: src/lincity/modules/waterwell.cpp:66 data/gui/pbar2nd.xml
-msgid "Pollution"
-msgstr "Kirlilik"
-
-#: src/lincity/modules/waterwell.cpp:68
-msgid "Drinkable"
-msgstr "İçilebilir"
-
-#: src/lincity/modules/school.cpp:57
-msgid "Lessons learned"
-msgstr "Öğrenilen dersler"
-
-#: src/lincity/modules/recycle.cpp:94
-msgid "Efficiency"
-msgstr "Performans"
-
-#: src/lincity/modules/organic_farm.cpp:176
-msgid "Output"
-msgstr "Çıktı"
-
-#: src/lincity/modules/residence.cpp:354
-msgid "People"
-msgstr "İnsan"
-
-#: src/lincity/modules/residence.cpp:355
-msgid "Desireability"
-msgstr "Çekicilik"
-
-#: src/lincity/modules/residence.cpp:356
-msgid "Births per year"
-msgstr "Yıl başına doğum"
-
-#: src/lincity/modules/residence.cpp:357
-msgid "Death per year"
-msgstr "Yıl başına ölüm"
-
-#: src/lincity/modules/residence.cpp:358
-msgid "Pol. mortality"
-msgstr "Pol. ölüm oranı"
-
-#: src/lincity/modules/water.cpp:23
-msgid "River"
-msgstr "Nehir"
-
-#: src/lincity/modules/water.cpp:23
-msgid "Lake"
-msgstr "Göl"
-
-#: src/lincity/modules/tip.cpp:112
-msgid "Filled"
-msgstr "Doldurulmuş"
-
-#: src/lincity/modules/university.cpp:58
-msgid "Tech researched"
-msgstr "Araştırılan tekn."
-
-#: src/lincity-ng/MpsInterface.cpp:123
-msgid "no further information available"
-msgstr "ulaşılabilir ek bilgi yok"
-
-#: src/lincity-ng/MpsInterface.cpp:127
-msgid "build something here"
-msgstr "buraya bir şey yapın"
-
-#: src/lincity-ng/MpsInterface.cpp:340
-msgid "YES"
-msgstr "Evet"
-
-#: src/lincity-ng/MpsInterface.cpp:340
-msgid "NO"
-msgstr "Hayır"
-
-#: src/lincity-ng/MpsInterface.cpp:351 src/lincity-ng/MpsInterface.cpp:354
-#: src/lincity-ng/MpsInterface.cpp:357 src/lincity-ng/MpsInterface.cpp:360
-#: data/gui/bulldoze_monument_yn.xml data/gui/launch_rocket_yn.xml
-#: data/gui/coal_survey_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Yes"
-msgstr "Evet"
-
-#: src/lincity-ng/MpsInterface.cpp:351 src/lincity-ng/MpsInterface.cpp:354
-#: src/lincity-ng/MpsInterface.cpp:357 src/lincity-ng/MpsInterface.cpp:360
-#: data/gui/bulldoze_monument_yn.xml data/gui/launch_rocket_yn.xml
-#: data/gui/coal_survey_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "No"
-msgstr "Hayır"
-
-#: src/lincity-ng/MpsInterface.cpp:352
-msgid "Fire Protection"
-msgstr "Yangın Koruma"
-
-#: src/lincity-ng/MpsInterface.cpp:355
-msgid "Health Service"
-msgstr "Sağlık Hizmeti"
-
-#: src/lincity-ng/MpsInterface.cpp:358
-msgid "Public Sports"
-msgstr "Genel Spor"
-
-#: src/lincity-ng/MpsInterface.cpp:361
-msgid "Market Range"
-msgstr "Bakkal Menzili"
-
-#: src/lincity-ng/MpsInterface.cpp:364
-msgid "clear"
-msgstr "temiz"
-
-#: src/lincity-ng/MpsInterface.cpp:366
-msgid "good"
-msgstr "iyi"
-
-#: src/lincity-ng/MpsInterface.cpp:368
-msgid "fair"
-msgstr "açık"
-
-#: src/lincity-ng/MpsInterface.cpp:370
-msgid "smelly"
-msgstr "pis kokmuş"
-
-#: src/lincity-ng/MpsInterface.cpp:372
-msgid "smokey"
-msgstr "dumanlı"
-
-#: src/lincity-ng/MpsInterface.cpp:374
-msgid "smoggy"
-msgstr "sisli"
-
-#: src/lincity-ng/MpsInterface.cpp:376
-msgid "bad"
-msgstr "kötü"
-
-#: src/lincity-ng/MpsInterface.cpp:378
-msgid "very bad"
-msgstr "çok kötü"
-
-#: src/lincity-ng/MpsInterface.cpp:380
-msgid "death!"
-msgstr "ölüm!"
-
-#: src/lincity-ng/MpsInterface.cpp:437
-msgid "Tax Income"
-msgstr "Vergi Gelirleri"
-
-#: src/lincity-ng/MpsInterface.cpp:441
-msgid "Income"
-msgstr "Gelir"
-
-#: src/lincity-ng/MpsInterface.cpp:445 data/gui/tradedialog.xml
-#: data/gui/portdialog.xml data/gui/pbar.xml
-msgid "Coal"
-msgstr "Kömür"
-
-#: src/lincity-ng/MpsInterface.cpp:449 data/gui/tradedialog.xml
-#: data/gui/portdialog.xml data/gui/pbar.xml
-msgid "Goods"
-msgstr "Eşya"
-
-#: src/lincity-ng/MpsInterface.cpp:453
-msgid "Export"
-msgstr "İhracat"
-
-#: src/lincity-ng/MpsInterface.cpp:457
-msgid "Expenses"
-msgstr "Masraflar"
-
-#: src/lincity-ng/MpsInterface.cpp:461
-msgid "Unemp."
-msgstr "İşsizlik"
-
-#: src/lincity-ng/MpsInterface.cpp:465
-msgid "Transport"
-msgstr "Ulaşım"
-
-#: src/lincity-ng/MpsInterface.cpp:469
-msgid "Imports"
-msgstr "İthalat"
-
-#: src/lincity-ng/MpsInterface.cpp:473
-msgid "Others"
-msgstr "Diğerleri"
-
-#: src/lincity-ng/MpsInterface.cpp:478
-msgid "Net"
-msgstr "Ağ"
-
-#: src/lincity-ng/MpsInterface.cpp:490
-msgid "Other Costs"
-msgstr "Diğer Maliyetler"
-
-#: src/lincity-ng/MpsInterface.cpp:495
-msgid "For year"
-msgstr "Şu yıl için"
-
-#: src/lincity-ng/MpsInterface.cpp:499
-msgid "Interest"
-msgstr "Faiz"
-
-#: src/lincity-ng/MpsInterface.cpp:501 src/lincity-ng/Dialog.cpp:438
-msgid "Schools"
-msgstr "Okullar"
-
-#: src/lincity-ng/MpsInterface.cpp:503
-msgid "Univers."
-msgstr "Ünivers."
-
-#: src/lincity-ng/MpsInterface.cpp:505
-msgid "Deaths"
-msgstr "Ölümler"
-
-#: src/lincity-ng/MpsInterface.cpp:509
-msgid "Hospital"
-msgstr "Hastane"
-
-#: src/lincity-ng/MpsInterface.cpp:511
-msgid "Rockets"
-msgstr "Füzeler"
-
-#: src/lincity-ng/MpsInterface.cpp:513
-msgid "Fire Stn"
-msgstr "İtfaiye"
-
-#: src/lincity-ng/MpsInterface.cpp:515
-msgid "Sport"
-msgstr "Spor"
-
-#: src/lincity-ng/MpsInterface.cpp:531 data/gui/pbar2nd.xml data/gui/pbar.xml
-msgid "Population"
-msgstr "Nüfus"
-
-#: src/lincity-ng/MpsInterface.cpp:533
-msgid "Total"
-msgstr "Toplam"
-
-#: src/lincity-ng/MpsInterface.cpp:534
-msgid "Housed"
-msgstr "Ev Sahibi"
-
-#: src/lincity-ng/MpsInterface.cpp:535
-msgid "Homeless"
-msgstr "Evsiz"
-
-#: src/lincity-ng/MpsInterface.cpp:536 src/lincity-ng/Dialog.cpp:447
-msgid "Shanties"
-msgstr "Kulübe"
-
-#: src/lincity-ng/MpsInterface.cpp:537
-msgid "Unn Dths"
-msgstr "Doğal Olmayan Ölümler"
-
-#: src/lincity-ng/MpsInterface.cpp:538
-msgid "Unemployment"
-msgstr "İşsizlik"
-
-#: src/lincity-ng/MpsInterface.cpp:539
-msgid "Claims"
-msgstr "Alacaklılar"
-
-#: src/lincity-ng/MpsInterface.cpp:540 src/lincity-ng/MpsInterface.cpp:545
-msgid "Rate"
-msgstr "Oran"
-
-#: src/lincity-ng/MpsInterface.cpp:542
-msgid "Starvation"
-msgstr "Açlık"
-
-#: src/lincity-ng/MpsInterface.cpp:543
-msgid "Cases"
-msgstr "Davalar"
-
-#: src/lincity-ng/EconomyGraph.cpp:125
-msgid "Mining"
-msgstr "Madencilik"
-
-#: src/lincity-ng/EconomyGraph.cpp:127
-msgid "Trade"
-msgstr "Ticaret"
-
-#: src/lincity-ng/EconomyGraph.cpp:129 data/gui/pbar2nd.xml data/gui/pbar.xml
-msgid "Money"
-msgstr "Para"
-
-#: src/lincity-ng/EconomyGraph.cpp:131
-msgid "Popul."
-msgstr "Nüfus"
-
-#: src/lincity-ng/EconomyGraph.cpp:133
-msgid "Techn."
-msgstr "Teknoloji"
-
-#: src/lincity-ng/EconomyGraph.cpp:138
-msgid "Economy Overview:"
-msgstr "Ekonomiye Bakış:"
-
-#: src/lincity-ng/EconomyGraph.cpp:141
-msgid "Sustainability:"
-msgstr "Sürdürülebilirlik:"
-
-#: src/lincity-ng/EconomyGraph.cpp:144
-msgid "Frames per Second:"
-msgstr "Saniyedeki Kare:"
-
-#: src/lincity-ng/EconomyGraph.cpp:219
-msgid "You lose."
-msgstr "Kaybettiniz."
-
-#: src/lincity-ng/Dialog.cpp:175
-msgid "Launchsite"
-msgstr "Başlamabölgesi"
-
-#: src/lincity-ng/Dialog.cpp:373
-msgid "----- IN TEST MODE -------"
-msgstr "----- DENEME KİPİNDE -----"
-
-#: src/lincity-ng/Dialog.cpp:375
-#, c-format
-msgid "Game statistics from LinCity-NG Version %s"
-msgstr "LinCity-NG %s sürümünden oyun istatistikleri"
-
-#: src/lincity-ng/Dialog.cpp:378
-#, c-format
-msgid "Initial loaded scene - %s"
-msgstr "Önceden yüklenmiş sahne - %s"
-
-#: src/lincity-ng/Dialog.cpp:382
-msgid "Economy is sustainable"
-msgstr "Ekonomi sürdürülebilir"
-
-#: src/lincity-ng/Dialog.cpp:385
-#, c-format
-msgid "Population  %d  of which  %d  are not housed."
-msgstr "Nüfusun  %d/%d oranı ev sahibi edilmedi."
-
-#: src/lincity-ng/Dialog.cpp:389
-#, c-format
-msgid "Max population %d  Number evacuated %d Total births %d"
-msgstr "Azami nüfus %d  Tahliye edilmiş sayısı %d Toplam doğum %d"
-
-#: src/lincity-ng/Dialog.cpp:393
-#, c-format
-msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
-msgstr "Tarih %s %04d  Para %8d  Tek. seviyesi %5.1f (%5.1f)"
-
-#: src/lincity-ng/Dialog.cpp:399
-#, c-format
-msgid "Deaths by starvation %7d   History %8.3f"
-msgstr "Açlık kaynaklı ölümler %7d   Tarih %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:403
-#, c-format
-msgid "Deaths from pollution %7d   History %8.3f"
-msgstr "Kirlilik kaynaklı ölümler %7d   Tarih %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:406
-#, c-format
-msgid "Years of unemployment %7d   History %8.3f"
-msgstr "İşsizlik yılları %7d   Tarih %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:409
-#, c-format
-msgid "Rockets launched %2d  Successful launches %2d"
-msgstr "Fırlatılan füzeler %2d  Başarılı fırlatmalar %2d"
-
-#: src/lincity-ng/Dialog.cpp:418
-msgid "Residences"
-msgstr "Konutlar"
-
-#: src/lincity-ng/Dialog.cpp:426
-msgid "Markets"
-msgstr "Bakkallar"
-
-#: src/lincity-ng/Dialog.cpp:427
-msgid "Farms"
-msgstr "Çiftlikler"
-
-#: src/lincity-ng/Dialog.cpp:429
-msgid "Water wells"
-msgstr "Su kuyuları"
-
-#: src/lincity-ng/Dialog.cpp:430
-msgid "Wind powers"
-msgstr "Rüzgar santralleri"
-
-#: src/lincity-ng/Dialog.cpp:437
-msgid "Monuments"
-msgstr "Anıtlar"
-
-#: src/lincity-ng/Dialog.cpp:439
-msgid "Universities"
-msgstr "Üniversiteler"
-
-#: src/lincity-ng/Dialog.cpp:441
-msgid "Fire stations"
-msgstr "İtfaiyeler"
-
-#: src/lincity-ng/Dialog.cpp:442
-msgid "Parks"
-msgstr "Parklar"
-
-#: src/lincity-ng/Dialog.cpp:443
-msgid "Sports fields"
-msgstr "Spor merkezleri"
-
-#: src/lincity-ng/Dialog.cpp:445
-msgid "Health centres"
-msgstr "Sağlık merkezleri"
-
-#: src/lincity-ng/Dialog.cpp:446
-msgid "Tips"
-msgstr "Çöplükler"
-
-#: src/lincity-ng/Dialog.cpp:453
-msgid "Windmills"
-msgstr "Rüzgar değirmenleri"
-
-#: src/lincity-ng/Dialog.cpp:454
-msgid "Coal powers"
-msgstr "Termik santraller"
-
-#: src/lincity-ng/Dialog.cpp:455
-msgid "Solar powers"
-msgstr "Güneş panelleri"
-
-#: src/lincity-ng/Dialog.cpp:457
-msgid "Substations"
-msgstr "Trafolar"
-
-#: src/lincity-ng/Dialog.cpp:458
-msgid "Power lines"
-msgstr "Elektrik hatları"
-
-#: src/lincity-ng/Dialog.cpp:459
-msgid "Ports"
-msgstr "Limanlar"
-
-#: src/lincity-ng/Dialog.cpp:461
-msgid "Tracks"
-msgstr "Tali yollar"
-
-#: src/lincity-ng/Dialog.cpp:462
-msgid "Roads"
-msgstr "Yollar"
-
-#: src/lincity-ng/Dialog.cpp:463
-msgid "Rail"
-msgstr "Ray"
-
-#: src/lincity-ng/Dialog.cpp:469
-msgid "Potteries"
-msgstr "Çömlekçiler"
-
-#: src/lincity-ng/Dialog.cpp:470
-msgid "Blacksmiths"
-msgstr "Demirciler"
-
-#: src/lincity-ng/Dialog.cpp:471
-msgid "Mills"
-msgstr "Değirmenler"
-
-#: src/lincity-ng/Dialog.cpp:473
-msgid "Light inds"
-msgstr "Hafif sanayiler"
-
-#: src/lincity-ng/Dialog.cpp:474
-msgid "Heavy inds"
-msgstr "Ağır sanayiler"
-
-#: src/lincity-ng/Dialog.cpp:475
-msgid "Recyclers"
-msgstr "Geridönüşümcüler"
-
-#: src/lincity-ng/Dialog.cpp:477
-msgid "Coal mines"
-msgstr "Kömür madenleri"
-
-#: src/lincity-ng/Dialog.cpp:478
-msgid "Ore mines"
-msgstr "Mineral madenleri"
-
-#: src/lincity-ng/Dialog.cpp:479
-msgid "Forests"
-msgstr "Ormanlar"
-
-#: src/lincity-ng/ScreenInterface.cpp:234
-msgid "MM"
-msgstr "AA"
-
-#: src/lincity-ng/ScreenInterface.cpp:245 src/lincity-ng/GameView.cpp:1784
-#: src/lincity-ng/GameView.cpp:1797 src/lincity-ng/GameView.cpp:1828
-#: data/gui/minimap.xml
+#: src/lincity-ng/ButtonPanel.cpp:344
+#, fuzzy
+msgid "tech level"
+msgstr "Tek. Seviyesi"
+
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr " TRY"
 
-#: src/lincity-ng/ButtonPanel.cpp:204
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:373
 msgid "Query Tool"
 msgstr "Sorgu Aracı"
 
-#: src/lincity-ng/ButtonPanel.cpp:205
+#: src/lincity-ng/ButtonPanel.cpp:378
+#, fuzzy
+msgid ": 50 tenants, low birthrate, high deathrate"
+msgstr "Yerleşim: 50 vatandaş, düşük doğum oranı, yüksek ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:381
+#, fuzzy
+msgid ": 100 tenants, high birthrate, low deathrate"
+msgstr "Yerleşim: 100 vatandaş, yüksek doğum oranı, düşük ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:384
+#, fuzzy
+msgid ": 200 tenants, high birthrate, high deathrate"
+msgstr "Yerleşim: 200 vatandaş, yüksek doğum oranı, yüksek ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:387
+#, fuzzy
+msgid ": 100 tenants, low birthrate, high deathrate"
+msgstr "Yerleşim: 100 vatandaş, düşük doğum oranı, yüksek ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:390
+#, fuzzy
+msgid ": 200 tenants, high birthrate, low deathrate"
+msgstr "Yerleşim: 200 vatandaş, yüksek doğum oranı, düşük ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:393
+#, fuzzy
+msgid ": 400 tenants, high birthrate, high deathrate"
+msgstr "Yerleşim: 400 vatandaş, yüksek doğum oranı, yüksek ölüm oranı"
+
+#: src/lincity-ng/ButtonPanel.cpp:398
 msgid "Bulldozer"
 msgstr "Dozer"
 
-#: src/lincity-ng/ButtonPanel.cpp:206
+#: src/lincity-ng/ButtonPanel.cpp:400
 msgid "Evacuate"
 msgstr "Tahliye Et"
 
-#: src/lincity-ng/ButtonPanel.cpp:208
-msgid "Residential: 50 denizens, low birthrate, high deathrate"
-msgstr "Yerleşim: 50 vatandaş, düşük doğum oranı, yüksek ölüm oranı"
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "Su"
 
-#: src/lincity-ng/ButtonPanel.cpp:209
-msgid "Residential: 100 denizens, high birthrate, low deathrate"
-msgstr "Yerleşim: 100 vatandaş, yüksek doğum oranı, düşük ölüm oranı"
-
-#: src/lincity-ng/ButtonPanel.cpp:210
-msgid "Residential: 200 denizens, high birthrate, high deathrate"
-msgstr "Yerleşim: 200 vatandaş, yüksek doğum oranı, yüksek ölüm oranı"
-
-#: src/lincity-ng/ButtonPanel.cpp:211
-msgid "Residential: 100 denizens, low birthrate, high deathrate"
-msgstr "Yerleşim: 100 vatandaş, düşük doğum oranı, yüksek ölüm oranı"
-
-#: src/lincity-ng/ButtonPanel.cpp:212
-msgid "Residential: 200 denizens, high birthrate, low deathrate"
-msgstr "Yerleşim: 200 vatandaş, yüksek doğum oranı, düşük ölüm oranı"
-
-#: src/lincity-ng/ButtonPanel.cpp:213
-msgid "Residential: 400 denizens, high birthrate, high deathrate"
-msgstr "Yerleşim: 400 vatandaş, yüksek doğum oranı, yüksek ölüm oranı"
-
-#: src/lincity-ng/ButtonPanel.cpp:222
-msgid " [Click right for help.]"
+#: src/lincity-ng/ButtonPanel.cpp:406
+#, fuzzy
+msgid "Click right for help."
 msgstr " [Yardım için sağ tıklayın.]"
 
-#: src/lincity-ng/ButtonPanel.cpp:250 src/lincity-ng/ButtonPanel.cpp:293
-#: src/lincity-ng/ButtonPanel.cpp:421 src/lincity-ng/ButtonPanel.cpp:444
-#, c-format
-msgid "%s (Techlevel %.1f required.)"
-msgstr "%s (Teknoloji seviyesi %.1f gerekli.)"
-
-#: src/lincity-ng/ButtonPanel.cpp:259
-#, c-format
-msgid "%s is disabled (loaded old game)."
-msgstr "%s devre dışı (eski oyun yüklenmiş)."
-
-#: src/lincity-ng/MainMenu.cpp:149
-msgid "random empty board"
-msgstr "rastgele boş alan"
-
-#: src/lincity-ng/MainMenu.cpp:153
-msgid "random village"
-msgstr "rastgele köy"
-
-#: src/lincity-ng/MainMenu.cpp:157
-msgid "village in semi desert"
-msgstr "yarısı çöl köy"
-
-#: src/lincity-ng/MainMenu.cpp:161
-msgid "village in temperate area"
-msgstr "ılıman iklimde köy"
-
-#: src/lincity-ng/MainMenu.cpp:165
-msgid "village in swamp"
-msgstr "bataklıkta köy"
-
-#: src/lincity-ng/MainMenu.cpp:170
-msgid "good_times"
-msgstr "iyi_zamanlar"
-
-#: src/lincity-ng/MainMenu.cpp:171
-msgid "bad_times"
-msgstr "kötü_zamanlar"
-
-#: src/lincity-ng/MainMenu.cpp:172
-msgid "Beach"
-msgstr "Sahil"
-
-#: src/lincity-ng/MainMenu.cpp:173
-msgid "extreme_arid"
-msgstr "aşırı_kurak"
-
-#: src/lincity-ng/MainMenu.cpp:174
-msgid "extreme_wetland"
-msgstr "aşırı_nemlizemin"
-
-#: src/lincity-ng/MainMenu.cpp:233
-msgid "empty"
-msgstr "boş"
-
-#: src/lincity-ng/GameView.cpp:260
-msgid "Minimap: outline map"
-msgstr "Küçkhar.: kroki harita"
-
-#: src/lincity-ng/GameView.cpp:263
-msgid "Minimap: unemployment"
-msgstr "Küçkhar.: işsizlik"
-
-#: src/lincity-ng/GameView.cpp:266
-msgid "Minimap: pollution"
-msgstr "Küçkhar.: kirlilik"
-
-#: src/lincity-ng/GameView.cpp:269
-msgid "Minimap: nourishments"
-msgstr "Küçkhar.: beslenme"
-
-#: src/lincity-ng/GameView.cpp:272
-msgid "Minimap: power supply"
-msgstr "Küçkhar.: elektrik kaynağı"
-
-#: src/lincity-ng/GameView.cpp:275
-msgid "Minimap: firedepartment cover"
-msgstr "Küçkhar.: itfaiye kapsamı"
-
-#: src/lincity-ng/GameView.cpp:278
-msgid "Minimap: sport cover"
-msgstr "Küçkhar.: spor kapsamı"
-
-#: src/lincity-ng/GameView.cpp:281
-msgid "Minimap: medical care"
-msgstr "Küçkhar.: sağlık hizm."
-
-#: src/lincity-ng/GameView.cpp:284
-msgid "Minimap: coal deposits"
-msgstr "Küç. har.: kömür depoları"
-
-#: src/lincity-ng/GameView.cpp:1779
-msgid "Estimated Bulldoze Cost: "
-msgstr "Tahmin Edilen Yıkım Fiyatı: "
-
-#: src/lincity-ng/GameView.cpp:1781
-msgid "Bulldoze Cost: "
-msgstr "Yıkım Fiyatı: "
-
-#: src/lincity-ng/GameView.cpp:1786 src/lincity-ng/GameView.cpp:1799
-msgid "n/a"
-msgstr "n/a"
-
-#: src/lincity-ng/GameView.cpp:1795 src/lincity-ng/GameView.cpp:1828
-msgid ": Cost to build "
-msgstr ": Yapım fiyatı "
-
-#: src/lincity-ng/GameView.cpp:1817
-msgid "Query Tool: Show information about selected building."
-msgstr "Sorgu Aracı: Seçili yapının bilgisini göster."
-
-#: src/lincity-ng/GameView.cpp:1821
-msgid "Bulldozer: remove building -price varies-"
-msgstr "Dozer: yapıyı yık -ücret değişir-"
-
-#: src/lincity-ng/GameView.cpp:1829
-msgid ", to bulldoze "
-msgstr ", yıkmak için "
-
-#: src/lincity-ng/GameView.cpp:1829 src/lincity-ng/GameView.cpp:1832
-msgid "$."
-msgstr " TRY."
-
-#: src/lincity-ng/GameView.cpp:1831
-msgid " To build "
-msgstr " Yapmak için "
-
-#: src/lincity-ng/GameView.cpp:1831
-msgid " of them "
-msgstr " hepsi "
-
-#: src/lincity-ng/GameView.cpp:1832
-msgid "will cost about "
-msgstr "fiyatlandırılacak "
-
-#: data/gui/tradedialog.xml data/gui/pbar.xml
-msgid "Jobs"
-msgstr "İşçi"
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml data/gui/pbar.xml
-msgid "Ore"
-msgstr "Mineral"
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml data/gui/pbar.xml
-msgid "Steel"
-msgstr "Çelik"
-
-#: data/gui/tradedialog.xml data/gui/pbar2nd.xml
-msgid "Waste"
-msgstr "Atık"
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml data/gui/pbar.xml
-msgid "Food"
-msgstr "Yiyecek"
-
-#: data/gui/fire.xml
-msgid "A Fire has started"
-msgstr "Yangın çıktı"
-
-#: data/gui/shfire-uc.xml
-msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
 msgstr ""
-"Çıkan yangın gecekondu mahallesini bozdu. İtfaiye bölgeye ulaştı ve kontrol "
-"altında olduğu GÖRÜLÜYOR. "
 
-#: data/gui/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
 msgstr ""
-"Çıkan yangın gecekondu mahallesini bozdu. Yangın KONTROLDEN ÇIKTI ve diğer "
-"bölgelere yayılabilir. "
 
-#: data/gui/newgame.xml data/gui/credits.xml data/gui/loadgame.xml
-#: data/gui/savegame.xml
-msgid "Back"
-msgstr "Geri"
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
 
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "Arkaplan Müziği"
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
 
-#: data/gui/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "Basketbol Sahaları Kullanılabilir"
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
 
-#: data/gui/options.xml
-msgid "Binary mode"
-msgstr "İkili kip"
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
 
-#: data/gui/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "Demirciler Kullanılabilir"
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
+msgstr "Tam Ekran"
+
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
+msgstr "Başlamabölgesi"
+
+#: src/lincity-ng/Dialog.cpp:317
+#, fuzzy
+msgid "Game statistics from LinCity-NG Version"
+msgstr "LinCity-NG %s sürümünden oyun istatistikleri"
+
+#: src/lincity-ng/Dialog.cpp:320
+#, fuzzy
+msgid "Initial loaded scene"
+msgstr "Önceden yüklenmiş sahne - %s"
+
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr "Ekonomi sürdürülebilir"
+
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
+msgid "Population"
+msgstr "Nüfus"
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:332
+#, fuzzy
+msgid "Max population"
+msgstr "Nüfus"
+
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
+msgid "Money"
+msgstr "Para"
+
+#: src/lincity-ng/Dialog.cpp:339
+#, fuzzy
+msgid "Tech-level"
+msgstr "Tek. Seviyesi"
+
+#: src/lincity-ng/Dialog.cpp:343
+#, fuzzy
+msgid "Deaths by starvation"
+msgstr "Açlık kaynaklı ölümler %7d   Tarih %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:347
+#, fuzzy
+msgid "Deaths from pollution"
+msgstr "Kirlilik kaynaklı ölümler %7d   Tarih %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:351
+#, fuzzy
+msgid "Years of unemployment"
+msgstr "İşsizliği göster"
+
+#: src/lincity-ng/Dialog.cpp:355
+#, fuzzy
+msgid "Rockets launched"
+msgstr "Füze rampası"
+
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:364
+msgid "Residences"
+msgstr "Konutlar"
+
+#: src/lincity-ng/Dialog.cpp:371
+msgid "Markets"
+msgstr "Bakkallar"
+
+#: src/lincity-ng/Dialog.cpp:372
+msgid "Farms"
+msgstr "Çiftlikler"
+
+#: src/lincity-ng/Dialog.cpp:374
+msgid "Water wells"
+msgstr "Su kuyuları"
+
+#: src/lincity-ng/Dialog.cpp:375
+msgid "Windmills"
+msgstr "Rüzgar değirmenleri"
+
+#: src/lincity-ng/Dialog.cpp:382
+msgid "Monuments"
+msgstr "Anıtlar"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "Okullar"
+
+#: src/lincity-ng/Dialog.cpp:384
+msgid "Universities"
+msgstr "Üniversiteler"
+
+#: src/lincity-ng/Dialog.cpp:386
+msgid "Fire stations"
+msgstr "İtfaiyeler"
+
+#: src/lincity-ng/Dialog.cpp:387
+msgid "Parks"
+msgstr "Parklar"
+
+#: src/lincity-ng/Dialog.cpp:390
+msgid "Sports fields"
+msgstr "Spor merkezleri"
+
+#: src/lincity-ng/Dialog.cpp:392
+msgid "Health centres"
+msgstr "Sağlık merkezleri"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr "Çöplükler"
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "Kulübe"
+
+#: src/lincity-ng/Dialog.cpp:400
+msgid "Wind powers"
+msgstr "Rüzgar santralleri"
+
+#: src/lincity-ng/Dialog.cpp:401
+msgid "Coal powers"
+msgstr "Termik santraller"
+
+#: src/lincity-ng/Dialog.cpp:402
+msgid "Solar powers"
+msgstr "Güneş panelleri"
+
+#: src/lincity-ng/Dialog.cpp:404
+msgid "Substations"
+msgstr "Trafolar"
+
+#: src/lincity-ng/Dialog.cpp:405
+msgid "Power lines"
+msgstr "Elektrik hatları"
+
+#: src/lincity-ng/Dialog.cpp:406
+msgid "Ports"
+msgstr "Limanlar"
+
+#: src/lincity-ng/Dialog.cpp:408
+msgid "Tracks"
+msgstr "Tali yollar"
+
+#: src/lincity-ng/Dialog.cpp:411
+msgid "Roads"
+msgstr "Yollar"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "Ray"
+
+#: src/lincity-ng/Dialog.cpp:422
+msgid "Potteries"
+msgstr "Çömlekçiler"
+
+#: src/lincity-ng/Dialog.cpp:423
+msgid "Blacksmiths"
+msgstr "Demirciler"
+
+#: src/lincity-ng/Dialog.cpp:424
+msgid "Mills"
+msgstr "Değirmenler"
+
+#: src/lincity-ng/Dialog.cpp:426
+msgid "Light inds"
+msgstr "Hafif sanayiler"
+
+#: src/lincity-ng/Dialog.cpp:427
+msgid "Heavy inds"
+msgstr "Ağır sanayiler"
+
+#: src/lincity-ng/Dialog.cpp:428
+msgid "Recyclers"
+msgstr "Geridönüşümcüler"
+
+#: src/lincity-ng/Dialog.cpp:430
+msgid "Coal mines"
+msgstr "Kömür madenleri"
+
+#: src/lincity-ng/Dialog.cpp:431
+msgid "Ore mines"
+msgstr "Mineral madenleri"
+
+#: src/lincity-ng/Dialog.cpp:432
+msgid "Forests"
+msgstr "Ormanlar"
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "Bakkal"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "Liman"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "Madencilik"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "Ticaret"
+
+#: src/lincity-ng/EconomyGraph.cpp:118
+msgid "Popul."
+msgstr "Nüfus"
+
+#: src/lincity-ng/EconomyGraph.cpp:120
+msgid "Techn."
+msgstr "Teknoloji"
+
+#: src/lincity-ng/EconomyGraph.cpp:122
+msgid "Fire"
+msgstr "Yangın"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
+msgid "Economy Overview:"
+msgstr "Ekonomiye Bakış:"
+
+#: src/lincity-ng/EconomyGraph.cpp:128
+msgid "Sustainability:"
+msgstr "Sürdürülebilirlik:"
+
+#: src/lincity-ng/EconomyGraph.cpp:131
+msgid "Frames per Second:"
+msgstr "Saniyedeki Kare:"
+
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "Yeni Keşif"
+
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "Fabrikalar kullanılabilir"
+
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
+msgid ""
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr ""
+"Teknoloji seviyesini Yol yapabilecek düzeye ulaştırdınız. Daha fazla bilgi "
+"için Yardım ekranına bakın."
+
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
 msgstr "Anıtı yıkmak yüksek fiyatlıdır."
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "Nehir yıkmak yüksek fiyatlıdır."
-
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
 msgstr ""
-"Gecekondu mahallesini yıkmak yüksek fiyatlıdır ve yangına sebep olabilir."
 
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Buy"
-msgstr "Satın al"
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "Sahne yükleniyor"
 
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "Senaryo Seç"
-
-#: data/gui/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "Termik Santraller kullanılabilir "
-
-#: data/gui/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "Kömür Madeni kullanılabilir"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Coal Survey"
-msgstr "Kömür Araştırması"
-
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "Kod"
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "Devam"
-
-#: data/gui/mainmenu.xml data/gui/creditslist.xml
-msgid "Credits"
-msgstr "Hazırlayanlar"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "Kömür Araştırması yapacak mısınız?"
-
-#: data/gui/launch-good.xml
-msgid "Doing well."
-msgstr "İyi gidiyor."
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "Eko"
-
-#: data/gui/sustain.xml
-msgid "Economy Sustainable."
-msgstr "Ekonomi Sürdürülebilir."
-
-#: data/gui/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr "Tahliye İyi Başladı"
-
-#: data/gui/firestationup.xml
-msgid "Fire Stations available"
-msgstr "İtfaiyeler kullanılabilir"
-
-#: data/gui/shfire-uc.xml data/gui/shfire-oc.xml
+#: src/lincity-ng/Game.cpp:848
 msgid "Fire!"
 msgstr "Yangın!"
 
-#: data/gui/options.xml
-msgid "Fullscreen"
-msgstr "Tam Ekran"
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "Yangın çıktı"
 
-#: data/gui/gamestats.xml
-msgid "Gamestats"
-msgstr "Oyun İstat."
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "Ana Menüye Dön"
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "Uyarı"
 
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "Canlandırmalar"
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "Hazırlayanlar"
 
-#: data/gui/portdialog.xml
-msgid "Harbour Trade Settings"
-msgstr "Liman Ticareti Ayarları"
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
 
-#: data/gui/healthup.xml
-msgid "Health Centres available"
-msgstr "Hastaneler Kullanılabilir"
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
 
-#: data/gui/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "Ağır Sanayi kullanılabilir"
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
 
-#: data/gui/pbar2nd.xml
-msgid "Housing"
-msgstr "Konutlandırma"
-
-#: data/gui/import-exportup.xml
-msgid "Import/Export available"
-msgstr "İthalat/İhracat Kullanılabilir"
-
-#: data/gui/options.xml
-msgid "Language"
-msgstr "Dil"
-
-#: data/gui/launch-fail.xml
-msgid "Launch Failure"
-msgstr "Fırlatma Başarısız"
-
-#: data/gui/launch-good.xml
-msgid "Launch Successfull"
-msgstr "Fırlatma Başarılı"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "Şimdi fırlat?"
-
-#: data/gui/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "Hafif Sanayi kullanılabilir"
-
-#: data/gui/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "LinCity, sürdürülebilir bir ekonomiye sahip olduğunuza karar verdi."
-
-#: data/gui/mainmenu.xml data/gui/loadgame.xml
-msgid "Load"
-msgstr "Yükle"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "Oyunu Yükle"
-
-#: data/gui/pbar2nd.xml
-msgid "MWh"
-msgstr "MWh"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "Hari."
-
-#: data/gui/options.xml
-msgid "Map Size"
-msgstr "Harita Boyutu"
-
-#: data/gui/millup.xml
-msgid "Mills available"
-msgstr "Fabrikalar kullanılabilir"
-
-#: data/gui/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "Gelişmiş Rüzgar Değirmenleri kullanılabilir"
-
-#: data/gui/mainmenu.xml data/gui/newgame.xml
-msgid "New Game"
-msgstr "Yeni Oyun"
-
-#: data/gui/blacksmithup.xml data/gui/railwayup.xml data/gui/schoolup.xml
-#: data/gui/solarpowerup.xml data/gui/coalmineup.xml
-#: data/gui/import-exportup.xml data/gui/riverup.xml data/gui/healthup.xml
-#: data/gui/coalpowerup.xml data/gui/windmillup.xml data/gui/parkup.xml
-#: data/gui/potteryup.xml data/gui/mod_wind_up.xml data/gui/cricketup.xml
-#: data/gui/rocketup.xml data/gui/universityup.xml data/gui/hvindustryup.xml
-#: data/gui/roadup.xml data/gui/millup.xml data/gui/firestationup.xml
-#: data/gui/recycleup.xml data/gui/ltindustryup.xml
-msgid "New Invention"
-msgstr "Yeni Keşif"
-
-#: data/gui/no-credit-university.xml data/gui/no-credit-recycle.xml
-#: data/gui/no-credit-solar-power.xml data/gui/no-credit-rocket.xml
-#: data/gui/no-credit-parkland.xml
-msgid "No Credit Available"
-msgstr "Kullanılabilir Kredi Yok"
-
-#: data/gui/allgone.xml
-msgid "Nobody Home"
-msgstr "Kimsesiz Ev"
-
-#: data/gui/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "İzin Verilmedi"
-
-#: data/gui/no-credit-university.xml data/gui/blacksmithup.xml
-#: data/gui/options.xml data/gui/railwayup.xml data/gui/shfire-uc.xml
-#: data/gui/schoolup.xml data/gui/no-credit-recycle.xml
-#: data/gui/solarpowerup.xml data/gui/coalmineup.xml
-#: data/gui/import-exportup.xml data/gui/riverup.xml data/gui/launch-good.xml
-#: data/gui/healthup.xml data/gui/coalpowerup.xml data/gui/windmillup.xml
-#: data/gui/parkup.xml data/gui/launch-fail.xml data/gui/potteryup.xml
-#: data/gui/allgone.xml data/gui/mod_wind_up.xml data/gui/cricketup.xml
-#: data/gui/no-credit-solar-power.xml data/gui/warning.xml
-#: data/gui/rocketup.xml data/gui/fire.xml data/gui/launch-gone.xml
-#: data/gui/universityup.xml data/gui/hvindustryup.xml
-#: data/gui/no-credit-rocket.xml data/gui/roadup.xml data/gui/millup.xml
-#: data/gui/nobull-tip.xml data/gui/sustain.xml data/gui/firestationup.xml
-#: data/gui/no-credit-parkland.xml data/gui/recycleup.xml
-#: data/gui/ltindustryup.xml data/gui/too-old.xml data/gui/shfire-oc.xml
-#: data/gui/launch-evac.xml
-msgid "Ok"
-msgstr "Tamam"
-
-#: data/gui/gamestats.xml
-msgid "Okay"
-msgstr "Tamam"
-
-#: data/gui/options.xml data/gui/mainmenu.xml
-msgid "Options"
-msgstr "Seçenekler"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "Orjinal Fikir ve Kod"
-
-#: data/gui/parkup.xml
-msgid "Parks available"
-msgstr "Parklar kullanılabilir"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "Oyunu duraklat"
-
-#: data/gui/potteryup.xml
-msgid "Potteries available"
-msgstr "Çömlekçiler kullanılabilir"
-
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "İstatistikleri görüntülemek için bu düğmeye basın"
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Product"
-msgstr "Ürün"
-
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "Çık"
-
-#: data/gui/railwayup.xml
-msgid "Railways available"
-msgstr "Demiryolları kullanılabilir"
-
-#: data/gui/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "Geridönüşüm Merkezleri kullanılabilir"
-
-#: data/gui/options.xml
-msgid "Resolution"
-msgstr "Çözünürlük"
-
-#: data/gui/riverup.xml
-msgid "Rivers available"
-msgstr "Nehir kullanılabilir"
-
-#: data/gui/roadup.xml
-msgid "Roads available"
-msgstr "Yollar kullanılabilir"
-
-#: data/gui/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "Füze Rampası kullanılabilir"
-
-#: data/gui/launch_rocket_yn.xml
+#: src/lincity-ng/Game.cpp:889
 msgid "Rocket Ready"
 msgstr "Füze Hazır"
 
-#: data/gui/launch_rocket_yn.xml
-msgid "Rocket ready to launch"
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
 msgstr "Füze atılmaya hazır"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "Benzetimi yüksek hızda çalıştır"
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "Benzetimi normal hızda çalıştır"
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "Şimdi fırlat?"
 
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "Benzetimi çok yüksek hızda çalıştır"
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "Füze rampası"
 
-#: data/gui/mainmenu.xml data/gui/savegame.xml
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "Füze rampası"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "Fırlatma Başarılı"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "Fırlatma Başarılı"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"Tahliye edilmiş 1000 şahıs var. Ekonominizin boyutunu nüfusunuzun azalmasına "
+"aksetmek isteyebilirsiniz. "
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "Kaybettiniz."
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "Ekonomi Sürdürülebilir."
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, fuzzy, c++-format
+msgid "Cannot build a {} here."
+msgstr "Buraya maden inşa edemezsiniz"
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+#, fuzzy
+msgid "You cannot build this on credit."
+msgstr "Buraya maden inşa edemezsiniz"
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "Bu şehirde insan kalmamış."
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "Yıkmak mı istiyorsunuz?"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+#, fuzzy
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr "Buraya bir su kuyusu inşa edemezsiniz: tamamen çöl."
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+#, fuzzy
+msgid "Cannot Evacuate"
+msgstr "Tahliye Et"
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+#, fuzzy
+msgid "Bridge"
+msgstr "Yol Köprüsü"
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "Dozer"
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "Tahmin Edilen Yıkım Fiyatı: "
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "Yıkım Fiyatı: "
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
+msgid "n/a"
+msgstr "n/a"
+
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
+msgid ": Cost to build "
+msgstr ": Yapım fiyatı "
+
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "Sorgu Aracı: Seçili yapının bilgisini göster."
+
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "Dozer: yapıyı yık -ücret değişir-"
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
+msgid ", to bulldoze "
+msgstr ", yıkmak için "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " To build "
+msgstr " Yapmak için "
+
+#: src/lincity-ng/GameView.cpp:1755
+msgid " of them "
+msgstr " hepsi "
+
+#: src/lincity-ng/GameView.cpp:1756
+msgid "will cost about "
+msgstr "fiyatlandırılacak "
+
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "iyi_zamanlar"
+
+#: src/lincity-ng/MainMenu.cpp:151
+#, fuzzy
+msgid "Bad Times"
+msgstr "kötü_zamanlar"
+
+#: src/lincity-ng/MainMenu.cpp:155
+#, fuzzy
+msgid "Extreme Arid"
+msgstr "aşırı_kurak"
+
+#: src/lincity-ng/MainMenu.cpp:159
+#, fuzzy
+msgid "Extreme Wetland"
+msgstr "aşırı_nemlizemin"
+
+#: src/lincity-ng/MainMenu.cpp:163
+msgid "Beach"
+msgstr "Sahil"
+
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "Füzeler"
+
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
+msgid "empty"
+msgstr "boş"
+
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:241
+#, fuzzy
+msgid "semi desert"
+msgstr "yarısı çöl köy"
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, fuzzy, c++-format
+msgid "Map size: {}x{}"
+msgstr "Harita Boyutu"
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "Yangın çıktı"
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "Küçkhar.: kroki harita"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "Küçkhar.: işsizlik"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "Küçkhar.: kirlilik"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "Küçkhar.: beslenme"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "Küçkhar.: elektrik kaynağı"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "Küçkhar.: itfaiye kapsamı"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "Küçkhar.: spor kapsamı"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "Küçkhar.: sağlık hizm."
+
+#: src/lincity-ng/MiniMap.cpp:1043
+msgid "Minimap: coal deposits"
+msgstr "Küç. har.: kömür depoları"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+msgid "Minimap: traffic density"
+msgstr "Küçkhar.: trafik yoğunluğu"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "Küç. har.: kömür depoları"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr "Göl"
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+msgid "River"
+msgstr "Nehir"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:289
+msgid "no further information available"
+msgstr "ulaşılabilir ek bilgi yok"
+
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr "buraya bir şey yapın"
+
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "Yes"
+msgstr "Evet"
+
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "No"
+msgstr "Hayır"
+
+#: src/lincity-ng/Mps.cpp:322
+msgid "Fire Protection"
+msgstr "Yangın Koruma"
+
+#: src/lincity-ng/Mps.cpp:325
+#, fuzzy
+msgid "Health Care"
+msgstr "Sağlık Koruması"
+
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr "Genel Spor"
+
+#: src/lincity-ng/Mps.cpp:331
+msgid "Market Range"
+msgstr "Bakkal Menzili"
+
+#: src/lincity-ng/Mps.cpp:336
+msgid "clear"
+msgstr "temiz"
+
+#: src/lincity-ng/Mps.cpp:338
+msgid "good"
+msgstr "iyi"
+
+#: src/lincity-ng/Mps.cpp:340
+msgid "fair"
+msgstr "açık"
+
+#: src/lincity-ng/Mps.cpp:342
+msgid "smelly"
+msgstr "pis kokmuş"
+
+#: src/lincity-ng/Mps.cpp:344
+msgid "smokey"
+msgstr "dumanlı"
+
+#: src/lincity-ng/Mps.cpp:346
+msgid "smoggy"
+msgstr "sisli"
+
+#: src/lincity-ng/Mps.cpp:348
+msgid "bad"
+msgstr "kötü"
+
+#: src/lincity-ng/Mps.cpp:350
+msgid "very bad"
+msgstr "çok kötü"
+
+#: src/lincity-ng/Mps.cpp:352
+msgid "death!"
+msgstr "ölüm!"
+
+#: src/lincity-ng/Mps.cpp:354
+#, fuzzy
+msgid "Air Pollution"
+msgstr "Kirlilik"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+#, fuzzy
+msgid "Bull. Cost"
+msgstr "Yıkım Fiyatı"
+
+#: src/lincity-ng/Mps.cpp:357
+msgid "N/A"
+msgstr "N/A"
+
+#: src/lincity-ng/Mps.cpp:361
+#, fuzzy
+msgid "Ore Reserve"
+msgstr "Bulunan"
+
+#: src/lincity-ng/Mps.cpp:362
+#, fuzzy
+msgid "Coal Reserve"
+msgstr "Bulunan"
+
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:408
+msgid "Tax Income"
+msgstr "Vergi Gelirleri"
+
+#: src/lincity-ng/Mps.cpp:411
+msgid "Income"
+msgstr "Gelir"
+
+#: src/lincity-ng/Mps.cpp:427
+msgid "Export"
+msgstr "İhracat"
+
+#: src/lincity-ng/Mps.cpp:432
+msgid "Expenses"
+msgstr "Masraflar"
+
+#: src/lincity-ng/Mps.cpp:435
+msgid "Unemp."
+msgstr "İşsizlik"
+
+#: src/lincity-ng/Mps.cpp:439
+msgid "Transport"
+msgstr "Ulaşım"
+
+#: src/lincity-ng/Mps.cpp:443
+msgid "Imports"
+msgstr "İthalat"
+
+#: src/lincity-ng/Mps.cpp:456
+msgid "Others"
+msgstr "Diğerleri"
+
+#: src/lincity-ng/Mps.cpp:461
+msgid "Net"
+msgstr "Ağ"
+
+#: src/lincity-ng/Mps.cpp:467
+msgid "Other Costs"
+msgstr "Diğer Maliyetler"
+
+#: src/lincity-ng/Mps.cpp:468
+msgid "For year"
+msgstr "Şu yıl için"
+
+#: src/lincity-ng/Mps.cpp:470
+msgid "Interest"
+msgstr "Faiz"
+
+#: src/lincity-ng/Mps.cpp:472
+msgid "Univers."
+msgstr "Ünivers."
+
+#: src/lincity-ng/Mps.cpp:473
+msgid "Deaths"
+msgstr "Ölümler"
+
+#: src/lincity-ng/Mps.cpp:474
+msgid "Windmill"
+msgstr "Rüzgar değirmeni"
+
+#: src/lincity-ng/Mps.cpp:475
+msgid "Hospital"
+msgstr "Hastane"
+
+#: src/lincity-ng/Mps.cpp:476
+msgid "Rockets"
+msgstr "Füzeler"
+
+#: src/lincity-ng/Mps.cpp:477
+msgid "Fire Stn"
+msgstr "İtfaiye"
+
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr "Spor"
+
+#: src/lincity-ng/Mps.cpp:479
+msgid "Recycle"
+msgstr "Geridönüşüm"
+
+#: src/lincity-ng/Mps.cpp:487
+msgid "Total"
+msgstr "Toplam"
+
+#: src/lincity-ng/Mps.cpp:488
+msgid "Housed"
+msgstr "Ev Sahibi"
+
+#: src/lincity-ng/Mps.cpp:489
+msgid "Homeless"
+msgstr "Evsiz"
+
+#: src/lincity-ng/Mps.cpp:494
+msgid "Unemployment"
+msgstr "İşsizlik"
+
+#: src/lincity-ng/Mps.cpp:497
+msgid "Starvation"
+msgstr "Açlık"
+
+#: src/lincity-ng/Mps.cpp:504
+#, fuzzy
+msgid "Births p.a."
+msgstr "Yıl başına doğum"
+
+#: src/lincity-ng/Mps.cpp:512
+#, fuzzy
+msgid "Deaths p.a."
+msgstr "Ölümler"
+
+#: src/lincity-ng/Mps.cpp:518
+#, fuzzy
+msgid "Unnat. Deaths"
+msgstr "Ölümler"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+#, fuzzy
+msgid "M"
+msgstr "AA"
+
+#: src/lincity-ng/ScreenInterface.cpp:80
+#, fuzzy
+msgid "k"
+msgstr "Tamam"
+
+#: src/lincity/commodities.cpp:38
+msgid "Food"
+msgstr "Yiyecek"
+
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
+msgstr ""
+
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "Kömür"
+
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "Eşya"
+
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "Mineral"
+
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "Çelik"
+
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "Atık"
+
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr ""
+
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr ""
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Production:"
+msgstr "Ürün"
+
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Inventory:"
+msgstr "Envanter"
+
+#: src/lincity/util.cpp:39
+msgid "Jan"
+msgstr "Ocak"
+
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "Şub"
+
+#: src/lincity/util.cpp:39
+msgid "Mar"
+msgstr "Mart"
+
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "Nis"
+
+#: src/lincity/util.cpp:40
+msgid "May"
+msgstr "May"
+
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "Haz"
+
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "Tem"
+
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "Ağu"
+
+#: src/lincity/util.cpp:41
+msgid "Sep"
+msgstr "Eyl"
+
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "Ekim"
+
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "Kas"
+
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "Ara"
+
+#: src/lincity/modules/blacksmith.cpp:40
+msgid "Blacksmith"
+msgstr "Demirci"
+
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr "meşgul"
+
+#: src/lincity/modules/coal_power.cpp:44
+#, fuzzy
+msgid "Coal Power Station"
+msgstr "Elektrik Üreteci"
+
+#: src/lincity/modules/coal_power.cpp:45
+#, fuzzy
+msgid "Coal Power Stations"
+msgstr "Elektrik Üreteci"
+
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "Teknoloji"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+msgid "Output"
+msgstr "Çıktı"
+
+#: src/lincity/modules/coalmine.cpp:44
+msgid "Coal Mine"
+msgstr "Kömür Madeni"
+
+#: src/lincity/modules/coalmine.cpp:45
+#, fuzzy
+msgid "Coal Mines"
+msgstr "Kömür Madeni"
+
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr ""
+
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
+msgid "Forest"
+msgstr "Orman"
+
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+#, fuzzy
+msgid "Fertility"
+msgstr "Çekicilik"
+
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "Kirlilik"
+
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr ""
+
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "Basketbol Sahaları Kullanılabilir"
+
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "Basketbol Sahaları Kullanılabilir"
+
+#: src/lincity/modules/cricket.cpp:150
+#, fuzzy
+msgid "Public sports"
+msgstr "Genel Spor"
+
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr "Yangın"
+
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr ""
+
+#: src/lincity/modules/fire.cpp:161
+#, fuzzy
+msgid "degraded"
+msgstr "Ticaret"
+
+#: src/lincity/modules/firestation.cpp:47
+#, fuzzy
+msgid "Fire Station"
+msgstr "İtfaiyeler"
+
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "İtfaiyeler"
+
+#: src/lincity/modules/health_centre.cpp:46
+#, fuzzy
+msgid "Hospitals"
+msgstr "Hastane"
+
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+#, fuzzy
+msgid "Steel Works"
+msgstr "Çelik"
+
+#: src/lincity/modules/light_industry.cpp:46
+#, fuzzy
+msgid "Light Industry"
+msgstr "Hafif Sanayi"
+
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "Hafif Sanayi kullanılabilir"
+
+#: src/lincity/modules/mill.cpp:40
+msgid "Textile Mill"
+msgstr "Giyim Fabrikası"
+
+#: src/lincity/modules/mill.cpp:41
+#, fuzzy
+msgid "Textile Mills"
+msgstr "Giyim Fabrikası"
+
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "Anıt"
+
+#: src/lincity/modules/monument.cpp:137
+#, fuzzy
+msgid "Wisdom bestowed"
+msgstr "Bilgelik İhsan Edildi"
+
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
+msgid "Completion"
+msgstr "Bitiş"
+
+#: src/lincity/modules/oremine.cpp:43
+msgid "Ore Mine"
+msgstr "Mineral Madeni"
+
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "Mineral Madeni"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "Çiftlik"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "Park"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
+msgstr ""
+
+#: src/lincity/modules/parkland.cpp:53
+msgid "Parks (Pond)"
+msgstr ""
+
+#: src/lincity/modules/port.cpp:213
+#, fuzzy
+msgid "Import"
+msgstr "İthalat"
+
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr ""
+
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "Çömlekçi"
+
+#: src/lincity/modules/power_line.cpp:38
+msgid "Power Line"
+msgstr "Elektrik Hattı"
+
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "Elektrik Hattı"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:42
+msgid "Recycling Center"
+msgstr "Dönüşüm Merkezi"
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "Dönüşüm Merkezi"
+
+#: src/lincity/modules/recycle.cpp:115
+#, fuzzy
+msgid "Efficiency Ore"
+msgstr "Performans"
+
+#: src/lincity/modules/recycle.cpp:116
+#, fuzzy
+msgid "Efficiency Steel"
+msgstr "Performans"
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+#, fuzzy
+msgid "Residence"
+msgstr "Konutlar"
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:422
+msgid "Desireability"
+msgstr "Çekicilik"
+
+#: src/lincity/modules/residence.cpp:424
+#, fuzzy
+msgid "Death p.a."
+msgstr "Yıl başına ölüm"
+
+#: src/lincity/modules/residence.cpp:425
+#, fuzzy
+msgid "Unnat. mortality"
+msgstr "Pol. ölüm oranı"
+
+#: src/lincity/modules/rocket_pad.cpp:53
+msgid "Rocket Pad"
+msgstr "Füze Rampası"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "Füze Rampası"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:48
+msgid "Elementary Schools"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:154
+msgid "Lessons learned"
+msgstr "Öğrenilen dersler"
+
+#: src/lincity/modules/shanty.cpp:51
+#, fuzzy
+msgid "Shanty Town"
+msgstr "Gecekondu semti"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "Gecekondu semti"
+
+#: src/lincity/modules/solar_power.cpp:40
+#, fuzzy
+msgid "Solar Power Plant"
+msgstr "Güneş panelleri"
+
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "Güneş panelleri"
+
+#: src/lincity/modules/substation.cpp:39
+#, fuzzy
+msgid "Power Substation"
+msgstr "Elektrik Üreteci"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "Elektrik Üreteci"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "Boş"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+msgid "Desert"
+msgstr "Çöl"
+
+#: src/lincity/modules/tile.cpp:80
+msgid "Tree"
+msgstr "Ağaç"
+
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+msgid "Trees"
+msgstr "Ağaçlar"
+
+#: src/lincity/modules/tip.cpp:42
+#, fuzzy
+msgid "Land Fill"
+msgstr "Atık"
+
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "Atık"
+
+#: src/lincity/modules/tip.cpp:120
+msgid "Filled"
+msgstr "Doldurulmuş"
+
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "Tali Yol"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+#, fuzzy
+msgid "Track (Bridge)"
+msgstr "Tali Yol Köprüsü"
+
+#: src/lincity/modules/track_road_rail.cpp:66
+#, fuzzy
+msgid "Tracks (Bridge)"
+msgstr "Tali Yol Köprüsü"
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "Yol"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+#, fuzzy
+msgid "Road (Bridge)"
+msgstr "Yol Köprüsü"
+
+#: src/lincity/modules/track_road_rail.cpp:97
+#, fuzzy
+msgid "Roads (Bridge)"
+msgstr "Yol Köprüsü"
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "Ray"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+#, fuzzy
+msgid "Rail (Bridge)"
+msgstr "Ray Köprü"
+
+#: src/lincity/modules/track_road_rail.cpp:129
+#, fuzzy
+msgid "Rails (Bridge)"
+msgstr "Ray Köprü"
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr ""
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "Üniversite"
+
+#: src/lincity/modules/university.cpp:122
+msgid "Tech researched"
+msgstr "Araştırılan tekn."
+
+#: src/lincity/modules/waterwell.cpp:37
+#, fuzzy
+msgid "Water Tower"
+msgstr "Su kuyusu"
+
+#: src/lincity/modules/waterwell.cpp:38
+#, fuzzy
+msgid "Water Towers"
+msgstr "Su kuyuları"
+
+#: src/lincity/modules/waterwell.cpp:106
+msgid "Drinkable"
+msgstr "İçilebilir"
+
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+msgid "Wind Power"
+msgstr "Rüzgar Gücü"
+
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "Hazırlayanlar"
+
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "Orjinal Fikir ve Kod"
+
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "Kod"
+
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "Canlandırmalar"
+
+#: data/gui/creditslist.xml:122
+msgid "Sound and Music"
+msgstr "Ses ve Müzik"
+
+#: data/gui/creditslist.xml:138
+msgid "Translation"
+msgstr "Çeviri"
+
+#: data/gui/creditslist.xml:278
+msgid "License"
+msgstr ""
+
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "Geri"
+
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
+msgid "Ok"
+msgstr "Tamam"
+
+#: data/gui/helpwindow.xml:17
+msgid "Help"
+msgstr ""
+
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "Oyunu Yükle"
+
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "Yükle"
+
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "Yeni Oyun"
+
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "Devam"
+
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
 msgid "Save"
 msgstr "Kayıt"
 
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "Oyunu Kayıt Et"
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "Seçenekler"
 
-#: data/gui/schoolup.xml
-msgid "Schools available"
-msgstr "Okullar kullanılabilir"
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "Çık"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
+#: data/gui/minimapswitchbuttons.xml:11
+msgid "Show map outline"
+msgstr "Harita krokisini göster"
+
+#: data/gui/minimapswitchbuttons.xml:21
+msgid "Show nourishments"
+msgstr "Gıdaları göster"
+
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "İşsizliği göster"
+
+#: data/gui/minimapswitchbuttons.xml:41
+msgid "Show power supply"
+msgstr "Elektrik kaynaklarını göster"
+
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "İtfaiye alanlarını göster"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "Spor alanlarını göster"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "Sağlık bakım alanlarını göster"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "Trafik yoğunluğunu göster"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "Kirlilik yoğunluğunu göster"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "Kömür depolarını göster"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "Hari."
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "Küçük haritayı göster"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "İstat."
+
+#: data/gui/minimap.xml:28
+#, fuzzy
+msgid "Show resources. Use scroll buttons to cycle through views."
 msgstr ""
-"Kömür Madeninde ve Kömür Araştırmalarında daha fazla bilgi için yardım "
-"ekranına bakın."
+"Geliri ve Masrafları göster. Görünümler arası dönüşüm için kaydırma "
+"düğmelerini kullanın."
 
-#: data/gui/blacksmithup.xml data/gui/railwayup.xml data/gui/schoolup.xml
-#: data/gui/solarpowerup.xml data/gui/riverup.xml data/gui/healthup.xml
-#: data/gui/coalpowerup.xml data/gui/windmillup.xml data/gui/parkup.xml
-#: data/gui/potteryup.xml data/gui/mod_wind_up.xml data/gui/cricketup.xml
-#: data/gui/rocketup.xml data/gui/universityup.xml data/gui/hvindustryup.xml
-#: data/gui/millup.xml data/gui/firestationup.xml data/gui/recycleup.xml
-#: data/gui/ltindustryup.xml
-msgid "See the help screen for more information."
-msgstr "Daha fazla bilgi için yardım ekranına bakın."
-
-#: data/gui/tradedialog.xml data/gui/portdialog.xml
-msgid "Sell"
-msgstr "Sat"
-
-#: data/gui/coal_survey_yn.xml
-msgid "Send out Prospectors"
-msgstr "Maden Araştırmacılarını gönder"
-
-#: data/gui/minimap.xml
+#: data/gui/minimap.xml:38
 msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
 msgstr ""
 "Geliri ve Masrafları göster. Görünümler arası dönüşüm için kaydırma "
 "düğmelerini kullanın."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "Kömür depolarını göster"
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "Eko"
 
-#: data/gui/minimap.xml
+#: data/gui/minimap.xml:48
 msgid "Show economy graphs."
 msgstr "Ekonomi grafiklerini göster."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "İtfaiye alanlarını göster"
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr "[m] Yukarı kaydır."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show map outline"
-msgstr "Harita krokisini göster"
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr "[n] Aşağı kaydır."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "Sağlık bakım alanlarını göster"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show nourishments"
-msgstr "Gıdaları göster"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "Kirlilik yoğunluğunu göster"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show power supply"
-msgstr "Elektrik kaynaklarını göster"
-
-#: data/gui/minimap.xml
-msgid "Show resources. Use scroll buttons to cylce through views."
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
 msgstr ""
-"Geliri ve Masrafları göster. Görünümler arası dönüşüm için kaydırma "
-"düğmelerini kullanın."
+"[+] Görüntüye yaklaş. Bu şekilde daha az yapı fakat daha fazla ayrıntı "
+"görülebilir."
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "Spor alanlarını göster"
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] Uzaklaş"
 
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "Küçük haritayı göster"
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr "zemin yükseklik hazırlamasını aç/kapat"
 
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "Trafik yoğunluğunu göster"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "İşsizliği göster"
-
-#: data/gui/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "Güneş Panelleri kullanılabilir"
-
-#: data/gui/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "Üzgünüm, çöplüğü yıkamazsnız."
-
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
+#: data/gui/minimap.xml:124
+msgid "Gov."
 msgstr ""
-"Üzgünüm, istediğiniz oyun çok eski. Yüklenemiyor. Hala önceki oyun ile "
-"oynanılabilir."
 
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "Ses Etkileri"
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Sound and Music"
-msgstr "Ses ve Müzik"
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr "[F1] Yardım almak için bu düğmeye basın"
 
-#: data/gui/newgame.xml
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] Yüksek yapıları gizle. "
+
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "İstatistikleri görüntülemek için bu düğmeye basın"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] Küçük harita uygulama kipleri yoluyla dönüş. "
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "Senaryo Seç"
+
+#: data/gui/newgame.xml:56
+msgid "Village"
+msgstr ""
+
+#: data/gui/newgame.xml:65
+msgid "Without trees"
+msgstr ""
+
+#: data/gui/newgame.xml:208
 msgid "Start"
 msgstr "Başla"
 
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "İstat."
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "Arkaplan Müziği"
 
-#: data/gui/pbar2nd.xml data/gui/pbar.xml
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "Ses Etkileri"
+
+#: data/gui/options.xml:87
+msgid "Resolution"
+msgstr "Çözünürlük"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr "Harita Boyutu"
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "Tam Ekran"
+
+#: data/gui/options.xml:146
+#, fuzzy
+msgid "Scroll Speed"
+msgstr "[m] Yukarı kaydır."
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr "Dil"
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
 msgid "Tech Level"
 msgstr "Tek. Seviyesi"
 
-#: data/gui/allgone.xml
-msgid "There are no people left in this city."
-msgstr "Bu şehirde insan kalmamış."
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr ""
 
-#: data/gui/coal_survey_yn.xml
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr ""
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "Oyunu Kayıt Et"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "Oyunu duraklat"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "Benzetimi normal hızda çalıştır"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "Benzetimi yüksek hızda çalıştır"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "Benzetimi çok yüksek hızda çalıştır"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "Ana Menüye Dön"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Coal Survey"
+msgstr "Kömür Araştırması"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
+msgid "Send out Prospectors"
+msgstr "Maden Araştırmacılarını gönder"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "This will cost you 1 million once. After that it is free to call again."
 msgstr ""
 "Bu size 1 milyona mal olacak. Ödedikten sonra tekrar kullanmak ücretsiz."
 
-#: data/gui/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "Tamamlanan Toplam Tahliye."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "Kömür Araştırması yapacak mısınız?"
 
-#: data/gui/tradedialog.xml
-msgid "Trade Settings"
-msgstr "Ticaret Seçenekleri"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
+msgstr ""
 
-#: data/gui/creditslist.xml
-msgid "Translation"
-msgstr "Çeviri"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
+msgstr ""
 
-#: data/gui/universityup.xml
-msgid "University available"
-msgstr "Üniversite kullanılabilir"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Income tax"
+msgstr "Gelir"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Want to bulldoze?"
-msgstr "Yıkmak mı istiyorsunuz?"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "Termik Sant."
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/warning.xml
-#: data/gui/bulldoze_river_yn.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/too-old.xml
-msgid "Warning"
-msgstr "Uyarı"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
+msgstr ""
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "Uyarı: Anıt yıkmak pahalıdır."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "Eşya"
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "Uyarı: Gecekondu Mahallesi yıkmak tehlikelidir."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "Uyarı: Nehir yıkmak pahalıdır."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Transport cost"
+msgstr "Ulaşım"
 
-#: data/gui/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "Başardınız; bütün insanlarını tahliye ettiniz."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
 
-#: data/gui/windmillup.xml
-msgid "Windmills available"
-msgstr "Rüzgar Değirmenleri kullanılabilir"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
 
-#: data/gui/fire.xml
-msgid "You better go and look for it"
-msgstr "Gidip bakarsanız daha iyi olacak."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Gamestats"
+msgstr "Oyun İstat."
 
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
+msgid "Okay"
+msgstr "Tamam"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
+msgid "Rocket ready to launch"
+msgstr "Füze atılmaya hazır"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1634,272 +2069,572 @@ msgstr ""
 "beklerseniz füzeyi hazır tutmak masraflı olmaya devam edecek. Sonradan "
 "fırlatmak için füze bölgesine tıklayın."
 
-#: data/gui/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"Artık Kömür, Eşya, Mineral ve Çelik İthal/İhraç edebilirsiniz. Nasıl "
-"kullanacağınızı öğrenmek için o nesneler üzerindeki yardımı okuyun."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+msgid "Harbour Trade Settings"
+msgstr "Liman Ticareti Ayarları"
 
-#: data/gui/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr "Bütçenizde açık var. Yasama Kurulu Park yapmanıza izin vermeyecek."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Product"
+msgstr "Ürün"
 
-#: data/gui/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr ""
-"Bütçenizde açık var. Yasama Kurulu Geridönüşüm Merkezi yapmanıza izin "
-"vermeyecek."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "Satın al"
 
-#: data/gui/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr ""
-"Bütçenizde açık var. Yasam Kurulu Füze Rampası yapmanıza izin vermeyecek."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
+msgid "Sell"
+msgstr "Sat"
 
-#: data/gui/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr ""
-"Bütçenizde açık var. Yasama Kurulu Güneş Panelleri yapmanıza izin vermeyecek."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
+msgid "Trade Settings"
+msgstr "Ticaret Seçenekleri"
 
-#: data/gui/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr ""
-"Bütçenizde açık var. Yasam Kurulu Üniversite yapmanıza izin vermeyecek."
+#, c-format
+#~ msgid "Save file <%s> - "
+#~ msgstr "Kayıt dosyası <%s> - "
 
-#: data/gui/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr ""
-"Tahliye edilmiş 1000 şahıs var. Ekonominizin boyutunu nüfusunuzun azalmasına "
-"aksetmek isteyebilirsiniz. "
+#~ msgid "Can't open save file!"
+#~ msgstr "Kayıt dosyası açılamadı!"
 
-#: data/gui/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use jobs and steel to make goods."
-msgstr ""
-"Teknoloji seviyesini Demirciler yapabilecek düzeye ulaştırdınız. Demirciler "
-"işçileri kullanır ve çelikten eşyalar yapar."
+#, c-format
+#~ msgid "Can't open <%s> (gzipped)"
+#~ msgstr "Açılamıyor <%s> (gzip'li)"
 
-#: data/gui/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr ""
-"Teknoloji seviyesini Termik Santraller yapabilecek düzeye ulaştırdınız."
+#~ msgid "You just spent all your money."
+#~ msgstr "Tüm paranızı harcadınız."
 
-#: data/gui/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
-msgstr ""
-"Teknoloji seviyesini İtfaiye yapabilecek düzeye ulaştırdınız. İtfaiye birçok "
-"yangını başlamadan engeller. Eğer henüz hiç yangın çıkmadıysa, ihtiyacınız "
-"olmadığını düşünmemelisiniz."
+#~ msgid "Port must be connected to river all along right side."
+#~ msgstr "Liman tüm sağ taraf boyunca nehire bağlı olmalıdır."
 
-#: data/gui/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"Teknoloji seviyesini Hastaneler yapabilecek düzeye ulaştırdınız. Hastaneler "
-"kirlilikten insan ölümlerinin sayısını azaltır ve toplam verimliliği artırır."
+#~ msgid "You can't build a mine here: there is no ore left at this site"
+#~ msgstr "Buraya bir maden inşa edemezsiniz: bu alanda hiçbir mineral kalmadı"
 
-#: data/gui/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr ""
-"Teknoloji seviyesini Ağır Sanayi yapabilecek düzeye ulaştırdınız (Çelik "
-"işçiliği). Ağır Sanayi çeliği işler."
+#~ msgid "You can't build a park here: it is a desert, parks need water"
+#~ msgstr ""
+#~ "Buraya bir park inşa edemezsiniz: burası bir çöl ve parkların suya "
+#~ "ihtiyacı var"
 
-#: data/gui/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr ""
-"Teknoloji seviyesini Hafif Sanayi yapabilecek düzeye ulaştırdınız. Hafif "
-"Sanayi Eşya üretir. "
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "HATA: grup mevcut değil. Bu olmamalıydı! Lütfen lincity-ng takımına bir "
+#~ "hata kaydı gönderin. Buna kayıtlı oyun ile ne yaptığınızı da yazın :-) "
 
-#: data/gui/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"jobs and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"Teknoloji seviyenizi Fabrikalar yapabilecek düzeye ulaştırdınız. Fabrikalar "
-"Eşya üretmek için yiyecek ve işçi kullanır. Dikkat edin, fazla yiyecek "
-"kullanabilirler! "
+#~ msgid "ups, Bulldozer found a dangling reportingConstruction"
+#~ msgstr "olamaz. Buldozer asılı bir reportingConstruction buldu"
 
-#: data/gui/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr ""
-"Teknoloji seviyesini daha gelişmiş, daha verimli Rüzgar Değirmenleri "
-"yapabilecek düzeye ulaştırdınız. "
+#~ msgid "UNKNOWN!"
+#~ msgstr "BİLİNMİYOR!"
 
-#: data/gui/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr ""
-"Teknoloji seviyesini Park yapabilecek düzeye ulaştırdınız. Park açlığı "
-"etkisizleştirmek için kullanılır. "
+#~ msgid "Power line"
+#~ msgstr "Elektrik hattı"
 
-#: data/gui/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"Teknoloji seviyesini Çömlekçiler yapabilecek düzeye ulaştırdınız. "
-"Çömlekçilik mineralden eşya yapmak için işçi kullanır. (Mineral almak için "
-"Mineral Madenine ihtiyacınız var) "
+#~ msgid "Solar PS"
+#~ msgstr "Güneş Pan."
 
-#: data/gui/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr "Teknoloji seviyesini Demiryolları yapabilecek düzeye ulaştırdınız. "
+#~ msgid "Substation"
+#~ msgstr "Trafo"
 
-#: data/gui/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr "Teknoloji seviyesini Nehir yapabilecek düzeye ulaştırdınız. "
+#~ msgid "Residential LL"
+#~ msgstr "Yerleşim DS"
 
-#: data/gui/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr ""
-"Teknoloji seviyesini Yol yapabilecek düzeye ulaştırdınız. Daha fazla bilgi "
-"için Yardım ekranına bakın."
+#~ msgid "Coalmine"
+#~ msgstr "Kömür Madeni"
 
-#: data/gui/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"Teknoloji seviyesini Füze Rampası yapabilecek düzeye ulaştırdınız. Füzeler "
-"nüfusunuzu tahliye etmenizi sağlar ve oyunu 'kazanmanızın' bir yoludur."
+#~ msgid "Railway"
+#~ msgstr "Demiryolu"
 
-#: data/gui/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use jobs and goods to increase tech level. "
-msgstr ""
-"Teknoloji seviyesini Okullar yapabilecek düzeye ulaştırdınız. Okullar "
-"teknoloji seviyesini artırmak için işçileri ve eşyaları kullanır."
+#~ msgid "Commune"
+#~ msgstr "Komün"
 
-#: data/gui/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr "Teknoloji seviyesini Güneş Panelleri yapabilecek düzeye ulaştırdınız. "
+#~ msgid "Ore mine"
+#~ msgstr "Mineral Madeni"
 
-#: data/gui/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr ""
-"Teknoloji seviyesini Üniversiteler yapabilecek düzeye ulaştırdınız. "
-"Üniversiteler daha fazla teknoloji sağlayan Doktora mezunları sağlar. "
+#~ msgid "Rubbish tip"
+#~ msgstr "Atıklık"
 
-#: data/gui/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr ""
-"Teknoloji seviyesini Rüzgar Değirmenleri yapabilecek düzeye ulaştırdınız. "
+#~ msgid "Hv. Industry"
+#~ msgstr "Ağır Sanayi"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr ""
-"Teknoloji seviyesini derin Kömür Madenleri yapabilecek düzeye ulaştırdınız."
+#~ msgid "Health centre"
+#~ msgstr "Sağlık. Merk."
 
-#: data/gui/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr ""
-"Teknoloji seviyesini Geridönüşüm Merkezleri yapabilecek düzeye ulaştırdınız. "
-"Geridönüşüm Merkezleri kullanılmış eşyaları minerale geri çevirir. "
+#~ msgid "School"
+#~ msgstr "Okul"
 
-#: data/gui/launch-gone.xml data/gui/sustain.xml
-msgid "You have won the game."
-msgstr "Oyunu kazandınız."
+#~ msgid "Mill"
+#~ msgstr "Değirmen"
 
-#: data/gui/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "Başka bir yerde yeni bir kariyer başlatmalısınız."
+#~ msgid "Fire sta'n"
+#~ msgstr "İtfaiye"
 
-#: data/gui/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a few jobs and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
-msgstr ""
-"İnsanlarınız basketbolu keşfetti. Basketbol Sahaları biraz işçi ve eşya "
-"kullanır ve bölgenin etrafındaki insanları mutlu eder (her yöndeki 10 "
-"üniteyi) "
+#~ msgid "Sports field"
+#~ msgstr "Spor merkezi"
 
-#: data/gui/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"Füzeniz, fırlatmadan kısa süre sonra infilak etti. Tahliye için insanlar "
-"teknolojiye artık güvenmez. Güveni tekrar kazanmak için 5 insansız füze daha "
-"fırlatmalısınız."
+#~ msgid "Burnt"
+#~ msgstr "Yanık"
 
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr ""
-"[+] Görüntüye yaklaş. Bu şekilde daha az yapı fakat daha fazla ayrıntı "
-"görülebilir."
+#~ msgid "Used"
+#~ msgstr "Kullanıldı"
 
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] Uzaklaş"
+#~ msgid "Residential ML"
+#~ msgstr "Yerleşim OS"
 
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr "[F1] Yardım almak için bu düğmeye basın"
+#~ msgid "Residential HL"
+#~ msgstr "Yerleşim YS"
 
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] Yüksek yapıları gizle. "
+#~ msgid "Residential LH"
+#~ msgstr "Yerleşim DY"
 
-#: data/gui/minimap.xml
-msgid "[m] Scroll up."
-msgstr "[m] Yukarı kaydır."
+#~ msgid "Residential MH"
+#~ msgstr "Yerleşim OY"
 
-#: data/gui/minimap.xml
-msgid "[n] Scroll down."
-msgstr "[n] Aşağı kaydır."
+#~ msgid "Residential HH"
+#~ msgstr "Yerleşim YY"
 
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] Küçük harita uygulama kipleri yoluyla dönüş. "
+#~ msgid "Error. Can't find LINCITY_HOME"
+#~ msgstr "Hata. LINCITY_HOME bulunamıyor"
 
-#: data/gui/pbar2nd.xml
-msgid "kWh"
-msgstr "kWh"
+#~ msgid "Error verifying package. Can't find colour.pal."
+#~ msgstr "Paket doğrulama hatası. colour.pal bulunamıyor."
 
-#: data/gui/minimap.xml
-msgid "toggle terrain height rendering"
-msgstr "zemin yükseklik hazırlamasını aç/kapat"
+#, c-format
+#~ msgid "Couldn't create the save directory '%s'\n"
+#~ msgstr "'%s' kayıt dizini oluşturulamadı\n"
+
+#, c-format
+#~ msgid "Failed to chown '%s'\n"
+#~ msgstr "chown '%s' başarısız\n"
+
+#~ msgid "Out of memory: malloc failure\n"
+#~ msgstr "Hafıza aşımı: malloc başarısız \n"
+
+#~ msgid ""
+#~ "Upgrading from old game. You have 10 years to build water wells where "
+#~ "needed. After, starvation will occur!  You should check starvation "
+#~ "minimap, and read waterwell help page :-)"
+#~ msgstr ""
+#~ "Eski oyundan yükseltiliyor. Gerektiği yerde su kuyusu yapmanız için 10 "
+#~ "yılınız var. Sonrasında açlık olacak! Açlığı küçük haritadan kontrol "
+#~ "etmeli ve su kuyusu yardım sayfasını okumalısınız :-)"
+
+#~ msgid "People"
+#~ msgstr "İnsan"
+
+#~ msgid "YES"
+#~ msgstr "Evet"
+
+#~ msgid "NO"
+#~ msgstr "Hayır"
+
+#~ msgid "Health Service"
+#~ msgstr "Sağlık Hizmeti"
+
+#~ msgid "Unn Dths"
+#~ msgstr "Doğal Olmayan Ölümler"
+
+#~ msgid "Claims"
+#~ msgstr "Alacaklılar"
+
+#~ msgid "Rate"
+#~ msgstr "Oran"
+
+#~ msgid "Cases"
+#~ msgstr "Davalar"
+
+#~ msgid "----- IN TEST MODE -------"
+#~ msgstr "----- DENEME KİPİNDE -----"
+
+#, c-format
+#~ msgid "Population  %d  of which  %d  are not housed."
+#~ msgstr "Nüfusun  %d/%d oranı ev sahibi edilmedi."
+
+#, c-format
+#~ msgid "Max population %d  Number evacuated %d Total births %d"
+#~ msgstr "Azami nüfus %d  Tahliye edilmiş sayısı %d Toplam doğum %d"
+
+#, c-format
+#~ msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
+#~ msgstr "Tarih %s %04d  Para %8d  Tek. seviyesi %5.1f (%5.1f)"
+
+#, c-format
+#~ msgid "Years of unemployment %7d   History %8.3f"
+#~ msgstr "İşsizlik yılları %7d   Tarih %8.3f"
+
+#, c-format
+#~ msgid "Rockets launched %2d  Successful launches %2d"
+#~ msgstr "Fırlatılan füzeler %2d  Başarılı fırlatmalar %2d"
+
+#, c-format
+#~ msgid "%s (Techlevel %.1f required.)"
+#~ msgstr "%s (Teknoloji seviyesi %.1f gerekli.)"
+
+#, c-format
+#~ msgid "%s is disabled (loaded old game)."
+#~ msgstr "%s devre dışı (eski oyun yüklenmiş)."
+
+#~ msgid "random empty board"
+#~ msgstr "rastgele boş alan"
+
+#~ msgid "random village"
+#~ msgstr "rastgele köy"
+
+#~ msgid "village in temperate area"
+#~ msgstr "ılıman iklimde köy"
+
+#~ msgid "village in swamp"
+#~ msgstr "bataklıkta köy"
+
+#~ msgid "$."
+#~ msgstr " TRY."
+
+#~ msgid "Jobs"
+#~ msgstr "İşçi"
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "Çıkan yangın gecekondu mahallesini bozdu. İtfaiye bölgeye ulaştı ve "
+#~ "kontrol altında olduğu GÖRÜLÜYOR. "
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "Çıkan yangın gecekondu mahallesini bozdu. Yangın KONTROLDEN ÇIKTI ve "
+#~ "diğer bölgelere yayılabilir. "
+
+#~ msgid "Binary mode"
+#~ msgstr "İkili kip"
+
+#~ msgid "Blacksmiths available"
+#~ msgstr "Demirciler Kullanılabilir"
+
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "Nehir yıkmak yüksek fiyatlıdır."
+
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr ""
+#~ "Gecekondu mahallesini yıkmak yüksek fiyatlıdır ve yangına sebep olabilir."
+
+#~ msgid "Coal Fired Power Stations available"
+#~ msgstr "Termik Santraller kullanılabilir "
+
+#~ msgid "Coal Mine available"
+#~ msgstr "Kömür Madeni kullanılabilir"
+
+#~ msgid "Doing well."
+#~ msgstr "İyi gidiyor."
+
+#~ msgid "Evacuation Launch Good"
+#~ msgstr "Tahliye İyi Başladı"
+
+#~ msgid "Fire Stations available"
+#~ msgstr "İtfaiyeler kullanılabilir"
+
+#~ msgid "Health Centres available"
+#~ msgstr "Hastaneler Kullanılabilir"
+
+#~ msgid "Heavy Industry available"
+#~ msgstr "Ağır Sanayi kullanılabilir"
+
+#~ msgid "Housing"
+#~ msgstr "Konutlandırma"
+
+#~ msgid "Import/Export available"
+#~ msgstr "İthalat/İhracat Kullanılabilir"
+
+#~ msgid "Launch Failure"
+#~ msgstr "Fırlatma Başarısız"
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "LinCity, sürdürülebilir bir ekonomiye sahip olduğunuza karar verdi."
+
+#~ msgid "MWh"
+#~ msgstr "MWh"
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "Gelişmiş Rüzgar Değirmenleri kullanılabilir"
+
+#~ msgid "No Credit Available"
+#~ msgstr "Kullanılabilir Kredi Yok"
+
+#~ msgid "Nobody Home"
+#~ msgstr "Kimsesiz Ev"
+
+#~ msgid "Not Allowed"
+#~ msgstr "İzin Verilmedi"
+
+#~ msgid "Parks available"
+#~ msgstr "Parklar kullanılabilir"
+
+#~ msgid "Potteries available"
+#~ msgstr "Çömlekçiler kullanılabilir"
+
+#~ msgid "Railways available"
+#~ msgstr "Demiryolları kullanılabilir"
+
+#~ msgid "Recycling Centres available"
+#~ msgstr "Geridönüşüm Merkezleri kullanılabilir"
+
+#~ msgid "Rivers available"
+#~ msgstr "Nehir kullanılabilir"
+
+#~ msgid "Roads available"
+#~ msgstr "Yollar kullanılabilir"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "Füze Rampası kullanılabilir"
+
+#~ msgid "Schools available"
+#~ msgstr "Okullar kullanılabilir"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "Kömür Madeninde ve Kömür Araştırmalarında daha fazla bilgi için yardım "
+#~ "ekranına bakın."
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "Daha fazla bilgi için yardım ekranına bakın."
+
+#~ msgid "Solar Power Stations available"
+#~ msgstr "Güneş Panelleri kullanılabilir"
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "Üzgünüm, çöplüğü yıkamazsnız."
+
+#~ msgid ""
+#~ "Sorry, the game you wanted is too old. Cannot load it. Still play with "
+#~ "previous game."
+#~ msgstr ""
+#~ "Üzgünüm, istediğiniz oyun çok eski. Yüklenemiyor. Hala önceki oyun ile "
+#~ "oynanılabilir."
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "Tamamlanan Toplam Tahliye."
+
+#~ msgid "University available"
+#~ msgstr "Üniversite kullanılabilir"
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "Uyarı: Anıt yıkmak pahalıdır."
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "Uyarı: Gecekondu Mahallesi yıkmak tehlikelidir."
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "Uyarı: Nehir yıkmak pahalıdır."
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "Başardınız; bütün insanlarını tahliye ettiniz."
+
+#~ msgid "Windmills available"
+#~ msgstr "Rüzgar Değirmenleri kullanılabilir"
+
+#~ msgid "You better go and look for it"
+#~ msgstr "Gidip bakarsanız daha iyi olacak."
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "Artık Kömür, Eşya, Mineral ve Çelik İthal/İhraç edebilirsiniz. Nasıl "
+#~ "kullanacağınızı öğrenmek için o nesneler üzerindeki yardımı okuyun."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr "Bütçenizde açık var. Yasama Kurulu Park yapmanıza izin vermeyecek."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "Bütçenizde açık var. Yasama Kurulu Geridönüşüm Merkezi yapmanıza izin "
+#~ "vermeyecek."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "Bütçenizde açık var. Yasam Kurulu Füze Rampası yapmanıza izin vermeyecek."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "Bütçenizde açık var. Yasama Kurulu Güneş Panelleri yapmanıza izin "
+#~ "vermeyecek."
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "Bütçenizde açık var. Yasam Kurulu Üniversite yapmanıza izin vermeyecek."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr ""
+#~ "Teknoloji seviyesini Demirciler yapabilecek düzeye ulaştırdınız. "
+#~ "Demirciler işçileri kullanır ve çelikten eşyalar yapar."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr ""
+#~ "Teknoloji seviyesini Termik Santraller yapabilecek düzeye ulaştırdınız."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "Teknoloji seviyesini İtfaiye yapabilecek düzeye ulaştırdınız. İtfaiye "
+#~ "birçok yangını başlamadan engeller. Eğer henüz hiç yangın çıkmadıysa, "
+#~ "ihtiyacınız olmadığını düşünmemelisiniz."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "Teknoloji seviyesini Hastaneler yapabilecek düzeye ulaştırdınız. "
+#~ "Hastaneler kirlilikten insan ölümlerinin sayısını azaltır ve toplam "
+#~ "verimliliği artırır."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Ağır Sanayi yapabilecek düzeye ulaştırdınız (Çelik "
+#~ "işçiliği). Ağır Sanayi çeliği işler."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Hafif Sanayi yapabilecek düzeye ulaştırdınız. Hafif "
+#~ "Sanayi Eşya üretir. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "Teknoloji seviyenizi Fabrikalar yapabilecek düzeye ulaştırdınız. "
+#~ "Fabrikalar Eşya üretmek için yiyecek ve işçi kullanır. Dikkat edin, fazla "
+#~ "yiyecek kullanabilirler! "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini daha gelişmiş, daha verimli Rüzgar Değirmenleri "
+#~ "yapabilecek düzeye ulaştırdınız. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Park yapabilecek düzeye ulaştırdınız. Park açlığı "
+#~ "etkisizleştirmek için kullanılır. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Çömlekçiler yapabilecek düzeye ulaştırdınız. "
+#~ "Çömlekçilik mineralden eşya yapmak için işçi kullanır. (Mineral almak "
+#~ "için Mineral Madenine ihtiyacınız var) "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr "Teknoloji seviyesini Demiryolları yapabilecek düzeye ulaştırdınız. "
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr "Teknoloji seviyesini Nehir yapabilecek düzeye ulaştırdınız. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "Teknoloji seviyesini Füze Rampası yapabilecek düzeye ulaştırdınız. "
+#~ "Füzeler nüfusunuzu tahliye etmenizi sağlar ve oyunu 'kazanmanızın' bir "
+#~ "yoludur."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Okullar yapabilecek düzeye ulaştırdınız. Okullar "
+#~ "teknoloji seviyesini artırmak için işçileri ve eşyaları kullanır."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Güneş Panelleri yapabilecek düzeye ulaştırdınız. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Üniversiteler yapabilecek düzeye ulaştırdınız. "
+#~ "Üniversiteler daha fazla teknoloji sağlayan Doktora mezunları sağlar. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Rüzgar Değirmenleri yapabilecek düzeye ulaştırdınız. "
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr ""
+#~ "Teknoloji seviyesini derin Kömür Madenleri yapabilecek düzeye "
+#~ "ulaştırdınız."
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "Teknoloji seviyesini Geridönüşüm Merkezleri yapabilecek düzeye "
+#~ "ulaştırdınız. Geridönüşüm Merkezleri kullanılmış eşyaları minerale geri "
+#~ "çevirir. "
+
+#~ msgid "You have won the game."
+#~ msgstr "Oyunu kazandınız."
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "Başka bir yerde yeni bir kariyer başlatmalısınız."
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "İnsanlarınız basketbolu keşfetti. Basketbol Sahaları biraz işçi ve eşya "
+#~ "kullanır ve bölgenin etrafındaki insanları mutlu eder (her yöndeki 10 "
+#~ "üniteyi) "
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "Füzeniz, fırlatmadan kısa süre sonra infilak etti. Tahliye için insanlar "
+#~ "teknolojiye artık güvenmez. Güveni tekrar kazanmak için 5 insansız füze "
+#~ "daha fırlatmalısınız."
+
+#~ msgid "kWh"
+#~ msgstr "kWh"
 
 #~ msgid ".   Residences %4d         Markets %4d            Farms %4d"
 #~ msgstr ".    Konutlar %4d           Bakkallar %4d          Çiftlikler %4d"
@@ -1937,20 +2672,11 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgstr ""
 #~ ".    Kömür madenleri %4d      Mineral madenleri %4d      Komünler %4d"
 
-#~ msgid "Minimap: traffic density"
-#~ msgstr "Küçkhar.: trafik yoğunluğu"
-
 #~ msgid "Coverage"
 #~ msgstr "Kapsam"
 
 #~ msgid "Health"
 #~ msgstr "Sağlık"
-
-#~ msgid "Bulldoze Cost"
-#~ msgstr "Yıkım Fiyatı"
-
-#~ msgid "N/A"
-#~ msgstr "N/A"
 
 #~ msgid "You can't build a tip here: this area was once a landfill"
 #~ msgstr "Buraya bir çöp inşa edemezsiniz: bu alan önceden bir çöplüktü"
@@ -2051,9 +2777,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgid "Capacity"
 #~ msgstr "Hacim"
 
-#~ msgid "Inventory"
-#~ msgstr "Envanter"
-
 #~ msgid "Max Output"
 #~ msgstr "Azami Çıktı"
 
@@ -2063,14 +2786,8 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgid "Grid ID"
 #~ msgstr "Şebeke Kimliği"
 
-#~ msgid "Coal Mine"
-#~ msgstr "Kömür Madeni"
-
 #~ msgid "Stock"
 #~ msgstr "Stok"
-
-#~ msgid "Reserve"
-#~ msgstr "Bulunan"
 
 #~ msgid "EMPTY"
 #~ msgstr "BOŞ"
@@ -2087,17 +2804,8 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgid "Store"
 #~ msgstr "Depo"
 
-#~ msgid "Textile Mill"
-#~ msgstr "Giyim Fabrikası"
-
-#~ msgid "Wisdom Bestowed"
-#~ msgstr "Bilgelik İhsan Edildi"
-
 #~ msgid "% Complete"
 #~ msgstr "Tamamlanan %"
-
-#~ msgid "Ore Mine"
-#~ msgstr "Mineral Madeni"
 
 #~ msgid "Organic Farm"
 #~ msgstr "Doğal Tarım"
@@ -2117,12 +2825,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgid "Current production"
 #~ msgstr "Geçerli üretim"
 
-#~ msgid "Power Line"
-#~ msgstr "Elektrik Hattı"
-
-#~ msgid "Recycling Center"
-#~ msgstr "Dönüşüm Merkezi"
-
 #~ msgid "Fed"
 #~ msgstr "Beslenmiş"
 
@@ -2134,15 +2836,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 
 #~ msgid "Job"
 #~ msgstr "İş"
-
-#~ msgid "Health Cvr"
-#~ msgstr "Sağlık Koruması"
-
-#~ msgid "Rocket Pad"
-#~ msgstr "Füze Rampası"
-
-#~ msgid "Completion"
-#~ msgstr "Bitiş"
 
 #~ msgid "Local Demand"
 #~ msgstr "Yerel Talep"
@@ -2158,9 +2851,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 
 #~ msgid "Demand"
 #~ msgstr "Talep"
-
-#~ msgid "Landfill"
-#~ msgstr "Atık"
 
 #~ msgid "Last Month"
 #~ msgstr "Son Ay"
@@ -2189,9 +2879,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 #~ msgid "Residential"
 #~ msgstr "Yerleşim"
 
-#~ msgid "You can't build a mine here"
-#~ msgstr "Buraya maden inşa edemezsiniz"
-
 #~ msgid "OK"
 #~ msgstr "Tamam"
 
@@ -2206,9 +2893,6 @@ msgstr "zemin yükseklik hazırlamasını aç/kapat"
 
 #~ msgid "Light"
 #~ msgstr "Işık"
-
-#~ msgid "Power Station"
-#~ msgstr "Elektrik Üreteci"
 
 #~ msgid "Industry"
 #~ msgstr "Sanayi"

@@ -16,1661 +16,2067 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  ja.po (Lincity-NG-Japanese-Translation-Ver0.00)  #-#-#-#-#\n"
-"#-#-#-#-#  ja.po (Lincity-NG-Japanese-Translation-Ver0.00)  #-#-#-#-#\n"
-"Project-Id-Version: Lincity-NG-Japanese-Translation-Ver0.00\n"
+"Project-Id-Version: LinCity NG\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-24 21:11+0100\n"
-"PO-Revision-Date: 2007-12-27 19:22+0900\n"
+"POT-Creation-Date: 2026-08-16 19:32-0300\n"
+"PO-Revision-Date: 2007-12-27 20:04+0900\n"
 "Last-Translator: MH35 <mh35jp@gmail.com>\n"
-"Language-Team: MH35 <mh35jp@gmail.com>\n"
+"Language-Team: German\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  ja.po (Lincity-NG-Japanese-Translation-Ver0.00)  #-#-#-#-#\n"
+"#-#-#-#-#  ja.po (Lincity-NG-Japanese-Translation-Ver0.00)  #-#-#-#-#\n"
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "#-#-#-#-#  ja.po (LinCity NG)  #-#-#-#-#\n"
-"Project-Id-Version: LinCity NG\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Feb 18 22:35:34 2008\n"
-"PO-Revision-Date: 2007-12-27 20:04+0900\n"
-"Last-Translator: MH35 <mh35jp@gmail.com>\n"
-"Language-Team: German\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "#-#-#-#-#  ja.po (LinCity NG)  #-#-#-#-#\n"
-"Project-Id-Version: LinCity NG\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Feb 18 22:35:34 2008\n"
-"PO-Revision-Date: 2007-12-27 20:04+0900\n"
-"Last-Translator: MH35 <mh35jp@gmail.com>\n"
-"Language-Team: German\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/lincity-ng/ButtonPanel.cpp:200
-msgid "Query Tool"
-msgstr "調査ツール"
-
-#: src/lincity-ng/ButtonPanel.cpp:201
-msgid "Bulldozer"
-msgstr "破壊"
-
-#: src/lincity-ng/ButtonPanel.cpp:203
-msgid "Residential: 50 denizens, low birthrate, high deathrate"
-msgstr "居住区: 50人の居住者、低出生率、高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:204
-msgid "Residential: 100 denizens, high birthrate, low deathrate"
-msgstr "居住区: 100人の居住者、高出生率、低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:205
-msgid "Residential: 200 denizens, high birthrate, high deathrate"
-msgstr "居住区: 200人の居住者、高出生率、高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:206
-msgid "Residential: 100 denizens, low birthrate, high deathrate"
-msgstr "居住区: 100人の居住者、低出生率、高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:207
-msgid "Residential: 200 denizens, high birthrate, low deathrate"
-msgstr "居住区: 200人の居住者、高出生率、低死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:208
-msgid "Residential: 400 denizens, high birthrate, high deathrate"
-msgstr "居住区: 400人の居住者、高出生率、高死亡率"
-
-#: src/lincity-ng/ButtonPanel.cpp:217
-msgid " [Click right for help.]"
-msgstr "[ヘルプのために右クリックしてください。]"
-
-#: src/lincity-ng/ButtonPanel.cpp:245 src/lincity-ng/ButtonPanel.cpp:288
-#, c-format
-msgid "%s (Techlevel %.1f required.)"
-msgstr "%s (技術レベル %.1f が必要です。)"
-
-#: src/lincity-ng/ButtonPanel.cpp:254
-#, c-format
-msgid "%s is disabled (loaded old game)."
+#: src/lincity-ng/ButtonPanel.cpp:341 src/lincity-ng/ButtonPanel.cpp:349
+#: src/lincity-ng/ButtonPanel.cpp:357
+msgid "requires"
 msgstr ""
 
-#: src/lincity-ng/Dialog.cpp:174
-msgid "Launchsite"
-msgstr "打ち上げ場"
+#: src/lincity-ng/ButtonPanel.cpp:344
+#, fuzzy
+msgid "tech level"
+msgstr "技術レベル"
 
-#: src/lincity-ng/Dialog.cpp:343
-msgid "----- IN TEST MODE -------"
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:345
-#, c-format
-msgid "Game statistics from LinCity-NG Version %s"
-msgstr "LinCity-NG バージョン %s からのゲームの統計"
-
-#: src/lincity-ng/Dialog.cpp:348
-#, c-format
-msgid "Initial loaded scene - %s"
-msgstr "最初に読み込まれたシーン - %s"
-
-#: src/lincity-ng/Dialog.cpp:352
-#, c-format
-msgid "Economy is sustainable"
-msgstr "経済は持続可能です。"
-
-#: src/lincity-ng/Dialog.cpp:355
-#, c-format
-msgid "Population  %d  of which  %d  are not housed."
-msgstr "人口は%d人でうち%d人は家に住んでません。"
-
-#: src/lincity-ng/Dialog.cpp:359
-#, c-format
-msgid "Max population %d  Number evacuated %d Total births %d"
-msgstr "最大人口 %d 避難人口 %d 総出生数 %d"
-
-#: src/lincity-ng/Dialog.cpp:363
-#, c-format
-msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
-msgstr "日付 %s %04d  所持金 %8d   技術レベル %5.1f (%5.1f)"
-
-#: src/lincity-ng/Dialog.cpp:369
-#, c-format
-msgid ".Deaths by starvation %7d   History %8.3f"
-msgstr ".餓死者 %7d   履歴 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:373
-#, c-format
-msgid "Deaths from pollution %7d   History %8.3f"
-msgstr "公害による死亡者 %7d   履歴 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:376
-#, c-format
-msgid "Years of unemployment %7d   History %8.3f"
-msgstr "失業年数 %7d   履歴 %8.3f"
-
-#: src/lincity-ng/Dialog.cpp:379
-#, c-format
-msgid "Rockets launched %2d  Successful launches %2d"
-msgstr "打ち上げロケット数 %2d  打ち上げ成功数 %2d"
-
-#: src/lincity-ng/Dialog.cpp:388
-#, c-format
-msgid ".   Residences %4d         Markets %4d            Farms %4d"
-msgstr ".   居住区 %4d         市場 %4d            農場 %4d"
-
-#: src/lincity-ng/Dialog.cpp:398
-#, c-format
-msgid ".  Water wells %4d"
-msgstr ""
-
-#: src/lincity-ng/Dialog.cpp:400
-#, c-format
-msgid ".    Monuments %4d         Schools %4d     Universities %4d"
-msgstr ".    モニュメント %4d         学校 %4d     大学 %4d"
-
-#: src/lincity-ng/Dialog.cpp:404
-#, c-format
-msgid ".Fire stations %4d           Parks %4d    Sports fields %4d"
-msgstr ".消防署 %4d           公園 %4d    スポーツ広場 %4d"
-
-#: src/lincity-ng/Dialog.cpp:408
-#, c-format
-msgid "Health centres %4d            Tips %4d         Shanties %4d"
-msgstr "病院 %4d            ゴミ集積場 %4d         掘っ立て小屋 %4d"
-
-#: src/lincity-ng/Dialog.cpp:414
-#, c-format
-msgid ".    Windmills %4d     Coal powers %4d     Solar powers %4d"
-msgstr ".    風車 %4d     石炭発電所 %4d     太陽光発電所 %4d"
-
-#: src/lincity-ng/Dialog.cpp:419
-#, c-format
-msgid ".  Substations %4d     Power lines %4d            Ports %4d"
-msgstr ".  変電所 %4d     送電線 %4d            港 %4d"
-
-#: src/lincity-ng/Dialog.cpp:423
-#, c-format
-msgid ".       Tracks %4d           Roads %4d             Rail %4d"
-msgstr ".       砂利道 %4d           道路 %4d             線路 %4d"
-
-#: src/lincity-ng/Dialog.cpp:429
-#, c-format
-msgid ".    Potteries %4d     Blacksmiths %4d            Mills %4d"
-msgstr ".    陶器工場 %4d     鍛冶屋 %4d            織物工場 %4d"
-
-#: src/lincity-ng/Dialog.cpp:433
-#, c-format
-msgid ".   Light inds %4d      Heavy inds %4d        Recyclers %4d"
-msgstr ".   軽工業工場 %4d      重工業工場 %4d        リサイクル工場 %4d"
-
-#: src/lincity-ng/Dialog.cpp:437
-#, c-format
-msgid ".   Coal mines %4d       Ore mines %4d         Communes %4d"
-msgstr ".   石炭鉱山 %4d       鉱石鉱山 %4d         共同生産所 %4d"
-
-#: src/lincity-ng/Dialog.cpp:594 src/lincity/lintypes.cpp:88
-#: src/lincity/modules/market.cpp:1001
-msgid "Market"
-msgstr "市場"
-
-#: src/lincity-ng/Dialog.cpp:648 src/lincity/lintypes.cpp:209
-#: src/lincity/modules/port.cpp:281
-msgid "Port"
-msgstr "港"
-
-#: src/lincity-ng/EconomyGraph.cpp:124
-msgid "Mining"
-msgstr "採掘"
-
-#: src/lincity-ng/EconomyGraph.cpp:126
-msgid "Trade"
-msgstr "交易"
-
-#: src/lincity-ng/EconomyGraph.cpp:128 data/gui/pbar.xml
-msgid "Money"
-msgstr "金"
-
-#: src/lincity-ng/EconomyGraph.cpp:130
-msgid "Popul."
-msgstr "人口"
-
-#: src/lincity-ng/EconomyGraph.cpp:132
-msgid "Techn."
-msgstr "技術"
-
-#: src/lincity-ng/EconomyGraph.cpp:134 src/lincity-ng/MpsInterface.cpp:382
-#: src/lincity/lintypes.cpp:399 src/lincity/modules/residence.cpp:283
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire"
-msgstr "火事"
-
-#: src/lincity-ng/EconomyGraph.cpp:137
-msgid "Economy Overview:"
-msgstr "経済概況"
-
-#: src/lincity-ng/EconomyGraph.cpp:140
-msgid "Sustainability:"
-msgstr "持続可能性:"
-
-#: src/lincity-ng/EconomyGraph.cpp:143
-msgid "Frames per Second:"
-msgstr "fps:"
-
-#: src/lincity-ng/EconomyGraph.cpp:219
-msgid "You lose."
-msgstr "あなたは敗北しました。"
-
-#: src/lincity-ng/GameView.cpp:239
-msgid "Minimap: outline map"
-msgstr "小さい地図: 概要図"
-
-#: src/lincity-ng/GameView.cpp:242
-msgid "Minimap: unemployment"
-msgstr "小さい地図: 非雇用者"
-
-#: src/lincity-ng/GameView.cpp:245
-msgid "Minimap: pollution"
-msgstr "小さい地図: 汚染"
-
-#: src/lincity-ng/GameView.cpp:248
-msgid "Minimap: nourishments"
-msgstr "小さい地図: 食物"
-
-#: src/lincity-ng/GameView.cpp:251
-msgid "Minimap: power supply"
-msgstr "小さい地図: 電力供給"
-
-#: src/lincity-ng/GameView.cpp:254
-msgid "Minimap: firedepartment cover"
-msgstr "小さい地図: 消防署のカバー範囲"
-
-#: src/lincity-ng/GameView.cpp:257
-msgid "Minimap: sport cover"
-msgstr "小さい地図: スポーツのカバー範囲"
-
-#: src/lincity-ng/GameView.cpp:260
-msgid "Minimap: medical care"
-msgstr "小さい地図: 医療治療"
-
-#: src/lincity-ng/GameView.cpp:263
-msgid "Minimap: coal depots"
-msgstr "小さい地図: 石炭貯蔵庫"
-
-#: src/lincity-ng/GameView.cpp:266
-msgid "Minimap: traffic density"
-msgstr "小さい地図: 交通密度"
-
-#: src/lincity-ng/GameView.cpp:1593
-msgid "Estimated Bulldoze Cost: "
-msgstr "見積り破壊コスト:"
-
-#: src/lincity-ng/GameView.cpp:1595
-msgid "Bulldoze Cost: "
-msgstr "破壊コスト:"
-
-#: src/lincity-ng/GameView.cpp:1598 src/lincity-ng/GameView.cpp:1629
-#: src/lincity-ng/ScreenInterface.cpp:274 data/gui/minimap.xml
+#: src/lincity-ng/ButtonPanel.cpp:350 src/lincity-ng/GameView.cpp:1706
+#: src/lincity-ng/GameView.cpp:1718 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1756
+#: src/lincity-ng/GameView.cpp:1765 src/lincity-ng/GameView.cpp:1766
+#: src/lincity-ng/ScreenInterface.cpp:95
 msgid "$"
 msgstr "￥"
 
-#: src/lincity-ng/GameView.cpp:1600
+#: src/lincity-ng/ButtonPanel.cpp:359
+msgid "schools; you have"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:373
+msgid "Query Tool"
+msgstr "調査ツール"
+
+#: src/lincity-ng/ButtonPanel.cpp:378
+#, fuzzy
+msgid ": 50 tenants, low birthrate, high deathrate"
+msgstr "居住区: 50人の居住者、低出生率、高死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:381
+#, fuzzy
+msgid ": 100 tenants, high birthrate, low deathrate"
+msgstr "居住区: 100人の居住者、高出生率、低死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:384
+#, fuzzy
+msgid ": 200 tenants, high birthrate, high deathrate"
+msgstr "居住区: 200人の居住者、高出生率、高死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:387
+#, fuzzy
+msgid ": 100 tenants, low birthrate, high deathrate"
+msgstr "居住区: 100人の居住者、低出生率、高死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:390
+#, fuzzy
+msgid ": 200 tenants, high birthrate, low deathrate"
+msgstr "居住区: 200人の居住者、高出生率、低死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:393
+#, fuzzy
+msgid ": 400 tenants, high birthrate, high deathrate"
+msgstr "居住区: 400人の居住者、高出生率、高死亡率"
+
+#: src/lincity-ng/ButtonPanel.cpp:398
+msgid "Bulldozer"
+msgstr "破壊"
+
+#: src/lincity-ng/ButtonPanel.cpp:400
+msgid "Evacuate"
+msgstr ""
+
+#: src/lincity-ng/ButtonPanel.cpp:402 src/lincity-ng/GameView.cpp:1765
+msgid "Water"
+msgstr "水"
+
+#: src/lincity-ng/ButtonPanel.cpp:406
+#, fuzzy
+msgid "Click right for help."
+msgstr "[ヘルプのために右クリックしてください。]"
+
+#: src/lincity-ng/Config.cpp:436
+msgid "show version and exit"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:437
+msgid "show this text and exit"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:438
+msgid "use OpenGL"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:439
+msgid "use SDL"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:440
+msgid "<width>x<height>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:441
+msgid "specify screensize (eg. -S 1024x768)"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:442
+msgid "run in window"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:443
+#, fuzzy
+msgid "run fullscreen"
+msgstr "フルスクリーン"
+
+#: src/lincity-ng/Config.cpp:444
+msgid "mute audio"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "<file>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:445
+msgid "configuration file location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446 src/lincity-ng/Config.cpp:447
+msgid "<dir>"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:446
+msgid "app data location"
+msgstr ""
+
+#: src/lincity-ng/Config.cpp:447
+msgid "user data location"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:204
+msgid "Launchsite"
+msgstr "打ち上げ場"
+
+#: src/lincity-ng/Dialog.cpp:317
+#, fuzzy
+msgid "Game statistics from LinCity-NG Version"
+msgstr "LinCity-NG バージョン %s からのゲームの統計"
+
+#: src/lincity-ng/Dialog.cpp:320
+#, fuzzy
+msgid "Initial loaded scene"
+msgstr "最初に読み込まれたシーン - %s"
+
+#: src/lincity-ng/Dialog.cpp:324
+msgid "Economy is sustainable"
+msgstr "経済は持続可能です。"
+
+#: src/lincity-ng/Dialog.cpp:328 src/lincity-ng/Mps.cpp:485
+msgid "Population"
+msgstr "人口"
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "of which"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:329
+msgid "are not housed"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:332
+#, fuzzy
+msgid "Max population"
+msgstr "人口"
+
+#: src/lincity-ng/Dialog.cpp:333
+msgid "Number evacuated"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:334
+msgid "Total births"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:337
+msgid "Date"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:338 src/lincity-ng/EconomyGraph.cpp:116
+msgid "Money"
+msgstr "金"
+
+#: src/lincity-ng/Dialog.cpp:339
+#, fuzzy
+msgid "Tech-level"
+msgstr "技術レベル"
+
+#: src/lincity-ng/Dialog.cpp:343
+#, fuzzy
+msgid "Deaths by starvation"
+msgstr ".餓死者 %7d   履歴 %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:344 src/lincity-ng/Dialog.cpp:348
+#: src/lincity-ng/Dialog.cpp:352
+msgid "History"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:347
+#, fuzzy
+msgid "Deaths from pollution"
+msgstr "公害による死亡者 %7d   履歴 %8.3f"
+
+#: src/lincity-ng/Dialog.cpp:351
+#, fuzzy
+msgid "Years of unemployment"
+msgstr "非雇用者を見る"
+
+#: src/lincity-ng/Dialog.cpp:355
+#, fuzzy
+msgid "Rockets launched"
+msgstr "ロケット打ち上げ場"
+
+#: src/lincity-ng/Dialog.cpp:356
+msgid "Successful launches"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:364
+#, fuzzy
+msgid "Residences"
+msgstr "居住区"
+
+#: src/lincity-ng/Dialog.cpp:371
+#, fuzzy
+msgid "Markets"
+msgstr "市場"
+
+#: src/lincity-ng/Dialog.cpp:372
+#, fuzzy
+msgid "Farms"
+msgstr "農場"
+
+#: src/lincity-ng/Dialog.cpp:374
+#, fuzzy
+msgid "Water wells"
+msgstr "水"
+
+#: src/lincity-ng/Dialog.cpp:375
+#, fuzzy
+msgid "Windmills"
+msgstr "風車"
+
+#: src/lincity-ng/Dialog.cpp:382
+#, fuzzy
+msgid "Monuments"
+msgstr "モニュメント"
+
+#: src/lincity-ng/Dialog.cpp:383 src/lincity-ng/Mps.cpp:471
+msgid "Schools"
+msgstr "学校"
+
+#: src/lincity-ng/Dialog.cpp:384
+#, fuzzy
+msgid "Universities"
+msgstr "大学"
+
+#: src/lincity-ng/Dialog.cpp:386
+#, fuzzy
+msgid "Fire stations"
+msgstr "消防署"
+
+#: src/lincity-ng/Dialog.cpp:387
+#, fuzzy
+msgid "Parks"
+msgstr "公園"
+
+#: src/lincity-ng/Dialog.cpp:390
+#, fuzzy
+msgid "Sports fields"
+msgstr "スポーツ広場"
+
+#: src/lincity-ng/Dialog.cpp:392
+#, fuzzy
+msgid "Health centres"
+msgstr "病院"
+
+#: src/lincity-ng/Dialog.cpp:393
+msgid "Tips"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:394 src/lincity-ng/Mps.cpp:492
+msgid "Shanties"
+msgstr "掘っ立て小屋"
+
+#: src/lincity-ng/Dialog.cpp:400
+msgid "Wind powers"
+msgstr ""
+
+#: src/lincity-ng/Dialog.cpp:401
+#, fuzzy
+msgid "Coal powers"
+msgstr "石炭鉱山"
+
+#: src/lincity-ng/Dialog.cpp:402
+#, fuzzy
+msgid "Solar powers"
+msgstr "電力供給を見る"
+
+#: src/lincity-ng/Dialog.cpp:404
+#, fuzzy
+msgid "Substations"
+msgstr "変電所"
+
+#: src/lincity-ng/Dialog.cpp:405
+#, fuzzy
+msgid "Power lines"
+msgstr "送電線"
+
+#: src/lincity-ng/Dialog.cpp:406
+#, fuzzy
+msgid "Ports"
+msgstr "港"
+
+#: src/lincity-ng/Dialog.cpp:408
+#, fuzzy
+msgid "Tracks"
+msgstr "砂利道"
+
+#: src/lincity-ng/Dialog.cpp:411
+#, fuzzy
+msgid "Roads"
+msgstr "道路"
+
+#: src/lincity-ng/Dialog.cpp:414
+msgid "Rail"
+msgstr "線路"
+
+#: src/lincity-ng/Dialog.cpp:422
+#, fuzzy
+msgid "Potteries"
+msgstr "陶器工場"
+
+#: src/lincity-ng/Dialog.cpp:423
+#, fuzzy
+msgid "Blacksmiths"
+msgstr "鍛冶屋"
+
+#: src/lincity-ng/Dialog.cpp:424
+#, fuzzy
+msgid "Mills"
+msgstr "織物工場"
+
+#: src/lincity-ng/Dialog.cpp:426
+#, fuzzy
+msgid "Light inds"
+msgstr "軽い"
+
+#: src/lincity-ng/Dialog.cpp:427
+#, fuzzy
+msgid "Heavy inds"
+msgstr "重い"
+
+#: src/lincity-ng/Dialog.cpp:428
+#, fuzzy
+msgid "Recyclers"
+msgstr "リサイクル工場"
+
+#: src/lincity-ng/Dialog.cpp:430
+#, fuzzy
+msgid "Coal mines"
+msgstr "石炭鉱山"
+
+#: src/lincity-ng/Dialog.cpp:431
+#, fuzzy
+msgid "Ore mines"
+msgstr "鉱石鉱山"
+
+#: src/lincity-ng/Dialog.cpp:432
+#, fuzzy
+msgid "Forests"
+msgstr "消防署"
+
+#: src/lincity-ng/Dialog.cpp:646
+msgid "Market"
+msgstr "市場"
+
+#: src/lincity-ng/Dialog.cpp:715
+msgid "Port"
+msgstr "港"
+
+#: src/lincity-ng/EconomyGraph.cpp:112
+msgid "Mining"
+msgstr "採掘"
+
+#: src/lincity-ng/EconomyGraph.cpp:114
+msgid "Trade"
+msgstr "交易"
+
+#: src/lincity-ng/EconomyGraph.cpp:118
+msgid "Popul."
+msgstr "人口"
+
+#: src/lincity-ng/EconomyGraph.cpp:120
+msgid "Techn."
+msgstr "技術"
+
+#: src/lincity-ng/EconomyGraph.cpp:122
+msgid "Fire"
+msgstr "火事"
+
+#: src/lincity-ng/EconomyGraph.cpp:125
+msgid "Economy Overview:"
+msgstr "経済概況"
+
+#: src/lincity-ng/EconomyGraph.cpp:128
+msgid "Sustainability:"
+msgstr "持続可能性:"
+
+#: src/lincity-ng/EconomyGraph.cpp:131
+msgid "Frames per Second:"
+msgstr "fps:"
+
+#: src/lincity-ng/Game.cpp:268
+#, fuzzy
+msgid "New Invention!"
+msgstr "新しい発明"
+
+#: src/lincity-ng/Game.cpp:269
+#, fuzzy, c++-format
+msgid "{} Available"
+msgstr "織物工場が利用可能です"
+
+#: src/lincity-ng/Game.cpp:270
+#, fuzzy, c++-format
+msgid ""
+"You have reached the tech level which enables you to build {}. See the help "
+"screen for more information about this type of building."
+msgstr ""
+"あなたは道路を建設するだけの技術レベルに到達しました。より詳細な情報を得るた"
+"めにヘルプスクリーンを参照してください。"
+
+#: src/lincity-ng/Game.cpp:390
+#, fuzzy, c++-format
+msgid "Bulldozing a {} costs a lot of money."
+msgstr "モニュメントを破壊するには多額の費用がかかります。"
+
+#: src/lincity-ng/Game.cpp:518
+#, c++-format
+msgid "Loading… {} / {}"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:520
+#, fuzzy
+msgid "Loading…"
+msgstr "シナリオを読み込む"
+
+#: src/lincity-ng/Game.cpp:848
+msgid "Fire!"
+msgstr "火事だ!"
+
+#: src/lincity-ng/Game.cpp:849
+#, fuzzy
+msgid "A Fire has Started"
+msgstr "火事が起こりました。"
+
+#: src/lincity-ng/Game.cpp:850
+#, c++-format
+msgid ""
+"A fire has broken out in a {}! You should address this promptly before the "
+"whole city burns down."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:862 src/lincity-ng/Game.cpp:873
+#, fuzzy
+msgid "Warning!"
+msgstr "警告"
+
+#: src/lincity-ng/Game.cpp:863
+#, fuzzy
+msgid "Out of Credit"
+msgstr "著作権表示"
+
+#: src/lincity-ng/Game.cpp:864
+msgid ""
+"You are deep in debt and at the end of your credit line. You are about to "
+"find out what happens when government checks bounce."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:874
+msgid "Out of Money"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:875
+msgid ""
+"You just spent all your money. Further spending will require you to take out "
+"a loan which you must pay interest on. And certain projects you are not "
+"allowed to pay for with credit. The legislative council strongly advises you "
+"learn to budget."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:889
+msgid "Rocket Ready"
+msgstr "ロケット準備完了"
+
+#: src/lincity-ng/Game.cpp:890
+#, fuzzy
+msgid "A Rocket is Ready for Launch"
+msgstr "ロケット打ち上げ準備完了"
+
+#: src/lincity-ng/Game.cpp:891
+#, c++-format
+msgid ""
+"The rocket at {} has finished construction and is ready for takeoff. You may "
+"choose to launch now or later. If you choose to wait, beware it costs money "
+"to keep the rocket in tip-top shape until launch day."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:896
+msgid "Launch now?"
+msgstr "今打ち上げますか?"
+
+#: src/lincity-ng/Game.cpp:912
+#, fuzzy
+msgid "Rocket Launched"
+msgstr "ロケット打ち上げ場"
+
+#: src/lincity-ng/Game.cpp:918
+#, fuzzy
+msgid "Rocket Crashed"
+msgstr "ロケット打ち上げ場"
+
+#: src/lincity-ng/Game.cpp:919
+msgid ""
+"Looks like your rocket technology leaves some to be desired. Thankfully this "
+"was a test flight, so no people were on board. The scientists say they have "
+"identified the cause of the crash and are confident future launches will go "
+"smoothly."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:927
+#, fuzzy
+msgid "Test Launch Successful"
+msgstr "打ち上げ成功"
+
+#: src/lincity-ng/Game.cpp:928
+msgid "The rocket successfully completed a test flight."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:935
+#, fuzzy
+msgid "Evacuation Launch Successful"
+msgstr "打ち上げ成功"
+
+#: src/lincity-ng/Game.cpp:936
+#, fuzzy
+msgid ""
+"You have successfully evacuated 1000 people. You may consider reducing the "
+"size of your economy appropriately."
+msgstr ""
+"あなたは1000人を疎開させました。あなたは削減された人口を反映して経済規模を縮"
+"小させたいでしょう。"
+
+#: src/lincity-ng/Game.cpp:942
+msgid "You Evacuated Everyone!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:943
+msgid ""
+"Congratulations! You have successfully evacuated everyone from the city and "
+"won the game."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:955
+#, fuzzy
+msgid "You Lost!"
+msgstr "あなたは敗北しました。"
+
+#: src/lincity-ng/Game.cpp:956
+msgid "Everyone Died!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:957
+msgid "Your leadership drove the city to ruin, and all the people died."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:967
+msgid "You Won!"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:968
+#, fuzzy
+msgid "Economy Sustainable"
+msgstr "経済は持続可能です。"
+
+#: src/lincity-ng/Game.cpp:969
+msgid ""
+"Well done! Thanks to your excellent leadership, the city council has "
+"determined the economy is sustainable and (at least theoretically) may "
+"continue indefinitely in prosperity. Therefore, you may retire from your "
+"position -- of course with a substantial pension."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:991
+msgid "Cannot Build"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {} here."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:993
+#, c++-format
+msgid "Cannot build a {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1001
+msgid "You do not have sufficient credit to build this."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1005
+msgid "You cannot build this on credit."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1012
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} here requires {:.1f} tech level, "
+"but you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1014
+#, c++-format
+msgid ""
+"Your tech level is too low. Building a {} requires {:.1f} tech level, but "
+"you have only {:.1f} tech level."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1024
+msgid "This space is occupied."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1029
+msgid "Silly! You cannot build outside the map."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1035
+#, c++-format
+msgid "A {} needs water, but this space is desert."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1041
+#, fuzzy
+msgid "There are no ore reserves left here."
+msgstr "この街にはもう誰もいません。"
+
+#: src/lincity-ng/Game.cpp:1046
+#, c++-format
+msgid ""
+"You need {} schools to support building a new University, but you only have "
+"{}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1069
+msgid "unrecognized reason"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1080
+#, fuzzy
+msgid "Cannot Bulldoze"
+msgstr "破壊したいですか?"
+
+#: src/lincity-ng/Game.cpp:1081
+#, c++-format
+msgid "Cannot bulldoze this {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1088
+#, fuzzy
+msgid "You cannot bulldoze this land fill because it is full of waste."
+msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
+
+#: src/lincity-ng/Game.cpp:1094
+msgid ""
+"You cannot bulldoze this monument because it is still under construction."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1101
+#, c++-format
+msgid "You are not allowed to bulldoze {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1115
+#, c++-format
+msgid ""
+"You are not allowed to bulldoze this {}, but we're not exactly sure why."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1127
+msgid "Cannot Evacuate"
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1130
+#, c++-format
+msgid "Cannot evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/Game.cpp:1132
+#, c++-format
+msgid "You are not allowed to evacuate {}."
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1675
+msgid "Bridge"
+msgstr ""
+
+#: src/lincity-ng/GameView.cpp:1682
+#, fuzzy
+msgid "Bulldoze"
+msgstr "破壊"
+
+#: src/lincity-ng/GameView.cpp:1701
+msgid "Estimated Bulldoze Cost: "
+msgstr "見積り破壊コスト:"
+
+#: src/lincity-ng/GameView.cpp:1703
+msgid "Bulldoze Cost: "
+msgstr "破壊コスト:"
+
+#: src/lincity-ng/GameView.cpp:1708 src/lincity-ng/GameView.cpp:1720
 msgid "n/a"
 msgstr "なし"
 
-#: src/lincity-ng/GameView.cpp:1618
-msgid "Query Tool: Show information about selected building."
-msgstr "調査ツール: 選択された建築物についての情報を見る。"
-
-#: src/lincity-ng/GameView.cpp:1622
-msgid "Bulldozer: remove building -price varies-"
-msgstr "破壊: 建築物除去 値段は変動する"
-
-#: src/lincity-ng/GameView.cpp:1629
+#: src/lincity-ng/GameView.cpp:1716 src/lincity-ng/GameView.cpp:1752
+#: src/lincity-ng/GameView.cpp:1765
 msgid ": Cost to build "
 msgstr ": 建築費用 "
 
-#: src/lincity-ng/GameView.cpp:1630 src/lincity-ng/GameView.cpp:1633
-msgid "$."
-msgstr "￥."
+#: src/lincity-ng/GameView.cpp:1743
+msgid "Query Tool: Show information about selected building."
+msgstr "調査ツール: 選択された建築物についての情報を見る。"
 
-#: src/lincity-ng/GameView.cpp:1630
+#: src/lincity-ng/GameView.cpp:1747
+msgid "Bulldozer: remove building -price varies-"
+msgstr "破壊: 建築物除去 値段は変動する"
+
+#: src/lincity-ng/GameView.cpp:1753 src/lincity-ng/GameView.cpp:1766
 msgid ", to bulldoze "
 msgstr ", 破壊すること "
 
-#: src/lincity-ng/GameView.cpp:1632
+#: src/lincity-ng/GameView.cpp:1755
 msgid " To build "
 msgstr " 建築するために "
 
-#: src/lincity-ng/GameView.cpp:1632
+#: src/lincity-ng/GameView.cpp:1755
 msgid " of them "
 msgstr " それらの中の "
 
-#: src/lincity-ng/GameView.cpp:1633
+#: src/lincity-ng/GameView.cpp:1756
 msgid "will cost about "
 msgstr "おおむねかかるだろう "
 
-#: src/lincity-ng/MainMenu.cpp:141
-msgid "good_times"
+#: src/lincity-ng/GameView.cpp:1761
+msgid "Evacuation of commodities is for free."
 msgstr ""
 
-#: src/lincity-ng/MainMenu.cpp:142
-msgid "bad_times"
+#: src/lincity-ng/MainLincity.cpp:108
+msgid "Error"
 msgstr ""
 
-#: src/lincity-ng/MainMenu.cpp:143
+#: src/lincity-ng/MainLincity.cpp:109
+msgid "Error: Failed to load game."
+msgstr ""
+
+#: src/lincity-ng/MainLincity.cpp:110
+#, c++-format
+msgid "Could not load {}."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:147
+#, fuzzy
+msgid "Good Times"
+msgstr "商品"
+
+#: src/lincity-ng/MainMenu.cpp:151
+msgid "Bad Times"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:155
+msgid "Extreme Arid"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:159
+msgid "Extreme Wetland"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:163
 #, fuzzy
 msgid "Beach"
 msgstr "技術"
 
-#: src/lincity-ng/MainMenu.cpp:144
-msgid "extreme_arid"
-msgstr ""
+#: src/lincity-ng/MainMenu.cpp:167
+#, fuzzy
+msgid "Rocket 98"
+msgstr "ロケット"
 
-#: src/lincity-ng/MainMenu.cpp:145
-msgid "extreme_wetland"
-msgstr ""
-
-#: src/lincity-ng/MainMenu.cpp:212
+#: src/lincity-ng/MainMenu.cpp:179 src/lincity-ng/MainMenu.cpp:180
 msgid "empty"
 msgstr "空"
 
-#: src/lincity-ng/MpsInterface.cpp:227
-msgid "build something here"
-msgstr "何かここに建てる"
+#: src/lincity-ng/MainMenu.cpp:235
+msgid "river delta"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:229
+#: src/lincity-ng/MainMenu.cpp:241
+msgid "semi desert"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:247
+msgid "temperate"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:253
+msgid "swamp"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:705
+msgid "Continue: game loaded."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:716
+msgid ""
+"A prosperous city with a strong economy, established industry and a high "
+"tech level."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:719
+msgid ""
+"A struggling city: debt, unemployment and outdated industry. A hard start."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:722
+msgid ""
+"A small settlement in a harsh desert. Water is precious and farming is "
+"difficult."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:725
+msgid ""
+"A settlement surrounded by swamps. Land is scarce and flooding is a constant "
+"threat."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:728
+msgid "A coastal town with beaches and sea access."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:730
+msgid ""
+"A space program town from 1998, with rocket pads and a busy transport "
+"network."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:737
+msgid "A brand new city in a river delta. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:740
+msgid "A brand new city in semi-desert. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:743
+msgid ""
+"A brand new city in a temperate area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:746
+msgid "A brand new city in a swampy area. The terrain is generated randomly."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:774
+#, c++-format
+msgid "Map size: {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:785
+msgid "Could not load this scenario."
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:809
+msgid "Money {:n}$ | Tech {} | Year {} | Population {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:815
+msgid "Money {:n}$ | Tech {} | Year {} | Size {}x{}"
+msgstr ""
+
+#: src/lincity-ng/MainMenu.cpp:910
+#, fuzzy
+msgid "New game started."
+msgstr "火事が起こりました。"
+
+#: src/lincity-ng/MiniMap.cpp:1019
+msgid "Minimap: outline map"
+msgstr "小さい地図: 概要図"
+
+#: src/lincity-ng/MiniMap.cpp:1022
+msgid "Minimap: unemployment"
+msgstr "小さい地図: 非雇用者"
+
+#: src/lincity-ng/MiniMap.cpp:1025
+msgid "Minimap: pollution"
+msgstr "小さい地図: 汚染"
+
+#: src/lincity-ng/MiniMap.cpp:1028
+msgid "Minimap: nourishments"
+msgstr "小さい地図: 食物"
+
+#: src/lincity-ng/MiniMap.cpp:1031
+msgid "Minimap: power supply"
+msgstr "小さい地図: 電力供給"
+
+#: src/lincity-ng/MiniMap.cpp:1034
+msgid "Minimap: firedepartment cover"
+msgstr "小さい地図: 消防署のカバー範囲"
+
+#: src/lincity-ng/MiniMap.cpp:1037
+msgid "Minimap: sport cover"
+msgstr "小さい地図: スポーツのカバー範囲"
+
+#: src/lincity-ng/MiniMap.cpp:1040
+msgid "Minimap: medical care"
+msgstr "小さい地図: 医療治療"
+
+#: src/lincity-ng/MiniMap.cpp:1043
+#, fuzzy
+msgid "Minimap: coal deposits"
+msgstr "小さい地図: 石炭貯蔵庫"
+
+#: src/lincity-ng/MiniMap.cpp:1046
+msgid "Minimap: traffic density"
+msgstr "小さい地図: 交通密度"
+
+#: src/lincity-ng/MiniMap.cpp:1050
+#, fuzzy
+msgid "Minimap: commodities"
+msgstr "小さい地図: 石炭貯蔵庫"
+
+#: src/lincity-ng/Mps.cpp:279 src/lincity-ng/Mps.cpp:311
+msgid "Lake"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:281 src/lincity-ng/Mps.cpp:313
+#, fuzzy
+msgid "River"
+msgstr "大学"
+
+#: src/lincity-ng/Mps.cpp:283 src/lincity-ng/Mps.cpp:315
+msgid "Pond"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:289
 msgid "no further information available"
 msgstr "より詳細な情報はない"
 
-#: src/lincity-ng/MpsInterface.cpp:380
-msgid "Coverage"
-msgstr "収容範囲"
+#: src/lincity-ng/Mps.cpp:296
+msgid "build something here"
+msgstr "何かここに建てる"
 
-#: src/lincity-ng/MpsInterface.cpp:381 src/lincity-ng/MpsInterface.cpp:384
-#: src/lincity-ng/MpsInterface.cpp:387 src/lincity/modules/commune.cpp:179
-#: src/lincity/modules/commune.cpp:181 src/lincity/modules/commune.cpp:183
-#: src/lincity/modules/commune.cpp:185 src/lincity/modules/water.cpp:20
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml data/gui/coal_survey_yn.xml
-#: data/gui/launch_rocket_yn.xml
-msgid "No"
-msgstr "いいえ"
+#: src/lincity-ng/Mps.cpp:306
+msgid "Fertile"
+msgstr ""
 
-#: src/lincity-ng/MpsInterface.cpp:381 src/lincity-ng/MpsInterface.cpp:384
-#: src/lincity-ng/MpsInterface.cpp:387 src/lincity/modules/commune.cpp:179
-#: src/lincity/modules/commune.cpp:181 src/lincity/modules/commune.cpp:183
-#: src/lincity/modules/commune.cpp:185 src/lincity/modules/water.cpp:20
-#: src/lincity/modules/waterwell.cpp:62 data/gui/bulldoze_monument_yn.xml
-#: data/gui/bulldoze_river_yn.xml data/gui/bulldoze_shanty_yn.xml
-#: data/gui/coal_survey_yn.xml data/gui/launch_rocket_yn.xml
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
 msgid "Yes"
 msgstr "はい"
 
-#: src/lincity-ng/MpsInterface.cpp:385
-msgid "Health"
-msgstr "健康"
+#: src/lincity-ng/Mps.cpp:307 src/lincity-ng/Mps.cpp:323
+#: src/lincity-ng/Mps.cpp:326 src/lincity-ng/Mps.cpp:329
+#: src/lincity-ng/Mps.cpp:332
+msgid "No"
+msgstr "いいえ"
 
-#: src/lincity-ng/MpsInterface.cpp:388 src/lincity-ng/MpsInterface.cpp:516
-#: src/lincity/modules/residence.cpp:286
-msgid "Sport"
-msgstr "スポーツ"
+#: src/lincity-ng/Mps.cpp:322
+#, fuzzy
+msgid "Fire Protection"
+msgstr "消防署"
 
-#: src/lincity-ng/MpsInterface.cpp:390 src/lincity/modules/residence.cpp:288
-#: src/lincity/modules/waterwell.cpp:59
-msgid "Pollution"
-msgstr "汚染"
+#: src/lincity-ng/Mps.cpp:325
+#, fuzzy
+msgid "Health Care"
+msgstr "Health Cvr"
 
-#: src/lincity-ng/MpsInterface.cpp:393
+#: src/lincity-ng/Mps.cpp:328
+msgid "Public Sports"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:331
+#, fuzzy
+msgid "Market Range"
+msgstr "市場"
+
+#: src/lincity-ng/Mps.cpp:336
 msgid "clear"
 msgstr "きれいだ"
 
-#: src/lincity-ng/MpsInterface.cpp:395 src/lincity/modules/residence.cpp:276
+#: src/lincity-ng/Mps.cpp:338
 msgid "good"
 msgstr "よい"
 
-#: src/lincity-ng/MpsInterface.cpp:397
+#: src/lincity-ng/Mps.cpp:340
 msgid "fair"
 msgstr "公正だ"
 
-#: src/lincity-ng/MpsInterface.cpp:399
+#: src/lincity-ng/Mps.cpp:342
 msgid "smelly"
 msgstr "よい匂いがする"
 
-#: src/lincity-ng/MpsInterface.cpp:401
+#: src/lincity-ng/Mps.cpp:344
 msgid "smokey"
 msgstr "煙っぽい"
 
-#: src/lincity-ng/MpsInterface.cpp:403
+#: src/lincity-ng/Mps.cpp:346
 msgid "smoggy"
 msgstr "霧が濃い"
 
-#: src/lincity-ng/MpsInterface.cpp:405
+#: src/lincity-ng/Mps.cpp:348
 msgid "bad"
 msgstr "悪い"
 
-#: src/lincity-ng/MpsInterface.cpp:407
+#: src/lincity-ng/Mps.cpp:350
 msgid "very bad"
 msgstr "とても悪い"
 
-#: src/lincity-ng/MpsInterface.cpp:409
+#: src/lincity-ng/Mps.cpp:352
 msgid "death!"
 msgstr "死亡"
 
-#: src/lincity-ng/MpsInterface.cpp:414
-msgid "Bulldoze Cost"
+#: src/lincity-ng/Mps.cpp:354
+#, fuzzy
+msgid "Air Pollution"
+msgstr "汚染"
+
+#: src/lincity-ng/Mps.cpp:357 src/lincity-ng/Mps.cpp:359
+#, fuzzy
+msgid "Bull. Cost"
 msgstr "破壊費用"
 
-#: src/lincity-ng/MpsInterface.cpp:420
+#: src/lincity-ng/Mps.cpp:357
 msgid "N/A"
 msgstr "なし"
 
-#: src/lincity-ng/MpsInterface.cpp:438
+#: src/lincity-ng/Mps.cpp:361
+#, fuzzy
+msgid "Ore Reserve"
+msgstr "保存"
+
+#: src/lincity-ng/Mps.cpp:362
+#, fuzzy
+msgid "Coal Reserve"
+msgstr "保存"
+
+#: src/lincity-ng/Mps.cpp:363
+msgid "ground level"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:371
+msgid "saddle point"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:373
+msgid "minimum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:375
+msgid "maximum"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:377
+msgid "lowest edge"
+msgstr ""
+
+#: src/lincity-ng/Mps.cpp:408
 msgid "Tax Income"
 msgstr "税収"
 
-#: src/lincity-ng/MpsInterface.cpp:442
+#: src/lincity-ng/Mps.cpp:411
 msgid "Income"
 msgstr "収入"
 
-#: src/lincity-ng/MpsInterface.cpp:446 src/lincity/modules/blacksmith.cpp:98
-#: src/lincity/modules/coal_power.cpp:97 src/lincity/modules/commune.cpp:180
-#: src/lincity/modules/heavy_industry.cpp:275
-#: src/lincity/modules/heavy_industry.cpp:287
-#: src/lincity/modules/market.cpp:1007 src/lincity/modules/mill.cpp:101
-#: src/lincity/modules/port.cpp:290 src/lincity/modules/pottery.cpp:113
-#: src/lincity/modules/rail.cpp:52 src/lincity/modules/road.cpp:47
-#: src/lincity/modules/track.cpp:38 data/gui/pbar.xml data/gui/portdialog.xml
-#: data/gui/tradedialog.xml
-msgid "Coal"
-msgstr "石炭"
-
-#: src/lincity-ng/MpsInterface.cpp:450 src/lincity/modules/blacksmith.cpp:97
-#: src/lincity/modules/cricket.cpp:96 src/lincity/modules/firestation.cpp:113
-#: src/lincity/modules/health_centre.cpp:62 src/lincity/modules/market.cpp:1008
-#: src/lincity/modules/mill.cpp:99 src/lincity/modules/port.cpp:298
-#: src/lincity/modules/pottery.cpp:111 src/lincity/modules/rail.cpp:53
-#: src/lincity/modules/road.cpp:48 src/lincity/modules/rocket_pad.cpp:196
-#: src/lincity/modules/school.cpp:50 src/lincity/modules/track.cpp:39
-#: src/lincity/modules/university.cpp:67 data/gui/pbar.xml
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Goods"
-msgstr "商品"
-
-#: src/lincity-ng/MpsInterface.cpp:454
+#: src/lincity-ng/Mps.cpp:427
 msgid "Export"
 msgstr "輸出"
 
-#: src/lincity-ng/MpsInterface.cpp:458
+#: src/lincity-ng/Mps.cpp:432
 msgid "Expenses"
 msgstr "費用"
 
-#: src/lincity-ng/MpsInterface.cpp:462
+#: src/lincity-ng/Mps.cpp:435
 msgid "Unemp."
 msgstr "非雇用者"
 
-#: src/lincity-ng/MpsInterface.cpp:466
+#: src/lincity-ng/Mps.cpp:439
 msgid "Transport"
 msgstr "輸送"
 
-#: src/lincity-ng/MpsInterface.cpp:470
+#: src/lincity-ng/Mps.cpp:443
 msgid "Imports"
 msgstr "輸入"
 
-#: src/lincity-ng/MpsInterface.cpp:474
+#: src/lincity-ng/Mps.cpp:456
 msgid "Others"
 msgstr "その他"
 
-#: src/lincity-ng/MpsInterface.cpp:479
+#: src/lincity-ng/Mps.cpp:461
 msgid "Net"
 msgstr "合計"
 
-#: src/lincity-ng/MpsInterface.cpp:491
+#: src/lincity-ng/Mps.cpp:467
 msgid "Other Costs"
 msgstr "その他の費用"
 
-#: src/lincity-ng/MpsInterface.cpp:496
+#: src/lincity-ng/Mps.cpp:468
 msgid "For year"
 msgstr "1年にわたって"
 
-#: src/lincity-ng/MpsInterface.cpp:500
+#: src/lincity-ng/Mps.cpp:470
 msgid "Interest"
 msgstr "観光地"
 
-#: src/lincity-ng/MpsInterface.cpp:502
-msgid "Schools"
-msgstr "学校"
-
-#: src/lincity-ng/MpsInterface.cpp:504
+#: src/lincity-ng/Mps.cpp:472
 msgid "Univers."
 msgstr "大学"
 
-#: src/lincity-ng/MpsInterface.cpp:506
+#: src/lincity-ng/Mps.cpp:473
 msgid "Deaths"
 msgstr "死亡"
 
-#: src/lincity-ng/MpsInterface.cpp:508 src/lincity/lintypes.cpp:286
-#: src/lincity/modules/windmill.cpp:74
+#: src/lincity-ng/Mps.cpp:474
 msgid "Windmill"
 msgstr "風車"
 
-#: src/lincity-ng/MpsInterface.cpp:510
+#: src/lincity-ng/Mps.cpp:475
 msgid "Hospital"
 msgstr "病院"
 
-#: src/lincity-ng/MpsInterface.cpp:512
+#: src/lincity-ng/Mps.cpp:476
 msgid "Rockets"
 msgstr "ロケット"
 
-#: src/lincity-ng/MpsInterface.cpp:514
+#: src/lincity-ng/Mps.cpp:477
 msgid "Fire Stn"
 msgstr "消防署"
 
-#: src/lincity-ng/MpsInterface.cpp:518 src/lincity/lintypes.cpp:242
+#: src/lincity-ng/Mps.cpp:478
+msgid "Sport"
+msgstr "スポーツ"
+
+#: src/lincity-ng/Mps.cpp:479
 msgid "Recycle"
 msgstr "リサイクル工場"
 
-#: src/lincity-ng/MpsInterface.cpp:532 data/gui/pbar.xml
-msgid "Population"
-msgstr "人口"
-
-#: src/lincity-ng/MpsInterface.cpp:534 src/lincity/modules/port.cpp:306
+#: src/lincity-ng/Mps.cpp:487
 msgid "Total"
 msgstr "合計"
 
-#: src/lincity-ng/MpsInterface.cpp:535
+#: src/lincity-ng/Mps.cpp:488
 msgid "Housed"
 msgstr "居住"
 
-#: src/lincity-ng/MpsInterface.cpp:536
+#: src/lincity-ng/Mps.cpp:489
 msgid "Homeless"
 msgstr "家なし"
 
-#: src/lincity-ng/MpsInterface.cpp:537
-msgid "Shanties"
-msgstr "掘っ立て小屋"
-
-#: src/lincity-ng/MpsInterface.cpp:538
-msgid "Unn Dths"
-msgstr "Unn 死亡"
-
-#: src/lincity-ng/MpsInterface.cpp:539
+#: src/lincity-ng/Mps.cpp:494
 msgid "Unemployment"
 msgstr "非雇用者"
 
-#: src/lincity-ng/MpsInterface.cpp:540
-msgid "Claims"
-msgstr "苦情"
-
-#: src/lincity-ng/MpsInterface.cpp:541 src/lincity-ng/MpsInterface.cpp:546
-msgid "Rate"
-msgstr "率"
-
-#: src/lincity-ng/MpsInterface.cpp:543
+#: src/lincity-ng/Mps.cpp:497
 msgid "Starvation"
 msgstr "飢餓"
 
-#: src/lincity-ng/MpsInterface.cpp:544
-msgid "Cases"
-msgstr "場合"
+#: src/lincity-ng/Mps.cpp:504
+msgid "Births p.a."
+msgstr ""
 
-#: src/lincity-ng/ScreenInterface.cpp:263
-msgid "MM"
+#: src/lincity-ng/Mps.cpp:512
+#, fuzzy
+msgid "Deaths p.a."
+msgstr "死亡"
+
+#: src/lincity-ng/Mps.cpp:518
+#, fuzzy
+msgid "Unnat. Deaths"
+msgstr "死亡"
+
+#: src/lincity-ng/ScreenInterface.cpp:77
+#, fuzzy
+msgid "M"
 msgstr "百万"
 
-#: src/lincity/engine.cpp:149
-msgid "Port must be connected to river all along right side."
-msgstr "港は全面にわたって右側に川がなければなりません。"
-
-#: src/lincity/engine.cpp:161
+#: src/lincity-ng/ScreenInterface.cpp:80
 #, fuzzy
-msgid "You can't build a water well here: it is all desert."
-msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
+msgid "k"
+msgstr "OK"
 
-#: src/lincity/engine.cpp:175
-msgid "You can't build a tip here: this area was once a landfill"
-msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
+#: src/lincity/commodities.cpp:38
+msgid "Food"
+msgstr "食料"
 
-#: src/lincity/engine.cpp:190
-msgid "You can't build a mine here: This area was once a landfill"
-msgstr "鉱山を建設できません。かつてここは埋立地でした。"
-
-#: src/lincity/engine.cpp:201
-msgid "You can't build a mine here: there is no ore left at this site"
-msgstr "鉱山を建設できません。この場所にはもう鉱石は残っていません。"
-
-#: src/lincity/engine.cpp:211
-#, fuzzy
-msgid "You can't build a park here: it is a desert, parks need water"
-msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
-
-#: src/lincity/engine.cpp:226
-msgid "Too many substations + windmills. You cannot build one more"
-msgstr "変電所と風車が多すぎます。これ以上建設できません。"
-
-#: src/lincity/engine.cpp:235
-msgid "Too many markets. You cannot build one more"
-msgstr "市場が多すぎます。これ以上建設できません。"
-
-#: src/lincity/engine.cpp:259
-msgid ""
-"ERROR: group does not exist. This should not happen! Please consider filling "
-"a bug report to lincity-ng team, with the saved game and what you did :-) "
+#: src/lincity/commodities.cpp:39
+msgid "Labor"
 msgstr ""
-"エラー: グループが存在しません。これは決して起きないはずです。バグレポートを"
-"埋めてセーブデータと何をしたかを添えた上でlincity-ngのチームにバグレポートを"
-"提出することを検討してください。"
 
-#: src/lincity/engine.cpp:565
-msgid "It's at a power line."
-msgstr "それは送電線にあります。"
+#: src/lincity/commodities.cpp:40
+msgid "Coal"
+msgstr "石炭"
 
-#: src/lincity/engine.cpp:567
-msgid "It's at a solar power station."
-msgstr "それは太陽光発電所にあります。"
+#: src/lincity/commodities.cpp:41
+msgid "Goods"
+msgstr "商品"
 
-#: src/lincity/engine.cpp:569
-msgid "It's at a substation."
-msgstr "それは変電所にあります。"
+#: src/lincity/commodities.cpp:42
+msgid "Ore"
+msgstr "鉱石"
 
-#: src/lincity/engine.cpp:571
-msgid "It's at a residential area."
-msgstr "それは居住区にあります。"
+#: src/lincity/commodities.cpp:43
+msgid "Steel"
+msgstr "鉄"
 
-#: src/lincity/engine.cpp:573
-msgid "It's at a farm."
-msgstr "それは農場にあります。"
+#: src/lincity/commodities.cpp:44
+msgid "Waste"
+msgstr "ゴミ"
 
-#: src/lincity/engine.cpp:575
-msgid "It's at a market."
-msgstr "それは市場にあります。"
+#: src/lincity/commodities.cpp:45
+msgid "Lo-Volt"
+msgstr ""
 
-#: src/lincity/engine.cpp:577
-msgid "It's at a track."
-msgstr "それは砂利道にあります。"
+#: src/lincity/commodities.cpp:46
+msgid "Hi-Volt"
+msgstr ""
 
-#: src/lincity/engine.cpp:579
-msgid "It's at a coal mine."
-msgstr "それは石炭鉱山にあります。"
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Production:"
+msgstr "生産"
 
-#: src/lincity/engine.cpp:581
-msgid "It's at a railway."
-msgstr "それは線路にあります。"
+#: src/lincity/lintypes.cpp:81
+#, fuzzy
+msgid "Inventory:"
+msgstr "在庫状況"
 
-#: src/lincity/engine.cpp:583
-msgid "It's at a coal power station."
-msgstr "それは石炭発電所にあります。"
-
-#: src/lincity/engine.cpp:585
-msgid "It's at a road."
-msgstr "それは道路にあります。"
-
-#: src/lincity/engine.cpp:587
-msgid "It's at light industry."
-msgstr "それは軽工業工場にあります。"
-
-#: src/lincity/engine.cpp:589
-msgid "It's at a university."
-msgstr "それは大学にあります。"
-
-#: src/lincity/engine.cpp:591
-msgid "It's at a commune."
-msgstr "それは共同生産所にあります。"
-
-#: src/lincity/engine.cpp:593
-msgid "It's at a tip."
-msgstr "それはゴミ集積場にあります。"
-
-#: src/lincity/engine.cpp:595
-msgid "It's at a port."
-msgstr "それは港にあります。"
-
-#: src/lincity/engine.cpp:597
-msgid "It's at a steel works."
-msgstr "それは製鉄所にあります。"
-
-#: src/lincity/engine.cpp:599
-msgid "It's at a recycle centre."
-msgstr "それはリサイクル工場にあります。"
-
-#: src/lincity/engine.cpp:601
-msgid "It's at a health centre."
-msgstr "それは病院にあります。"
-
-#: src/lincity/engine.cpp:603
-msgid "It's at a rocket site."
-msgstr "それはロケット打ち上げ場にあります。"
-
-#: src/lincity/engine.cpp:605
-msgid "It's at a windmill."
-msgstr "それは風車にあります。"
-
-#: src/lincity/engine.cpp:607
-msgid "It's at a school."
-msgstr "それは学校にあります。"
-
-#: src/lincity/engine.cpp:609
-msgid "It's at a blacksmith."
-msgstr "それは鍛冶屋にあります。"
-
-#: src/lincity/engine.cpp:611
-msgid "It's at a mill."
-msgstr "それは織物工場にあります。"
-
-#: src/lincity/engine.cpp:613
-msgid "It's at a pottery."
-msgstr "それは陶器工場にあります。"
-
-#: src/lincity/engine.cpp:615
-msgid "It's at a fire station!!!."
-msgstr "それは消防署にあります!"
-
-#: src/lincity/engine.cpp:617
-msgid "It's at a sports field!!!."
-msgstr "それはスポーツ広場にあります。"
-
-#: src/lincity/engine.cpp:619
-msgid "It's at a shanty town."
-msgstr "それはスラム街にあります。"
-
-#: src/lincity/engine.cpp:621
-msgid "UNKNOWN!"
-msgstr "わかりません。"
-
-#: src/lincity/fileutil.cpp:233 src/lincity/fileutil.cpp:277
-msgid "Error. Can't find LINCITY_HOME"
-msgstr "LINCITY_HOME が見つかりません。"
-
-#: src/lincity/fileutil.cpp:463
-msgid "Error verifying package. Can't find colour.pal."
-msgstr "パッケージ検証エラー。colour.pal が見つかりません。"
-
-#: src/lincity/fileutil.cpp:476 src/lincity/fileutil.cpp:484
-#, c-format
-msgid "Couldn't create the save directory '%s'\n"
-msgstr "セーブするためのディレクトリ '%s' が作成できませんでした。\n"
-
-#: src/lincity/fileutil.cpp:501
-#, c-format
-msgid "Out of memory: malloc failure\n"
-msgstr "メモリー不足: mallocが失敗しました。\n"
-
-#: src/lincity/lclib.cpp:15
-msgid "Apr"
-msgstr "4月"
-
-#: src/lincity/lclib.cpp:15
-msgid "Feb"
-msgstr "2月"
-
-#: src/lincity/lclib.cpp:15
+#: src/lincity/util.cpp:39
 msgid "Jan"
 msgstr "1月"
 
-#: src/lincity/lclib.cpp:15
+#: src/lincity/util.cpp:39
+msgid "Feb"
+msgstr "2月"
+
+#: src/lincity/util.cpp:39
 msgid "Mar"
 msgstr "3月"
 
-#: src/lincity/lclib.cpp:16
-msgid "Aug"
-msgstr "8月"
+#: src/lincity/util.cpp:39
+msgid "Apr"
+msgstr "4月"
 
-#: src/lincity/lclib.cpp:16
-msgid "Jul"
-msgstr "7月"
-
-#: src/lincity/lclib.cpp:16
-msgid "Jun"
-msgstr "6月"
-
-#: src/lincity/lclib.cpp:16
+#: src/lincity/util.cpp:40
 msgid "May"
 msgstr "5月"
 
-#: src/lincity/lclib.cpp:17
-msgid "Dec"
-msgstr "12月"
+#: src/lincity/util.cpp:40
+msgid "Jun"
+msgstr "6月"
 
-#: src/lincity/lclib.cpp:17
-msgid "Nov"
-msgstr "11月"
+#: src/lincity/util.cpp:40
+msgid "Jul"
+msgstr "7月"
 
-#: src/lincity/lclib.cpp:17
-msgid "Oct"
-msgstr "10月"
+#: src/lincity/util.cpp:40
+msgid "Aug"
+msgstr "8月"
 
-#: src/lincity/lclib.cpp:17
+#: src/lincity/util.cpp:41
 msgid "Sep"
 msgstr "9月"
 
-#: src/lincity/lintypes.cpp:21
-msgid "Empty"
-msgstr "空"
+#: src/lincity/util.cpp:41
+msgid "Oct"
+msgstr "10月"
 
-#: src/lincity/lintypes.cpp:33
-msgid "Power line"
-msgstr "送電線"
+#: src/lincity/util.cpp:41
+msgid "Nov"
+msgstr "11月"
 
-#: src/lincity/lintypes.cpp:44
-msgid "Solar PS"
-msgstr "太陽光発電所"
+#: src/lincity/util.cpp:41
+msgid "Dec"
+msgstr "12月"
 
-#: src/lincity/lintypes.cpp:55 src/lincity/modules/substation.cpp:93
-msgid "Substation"
-msgstr "変電所"
-
-#: src/lincity/lintypes.cpp:66
-msgid "Residential LL"
-msgstr "居住区 LL"
-
-#: src/lincity/lintypes.cpp:77
-msgid "Farm"
-msgstr "農場"
-
-#: src/lincity/lintypes.cpp:99 src/lincity/modules/track.cpp:33
-msgid "Track"
-msgstr "砂利道"
-
-#: src/lincity/lintypes.cpp:110
-msgid "Coalmine"
-msgstr "石炭鉱山"
-
-#: src/lincity/lintypes.cpp:121
-msgid "Railway"
-msgstr "線路"
-
-#: src/lincity/lintypes.cpp:132
-msgid "Coal PS"
-msgstr "石炭発電所"
-
-#: src/lincity/lintypes.cpp:143 src/lincity/modules/road.cpp:42
-msgid "Road"
-msgstr "道路"
-
-#: src/lincity/lintypes.cpp:154
-msgid "Lt. Industry"
-msgstr "軽工業工場"
-
-#: src/lincity/lintypes.cpp:165 src/lincity/modules/university.cpp:59
-msgid "University"
-msgstr "大学"
-
-#: src/lincity/lintypes.cpp:176 src/lincity/modules/commune.cpp:174
-msgid "Commune"
-msgstr "共同生産所"
-
-#: src/lincity/lintypes.cpp:187
-msgid "Ore mine"
-msgstr "鉱石鉱山"
-
-#: src/lincity/lintypes.cpp:198
-msgid "Rubbish tip"
-msgstr "ゴミ集積場"
-
-#: src/lincity/lintypes.cpp:220
-msgid "Hv. Industry"
-msgstr "重工業工場"
-
-#: src/lincity/lintypes.cpp:231
-msgid "Park"
-msgstr "公園"
-
-#: src/lincity/lintypes.cpp:253 src/lincity/modules/residence.cpp:264
-#: src/lincity/modules/water.cpp:17
-msgid "Water"
-msgstr "水"
-
-#: src/lincity/lintypes.cpp:264
-msgid "Health centre"
-msgstr "病院"
-
-#: src/lincity/lintypes.cpp:275
-msgid "Rocket pad"
-msgstr "ロケット打ち上げ場"
-
-#: src/lincity/lintypes.cpp:297 src/lincity/modules/monument.cpp:51
-msgid "Monument"
-msgstr "モニュメント"
-
-#: src/lincity/lintypes.cpp:308 src/lincity/modules/school.cpp:43
-msgid "School"
-msgstr "学校"
-
-#: src/lincity/lintypes.cpp:319 src/lincity/modules/blacksmith.cpp:91
+#: src/lincity/modules/blacksmith.cpp:40
 msgid "Blacksmith"
 msgstr "鍛冶屋"
 
-#: src/lincity/lintypes.cpp:330
-msgid "Mill"
-msgstr "織物工場"
+#: src/lincity/modules/blacksmith.cpp:127
+#: src/lincity/modules/coal_power.cpp:147 src/lincity/modules/coalmine.cpp:171
+#: src/lincity/modules/commune.cpp:175 src/lincity/modules/cricket.cpp:148
+#: src/lincity/modules/firestation.cpp:154
+#: src/lincity/modules/health_centre.cpp:138
+#: src/lincity/modules/heavy_industry.cpp:201
+#: src/lincity/modules/light_industry.cpp:243
+#: src/lincity/modules/market.cpp:270 src/lincity/modules/mill.cpp:121
+#: src/lincity/modules/monument.cpp:140 src/lincity/modules/oremine.cpp:182
+#: src/lincity/modules/organic_farm.cpp:161 src/lincity/modules/port.cpp:211
+#: src/lincity/modules/pottery.cpp:125 src/lincity/modules/recycle.cpp:117
+#: src/lincity/modules/rocket_pad.cpp:265 src/lincity/modules/school.cpp:153
+#: src/lincity/modules/solar_power.cpp:92
+#: src/lincity/modules/substation.cpp:104 src/lincity/modules/tip.cpp:118
+#: src/lincity/modules/university.cpp:121 src/lincity/modules/waterwell.cpp:103
+#: src/lincity/modules/windmill.cpp:120 src/lincity/modules/windpower.cpp:146
+msgid "busy"
+msgstr ""
 
-#: src/lincity/lintypes.cpp:341 src/lincity/modules/pottery.cpp:105
-msgid "Pottery"
-msgstr "陶器工場"
+#: src/lincity/modules/coal_power.cpp:44
+msgid "Coal Power Station"
+msgstr ""
 
-#: src/lincity/lintypes.cpp:352
-msgid "Fire sta'n"
-msgstr "消防署"
-
-#: src/lincity/lintypes.cpp:363 src/lincity/modules/cricket.cpp:92
-msgid "Sports field"
-msgstr "スポーツ広場"
-
-#: src/lincity/lintypes.cpp:375
-msgid "Burnt"
-msgstr "焼け跡"
-
-#: src/lincity/lintypes.cpp:387
-msgid "Shanty town"
-msgstr "スラム街"
-
-#: src/lincity/lintypes.cpp:411
-msgid "Used"
-msgstr "使用中"
-
-#: src/lincity/lintypes.cpp:422
-msgid "Residential ML"
-msgstr "居住区 ML"
-
-#: src/lincity/lintypes.cpp:433
-msgid "Residential HL"
-msgstr "居住区 HL"
-
-#: src/lincity/lintypes.cpp:444
-msgid "Residential LH"
-msgstr "居住区 LH"
-
-#: src/lincity/lintypes.cpp:455
-msgid "Residential MH"
-msgstr "居住区 MH"
-
-#: src/lincity/lintypes.cpp:466
-msgid "Residential HH"
-msgstr "居住区 HH"
-
-#: src/lincity/lintypes.cpp:477
+#: src/lincity/modules/coal_power.cpp:45
 #, fuzzy
-msgid "Water well"
-msgstr "水"
+msgid "Coal Power Stations"
+msgstr "発電所"
 
-#: src/lincity/lintypes.cpp:489
+#: src/lincity/modules/coal_power.cpp:148
+#: src/lincity/modules/heavy_industry.cpp:202
+#: src/lincity/modules/light_industry.cpp:244
+#: src/lincity/modules/organic_farm.cpp:160 src/lincity/modules/recycle.cpp:114
+#: src/lincity/modules/rocket_pad.cpp:266
+#: src/lincity/modules/solar_power.cpp:93 src/lincity/modules/windmill.cpp:121
+#: src/lincity/modules/windpower.cpp:147
+msgid "Tech"
+msgstr "技術"
+
+#: src/lincity/modules/coal_power.cpp:149
+#: src/lincity/modules/organic_farm.cpp:162
+#: src/lincity/modules/solar_power.cpp:94 src/lincity/modules/windmill.cpp:122
+#: src/lincity/modules/windpower.cpp:148
+msgid "Output"
+msgstr "出力"
+
+#: src/lincity/modules/coalmine.cpp:44
+msgid "Coal Mine"
+msgstr "石炭鉱山"
+
+#: src/lincity/modules/coalmine.cpp:45
 #, fuzzy
-msgid "Desert"
-msgstr "保存"
+msgid "Coal Mines"
+msgstr "石炭鉱山"
 
-#: src/lincity/lintypes.cpp:501
-#, fuzzy
-msgid "Tree"
-msgstr "交易"
+#: src/lincity/modules/coalmine.cpp:172 src/lincity/modules/oremine.cpp:183
+msgid "Deposits"
+msgstr ""
 
-#: src/lincity/lintypes.cpp:514
-#, fuzzy
-msgid "Trees"
-msgstr "交易"
-
-#: src/lincity/lintypes.cpp:527
+#: src/lincity/modules/commune.cpp:42 src/lincity/modules/tile.cpp:110
 #, fuzzy
 msgid "Forest"
 msgstr "消防署"
 
-#: src/lincity/loadsave.cpp:129
-#, c-format
-msgid "Save file <%s> - "
-msgstr "セーブファイル <%s> - "
-
-#: src/lincity/loadsave.cpp:130
-msgid "Can't open save file!"
-msgstr "セーブファイルを開けません。"
-
-#: src/lincity/loadsave.cpp:292 src/lincity/old_ldsvguts.cpp:130
-#, c-format
-msgid "Can't open <%s> (gzipped)"
-msgstr " <%s> (gzip圧縮) を開けません。"
-
-#: src/lincity/modules/blacksmith.cpp:94
-#: src/lincity/modules/heavy_industry.cpp:288
-#: src/lincity/modules/light_industry.cpp:278 src/lincity/modules/mill.cpp:96
-#: src/lincity/modules/pottery.cpp:107 src/lincity/modules/recycle.cpp:137
-#: src/lincity/modules/school.cpp:52 src/lincity/modules/university.cpp:68
-msgid "Capacity"
-msgstr "能力"
-
-#: src/lincity/modules/blacksmith.cpp:96 src/lincity/modules/cricket.cpp:94
-#: src/lincity/modules/firestation.cpp:111
-#: src/lincity/modules/health_centre.cpp:60 src/lincity/modules/mill.cpp:98
-#: src/lincity/modules/pottery.cpp:109 src/lincity/modules/recycle.cpp:144
-#: src/lincity/modules/rocket_pad.cpp:194 src/lincity/modules/school.cpp:48
-#: src/lincity/modules/university.cpp:65
-msgid "Inventory"
-msgstr "在庫状況"
-
-#: src/lincity/modules/coal_power.cpp:84
-msgid "Coal Power Station"
+#: src/lincity/modules/commune.cpp:174 src/lincity/modules/organic_farm.cpp:159
+#: src/lincity/modules/waterwell.cpp:101
+msgid "Fertility"
 msgstr ""
 
-#: src/lincity/modules/coal_power.cpp:88 src/lincity/modules/solar_power.cpp:49
-msgid "Max Output"
-msgstr "最大出力"
+#: src/lincity/modules/commune.cpp:176
+msgid "Pollution"
+msgstr "汚染"
 
-#: src/lincity/modules/coal_power.cpp:93 src/lincity/modules/solar_power.cpp:54
-msgid "Current Output"
-msgstr "現状出力"
+#: src/lincity/modules/commune.cpp:178
+msgid "lazy months"
+msgstr ""
 
-#: data/gui/pbar.xml data/gui/tradedialog.xml
-msgid "Jobs"
-msgstr "職業"
+#: src/lincity/modules/cricket.cpp:47
+#, fuzzy
+msgid "Basketball Court"
+msgstr "バスケットボールコートが利用可能です"
 
-#: src/lincity/modules/coal_power.cpp:99
-#: src/lincity/modules/organic_farm.cpp:212 src/lincity/modules/recycle.cpp:142
-#: src/lincity/modules/solar_power.cpp:58 src/lincity/modules/windmill.cpp:75
-msgid "Tech"
-msgstr "技術"
+#: src/lincity/modules/cricket.cpp:48
+#, fuzzy
+msgid "Basketball Courts"
+msgstr "バスケットボールコートが利用可能です"
 
-#: src/lincity/modules/coal_power.cpp:100 src/lincity/modules/power_line.cpp:49
-#: src/lincity/modules/solar_power.cpp:59
-#: src/lincity/modules/substation.cpp:113 src/lincity/modules/windmill.cpp:99
-msgid "Grid ID"
-msgstr "グリッド ID"
+#: src/lincity/modules/cricket.cpp:150
+msgid "Public sports"
+msgstr ""
 
-#: src/lincity/modules/coalmine.cpp:151
-msgid "Coal Mine"
-msgstr "石炭鉱山"
+#: src/lincity/modules/fire.cpp:45
+#, fuzzy
+msgid "Fires"
+msgstr "火事"
 
-#: src/lincity/modules/coalmine.cpp:158 src/lincity/modules/oremine.cpp:164
-msgid "Stock"
-msgstr "在庫"
+#: src/lincity/modules/fire.cpp:159
+msgid "burnt down"
+msgstr ""
 
-#: src/lincity/modules/coalmine.cpp:160 src/lincity/modules/coalmine.cpp:162
-#: src/lincity/modules/oremine.cpp:167
-msgid "Reserve"
-msgstr "保存"
+#: src/lincity/modules/fire.cpp:161
+#, fuzzy
+msgid "degraded"
+msgstr "交易"
 
-#: src/lincity/modules/coalmine.cpp:162
-msgid "EMPTY"
-msgstr "空"
-
-#: src/lincity/modules/commune.cpp:177
-msgid "Activity"
-msgstr "活動"
-
-#: src/lincity/modules/commune.cpp:182
-#: src/lincity/modules/heavy_industry.cpp:286
-#: src/lincity/modules/light_industry.cpp:284
-#: src/lincity/modules/market.cpp:1009 src/lincity/modules/port.cpp:294
-#: src/lincity/modules/pottery.cpp:112 src/lincity/modules/rail.cpp:54
-#: src/lincity/modules/recycle.cpp:145 src/lincity/modules/road.cpp:49
-#: src/lincity/modules/track.cpp:40 data/gui/pbar.xml data/gui/portdialog.xml
-#: data/gui/tradedialog.xml
-msgid "Ore"
-msgstr "鉱石"
-
-#: src/lincity/modules/commune.cpp:184
-#: src/lincity/modules/light_industry.cpp:285
-#: src/lincity/modules/market.cpp:1010 src/lincity/modules/port.cpp:302
-#: src/lincity/modules/rail.cpp:55 src/lincity/modules/road.cpp:50
-#: src/lincity/modules/rocket_pad.cpp:197 src/lincity/modules/track.cpp:41
-#: data/gui/pbar.xml data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Steel"
-msgstr "鉄"
-
-#: src/lincity/modules/commune.cpp:186 src/lincity/modules/market.cpp:1011
-#: src/lincity/modules/rail.cpp:56 src/lincity/modules/recycle.cpp:146
-#: src/lincity/modules/road.cpp:51 src/lincity/modules/track.cpp:42
-msgid "Waste"
-msgstr "ゴミ"
-
-#: src/lincity/modules/firestation.cpp:109
+#: src/lincity/modules/firestation.cpp:47
 msgid "Fire Station"
 msgstr "消防署"
 
-#: src/lincity/modules/health_centre.cpp:58
-msgid "Health Centre"
+#: src/lincity/modules/firestation.cpp:48
+#, fuzzy
+msgid "Fire Stations"
+msgstr "消防署"
+
+#: src/lincity/modules/health_centre.cpp:46
+#, fuzzy
+msgid "Hospitals"
 msgstr "病院"
 
-#: src/lincity/modules/heavy_industry.cpp:270
-msgid "Heavy Industry"
-msgstr ""
+#: src/lincity/modules/heavy_industry.cpp:46
+#: src/lincity/modules/heavy_industry.cpp:47
+#, fuzzy
+msgid "Steel Works"
+msgstr "鉄"
 
-#: src/lincity/modules/heavy_industry.cpp:277
-msgid "Grid"
-msgstr "グリッド"
-
-#: src/lincity/modules/heavy_industry.cpp:280
-#: src/lincity/modules/light_industry.cpp:281
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:139
-#: src/lincity/modules/residence.cpp:263 src/lincity/modules/residence.cpp:267
-#: src/lincity/modules/residence.cpp:270 src/lincity/modules/residence.cpp:273
-#: src/lincity/modules/residence.cpp:279 src/lincity/modules/residence.cpp:282
-#: src/lincity/modules/residence.cpp:285
-msgid "NO"
-msgstr "いいえ"
-
-#: src/lincity/modules/heavy_industry.cpp:283
-#: src/lincity/modules/light_industry.cpp:282
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:140
-#: src/lincity/modules/residence.cpp:271
-msgid "Power"
-msgstr "電力"
-
-#: src/lincity/modules/heavy_industry.cpp:285
-#: src/lincity/modules/light_industry.cpp:283
-msgid "Store"
-msgstr "貯蔵"
-
-#: src/lincity/modules/light_industry.cpp:275
+#: src/lincity/modules/light_industry.cpp:46
 msgid "Light Industry"
 msgstr ""
 
-#: src/lincity/modules/light_industry.cpp:281
-#: src/lincity/modules/organic_farm.cpp:211 src/lincity/modules/recycle.cpp:139
-#: src/lincity/modules/residence.cpp:263 src/lincity/modules/residence.cpp:267
-#: src/lincity/modules/residence.cpp:270 src/lincity/modules/residence.cpp:273
-#: src/lincity/modules/residence.cpp:279 src/lincity/modules/residence.cpp:282
-#: src/lincity/modules/residence.cpp:285
-msgid "YES"
-msgstr "はい"
+#: src/lincity/modules/light_industry.cpp:47
+#, fuzzy
+msgid "Light Industries"
+msgstr "軽工業が利用可能です"
 
-#: src/lincity/modules/market.cpp:1005 src/lincity/modules/mill.cpp:100
-#: src/lincity/modules/port.cpp:286 src/lincity/modules/rail.cpp:50
-#: src/lincity/modules/road.cpp:45 src/lincity/modules/track.cpp:36
-#: data/gui/pbar.xml data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Food"
-msgstr "食料"
-
-#: src/lincity/modules/mill.cpp:94
+#: src/lincity/modules/mill.cpp:40
 msgid "Textile Mill"
 msgstr "織物工場"
 
-#: src/lincity/modules/monument.cpp:57
-msgid "Wisdom Bestowed"
+#: src/lincity/modules/mill.cpp:41
+#, fuzzy
+msgid "Textile Mills"
+msgstr "織物工場"
+
+#: src/lincity/modules/monument.cpp:42
+msgid "Monument"
+msgstr "モニュメント"
+
+#: src/lincity/modules/monument.cpp:137
+#, fuzzy
+msgid "Wisdom bestowed"
 msgstr "希望を与えられた"
 
-#: src/lincity/modules/monument.cpp:61
-#, c-format
-msgid "% Complete"
-msgstr "% 完了"
-
-#: src/lincity/modules/oremine.cpp:161
-msgid "Ore Mine"
-msgstr "鉱石鉱山"
-
-#: src/lincity/modules/organic_farm.cpp:208
-msgid "Organic Farm"
-msgstr "有機農場"
-
-#: src/lincity/modules/organic_farm.cpp:213
-msgid "Prod"
-msgstr "生産"
-
-#: src/lincity/modules/organic_farm.cpp:218
-msgid "Debug info"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:219
-msgid "max with power&water"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:220
-msgid "N tiles with water"
-msgstr ""
-
-#: src/lincity/modules/organic_farm.cpp:221
-#, fuzzy
-msgid "Current production"
-msgstr "現状出力"
-
-#: src/lincity/modules/power_line.cpp:46
-msgid "Power Line"
-msgstr "送電線"
-
-#: src/lincity/modules/rail.cpp:47
-msgid "Rail"
-msgstr "線路"
-
-#: src/lincity/modules/recycle.cpp:134
-msgid "Recycling Center"
-msgstr ""
-
-#: src/lincity/modules/residence.cpp:255
-msgid "Residence"
-msgstr "居住区"
-
-#: src/lincity/modules/residence.cpp:259
-msgid "People"
-msgstr "人々"
-
-#: src/lincity/modules/residence.cpp:268
-msgid "Fed"
-msgstr "食事を与えられている"
-
-#: src/lincity/modules/residence.cpp:274
-msgid "Employed"
-msgstr "雇われている"
-
-#: src/lincity/modules/residence.cpp:276
-msgid "poor"
-msgstr "悪い"
-
-#: src/lincity/modules/residence.cpp:277
-msgid "Job"
-msgstr "職業"
-
-#: src/lincity/modules/residence.cpp:280
-msgid "Health Cvr"
-msgstr "Health Cvr"
-
-#: src/lincity/modules/rocket_pad.cpp:188
-msgid "Rocket Pad"
-msgstr "ロケット打ち上げ場"
-
-#: src/lincity/modules/rocket_pad.cpp:191
+#: src/lincity/modules/monument.cpp:144 src/lincity/modules/rocket_pad.cpp:267
 msgid "Completion"
 msgstr "完成"
 
-#: src/lincity/modules/school.cpp:45
-msgid "Lessons Learned"
-msgstr "学ばれた授業"
+#: src/lincity/modules/oremine.cpp:43
+msgid "Ore Mine"
+msgstr "鉱石鉱山"
 
-#: src/lincity/modules/solar_power.cpp:43
-msgid "Solar power station"
+#: src/lincity/modules/oremine.cpp:44
+#, fuzzy
+msgid "Ore Mines"
+msgstr "鉱石鉱山"
+
+#: src/lincity/modules/organic_farm.cpp:43
+msgid "Farm"
+msgstr "農場"
+
+#: src/lincity/modules/parkland.cpp:37
+msgid "Park"
+msgstr "公園"
+
+#: src/lincity/modules/parkland.cpp:52
+msgid "Park (Pond)"
 msgstr ""
 
-#: src/lincity/modules/substation.cpp:97
-msgid "Local Demand"
-msgstr "地域需要"
+#: src/lincity/modules/parkland.cpp:53
+msgid "Parks (Pond)"
+msgstr ""
 
-#: src/lincity/modules/substation.cpp:101 src/lincity/modules/windmill.cpp:89
-msgid "Grid Status"
-msgstr "グリッドの状況"
+#: src/lincity/modules/port.cpp:213
+#, fuzzy
+msgid "Import"
+msgstr "輸入"
 
-#: src/lincity/modules/substation.cpp:104 src/lincity/modules/windmill.cpp:92
-msgid "T. Cap."
-msgstr "T. Cap."
+#: src/lincity/modules/port.cpp:214
+msgid "Culture exchanged"
+msgstr ""
 
-#: src/lincity/modules/substation.cpp:107 src/lincity/modules/windmill.cpp:95
-msgid "A. Cap."
-msgstr "A. Cap."
+#: src/lincity/modules/pottery.cpp:40
+msgid "Pottery"
+msgstr "陶器工場"
 
-#: src/lincity/modules/substation.cpp:110 src/lincity/modules/windmill.cpp:86
-#: src/lincity/modules/windmill.cpp:98
-msgid "Demand"
-msgstr "需要"
+#: src/lincity/modules/power_line.cpp:38
+msgid "Power Line"
+msgstr "送電線"
 
-#: src/lincity/modules/tip.cpp:100
-msgid "Landfill"
+#: src/lincity/modules/power_line.cpp:39
+#, fuzzy
+msgid "Power Lines"
+msgstr "送電線"
+
+#: src/lincity/modules/power_line.cpp:105
+msgid "usage"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:42
+msgid "Recycling Center"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:43
+#, fuzzy
+msgid "Recycling Centers"
+msgstr "リサイクル工場が利用可能です"
+
+#: src/lincity/modules/recycle.cpp:115
+msgid "Efficiency Ore"
+msgstr ""
+
+#: src/lincity/modules/recycle.cpp:116
+msgid "Efficiency Steel"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:44 src/lincity/modules/residence.cpp:59
+#: src/lincity/modules/residence.cpp:74 src/lincity/modules/residence.cpp:89
+#: src/lincity/modules/residence.cpp:104 src/lincity/modules/residence.cpp:119
+msgid "Residence"
+msgstr "居住区"
+
+#: src/lincity/modules/residence.cpp:421
+msgid "Tenants"
+msgstr ""
+
+#: src/lincity/modules/residence.cpp:422
+#, fuzzy
+msgid "Desireability"
+msgstr "持続可能性:"
+
+#: src/lincity/modules/residence.cpp:424
+#, fuzzy
+msgid "Death p.a."
+msgstr "死亡"
+
+#: src/lincity/modules/residence.cpp:425
+msgid "Unnat. mortality"
+msgstr ""
+
+#: src/lincity/modules/rocket_pad.cpp:53
+msgid "Rocket Pad"
+msgstr "ロケット打ち上げ場"
+
+#: src/lincity/modules/rocket_pad.cpp:54
+#, fuzzy
+msgid "Rocket Pads"
+msgstr "ロケット打ち上げ場"
+
+#: src/lincity/modules/school.cpp:47
+msgid "Elementary School"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:48
+msgid "Elementary Schools"
+msgstr ""
+
+#: src/lincity/modules/school.cpp:154
+#, fuzzy
+msgid "Lessons learned"
+msgstr "学ばれた授業"
+
+#: src/lincity/modules/shanty.cpp:51
+#, fuzzy
+msgid "Shanty Town"
+msgstr "スラム街"
+
+#: src/lincity/modules/shanty.cpp:52
+#, fuzzy
+msgid "Shanty Towns"
+msgstr "スラム街"
+
+#: src/lincity/modules/solar_power.cpp:40
+msgid "Solar Power Plant"
+msgstr ""
+
+#: src/lincity/modules/solar_power.cpp:41
+#, fuzzy
+msgid "Solar Power Plants"
+msgstr "太陽光発電所が利用可能です"
+
+#: src/lincity/modules/substation.cpp:39
+#, fuzzy
+msgid "Power Substation"
+msgstr "発電所"
+
+#: src/lincity/modules/substation.cpp:40
+#, fuzzy
+msgid "Power Substations"
+msgstr "発電所"
+
+#: src/lincity/modules/tile.cpp:49 src/lincity/modules/tile.cpp:50
+msgid "Empty"
+msgstr "空"
+
+#: src/lincity/modules/tile.cpp:64 src/lincity/modules/tile.cpp:65
+#, fuzzy
+msgid "Desert"
+msgstr "保存"
+
+#: src/lincity/modules/tile.cpp:80
+#, fuzzy
+msgid "Tree"
+msgstr "交易"
+
+#: src/lincity/modules/tile.cpp:81 src/lincity/modules/tile.cpp:95
+#: src/lincity/modules/tile.cpp:96
+#, fuzzy
+msgid "Trees"
+msgstr "交易"
+
+#: src/lincity/modules/tip.cpp:42
+#, fuzzy
+msgid "Land Fill"
 msgstr "埋立地"
 
-#: src/lincity/modules/tip.cpp:103
-msgid "Last Month"
-msgstr "先月"
+#: src/lincity/modules/tip.cpp:43
+#, fuzzy
+msgid "Land Fills"
+msgstr "埋立地"
 
-#: src/lincity/modules/tip.cpp:104
-msgid "Tons"
-msgstr "トン"
-
-#: src/lincity/modules/tip.cpp:105
-msgid "Percent"
-msgstr "パーセント"
-
-#: src/lincity/modules/tip.cpp:107
-#, c-format
-msgid "% Filled"
+#: src/lincity/modules/tip.cpp:120
+#, fuzzy
+msgid "Filled"
 msgstr "% 埋め立て"
 
-#: src/lincity/modules/university.cpp:61
-msgid "Tech Produced"
+#: src/lincity/modules/track_road_rail.cpp:49
+msgid "Track"
+msgstr "砂利道"
+
+#: src/lincity/modules/track_road_rail.cpp:65
+msgid "Track (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:66
+msgid "Tracks (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:81
+msgid "Road"
+msgstr "道路"
+
+#: src/lincity/modules/track_road_rail.cpp:96
+msgid "Road (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:97
+msgid "Roads (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:114
+#, fuzzy
+msgid "Rails"
+msgstr "線路"
+
+#: src/lincity/modules/track_road_rail.cpp:128
+msgid "Rail (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:129
+msgid "Rails (Bridge)"
+msgstr ""
+
+#: src/lincity/modules/track_road_rail.cpp:309
+msgid "Traffic"
+msgstr ""
+
+#: src/lincity/modules/university.cpp:40
+msgid "University"
+msgstr "大学"
+
+#: src/lincity/modules/university.cpp:122
+#, fuzzy
+msgid "Tech researched"
 msgstr "生産された技術"
 
-#: src/lincity/modules/water.cpp:21
-msgid "Navigable"
-msgstr "航行可能"
-
-#: src/lincity/modules/waterwell.cpp:56
+#: src/lincity/modules/waterwell.cpp:37
 #, fuzzy
-msgid "Water_well"
+msgid "Water Tower"
 msgstr "水"
 
-#: src/lincity/modules/waterwell.cpp:63
+#: src/lincity/modules/waterwell.cpp:38
+#, fuzzy
+msgid "Water Towers"
+msgstr "水"
+
+#: src/lincity/modules/waterwell.cpp:106
 msgid "Drinkable"
 msgstr ""
 
-#: src/lincity/modules/windmill.cpp:80
-msgid "Local Status"
-msgstr "地域状況"
+#: src/lincity/modules/windpower.cpp:46 src/lincity/modules/windpower.cpp:47
+#, fuzzy
+msgid "Wind Power"
+msgstr "電力"
 
-#: src/lincity/modules/windmill.cpp:83
-msgid "Prod."
-msgstr "生産"
+#: data/gui/creditslist.xml:5 data/gui/mainmenu.xml:102
+msgid "Credits"
+msgstr "著作権表示"
 
-#: src/lincity/old_ldsvguts.cpp:162
-msgid "Loading scene"
-msgstr "シナリオを読み込む"
+#: data/gui/creditslist.xml:7
+msgid "Original Idea and Code"
+msgstr "元のアイデアとコード"
 
-#: src/lincity/power.cpp:271
-msgid "You have too many power grids. Join some of them"
-msgstr "電力網が多すぎます。いくつかくっつけてください。"
+#: data/gui/creditslist.xml:23
+msgid "Code"
+msgstr "プログラムコード"
 
-#: src/lincity/simulate.cpp:80
-msgid ""
-"Upgrading from old game. You have 10 years to build water wells where "
-"needed. After, starvation will occur!  You should check starvation minimap, "
-"and read waterwell help page :-)"
+#: data/gui/creditslist.xml:91
+msgid "Graphics"
+msgstr "グラフィック"
+
+#: data/gui/creditslist.xml:122
+msgid "Sound and Music"
+msgstr "効果音と音楽"
+
+#: data/gui/creditslist.xml:138
+msgid "Translation"
+msgstr "翻訳"
+
+#: data/gui/creditslist.xml:278
+msgid "License"
 msgstr ""
 
-#: data/gui/allgone.xml
-msgid "Nobody Home"
-msgstr "誰も家にいません"
+#: data/gui/credits.xml:48 data/gui/loadgame.xml:90 data/gui/newgame.xml:200
+#: data/gui/savegame.xml:92
+msgid "Back"
+msgstr "戻る"
 
-#: data/gui/allgone.xml data/gui/blacksmithup.xml data/gui/coalmineup.xml
-#: data/gui/coalpowerup.xml data/gui/cricketup.xml data/gui/fire.xml
-#: data/gui/firestationup.xml data/gui/healthup.xml data/gui/hvindustryup.xml
-#: data/gui/import-exportup.xml data/gui/launch-evac.xml
-#: data/gui/launch-fail.xml data/gui/launch-gone.xml data/gui/launch-good.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/no-credit-parkland.xml data/gui/no-credit-recycle.xml
-#: data/gui/no-credit-rocket.xml data/gui/no-credit-solar-power.xml
-#: data/gui/no-credit-university.xml data/gui/nobull-tip.xml
-#: data/gui/options.xml data/gui/parkup.xml data/gui/potteryup.xml
-#: data/gui/railwayup.xml data/gui/recycleup.xml data/gui/riverup.xml
-#: data/gui/roadup.xml data/gui/rocketup.xml data/gui/schoolup.xml
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml data/gui/solarpowerup.xml
-#: data/gui/sustain.xml data/gui/too-old.xml data/gui/universityup.xml
-#: data/gui/warning.xml data/gui/windmillup.xml
+#: data/gui/dialog.xml:31 data/gui/options.xml:199
 msgid "Ok"
 msgstr "OK"
 
-#: data/gui/allgone.xml
-msgid "There are no people left in this city."
-msgstr "この街にはもう誰もいません。"
-
-#: data/gui/allgone.xml
-msgid "You should start a new career elsewhere."
-msgstr "あなたは新しい経歴を別の場所で開始すべきです。"
-
-#: data/gui/blacksmithup.xml
-msgid "Blacksmiths available"
-msgstr "鍛冶屋が利用可能です"
-
-#: data/gui/blacksmithup.xml data/gui/coalmineup.xml data/gui/coalpowerup.xml
-#: data/gui/cricketup.xml data/gui/firestationup.xml data/gui/healthup.xml
-#: data/gui/hvindustryup.xml data/gui/import-exportup.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/parkup.xml data/gui/potteryup.xml data/gui/railwayup.xml
-#: data/gui/recycleup.xml data/gui/riverup.xml data/gui/roadup.xml
-#: data/gui/rocketup.xml data/gui/schoolup.xml data/gui/solarpowerup.xml
-#: data/gui/universityup.xml data/gui/windmillup.xml
-msgid "New Invention"
-msgstr "新しい発明"
-
-#: data/gui/blacksmithup.xml data/gui/coalpowerup.xml data/gui/cricketup.xml
-#: data/gui/firestationup.xml data/gui/healthup.xml data/gui/hvindustryup.xml
-#: data/gui/ltindustryup.xml data/gui/millup.xml data/gui/mod_wind_up.xml
-#: data/gui/parkup.xml data/gui/potteryup.xml data/gui/railwayup.xml
-#: data/gui/recycleup.xml data/gui/riverup.xml data/gui/rocketup.xml
-#: data/gui/schoolup.xml data/gui/solarpowerup.xml data/gui/universityup.xml
-#: data/gui/windmillup.xml
-msgid "See the help screen for more information."
-msgstr "より詳細な情報はヘルプスクリーンを見てください。"
-
-#: data/gui/blacksmithup.xml
-msgid ""
-"You have reached the tech level which enables you to build blacksmiths. "
-"Blacksmiths use jobs and steel to make goods."
+#: data/gui/helpwindow.xml:17
+msgid "Help"
 msgstr ""
-"あなたは鍛冶屋を建設するだけの技術レベルに到達しました。鍛冶屋は仕事と鉄を使"
-"い商品を作ります。"
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Bulldozing a monument costs a lot of money."
-msgstr "モニュメントを破壊するには多額の費用がかかります。"
+#: data/gui/loadgame.xml:12
+msgid "Load Game"
+msgstr "ゲームを読み込む"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Want to bulldoze?"
-msgstr "破壊したいですか?"
+#: data/gui/loadgame.xml:98 data/gui/mainmenu.xml:77
+msgid "Load"
+msgstr "ロード"
 
-#: data/gui/bulldoze_monument_yn.xml data/gui/bulldoze_river_yn.xml
-#: data/gui/bulldoze_shanty_yn.xml data/gui/too-old.xml data/gui/warning.xml
-msgid "Warning"
-msgstr "警告"
+#: data/gui/mainmenu.xml:61 data/gui/newgame.xml:18
+msgid "New Game"
+msgstr "新しいゲーム"
 
-#: data/gui/bulldoze_monument_yn.xml
-msgid "Warning: Bulldozing monuments is expensive"
-msgstr "警告: モニュメント破壊は高いです。"
+#: data/gui/mainmenu.xml:69
+msgid "Continue"
+msgstr "続ける"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Bulldozing a section of river costs a lot of money."
-msgstr "川の区域を破壊するには多額の費用がかかります。"
+#: data/gui/mainmenu.xml:85 data/gui/savegame.xml:100
+msgid "Save"
+msgstr "保存"
 
-#: data/gui/bulldoze_river_yn.xml
-msgid "Warning: Bulldozing water is expensive"
-msgstr "警告: 水の破壊は高いです"
+#: data/gui/mainmenu.xml:94 data/gui/options.xml:12
+msgid "Options"
+msgstr "オプション"
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#: data/gui/mainmenu.xml:110
+msgid "Quit"
+msgstr "終了"
+
+#: data/gui/minimapswitchbuttons.xml:11
+msgid "Show map outline"
+msgstr "概要地図を見る"
+
+#: data/gui/minimapswitchbuttons.xml:21
+msgid "Show nourishments"
+msgstr "食物を見る"
+
+#: data/gui/minimapswitchbuttons.xml:31
+msgid "Show unemployment"
+msgstr "非雇用者を見る"
+
+#: data/gui/minimapswitchbuttons.xml:41
+msgid "Show power supply"
+msgstr "電力供給を見る"
+
+#: data/gui/minimapswitchbuttons.xml:51
+msgid "Show fire department cover"
+msgstr "消防署のカバー区域を見る"
+
+#: data/gui/minimapswitchbuttons.xml:61
+msgid "Show sport cover"
+msgstr "スポーツのカバー領域を見る"
+
+#: data/gui/minimapswitchbuttons.xml:71
+msgid "Show medical care"
+msgstr "医療ケアを見る"
+
+#: data/gui/minimapswitchbuttons.xml:81
+msgid "Show traffic density"
+msgstr "交通密度を見る"
+
+#: data/gui/minimapswitchbuttons.xml:91
+msgid "Show pollution density"
+msgstr "汚染密度を見る"
+
+#: data/gui/minimapswitchbuttons.xml:101
+msgid "Show coal depots"
+msgstr "石炭貯蔵庫を見る"
+
+#: data/gui/minimap.xml:17
+msgid "Map"
+msgstr "地図"
+
+#: data/gui/minimap.xml:18
+msgid "Show the MiniMap"
+msgstr "小さい地図を見る"
+
+#: data/gui/minimap.xml:27
+msgid "Stats"
+msgstr "統計"
+
+#: data/gui/minimap.xml:28
+#, fuzzy
+msgid "Show resources. Use scroll buttons to cycle through views."
 msgstr ""
-"スラム街を破壊するには多額の費用がかかり、もしかしたら火事が起こるかもしれま"
-"せん。"
+"収入と支出を見る。見ることを繰り返すためにこのタブをもう一度クリックしてくだ"
+"さい。"
 
-#: data/gui/bulldoze_shanty_yn.xml
-msgid "Warning: Bulldozing shanties is dangerous."
-msgstr "警告: スラム街の破壊は危険です。"
+#: data/gui/minimap.xml:38
+#, fuzzy
+msgid "Show Income and Expenses. Use scroll buttons to cylce through views."
+msgstr ""
+"収入と支出を見る。見ることを繰り返すためにこのタブをもう一度クリックしてくだ"
+"さい。"
 
-#: data/gui/coal_survey_yn.xml
+#: data/gui/minimap.xml:47
+msgid "Eco"
+msgstr "Eco"
+
+#: data/gui/minimap.xml:48
+msgid "Show economy graphs."
+msgstr "経済グラフを見る"
+
+#: data/gui/minimap.xml:59
+msgid "[m] Scroll up."
+msgstr ""
+
+#: data/gui/minimap.xml:68
+msgid "[n] Scroll down."
+msgstr ""
+
+#: data/gui/minimap.xml:89
+msgid "[+] Zoom in view so that less buildings but more details are visible"
+msgstr "[+] 少ないがより詳細に見えるようにするためにズームする"
+
+#: data/gui/minimap.xml:98
+msgid "[-] Zoom out"
+msgstr "[-] ズームアウト"
+
+#: data/gui/minimap.xml:107
+msgid "toggle terrain height rendering"
+msgstr ""
+
+#: data/gui/minimap.xml:124
+msgid "Gov."
+msgstr ""
+
+#: data/gui/minimap.xml:125
+msgid "Adjust tax rates"
+msgstr ""
+
+#: data/gui/minimap.xml:134
+msgid "[F1] Press this button to get help"
+msgstr " [F1] ヘルプを見る"
+
+#: data/gui/minimap.xml:143
+#, fuzzy
+msgid "[h] Hide high buildings."
+msgstr "[h] 高い建物を隠す。"
+
+#: data/gui/minimap.xml:152
+msgid "Press this button to show statistics"
+msgstr "このボタンを押して統計を見る"
+
+#: data/gui/minimap.xml:161
+#, fuzzy
+msgid "[v] Cycle through MiniMap overlay modes."
+msgstr "[v] オーバーレイモードで小さい地図を循環する"
+
+#: data/gui/newgame.xml:22
+msgid "Choose Scenario"
+msgstr "シナリオを選ぶ"
+
+#: data/gui/newgame.xml:56
+msgid "Village"
+msgstr ""
+
+#: data/gui/newgame.xml:65
+msgid "Without trees"
+msgstr ""
+
+#: data/gui/newgame.xml:208
+msgid "Start"
+msgstr "開始"
+
+#: data/gui/options.xml:17
+msgid "Background Music"
+msgstr "BGM"
+
+#: data/gui/options.xml:62
+msgid "Sound Effects"
+msgstr "効果音"
+
+#: data/gui/options.xml:87
+#, fuzzy
+msgid "Resolution"
+msgstr "汚染"
+
+#: data/gui/options.xml:111
+msgid "Map Size"
+msgstr ""
+
+#: data/gui/options.xml:135
+msgid "Fullscreen"
+msgstr "フルスクリーン"
+
+#: data/gui/options.xml:146
+msgid "Scroll Speed"
+msgstr ""
+
+#: data/gui/options.xml:172
+msgid "Language"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:36 data/gui/pbar.xml:36
+msgid "Tech Level"
+msgstr "技術レベル"
+
+#: data/gui/pbar2nd.xml:78
+msgid "Low Voltage"
+msgstr ""
+
+#: data/gui/pbar2nd.xml:92
+msgid "High Voltage"
+msgstr ""
+
+#: data/gui/savegame.xml:12
+msgid "Save Game"
+msgstr "ゲームを保存する"
+
+#: data/gui/speedpanel.xml:23
+msgid "Pause the game"
+msgstr "ゲームを一時停止する"
+
+#: data/gui/speedpanel.xml:33
+msgid "Run the simulation with normal speed"
+msgstr "中速シミュレーション実行"
+
+#: data/gui/speedpanel.xml:43
+msgid "Run the simulation with fast speed"
+msgstr "高速シミュレーション実行"
+
+#: data/gui/speedpanel.xml:53
+msgid "Run the simulation with very fast speed"
+msgstr "超高速シミュレーション実行"
+
+#: data/gui/speedpanel.xml:62
+msgid "Go back to Main Menu"
+msgstr "メインメニューに戻る"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "Coal Survey"
 msgstr "石炭調査"
 
-#: data/gui/coal_survey_yn.xml
-msgid "Do coal survey?"
-msgstr "石炭調査を行いますか?"
-
-#: data/gui/coal_survey_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "Send out Prospectors"
 msgstr "採掘者を送り出す"
 
-#: data/gui/coal_survey_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:4
 msgid "This will cost you 1 million once. After that it is free to call again."
 msgstr ""
 "これは1度だけ100万の費用がかかります。その後は自由に再び呼び出すことが可能で"
 "す。"
 
-#: data/gui/coalmineup.xml
-msgid "Coal Mine available"
-msgstr "炭鉱が利用可能です"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/coal_survey_yn.xml:5
+msgid "Do coal survey?"
+msgstr "石炭調査を行いますか?"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"See the help screen for more information on coal mines and coal surveys."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Governor"
 msgstr ""
-"石炭鉱山および石炭調査のより詳細な情報はヘルプスクリーンを見てください。"
 
-#: data/gui/coalmineup.xml
-msgid ""
-"You have reached the tech level which enables you to dig deep coal mines."
-msgstr "あなたは深い石炭鉱石を掘るだけの技術レベルに到達しました。"
-
-#: data/gui/coalpowerup.xml
-msgid "Coal Fired Power Stations available"
-msgstr "石炭発電所が利用可能です"
-
-#: data/gui/coalpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build coal fired power "
-"stations."
-msgstr "あなたは石炭火力発電所を建設するだけの技術レベルに到達しました。"
-
-#: data/gui/credits.xml data/gui/loadgame.xml data/gui/newgame.xml
-#: data/gui/savegame.xml
-msgid "Back"
-msgstr "戻る"
-
-#: data/gui/creditslist.xml
-msgid "Code"
-msgstr "プログラムコード"
-
-#: data/gui/creditslist.xml data/gui/mainmenu.xml
-msgid "Credits"
-msgstr "著作権表示"
-
-#: data/gui/creditslist.xml
-msgid "Graphics"
-msgstr "グラフィック"
-
-#: data/gui/creditslist.xml
-msgid "Original Idea and Code"
-msgstr "元のアイデアとコード"
-
-#: data/gui/creditslist.xml
-msgid "Sound and Music"
-msgstr "効果音と音楽"
-
-#: data/gui/creditslist.xml
-msgid "Translation"
-msgstr "翻訳"
-
-#: data/gui/cricketup.xml
-msgid "Basketball Courts available"
-msgstr "バスケットボールコートが利用可能です"
-
-#: data/gui/cricketup.xml
-msgid ""
-"Your people have invented basketball. Basketball Courts use a few jobs and "
-"goods and make people in the surrounding areas (about 10 units in each "
-"direction) happier."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Tax rates (0 to 2x the defaults)"
 msgstr ""
-"あなたの人々はバスケットボールを発明しました。バスケットボールのコートは少し"
-"の仕事と商品を用いて周囲の地域(おおむね各方向10ユニット程度)の人々を幸せにし"
-"ます。"
 
-#: data/gui/fire.xml
-msgid "A Fire has started"
-msgstr "火事が起こりました。"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Income tax"
+msgstr "収入"
 
-#: data/gui/fire.xml
-msgid "You better go and look for it"
-msgstr "それを見に行くべきです"
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Coal tax"
+msgstr "石炭発電所"
 
-#: data/gui/firestationup.xml
-msgid "Fire Stations available"
-msgstr "消防署が利用可能です"
-
-#: data/gui/firestationup.xml
-msgid ""
-"You have reached the tech level which enables you to build fire stations. "
-"Fire stations prevent most fires from starting. If you haven't had any fires "
-"yet, you might not think you need them."
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Ore tax"
 msgstr ""
-"あなたは消防署を建設するだけの技術レベルに到達しました。消防署はほとんどの火"
-"事を防止します。もしこれまで火事を起こしたことがなければ、これが必要ではない"
-"と思うでしょう。"
 
-#: data/gui/gamestats.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Goods tax"
+msgstr "商品"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Dole"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+#, fuzzy
+msgid "Transport cost"
+msgstr "輸送"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "High taxes make industry produce less and citizens move away."
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/governor.xml:4
+msgid "Close"
+msgstr ""
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
 msgid "Gamestats"
 msgstr "ゲーム統計"
 
-#: data/gui/gamestats.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/gamestats.xml:4
 msgid "Okay"
 msgstr "OK"
 
-#: data/gui/healthup.xml
-msgid "Health Centres available"
-msgstr "病院が利用可能です"
-
-#: data/gui/healthup.xml
-msgid ""
-"You have reached the tech level which enables you to build health centres. "
-"Heath centres reduce the number of people killed by pollution and increase "
-"overall productivity."
-msgstr ""
-"あなたは病院を建設するだけの技術レベルに到達しました。病院は汚染による死者を"
-"削減し全体の生産力を向上させます。"
-
-#: data/gui/hvindustryup.xml
-msgid "Heavy Industry available"
-msgstr "重工業が利用可能です"
-
-#: data/gui/hvindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build heavy industry "
-"(steel works). Heavy industry produces steel. "
-msgstr ""
-"あなたは重工業工場(製鋼場)を建設するだけの技術レベルに到達しました。製鋼場は"
-"鉄を生産します。"
-
-#: data/gui/import-exportup.xml
-msgid "Import/Export available"
-msgstr "輸入/輸出が利用可能です"
-
-#: data/gui/import-exportup.xml
-msgid ""
-"You can now import and export coal, goods, ore and steel. Read the help "
-"pages on these subjects to find out how to use them. "
-msgstr ""
-"あなたは今や石炭、商品、鉱石、鉄の輸出入ができます。使い方を知るためにこの主"
-"題についてのヘルプページを読んでください。"
-
-#: data/gui/launch-evac.xml
-msgid "Evacuation Launch Good"
-msgstr "疎開のための打ち上げは成功です"
-
-#: data/gui/launch-evac.xml
-msgid ""
-"You have evacuated 1000 people. You might want to reduce the size of your "
-"economy to reflect the reduced population. "
-msgstr ""
-"あなたは1000人を疎開させました。あなたは削減された人口を反映して経済規模を縮"
-"小させたいでしょう。"
-
-#: data/gui/launch-fail.xml
-msgid "Launch Failure"
-msgstr "打ち上げ失敗"
-
-#: data/gui/launch-fail.xml
-msgid ""
-"Your rocket crashed shortly after launch. People no longer trust the "
-"technology for evacuation. You must launch five more unmanned rockets to "
-"restore confidence."
-msgstr ""
-"あなたのロケットは打ち上げ直後に衝突しました。人々は今や疎開のための技術を信"
-"用しません。あなたは5以上の無人ロケットを信頼回復のために打ち上げなければなり"
-"ません。"
-
-#: data/gui/launch-gone.xml
-msgid "Total Evacuation Complete."
-msgstr "全疎開が完了しました。"
-
-#: data/gui/launch-gone.xml
-msgid "Well done you have evacuated all your people."
-msgstr "よくやりました。あなたはすべての人間を疎開させました。"
-
-#: data/gui/launch-gone.xml data/gui/sustain.xml
-msgid "You have won the game."
-msgstr "あなたはゲームに勝利しました。"
-
-#: data/gui/launch-good.xml
-msgid "Doing well."
-msgstr "よくやってます。"
-
-#: data/gui/launch-good.xml
-msgid "Launch Successfull"
-msgstr "打ち上げ成功"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Launch now?"
-msgstr "今打ち上げますか?"
-
-#: data/gui/launch_rocket_yn.xml
-msgid "Rocket Ready"
-msgstr "ロケット準備完了"
-
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid "Rocket ready to launch"
 msgstr "ロケット打ち上げ準備完了"
 
-#: data/gui/launch_rocket_yn.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/launch_rocket_yn.xml:4
 msgid ""
 "You can launch the rocket now or wait until later. If you wait it will "
 "continue costing you money to keep the rocket ready. Launch it later by "
@@ -1680,449 +2086,733 @@ msgstr ""
 "はロケットを準備完了状態に維持するために費用がかかりつづけます。あとで打ち上"
 "げるにはロケット区域をクリックしてください。"
 
-#: data/gui/loadgame.xml data/gui/mainmenu.xml
-msgid "Load"
-msgstr "ロード"
-
-#: data/gui/loadgame.xml
-msgid "Load Game"
-msgstr "ゲームを読み込む"
-
-#: data/gui/ltindustryup.xml
-msgid "Light Industry available"
-msgstr "軽工業が利用可能です"
-
-#: data/gui/ltindustryup.xml
-msgid ""
-"You have reached the tech level which enables you to build light industry. "
-"Light industry produces goods. "
-msgstr ""
-"あなたは軽工業工場を建設するだけの技術レベルに到達しました。軽工業工場は商品"
-"を生産します。"
-
-#: data/gui/mainmenu.xml
-msgid "Continue"
-msgstr "続ける"
-
-#: data/gui/mainmenu.xml data/gui/newgame.xml
-msgid "New Game"
-msgstr "新しいゲーム"
-
-#: data/gui/mainmenu.xml data/gui/options.xml
-msgid "Options"
-msgstr "オプション"
-
-#: data/gui/mainmenu.xml
-msgid "Quit"
-msgstr "終了"
-
-#: data/gui/mainmenu.xml
-msgid "Save"
-msgstr "保存"
-
-#: data/gui/millup.xml
-msgid "Mills available"
-msgstr "織物工場が利用可能です"
-
-#: data/gui/millup.xml
-msgid ""
-"You have reached the tech level which enables you to build mills. Mills use "
-"jobs and food to make goods. Watch out, they can use a lot of food! "
-msgstr ""
-"あなたは織物工場を建設するだけの技術レベルに到達しました。織物工場は職業と食"
-"料を用いて商品を作ります。見てください、大量に食料を消費するでしょう。"
-
-#: data/gui/minimap.xml
-msgid "Eco"
-msgstr "Eco"
-
-#: data/gui/minimap.xml
-msgid "Map"
-msgstr "地図"
-
-#: data/gui/minimap.xml
-msgid "Press this button to show statistics"
-msgstr "このボタンを押して統計を見る"
-
-#: data/gui/minimap.xml
-msgid "Show Income and Expenses. Click this tab again to cycle through views."
-msgstr ""
-"収入と支出を見る。見ることを繰り返すためにこのタブをもう一度クリックしてくだ"
-"さい。"
-
-#: data/gui/minimap.xml
-msgid "Show economy graphs."
-msgstr "経済グラフを見る"
-
-#: data/gui/minimap.xml
-msgid "Show resources."
-msgstr "資源を見る"
-
-#: data/gui/minimap.xml
-msgid "Show the MiniMap"
-msgstr "小さい地図を見る"
-
-#: data/gui/minimap.xml
-msgid "Stats"
-msgstr "統計"
-
-#: data/gui/minimap.xml
-msgid "[+] Zoom in view so that less buildings but more details are visible"
-msgstr "[+] 少ないがより詳細に見えるようにするためにズームする"
-
-#: data/gui/minimap.xml
-msgid "[-] Zoom out"
-msgstr "[-] ズームアウト"
-
-#: data/gui/minimap.xml
-msgid "[F1] Press this button to get help"
-msgstr " [F1] ヘルプを見る"
-
-#: data/gui/minimap.xml
-msgid "[h] Hide high buildings. "
-msgstr "[h] 高い建物を隠す。"
-
-#: data/gui/minimap.xml
-msgid "[v] Cycle through MiniMap overlay modes. "
-msgstr "[v] オーバーレイモードで小さい地図を循環する"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show coal depots"
-msgstr "石炭貯蔵庫を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show fire department cover"
-msgstr "消防署のカバー区域を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show map outline"
-msgstr "概要地図を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show medical care"
-msgstr "医療ケアを見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show nourishments"
-msgstr "食物を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show pollution density"
-msgstr "汚染密度を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show power supply"
-msgstr "電力供給を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show sport cover"
-msgstr "スポーツのカバー領域を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show traffic density"
-msgstr "交通密度を見る"
-
-#: data/gui/minimapswitchbuttons.xml
-msgid "Show unemployment"
-msgstr "非雇用者を見る"
-
-#: data/gui/mod_wind_up.xml
-msgid "Modern Windmills available"
-msgstr "現代風風車が利用可能です"
-
-#: data/gui/mod_wind_up.xml
-msgid ""
-"You have reached the tech level which enables you to build modern, more "
-"efficient, windmills. "
-msgstr ""
-"あなたはより効率的な現代的風車を建設するだけの技術レベルに到達しました。"
-
-#: data/gui/newgame.xml
-msgid "Choose Scenario"
-msgstr "シナリオを選ぶ"
-
-#: data/gui/newgame.xml
-msgid "Start"
-msgstr "開始"
-
-#: data/gui/newgame.xml
-msgid "Start with empty board."
-msgstr "空のボードで始める"
-
-#: data/gui/newgame.xml
-msgid "Start with random village."
-msgstr "ランダムな村で始める。"
-
-#: data/gui/no-credit-parkland.xml data/gui/no-credit-recycle.xml
-#: data/gui/no-credit-rocket.xml data/gui/no-credit-solar-power.xml
-#: data/gui/no-credit-university.xml
-msgid "No Credit Available"
-msgstr "何も著作権表示が利用可能ではありません"
-
-#: data/gui/no-credit-parkland.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build parks on credit."
-msgstr ""
-"あなたは財政赤字を保有しています。立法府は公約の公園を建設するのを許可しない"
-"でしょう。"
-
-#: data/gui/no-credit-recycle.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build recycling centres on credit."
-msgstr ""
-"あなたは財政赤字を保有しています。立法府は公約のリサイクルセンターを建設する"
-"のを許可しないでしょう。"
-
-#: data/gui/no-credit-rocket.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build rocket launch pads on credit."
-msgstr ""
-"あなたは財政赤字を保有しています。立法府は公約のロケット打ち上げ場を建設する"
-"のを許可しないでしょう。"
-
-#: data/gui/no-credit-solar-power.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build solar power stations on credit."
-msgstr ""
-"あなたは財政赤字を保有しています。立法府は公約の太陽光発電所を建設するのを許"
-"可しないでしょう。"
-
-#: data/gui/no-credit-university.xml
-msgid ""
-"You have a budget deficit. The legislative council will not allow you to "
-"build universities on credit."
-msgstr ""
-"あなたは財政赤字を保有しています。立法府は公約の大学を建設するのを許可しない"
-"でしょう。"
-
-#: data/gui/nobull-tip.xml
-msgid "Not Allowed"
-msgstr "許可されない"
-
-#: data/gui/nobull-tip.xml
-msgid "Sorry you can't bulldoze a tip."
-msgstr "残念ですがあなたは埋め立て場を破壊できません。"
-
-#: data/gui/options.xml
-msgid "Background Music"
-msgstr "BGM"
-
-#: data/gui/options.xml
-msgid "Fullscreen"
-msgstr "フルスクリーン"
-
-#: data/gui/options.xml
-msgid "Sound Effects"
-msgstr "効果音"
-
-#: data/gui/parkup.xml
-msgid "Parks available"
-msgstr "公園が利用可能です"
-
-#: data/gui/parkup.xml
-msgid ""
-"You have reached the tech level which enables you to build parks. Parks are "
-"used to absorb pollution. "
-msgstr ""
-"あなたは公園を建設するだけの技術レベルに到達しました。公園は汚染を吸収するた"
-"めに使用されます。"
-
-#: data/gui/pbar.xml
-msgid "Tech Level"
-msgstr "技術レベル"
-
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
-msgid "Buy"
-msgstr "購入する"
-
-#: data/gui/portdialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
 msgid "Harbour Trade Settings"
 msgstr "港の交易の設定"
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:4
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
 msgid "Product"
 msgstr "生産"
 
-#: data/gui/portdialog.xml data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:5
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:5
+msgid "Buy"
+msgstr "購入する"
+
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/portdialog.xml:6
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:6
 msgid "Sell"
 msgstr "売る"
 
-#: data/gui/potteryup.xml
-msgid "Potteries available"
-msgstr "陶器工場が利用可能です"
-
-#: data/gui/potteryup.xml
-msgid ""
-"You have reached the tech level which enables you to build potteries. "
-"Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
-msgstr ""
-"あなたは陶器工場を建設するだけの技術レベルに到達しました。陶器工場は仕事と鉱"
-"石を利用して商品を生産します。 (あなたは鉱石を得るために鉱山が必要です。)"
-
-#: data/gui/railwayup.xml
-msgid "Railways available"
-msgstr "線路が利用可能です"
-
-#: data/gui/railwayup.xml
-msgid "You have reached the tech level which enables you to build railways. "
-msgstr "あなたは線路を建設するだけの技術レベルに到達しました。"
-
-#: data/gui/recycleup.xml
-msgid "Recycling Centres available"
-msgstr "リサイクル工場が利用可能です"
-
-#: data/gui/recycleup.xml
-msgid ""
-"You have reached the tech level which enables you to recycling centres. "
-"Recycling centres recycle used goods back into ore. "
-msgstr ""
-"あなたはリサイクル工場を建設するだけの技術レベルに到達しました。リサイクル工"
-"場は商品を使用して鉱石に戻します。"
-
-#: data/gui/riverup.xml
-msgid "Rivers available"
-msgstr "川が利用可能です"
-
-#: data/gui/riverup.xml
-msgid "You have reached the tech level which enables you to build rivers. "
-msgstr "あなたは川を建設するだけの技術レベルに到達しました。"
-
-#: data/gui/roadup.xml
-msgid "Roads available"
-msgstr "道路が利用可能です"
-
-#: data/gui/roadup.xml
-msgid ""
-"You have reached the tech level which enables you to build roads. See the "
-"help screen for more information."
-msgstr ""
-"あなたは道路を建設するだけの技術レベルに到達しました。より詳細な情報を得るた"
-"めにヘルプスクリーンを参照してください。"
-
-#: data/gui/rocketup.xml
-msgid "Rocket Launch Pad available"
-msgstr "ロケット打ち上げ場が利用可能です"
-
-#: data/gui/rocketup.xml
-msgid ""
-"You have reached the tech level which enables you to build rocket launch "
-"pads. Rockets enable you to evacuate your population and is a way to 'win' "
-"the game."
-msgstr ""
-"あなたはロケット打ち上げ場を建設するだけの技術レベルに到達しました。ロケット"
-"打ち上げ場は人口を疎開させることを可能にしゲームに「勝利する」方法です。"
-
-#: data/gui/savegame.xml
-msgid "Save Game"
-msgstr "ゲームを保存する"
-
-#: data/gui/savegame.xml
-msgid "save to selected slot"
-msgstr "選んだスロットにセーブする"
-
-#: data/gui/schoolup.xml
-msgid "Schools available"
-msgstr "学校が利用可能です"
-
-#: data/gui/schoolup.xml
-msgid ""
-"You have reached the tech level which enables you to build schools. Schools "
-"use jobs and goods to increase tech level. "
-msgstr ""
-"あなたは学校を建設するだけの技術レベルに到達しました。学校は仕事と商品を使用"
-"して技術レベルを向上します。"
-
-#: data/gui/shfire-oc.xml
-msgid ""
-"A fire has broken out at a shanty town. The fire is OUT OF CONTROL and may "
-"spread to other areas. "
-msgstr ""
-"火事はスラム街から発生しました。火事は制御不能で他の区域に広がるかもしれませ"
-"ん。"
-
-#: data/gui/shfire-oc.xml data/gui/shfire-uc.xml
-msgid "Fire!"
-msgstr "火事だ!"
-
-#: data/gui/shfire-uc.xml
-msgid ""
-"A fire has broken out at a shanty town. It is in a fire cover area and "
-"APPEARS to be under control. "
-msgstr ""
-"火事はスラム街から発生しました。それは火事のカバーする区域にあり鎮火可能のよ"
-"うに見えます。"
-
-#: data/gui/solarpowerup.xml
-msgid "Solar Power Stations available"
-msgstr "太陽光発電所が利用可能です"
-
-#: data/gui/solarpowerup.xml
-msgid ""
-"You have reached the tech level which enables you to build solar power "
-"stations. "
-msgstr "あなたは太陽光発電所を建設するだけの技術レベルに到達しました。"
-
-#: data/gui/speedpanel.xml
-msgid "Go back to Main Menu"
-msgstr "メインメニューに戻る"
-
-#: data/gui/speedpanel.xml
-msgid "Pause the game"
-msgstr "ゲームを一時停止する"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with fast speed"
-msgstr "高速シミュレーション実行"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with normal speed"
-msgstr "中速シミュレーション実行"
-
-#: data/gui/speedpanel.xml
-msgid "Run the simulation with very fast speed"
-msgstr "超高速シミュレーション実行"
-
-#: data/gui/sustain.xml
-msgid "Economy Sustainable."
-msgstr "経済は持続可能です。"
-
-#: data/gui/sustain.xml
-msgid "LinCity has determined that you have a sustainable economy."
-msgstr "LinCityはあなたが持続可能な経済を保有していることを決定しました。"
-
-#: data/gui/too-old.xml
-msgid ""
-"Sorry, the game you wanted is too old. Cannot load it. Still play with "
-"previous game."
-msgstr ""
-
-#: data/gui/tradedialog.xml
+#: /home/maicom/Documentos/estudo/programacao/projetos/lincity-ng/build/share/lincity-ng/gui/dialogs/tradedialog.xml:4
 msgid "Trade Settings"
 msgstr "貿易設定"
 
-#: data/gui/universityup.xml
-msgid "University available"
-msgstr "大学が利用可能です。"
+#, c-format
+#~ msgid "%s (Techlevel %.1f required.)"
+#~ msgstr "%s (技術レベル %.1f が必要です。)"
 
-#: data/gui/universityup.xml
-msgid ""
-"You have reached the tech level which enables you to build universities. "
-"Universities produces PhDs, which produce more technology. "
-msgstr ""
-"あなたは大学を建設するだけの技術レベルに到達しました。大学は博士を製造し、そ"
-"れはより技術を生産します。"
+#, c-format
+#~ msgid "Population  %d  of which  %d  are not housed."
+#~ msgstr "人口は%d人でうち%d人は家に住んでません。"
 
-#: data/gui/windmillup.xml
-msgid "Windmills available"
-msgstr "風車が利用可能です"
+#, c-format
+#~ msgid "Max population %d  Number evacuated %d Total births %d"
+#~ msgstr "最大人口 %d 避難人口 %d 総出生数 %d"
 
-#: data/gui/windmillup.xml
-msgid "You have reached the tech level which enables you to build windmills. "
-msgstr "あなたは風車を建設するだけの技術レベルに到達しました。"
+#, c-format
+#~ msgid "Date %s %04d  Money %8d   Tech-level %5.1f (%5.1f)"
+#~ msgstr "日付 %s %04d  所持金 %8d   技術レベル %5.1f (%5.1f)"
+
+#, c-format
+#~ msgid "Years of unemployment %7d   History %8.3f"
+#~ msgstr "失業年数 %7d   履歴 %8.3f"
+
+#, c-format
+#~ msgid "Rockets launched %2d  Successful launches %2d"
+#~ msgstr "打ち上げロケット数 %2d  打ち上げ成功数 %2d"
+
+#, c-format
+#~ msgid ".   Residences %4d         Markets %4d            Farms %4d"
+#~ msgstr ".   居住区 %4d         市場 %4d            農場 %4d"
+
+#, c-format
+#~ msgid ".    Monuments %4d         Schools %4d     Universities %4d"
+#~ msgstr ".    モニュメント %4d         学校 %4d     大学 %4d"
+
+#, c-format
+#~ msgid ".Fire stations %4d           Parks %4d    Sports fields %4d"
+#~ msgstr ".消防署 %4d           公園 %4d    スポーツ広場 %4d"
+
+#, c-format
+#~ msgid "Health centres %4d            Tips %4d         Shanties %4d"
+#~ msgstr "病院 %4d            ゴミ集積場 %4d         掘っ立て小屋 %4d"
+
+#, c-format
+#~ msgid ".    Windmills %4d     Coal powers %4d     Solar powers %4d"
+#~ msgstr ".    風車 %4d     石炭発電所 %4d     太陽光発電所 %4d"
+
+#, c-format
+#~ msgid ".  Substations %4d     Power lines %4d            Ports %4d"
+#~ msgstr ".  変電所 %4d     送電線 %4d            港 %4d"
+
+#, c-format
+#~ msgid ".       Tracks %4d           Roads %4d             Rail %4d"
+#~ msgstr ".       砂利道 %4d           道路 %4d             線路 %4d"
+
+#, c-format
+#~ msgid ".    Potteries %4d     Blacksmiths %4d            Mills %4d"
+#~ msgstr ".    陶器工場 %4d     鍛冶屋 %4d            織物工場 %4d"
+
+#, c-format
+#~ msgid ".   Light inds %4d      Heavy inds %4d        Recyclers %4d"
+#~ msgstr ".   軽工業工場 %4d      重工業工場 %4d        リサイクル工場 %4d"
+
+#, c-format
+#~ msgid ".   Coal mines %4d       Ore mines %4d         Communes %4d"
+#~ msgstr ".   石炭鉱山 %4d       鉱石鉱山 %4d         共同生産所 %4d"
+
+#~ msgid "$."
+#~ msgstr "￥."
+
+#~ msgid "Coverage"
+#~ msgstr "収容範囲"
+
+#~ msgid "Health"
+#~ msgstr "健康"
+
+#~ msgid "Unn Dths"
+#~ msgstr "Unn 死亡"
+
+#~ msgid "Claims"
+#~ msgstr "苦情"
+
+#~ msgid "Rate"
+#~ msgstr "率"
+
+#~ msgid "Cases"
+#~ msgstr "場合"
+
+#~ msgid "Port must be connected to river all along right side."
+#~ msgstr "港は全面にわたって右側に川がなければなりません。"
+
+#~ msgid "You can't build a tip here: this area was once a landfill"
+#~ msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
+
+#~ msgid "You can't build a mine here: This area was once a landfill"
+#~ msgstr "鉱山を建設できません。かつてここは埋立地でした。"
+
+#~ msgid "You can't build a mine here: there is no ore left at this site"
+#~ msgstr "鉱山を建設できません。この場所にはもう鉱石は残っていません。"
+
+#, fuzzy
+#~ msgid "You can't build a park here: it is a desert, parks need water"
+#~ msgstr "ゴミ集積場を建設できません。かつてここは埋立地でした。"
+
+#~ msgid "Too many substations + windmills. You cannot build one more"
+#~ msgstr "変電所と風車が多すぎます。これ以上建設できません。"
+
+#~ msgid "Too many markets. You cannot build one more"
+#~ msgstr "市場が多すぎます。これ以上建設できません。"
+
+#~ msgid ""
+#~ "ERROR: group does not exist. This should not happen! Please consider "
+#~ "filling a bug report to lincity-ng team, with the saved game and what you "
+#~ "did :-) "
+#~ msgstr ""
+#~ "エラー: グループが存在しません。これは決して起きないはずです。バグレポート"
+#~ "を埋めてセーブデータと何をしたかを添えた上でlincity-ngのチームにバグレポー"
+#~ "トを提出することを検討してください。"
+
+#~ msgid "It's at a power line."
+#~ msgstr "それは送電線にあります。"
+
+#~ msgid "It's at a solar power station."
+#~ msgstr "それは太陽光発電所にあります。"
+
+#~ msgid "It's at a substation."
+#~ msgstr "それは変電所にあります。"
+
+#~ msgid "It's at a residential area."
+#~ msgstr "それは居住区にあります。"
+
+#~ msgid "It's at a farm."
+#~ msgstr "それは農場にあります。"
+
+#~ msgid "It's at a market."
+#~ msgstr "それは市場にあります。"
+
+#~ msgid "It's at a track."
+#~ msgstr "それは砂利道にあります。"
+
+#~ msgid "It's at a coal mine."
+#~ msgstr "それは石炭鉱山にあります。"
+
+#~ msgid "It's at a railway."
+#~ msgstr "それは線路にあります。"
+
+#~ msgid "It's at a coal power station."
+#~ msgstr "それは石炭発電所にあります。"
+
+#~ msgid "It's at a road."
+#~ msgstr "それは道路にあります。"
+
+#~ msgid "It's at light industry."
+#~ msgstr "それは軽工業工場にあります。"
+
+#~ msgid "It's at a university."
+#~ msgstr "それは大学にあります。"
+
+#~ msgid "It's at a commune."
+#~ msgstr "それは共同生産所にあります。"
+
+#~ msgid "It's at a tip."
+#~ msgstr "それはゴミ集積場にあります。"
+
+#~ msgid "It's at a port."
+#~ msgstr "それは港にあります。"
+
+#~ msgid "It's at a steel works."
+#~ msgstr "それは製鉄所にあります。"
+
+#~ msgid "It's at a recycle centre."
+#~ msgstr "それはリサイクル工場にあります。"
+
+#~ msgid "It's at a health centre."
+#~ msgstr "それは病院にあります。"
+
+#~ msgid "It's at a rocket site."
+#~ msgstr "それはロケット打ち上げ場にあります。"
+
+#~ msgid "It's at a windmill."
+#~ msgstr "それは風車にあります。"
+
+#~ msgid "It's at a school."
+#~ msgstr "それは学校にあります。"
+
+#~ msgid "It's at a blacksmith."
+#~ msgstr "それは鍛冶屋にあります。"
+
+#~ msgid "It's at a mill."
+#~ msgstr "それは織物工場にあります。"
+
+#~ msgid "It's at a pottery."
+#~ msgstr "それは陶器工場にあります。"
+
+#~ msgid "It's at a fire station!!!."
+#~ msgstr "それは消防署にあります!"
+
+#~ msgid "It's at a sports field!!!."
+#~ msgstr "それはスポーツ広場にあります。"
+
+#~ msgid "It's at a shanty town."
+#~ msgstr "それはスラム街にあります。"
+
+#~ msgid "UNKNOWN!"
+#~ msgstr "わかりません。"
+
+#~ msgid "Error. Can't find LINCITY_HOME"
+#~ msgstr "LINCITY_HOME が見つかりません。"
+
+#~ msgid "Error verifying package. Can't find colour.pal."
+#~ msgstr "パッケージ検証エラー。colour.pal が見つかりません。"
+
+#, c-format
+#~ msgid "Couldn't create the save directory '%s'\n"
+#~ msgstr "セーブするためのディレクトリ '%s' が作成できませんでした。\n"
+
+#, c-format
+#~ msgid "Out of memory: malloc failure\n"
+#~ msgstr "メモリー不足: mallocが失敗しました。\n"
+
+#~ msgid "Solar PS"
+#~ msgstr "太陽光発電所"
+
+#~ msgid "Residential LL"
+#~ msgstr "居住区 LL"
+
+#~ msgid "Railway"
+#~ msgstr "線路"
+
+#~ msgid "Lt. Industry"
+#~ msgstr "軽工業工場"
+
+#~ msgid "Commune"
+#~ msgstr "共同生産所"
+
+#~ msgid "Rubbish tip"
+#~ msgstr "ゴミ集積場"
+
+#~ msgid "Hv. Industry"
+#~ msgstr "重工業工場"
+
+#~ msgid "School"
+#~ msgstr "学校"
+
+#~ msgid "Fire sta'n"
+#~ msgstr "消防署"
+
+#~ msgid "Burnt"
+#~ msgstr "焼け跡"
+
+#~ msgid "Used"
+#~ msgstr "使用中"
+
+#~ msgid "Residential ML"
+#~ msgstr "居住区 ML"
+
+#~ msgid "Residential HL"
+#~ msgstr "居住区 HL"
+
+#~ msgid "Residential LH"
+#~ msgstr "居住区 LH"
+
+#~ msgid "Residential MH"
+#~ msgstr "居住区 MH"
+
+#~ msgid "Residential HH"
+#~ msgstr "居住区 HH"
+
+#, c-format
+#~ msgid "Save file <%s> - "
+#~ msgstr "セーブファイル <%s> - "
+
+#~ msgid "Can't open save file!"
+#~ msgstr "セーブファイルを開けません。"
+
+#, c-format
+#~ msgid "Can't open <%s> (gzipped)"
+#~ msgstr " <%s> (gzip圧縮) を開けません。"
+
+#~ msgid "Capacity"
+#~ msgstr "能力"
+
+#~ msgid "Max Output"
+#~ msgstr "最大出力"
+
+#~ msgid "Current Output"
+#~ msgstr "現状出力"
+
+#~ msgid "Jobs"
+#~ msgstr "職業"
+
+#~ msgid "Grid ID"
+#~ msgstr "グリッド ID"
+
+#~ msgid "Stock"
+#~ msgstr "在庫"
+
+#~ msgid "EMPTY"
+#~ msgstr "空"
+
+#~ msgid "Activity"
+#~ msgstr "活動"
+
+#~ msgid "Health Centre"
+#~ msgstr "病院"
+
+#~ msgid "Grid"
+#~ msgstr "グリッド"
+
+#~ msgid "NO"
+#~ msgstr "いいえ"
+
+#~ msgid "Store"
+#~ msgstr "貯蔵"
+
+#~ msgid "YES"
+#~ msgstr "はい"
+
+#, c-format
+#~ msgid "% Complete"
+#~ msgstr "% 完了"
+
+#~ msgid "Organic Farm"
+#~ msgstr "有機農場"
+
+#~ msgid "Prod"
+#~ msgstr "生産"
+
+#, fuzzy
+#~ msgid "Current production"
+#~ msgstr "現状出力"
+
+#~ msgid "People"
+#~ msgstr "人々"
+
+#~ msgid "Fed"
+#~ msgstr "食事を与えられている"
+
+#~ msgid "Employed"
+#~ msgstr "雇われている"
+
+#~ msgid "poor"
+#~ msgstr "悪い"
+
+#~ msgid "Job"
+#~ msgstr "職業"
+
+#~ msgid "Local Demand"
+#~ msgstr "地域需要"
+
+#~ msgid "Grid Status"
+#~ msgstr "グリッドの状況"
+
+#~ msgid "T. Cap."
+#~ msgstr "T. Cap."
+
+#~ msgid "A. Cap."
+#~ msgstr "A. Cap."
+
+#~ msgid "Demand"
+#~ msgstr "需要"
+
+#~ msgid "Last Month"
+#~ msgstr "先月"
+
+#~ msgid "Tons"
+#~ msgstr "トン"
+
+#~ msgid "Percent"
+#~ msgstr "パーセント"
+
+#~ msgid "Navigable"
+#~ msgstr "航行可能"
+
+#, fuzzy
+#~ msgid "Water_well"
+#~ msgstr "水"
+
+#~ msgid "Local Status"
+#~ msgstr "地域状況"
+
+#~ msgid "Prod."
+#~ msgstr "生産"
+
+#~ msgid "You have too many power grids. Join some of them"
+#~ msgstr "電力網が多すぎます。いくつかくっつけてください。"
+
+#~ msgid "Nobody Home"
+#~ msgstr "誰も家にいません"
+
+#~ msgid "You should start a new career elsewhere."
+#~ msgstr "あなたは新しい経歴を別の場所で開始すべきです。"
+
+#~ msgid "Blacksmiths available"
+#~ msgstr "鍛冶屋が利用可能です"
+
+#~ msgid "See the help screen for more information."
+#~ msgstr "より詳細な情報はヘルプスクリーンを見てください。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build blacksmiths. "
+#~ "Blacksmiths use jobs and steel to make goods."
+#~ msgstr ""
+#~ "あなたは鍛冶屋を建設するだけの技術レベルに到達しました。鍛冶屋は仕事と鉄を"
+#~ "使い商品を作ります。"
+
+#~ msgid "Warning: Bulldozing monuments is expensive"
+#~ msgstr "警告: モニュメント破壊は高いです。"
+
+#~ msgid "Bulldozing a section of river costs a lot of money."
+#~ msgstr "川の区域を破壊するには多額の費用がかかります。"
+
+#~ msgid "Warning: Bulldozing water is expensive"
+#~ msgstr "警告: 水の破壊は高いです"
+
+#~ msgid "Bulldozing a shanty town costs a lot of money and may cause a fire."
+#~ msgstr ""
+#~ "スラム街を破壊するには多額の費用がかかり、もしかしたら火事が起こるかもしれ"
+#~ "ません。"
+
+#~ msgid "Warning: Bulldozing shanties is dangerous."
+#~ msgstr "警告: スラム街の破壊は危険です。"
+
+#~ msgid "Coal Mine available"
+#~ msgstr "炭鉱が利用可能です"
+
+#~ msgid ""
+#~ "See the help screen for more information on coal mines and coal surveys."
+#~ msgstr ""
+#~ "石炭鉱山および石炭調査のより詳細な情報はヘルプスクリーンを見てください。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to dig deep coal mines."
+#~ msgstr "あなたは深い石炭鉱石を掘るだけの技術レベルに到達しました。"
+
+#~ msgid "Coal Fired Power Stations available"
+#~ msgstr "石炭発電所が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build coal fired "
+#~ "power stations."
+#~ msgstr "あなたは石炭火力発電所を建設するだけの技術レベルに到達しました。"
+
+#~ msgid ""
+#~ "Your people have invented basketball. Basketball Courts use a few jobs "
+#~ "and goods and make people in the surrounding areas (about 10 units in "
+#~ "each direction) happier."
+#~ msgstr ""
+#~ "あなたの人々はバスケットボールを発明しました。バスケットボールのコートは少"
+#~ "しの仕事と商品を用いて周囲の地域(おおむね各方向10ユニット程度)の人々を幸せ"
+#~ "にします。"
+
+#~ msgid "You better go and look for it"
+#~ msgstr "それを見に行くべきです"
+
+#~ msgid "Fire Stations available"
+#~ msgstr "消防署が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build fire stations. "
+#~ "Fire stations prevent most fires from starting. If you haven't had any "
+#~ "fires yet, you might not think you need them."
+#~ msgstr ""
+#~ "あなたは消防署を建設するだけの技術レベルに到達しました。消防署はほとんどの"
+#~ "火事を防止します。もしこれまで火事を起こしたことがなければ、これが必要では"
+#~ "ないと思うでしょう。"
+
+#~ msgid "Health Centres available"
+#~ msgstr "病院が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build health "
+#~ "centres. Heath centres reduce the number of people killed by pollution "
+#~ "and increase overall productivity."
+#~ msgstr ""
+#~ "あなたは病院を建設するだけの技術レベルに到達しました。病院は汚染による死者"
+#~ "を削減し全体の生産力を向上させます。"
+
+#~ msgid "Heavy Industry available"
+#~ msgstr "重工業が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build heavy industry "
+#~ "(steel works). Heavy industry produces steel. "
+#~ msgstr ""
+#~ "あなたは重工業工場(製鋼場)を建設するだけの技術レベルに到達しました。製鋼場"
+#~ "は鉄を生産します。"
+
+#~ msgid "Import/Export available"
+#~ msgstr "輸入/輸出が利用可能です"
+
+#~ msgid ""
+#~ "You can now import and export coal, goods, ore and steel. Read the help "
+#~ "pages on these subjects to find out how to use them. "
+#~ msgstr ""
+#~ "あなたは今や石炭、商品、鉱石、鉄の輸出入ができます。使い方を知るためにこの"
+#~ "主題についてのヘルプページを読んでください。"
+
+#~ msgid "Evacuation Launch Good"
+#~ msgstr "疎開のための打ち上げは成功です"
+
+#~ msgid "Launch Failure"
+#~ msgstr "打ち上げ失敗"
+
+#~ msgid ""
+#~ "Your rocket crashed shortly after launch. People no longer trust the "
+#~ "technology for evacuation. You must launch five more unmanned rockets to "
+#~ "restore confidence."
+#~ msgstr ""
+#~ "あなたのロケットは打ち上げ直後に衝突しました。人々は今や疎開のための技術を"
+#~ "信用しません。あなたは5以上の無人ロケットを信頼回復のために打ち上げなけれ"
+#~ "ばなりません。"
+
+#~ msgid "Total Evacuation Complete."
+#~ msgstr "全疎開が完了しました。"
+
+#~ msgid "Well done you have evacuated all your people."
+#~ msgstr "よくやりました。あなたはすべての人間を疎開させました。"
+
+#~ msgid "You have won the game."
+#~ msgstr "あなたはゲームに勝利しました。"
+
+#~ msgid "Doing well."
+#~ msgstr "よくやってます。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build light "
+#~ "industry. Light industry produces goods. "
+#~ msgstr ""
+#~ "あなたは軽工業工場を建設するだけの技術レベルに到達しました。軽工業工場は商"
+#~ "品を生産します。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build mills. Mills "
+#~ "use jobs and food to make goods. Watch out, they can use a lot of food! "
+#~ msgstr ""
+#~ "あなたは織物工場を建設するだけの技術レベルに到達しました。織物工場は職業と"
+#~ "食料を用いて商品を作ります。見てください、大量に食料を消費するでしょう。"
+
+#~ msgid "Show resources."
+#~ msgstr "資源を見る"
+
+#~ msgid "Modern Windmills available"
+#~ msgstr "現代風風車が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build modern, more "
+#~ "efficient, windmills. "
+#~ msgstr ""
+#~ "あなたはより効率的な現代的風車を建設するだけの技術レベルに到達しました。"
+
+#~ msgid "Start with empty board."
+#~ msgstr "空のボードで始める"
+
+#~ msgid "Start with random village."
+#~ msgstr "ランダムな村で始める。"
+
+#~ msgid "No Credit Available"
+#~ msgstr "何も著作権表示が利用可能ではありません"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build parks on credit."
+#~ msgstr ""
+#~ "あなたは財政赤字を保有しています。立法府は公約の公園を建設するのを許可しな"
+#~ "いでしょう。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build recycling centres on credit."
+#~ msgstr ""
+#~ "あなたは財政赤字を保有しています。立法府は公約のリサイクルセンターを建設す"
+#~ "るのを許可しないでしょう。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build rocket launch pads on credit."
+#~ msgstr ""
+#~ "あなたは財政赤字を保有しています。立法府は公約のロケット打ち上げ場を建設す"
+#~ "るのを許可しないでしょう。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build solar power stations on credit."
+#~ msgstr ""
+#~ "あなたは財政赤字を保有しています。立法府は公約の太陽光発電所を建設するのを"
+#~ "許可しないでしょう。"
+
+#~ msgid ""
+#~ "You have a budget deficit. The legislative council will not allow you to "
+#~ "build universities on credit."
+#~ msgstr ""
+#~ "あなたは財政赤字を保有しています。立法府は公約の大学を建設するのを許可しな"
+#~ "いでしょう。"
+
+#~ msgid "Not Allowed"
+#~ msgstr "許可されない"
+
+#~ msgid "Sorry you can't bulldoze a tip."
+#~ msgstr "残念ですがあなたは埋め立て場を破壊できません。"
+
+#~ msgid "Parks available"
+#~ msgstr "公園が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build parks. Parks "
+#~ "are used to absorb pollution. "
+#~ msgstr ""
+#~ "あなたは公園を建設するだけの技術レベルに到達しました。公園は汚染を吸収する"
+#~ "ために使用されます。"
+
+#~ msgid "Potteries available"
+#~ msgstr "陶器工場が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build potteries. "
+#~ "Potteries use jobs and ore to make goods. (You need ore mines to get ore) "
+#~ msgstr ""
+#~ "あなたは陶器工場を建設するだけの技術レベルに到達しました。陶器工場は仕事と"
+#~ "鉱石を利用して商品を生産します。 (あなたは鉱石を得るために鉱山が必要で"
+#~ "す。)"
+
+#~ msgid "Railways available"
+#~ msgstr "線路が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build railways. "
+#~ msgstr "あなたは線路を建設するだけの技術レベルに到達しました。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to recycling centres. "
+#~ "Recycling centres recycle used goods back into ore. "
+#~ msgstr ""
+#~ "あなたはリサイクル工場を建設するだけの技術レベルに到達しました。リサイクル"
+#~ "工場は商品を使用して鉱石に戻します。"
+
+#~ msgid "Rivers available"
+#~ msgstr "川が利用可能です"
+
+#~ msgid "You have reached the tech level which enables you to build rivers. "
+#~ msgstr "あなたは川を建設するだけの技術レベルに到達しました。"
+
+#~ msgid "Roads available"
+#~ msgstr "道路が利用可能です"
+
+#~ msgid "Rocket Launch Pad available"
+#~ msgstr "ロケット打ち上げ場が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build rocket launch "
+#~ "pads. Rockets enable you to evacuate your population and is a way to "
+#~ "'win' the game."
+#~ msgstr ""
+#~ "あなたはロケット打ち上げ場を建設するだけの技術レベルに到達しました。ロケッ"
+#~ "ト打ち上げ場は人口を疎開させることを可能にしゲームに「勝利する」方法です。"
+
+#~ msgid "save to selected slot"
+#~ msgstr "選んだスロットにセーブする"
+
+#~ msgid "Schools available"
+#~ msgstr "学校が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build schools. "
+#~ "Schools use jobs and goods to increase tech level. "
+#~ msgstr ""
+#~ "あなたは学校を建設するだけの技術レベルに到達しました。学校は仕事と商品を使"
+#~ "用して技術レベルを向上します。"
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. The fire is OUT OF CONTROL and "
+#~ "may spread to other areas. "
+#~ msgstr ""
+#~ "火事はスラム街から発生しました。火事は制御不能で他の区域に広がるかもしれま"
+#~ "せん。"
+
+#~ msgid ""
+#~ "A fire has broken out at a shanty town. It is in a fire cover area and "
+#~ "APPEARS to be under control. "
+#~ msgstr ""
+#~ "火事はスラム街から発生しました。それは火事のカバーする区域にあり鎮火可能の"
+#~ "ように見えます。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build solar power "
+#~ "stations. "
+#~ msgstr "あなたは太陽光発電所を建設するだけの技術レベルに到達しました。"
+
+#~ msgid "LinCity has determined that you have a sustainable economy."
+#~ msgstr "LinCityはあなたが持続可能な経済を保有していることを決定しました。"
+
+#~ msgid "University available"
+#~ msgstr "大学が利用可能です。"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build universities. "
+#~ "Universities produces PhDs, which produce more technology. "
+#~ msgstr ""
+#~ "あなたは大学を建設するだけの技術レベルに到達しました。大学は博士を製造し、"
+#~ "それはより技術を生産します。"
+
+#~ msgid "Windmills available"
+#~ msgstr "風車が利用可能です"
+
+#~ msgid ""
+#~ "You have reached the tech level which enables you to build windmills. "
+#~ msgstr "あなたは風車を建設するだけの技術レベルに到達しました。"
 
 #~ msgid "Saving scene"
 #~ msgstr "シナリオをセーブする"
@@ -2130,20 +2820,8 @@ msgstr "あなたは風車を建設するだけの技術レベルに到達しま
 #~ msgid "Solar"
 #~ msgstr "太陽"
 
-#~ msgid "Light"
-#~ msgstr "軽い"
-
-#~ msgid "Power Station"
-#~ msgstr "発電所"
-
-#~ msgid "Output"
-#~ msgstr "出力"
-
 #~ msgid "Industry"
 #~ msgstr "工業"
-
-#~ msgid "Heavy"
-#~ msgstr "重い"
 
 #~ msgid "Center"
 #~ msgstr "センター"
