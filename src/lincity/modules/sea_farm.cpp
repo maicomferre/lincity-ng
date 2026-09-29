@@ -124,9 +124,16 @@ SeaFarm::update() {
   consumeStuff(STUFF_LOVOLT, used_power);
   consumeStuff(STUFF_WATER, used_water);
 
+  /* Water pollution reduces production */
+  int water_pol = world.map(point)->ground.water_pol;
+  double pollution_factor = 1.0 - water_pol / (double)WATER_POL_MAX;
+  if(pollution_factor < 0.0) pollution_factor = 0.0;
+
   /* Produce food and goods proportional to inputs used */
-  int foodprod = SEA_FARM_FOOD * used_labor / SEA_FARM_LABOR;
-  int goodsprod = SEA_FARM_GOODS * used_labor / SEA_FARM_LABOR;
+  int foodprod = (int)(SEA_FARM_FOOD * used_labor / SEA_FARM_LABOR
+                 * pollution_factor);
+  int goodsprod = (int)(SEA_FARM_GOODS * used_labor / SEA_FARM_LABOR
+                 * pollution_factor);
 
   if(foodprod > 0) {
     produceStuff(STUFF_FOOD, foodprod);

@@ -146,6 +146,7 @@ World::do_periodic_events(void) {
         break;
       case SimulationEventId::POLLUTION:
         do_pollution();
+        do_water_pollution();
         break;
       case SimulationEventId::RANDOM_FIRE:
         if(tech_level > GROUP_FIRESTATION_TECH)

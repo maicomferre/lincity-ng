@@ -386,6 +386,7 @@ public:
   void expense(int amt, Stat<int>& account, bool allowCredit = true);
   void place_item(ConstructionGroup& cstGrp, MapPoint loc);
   void do_pollution();
+  void do_water_pollution();
   void scan_pollution();
   void do_fire_health_cricket_power_cover();
   void do_random_fire();

@@ -180,6 +180,7 @@ void Port::update()
         {
             consumeStuff(STUFF_LABOR, PORT_LABOR);
             world.map(point)->pollution += PORT_POLLUTION;
+            world.map(point)->ground.water_pol += PORT_WATER_POLLUTION;
             world.stats.sustainability.trade_flag = false;
             tech_made++;
             world.addTech(1);

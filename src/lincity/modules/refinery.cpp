@@ -88,6 +88,7 @@ void Refinery::update()
       produceStuff(STUFF_GOODS, GOODS_PER_REFINERY);
       consumeStuff(STUFF_LABOR, REFINERY_LABOR);
       total_processed += PETROLEUM_PER_WELL;
+      world.map(point)->ground.water_pol += REFINERY_WATER_POLLUTION;
       animate_enable = true;
       working_days++;
     }

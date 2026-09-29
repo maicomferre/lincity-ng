@@ -124,6 +124,50 @@ World::do_pollution() {
 }
 
 void
+World::do_water_pollution() {
+  std::optional<RandomContext> wpRandom;
+  if(simulationProtocol() == SimulationProtocol::DETERMINISTIC_V1)
+    wpRandom.emplace(randomContext(RandomEvent::POLLUTION));
+
+  const int len = map.len();
+  for(int y = 0; y < len; ++y) {
+    for(int x = 0; x < len; ++x) {
+      MapPoint p(x, y);
+      MapTile* tile = map(p);
+      if(!tile->is_water()) continue;
+      if(tile->ground.water_pol <= 0) continue;
+
+      /* Diffuse to a random adjacent water tile */
+      int dir = wpRandom ? static_cast<int>(wpRandom->bounded(4))
+                         : lincityRand() % 4;
+      MapPoint nb = p;
+      switch(dir) {
+        case 0: nb = p.n(); break;
+        case 1: nb = p.s(); break;
+        case 2: nb = p.e(); break;
+        case 3: nb = p.w(); break;
+      }
+      if(!map.is_inside(nb) || !map(nb)->is_water()) continue;
+
+      int flow = tile->ground.water_pol / 16;
+      if(flow < 1) flow = 1;
+      tile->ground.water_pol -= flow;
+      map(nb)->ground.water_pol += flow;
+    }
+  }
+
+  /* Cap water_pol at WATER_POL_MAX */
+  for(int y = 0; y < len; ++y)
+    for(int x = 0; x < len; ++x) {
+      MapTile* tile = map(MapPoint(x, y));
+      if(tile->ground.water_pol > WATER_POL_MAX)
+        tile->ground.water_pol = WATER_POL_MAX;
+      if(tile->ground.water_pol < 0)
+        tile->ground.water_pol = 0;
+    }
+}
+
+void
 World::scan_pollution() {
   const int len = map.len();
   const int area = len * len;

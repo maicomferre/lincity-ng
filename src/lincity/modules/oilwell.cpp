@@ -102,6 +102,7 @@ void Oilwell::update()
           total_extracted++;
           produceStuff(STUFF_PETROLEUM, PETROLEUM_PER_WELL);
           consumeStuff(STUFF_LABOR, OILWELL_LABOR);
+          world.map(point)->ground.water_pol += OILWELL_WATER_POLLUTION;
           animate_enable = true;
           working_days++;
           goto end_extraction;

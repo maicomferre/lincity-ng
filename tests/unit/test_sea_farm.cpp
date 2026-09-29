@@ -79,3 +79,25 @@ TTEST(sea_farm_formula_scales_with_labor) {
   TCHECK_EQ(SEA_FARM_GOODS * 180 / SEA_FARM_LABOR, 8);
   TCHECK_EQ(SEA_FARM_GOODS * 90 / SEA_FARM_LABOR, 4);
 }
+
+TTEST(water_pollution_formula) {
+  /* FEAT-06: pollution_factor = 1 - water_pol/WATER_POL_MAX.
+   * At 0 pollution → full output; at WATER_POL_MAX → zero. */
+  TCHECK_EQ(WATER_POL_MAX, 1000);
+  TCHECK_EQ(PORT_WATER_POLLUTION, 3);
+  TCHECK_EQ(OILWELL_WATER_POLLUTION, 5);
+  TCHECK_EQ(REFINERY_WATER_POLLUTION, 8);
+  TCHECK_EQ(HEAVY_IND_WATER_POLLUTION, 6);
+
+  /* Zero pollution → factor 1.0 */
+  double f0 = 1.0 - 0 / (double)WATER_POL_MAX;
+  TCHECK_EQ(f0, 1.0);
+
+  /* Full pollution → factor 0.0 */
+  double fmax = 1.0 - WATER_POL_MAX / (double)WATER_POL_MAX;
+  TCHECK_EQ(fmax, 0.0);
+
+  /* Mid pollution → factor 0.5 */
+  double fmid = 1.0 - 500 / (double)WATER_POL_MAX;
+  TCHECK_EQ(fmid, 0.5);
+}
