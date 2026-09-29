@@ -30,6 +30,34 @@ Sem alterações de sprites do mapa, saves ou remotos.
 
 ---
 
+## 2026-09-29 — Sessão 74: bateria extensa de testes de integração + correções Sea Farm
+
+Validou FEAT-04 (ledger), FEAT-05 (sea farm), FEAT-07a (pilotos),
+modernização (help templates, zoom) com testes reais.
+
+Testes novos (commit `81a210fa`):
+- unit/test_sea_farm.cpp: `sea_farm_cannot_build_on_land`,
+  `sea_farm_formula_scales_with_labor`
+- unit/test_ledger.cpp: `ledger_maintenance_accumulates`,
+  `ledger_revenue_accumulates`, `ledger_net_worth_is_revenue_minus_expenses`
+- sim/simtest.cpp: `sea_farm_production_simulation` (carve water, build,
+  run 1200d, verifica food+goods), `ledger_accumulates_during_simulation`,
+  `sea_farm_ledger_records_expense_and_revenue`
+- save/savetest.cpp: `round_trip_sea_farm_state` (ledger + sea farm state)
+
+Bug encontrado e corrigido: sea farm `can_build_here` chamava a base
+`ConstructionGroup::can_build_here` que exige `is_bare()` — falso para
+água. Substituído por check direto de visibilidade + GROUP_WATER + sem
+construction cobrindo.
+
+Bug encontrado e corrigido: `ConstructionGroup::placeItem` rejeitava água
+para não-transporte. Adicionado `virtual buildOnWater() const` (default
+false) em ConstructionGroup; SeaFarm override=true.
+
+CTest 4/4 ✅ (100%).
+
+Docs atualizadas: roadmap (TST-10 em proposto, FEAT-07a em piloto).
+
 ## 2026-09-28 — Sessão 72: FEAT-07a piloto estático no painel
 
 Pedido: implementar a próxima etapa; testes reais no jogo ficam para depois.

@@ -6,11 +6,16 @@ add_executable(lincity-test-unit
   test_maptile_frames.cpp
   test_port_rates.cpp
   test_sea_farm.cpp
+  test_tst10_assets.cpp
   test_resolution_options.cpp
   test_simulation_calendar.cpp
   test_simulation_random.cpp
   test_state_fingerprint.cpp
   test_util.cpp
+)
+
+target_compile_definitions(lincity-test-unit
+  PRIVATE LINCITYNG_TEST_DATA_DIR="${TEST_DATA_DIR}"
 )
 
 target_link_libraries(lincity-test-unit
