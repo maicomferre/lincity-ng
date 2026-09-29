@@ -1,0 +1,16 @@
+Sea Farm
+
+Sea farms grow food and goods from the sea, consuming labor, water, and energy.
+
+Must be built entirely on water tiles (lake, river, or pond).
+
+IMG_1[This is a sea farm]: images/tiles/seafarm0.png
+IMG_2[and this its icon]: images/gui/buttonpanel/parks/seafarm.png
+
+SUBH: Formulas
+
+180 labor + 200 lo-volt + 10 water => 350 food + 8 goods
+
+Production scales proportionally with available labor.
+
+ALSO[See also:]: food, goods, market, tech-level, transport, commodities, power

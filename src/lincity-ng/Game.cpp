@@ -660,6 +660,8 @@ Game::run() {
                     case SDLK_8: getMiniMap().mapViewChangeDisplayMode(MiniMap::POLLUTION); break;
                     case SDLK_9: getMiniMap().mapViewChangeDisplayMode(MiniMap::COAL); break;
                     case SDLK_0: getMiniMap().mapViewChangeDisplayMode(MiniMap::COMMODITIES); break;
+                    case SDLK_EQUALS: getGameView().zoomIn(); break;
+                    case SDLK_MINUS: getGameView().zoomOut(); break;
                     default:  need_break=false;
                   }
                   if (need_break) break;
