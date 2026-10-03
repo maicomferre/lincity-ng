@@ -5,6 +5,77 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-10-03 — Sessão 76: auditoria de arquitetura, Fase 0 e Fase 1
+
+Branch `feat/feat-07b-firetruck-art`. A WIP do FEAT-07b foi commitada
+(`ff91be50`) e a sessão passou a implementar a auditoria de arquitetura,
+que está arquivada em `27-relatorio-arquitetura-modernizacao.md`.
+
+### Fase 0 — cobertura de medição (concluída)
+
+O achado que organiza tudo: o harness headless não media o renderizador
+nem a animação. Por isso `05` podia registrar dois descartes corretos por
+"evidência insuficiente" enquanto o jogo ainda emite ~550 mil `drawTile`
+por frame. Nenhuma otimização das Fases 3–6 entra antes disso.
+
+- `6449c476` PERF-01/02 — benchmark `--bench` com cadência real de animação,
+  config fixada (o benchmark herdava o `lincity-ng.conf` do desenvolvedor) e
+  saída por `fmt::println` (o `printf` imprimia vírgula decimal em pt-BR).
+  Baseline: 600 dias, 743 construções, 12 veículos → simulação 219,9 ms,
+  animação 8,5 ms, **animação = 3,7 % do total**.
+- `80bdabc9` PERF-03 — área `gui` no debuglog + cronômetro do rebuild do
+  mapa. Medido: 897 tiles, 53 frames, ~1,2 ms a zoom 1,0.
+- `14f64ab2` PERF-04 — job TSan no CI, porque a thread "Loader" é o
+  subsistema mais concorrente do jogo e ASan/UBSan não veem data race.
+  Verificado localmente antes de subir: build limpo, zero races, e a thread
+  existe mesmo (breakpoint mostra `Thread 5 "Loader"`).
+
+### Fase 1 — correções
+
+- `55cdb243` BUG-25 — `r == -1` sobre `std::optional<MapPoint>` é sempre
+  falso (MapPoint tem construtor implícito de um int), então o caminho de
+  falha desreferenciava optional vazio. **UB alcançável** em mapa lotado,
+  que é exatamente o caso que o bloco existe para tratar.
+- `9dc273f1` BUG-26 — o incêndio aleatório silenciava sozinho. A auditoria
+  dizia "≥4898"; o limiar real é **~2000**, porque `period <= offset` (6 dias
+  contra offset 9) não tem solução para `day % period == offset`. O conserto
+  foi na codificação de `due()`, não no número. Dois testes: um que falha
+  sem o conserto e lista os lados culpados, outro que passa com e sem — a
+  guarda contra corrigir demais.
+- `69b9e3db` BUG-40 — `HEAVY_IND_WATER_POLLUTION` era constante morta
+  "coberta" por `TCHECK_EQ(HEAVY_IND_WATER_POLLUTION, 6)`, uma tautologia
+  que fazia o FEAT-06 parecer cobrir indústria pesada. Não cobre: as fontes
+  reais são port, oilwell e refinery, cada uma somando na mão (violação de
+  R2, e por isso não há função central para um teste perguntar "quem polui").
+- `20a84ad2` BUG-34 — `ja.po`/`zh_CN.po` renderizavam 100% em tofu: a fonte
+  não tem um único glifo CJK (conferido lendo o cmap). Agora o
+  `FontManager` emenda uma fonte CJK do sistema como fallback.
+  Detalhe que só apareceu testando: `TTF_AddFallbackFont` **não fica com
+  referência** — a primeira versão fechava a fallback em seguida e os
+  glifos continuavam ausentes. O `FontManager` passou a ser o dono.
+
+### O que a regra "confirmar antes de corrigir" evitou
+
+- **BUG-41** (`Ground::int1..int4`) parecia exclusão simples. Não é:
+  `xmlloadsave.cpp:1299-1302` **serializa** os quatro campos. Remover é
+  mudança de formato de save (R3), com bump de `ldsv_version`.
+- **BUG-28** (`placeItem`) só vazaria se `place()` lançar, e
+  `buildConstruction` já valida antes. Trocar por `unique_ptr` seria
+  **pior**: se `neighborize()` lançar depois do registro em
+  `map.constructions`, o ponteiro próprio apagaria um objeto que o mapa
+  ainda referencia. Rebaixado a "não mexer".
+- **PERF-02** — eu próprio havia escrito que o harness "nunca roda
+  `do_animate`". Lendo o código, ele roda, mas 1× a cada 30 dias e sem
+  tempo. O que faltava era cadência e instrumento.
+
+### Ainda aberto na Fase 1
+
+BUG-30 (`enabled()` fora de linha em RelWithDebInfo), BUG-36 (intervalo de
+tamanho de mapa validado é ficção), e os achados 🔎 BUG-31…33, 35, 37…39,
+42…47, que exigem confirmação antes de qualquer edição.
+
+---
+
 ## 2026-09-29 — Sessão 75: FEAT-06 poluição hídrica + TST-10
 
 FEAT-06 implementado:

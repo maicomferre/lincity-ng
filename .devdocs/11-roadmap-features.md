@@ -427,26 +427,65 @@ sequência de fases de `14` §4** (que continua válida como análise histórica
 > É por isso que `05` pode registrar dois descartes corretos por evidência
 > insuficiente e ainda assim o jogo emitir ~550 mil `drawTile` por frame.
 
-### Fase 0 — Cobertura de medição (pré-requisito de tudo)
+### Fase 0 — Cobertura de medição (pré-requisito de tudo) — **concluída**
 
-| ID | Item | Critério de saída |
+| ID | Item | Critério de saída | Estado |
+|---|---|---|---|
+| PERF-01 | Alvo `bench-sim` baseado em `SimulationReplay` (replay fixo + seed fixa, tempo por fase) | Número reproduzível entre dois commits consecutivos | ✅ `6449c476` |
+| PERF-02 | Executar `do_animate()` no harness headless | O(V²) de veículos e custo de `resMap` ficam visíveis | ✅ `6449c476` |
+| PERF-03 | Área `gui` do `debuglog` (reservada desde TST-06, `10` §3.5) | Fase de render instrumentada | ✅ `80bdabc9` |
+| PERF-04 | Job TSan no CI (hoje só ASan/UBSan+LSAN) | Green no CI remoto | ✅ `14f64ab2` |
+
+**Linha de base medida com PERF-01/02** (`good_times`, 600 dias, mapa 100,
+743 construções, 12 veículos no pico): simulação 219,9 ms, animação 8,5 ms,
+14,2 µs por chamada — **animação = 3,7 % do total**. Com PERF-03: rebuild do
+mapa = 897 tiles, 53 frames, ~1,2 ms a zoom 1,0.
+
+Duas correções ao que a auditoria afirmava: o harness **já** rodava
+`do_animate()`, mas 1× a cada 30 dias e sem tempo — o que faltava era
+cadência e instrumento, não a chamada. E o benchmark herdava
+`~/.config/lincity-ng.conf` do desenvolvedor; o alvo agora fixa mapa e
+`carsEnabled`, senão o número muda de máquina para máquina.
+
+### Fase 1 — Correção (bugs, não modernização) — **em andamento**
+
+IDs, evidência e severidade em `27` §3. A lista completa vai de BUG-25 a
+BUG-47. **Regra:** cada item confirma a evidência no código atual antes da
+correção — o documento marca ✅ (verificado na sessão principal) vs 🔎 (achado
+de auditoria com citação, ainda não confirmado). Correções feitas até aqui:
+
+| ID | Problema | Estado |
 |---|---|---|
-| PERF-01 | Alvo `bench-sim` baseado em `SimulationReplay` (replay fixo + seed fixa, tempo por fase) | Número reproduzível entre dois commits consecutivos |
-| PERF-02 | Executar `do_animate()` no harness headless | O(V²) de veículos e custo de `resMap` ficam visíveis |
-| PERF-03 | Área `gui` do `debuglog` (reservada desde TST-06, `10` §3.5) | Fase de render instrumentada |
-| PERF-04 | Job TSan no CI (hoje só ASan/UBSan+LSAN) | Green no CI remoto |
+| BUG-25 | `shanty.cpp:89`/`:106` desreferenciavam optional vazio (`r == -1` num `optional<MapPoint>`) | ✅ `55cdb243` |
+| BUG-26 | Incêndio aleatório silenciava sozinho em mapas grandes | ✅ `9dc273f1` |
+| BUG-27 | Load vazava as construções lidas se o parse lançasse | ✅ commit em curso |
+| BUG-34 | `ja`/`zh_CN` renderizavam 100% em tofu | ✅ `20a84ad2` |
+| BUG-40 | Constante morta do FEAT-06 sustentada por teste tautológico | ✅ `69b9e3db` |
 
-### Fase 1 — Correção (bugs, não modernização)
+**Correções ao que a auditoria afirmava** — o que a regra de confirmar no
+código atual pagou:
 
-IDs, evidência e severidade em `27` §3. **BUG-25** (UB em `shanty.cpp:90`),
-**BUG-26** (fogo aleatório morto em mapa ≥ 4898), **BUG-27** (vazamento de
-construções no path de load), **BUG-34** (`ja`/`zh_CN` renderizam como tofu) e
-**BUG-36** (intervalo de tamanho de mapa validado é ficção) são os de maior
-severidade. A lista completa vai de BUG-25 a BUG-47.
+- **BUG-26 era pior e mais cedo do que se pensava.** A auditoria dizia "mapa
+  ≥ 4898". O limiar real é **~2000**: `period <= offset` (6 dias contra
+  offset 9) não tem solução para `day % period == offset`, e isso já zera o
+  evento bem antes de `period` virar 0. Um mapa 2000×2000 são 4 milhões de
+  tiles — plausível. O conserto teve de mexer na codificação em `due()`, não
+  só no número.
+- **BUG-41 (`Ground::int1..int4`) não é código morto banal.** O achado o
+  tratava como exclusão simples, mas `xmlloadsave.cpp:1299-1302` **serializa**
+  os quatro campos explicitamente. Removê-los é mudança de formato de save e
+  cai em R3, com bump de `ldsv_version`. Fica para uma passada dedicada; não
+  entra nesta fase.
+- **BUG-28 (`placeItem`) rebaixado.** O vazamento e o deref de null só são
+  alcançáveis se `place()` lançar, e `World::buildConstruction` já valida com
+  `can_build_here` antes. Pior: trocar por `unique_ptr` seria *pior*, porque
+  se `neighborize()` lançar depois do registro em `map.constructions`, o
+  `unique_ptr` apagaria um objeto que o mapa ainda referencia. Não mexe.
 
-**Regra:** cada item confirma a evidência no código atual antes da correção — o
-documento marca ✅ (verificado na sessão principal) vs 🔎 (achado de auditoria
-com citação, ainda não confirmado).
+Itens ainda em aberto na Fase 1: BUG-30 (`enabled()` fora de linha em
+RelWithDebInfo), BUG-36 (intervalo de tamanho de mapa validado é ficção) e os
+achados 🔎 BUG-31…33, 35, 37…39, 42…47, que exigem confirmação antes de
+qualquer edição.
 
 ### Fases 2–6
 
