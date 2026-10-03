@@ -182,25 +182,41 @@ MapTile::getTileConstructionGroup() const {
 }
 
 ResourceGroup* MapTile::getTileResourceGroup() const {
-    static bool initialized = false;
-    static ResourceGroup* bare = 0;
-    static ResourceGroup* desert = 0;
-    static ResourceGroup* water = 0;
-    static ResourceGroup* tree = 0;
-    static ResourceGroup* tree2 = 0;
-    static ResourceGroup* tree3 = 0;
+    // BUG-44: two defects in the original, both about the cache itself.
+    //
+    // 1. It used `resMap["Green"]`, and std::map::operator[] INSERTS a
+    //    null pointer for a key that isn't there. A call before
+    //    initializeModules() populated resMap therefore cached six nulls
+    //    and poisoned the cache for the rest of the process.
+    // 2. `initialized` latched that first result forever, so the poison
+    //    could never heal. Now any null re-resolves.
+    //
+    // The memo itself stays, and it is not game state: these six
+    // ResourceGroups are owned by module globals and outlive every Game
+    // instance — BUG-21 already made that explicit when it moved the
+    // per-game part (graphics) behind resetGraphics(). A lookup per drawn
+    // tile would be a std::map<string,...> search on the render path,
+    // which is why this is memoized at all.
+    static ResourceGroup* bare = nullptr;
+    static ResourceGroup* desert = nullptr;
+    static ResourceGroup* water = nullptr;
+    static ResourceGroup* tree = nullptr;
+    static ResourceGroup* tree2 = nullptr;
+    static ResourceGroup* tree3 = nullptr;
 
-    if (!initialized)
+    if (!bare || !desert || !water || !tree || !tree2 || !tree3)
     {
-        initialized = true;
         //These must match the Group names from all_modules.cpp NOT all_buldings.cpp
-        bare = ResourceGroup::resMap["Green"];
-        desert = ResourceGroup::resMap["Desert"];
-        water = ResourceGroup::resMap["Water"];
-        tree = ResourceGroup::resMap["Tree"];
-        tree2 = ResourceGroup::resMap["Tree2"];
-        tree3 = ResourceGroup::resMap["Tree3"];
-
+        const auto find = [](const char* tag) -> ResourceGroup* {
+            const auto it = ResourceGroup::resMap.find(tag);
+            return it == ResourceGroup::resMap.end() ? nullptr : it->second;
+        };
+        bare = find("Green");
+        desert = find("Desert");
+        water = find("Water");
+        tree = find("Tree");
+        tree2 = find("Tree2");
+        tree3 = find("Tree3");
     }
     switch (group)
     {
