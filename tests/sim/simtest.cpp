@@ -819,6 +819,40 @@ TTEST(reset_flow_new_world_after_game) {
   TCHECK_EQ(second->total_time, 300);
 }
 
+TTEST(r7_pause_does_not_leak_into_the_next_game) {
+  // BUG-45: simDelay is session state, never persisted, and nothing reset
+  // it on a new game — Game.cpp deschedules execute and animate outright
+  // while it is SIM_DELAY_PAUSE. The reported flow was play -> pause ->
+  // menu -> new game, and the new game came up indistinguishable from a
+  // hang. R7 says nothing from the previous game may leak into the next.
+  initVideo(800, 600);
+  Game game(window);
+
+  setSimulationDelay(SIM_DELAY_PAUSE);
+  TCHECK_EQ(simDelay, SIM_DELAY_PAUSE);
+
+  std::unique_ptr<World> next = make_world();
+  if(!next) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  game.setWorld(std::move(next));
+  TCHECK(simDelay != SIM_DELAY_PAUSE);
+  TCHECK_EQ(simDelay, SIM_DELAY_SLOW);
+
+  // The other half: the chosen speed is a preference, not a leftover of
+  // the game that ended, so it must survive into the next one. This is
+  // what keeps the fix from being "always reset to slow".
+  setSimulationDelay(SIM_DELAY_FAST);
+  std::unique_ptr<World> third = make_world();
+  if(!third) {
+    TCHECK(!"failed to create world");
+    return;
+  }
+  game.setWorld(std::move(third));
+  TCHECK_EQ(simDelay, SIM_DELAY_FAST);
+}
+
 TTEST(game_flow_reset_and_loading_barrier) {
   // GUI flow regression for BUG-01a + BUG-02 with a single Game object
   // (the real menu reuses its Game across games).

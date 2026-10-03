@@ -204,6 +204,16 @@ Game::setWorld(std::unique_ptr<World>&& world) {
   lastAutosaveDay = -1;
   lastAutosaveTick = 0;
 
+  // BUG-45: simDelay is session state, never persisted, and nothing else
+  // touches it on a new game — Game.cpp:875 deschedules execute and
+  // animate outright while it is SIM_DELAY_PAUSE. Pausing a game, going
+  // to the menu and starting a new one therefore produced a new game that
+  // looked frozen, with no way to tell it apart from a hang. Only PAUSE
+  // is reset: the chosen speed is a preference and should carry over, but
+  // "paused" is a state of the game that just ended (R7).
+  if(simDelay == SIM_DELAY_PAUSE)
+    setSimulationDelay(SIM_DELAY_SLOW);
+
   for(auto w : {&warnBullWater, &warnBullShanty, &warnBullMonument})
     w->onAccept.clear();
   getButtonPanel().selectQueryTool();
