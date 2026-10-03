@@ -54,6 +54,39 @@ por frame. Nenhuma otimização das Fases 3–6 entra antes disso.
   referência** — a primeira versão fechava a fallback em seguida e os
   glifos continuavam ausentes. O `FontManager` passou a ser o dono.
 
+### BUG-48 — o portão ASan não estava verde, e era pré-existente
+
+Rodar a suíte completa sob ASan pela primeira vez nesta sessão mostrou
+duas falhas que **não** vinham de nada da Fase 1: o `build-asan` tinha
+sido compilado às 17:28, antes do primeiro commit de correção (17:34).
+Ou seja: o portão ASan/UBSan/LSAN deste fork já falhava, e ninguém tinha
+percebido — exatamente o tema da Fase 0.
+
+- `init_game.cpp:339: runtime error: load of value 213, which is not a
+  valid value for type 'bool'`. `_CitySettings` é um POD sem
+  construtores, então `city_settings city;` deixa os dois `bool`
+  indeterminados, e `create_new_city()` lê `without_trees` sem validar.
+  Três testes faziam exatamente isso (`simtest.cpp:2113`,
+  `test_ledger.cpp:17` e `:48`) — os outros oito preenchiam os dois
+  campos, e os dois chamadores de produção (`MainLincity.cpp:145` e
+  `MainMenu.cpp:901`) também. Corrigido na fonte, com initializers, para
+  que nenhum chamador possa errar de novo; C++17 mantém a struct como
+  agregado, então os `city_settings{true, false}` seguem válendo.
+
+- `LeakSanitizer: 456 byte(s) leaked in 2 allocation(s)`, com pilha em
+  `TransportConstructionGroup::placeItem`. A causa não era o
+  `placeItem`: `World::~World` delegava toda a posse a
+  `MapTile::~MapTile`, que apaga a construção **anexada** ao tile. Uma
+  construção detachada — estrada, trilho ou linha de força trocada por
+  outro transporte, prédio demolido desde o último tick — está em
+  `map.constructions` sem dono, porque `detach()` é exatamente o que zera
+  `tile->construction`. `doConstruction` recolhe essas durante o jogo,
+  mas o que sobrou na teardown não tinha dono nenhum. `~World` agora
+  apaga as que estão mortas antes de `map` ser destruído.
+
+A confirmação de que era pré-existente veio do horário dos commits, não
+de suposição: `git log` mostra o `build-asan` compilado antes de BUG-25.
+
 ### O que a regra "confirmar antes de corrigir" evitou
 
 - **BUG-41** (`Ground::int1..int4`) parecia exclusão simples. Não é:
