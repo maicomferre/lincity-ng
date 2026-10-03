@@ -208,7 +208,6 @@ void initializeModules() {
     ResourceGroup::resMap["Whitecar"]->tint.r = 220; ResourceGroup::resMap["Whitecar"]->tint.g = 220; ResourceGroup::resMap["Whitecar"]->tint.b = 220; ResourceGroup::resMap["Whitecar"]->tint.enabled = true;
     new ResourceGroup("Firetruck");
     ResourceGroup::resMap["Firetruck"]->is_vehicle = true;
-    ResourceGroup::resMap["Firetruck"]->tint.r = 200; ResourceGroup::resMap["Firetruck"]->tint.g = 30; ResourceGroup::resMap["Firetruck"]->tint.b = 30; ResourceGroup::resMap["Firetruck"]->tint.enabled = true;
 
 
 }

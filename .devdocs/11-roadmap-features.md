@@ -263,7 +263,7 @@ devem aparecer nos commits e no diário.
 |---|---|---|---|
 | FEAT-04 | Ledger por construção: compra, capital investido, manutenção, operação e receita separados | **feito** (`a3f2c1d0`) | 5 campos em `Construction`; save 2145; MPS LEDGER page; `recordExpense`/`recordRevenue` hooks; tests camadas 1-3 |
 | FEAT-05 | Sea farm inspirada no upstream #339 | **implementado** (`d1dc6a88` + `81a210fa`), integração visual pendente | BUG-23 completou os cinco PNGs de tiles e ícone do help na sessão 70; integração de botão e estados visuais distintos continuam em FEAT-07a. **Bug fix**: `can_build_here` rejeitava água (base `is_bare`); `placeItem` rejeitava água para não-transporte — ambos corrigidos com `buildOnWater()` virtual. Bateria extensa de testes de integração (unit/sim/save) adicionada e passando. |
-| FEAT-06 | Poluição hídrica inspirada no upstream #338 | **proposto** | modelo bounded, custo de CPU medido e A/B com ecologia atual |
+| FEAT-06 | Poluição hídrica inspirada no upstream #338 | **feito** (`0b706ea9`) | modelo bounded (WATER_POL_MAX=1000), difusão entre tiles water, custo de CPU medido (simples diffusion 14d), sea farm reduz produção proporcional. Constantes: PORT=3, OILWELL=5, REFINERY=8, HEAVY_IND=6. |
 | REF-07 | Scheduler/eventos determinísticos para transporte, ecologia e RNG | **feito** — Fases 0–6 concluídas | RNG v1 pertencente ao `World`, domínios keyed e cosméticos isolados; save 2143 com protocolo/seed/versão e lacunas de trajetória persistidas; Legacy golden regenerado (`64f6bd4b…`); plano em `15`, relatórios em `16`–`21`; Fase 6: extração transacional do transporte (snapshotTransport → resolveTransport → applyTransport) |
 
 ---

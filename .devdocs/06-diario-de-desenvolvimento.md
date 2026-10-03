@@ -5,6 +5,28 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-09-29 — Sessão 75: FEAT-06 poluição hídrica + TST-10
+
+FEAT-06 implementado:
+- `do_water_pollution()` em engine.cpp: diffusion entre tiles water,
+  cap em WATER_POL_MAX=1000, rodando a cada 14d junto com do_pollution()
+- Constantes: PORT_WATER_POLLUTION=3, OILWELL=5, REFINERY=8, HEAVY_IND=6
+- Sea farm reduz produção: food/goods *= (1 - water_pol/MAX)
+- Port, oilwell, refinery adicionam water_pol nos update()
+- Teste unitário water_pollution_formula
+
+TST-10 implementado (tests/unit/test_tst10_assets.cpp):
+- Valida imagens.xml refs existem no disco
+- Valida help XML img refs existem
+- Verifica Sea Farm assets presentes (5 tiles + ícone)
+- Verifica can_build_here funciona em water
+- Bug fix: sea farm can_build_here chamava base is_bare() (falha p/water)
+- Bug fix: placeItem rejeitava water p/ não-transport → buildOnWater() virtual
+
+Roadmap e diário atualizados. CTest 4/4 ✅.
+
+---
+
 ## 2026-09-28 — Sessão 73: FEAT-07a correção de ícones e ajuda
 
 Usuário reportou screenshots de ícones incompletos e ajuda sem imagens;

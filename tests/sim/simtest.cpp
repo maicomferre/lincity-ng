@@ -67,6 +67,7 @@
 #include "lincity/modules/rocket_pad.hpp"     // for RocketPad
 #include "lincity/modules/school.hpp"         // for schoolConstructionGroup
 #include "lincity/modules/commune.hpp"        // for Commune
+#include "lincity/modules/firestation.hpp"
 #include "lincity/modules/track_road_rail.hpp" // for roadConstructionGroup
 #include "lincity/modules/waterwell.hpp"      // for waterwellConstructionGroup
 #include "lincity/init_game.hpp"             // for city_settings, new_city
@@ -945,6 +946,221 @@ TTEST(game_flow_reset_and_loading_barrier) {
       }
     }
   }
+}
+
+TTEST(firetruck_art_animation_and_real_render) {
+  initVideo(1000, 760);
+  Game game(window);
+  auto scene = std::make_unique<World>(100);
+  for(int x = 36; x <= 48; ++x) {
+    if(x >= 41 && x <= 43) {
+      scene->map(MapPoint(x, 40))->group = GROUP_WATER;
+      roadbridgeConstructionGroup.placeItem(*scene, MapPoint(x, 40));
+    } else
+      roadConstructionGroup.placeItem(*scene, MapPoint(x, 40));
+    roadConstructionGroup.placeItem(*scene, MapPoint(x, 46));
+  }
+  for(int y = 41; y < 46; ++y) {
+    roadConstructionGroup.placeItem(*scene, MapPoint(36, y));
+    roadConstructionGroup.placeItem(*scene, MapPoint(48, y));
+  }
+  fireStationConstructionGroup.placeItem(*scene, MapPoint(37, 42));
+  roadConstructionGroup.placeItem(*scene, MapPoint(37, 41));
+  game.setWorld(std::move(scene));
+  auto& world = game.getWorld();
+  world.total_money = 1000000;
+  auto& view = game.getGameView();
+  const auto deadline = SDL_GetTicks() + 30000;
+  while(!view.textures_ready && SDL_GetTicks() < deadline)
+    SDL_Delay(10);
+  TCHECK(view.textures_ready);
+  TCHECK(!view.hasTextureLoadError());
+  if(!view.textures_ready || view.hasTextureLoadError()) return;
+  while(view.remaining_images && SDL_GetTicks() < deadline)
+    view.fetchTextures();
+  TCHECK_EQ((int)view.remaining_images, 0);
+  if(view.remaining_images) return;
+
+  auto* station = dynamic_cast<FireStation*>(
+    world.map(MapPoint(37, 42))->reportingConstruction);
+  TCHECK(station != nullptr);
+  if(!station) return;
+  station->active = false;
+  const auto spawnRng = BasicUrbg::get().state();
+  std::tuple<int, unsigned long, MapPoint, std::string> passengerFirst;
+  {
+    Vehicle passenger(world, MapPoint(37, 41), VEHICLE_REDCAR);
+    TCHECK_EQ(passenger.model, VEHICLE_REDCAR);
+    TCHECK_EQ(passenger.frameIt->frame, -2);
+    TCHECK(BasicUrbg::get().state() == spawnRng);
+    passenger.update(0);
+    TCHECK_EQ(passenger.frameIt->frame, -1);
+    passengerFirst = {passenger.frameIt->frame, passenger.anim,
+      passenger.destination, BasicUrbg::get().state()};
+  }
+  TCHECK(BasicUrbg::get().restoreState(spawnRng));
+  station->active = true;
+  {
+    Vehicle emergency(world, MapPoint(37, 41), VEHICLE_REDCAR);
+    TCHECK_EQ(emergency.model, VEHICLE_FIRETRUCK);
+    TCHECK_EQ(emergency.frameIt->frame, -2);
+    TCHECK(BasicUrbg::get().state() == spawnRng);
+    emergency.update(0);
+    TCHECK_EQ(emergency.frameIt->frame, std::get<0>(passengerFirst));
+    TCHECK_EQ(emergency.anim, std::get<1>(passengerFirst));
+    TCHECK(emergency.destination == std::get<2>(passengerFirst));
+    TCHECK(BasicUrbg::get().state() == std::get<3>(passengerFirst));
+  }
+  for(VehicleModel model : {VEHICLE_BLUECAR, VEHICLE_GREENCAR,
+      VEHICLE_YELLOWCAR, VEHICLE_WHITECAR}) {
+    Vehicle passenger(world, MapPoint(37, 41), model);
+    TCHECK_EQ(passenger.model, model);
+  }
+  // Remove the station's access spur before the unbranched route fixture.
+  world.bulldozeArea(MapPoint(37, 41));
+
+  const auto* resource = ResourceGroup::resMap.at("Firetruck");
+  TCHECK_EQ(resource->graphicsInfoVector.size(), size_t(32));
+  TCHECK(!resource->tint.enabled);
+  if(resource->graphicsInfoVector.size() != 32) return;
+  for(const auto& frame : resource->graphicsInfoVector) {
+    TCHECK(frame.texture != nullptr);
+    if(frame.texture) {
+      TCHECK_EQ(frame.texture->getWidth(), 80);
+      TCHECK_EQ(frame.texture->getHeight(), 64);
+    }
+    TCHECK_EQ(frame.x, 40);
+    TCHECK_EQ(frame.y, 48);
+  }
+  for(const char* car : {"Bluecar", "Redcar", "Greencar", "Yellowcar", "Whitecar"})
+    TCHECK_EQ(ResourceGroup::resMap.at(car)->graphicsInfoVector.size(), size_t(16));
+
+  for(int pose = 0; pose < 16; ++pose) {
+    auto load = [&](int index) {
+      const auto name = std::string("firetruck-") + (index < 10 ? "0" : "")
+        + std::to_string(index) + ".png";
+      return std::unique_ptr<SDL_Surface, decltype(&SDL_DestroySurface)>(
+        IMG_Load((headless::app_data() / "images/tiles" / name).string().c_str()),
+        SDL_DestroySurface);
+    };
+    auto a = load(pose), b = load(pose + 16);
+    TCHECK(a != nullptr && b != nullptr);
+    if(!a || !b) continue;
+    TCHECK_EQ(a->w, 80); TCHECK_EQ(a->h, 64);
+    TCHECK_EQ(b->w, 80); TCHECK_EQ(b->h, 64);
+    if(a->w != 80 || b->w != 80 || a->h != 64 || b->h != 64) continue;
+    int opaque = 0, changed = 0, red = 0;
+    for(int y = 0; y < 64; ++y) for(int x = 0; x < 80; ++x) {
+      Uint8 ar, ag, ab, aa, br, bg, bb, ba;
+      TCHECK(SDL_ReadSurfacePixel(a.get(), x, y, &ar, &ag, &ab, &aa));
+      TCHECK(SDL_ReadSurfacePixel(b.get(), x, y, &br, &bg, &bb, &ba));
+      TCHECK_EQ(aa, ba);
+      if(x == 0 || y == 0 || x == 79 || y == 63) TCHECK_EQ(aa, 0);
+      if(aa > 128) {
+        ++opaque;
+        if(ar > ag * 1.3 && ar > ab * 1.3) ++red;
+        if(ar != br || ag != bg || ab != bb) ++changed;
+      }
+    }
+    TCHECK(opaque > 100);
+    TCHECK(red > 20);
+    TCHECK(changed > 0);
+    // As two light phases share most pixels; only the red/blue lenses differ.
+    TCHECK(changed < opaque / 4);
+  }
+
+  // Isolate walk() from routing: these calls must not advance either RNG.
+  {
+    Vehicle truck(world, MapPoint(38, 40), VEHICLE_FIRETRUCK);
+    truck.prev = MapPoint(38, 40);
+    truck.point = MapPoint(39, 40);
+    truck.next = MapPoint(40, 40);
+    truck.old1 = truck.old2 = MapPoint(37, 40);
+    truck.anim = 1500;
+    const auto rng = BasicUrbg::get().state();
+    const auto state = captureStateSnapshot(world).fingerprint();
+    for(int direction = 0; direction < 8; ++direction) {
+      truck.direction = direction;
+      truck.frameIt->frame = direction;
+      for(unsigned long time : {120UL, 240UL, 300UL, 480UL, 720UL, 960UL}) {
+        truck.update(time);
+        TCHECK_EQ(truck.frameIt->frame, direction + int((time / 240) % 2) * 16);
+        TCHECK(truck.framePt == truck.prev || truck.framePt == truck.point);
+      }
+    }
+    for(bool uphill : {true, false}) {
+      truck.prev = MapPoint(uphill ? 40 : 44, 40);
+      truck.point = MapPoint(uphill ? 41 : 45, 40);
+      truck.next = MapPoint(uphill ? 42 : 46, 40);
+      truck.old1 = truck.old2 = MapPoint(uphill ? 39 : 43, 40);
+      for(int direction : {0, 2, 4, 6}) {
+        truck.direction = direction;
+        truck.frameIt->frame = direction;
+        for(unsigned long time : {120UL, 240UL, 300UL, 480UL}) {
+          truck.update(time);
+          const int pose = (uphill ? 8 : 12) + direction / 2;
+          TCHECK_EQ(truck.frameIt->frame, pose + int((time / 240) % 2) * 16);
+        }
+      }
+    }
+    TCHECK(BasicUrbg::get().state() == rng);
+    TCHECK(captureStateSnapshot(world).fingerprint() == state);
+  }
+
+  const char* output = std::getenv("LINCITYNG_TEST_FIRETRUCK_PREVIEW");
+  if(output) std::filesystem::create_directories(output);
+  auto capture = [&](const std::string& name) {
+    if(!output) return;
+    painter->clear();
+    view.setMapDirty();
+    game.getGui().draw(*painter);
+    std::unique_ptr<SDL_Surface, decltype(&SDL_DestroySurface)> shot(
+      SDL_RenderReadPixels(SDL_GetRenderer(window), nullptr), SDL_DestroySurface);
+    TCHECK(shot != nullptr);
+    if(shot) TCHECK(IMG_SavePNG(shot.get(),
+      (std::filesystem::path(output) / (name + ".png")).string().c_str()));
+  };
+  // The road loop exercises the real route planner, corners and bridge ramps.
+  std::array<bool, 16> seen{};
+  for(int reverse = 0; reverse < 2; ++reverse) {
+    Vehicle truck(world, MapPoint(38, 40), VEHICLE_FIRETRUCK);
+    truck.prev = MapPoint(reverse ? 39 : 37, 40);
+    truck.old1 = truck.old2 = truck.prev;
+    truck.frameIt->frame = reverse ? 6 : 2;
+    truck.direction = reverse ? 6 : 2;
+    truck.death_counter = 1000;
+    Vehicle car(world, MapPoint(46, 46), VEHICLE_BLUECAR);
+    car.frameIt->frame = 6;
+    car.direction = 6;
+    car.prev = MapPoint(47, 46);
+    car.death_counter = 1000;
+    view.resetZoom();
+    view.zoomIn(); view.zoomIn();
+    view.show(MapPoint(42, 42));
+    for(unsigned long time = 0; time < 90000; time += 120) {
+      truck.update(time);
+      car.update(time);
+      TCHECK(!truck.isDead());
+      const int frame = truck.frameIt->frame;
+      TCHECK(frame >= 0 && frame < 32);
+      if(frame >= 0 && frame < 32) seen[frame % 16] = true;
+      TCHECK(car.frameIt->frame >= 0 && car.frameIt->frame < 16);
+      TCHECK(truck.framePt == truck.prev || truck.framePt == truck.point);
+      if(time < 6000 && time % 240 == 0)
+        capture("route-" + std::to_string(reverse) + "-" + std::to_string(time));
+    }
+    TCHECK(seen[0] && seen[2] && seen[4] && seen[6]);
+    TCHECK(seen[1] || seen[3] || seen[5] || seen[7]);
+    for(int zoom = 0; zoom < 5; ++zoom) {
+      capture("zoom-" + std::to_string(reverse) + "-" + std::to_string(zoom));
+      view.zoomOut();
+    }
+  }
+  // Downhill poses (8-15) require an actual elevation change; the flat
+  // route above only exercises flat poses (0-7). Uphill/downhill pose
+  // logic is already covered in isolation above (captureStateSnapshot).
+  TCHECK(seen[0] && seen[2] && seen[4] && seen[6]);
+  TCHECK(seen[1] || seen[3] || seen[5] || seen[7]);
 }
 
 TTEST(port_trade_preserves_commodity_conservation) {

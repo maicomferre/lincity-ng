@@ -35,6 +35,7 @@
 #include "commodities.hpp"  // for Commodity
 #include "groups.hpp"       // for GROUP_ROAD_BRIDGE, GROUP_TRACK_BRIDGE
 #include "lintypes.hpp"     // for Construction
+#include "modules/firestation.hpp"
 #include "resources.hpp"    // for ExtraFrame, ResourceGroup
 #include "util/randutil.hpp"         // for BasicUrbg
 #include "util/debuglog.hpp"         // for LNG_LOG
@@ -63,6 +64,18 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
   this->stuff_id = STUFF_LABOR;
   //TODO Choose a random model for suitable stuff
   this->model = model0;
+  if(model == VEHICLE_REDCAR) {
+    for(MapPoint neighbor : {point.n(), point.e(), point.s(), point.w()}) {
+      if(!world.map.is_inside(neighbor))
+        continue;
+      const auto* station = dynamic_cast<const FireStation*>(
+        world.map(neighbor)->reportingConstruction);
+      if(station && station->active) {
+        model = VEHICLE_FIRETRUCK;
+        break;
+      }
+    }
+  }
   this->strategy = vehicleStrategy;
   this->initial_cargo = world.map(point)->reportingConstruction
     ? world.map(point)->reportingConstruction->tellstuff(stuff_id,-2)
@@ -96,8 +109,6 @@ Vehicle::Vehicle(World& world, MapPoint point, VehicleModel model0,
     speed0 = BLUE_CAR_SPEED;
     break;
   case VEHICLE_FIRETRUCK:
-    //placeholder: firetruck uses the red-tinted car sprites until real art
-    //is added (see .devdocs/07-guia-de-sprites.md for the 16-frame layout)
     frameIt->resourceGroup =  ResourceGroup::resMap["Firetruck"];
     speed0 = BLUE_CAR_SPEED;
     break;
@@ -172,6 +183,8 @@ void Vehicle::drive(void) {
 }
 
 void Vehicle::walk(unsigned long real_time) {
+  if(model == VEHICLE_FIRETRUCK && frameIt->frame >= 0)
+    frameIt->frame = direction;
   double remaining = (double)(anim - real_time) / speed;
   double elapsed = 1 - remaining;
   //mx,my are like continuos coordinates for the map
@@ -328,6 +341,17 @@ void Vehicle::walk(unsigned long real_time) {
 
   frameIt->move_x = dx;
   frameIt->move_y = dy;
+  applyFiretruckLights(real_time);
+}
+
+void Vehicle::applyFiretruckLights(unsigned long real_time) {
+  if(model != VEHICLE_FIRETRUCK || frameIt->frame < 0)
+    return;
+  // Two light banks share the same 16 directional/ramp poses.
+  constexpr int poses = 16;
+  constexpr unsigned long flashPeriodMs = 240;
+  frameIt->frame = frameIt->frame % poses
+    + poses * ((real_time / flashPeriodMs) % 2);
 }
 
 
@@ -597,6 +621,7 @@ void
 Vehicle::update(unsigned long real_time) {
   if(dead)
     return;
+  applyFiretruckLights(real_time);
 
   // playing the arriving animation: hold still, drift sideways towards the
   // building, then disappear. No new heading or driving during this.

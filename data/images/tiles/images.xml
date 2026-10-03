@@ -676,21 +676,37 @@
   </group>
   <group>
     <resourceID name="Firetruck"/>
-    <image file="car01-0000.png" x="26" y="45"/>
-    <image file="car01-0001.png" x="13" y="44"/>
-    <image file="car01-0002.png" x="24" y="45"/>
-    <image file="car01-0003.png" x="24" y="43"/>
-    <image file="car01-0004.png" x="24" y="44"/>
-    <image file="car01-0005.png" x="13" y="44"/>
-    <image file="car01-0006.png" x="26" y="44"/>
-    <image file="car01-0007.png" x="27" y="43"/>
-    <image file="car01-up0009.png" x="24" y="43"/>
-    <image file="car01-up0010.png" x="25" y="43"/>
-    <image file="car01-up0011.png" x="24" y="48"/>
-    <image file="car01-up0012.png" x="24" y="48"/>
-    <image file="car01-down0013.png" x="27" y="46"/>
-    <image file="car01-down0014.png" x="22" y="46"/>
-    <image file="car01-down0015.png" x="22" y="43"/>
-    <image file="car01-down0016.png" x="27" y="43"/>
+    <image file="firetruck-00.png" x="40" y="48"/>
+    <image file="firetruck-01.png" x="40" y="48"/>
+    <image file="firetruck-02.png" x="40" y="48"/>
+    <image file="firetruck-03.png" x="40" y="48"/>
+    <image file="firetruck-04.png" x="40" y="48"/>
+    <image file="firetruck-05.png" x="40" y="48"/>
+    <image file="firetruck-06.png" x="40" y="48"/>
+    <image file="firetruck-07.png" x="40" y="48"/>
+    <image file="firetruck-08.png" x="40" y="48"/>
+    <image file="firetruck-09.png" x="40" y="48"/>
+    <image file="firetruck-10.png" x="40" y="48"/>
+    <image file="firetruck-11.png" x="40" y="48"/>
+    <image file="firetruck-12.png" x="40" y="48"/>
+    <image file="firetruck-13.png" x="40" y="48"/>
+    <image file="firetruck-14.png" x="40" y="48"/>
+    <image file="firetruck-15.png" x="40" y="48"/>
+    <image file="firetruck-16.png" x="40" y="48"/>
+    <image file="firetruck-17.png" x="40" y="48"/>
+    <image file="firetruck-18.png" x="40" y="48"/>
+    <image file="firetruck-19.png" x="40" y="48"/>
+    <image file="firetruck-20.png" x="40" y="48"/>
+    <image file="firetruck-21.png" x="40" y="48"/>
+    <image file="firetruck-22.png" x="40" y="48"/>
+    <image file="firetruck-23.png" x="40" y="48"/>
+    <image file="firetruck-24.png" x="40" y="48"/>
+    <image file="firetruck-25.png" x="40" y="48"/>
+    <image file="firetruck-26.png" x="40" y="48"/>
+    <image file="firetruck-27.png" x="40" y="48"/>
+    <image file="firetruck-28.png" x="40" y="48"/>
+    <image file="firetruck-29.png" x="40" y="48"/>
+    <image file="firetruck-30.png" x="40" y="48"/>
+    <image file="firetruck-31.png" x="40" y="48"/>
   </group>
 </resources>

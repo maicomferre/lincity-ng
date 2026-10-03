@@ -109,6 +109,7 @@ public:
   //pick a random passenger-car model among the 5 color variants
   static VehicleModel randomPassengerCar(World& world);
 private:
+  void applyFiretruckLights(unsigned long real_time);
   void getNewHeadings(); //plan ahead for 2 tiles
   bool acceptable_heading(MapPoint dest); //checks if a move would comply with the strategy
   void pickDestination(); //choose a nearby building as the trip destination
