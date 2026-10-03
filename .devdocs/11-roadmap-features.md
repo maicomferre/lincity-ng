@@ -516,6 +516,29 @@ ninguém sabia que o portão não fechava.
 | 5 — UI | UI-01…11 | Fase 1 (BUG-32/33) + UI-04 antes de UI-01 |
 | 6 — Modularidade | MOD-01…03 | Fases 1–2 |
 
+### Fase 2 — Fronteira engine→GUI — **em andamento**
+
+| ID | Item | Estado |
+|---|---|---|
+| ARCH-03a | Sorteio cosmético não desloca a stream da simulação (**R9**) | ✅ uma linha em `world.cpp:599` |
+| ARCH-03b | `SimSettings` no `World`, tirando `getConfig()`/`simDelay` do motor | pendente |
+| ARCH-01 | `Mps` → interface `MpsSink` no engine (37 módulos, 8 métodos) | pendente |
+| ARCH-02 | `Sound` → event bus (`messages.hpp` já é o canal interno) | pendente |
+| ARCH-04 | `resMap` indexado por enum em vez de `std::map<std::string,…>` | pendente |
+| ARCH-05 | Target `lincity_core` — condition para ARCH-01…04 | pendente |
+
+**ARCH-03a é o item mais importante da fase.** A auditoria descreveu
+`simDelay` como um-cheiro de design ("a velocidade decide o spawn").
+Verificando, era uma infração de **determinismo**: em LEGACY, o portão de
+spawn (`lintypes.cpp:772,862`) era condicionado pela velocidade de reprodução
+da GUI, e o sorteio atrás dele saía do `lincityRand()` **global** — o mesmo
+stream de incêndio, poluição e tráfego. Mesmo save, mesma semente,
+velocidade diferente, **cidade diferente**. Detalhe e prova em `27` §4.
+
+| ID | Achado | Estado |
+|---|---|---|
+| BUG-49 | Velocidade de jogo altera o resultado da simulação LEGACY | **feito** (ARCH-03a) |
+
 ### Decisões fechadas por evidência (não rediscutir sem pedido)
 
 1. **Não trocar `libxml++`** — 121 arquivos, todo `Construction` sobrescreve

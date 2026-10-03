@@ -84,6 +84,11 @@
 #include "util/randutil.hpp"                 // for BasicUrbg
 #include "util/debuglog.hpp"                 // for LNG_LOG
 
+/* ARCH-03 / R9: defined in src/lincity-ng/MainLincity.cpp. Declared here at
+ * file scope on purpose — inside the anonymous namespace below it would get
+ * internal linkage and never resolve. */
+extern int simDelay;
+
 namespace {
 
 int g_days = 1200;            // one in-game year by default
@@ -426,9 +431,69 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
     // trajectory extras and the stats inventory to the canonical XML. No
     // simulation code changed, so the trajectory is identical; only the
     // fingerprint input grew.
+    // ARCH-03: regenerated again when cosmeticRandomInt stopped drawing
+    // from the shared LEGACY lincityRand() stream, so the number of
+    // cosmetic draws no longer shifts the simulation (R9).
     TCHECK_EQ(first.back().hex(),
-      std::string("0663381900960033e6bc62829e3dadba")); // updated: FEAT-04 ledger fields added to Construction
+      std::string("69c74520ea251b2a2e0651154c4b49b3")); // updated: ARCH-03 cosmetic RNG isolation
   }
+}
+
+/* ARCH-03 / R9: the vehicle spawn gate inside trade() is conditioned on
+ * `simDelay`, a GUI playback-speed variable. Under LEGACY the draw it
+ * makes goes through World::cosmeticRandomInt(), which falls through to
+ * the same global lincityRand() stream that drives fire, pollution and
+ * traffic. So the *number* of draws the simulation sees depends on how
+ * fast the player is running the game. DETERMINISTIC_V1 is immune (it
+ * has its own cosmeticRandom stream); LEGACY is not.
+ *
+ * The world must have road traffic or the gate never opens and the test
+ * passes for the wrong reason — a fresh new_city() has none in 120 days,
+ * so this loads the good_times opening scenario, which does. */
+
+std::unique_ptr<World> make_world_with_road_traffic() {
+  BasicUrbg::get().reseed(g_seed);
+  srand(g_seed);
+  std::filesystem::path path =
+    headless::app_data() / "opening" / "good_times.scn.gz";
+  return World::load(path);
+}
+
+TTEST(legacy_simulation_does_not_depend_on_game_speed) {
+  const int savedDelay = simDelay;
+
+  auto run = [](int delay) {
+    simDelay = delay;
+    std::unique_ptr<World> world = make_world_with_road_traffic();
+    if(!world)
+      return std::pair<StateFingerprint128, std::size_t>(StateFingerprint128{}, 0);
+    for(int day = 0; day < 120; ++day)
+      world->do_time_step();
+    return std::pair<StateFingerprint128, std::size_t>(
+      captureStateSnapshot(*world).fingerprint(), world->vehicleList.size());
+  };
+
+  const auto fast = run(SIM_DELAY_FAST);
+  const auto slow = run(SIM_DELAY_SLOW);
+  simDelay = savedDelay;
+
+  // Guard against a vacuous pass: if no vehicle ever spawned, the gate
+  // never opened and the two runs are equal for the wrong reason.
+  if(slow.second == 0 && fast.second == 0) {
+    std::fprintf(stderr,
+      "  INCONCLUSIVE: no vehicles spawned in 120 days; the simDelay gate\n"
+      "  never opened, so this test proved nothing.\n");
+  }
+  TCHECK(slow.second != 0 || fast.second != 0);
+  if(fast.first != slow.first) {
+    std::fprintf(stderr,
+      "  R9: same seed, same scenario, only simDelay differs.\n"
+      "    FAST(%d): %s  vehicles=%zu\n"
+      "    SLOW(%d): %s  vehicles=%zu\n",
+      SIM_DELAY_FAST, fast.first.hex().c_str(), fast.second,
+      SIM_DELAY_SLOW, slow.first.hex().c_str(), slow.second);
+  }
+  TCHECK(fast.first == slow.first);
 }
 
 TTEST(deterministic_v1_worlds_are_independent_and_repeatable) {

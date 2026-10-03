@@ -5,6 +5,84 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-10-03 — Sessão 77: Fase 2, ARCH-03a — velocidade de jogo mudava a cidade
+
+A Fase 2 começou. O item mais importante dela não era o que a auditoria
+descreveu.
+
+### O que a auditoria dizia
+
+`27` §4, ARCH-03: "`simDelay` faz a velocidade de jogo decidir o spawn de
+veículo dentro de `trade()` (`lintypes.cpp:772,778`)". Risco: baixo–médio.
+Soava a cheiro de design — o motor lendo uma variável da GUI para não gastar
+CPU pintando carros que ninguém vai ver no tempo real.
+
+### O que era
+
+Uma infração de **determinismo** (R9).
+
+O portão de spawn em `lintypes.cpp:772` e `:862` é condicionado por
+`simDelay`, que é a velocidade de reprodução da GUI. Atrás dele,
+`world.cosmeticRandomInt()`. E em `world.cpp:602` esse método, **em
+LEGACY**, caía no `lincityRand()` global — o mesmo stream que alimenta:
+
+- incêndio (`fire.cpp:115`)
+- poluição (`engine.cpp:92,217,252`)
+- tráfego (`lintypes.cpp:1168`)
+
+Então a **quantidade** de números que a simulação consome dependia de quão
+rápido o jogador estava jogando. `DETERMINISTIC_V1` já era imune: tem stream
+cosmético próprio (`world.hpp:338`). LEGACY não.
+
+### A prova
+
+`tests/sim/simtest.cpp`, `legacy_simulation_does_not_depend_on_game_speed`.
+Cenário `good_times`, mesma semente, 120 dias, só `simDelay` muda:
+
+```
+FAST(0): c56bda295910e038792d3e3127dc5a78  vehicles=0
+SLOW(60):1140d2e8fc6f2d6bd7efb8dfd3f5e8b6  vehicles=4
+```
+
+O teste tem guarda anti-vacuuidade, e ela foi exercida de verdade: na
+primeira versão, com cidade nova, **não nasce um carro em 120 dias** — o
+portão nunca abre, o teste passava sem provar nada. A guarda faz ele falhar
+e avisar em vez de dar um verde falso. Foi por isso que o cenário precisou
+ser `good_times` em vez de `new_city`.
+
+### O conserto
+
+Uma linha. `cosmeticRandomInt` passou a usar sempre o stream cosmético do
+próprio `World`. `DETERMINISTIC_V1` já fazia isso; **LEGACY é que fingia o
+contrário** e por isso pagava a stream alheia. Nada mais mudou.
+
+Consequência aceita pelo usuário, registrada: a constante de fingerprint
+LEGACY muda (`0663381…` → `69c7452…`) e saves LEGACY já existentes evoluem
+divergentes a partir do primeiro carregamento neste build. A alternativa
+descartada era flag de config (R4), que manteria a infração viva por padrão
+e criaria dois caminhos no hot path por causa de uma coisa que deveria ser
+um bug, não uma escolha de tuning.
+
+### O que o conserto não faz
+
+`simDelay` continua no portão do spawn. Agora isso muda só quantos carros
+aparecem — que é a intenção original do código — e não mais a simulação.
+Tirar `simDelay` do motor de vez é o resto de ARCH-03 (`SimSettings`) e fica
+para o próximo item.
+
+### Correção ao próprio relatório
+
+ARCH-01 é maior do que `27` §4 afirma. O texto diz "~15 módulos" que incluem
+`Mps.hpp`; são **37** no motor. E o motor só usa **8 métodos** de `Mps`. A
+assinatura já está meio pronta: `lintypes.hpp:44` faz forward declaration e
+`:68` já usa `Mps&` na assinatura virtual de `report()`. Separar é uma
+interface de 8 métodos puros, não um redesenho.
+
+Portão: `ctest` **5/5** em `build/` (92,8 s) e em `build-asan/`
+(1303 s: sim 893 s, save 402 s).
+
+---
+
 ## 2026-10-03 — Sessão 76: auditoria de arquitetura, Fase 0 e Fase 1
 
 Branch `feat/feat-07b-firetruck-art`. A WIP do FEAT-07b foi commitada

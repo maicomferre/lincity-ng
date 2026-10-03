@@ -46,7 +46,7 @@
 #include "resources.hpp"       // for ExtraFrame, ResourceGroup
 #include "Vehicles.hpp"        // for Vehicle (complete type needed by World::~World)
 #include "util/debuglog.hpp"   // for LNG_LOG
-#include "util/randutil.hpp"   // for lincityRand on the Legacy path
+#include "util/randutil.hpp"   // for lincityRand on the Legacy simulation path
 
 #ifndef NDEBUG
 namespace {
@@ -599,10 +599,15 @@ int World::randomNormal(RandomEvent event, int standardDeviation,
 int World::cosmeticRandomInt(int upperExclusive)
 {
   assert(upperExclusive > 0);
-  if(simulationProtocol() == SimulationProtocol::LEGACY)
-    return lincityRand() % upperExclusive;
+  /* ARCH-03 / R9: this used to fall through to the global lincityRand()
+   * stream under LEGACY. That stream is shared with fire, pollution and
+   * traffic, so every cosmetic draw shifted the simulation — and the
+   * number of draws was decided by `simDelay`, a GUI playback variable.
+   * Same save, same seed, different game speed, different city. Cosmetic
+   * randomness gets its own per-World stream, as it already did under
+   * DETERMINISTIC_V1; this just stops LEGACY from pretending otherwise. */
   return static_cast<int>(cosmeticRandom.bounded(
-    static_cast<std::uint64_t>(upperExclusive)));
+    std::uint64_t(upperExclusive)));
 }
 
 void World::addTech(int amount)
