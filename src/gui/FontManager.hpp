@@ -27,6 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <SDL3_ttf/SDL_ttf.h>  // for TTF_Font
 #include <map>        // for map
 #include <string>     // for basic_string, operator<, operator==, operator>
+#include <vector>     // for vector
 
 class Style;
 
@@ -42,6 +43,11 @@ public:
     TTF_Font* getFont(Style style);
 
 private:
+    /* Emenda uma fonte CJK do sistema como fallback, se houver uma.
+     * Devolve false (e avisa uma vez) quando não há — nesse caso o jogo
+     * segue funcionando, só que japonês e chinês saem em tofu. */
+    bool attachCjkFallback(TTF_Font* font, int fontsize, int fontstyle);
+
     struct FontInfo {
         std::string name;
         int fontsize;
@@ -71,6 +77,10 @@ private:
 
     typedef std::map<FontInfo, TTF_Font*> Fonts;
     Fonts fonts;
+
+    /* Fontes CJK emendadas como fallback das acima. TTF_AddFallbackFont
+     * não guarda referência, então a posse é nossa. */
+    std::vector<TTF_Font*> cjkFallbacks;
 };
 
 extern FontManager* fontManager;
