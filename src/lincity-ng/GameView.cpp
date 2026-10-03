@@ -33,6 +33,8 @@
 #include <libxml++/ustring.h>             // for ustring
 #include <cstdio>                         // for stderr
 #include <cmath>                          // for sqrt, fabs, fabsf, floorf
+#include <chrono>                         // for PERF-03 rebuild timing
+#include "util/debuglog.hpp"              // for LNG_LOG (PERF-03)
 #include <cstddef>                        // for size_t, NULL
 #include <exception>                      // for exception
 #include <functional>                     // for bind, _1, function
@@ -1601,6 +1603,16 @@ void GameView::draw(Painter& painter)
     lowerLeftTile.y +=  extratiles;
 
     if(!mapTexture || refreshMap) {
+      /* PERF-03: a reconstrução do mapa inteiro é a fase de render mais
+       * cara do jogo, e `Game::run` marca setMapDirty() dentro do bloco de
+       * animação — ou seja, ela roda a 10 Hz mesmo com o mapa parado. Estes
+       * contadores são o que faltava para medir isso (a área `gui` do
+       * debuglog estava reservada desde TST-06 e nunca foi instrumentada).
+       * LNG_LOG é no-op sem a macro, então o custo fora de depuração é uma
+       * subtração e um teste de bool. */
+      const auto rebuildStart = std::chrono::steady_clock::now();
+      size_t tilesVisited = 0;
+      size_t framesQueued = 0;
       if(!mapTexture
         || mapTexture->getWidth() != (int)getWidth()
         || mapTexture->getHeight() != (int)getHeight()
@@ -1619,8 +1631,10 @@ void GameView::draw(Painter& painter)
         for(int i = 0; i <= upperRightTile.x - upperLeftTile.x; i++) {
           currentTile.x = upperLeftTile.x + i + k / 2 + k % 2;
           currentTile.y = upperLeftTile.y - i + k / 2;
+          ++tilesVisited;
           drawTile(painter, currentTile, frameQueue, cableTiles);
         }
+        framesQueued = frameQueue.size();
 
         std::stable_sort(frameQueue.begin(), frameQueue.end(),
           [](const GameView::RenderFrame& a,
@@ -1672,6 +1686,16 @@ void GameView::draw(Painter& painter)
       }
       painter.popRenderTarget();
       refreshMap = false;
+      if(lincity::log::enabled(lincity::log::kGui,
+        lincity::log::kDebug))
+      {
+        const auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(
+          std::chrono::steady_clock::now() - rebuildStart).count();
+        LNG_LOG(lincity::log::kGui, lincity::log::kDebug,
+          "map rebuild: {} tiles, {} frames, {:.2f} ms (zoom {:.3f})",
+          tilesVisited, framesQueued, static_cast<double>(elapsed) / 1000.0,
+          static_cast<double>(zoom));
+      }
     }
     painter.drawTexture(mapTexture.get(), Vector2(0,0));
 

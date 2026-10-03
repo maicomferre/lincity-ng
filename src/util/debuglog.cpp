@@ -34,7 +34,8 @@ namespace log {
 namespace {
 
 const char* const kAreaNames[kAreaCount] = {
-  "sim", "econ", "save", "vehicles", "frames", "config", "test", "general"
+  "sim", "econ", "save", "vehicles", "frames", "config", "test", "gui",
+  "general"
 };
 const char* const kLevelNames[kLevelCount] = {
   "TRACE", "DEBUG", "INFO", "WARN", "ERROR"

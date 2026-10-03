@@ -35,10 +35,10 @@
  *   LINCITYNG_LOG_TIMESTAMP=0  drop the [timestamp] prefix (cleaner diffs)
  *
  * Areas are per-subsystem so an agent can target one area cheaply:
- * sim/save/vehicles/frames are instrumented; econ is trace-only on the
- * income/expense hot path. FUTURE: add a `gui` area (src/lincity-ng:
- * GameView, Dialog, MiniMap, Mps) in a later session — the enum below and
- * this header's area table in debuglog.cpp are the only places to extend.
+ * sim/save/vehicles/frames/gui are instrumented; econ is trace-only on the
+ * income/expense hot path. To add an area: the enum below plus kAreaNames in
+ * debuglog.cpp — the two tables must stay in the same order, and
+ * tests/unit/test_debuglog.cpp pins each name so a mismatch fails loudly.
  */
 
 #include <fmt/format.h>
@@ -57,6 +57,7 @@ enum Area : int {
   kFrames,    // world.cpp: ExtraFrame add/remove/move + canary asserts
   kConfig,    // Config.cpp: option/env parsing decisions
   kTest,      // test harnesses: tiny_test, simtest, savetest
+  kGui,       // PERF-03: GameView/PainterSDL render phase (map rebuild, draws)
   kGeneral,   // anything not covered by a specific area
   kAreaCount
 };

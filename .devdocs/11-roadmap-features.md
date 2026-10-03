@@ -411,3 +411,63 @@ FEAT-06 continua reservado a poluição hídrica. As filas históricas econômic
 acima não são pré-requisitos para substituição puramente visual de PNGs.
 R5 desta sessão: **sem impacto em save/simulação**, economia, stats, minimapa,
 MPS, tradução em runtime, GUI/config ou RNG; sem flag e sem bump de save.
+
+---
+
+## Auditoria de arquitetura 2026-10-03 — a fila vigente
+
+A análise completa, com evidência `arquivo:linha` e o detalhamento de cada
+item, está em [`27-relatorio-arquitetura-modernizacao.md`](27-relatorio-arquitetura-modernizacao.md).
+Os IDs abaixo são os mesmos usados nos commits. **Esta fila substitui a
+sequência de fases de `14` §4** (que continua válida como análise histórica).
+
+> **Regra de entrada vigente:** nenhuma otimização das Fases 3–6 entra antes
+> da Fase 0 (medição). O harness headless atual **não executa `do_animate()`
+> nem o renderer**, então os dois maiores custos do jogo estão fora da régua.
+> É por isso que `05` pode registrar dois descartes corretos por evidência
+> insuficiente e ainda assim o jogo emitir ~550 mil `drawTile` por frame.
+
+### Fase 0 — Cobertura de medição (pré-requisito de tudo)
+
+| ID | Item | Critério de saída |
+|---|---|---|
+| PERF-01 | Alvo `bench-sim` baseado em `SimulationReplay` (replay fixo + seed fixa, tempo por fase) | Número reproduzível entre dois commits consecutivos |
+| PERF-02 | Executar `do_animate()` no harness headless | O(V²) de veículos e custo de `resMap` ficam visíveis |
+| PERF-03 | Área `gui` do `debuglog` (reservada desde TST-06, `10` §3.5) | Fase de render instrumentada |
+| PERF-04 | Job TSan no CI (hoje só ASan/UBSan+LSAN) | Green no CI remoto |
+
+### Fase 1 — Correção (bugs, não modernização)
+
+IDs, evidência e severidade em `27` §3. **BUG-25** (UB em `shanty.cpp:90`),
+**BUG-26** (fogo aleatório morto em mapa ≥ 4898), **BUG-27** (vazamento de
+construções no path de load), **BUG-34** (`ja`/`zh_CN` renderizam como tofu) e
+**BUG-36** (intervalo de tamanho de mapa validado é ficção) são os de maior
+severidade. A lista completa vai de BUG-25 a BUG-47.
+
+**Regra:** cada item confirma a evidência no código atual antes da correção — o
+documento marca ✅ (verificado na sessão principal) vs 🔎 (achado de auditoria
+com citação, ainda não confirmado).
+
+### Fases 2–6
+
+| Fase | IDs | Condição de entrada |
+|---|---|---|
+| 2 — Fronteira engine→GUI | ARCH-01…05 | Fase 1 |
+| 3 — Render | RENDER-01…09 | Fase 0 (PERF-03) |
+| 4 — Animação/simulação | PERF-05…10 | Fase 0 (PERF-02) |
+| 5 — UI | UI-01…11 | Fase 1 (BUG-32/33) + UI-04 antes de UI-01 |
+| 6 — Modularidade | MOD-01…03 | Fases 1–2 |
+
+### Decisões fechadas por evidência (não rediscutir sem pedido)
+
+1. **Não trocar `libxml++`** — 121 arquivos, todo `Construction` sobrescreve
+   `save`/`loadMember`. Isolar atrás de fachada fina (ARCH-01), não substituir.
+2. **Não migrar o renderer para `SDL_GPU`** — `SDL_CreateRenderer` já roda na
+   GPU; o ganho está em eficiência de chamadas (RENDER-06/07).
+3. **Não ampliar PNGs para HD** — no zoom 1× o PNG é nativo (já em `22` §4.3).
+4. **Não usar `std::execution` dentro da simulação** — quebra R9.
+5. **Não rotacionar sprite em espaço de tela** — quebra o contrato de key light
+   fixo de `25`.
+6. **Não fazer mod de conteúdo em runtime** — MOD-01 é geração em build, não
+   runtime.
+7. **Manter `fmt`**, não migrar para `std::format`.

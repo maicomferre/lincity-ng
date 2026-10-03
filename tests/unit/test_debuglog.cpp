@@ -92,6 +92,7 @@ TTEST(debuglog_names) {
   TCHECK_EQ(std::string("frames"), area_name(kFrames));
   TCHECK_EQ(std::string("config"), area_name(kConfig));
   TCHECK_EQ(std::string("test"), area_name(kTest));
+  TCHECK_EQ(std::string("gui"), area_name(kGui));
   TCHECK_EQ(std::string("general"), area_name(kGeneral));
   TCHECK_EQ(std::string("TRACE"), level_name(kTrace));
   TCHECK_EQ(std::string("DEBUG"), level_name(kDebug));
