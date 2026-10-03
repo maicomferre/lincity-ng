@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include "Panel.hpp"
 
-#include <cassert>                        // for assert
+#include <iostream>                       // for cerr
 #include <libxml++/parsers/textreader.h>  // for TextReader
 #include <libxml++/ustring.h>             // for ustring
 #include <filesystem>                     // for path
@@ -143,12 +143,23 @@ void
 Panel::resize(float width, float height) {
   for(Childs::iterator i = childs.begin(); i != childs.end(); ++i) {
     Component* component = i->getComponent();
+    // BUG-33: isto era `assert(false)`. Panel era o unico container que
+    // abortava em filho nao-resizavel — Desktop.cpp:120, Button.cpp:118 e
+    // CheckButton.cpp:120 todos pulam o filho nesse caso, e o Desktop ainda
+    // avisa em DEBUG quando o filho parece invalido. Um Panel com um
+    // filho de tamanho fixo derrubava o jogo em Debug ao redimensionar a
+    // janela, sem que houvesse nada de errado com a GUI. Agora segue a
+    // convencao da casa: redimensiona quem pode, preserva quem nao pode.
     if(component->getFlags() & FLAG_RESIZABLE) {
       component->resize(width, height);
     }
-    else {
-      assert(false);
+#ifdef DEBUG
+    else if(component->getWidth() <= 0 || component->getHeight() <= 0) {
+      std::cerr << "Warning: component with name '"
+        << component->getName()
+        << "' has invalid width/height but is not resizable.\n";
     }
+#endif
   }
   this->width = width;
   this->height = height;
