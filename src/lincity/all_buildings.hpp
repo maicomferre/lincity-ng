@@ -36,12 +36,17 @@
 #define DAYS_PER_ROAD_POLLUTION 20
 #define UNNAT_DEATHS_COST       500
 
-/* FEAT-06: water pollution */
+/* FEAT-06: water pollution. Fontes reais: port, oilwell e refinery —
+ * cada uma soma o seu valor em map(point)->ground.water_pol. BUG-40
+ * removeu HEAVY_IND_WATER_POLLUTION: a constante não tinha referência
+ * nenhuma em produção e só aparecia num teste que a comparava com o
+ * próprio literal, o que fazia o FEAT-06 parecer cobrir indústria
+ * pesada. Poluição por indústria pesada, se entrar, é gameplay novo e
+ * vai atrás de flag de config (R4). */
 #define WATER_POL_MAX         1000
 #define PORT_WATER_POLLUTION     3
 #define OILWELL_WATER_POLLUTION  5
 #define REFINERY_WATER_POLLUTION 8
-#define HEAVY_IND_WATER_POLLUTION 6
 
 #define INCOME_TAX_RATE 8
 #define COAL_TAX_RATE 15

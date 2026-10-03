@@ -82,13 +82,24 @@ TTEST(sea_farm_formula_scales_with_labor) {
 
 TTEST(water_pollution_formula) {
   /* FEAT-06: pollution_factor = 1 - water_pol/WATER_POL_MAX.
-   * At 0 pollution → full output; at WATER_POL_MAX → zero. */
-  TCHECK_EQ(WATER_POL_MAX, 1000);
-  TCHECK_EQ(PORT_WATER_POLLUTION, 3);
-  TCHECK_EQ(OILWELL_WATER_POLLUTION, 5);
-  TCHECK_EQ(REFINERY_WATER_POLLUTION, 8);
-  TCHECK_EQ(HEAVY_IND_WATER_POLLUTION, 6);
-
+   * At 0 pollution → full output; at WATER_POL_MAX → zero.
+   *
+   * BUG-40: este teste afirmava WATER_POL_MAX, PORT_WATER_POLLUTION,
+   * OILWELL_WATER_POLLUTION, REFINERY_WATER_POLLUTION e
+   * HEAVY_IND_WATER_POLLUTION contra os seus próprios literais —
+   * tautologias que não podem falhar e não provam nada. Saíram.
+   *
+   * O que elas escondiam: ao listar HEAVY_IND_WATER_POLLUTION, o teste
+   * sugeria que o FEAT-06 polui a água a partir de indústria pesada. Não
+   * polui — a constante não tinha referência nenhuma em produção. As
+   * fontes reais são port.cpp:183, oilwell.cpp:105 e refinery.cpp:91,
+   * cada uma emitindo por conta própria. Isso é uma violação de R2 (uma
+   * fórmula, um lugar) e significa que hoje não existe função central
+   * onde um teste possa perguntar "quem polui a água" — por isso a
+   * lacuna não vira asserção aqui, e sim FEAT no inventário.
+   *
+   * O que este teste continua cobrindo é a parte que responde no
+   * sea_farm.cpp:129. */
   /* Zero pollution → factor 1.0 */
   double f0 = 1.0 - 0 / (double)WATER_POL_MAX;
   TCHECK_EQ(f0, 1.0);
