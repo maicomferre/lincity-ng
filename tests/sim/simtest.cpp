@@ -22,6 +22,7 @@
 
 #include <algorithm>
 #include <array>
+#include <chrono>
 #include <climits>
 #include <cstdlib>
 #include <filesystem>
@@ -74,6 +75,8 @@
 #include "lincity/lintypes.hpp"               // for Construction
 #include "lincity/stats.hpp"                 // for Stats
 #include "lincity/StateFingerprint.hpp"      // for captureStateSnapshot
+
+#include <fmt/core.h>                           // PERF-01: locale-independent report
 #include "lincity/SimulationReplay.hpp"       // for deterministic command replay
 #include "lincity/util.hpp"                  // for format_money
 #include "lincity/Vehicles.hpp"              // for Vehicle (dead-vehicle sweep check)
@@ -86,6 +89,11 @@ namespace {
 int g_days = 1200;            // one in-game year by default
 uint64_t g_seed = 1234567;
 std::string g_scenario;       // empty: create a random new city
+bool g_bench = false;         // --bench: instrument only, skip the test suite
+int g_bench_days = 3000;
+int g_bench_animate_every = 1; // 1 animate call per simulated day
+int g_bench_world_size = 100;  // pinned: the user config must not leak in
+std::string g_bench_scenario = "good_times"; // a real city: roads => vehicles
 
 /* base money at the start of the current in-game year (accounts were
  * finalized at that moment, so the accumulated accounts must add up to the
@@ -1881,6 +1889,155 @@ TTEST(port_benchmark_365_days) {
   benchmark_port(*world, 365);
 }
 
+/* ---------------------------------------------------------------------- *
+ * PERF-01 / PERF-02 — benchmark determinístico com cadência de animação
+ *
+ * Por que existe: `run_days` chama `World::do_animate()` 1× a cada 30 dias
+ * (só para checar os invariantes de veículo). Na cadência real de jogo o
+ * animate roda a cada 100 ms de relógio, ou seja muitas vezes por dia
+ * simulado. Isso significa que os custos que vivem no animate — o
+ * quadrático de `tileOccupied()`, as buscas em `ResourceGroup::resMap` por
+ * construção por tick, e o `std::set` percorrido inteiro — nunca foram
+ * medidos por nenhuma ferramenta do projeto.
+ *
+ * `run_bench_days` reproduz a ordem do laço real (Game.cpp: do_time_step,
+ * depois do_animate) com a cadência de animate configurável, e mede as duas
+ * fases separadamente. Não roda os invariantes de conservação: é um
+ * instrumento de medida, não um teste.
+ * ---------------------------------------------------------------------- */
+struct BenchCounters {
+  long long sim_calls = 0;
+  long long sim_us = 0;
+  long long animate_calls = 0;
+  long long animate_us = 0;
+  size_t constructions_start = 0;
+  size_t constructions_end = 0;
+  size_t vehicles_peak = 0;
+  size_t vehicles_end = 0;
+};
+
+void run_bench_days(World& world, int days, int animate_every,
+  BenchCounters& out) {
+  using clock = std::chrono::steady_clock;
+  Uint32 tick = 0;
+  out.constructions_start = world.map.constructions.size();
+
+  for(int day = 0; day < days; day++) {
+    const auto s0 = clock::now();
+    world.do_time_step();
+    const auto s1 = clock::now();
+    out.sim_us +=
+      std::chrono::duration_cast<std::chrono::microseconds>(s1 - s0).count();
+    out.sim_calls++;
+
+    if(animate_every > 0 && day % animate_every == 0) {
+      const auto a0 = clock::now();
+      world.do_animate(tick);
+      const auto a1 = clock::now();
+      out.animate_us += std::chrono::duration_cast<
+        std::chrono::microseconds>(a1 - a0).count();
+      out.animate_calls++;
+      if(world.vehicleList.size() > out.vehicles_peak)
+        out.vehicles_peak = world.vehicleList.size();
+      tick += 100;
+    }
+  }
+
+  out.constructions_end = world.map.constructions.size();
+  out.vehicles_end = world.vehicleList.size();
+}
+
+/* Relatório estável (key=value, uma linha por chave) para comparar dois
+ * commits. Usamos fmt em vez de printf com `%f`: printf segue o locale do
+ * processo e emite "1093,244" em pt-BR, o que quebra qualquer parsing
+ * posterior. fmt usa o locale "C" por padrão. Mesmo cuidado já tomado em
+ * xmlloadsave (xmlFormat/xmlParse independentes de locale). */
+void print_bench_report(const World& world, const BenchCounters& c,
+  int days, int animate_every, const StateFingerprint128& fingerprint) {
+  const double sim_ms = static_cast<double>(c.sim_us) / 1000.0;
+  const double animate_ms = static_cast<double>(c.animate_us) / 1000.0;
+
+  fmt::println("bench.days={}", days);
+  fmt::println("bench.animate_every_days={}", animate_every);
+  fmt::println("bench.scenario={}",
+    g_scenario.empty() ? std::string("<random>") : g_scenario);
+  fmt::println("bench.map_len={}", world.map.len());
+  fmt::println("bench.seed={}", g_seed);
+  fmt::println("bench.constructions_start={}", c.constructions_start);
+  fmt::println("bench.constructions_end={}", c.constructions_end);
+  fmt::println("bench.vehicles_peak={}", c.vehicles_peak);
+  fmt::println("bench.vehicles_end={}", c.vehicles_end);
+  fmt::println("bench.sim_calls={}", c.sim_calls);
+  fmt::println("bench.sim_ms={:.3f}", sim_ms);
+  fmt::println("bench.animate_calls={}", c.animate_calls);
+  fmt::println("bench.animate_ms={:.3f}", animate_ms);
+  fmt::println("bench.total_ms={:.3f}", sim_ms + animate_ms);
+  if(c.sim_calls)
+    fmt::println("bench.sim_us_per_day={:.2f}",
+      static_cast<double>(c.sim_us) / static_cast<double>(c.sim_calls));
+  if(c.animate_calls)
+    fmt::println("bench.animate_us_per_call={:.2f}",
+      static_cast<double>(c.animate_us)
+        / static_cast<double>(c.animate_calls));
+  /* Quanto do custo total o animate representa. É o número que decide se a
+   * Fase 4 do roadmap (PERF-05/PERF-06) vale o esforço. */
+  if(c.sim_us + c.animate_us)
+    fmt::println("bench.animate_share_pct={:.2f}",
+      100.0 * static_cast<double>(c.animate_us)
+        / static_cast<double>(c.sim_us + c.animate_us));
+  /* O fingerprint torna o benchmark verificável: duas execuções com a mesma
+   * seed devem produzir exatamente o mesmo estado final. Se isso divergir, a
+   * comparação de tempo está medindo Worlds diferentes. */
+  fmt::println("bench.fingerprint={}", fingerprint.hex());
+  std::fflush(stdout);
+}
+
+int run_bench() {
+  /* PERF-01: o benchmark precisa ser hermético. `headless_env` chama
+   * Config::init(), que resolve o config real do usuário
+   * (~/.config/lincity-ng.conf) — então WorldSideLen, CarsEnabled e afins
+   * viram dependência da máquina de quem roda, e comparar tempos entre
+   * máquinas passa a medir coisas diferentes. Fixamos o que afeta o
+   * resultado; o relatório imprime o que foi fixado. */
+  getConfig()->worldSize.session = g_bench_world_size;
+  getConfig()->carsEnabled.session = true;
+  /* Default é um cenário com cidade real e estradas. Uma cidade aleatória
+   * nova fica em ~54 construções e 0 veículos (medido), o que torna
+   * animate_share_pct inútil — o custo do animate vive justamente em mover
+   * veículos e varrer a lista de construções. */
+  g_scenario = g_bench_scenario;
+
+  std::unique_ptr<World> world = make_world();
+  if(!world) {
+    std::fprintf(stderr, "bench: could not create the world\n");
+    return 1;
+  }
+  BenchCounters counters;
+  run_bench_days(*world, g_bench_days, g_bench_animate_every, counters);
+  print_bench_report(*world, counters, g_bench_days, g_bench_animate_every,
+    captureStateSnapshot(*world).fingerprint());
+  return 0;
+}
+
+TTEST(bench_animate_cadence_runs) {
+  /* Só executa o caminho do benchmark em escala pequena: garante que a Fase 0
+   * não se degrada em silêncio (ex.: do_animate passando a assertar com
+   * vehicles vivos). O número de verdade vem de `--bench`. */
+  std::unique_ptr<World> world = make_world();
+  TCHECK(world != nullptr);
+  if(!world) return;
+  BenchCounters counters;
+  run_bench_days(*world, 120, 1, counters);
+  TCHECK_EQ(counters.sim_calls, 120L);
+  TCHECK_EQ(counters.animate_calls, 120L);
+  TCHECK(counters.sim_us > 0);
+  /* Custo de animação não pode explodir: com a cadência real e uma cidade
+   * pequena, cada chamada precisa ficar na ordem dos milissegundos. Limite
+   * largo de propósito — só queremos pegar regressão de ordem de grandeza. */
+  if(counters.animate_calls)
+    TCHECK(counters.animate_us / counters.animate_calls < 200000);
+}
+
 TTEST(sea_farm_production_simulation) {
   /* FEAT-05: sea farm on water tiles produces food + goods
    * consuming labor + water + energy. Run a full year and verify
@@ -2077,6 +2234,16 @@ int main(int argc, char** argv) {
       g_scenario = next();
     else if(arg == "--filter")
       tiny_test::set_filter(next());
+    else if(arg == "--bench")
+      g_bench = true;
+    else if(arg == "--bench-days")
+      g_bench_days = std::stoi(next());
+    else if(arg == "--bench-animate-every")
+      g_bench_animate_every = std::stoi(next());
+    else if(arg == "--bench-world-size")
+      g_bench_world_size = std::stoi(next());
+    else if(arg == "--bench-scenario")
+      g_bench_scenario = next();
     else if(arg == "--ts")
       tiny_test::set_timestamps(true);
     else if(arg == "--list-tests")
@@ -2094,7 +2261,9 @@ int main(int argc, char** argv) {
   int rc;
   try {
     headless::init_env(appData, userData, g_seed);
-    rc = tiny_test::run_all_tests();
+    // PERF-01: o modo benchmark não roda a suíte — é um instrumento, não um
+    // teste. A suíte continua sendo o gate; o benchmark é a régua.
+    rc = g_bench ? run_bench() : tiny_test::run_all_tests();
     headless::shutdown_env();
   } catch(const std::exception& err) {
     std::fprintf(stderr, "simtest bootstrap failed: %s\n", err.what());

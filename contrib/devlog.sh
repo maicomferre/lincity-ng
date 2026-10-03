@@ -10,6 +10,8 @@
 #   devlog.sh sim   [--days N] [--seed N] [--scenario S] [--log-areas A]
 #                   [--log-level L] [--asan] [--gdb] [--tag TAG]
 #   devlog.sh save  [--log-areas A] [--log-level L] [--asan] [--gdb] [--tag TAG]
+#   devlog.sh bench [--bench-days N] [--bench-animate-every N] [--seed N]
+#                   [--scenario S] [--asan] [--tag TAG]   (PERF-01/02 benchmark)
 #   devlog.sh ctest [--asan] [--tag TAG]     (all 3 test layers)
 #   devlog.sh game  [args...] [--asan] [--gdb] [--tag TAG]  (run the game binary)
 #   devlog.sh list                           (show recent runs, newest last)
@@ -185,6 +187,25 @@ cmd_save() {
   run_binary save "$bin" "${ARGS[@]}"
 }
 
+# PERF-01/PERF-02: roda o benchmark determinístico e imprime o relatório
+# key=value no terminal além do log. O fingerprint permite comparar duas
+# execuções (mesma seed => mesmo estado final), então a comparação de tempo
+# só vale se os fingerprints baterem.
+cmd_bench() {
+  parse_common bench "$@"
+  local bin_dir="$BUILD_DIR/tests/sim"
+  [[ $USE_ASAN == 1 ]] && bin_dir="$ASAN_DIR/tests/sim"
+  local bin="$bin_dir/lincity-test-sim"
+  [[ -x "$bin" ]] || { echo "missing: $bin" >&2; return 1; }
+  local has_days=0
+  for a in "${ARGS[@]}"; do [[ "$a" == --bench-days ]] && has_days=1; done
+  if (( has_days )); then
+    run_binary bench "$bin" --bench "${ARGS[@]}"
+  else
+    run_binary bench "$bin" --bench --bench-days 3000 "${ARGS[@]}"
+  fi
+}
+
 cmd_ctest() {
   parse_common ctest "$@"
   local dir="$BUILD_DIR"
@@ -279,13 +300,14 @@ main() {
     unit)   cmd_unit "$@";;
     sim)    cmd_sim "$@";;
     save)   cmd_save "$@";;
+    bench)  cmd_bench "$@";;
     ctest)  cmd_ctest "$@";;
     game)   cmd_game "$@";;
     list)   cmd_list "$@";;
     latest) cmd_latest "$@";;
     bt)     cmd_bt "$@";;
     clean)  cmd_clean "${1:-$KEEP}";;
-    help|*) echo "usage: $0 {unit|sim|save|ctest|game|list|latest|bt|clean} [flags]";;
+    help|*) echo "usage: $0 {unit|sim|save|bench|ctest|game|list|latest|bt|clean} [flags]";;
   esac
 }
 

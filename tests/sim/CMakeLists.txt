@@ -26,3 +26,16 @@ add_test(NAME sim COMMAND lincity-test-sim)
 set_tests_properties(sim PROPERTIES
   ENVIRONMENT "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/tests/lsan_suppressions.txt"
 )
+
+# PERF-01/PERF-02: benchmark deterministico. Registrado com label
+# `benchmark` e uma contagem curta de dias para nao pesar no `ctest` normal;
+# o numero real sai de `lincity-test-sim --bench --bench-days 3000`
+# (atalho: `contrib/devlog.sh bench`). O fingerprint no fim da saida garante
+# que duas execucoes comecam do mesmo estado final.
+add_test(NAME bench-sim
+  COMMAND lincity-test-sim --bench --bench-days 600
+)
+set_tests_properties(bench-sim PROPERTIES
+  LABELS "benchmark"
+  ENVIRONMENT "LSAN_OPTIONS=suppressions=${CMAKE_SOURCE_DIR}/tests/lsan_suppressions.txt"
+)
