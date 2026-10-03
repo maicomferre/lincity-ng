@@ -41,18 +41,25 @@ const char* const kLevelNames[kLevelCount] = {
   "TRACE", "DEBUG", "INFO", "WARN", "ERROR"
 };
 
-struct AreaLevels {
-  int v[kAreaCount];
-  AreaLevels() {
-    for(int i = 0; i < kAreaCount; ++i)
-      v[i] = kWarn; // quiet by default: only warnings/errors show
-  }
-};
+} // namespace
 
 /* Static defaults are kWarn so a log call before init never floods output;
  * init_logging() re-parses the env vars on top of these. Manual once-guard
- * (atomic + mutex) instead of std::call_once so the test hook can reset. */
+ * (atomic + mutex) instead of std::call_once so the test hook can reset.
+ * Not in an anonymous namespace: enabled() in the header reads it, which
+ * is what makes that check inline instead of a cross-TU call (BUG-30). */
+namespace detail {
+
+AreaLevels::AreaLevels() {
+  for(int i = 0; i < kAreaCount; ++i)
+    v[i] = kWarn; // quiet by default: only warnings/errors show
+}
+
 AreaLevels g_area_levels;
+
+} // namespace detail
+
+namespace {
 bool g_initialized = false;
 std::mutex g_init_mutex;
 std::mutex g_log_mutex;
@@ -86,7 +93,7 @@ void parse_area_token(const char* token) {
     return; // unknown level for this token: leave defaults
   for(int i = 0; i < kAreaCount; ++i) {
     if(area == kAreaNames[i]) {
-      g_area_levels.v[i] = level;
+      detail::g_area_levels.v[i] = level;
       return;
     }
   }
@@ -98,7 +105,7 @@ void do_init() {
     Level parsed;
     if(parse_level(level, parsed)) {
       for(int i = 0; i < kAreaCount; ++i)
-        g_area_levels.v[i] = parsed;
+        detail::g_area_levels.v[i] = parsed;
     }
   }
 
@@ -130,14 +137,6 @@ void init_logging() {
     do_init();
     g_initialized = true;
   }
-}
-
-bool enabled(Area area, Level level) {
-  if(area < 0 || area >= kAreaCount)
-    return false;
-  if(level < 0 || level >= kLevelCount)
-    return false;
-  return level >= g_area_levels.v[area];
 }
 
 const char* area_name(Area area) {
@@ -181,7 +180,7 @@ void _debuglog_test_reset() {
   g_file = nullptr;
   g_show_timestamp = true;
   for(int i = 0; i < kAreaCount; ++i)
-    g_area_levels.v[i] = kWarn;
+    detail::g_area_levels.v[i] = kWarn;
 }
 
 } // namespace log

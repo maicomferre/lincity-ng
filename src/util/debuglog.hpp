@@ -71,12 +71,34 @@ enum Level : int {
   kLevelCount
 };
 
+namespace detail {
+
+/* BUG-30: the parsed per-area thresholds. This lives in a named detail
+ * namespace, not an anonymous one in the .cpp, so enabled() can be
+ * inline. LINCITYNG_ENABLE_DEBUG_LOG defaults ON in RelWithDebInfo
+ * (CMakeLists.txt:150), which is the normal development build, so every
+ * LNG_LOG site was paying an out-of-line call across a translation unit
+ * just to ask whether it would print. */
+struct AreaLevels {
+  int v[kAreaCount];
+  AreaLevels();
+};
+extern AreaLevels g_area_levels;
+
+} // namespace detail
+
 /* Reads the LINCITYNG_LOG_* env vars once (first call wins; safe to call
  * from every binary entry point). Does nothing if logging is compiled out. */
 void init_logging();
 
 /* true when `level` is loud enough for `area` under the current config. */
-bool enabled(Area area, Level level);
+inline bool enabled(Area area, Level level) {
+  if(area < 0 || area >= kAreaCount)
+    return false;
+  if(level < 0 || level >= kLevelCount)
+    return false;
+  return level >= detail::g_area_levels.v[area];
+}
 
 /* Names for the manifest/tooling; return "?" for invalid enum values. */
 const char* area_name(Area area);
