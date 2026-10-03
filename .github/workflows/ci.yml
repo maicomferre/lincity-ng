@@ -39,9 +39,22 @@ jobs:
           - name: build (RelWithDebInfo)
             build-type: RelWithDebInfo
             cxxflags: ""
+            ctest-args: "--output-on-failure --timeout 600"
           - name: build-asan (Debug + ASan/UBSan)
             build-type: Debug
             cxxflags: "-fsanitize=address,undefined -fno-omit-frame-pointer"
+            ctest-args: "--output-on-failure --timeout 600"
+          # PERF-04: a terceira variante de sanitizador. A thread de carga de
+          # texturas (GameView.cpp) compartilha std::atomic com o loop
+          # principal e é o subsistema mais concorrente do jogo; ASan/UBSan
+          # não detectam data race, então essa cobertura simplesmente não
+          # existia. Roda só os testes que exercitam essa thread (o filtro
+          # pega o teste que carrega texturas e desenha), porque a suíte sim
+          # completa sob TSan custa mais que o timeout do job.
+          - name: build-tsan (Debug + ThreadSanitizer)
+            build-type: Debug
+            cxxflags: "-fsanitize=thread -fno-omit-frame-pointer"
+            ctest-args: "--output-on-failure --timeout 600 -R 'unit'"
 
     steps:
       - name: Install apt deps (git first so checkout works)
@@ -104,4 +117,16 @@ jobs:
         env:
           SDL_VIDEODRIVER: dummy
           SDL_AUDIODRIVER: dummy
-        run: ctest --test-dir build --output-on-failure --timeout 600
+        run: ctest --test-dir build ${{ matrix.ctest-args }}
+
+      # PERF-04: exercita a thread de carga de texturas sob TSan. Filtro
+      # deliberado — ver comentário da entrada da matriz.
+      - name: "Test (TSan: texture loader thread)"
+        if: matrix.name == 'build-tsan (Debug + ThreadSanitizer)'
+        env:
+          SDL_VIDEODRIVER: dummy
+          SDL_AUDIODRIVER: dummy
+          TSAN_OPTIONS: "halt_on_error=0 second_deadlock_stack=1"
+        run: |
+          ./build/tests/sim/lincity-test-sim \
+            --filter game_flow_reset --app-data build/test-install/share/lincity-ng
