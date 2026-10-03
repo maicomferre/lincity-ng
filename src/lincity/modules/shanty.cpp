@@ -86,7 +86,12 @@ void add_a_shanty_with_ordinal(World& world, std::uint64_t ordinal) {
         }
         p = *r;
         r = world.map.find_bare_area(p, 2);
-        if (r == -1)
+        // BUG-25: isto era `r == -1`. MapPoint tem construtor implícito
+        // MapPoint(int x = 0, int y = 0), então `r == -1` comparava com
+        // MapPoint(-1, 0) — e para um optional desengajadooptional::== é
+        // sempre false, então o caminho de falha caía em `p = *r` e
+        // desreferenciava optional vazio. Use operator bool.
+        if (!r)
         {
 #ifdef DEBUG
             fprintf(stderr,"Adding a shanty (s), no space for it?!\n");
@@ -103,7 +108,7 @@ void add_a_shanty_with_ordinal(World& world, std::uint64_t ordinal) {
 
         p = *r;
         r = world.map.find_bare_area(p, 2);
-        if (r == -1)
+        if (!r)
         {
 #ifdef DEBUG
             fprintf(stderr,"Adding a shanty (r), no space for it?!\n");
