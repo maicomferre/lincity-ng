@@ -447,45 +447,61 @@ cadência e instrumento, não a chamada. E o benchmark herdava
 `~/.config/lincity-ng.conf` do desenvolvedor; o alvo agora fixa mapa e
 `carsEnabled`, senão o número muda de máquina para máquina.
 
-### Fase 1 — Correção (bugs, não modernização) — **em andamento**
+### Fase 1 — Correção (bugs, não modernização) — **concluída**
 
 IDs, evidência e severidade em `27` §3. A lista completa vai de BUG-25 a
-BUG-47. **Regra:** cada item confirma a evidência no código atual antes da
-correção — o documento marca ✅ (verificado na sessão principal) vs 🔎 (achado
-de auditoria com citação, ainda não confirmado). Correções feitas até aqui:
+BUG-48. **Regra aplicada:** cada item confirma a evidência no código atual
+antes da correção. Isso pagou — seis achados não sobreviveram como
+estavam.
 
-| ID | Problema | Estado |
-|---|---|---|
-| BUG-25 | `shanty.cpp:89`/`:106` desreferenciavam optional vazio (`r == -1` num `optional<MapPoint>`) | ✅ `55cdb243` |
-| BUG-26 | Incêndio aleatório silenciava sozinho em mapas grandes | ✅ `9dc273f1` |
-| BUG-27 | Load vazava as construções lidas se o parse lançasse | ✅ commit em curso |
-| BUG-34 | `ja`/`zh_CN` renderizavam 100% em tofu | ✅ `20a84ad2` |
-| BUG-40 | Constante morta do FEAT-06 sustentada por teste tautológico | ✅ `69b9e3db` |
+**Corrigidos:** BUG-25 (`55cdb243`), BUG-26 (`9dc273f1`), BUG-27
+(`d7f667cd`), BUG-30 (`e9dd9155`), BUG-32 (`24bbcb73`), BUG-33
+(`733789be`), BUG-34 (`20a84ad2`), BUG-38 (`ba4bb940`), BUG-39+47
+(`3437423b`), BUG-40 (`69b9e3db`), BUG-43 (`674cd26e`), BUG-44
+(`28afde36`), BUG-45 (`dff18aa2`), BUG-48a+48b (`f75f9ffc`), BUG-31
+(`6938f2d8`).
 
-**Correções ao que a auditoria afirmava** — o que a regra de confirmar no
-código atual pagou:
+**O que a verificação contestou:**
 
-- **BUG-26 era pior e mais cedo do que se pensava.** A auditoria dizia "mapa
-  ≥ 4898". O limiar real é **~2000**: `period <= offset` (6 dias contra
-  offset 9) não tem solução para `day % period == offset`, e isso já zera o
-  evento bem antes de `period` virar 0. Um mapa 2000×2000 são 4 milhões de
-  tiles — plausível. O conserto teve de mexer na codificação em `due()`, não
-  só no número.
-- **BUG-41 (`Ground::int1..int4`) não é código morto banal.** O achado o
-  tratava como exclusão simples, mas `xmlloadsave.cpp:1299-1302` **serializa**
-  os quatro campos explicitamente. Removê-los é mudança de formato de save e
-  cai em R3, com bump de `ldsv_version`. Fica para uma passada dedicada; não
-  entra nesta fase.
-- **BUG-28 (`placeItem`) rebaixado.** O vazamento e o deref de null só são
-  alcançáveis se `place()` lançar, e `World::buildConstruction` já valida com
-  `can_build_here` antes. Pior: trocar por `unique_ptr` seria *pior*, porque
-  se `neighborize()` lançar depois do registro em `map.constructions`, o
-  `unique_ptr` apagaria um objeto que o mapa ainda referencia. Não mexe.
+- **BUG-35 descartado.** A auditoria disse que `applyTransport` não atualiza
+  `commodityProd` e que isso divergiria do protocolo LEGACY. Não diverge:
+  `equilibrate_stuff` também não mexe. Os dois caminhos são idênticos.
+- **BUG-45 era um terço do que se dizia.** Só `simDelay` vazava —
+  `blockingDialogIsOpen` é resetada por `closeAllDialogs()` e
+  `bulldozeToggled` por `selectQueryTool()`, ambos já chamados por
+  `setWorld`.
+- **BUG-41 não era exclusão simples.** Os quatro campos *são* serializados;
+  remover é mudança de formato de save (R3), com bump de `ldsv_version`.
+- **BUG-31 não tinha a armadilha descrita.** O padrão já é OFF, o build
+  já não compila as fontes GL e `Config.cpp:417` já avisa se GL for
+  pedido. Faltava a mensagem de configure e a remoção do subsistema.
+- **BUG-32 não atrapalhava.** As 17 definições redundantes de estilo são
+  idênticas onde cruzam arquivos, e onde diferem o first-wins preserva a
+  versão correta. last-wins seria pior. O defeito era a armadilha
+  silenciosa, e é isso que foi corrigido.
+- **BUG-28 rebaixado a não mexer.** Trocar por `unique_ptr` seria pior que
+  o bug: exceção depois do registro deixaria ponteiro pendurado no mapa.
 
-Itens ainda em aberto na Fase 1: BUG-30 (`enabled()` fora de linha em
-RelWithDebInfo), BUG-36 (intervalo de tamanho de mapa validado é ficção) e os
-achados 🔎 BUG-31…33, 35, 37…39, 42…47, que exigem confirmação antes de
-qualquer edição.
+**Aberto por decisão, não por falta de tempo:**
+
+- **BUG-37** — persistir a resolução ao arrastar a janela é decisão de
+  produto. `MainMenu.cpp:507-511` persiste de propósito quando o jogador
+  escolhe da lista.
+- **BUG-46** — `BasicUrbg` (stream LEGACY) é semeado por processo, não por
+  `World`, o que viola R7. Semear por `time(0)` faria dois mundos nascidos
+  no mesmo segundo serem idênticos e quebraria os testes de determinismo.
+  Precisa de desenho: ou semear de uma fonte que não colida, ou gravar a
+  semente no save.
+- **BUG-36** — o intervalo 50…10000 do tamanho de mapa continua aceito.
+  Com `sizeof(MapTile)=104`, o topo do intervalo pede 10,4 GB. Decidir o
+  teto real é decisão de produto.
+
+**Achado lateral que vale mais que os bugs individuais:** rodar a suíte
+sob ASan pela primeira vez mostrou que o portão **já** estava vermelho
+antes de qualquer correção desta série (bool indeterminado em
+`_CitySettings` e construção órfã na teardown do `World`). Era a mesma
+coisa que a Fase 0 veio resolver, vista por outro ângulo: sem medir,
+ninguém sabia que o portão não fechava.
 
 ### Fases 2–6
 
