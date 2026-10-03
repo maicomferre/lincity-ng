@@ -1,7 +1,24 @@
-set(LINCITYNG_DISABLE_GL_MODE ON CACHE BOOL "Disable direct OpenGL renderer.")
+# BUG-31: este caminho está morto e não compila. Verificado por
+# tentativa, não por leitura:
+#   - PainterGL não implementa os puro-virtuais do Painter atual
+#     (drawTexture, clear, createTargetTexture, pushRenderTarget...), então
+#     Video.cpp:144 faz `new PainterGL(window)` numa classe abstrata;
+#   - TextureManagerGL.cpp:73 trata convert->format como ponteiro, mas em
+#     SDL3 SDL_PixelFormat é valor.
+# Ele nunca acompanhou nem a reescrita da interface Painter nem a mudança
+# de formato de pixel do SDL3.
+#
+# O padrão já é desligado, e Config.cpp avisa no stderr e força
+# useOpenGL=false quando GL é pedido num build sem GL — então não há
+# armadilha para o jogador. Esta mensagem é para quem for reativar a
+# opção por curiosidade: o build vai falhar, e a remoção do backend (e
+# da option) é a correção de verdade, registrada no inventário.
+set(LINCITYNG_DISABLE_GL_MODE ON CACHE BOOL "Disable direct OpenGL renderer (unsupported: the GL backend does not compile).")
 
-if(NOT LINCITYNG_DISABLE_GL_MODE)
-  find_package(OpenGL REQUIRED)
+if(LINCITYNG_DISABLE_GL_MODE)
+  message(STATUS "lincity-ng: direct OpenGL renderer disabled "
+                 "(PainterGL does not compile against the current Painter "
+                 "interface nor SDL3; see BUG-31)")
 endif()
 
 add_library(lincity_gui  STATIC
