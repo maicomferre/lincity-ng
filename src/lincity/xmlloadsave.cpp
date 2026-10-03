@@ -1159,7 +1159,14 @@ static void loadMap(xmlpp::TextReader& xmlReader, World& world,
   unsigned int ldsv_version
 ) {
   Map& map = world.map;
-  std::list<std::pair<Construction *, MapPoint>> constructions;
+  // BUG-27: a posse é do World, mas só depois de place() — antes disso
+  // nada registra a construção, e createConstruction() dá um ponteiro
+  // cru. Parsear um save corrompido lança com facilidade (fora do mapa,
+  // grupo inválido, atributo ausente) e cada lançamento antes do place()
+  // final vazia tudo que já tinha sido lido. Guardamos em unique_ptr e
+  // só liberamos quando place() passa a posse para o Map.
+  std::list<std::pair<std::unique_ptr<Construction>, MapPoint>>
+    constructions;
 
   if(ldsv_version > 2130) {
     int mapSize = p<int>(xmlReader.get_attribute("size"));
@@ -1199,9 +1206,9 @@ static void loadMap(xmlpp::TextReader& xmlReader, World& world,
         ConstructionGroup::getConstructionGroup(group);
       if(!cstgrp)
         throw std::runtime_error("invalid group");
-      Construction *cst = cstgrp->createConstruction(world);
+      auto cst = std::unique_ptr<Construction>(cstgrp->createConstruction(world));
       cst->load(xmlReader, ldsv_version);
-      constructions.emplace_back(cst, point);
+      constructions.emplace_back(std::move(cst), point);
     }
     else if(xmlReader.get_name() == "polluted") {
       map.polluted.clear();
@@ -1259,6 +1266,9 @@ static void loadMap(xmlpp::TextReader& xmlReader, World& world,
 
   for(auto& cst : constructions) {
     cst.first->place(cst.second);
+    // place() registra em map.constructions, de onde o MapTile
+    // destrói na teardown do World: a posse saiu daqui.
+    cst.first.release();
   }
 
   map.alt_min = map.alt_max = map(MapPoint(0,0))->ground.altitude;
