@@ -101,11 +101,65 @@ de suposição: `git log` mostra o `build-asan` compilado antes de BUG-25.
   `do_animate`". Lendo o código, ele roda, mas 1× a cada 30 dias e sem
   tempo. O que faltava era cadência e instrumento.
 
+### Continuação da Fase 1 — o resto dos achados
+
+Os itens abaixo foram fechados depois que a primeira redação deste diário
+foi escrita.
+
+- `ba4bb940` BUG-38 — `SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED` gravava
+  pixels na config, que em todo o resto é lida em coordenadas lógicas.
+  A janela ficava com a proporção certa e o clique, errado. Agora a config
+  recebe `SDL_GetWindowSize` (lógico) e o render continua com pixels.
+- `3437423b` BUG-39 + BUG-47 — `Event` abortava em qualquer evento SDL não
+  mapeado (`assert(false)`). O próprio arquivo já tinha a convenção
+  oposta em `sanitizeScancode()`: sanitizar e seguir. E `debuglog` usava
+  `std::mutex` sem linkar `Threads::Threads` — compila só porque o glibc
+  ≥ 2.34 dobrou pthreads para dentro da libc.
+- `674cd26e` BUG-43 — thread vestigial em `Sound`: `SDL_CreateThread`
+  para rodar `loadWaves()`, com um `SDL_WaitThread` que nunca era
+  alcançado no caminho normal. `loadWaves()` é chamado direto.
+- `28afde36` BUG-44 — `getTileResourceGroup()` usava `resMap::operator[]`,
+  que **cria** a entrada; um cache que se envenena com seis nulos em vez
+  de reprocessar. Passa a `find()` e re-resolve enquanto algum ponteiro
+  for nulo.
+- `dff18aa2` BUG-45 — jogo novo nascia **congelado** se o anterior tivesse
+  sido encerrado pausado. `simDelay` não é resetado por `setWorld`.
+  Teste novo na camada 2 (`r7_pause_does_not_leak_into_the_next_game`),
+  verificado por build negativo.
+- `24bbcb73` BUG-32, `733789be` BUG-33 — `Style` sobrescrever um estilo era
+  silenciosamente ignorado, e `Panel` era o único container que abortava
+  em filho não-resizável. Nenhum dos dois era um bug *presente*: o
+  defeito era a armadilha sem aviso.
+- `6938f2d8` BUG-31 — o caminho OpenGL está morto e o build agora diz isso
+  em voz alta na configuração, em vez de só aceitar a opção.
+- `e9dd9155` BUG-30 — `log::enabled()` era função fora de linha. Com
+  `LINCITYNG_ENABLE_DEBUG_LOG` ligado por padrão em RelWithDebInfo (que é
+  o build normal de desenvolvimento), **todo** `LNG_LOG` no jogo pagava
+  uma chamada fora de linha só para perguntar se ia imprimir. Passou a
+  `inline` no header, com as tabelas num namespace `detail` nomeado.
+
+### Portão final
+
+`ctest` em `build/` e em `build-asan/`: **5/5**, verde nos dois.
+ASan completo levou 1697 s (`sim` 1187 s, `save` 500 s), o que confirma
+que o portão desta vez *fecha* — antes da série ele já estava vermelho.
+
 ### Ainda aberto na Fase 1
 
-BUG-30 (`enabled()` fora de linha em RelWithDebInfo), BUG-36 (intervalo de
-tamanho de mapa validado é ficção), e os achados 🔎 BUG-31…33, 35, 37…39,
-42…47, que exigem confirmação antes de qualquer edição.
+**BUG-36** (intervalo de tamanho de mapa validado é ficção: o topo do
+intervalo pede 10,4 GB com `sizeof(MapTile)=104`), **BUG-37** (persistir
+resolução ao arrastar a janela é decisão de produto) e **BUG-46**
+(`BasicUrbg` semeado por processo viola R7, mas semear por `time(0)`
+quebraria o determinismo — precisa de desenho, não de remendo). Os três
+estão registrados como decisão, não como falta de tempo, em `11`.
+
+### O que ainda não foi verificado
+
+BUG-34 (fontes CJK) foi provado por teste isolado — `TTF_AddFallbackFont`
+não fica com referência, e a primeira versão fechava a fallback em
+seguida. Mas o **render** de ponta a ponta não foi visto: nenhum
+headless pinta tela. A aceitação é manual: abrir o jogo, escolher
+japonês, olhar a tela.
 
 ---
 

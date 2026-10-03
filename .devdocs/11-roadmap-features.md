@@ -421,11 +421,14 @@ item, está em [`27-relatorio-arquitetura-modernizacao.md`](27-relatorio-arquite
 Os IDs abaixo são os mesmos usados nos commits. **Esta fila substitui a
 sequência de fases de `14` §4** (que continua válida como análise histórica).
 
-> **Regra de entrada vigente:** nenhuma otimização das Fases 3–6 entra antes
-> da Fase 0 (medição). O harness headless atual **não executa `do_animate()`
-> nem o renderer**, então os dois maiores custos do jogo estão fora da régua.
+> **Regra de entrada (como foi escrita antes da Fase 0):** nenhuma otimização
+> das Fases 3–6 entra antes da Fase 0 (medição). Naquele momento o harness
+> headless rodava `do_animate()` 1× a cada 30 dias e sem cronômetro, e não
+> rodava o renderer — os dois maiores custos do jogo estavam fora da régua.
 > É por isso que `05` pode registrar dois descartes corretos por evidência
 > insuficiente e ainda assim o jogo emitir ~550 mil `drawTile` por frame.
+> **A Fase 0 já cumpriu o que esta regra exigia**; ver a correção ao que a
+> auditoria afirmava, logo abaixo da tabela.
 
 ### Fase 0 — Cobertura de medição (pré-requisito de tudo) — **concluída**
 
