@@ -54,14 +54,6 @@ Sound *getSound()
   return soundPtr;
 }
 
-int
-Sound::soundThread(void* ptr)
-{
-    Sound* sound = (Sound*) ptr;
-    sound->loadWaves();
-    return 0;
-}
-
 void
 Sound::loadWaves() {
   // TODO: improve the format of sounds.xml
@@ -245,7 +237,6 @@ Sound::Sound()
 {
     assert( soundPtr == 0);
     soundPtr = this;
-    loaderThread = 0;
 
     //Load Sound
     audioOpen = false;
@@ -259,7 +250,6 @@ Sound::Sound()
         return;
     } else {
         audioOpen = true;
-        loaderThread = SDL_CreateThread(soundThread, "Sound", this);
     }
 
     musicTrack = MIX_CreateTrack(mixer);
@@ -271,11 +261,15 @@ Sound::Sound()
     totalTracks = 0;
     loadMusicTheme();
 
-    // The wave loader used to run on a background thread, racing the main
-    // thread's reads of ResourceGroup::chunks in playASound. Load
-    // synchronously so chunks is fully populated before the game starts.
-    SDL_WaitThread(loaderThread, NULL);
-    loaderThread = 0;
+    // BUG-43: this used to be a background thread that was created a few
+    // lines above and then immediately joined here. The thread had already
+    // been abandoned for the right reason, spelled out in the original
+    // comment: the wave loader raced the main thread's reads of
+    // ResourceGroup::chunks in playASound, so it had to be synchronous for
+    // chunks to be fully populated before the game starts. Creating a
+    // thread only to wait on it bought nothing but a thread create/destroy
+    // at startup. So: call it directly and keep the guarantee.
+    loadWaves();
 
     //'totalTracks' gets too high value in while loop. Let's fix it.
     totalTracks = totalTracks-1;
@@ -291,9 +285,6 @@ Sound::Sound()
 
 Sound::~Sound()
 {
-    //SDL_KillThread( loaderThread );
-    if(loaderThread)
-        SDL_WaitThread( loaderThread, NULL );
     if(currentMusic)
         MIX_DestroyAudio(currentMusic);
 

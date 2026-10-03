@@ -84,14 +84,12 @@ public:
 
 
 private:
-    static int soundThread(void* ptr);
     void loadWaves();
     std::string getIdName(const std::string& filename);
 
     typedef std::multimap<std::string,MIX_Audio*> chunks_t;
     chunks_t waves;
     bool audioOpen;
-    SDL_Thread* loaderThread;
     MIX_Audio* currentMusic;
     int totalTracks;
     std::vector<song> playlist;
