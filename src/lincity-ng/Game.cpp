@@ -535,15 +535,25 @@ Game::run() {
         SDL_Event event;
         while(SDL_PollEvent(&event)) {
           switch(event.type) {
-            case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+            case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: {
+              // BUG-38: event.window.data1/2 são pixels, mas videoX/videoY
+              // são coordenadas lógicas — MainMenu.cpp:587 compara esses
+              // valores contra SDL_GetDisplayModes(), e Video.cpp:121 os
+              // escreve de SDL_GetWindowSize(). Gravar pixels aqui mistura
+              // as unidades e, com HiDPI ligado, persiste um tamanho que
+              // o menu tenta casar com um modo que não existe. O render
+              // continua recebendo pixels, que é o que ele recebe hoje.
+              int logicalW = 0, logicalH = 0;
+              SDL_GetWindowSize(window, &logicalW, &logicalH);
               videoSizeChanged(event.window.data1, event.window.data2);
               gui->resize(event.window.data1, event.window.data2);
-              getConfig()->videoX.session = event.window.data1;
-              getConfig()->videoY.session = event.window.data2;
+              getConfig()->videoX.session = logicalW;
+              getConfig()->videoY.session = logicalH;
               getConfig()->videoX.sessionToConfig();
               getConfig()->videoY.sessionToConfig();
               loadingDoc->resize(event.window.data1, event.window.data2);
               break;
+            }
             case SDL_EVENT_QUIT:
               saveCityNG(*world, getConfig()->userDataDir.get()
                 / "9_currentGameNG.scn.gz");
@@ -605,14 +615,19 @@ Game::run() {
             if(!status) break; // timed out
 
             switch(event.type) {
-                case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+                case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED: {
+                    // BUG-38: idem ao handler de loading — o config
+                    // recebe coordenadas lógicas, o render recebe pixels.
+                    int logicalW = 0, logicalH = 0;
+                    SDL_GetWindowSize(window, &logicalW, &logicalH);
                     videoSizeChanged(event.window.data1, event.window.data2);
                     gui->resize(event.window.data1, event.window.data2);
-                    getConfig()->videoX.session = event.window.data1;
-                    getConfig()->videoY.session = event.window.data2;
+                    getConfig()->videoX.session = logicalW;
+                    getConfig()->videoY.session = logicalH;
                     getConfig()->videoX.sessionToConfig();
                     getConfig()->videoY.sessionToConfig();
                     break;
+                }
                 case SDL_EVENT_WINDOW_MOUSE_ENTER:
                 case SDL_EVENT_WINDOW_MOUSE_LEAVE: {
                     Event gui_event(event);
