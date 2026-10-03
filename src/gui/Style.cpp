@@ -153,7 +153,25 @@ void parseStyleDef(xmlpp::TextReader& reader) {
   if(name.empty())
     missingXmlAttribute(reader, "name");
 
-  styleRegistry.insert(std::make_pair(name, style));
+  // BUG-32: std::map::insert nao sobrescreve, entao a primeira
+  // definicao de um nome vence e as seguintes sao descartadas em
+  // silencio. Medido em data/gui: 36 nomes distintos, 15 definidos em mais
+  // de um lugar, 17 definicoes redundantes — incluindo `button` e
+  // `dialogbutton` redefinidos dentro do proprio mainmenu.xml.
+  //
+  // Hoje nenhuma dessas duplicatas atrapalha: as cross-file sao
+  // identicas, e onde diferem (button, dialogbutton) o first-wins por acaso
+  // preserva a versao que tem as margens. Trocar para last-wins seria
+  // pior, nao melhor. O defeito e a armadilha: quem redefinir um estilo
+  // depois vai ver a mudanca nao surtir efeito, sem nenhuma pista.
+  //
+  // Entao a semantica fica (first-wins) e o que muda e a visibilidade:
+  // redefinir agora reclama em vez de sumir.
+  const auto inserted = styleRegistry.insert(std::make_pair(name, style));
+  if(!inserted.second)
+    fmt::println(stderr,
+      "warning: style '{}' is already defined; the first definition wins. "
+      "Redefining a style has no effect.", name);
 }
 
 void
