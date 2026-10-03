@@ -32,8 +32,15 @@
 typedef struct _CitySettings city_settings;
 
 struct _CitySettings {
-  bool with_village;
-  bool without_trees;
+  /* BUG-48: sem estes initializers, `city_settings city;` deixaria os
+   * dois bool indeterminados, e create_new_city() lê without_trees sem
+   * validar. Três testes faziam exatamente isso e o UBSan pegou:
+   * "load of value 213, which is not a valid value for type 'bool'".
+   * Com os initializers, `city_settings city;` vale false e nenhum
+   * chamador pode errar de novo. C++17 mantém isto como agregado, então
+   * os `city_settings{true, false}` dos outros testes seguem válendo. */
+  bool with_village = false;
+  bool without_trees = false;
 };
 
 std::unique_ptr<World>

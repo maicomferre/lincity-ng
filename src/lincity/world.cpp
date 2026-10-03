@@ -684,6 +684,24 @@ World::~World() {
     // `map` (declared after `vehicleList`) is destroyed. The
     // commodityLedger is declared before `map` so it outlives those
     // destructors and still debits inventory destruction (TST-03).
+    //
+    // BUG-48: that only covers the construction still attached to each
+    // tile. A detached one — a road/rail/power line replaced by another
+    // transport, a building bulldozed since the last simulation tick —
+    // is in map.constructions with no tile owning it, because detach()
+    // is exactly what zeroes tile->construction. doConstruction reaps
+    // those during play, but whatever is still pending at teardown has
+    // no owner at all and leaked (456 B in the ASan sim run).
+    for(auto it = map.constructions.begin();
+        it != map.constructions.end(); ) {
+      Construction* cst = *it;
+      if(!cst->isDead()) {   // still on a tile: MapTile::~MapTile takes it
+        ++it;
+        continue;
+      }
+      it = map.constructions.erase(it);
+      delete cst;
+    }
     // Vehicles are only owned here: delete the survivors (do_animate
     // already reaped the dead ones).
     for(Vehicle* v : vehicleList)
