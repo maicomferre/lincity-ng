@@ -23,6 +23,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <assert.h>  // for assert
 #include <cstring>   // for memcpy
 
+#include "util/debuglog.hpp"  // for LNG_LOG, lincity::log::kGui
+
 namespace {
 /* SDL delivers some synthesized events whose scancode field is not a valid
  * SDL_Scancode; reading the enum-typed field directly is UB in that case.
@@ -82,7 +84,15 @@ Event::Event(SDL_Event& event)
             type = WINDOWLEAVE;
             break;
         default:
-            assert(false);
+            // BUG-39: isto era `assert(false)`. O próprio arquivo já tem a
+            // convenção oposta em sanitizeScancode() — o que não
+            // reconhecemos é sanitizado e ignorado, não fatal. O SDL3 é
+            // novo e ganha eventos a cada release; abortar o jogo por um
+            // evento novo é pior do que deixá-lo virar UPDATE, que é o
+            // valor default de `type`. Agora fica registrado e visível.
+            LNG_LOG(lincity::log::kGui, lincity::log::kTrace,
+              "ignoring unhandled SDL event {}", event.type);
+            break;
     }
 }
 
