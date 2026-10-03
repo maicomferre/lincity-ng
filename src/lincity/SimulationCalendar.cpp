@@ -1,5 +1,6 @@
 #include "SimulationCalendar.hpp"
 
+#include <algorithm>
 #include <cassert>
 
 #include "all_buildings.hpp"
@@ -47,13 +48,32 @@ int SimulationCalendar::period(const SimulationEvent& event, int mapLength) {
 
   assert(event.id == SimulationEventId::RANDOM_FIRE);
   assert(mapLength > 0);
-  return DAYS_BETWEEN_FIRES * 100 / mapLength * 100 / mapLength;
+  // BUG-26: a fórmula legacy escala ~1/L² e trunca a cada divisão
+  // inteira. A partir de ~2683 de lado a segunda divisão zera, e
+  // due() trata período 0 como "nunca" — então o incêndio aleatório
+  // era desligado de vez em mapas grandes (worldSize aceita até
+  // 10000, Config.cpp:229). Clamp em 1 dia: um incêndio não pode
+  // acontecer mais de uma vez por dia, e período 0 não significa
+  // "todo dia", significa "nenhum".
+  return std::max(1,
+    DAYS_BETWEEN_FIRES * 100 / mapLength * 100 / mapLength);
 }
 
 bool SimulationCalendar::due(
   const SimulationEvent& event, int day, int mapLength) {
   const int eventPeriod = period(event, mapLength);
-  return eventPeriod > 0 && day % eventPeriod == event.offset;
+  if(eventPeriod <= 0)
+    return false;
+  // BUG-26: a cadência é codificada como `day % period == offset`. Se o
+  // período for menor ou igual ao offset, essa congruência não tem
+  // solução — `day % 6` nunca vale 9 — e o evento silencia para sempre.
+  // Acontece de verdade: a fórmula de incêndio dá 6 dias a L=2000
+  // contra offset 9. Período abaixo da granularidade do offset
+  // significa "mais frequente que o calendário consegue expressar", e
+  // isso degenera em todo dia.
+  if(eventPeriod <= event.offset)
+    return true;
+  return day % eventPeriod == event.offset;
 }
 
 const char* SimulationCalendar::name(SimulationEventId id) {
