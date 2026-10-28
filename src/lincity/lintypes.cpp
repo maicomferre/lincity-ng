@@ -44,7 +44,6 @@
 #include "economy.hpp"                    // for compute_cost
 #include "groups.hpp"                     // for GROUP_POWER_LINE, GROUP_FIRE
 #include "lin-city.hpp"                   // for FLAG_EVACUATE, FLAG_IS_TRAN...
-#include "lincity-ng/Config.hpp"          // for getConfig, Config
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity-ng/Sound.hpp"           // for getSound, Sound
 #include "modules/all_modules.hpp"        // for Powerline, GROUP_MARKET_RANGE
@@ -55,8 +54,6 @@
 #include "util/randutil.hpp"               // for lincityRand
 #include "util/xmlutil.hpp"               // for xmlParse, xmlStr, xmlStrF
 #include "world.hpp"                      // for World, Map, MapTile
-
-extern int simDelay; // is defined in lincity-ng/MainLincity.cpp
 
 
 //Construction Declarations
@@ -733,7 +730,7 @@ void Construction::trade()
     else if(constructionGroup->group == GROUP_POWER_LINE)
     {   powerline = dynamic_cast<Powerline*>(this);}
     // read once per construction instead of once per commodity
-    const bool carsEnabled = getConfig()->carsEnabled.get();
+    const bool carsEnabled = world.simSettings.carsEnabled;
     // REF-07 Fase 6: use transactional phases for DeterministicV1,
     // legacy shuffle path for LEGACY protocol
     const bool deterministic =
@@ -769,13 +766,13 @@ void Construction::trade()
             if(transport) {
                 transport->trafficCount[stuff_ID] =
                     (9 * transport->trafficCount[stuff_ID] + max_traffic) / 10;
-                if(simDelay != SIM_DELAY_FAST
+                if(world.simSettings.vehicleSpawnDelay != SIM_DELAY_FAST
                 && carsEnabled
                 && 100 * max_traffic * TRANSPORT_RATE / TRANSPORT_QUANTA > 2
                 && world.map(point)->getTransportGroup() == GROUP_ROAD)
                 {
                     int yield = 50 * max_traffic * TRANSPORT_RATE / TRANSPORT_QUANTA;
-                    if(simDelay == SIM_DELAY_MED)
+                    if(world.simSettings.vehicleSpawnDelay == SIM_DELAY_MED)
                     {   yield = (yield+1)/2;}
                     if(stuff_ID == STUFF_LABOR
                     && world.cosmeticRandomInt(COMMUTER_TRAFFIC_RATE) < (yield+1)/2
@@ -859,13 +856,13 @@ void Construction::trade()
         if(transport) //Special for transport
         {
             transport->trafficCount[stuff_ID] = (9 * transport->trafficCount[stuff_ID] + max_traffic) / 10;
-            if(simDelay != SIM_DELAY_FAST
+            if(world.simSettings.vehicleSpawnDelay != SIM_DELAY_FAST
             && carsEnabled
             && 100 * max_traffic *  TRANSPORT_RATE / TRANSPORT_QUANTA > 2
             && world.map(point)->getTransportGroup() == GROUP_ROAD)
             {
                 int yield = 50 * max_traffic *  TRANSPORT_RATE / TRANSPORT_QUANTA;
-                if(simDelay == SIM_DELAY_MED) // compensate for overall animation
+                if(world.simSettings.vehicleSpawnDelay == SIM_DELAY_MED) // compensate for overall animation
                 {   yield = (yield+1)/2;}
                 switch (stuff_ID)
                 {

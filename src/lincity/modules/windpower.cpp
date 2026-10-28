@@ -30,7 +30,6 @@
 #include <map>                            // for map
 #include <string>                         // for basic_string, operator==
 
-#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_WIND_POWER
@@ -101,7 +100,7 @@ void Windpower::update()
 
     // Maintenance is paid only while the plant actually generates; an idle
     // plant costs nothing (BUG-03b). Per instance, no shared state.
-    if(getConfig()->windPowerMaintenance.get()) {
+    if(world.simSettings.windPowerMaintenance) {
       if(world.total_time % WIND_POWER_RCOST == 0)
         paid = false;
       if(generating && !paid) {

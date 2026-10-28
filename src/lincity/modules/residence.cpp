@@ -34,7 +34,6 @@
 #include "lincity/MapPoint.hpp"           // for MapPoint, operator<<
 #include "lincity/lin-city.hpp"           // for FALSE, FLAG_EMPLOYED, FLAG_FED
 #include "lincity/stats.hpp"              // for Stats, Stat
-#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity/economy.hpp"            // for compute_tax_*
 #include "lincity/world.hpp"              // for World, Map, MapTile
 #include "util/randutil.hpp"              // for lincityRand
@@ -386,7 +385,7 @@ void Residence::update()
     bad += world.map(point)->pollution / 20;
     good += world.people_pool / 27; //27
     // tax elasticity (FEAT-03c): raised taxes make citizens leave
-    if(getConfig()->taxElasticity.get())
+    if(world.simSettings.taxElasticity)
       bad += compute_tax_discomfort(world.money_rates.income_tax,
         world.money_rates.coal_tax, world.money_rates.goods_tax);
     desireability = good-bad;

@@ -39,7 +39,6 @@
 #include "groups.hpp"          // for GROUP_WATER, GROUP_BARE, GROUP_DESERT
 #include "lin-city.hpp"        // for FLAG_IS_RIVER, FLAG_TRANSPARENT, FLAG_...
 #include "lintypes.hpp"        // for Construction, ConstructionGroup
-#include "lincity-ng/Config.hpp"  // for getConfig
 #include "modules/market.hpp"  // for Market
 #include "modules/tile.hpp"    // for TileConstructionGroup, desertConstruct...
 #include "modules/track_road_rail.hpp"  // for transport_group_at
@@ -602,7 +601,7 @@ int World::cosmeticRandomInt(int upperExclusive)
   /* ARCH-03 / R9: this used to fall through to the global lincityRand()
    * stream under LEGACY. That stream is shared with fire, pollution and
    * traffic, so every cosmetic draw shifted the simulation — and the
-   * number of draws was decided by `simDelay`, a GUI playback variable.
+   * number of draws was decided by the GUI's vehicle spawn cadence.
    * Same save, same seed, different game speed, different city. Cosmetic
    * randomness gets its own per-World stream, as it already did under
    * DETERMINISTIC_V1; this just stops LEGACY from pretending otherwise. */
@@ -740,7 +739,7 @@ World::buildConstruction(ConstructionGroup& cstGrp, MapPoint point) {
   // Charge the group that will actually be built: transport over water
   // becomes a bridge (Transport::place swaps the group), which costs
   // BRIDGE_FACTOR x the road (BUG-04).
-  ConstructionGroup& chargedGroup = getConfig()->bridgeRealCost.get()
+  ConstructionGroup& chargedGroup = simSettings.bridgeRealCost
     ? transport_group_at(cstGrp, *map(point)) : cstGrp;
   expense(chargedGroup.getCosts(*this), stats.expenses.construction,
     !chargedGroup.no_credit);

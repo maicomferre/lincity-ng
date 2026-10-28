@@ -443,8 +443,8 @@ TTEST(legacy_daily_fingerprint_trajectory_is_repeatable) {
  * `simDelay`, a GUI playback-speed variable. Under LEGACY the draw it
  * makes goes through World::cosmeticRandomInt(), which falls through to
  * the same global lincityRand() stream that drives fire, pollution and
- * traffic. So the *number* of draws the simulation sees depends on how
- * fast the player is running the game. DETERMINISTIC_V1 is immune (it
+ * traffic. So the *number* of draws the simulation sees depends on the
+ * vehicle spawn cadence. DETERMINISTIC_V1 is immune (it
  * has its own cosmeticRandom stream); LEGACY is not.
  *
  * The world must have road traffic or the gate never opens and the test
@@ -460,13 +460,11 @@ std::unique_ptr<World> make_world_with_road_traffic() {
 }
 
 TTEST(legacy_simulation_does_not_depend_on_game_speed) {
-  const int savedDelay = simDelay;
-
   auto run = [](int delay) {
-    simDelay = delay;
     std::unique_ptr<World> world = make_world_with_road_traffic();
     if(!world)
       return std::pair<StateFingerprint128, std::size_t>(StateFingerprint128{}, 0);
+    world->simSettings.vehicleSpawnDelay = delay;
     for(int day = 0; day < 120; ++day)
       world->do_time_step();
     return std::pair<StateFingerprint128, std::size_t>(
@@ -475,19 +473,18 @@ TTEST(legacy_simulation_does_not_depend_on_game_speed) {
 
   const auto fast = run(SIM_DELAY_FAST);
   const auto slow = run(SIM_DELAY_SLOW);
-  simDelay = savedDelay;
 
   // Guard against a vacuous pass: if no vehicle ever spawned, the gate
   // never opened and the two runs are equal for the wrong reason.
   if(slow.second == 0 && fast.second == 0) {
     std::fprintf(stderr,
-      "  INCONCLUSIVE: no vehicles spawned in 120 days; the simDelay gate\n"
+      "  INCONCLUSIVE: no vehicles spawned in 120 days; the cadence gate\n"
       "  never opened, so this test proved nothing.\n");
   }
   TCHECK(slow.second != 0 || fast.second != 0);
   if(fast.first != slow.first) {
     std::fprintf(stderr,
-      "  R9: same seed, same scenario, only simDelay differs.\n"
+      "  R9: same seed, same scenario, only spawn cadence differs.\n"
       "    FAST(%d): %s  vehicles=%zu\n"
       "    SLOW(%d): %s  vehicles=%zu\n",
       SIM_DELAY_FAST, fast.first.hex().c_str(), fast.second,
@@ -538,15 +535,14 @@ TTEST(deterministic_v1_worlds_are_independent_and_repeatable) {
 
 TTEST(deterministic_v1_ignores_sound_cars_and_animation_cadence) {
   Config* config = getConfig();
-  const auto savedCars = config->carsEnabled.session;
   const auto savedSound = config->soundEnabled.session;
 
   auto run = [&](bool cars, bool sound, bool animate) {
-    config->carsEnabled.session = cars;
     config->soundEnabled.session = sound;
     city_settings city{true, false};
     std::unique_ptr<World> world = new_city(&city, 100,
       SimulationProtocol::DETERMINISTIC_V1, 99887766);
+    world->simSettings.carsEnabled = cars;
     for(int day = 0; day < 400; ++day) {
       world->do_time_step();
       if(animate)
@@ -559,7 +555,6 @@ TTEST(deterministic_v1_ignores_sound_cars_and_animation_cadence) {
   const StateFingerprint128 visual = run(true, true, true);
   TCHECK(quiet == visual);
 
-  config->carsEnabled.session = savedCars;
   config->soundEnabled.session = savedSound;
 }
 

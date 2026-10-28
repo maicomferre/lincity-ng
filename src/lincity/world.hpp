@@ -42,6 +42,7 @@
 #include "MapPoint.hpp"     // for MapPoint
 #include "all_buildings.hpp"  // for COAL_TAX_RATE, DOLE_RATE, GOODS_TAX_RATE
 #include "commodities.hpp"  // for Commodity, CommodityRule (ptr only)
+#include "lin-city.hpp"     // for SIM_DELAY_SLOW
 #include "messages.hpp"     // for Message
 #include "resources.hpp"    // for ExtraFrame, ResourceGroup (ptr only)
 #include "SimulationRandom.hpp"
@@ -50,6 +51,18 @@
 class Construction;
 class ConstructionGroup;
 class Vehicle;
+
+/* GUI options consumed by simulation. Configurable values are snapshotted
+ * when the GUI installs a World; the cosmetic spawn cadence follows playback
+ * speed. Defaults preserve current Config defaults for headless Worlds. */
+struct SimSettings {
+  bool carsEnabled = true;
+  bool schoolRunningCost = true;
+  bool windPowerMaintenance = true;
+  bool bridgeRealCost = true;
+  bool taxElasticity = true;
+  int vehicleSpawnDelay = SIM_DELAY_SLOW;
+};
 
 #define WORLD_SIDE_LEN 100
 
@@ -242,6 +255,8 @@ public:
   static std::unique_ptr<World> load(const std::filesystem::path& filename);
 
   void do_time_step();
+  // Snapshot of GUI settings read by the simulation engine.
+  SimSettings simSettings;
   void do_animate(unsigned long real_time);
   void buildConstruction(ConstructionGroup& cstGrp, MapPoint point);
   void bulldozeArea(MapPoint point);

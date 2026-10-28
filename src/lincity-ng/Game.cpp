@@ -194,6 +194,11 @@ Game::getWorld() const {
 void
 Game::setWorld(std::unique_ptr<World>&& world) {
   this->world = std::move(world);
+  this->world->simSettings.carsEnabled = getConfig()->carsEnabled.get();
+  this->world->simSettings.schoolRunningCost = getConfig()->schoolRunningCost.get();
+  this->world->simSettings.windPowerMaintenance = getConfig()->windPowerMaintenance.get();
+  this->world->simSettings.bridgeRealCost = getConfig()->bridgeRealCost.get();
+  this->world->simSettings.taxElasticity = getConfig()->taxElasticity.get();
 
   // Nothing from the previous game may leak into the new one: redraw the
   // map views (their textures still show the old city), close any dialogs
@@ -213,6 +218,7 @@ Game::setWorld(std::unique_ptr<World>&& world) {
   // "paused" is a state of the game that just ended (R7).
   if(simDelay == SIM_DELAY_PAUSE)
     setSimulationDelay(SIM_DELAY_SLOW);
+  this->world->simSettings.vehicleSpawnDelay = simDelay;
 
   for(auto w : {&warnBullWater, &warnBullShanty, &warnBullMonument})
     w->onAccept.clear();
@@ -783,6 +789,7 @@ Game::run() {
         if(tick >= next_execute) { // execute
             // simulation timestep
             try {
+              world->simSettings.vehicleSpawnDelay = simDelay;
               world->do_time_step();
             } catch(const std::exception& err) {
               // The simulation is in an unknown state. Save what we have and

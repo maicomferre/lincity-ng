@@ -34,7 +34,6 @@
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/groups.hpp"             // for GROUP_INDUSTRY_H
-#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity/economy.hpp"            // for compute_tax_*
 #include "lincity/lin-city.hpp"           // for MAX_TECH_LEVEL, ANIM_THRESHOLD
 #include "lincity/resources.hpp"          // for ExtraFrame, ResourceGroup
@@ -95,7 +94,7 @@ void IndustryHeavy::update()
 {
     // tax elasticity (FEAT-03c): raised taxes add a labor burden to the
     // production gate, so heavily taxed industry produces less
-    const int taxBurden = getConfig()->taxElasticity.get()
+    const int taxBurden = world.simSettings.taxElasticity
       ? compute_tax_burden_labor(world.money_rates.income_tax,
           world.money_rates.coal_tax, world.money_rates.ore_tax,
           world.money_rates.goods_tax)

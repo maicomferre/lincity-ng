@@ -5,6 +5,38 @@ detalhes + arquivos tocados. Nenhuma informação aqui é commitada no git.
 
 ---
 
+## 2026-10-28 — Sessão 78: ARCH-03b — snapshot de opções da simulação
+
+### R5 — checklist antes da implementação
+
+- Simulação: as regras e resultados permanecem os mesmos; somente a origem
+  das opções muda para um snapshot por `World`. O ritmo de spawn visual é
+  atualizado pela GUI antes do tick.
+- Taxas/economia, stats/inventário, minimapa e MPS: sem mudança de regra ou
+  saída.
+- Save/load: sem novo estado persistido; sem bump de versão.
+- Tradução/help: sem impacto.
+- GUI/config: a GUI copia as opções ao instalar/trocar o mundo.
+- Determinismo: sem draws ou ordem de execução novos. Mantém teste de
+  equivalência LEGACY por velocidade e DETERMINISTIC_V1 com/sem carros.
+
+`World::simSettings` substituiu as leituras do motor para carros, custo de
+escola, manutenção eólica, custo real de ponte e elasticidade tributária.
+`Game::setWorld` captura as cinco opções; o tick sincroniza a cadência de
+spawn visual. O motor (`src/lincity`) não consulta mais `getConfig()` nem
+`simDelay`. As opções são runtime/UI e não entram no save.
+
+Arte planejada FEAT-07b: os 32 PNGs, fonte Blender, `.blend`, catálogo e teste
+de renderização já estavam no commit WIP `ff91be50`; inspecionei o contact
+sheet. Nenhuma imagem adicional foi necessária para ARCH-03b.
+
+Validação: builds regular e ASan/UBSan concluídos; CTest passou 5/5 em ambos.
+No build sanitizado foi preciso usar `ASAN_OPTIONS=detect_leaks=0`, como
+documentado em `10` §3.6, pela limitação de ptrace do ambiente. A primeira
+tentativa sem essa variável falhou na finalização de LSan; a repetição
+documentada passou (sim 998,22 s; save 387,71 s). O push continua pendente da
+liberação do sandbox para escrita em `.git`.
+
 ## 2026-10-03 — Sessão 77: Fase 2, ARCH-03a — velocidade de jogo mudava a cidade
 
 A Fase 2 começou. O item mais importante dela não era o que a auditoria

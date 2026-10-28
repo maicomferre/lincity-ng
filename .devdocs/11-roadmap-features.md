@@ -521,7 +521,7 @@ ninguém sabia que o portão não fechava.
 | ID | Item | Estado |
 |---|---|---|
 | ARCH-03a | Sorteio cosmético não desloca a stream da simulação (**R9**) | ✅ uma linha em `world.cpp:599` |
-| ARCH-03b | `SimSettings` no `World`, tirando `getConfig()`/`simDelay` do motor | pendente |
+| ARCH-03b | `SimSettings` no `World`, tirando `getConfig()`/`simDelay` do motor | ✅ concluído (2026-10-28) |
 | ARCH-01 | `Mps` → interface `MpsSink` no engine (37 módulos, 8 métodos) | pendente |
 | ARCH-02 | `Sound` → event bus (`messages.hpp` já é o canal interno) | pendente |
 | ARCH-04 | `resMap` indexado por enum em vez de `std::map<std::string,…>` | pendente |

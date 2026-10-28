@@ -30,7 +30,6 @@
 #include <map>                            // for map
 #include <string>                         // for basic_string, allocator
 
-#include "lincity-ng/Config.hpp"          // for getConfig
 #include "lincity-ng/Mps.hpp"             // for Mps
 #include "lincity/MapPoint.hpp"           // for MapPoint
 #include "lincity/economy.hpp"            // for compute_school_cost
@@ -86,7 +85,7 @@ School::~School() {
 void School::update() {
   try {
     const int cost = compute_school_cost(busy, SCHOOL_RUNNING_COST);
-    if(getConfig()->schoolRunningCost.get()) {
+    if(world.simSettings.schoolRunningCost) {
       world.expense(cost, world.stats.expenses.school);
     }
     else {
